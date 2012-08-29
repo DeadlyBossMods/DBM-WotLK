@@ -80,10 +80,10 @@ function mod:RAID_BOSS_WHISPER(msg)
 end 
 
 function mod:OnSync(msg, guid)
-	if msg == "SaroniteRock" then
+	if msg == "SaroniteRock" and guid then
 		local target = guids[guid]
-		warnSaroniteRock:Show(target)
 		if target then
+			warnSaroniteRock:Show(target)
 			local uId = DBM:GetRaidUnitId(target)
 			if uId then
 				local inRange = CheckInteractDistance(uId, 2)
@@ -91,9 +91,9 @@ function mod:OnSync(msg, guid)
 					specWarnSaroniteRockNear:Show()
 				end
 			end
-		end
-		if self.Options.SetIconOnSaroniteRockTarget then
-			self:SetIcon(target, 8, 5)
+			if self.Options.SetIconOnSaroniteRockTarget then
+				self:SetIcon(target, 8, 5)
+			end
 		end
 	end
 end

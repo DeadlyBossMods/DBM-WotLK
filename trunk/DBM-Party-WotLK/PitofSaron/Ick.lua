@@ -88,11 +88,13 @@ function mod:RAID_BOSS_WHISPER(msg)
 end 
 
 function mod:OnSync(msg, guid) 
-	if msg == "Pursuit" then 
+	if msg == "Pursuit" and guid then 
 		local target = guids[guid]
-		warnPursuit:Show(target)
-		if self.Options.SetIconOnPursuitTarget then 
-			self:SetIcon(target, 8, 12) 
+		if target then
+			warnPursuit:Show(target)
+			if self.Options.SetIconOnPursuitTarget then 
+				self:SetIcon(target, 8, 12) 
+			end
 		end
 	end 
 end 

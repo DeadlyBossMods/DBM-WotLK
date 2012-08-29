@@ -98,12 +98,14 @@ function mod:RAID_BOSS_WHISPER(msg)
 end
 
 function mod:OnSync(msg, guid)
-	if msg == "EyeBeamOn" then
+	if msg == "EyeBeamOn" and guid then
 		local target = guids[guid]
-		warnFocusedEyebeam:Show(target)
 		timerNextEyebeam:Start()
-		if self.Options.SetIconOnEyebeamTarget then
-			self:SetIcon(target, 5, 8) 
+		if target then
+			warnFocusedEyebeam:Show()
+			if self.Options.SetIconOnEyebeamTarget then
+				self:SetIcon(target, 5, 8) 
+			end
 		end
 	end
 end

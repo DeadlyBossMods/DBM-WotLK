@@ -512,19 +512,19 @@ function mod:RAID_BOSS_WHISPER(msg)--We get this whisper for all plagues, ones c
 end
 
 function mod:OnSync(msg, guid)
-	if msg == "PALGrabbed" then--Does this function fail to alert second healer if 2 different paladins are grabbed within < 2.5 seconds?
+	if msg == "PALGrabbed" and guid then--Does this function fail to alert second healer if 2 different paladins are grabbed within < 2.5 seconds?
 		local target = guids[guid]
-		if self.Options.specWarnHealerGrabbed then
+		if self.Options.specWarnHealerGrabbed and target then
 			specWarnPALGrabbed:Show(target)
 		end
-	elseif msg == "PRIGrabbed" then--Does this function fail to alert second healer if 2 different priests are grabbed within < 2.5 seconds?
+	elseif msg == "PRIGrabbed" and guid then--Does this function fail to alert second healer if 2 different priests are grabbed within < 2.5 seconds?
 		local target = guids[guid]
-		if self.Options.specWarnHealerGrabbed then
+		if self.Options.specWarnHealerGrabbed and target then
 			specWarnPRIGrabbed:Show(target)
 		end
-	elseif msg == "PlagueOn" and self:IsInCombat() then
+	elseif msg == "PlagueOn" and self:IsInCombat() and guid then
 		local target = guids[guid]
-		if GetTime() - lastPlagueCast > 1.5 then --We also do same 1.5 second check here
+		if GetTime() - lastPlagueCast > 1.5 and target then --We also do same 1.5 second check here
 			warnNecroticPlagueJump:Show(target)
 			timerNecroticPlagueCleanse:Start()
 			if self.Options.NecroticPlagueIcon then

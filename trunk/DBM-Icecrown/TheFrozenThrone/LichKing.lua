@@ -524,11 +524,13 @@ function mod:OnSync(msg, guid)
 		end
 	elseif msg == "PlagueOn" and self:IsInCombat() and guid then
 		local target = guids[guid]
-		if GetTime() - lastPlagueCast > 1.5 and target then --We also do same 1.5 second check here
-			warnNecroticPlagueJump:Show(target)
+		if GetTime() - lastPlagueCast > 1.5 then --We also do same 1.5 second check here
 			timerNecroticPlagueCleanse:Start()
-			if self.Options.NecroticPlagueIcon then
-				self:SetIcon(target, 5, 5)
+			if target then
+				warnNecroticPlagueJump:Show(target)
+				if self.Options.NecroticPlagueIcon then
+					self:SetIcon(target, 5, 5)
+				end
 			end
 		end
 	end

@@ -173,7 +173,7 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	WarnPhase2Soon			= "Zeige Vorwarnung für Phase 2 (bei ~79%)",
 	WarnPhase3Soon			= "Zeige Vorwarnung für Phase 3 (bei ~54%)",
-	TwilightCutterCast		= "Zeige Warnung, wenn $spell:77844 gewirkt wird",
+	TwilightCutterCast		= "Zeige Warnung, wenn $spell:74769 gewirkt wird",
 	AnnounceAlternatePhase	= "Zeige auch Warnungen/Timer für Phasen, in denen du dich nicht befindest",
 	SoundOnConsumption		= "Spiele Sound, wenn du von $spell:74562 oder $spell:74792\nbetroffen bist",
 	SetIconOnConsumption	= "Setze Zeichen auf Ziele von $spell:74562 und $spell:74792",

@@ -246,8 +246,8 @@ L:SetOptionLocalization{
 	TimerSubmerge			= "Zeige Zeit bis Abtauchen",
 	PursueIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67574),
 	SpecWarnShadowStrike	= "Zeige Spezialwarnung für $spell:66134 (zum Unterbrechen)",
-	SetIconsOnPCold         = DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68510),
-	AnnouncePColdIcons		= "Verkünde Zeichen für Ziele von $spell:68510 im Schlachtzugchat\n(nur als Leiter)",
-	AnnouncePColdIconsRemoved	= "Verkünde auch das Entfernen von Zeichen für $spell:68510\n(benötigt obige Einstellung)"
+	SetIconsOnPCold         = DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66013),
+	AnnouncePColdIcons		= "Verkünde Zeichen für Ziele von $spell:66013 im Schlachtzugchat\n(nur als Leiter)",
+	AnnouncePColdIconsRemoved	= "Verkünde auch das Entfernen von Zeichen für $spell:66013\n(benötigt obige Einstellung)"
 }
 

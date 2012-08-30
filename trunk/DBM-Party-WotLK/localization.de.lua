@@ -1280,12 +1280,12 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	warnSaroniteRock			= "Verkünde Ziele von $spell:70851",
-	specWarnSaroniteRock		= "Zeige Spezialwarnung, wenn du von $spell:70851 betroffen bist",
-	specWarnSaroniteRockNear	= "Zeige Spezialwarnung, wenn jemand in deiner Nähe von $spell:70851\nbetroffen ist",
-	specWarnPermafrost			= "Zeige Spezialwarnung, wenn $spell:70336 zu hoch stapelt",
+	warnSaroniteRock			= "Verkünde Ziele von $spell:68789",
+	specWarnSaroniteRock		= "Zeige Spezialwarnung, wenn du von $spell:68789 betroffen bist",
+	specWarnSaroniteRockNear	= "Zeige Spezialwarnung, wenn jemand in deiner Nähe von $spell:68789\nbetroffen ist",
+	specWarnPermafrost			= "Zeige Spezialwarnung, wenn $spell:68786 zu hoch stapelt",
 	AchievementCheck			= "Verkünde Warnungen für den Erfolg 'Elfer raus!' an Gruppe",
-	SetIconOnSaroniteRockTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70851)
+	SetIconOnSaroniteRockTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68789)
 })
 
 L:SetMiscLocalization({

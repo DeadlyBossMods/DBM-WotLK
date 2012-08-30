@@ -214,10 +214,10 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	warnMark				= "Verkünde Ziele von $spell:72444",
+	warnMark				= "Verkünde Ziele von $spell:72293",
 	TimerCombatStart		= "Zeige Zeit bis Kampfbeginn",
 	WarnFrenzySoon			= "Zeige Vorwarnung für $spell:72737 (bei ~33%)",
-	BoilingBloodIcons		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72441),
+	BoilingBloodIcons		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72385),
 	RangeFrame				= "Zeige Abstandsfenster (12m)",
 	RunePowerFrame			= "Zeige Lebensanzeige und einen Balken für $spell:72371",
 	BeastIcons				= "Setze Zeichen auf Blutbestien"
@@ -244,9 +244,9 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	InhaledBlight		= "Zeige Warnung für $spell:71912",
+	InhaledBlight		= "Zeige Warnung für $spell:69166",
 	RangeFrame			= "Zeige Abstandsfenster (8m)",
-	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72551, GetSpellInfo(72551) or "unbekannt"),	
+	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72219, GetSpellInfo(72219) or "unbekannt"),	
 	SetIconOnGasSpore	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279),
 	AnnounceSporeIcons	= "Verkünde Zeichen für Ziele von $spell:69279 im Schlachtzugchat (nur als Leiter)",
 	AchievementCheck	= "Verkünde Fehlschlag des Erfolgs 'Grippeimpfungs-Engpass' an Schlachtzug (nur als Leiter/Assistent)"
@@ -282,7 +282,7 @@ L:SetOptionLocalization{
 	SpecWarnLittleOoze			= "Zeige Spezialwarnung, wenn du von einem Kleinen Schlamm angegriffen wirst",--creatureid 36897
 	RangeFrame					= "Zeige Abstandsfenster (8m)",
 	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558, GetSpellInfo(69558) or "unbekannt"),
-	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71224),
+	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69674),
 	TankArrow					= "Zeige DBM-Pfeil zum Kiter von 'Großer Schlamm'" 
 }
 
@@ -318,14 +318,14 @@ L:SetOptionLocalization{
 	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451, GetSpellInfo(72451) or "unbekannt"),
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
-	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72856),
+	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
 	MalleableGooIcon			= "Setze Zeichen auf erstes Ziel von $spell:72295",
-	NextUnboundPlagueTargetIcon	= "Setze Zeichen auf nächstes Ziel von $spell:72856",
+	NextUnboundPlagueTargetIcon	= "Setze Zeichen auf nächstes Ziel von $spell:70911",
 	YellOnMalleableGoo			= "Schreie bei $spell:72295 auf dir",
-	YellOnUnbound				= "Schreie bei $spell:72856 auf dir",
+	YellOnUnbound				= "Schreie bei $spell:70911 auf dir",
 	GooArrow					= "Zeige DBM-Pfeil, wenn $spell:72295 in deiner Nähe ist",
-	SpecWarnUnboundPlague		= "Zeige Spezialwarnung für Übertragung von $spell:72856",
-	SpecWarnNextPlageSelf		= "Zeige Spezialwarnung, wenn du in der Nähe des Ziels von $spell:72856 bist"
+	SpecWarnUnboundPlague		= "Zeige Spezialwarnung für Übertragung von $spell:70911",
+	SpecWarnNextPlageSelf		= "Zeige Spezialwarnung, wenn du in der Nähe des Ziels von $spell:70911 bist"
 }
 
 L:SetMiscLocalization{
@@ -394,7 +394,7 @@ L:SetOptionLocalization{
 	SwarmingShadowsIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71266),
 	BloodMirrorIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70838),
 	RangeFrame				= "Zeige Abstandsfenster (8m)",
-	YellOnFrenzy			= "Schreie, wenn du von $spell:71474 betroffen bist"
+	YellOnFrenzy			= "Schreie, wenn du von $spell:70877 betroffen bist"
 }
 
 L:SetMiscLocalization{
@@ -523,7 +523,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerCombatStart		= "Zeige Zeit bis Kampfbeginn",
 	TimerRoleplay			= "Dauer des Rollenspiels (bei 10%) anzeigen",
-	WarnNecroticPlagueJump	= "Verkünde Sprungziele von $spell:73912",
+	WarnNecroticPlagueJump	= "Verkünde Sprungziele von $spell:70337",
 	TimerNecroticPlagueCleanse	= "Zeige Timer zum Reinigen von $spell:73912 vor dem ersten Tick",
 	PhaseTransition			= "Dauer der Phasenübergänge anzeigen",
 	WarnPhase2Soon			= "Zeige Vorwarnung für Übergang in Phase 2 (bei ~73%)",
@@ -537,17 +537,17 @@ L:SetOptionLocalization{
 	YellOnDefile			= "Schreie bei $spell:72762 auf dir",
 	YellOnTrap				= "Schreie bei $spell:73539 auf dir",
 	DefileIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72762),
-	NecroticPlagueIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(73912),
+	NecroticPlagueIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70337),
 	RagingSpiritIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69200),
 	TrapIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(73539),
-	HarvestSoulIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74327),
+	HarvestSoulIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68980),
 	ValkyrIcon				= "Setze Zeichen auf Schattenwächterinnen der Val'kyr",
 	DefileArrow				= "Zeige DBM-Pfeil, wenn $spell:72762 in deiner Nähe ist",
 	TrapArrow				= "Zeige DBM-Pfeil, wenn $spell:73539 in deiner Nähe ist",
 	LKBugWorkaround			= "NICHT IMPLEMENTIERT! LKBugWorkaround", -- obsolete
 	AnnounceValkGrabs		= "Verkünde Griffziele der Schattenwächterinnen der Val'kyr im SZ-Chat\n(benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)",
 	SpecWarnValkyrLow		= "Zeige Spezialwarnung, wenn eine Schattenwächterin der Val'kyr unter 55% Lebenspunkte ist",
-	AnnouncePlagueStack		= "Verkünde $spell:73912 Stapel an den Schlachtzug (ab 10 Stapel,\ndanach alle 5 Stapel)\n(nur als Leiter/Assistent)",
+	AnnouncePlagueStack		= "Verkünde $spell:70337 Stapel an den Schlachtzug (ab 10 Stapel,\ndanach alle 5 Stapel)\n(nur als Leiter/Assistent)",
 }
 
 L:SetMiscLocalization{

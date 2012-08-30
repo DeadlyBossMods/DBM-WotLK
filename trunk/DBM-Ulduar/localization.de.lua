@@ -259,13 +259,11 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	YellOnStormCloud		= "Schreie bei $spell:65133 auf dir",
 	SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133)
 }
 
 L:SetMiscLocalization{
-	YellKill	= "Ich... bin von ihm befreit... endlich.",
-	YellCloud	= "Sturmwolke auf mir!"
+	YellKill	= "Ich... bin von ihm befreit... endlich."
 }
 
 --------------
@@ -421,16 +419,12 @@ L:SetOptionLocalization{
 	SpecialWarningShadowCrash		= "Zeige Spezialwarnung, wenn du von $spell:62660 betroffen bist\n(muss anvisiert oder im Fokus mindestens eines Schlachtzugmitglieds sein)",
 	SpecialWarningShadowCrashNear	= "Zeige Spezialwarnung, wenn jemand in deiner Nähe von $spell:62660\nbetroffen ist",
 	SpecialWarningLLNear			= "Zeige Spezialwarnung, wenn jemand in deiner Nähe von\n$spell:63276 betroffen ist",
-	YellOnLifeLeech					= "Schreie bei $spell:63276 auf dir",
-	YellOnShadowCrash				= "Schreie bei $spell:62660 auf dir",
 	hardmodeSpawn					= "Zeige Zeit bis zum Erscheinen des Saronitanimus (Hard Mode)",
 	CrashArrow						= "Zeige DBM-Pfeil, wenn $spell:62660 in deiner Nähe ist"
 }
 
 L:SetMiscLocalization{
-	EmoteSaroniteVapors	= "Eine Wolke Saronitdämpfe bildet sich in der Nähe!",
-	YellLeech			= "Mal der Gesichtslosen auf mir!",
-	YellCrash			= "Schattengeschoss auf mir!"
+	EmoteSaroniteVapors	= "Eine Wolke Saronitdämpfe bildet sich in der Nähe!"
 }
 
 ------------------

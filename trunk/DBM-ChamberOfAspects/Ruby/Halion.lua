@@ -121,7 +121,7 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		end
 		if not self.Options.AnnounceAlternatePhase then
 			warningShadowConsumption:Show(args.destName)
-			if IsRaidLeader() and self.Options.WhisperOnConsumption then
+			if DBM:GetRaidRank() > 0 and self.Options.WhisperOnConsumption then
 				self:SendWhisper(L.WhisperConsumption, args.destName)
 			end
 		end
@@ -141,7 +141,7 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		end
 		if not self.Options.AnnounceAlternatePhase then
 			warningFieryConsumption:Show(args.destName)
-			if IsRaidLeader() and self.Options.WhisperOnConsumption then
+			if DBM:GetRaidRank() > 0 and self.Options.WhisperOnConsumption then
 				self:SendWhisper(L.WhisperCombustion, args.destName)
 			end
 		end

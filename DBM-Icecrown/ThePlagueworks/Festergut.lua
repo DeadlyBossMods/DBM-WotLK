@@ -59,18 +59,16 @@ do
 		return DBM:GetRaidSubgroup(DBM:GetUnitFullName(v1)) < DBM:GetRaidSubgroup(DBM:GetUnitFullName(v2))
 	end
 	function mod:SetSporeIcons()
-		if DBM:GetRaidRank() > 0 then
-			table.sort(gasSporeIconTargets, sort_by_group)
-			local gasSporeIcon = 8
-			for i, v in ipairs(gasSporeIconTargets) do
-				if self.Options.AnnounceSporeIcons and IsRaidLeader() then
-					SendChatMessage(L.SporeSet:format(gasSporeIcon, DBM:GetUnitFullName(v)), "RAID")
-				end
-				self:SetIcon(v, gasSporeIcon, 12)
-				gasSporeIcon = gasSporeIcon - 1
+		table.sort(gasSporeIconTargets, sort_by_group)
+		local gasSporeIcon = 8
+		for i, v in ipairs(gasSporeIconTargets) do
+			if self.Options.AnnounceSporeIcons and DBM:GetRaidRank() > 0 then
+				SendChatMessage(L.SporeSet:format(gasSporeIcon, DBM:GetUnitFullName(v)), "RAID")
 			end
-			self:Schedule(5, ClearSporeTargets)
+			self:SetIcon(v, gasSporeIcon, 12)
+			gasSporeIcon = gasSporeIcon - 1
 		end
+		self:Schedule(5, ClearSporeTargets)
 	end
 end
 

@@ -1,11 +1,12 @@
 local mod	= DBM:NewMod("Kologarn", "DBM-Ulduar")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 4623 $"):sub(12, -3))
+mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(32930)--, 32933, 32934
 mod:SetModelID(28638)
 mod:SetUsedIcons(5, 6, 7, 8)
-mod:SetMinSyncRevision(4623)
+--mod:SetMinSyncRevision(4623)
+mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
 
 mod:RegisterCombat("combat")
 

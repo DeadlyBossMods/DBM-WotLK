@@ -1,11 +1,12 @@
 local mod	= DBM:NewMod("Ick", "DBM-Party-WotLK", 15)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 4343 $"):sub(12, -3))
+mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(36476)
 mod:SetModelID(30347)
 mod:SetUsedIcons(8)
-mod:SetMinSyncRevision(4343)
+--mod:SetMinSyncRevision(4343)
+mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
 
 mod:RegisterCombat("combat")
 

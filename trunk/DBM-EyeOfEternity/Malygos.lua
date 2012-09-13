@@ -16,26 +16,29 @@ mod:RegisterEvents(
 	"UNIT_SPELLCAST_SUCCEEDED"
 )
 
-local warnSpark				= mod:NewSpellAnnounce(56140, 2, 59381)
-local warnVortex			= mod:NewSpellAnnounce(56105, 3)
-local warnVortexSoon		= mod:NewSoonAnnounce(56105, 2)
-local warnBreathInc			= mod:NewSoonAnnounce(56505, 3)
-local warnBreath			= mod:NewSpellAnnounce(56505, 4)
-local warnSurge				= mod:NewTargetAnnounce(60936, 3)
-local warnStaticField		= mod:NewSpellAnnounce(57430, 3)
+local warnSpark					= mod:NewTargetAnnounce(56140, 2, 59381)
+local warnVortex				= mod:NewSpellAnnounce(56105, 3)
+local warnVortexSoon			= mod:NewSoonAnnounce(56105, 2)
+local warnBreathInc				= mod:NewSoonAnnounce(56505, 3)
+local warnBreath				= mod:NewSpellAnnounce(56505, 4)
+local warnSurge					= mod:NewTargetAnnounce(60936, 3)
+local warnStaticField			= mod:NewSpellAnnounce(57430, 3)
 
-local specWarnBreath		= mod:NewSpecialWarningSpell(56505, nil, nil, nil, true)
-local specWarnSurge			= mod:NewSpecialWarningYou(60936)
+local specWarnBreath			= mod:NewSpecialWarningSpell(56505, nil, nil, nil, true)
+local specWarnSurge				= mod:NewSpecialWarningYou(60936)
+local specWarnStaticField		= mod:NewSpecialWarningYou(57430)
+local specWarnStaticFieldNear	= mod:NewSpecialWarningClose(57430)
+local yellStaticField			= mod:NewYell(57430)
 
-local timerSpark			= mod:NewNextTimer(30, 56140, nil, nil, nil, 59381)
-local timerVortex			= mod:NewCastTimer(11, 56105)
-local timerVortexCD			= mod:NewNextTimer(60, 56105)
-local timerBreath			= mod:NewBuffActiveTimer(8, 56505)--lasts 5 seconds plus 3 sec cast.
-local timerBreathCD			= mod:NewCDTimer(59, 56505)
-local timerStaticFieldCD	= mod:NewCDTimer(15.5, 57430)--High 15-25 second variatoin
-local timerAchieve      	= mod:NewAchievementTimer(360, 1875, "TimerSpeedKill")
+local timerSpark				= mod:NewNextTimer(30, 56140, nil, nil, nil, 59381)
+local timerVortex				= mod:NewCastTimer(11, 56105)
+local timerVortexCD				= mod:NewNextTimer(60, 56105)
+local timerBreath				= mod:NewBuffActiveTimer(8, 56505)--lasts 5 seconds plus 3 sec cast.
+local timerBreathCD				= mod:NewCDTimer(59, 56505)
+local timerStaticFieldCD		= mod:NewCDTimer(15.5, 57430)--High 15-25 second variatoin
+local timerAchieve      		= mod:NewAchievementTimer(360, 1875, "TimerSpeedKill")
 
-local enrageTimer			= mod:NewBerserkTimer(615)
+local enrageTimer				= mod:NewBerserkTimer(615)
 
 local guids = {}
 local surgeTargets = {}
@@ -49,6 +52,30 @@ end
 local function announceTargets(self)
 	warnSurge:Show(table.concat(surgeTargets, "<, >"))
 	table.wipe(surgeTargets)
+end
+
+function mod:StaticFieldTarget()
+	local targetname, uId = self:GetBossTarget(28859)
+	if not targetname or uId then return end
+	local targetGuid = UnitGUID(uId)
+	local announcetarget = guids[targetGuid]
+	warnSpark:Show(announcetarget)
+	if announcetarget == UnitName("player") then
+		specWarnStaticField:Show()
+		yellStaticField:Yell()
+	else
+		if uId then
+			local x, y = GetPlayerMapPosition(uId)
+			if x == 0 and y == 0 then
+				SetMapToCurrentZone()
+				x, y = GetPlayerMapPosition(uId)
+			end
+			local inRange = DBM.RangeCheck:GetDistance("player", x, y)
+			if inRange and inRange < 13 then
+				specWarnStaticFieldNear:Show(announcetarget)
+			end
+		end
+	end
 end
 
 function mod:OnCombatStart(delay)
@@ -95,7 +122,8 @@ function mod:SPELL_CAST_SUCCESS(args)
 			timerSpark:Update(18, 30)
 		end
 	elseif args:IsSpellID(57430) then
-		warnStaticField:Show()
+		self:ScheduleMethod(0.1, "StaticFieldTarget")
+--		warnStaticField:Show()
 		timerStaticFieldCD:Start()
 	end
 end

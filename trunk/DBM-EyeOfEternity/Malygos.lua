@@ -56,7 +56,7 @@ end
 
 function mod:StaticFieldTarget()
 	local targetname, uId = self:GetBossTarget(28859)
-	if not targetname or uId then return end
+	if not targetname or not uId then return end
 	local targetGuid = UnitGUID(uId)
 	local announcetarget = guids[targetGuid]
 	warnSpark:Show(announcetarget)
@@ -64,11 +64,12 @@ function mod:StaticFieldTarget()
 		specWarnStaticField:Show()
 		yellStaticField:Yell()
 	else
-		if uId then
-			local x, y = GetPlayerMapPosition(uId)
+		local uId2 = DBM:GetRaidUnitId(announcetarget)
+		if uId2 then
+			local x, y = GetPlayerMapPosition(uId2)
 			if x == 0 and y == 0 then
 				SetMapToCurrentZone()
-				x, y = GetPlayerMapPosition(uId)
+				x, y = GetPlayerMapPosition(uId2)
 			end
 			local inRange = DBM.RangeCheck:GetDistance("player", x, y)
 			if inRange and inRange < 13 then

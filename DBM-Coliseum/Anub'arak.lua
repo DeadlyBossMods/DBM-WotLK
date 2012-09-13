@@ -173,7 +173,7 @@ function mod:SPELL_AURA_REMOVED(args)
 	if args:IsSpellID(66013, 67700, 68509, 68510) then			-- Penetrating Cold
 		if self.Options.SetIconsOnPCold then
 			self:SetIcon(args.destName, 0)
-			if self.Options.AnnouncePColdIconsRemoved and IsRaidLeader() then
+			if self.Options.AnnouncePColdIconsRemoved and DBM:GetRaidRank() > 0 then
 				SendChatMessage(L.PcoldIconRemoved:format(args.destName), "RAID")
 			end
 		end

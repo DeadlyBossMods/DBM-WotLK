@@ -238,14 +238,14 @@ function mod:OnSync(msg, target)
 	elseif msg == "ShadowTarget" then
 		if self.Options.AnnounceAlternatePhase then
 			warningShadowConsumption:Show(target)
-			if IsRaidLeader() and self.Options.WhisperOnConsumption then
+			if DBM:GetRaidRank() > 0 and self.Options.WhisperOnConsumption then
 				self:SendWhisper(L.WhisperConsumption, target)
 			end
 		end
 	elseif msg == "FieryTarget" then
 		if self.Options.AnnounceAlternatePhase then
 			warningFieryConsumption:Show(target)
-			if IsRaidLeader() and self.Options.WhisperOnConsumption then
+			if DBM:GetRaidRank() > 0 and self.Options.WhisperOnConsumption then
 				self:SendWhisper(L.WhisperCombustion, target)
 			end
 		end

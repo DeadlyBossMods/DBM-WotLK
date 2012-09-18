@@ -4,8 +4,9 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(37813)
 mod:SetModelID(30790)
-mod:RegisterCombat("combat")
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
+
+mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
 	"SPELL_CAST_START",
@@ -136,7 +137,7 @@ do
 	
 	local lastBeast = 0
 	function mod:SPELL_SUMMON(args)
-		if args:IsSpellID(72172, 72173) or args:IsSpellID(72356, 72357, 72358) then -- Summon Blood Beasts
+		if args:IsSpellID(72172, 72173, 72356, 72357, 72358) then -- Summon Blood Beasts
 			if self:AntiSpam(5) then
 				warnAdds:Show()
 				warnAddsSoon:Schedule(30)

@@ -401,7 +401,7 @@ do
 							end
 						end
 					end
-					if mod.Options.AnnounceValkGrabs and DBM:GetRaidRank() > 0 then
+					if mod.Options.AnnounceValkGrabs and DBM:GetRaidRank() > 1 then
 						if mod.Options.ValkyrIcon then
 							SendChatMessage(L.ValkGrabbedIcon:format(grabIcon, GetRaidRosterInfo(i)), "RAID")
 							grabIcon = grabIcon + 1

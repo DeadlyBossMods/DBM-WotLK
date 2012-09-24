@@ -16,13 +16,13 @@ mod:RegisterEvents(
 	"UNIT_SPELLCAST_SUCCEEDED"
 )
 
-local warnSpark					= mod:NewTargetAnnounce(56140, 2, 59381)
+local warnSpark					= mod:NewSpellAnnounce(56140, 2, 59381)
 local warnVortex				= mod:NewSpellAnnounce(56105, 3)
 local warnVortexSoon			= mod:NewSoonAnnounce(56105, 2)
 local warnBreathInc				= mod:NewSoonAnnounce(56505, 3)
 local warnBreath				= mod:NewSpellAnnounce(56505, 4)
 local warnSurge					= mod:NewTargetAnnounce(60936, 3)
-local warnStaticField			= mod:NewSpellAnnounce(57430, 3)
+local warnStaticField			= mod:NewTargetAnnounce(57430, 3)
 
 local specWarnBreath			= mod:NewSpecialWarningSpell(56505, nil, nil, nil, true)
 local specWarnSurge				= mod:NewSpecialWarningYou(60936)
@@ -59,7 +59,7 @@ function mod:StaticFieldTarget()
 	if not targetname or not uId then return end
 	local targetGuid = UnitGUID(uId)
 	local announcetarget = guids[targetGuid]
-	warnSpark:Show(announcetarget)
+	warnStaticField:Show(announcetarget)
 	if announcetarget == UnitName("player") then
 		specWarnStaticField:Show()
 		yellStaticField:Yell()

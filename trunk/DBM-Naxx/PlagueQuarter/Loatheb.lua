@@ -4,12 +4,13 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(16011)
 mod:SetModelID(16110)
-mod:RegisterCombat("combat")
+mod:RegisterCombat("combat")--Maybe change to a yell later so pull detection works if you chain pull him from tash gauntlet
 
 mod:EnableModel()
 
 mod:RegisterEvents(
-	"SPELL_CAST_SUCCESS"
+	"SPELL_CAST_SUCCESS",
+	"UNIT_DIED"
 )
 
 local warnSporeNow	= mod:NewSpellAnnounce(32329, 2)
@@ -55,5 +56,16 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerAura:Start()
 		warnHealSoon:Schedule(14)
 		warnHealNow:Schedule(17)
+	end
+end
+
+--because in all likelyhood, pull detection failed (cause 90s like to chargein there trash and all and pull it
+--We unschedule the pre warnings on death as a failsafe
+function mod:UNIT_DIED(args)
+	local cid = self:GetCIDFromGUID(args.destGUID)
+	if cid == 16011 then
+		warnSporeSoon:Cancel()
+		warnHealSoon:Cancel()
+		warnHealNow:Cancel()
 	end
 end

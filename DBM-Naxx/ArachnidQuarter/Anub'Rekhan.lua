@@ -63,6 +63,9 @@ function mod:UNIT_DIED(args)
 		local cid = self:GetCIDFromGUID(args.destGUID)
 		if cid == 15956 then		-- Anub'Rekhan
 			DBM.Bars:CreateBar(1200, L.ArachnophobiaTimer)
+			warningLocustSoon:Cancel()
+			timerLocustFade:Cancel()
+			timerLocustIn:Cancel()
 		end
 	end
 end

@@ -8,7 +8,8 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
 	"SPELL_CAST_SUCCESS",
-	"SPELL_AURA_APPLIED"
+	"SPELL_AURA_APPLIED",
+	"UNIT_DIED"
 )
 
 local warnEmbraceActive		= mod:NewSpellAnnounce(28732, 1)
@@ -53,3 +54,14 @@ function mod:SPELL_AURA_APPLIED(args)
 	end
 end
 
+function mod:UNIT_DIED(args)
+	local cid = self:GetCIDFromGUID(args.destGUID)
+	if cid == 15953 then
+		warningLocustSoon:Cancel()
+		timerLocustFade:Cancel()
+		timerLocustIn:Cancel()
+		warnEnrageSoon:Cancel()
+		warnEmbraceExpire:Cancel()
+		warnEmbraceExpired:Cancel()
+	end
+end

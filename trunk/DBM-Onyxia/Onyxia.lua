@@ -49,7 +49,7 @@ function mod:OnCombatStart(delay)
 	sndFunny:Schedule(30, "Interface\\AddOns\\DBM-Onyxia\\sounds\\now-hit-it-very-hard-and-fast.ogg")
 end
 
-function mod:Whelps()
+function mod:Whelps()--Not right, need to fix
 	if self:IsInCombat() then
 		timerWhelps:Start()
 		warnWhelpsSoon:Schedule(95)

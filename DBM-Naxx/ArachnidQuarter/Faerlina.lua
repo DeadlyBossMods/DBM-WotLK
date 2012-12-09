@@ -7,7 +7,6 @@ mod:SetModelID(15940)
 mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
-	"SPELL_CAST_SUCCESS",
 	"SPELL_AURA_APPLIED",
 	"UNIT_DIED"
 )
@@ -29,8 +28,11 @@ function mod:OnCombatStart(delay)
 	enraged = false
 end
 
-function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(28732, 54097)	and self:AntiSpam(5) then  -- This spell is casted twice in Naxx 25 (bug?)
+function mod:SPELL_AURA_APPLIED(args)
+	if args:IsSpellID(28798, 54100) then			-- Frenzy
+		warnEnrageNow:Show()
+		enraged = true
+	elseif args:IsSpellID(28732, 54097)	and self:AntiSpam(5) then  -- This spell is casted twice in Naxx 25 (bug?)
 		warnEmbraceExpire:Cancel()
 		warnEmbraceExpired:Cancel()
 		warnEnrageSoon:Cancel()
@@ -47,19 +49,9 @@ function mod:SPELL_CAST_SUCCESS(args)
 	end
 end
 
-function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(28798, 54100) then			-- Frenzy
-		warnEnrageNow:Show()
-		enraged = true
-	end
-end
-
 function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
 	if cid == 15953 then
-		warningLocustSoon:Cancel()
-		timerLocustFade:Cancel()
-		timerLocustIn:Cancel()
 		warnEnrageSoon:Cancel()
 		warnEmbraceExpire:Cancel()
 		warnEmbraceExpired:Cancel()

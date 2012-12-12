@@ -11,7 +11,8 @@ mod:EnableModel()
 mod:RegisterEvents(
 	"SPELL_CAST_START",
 	"SPELL_AURA_REMOVED",
-	"UNIT_DIED"
+	"UNIT_DIED",
+	"CHAT_MSG_MONSTER_YELL"
 )
 
 local warningLocustSoon		= mod:NewSoonAnnounce(28785, 2)
@@ -67,5 +68,12 @@ function mod:UNIT_DIED(args)
 			timerLocustFade:Cancel()
 			timerLocustIn:Cancel()
 		end
+	end
+end
+
+--Secondary pull trigger, so we can detect combat when he's pulled while already in combat (which is about 99% of time)
+function mod:CHAT_MSG_MONSTER_YELL(msg)
+	if (msg == L.Pull or msg:find(L.Pull)) and not self:IsInCombat() then
+		DBM:StartCombat(self, 0)
 	end
 end

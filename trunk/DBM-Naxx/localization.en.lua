@@ -22,7 +22,8 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	ArachnophobiaTimer	= "Arachnophobia",
-	Pull				= "Yes, run! It makes the blood pump faster!"
+	Pull1				= "Yes, run! It makes the blood pump faster!"
+	Pull2				= "Just a little taste..."
 })
 
 ----------------------------
@@ -103,6 +104,10 @@ L:SetOptionLocalization({
 	TimerTeleportBack	= "Show timer for Teleport back"
 })
 
+L:SetMiscLocalization({
+	Pull				= "Die, trespasser!"
+})
+
 --------------------------
 --  Heigan the Unclean  --
 --------------------------
@@ -125,6 +130,10 @@ L:SetOptionLocalization({
 	WarningTeleportNow	= "Show warning for Teleport",
 	WarningTeleportSoon	= "Show pre-warning for Teleport",
 	TimerTeleport		= "Show timer for Teleport"
+})
+
+L:SetMiscLocalization({
+	Pull				= "You are mine now."
 })
 
 ---------------

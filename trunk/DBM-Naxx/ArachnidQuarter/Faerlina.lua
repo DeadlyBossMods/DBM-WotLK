@@ -8,7 +8,8 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
 	"SPELL_AURA_APPLIED",
-	"UNIT_DIED"
+	"UNIT_DIED",
+	"CHAT_MSG_MONSTER_YELL"
 )
 
 local warnEmbraceActive		= mod:NewSpellAnnounce(28732, 1)
@@ -32,7 +33,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(28798, 54100) then			-- Frenzy
 		warnEnrageNow:Show()
 		enraged = true
-	elseif args:IsSpellID(28732, 54097)	and self:AntiSpam(5) then  -- This spell is casted twice in Naxx 25 (bug?)
+	elseif args:IsSpellID(28732, 54097)	and args:GetDestCreatureID() == 15953 and self:AntiSpam(5) then
 		warnEmbraceExpire:Cancel()
 		warnEmbraceExpired:Cancel()
 		warnEnrageSoon:Cancel()
@@ -55,5 +56,12 @@ function mod:UNIT_DIED(args)
 		warnEnrageSoon:Cancel()
 		warnEmbraceExpire:Cancel()
 		warnEmbraceExpired:Cancel()
+	end
+end
+
+--Secondary pull trigger, so we can detect combat when he's pulled while already in combat (which is about 99% of time)
+function mod:CHAT_MSG_MONSTER_YELL(msg)
+	if (msg == L.Pull or msg:find(L.Pull)) and not self:IsInCombat() then
+		DBM:StartCombat(self, 0)
 	end
 end

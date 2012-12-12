@@ -21,7 +21,8 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	ArachnophobiaTimer	= "Arachnophobia"
+	ArachnophobiaTimer	= "Arachnophobia",
+	Pull				= "Yes, run! It makes the blood pump faster!"
 })
 
 ----------------------------
@@ -41,6 +42,10 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	WarningEmbraceExpire	= "Show pre-warning for Widow's Embrace fade",
 	WarningEmbraceExpired	= "Show warning for Widow's Embrace fade"
+})
+
+L:SetMiscLocalization({
+	Pull					= "Kneel before me, worm!"--Not actually pull trigger, but often said on pull
 })
 
 ---------------

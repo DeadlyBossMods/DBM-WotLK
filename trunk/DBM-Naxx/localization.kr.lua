@@ -27,7 +27,9 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	ArachnophobiaTimer	= "거미의 공포"
+	ArachnophobiaTimer	= "거미의 공포",
+	Pull1				= "Yes, run! It makes the blood pump faster!"
+	Pull2				= "Just a little taste..."
 })
 
 ---------------------
@@ -47,6 +49,10 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	WarningEmbraceExpire	= "귀부인의 은총 종료 경고 보기",
 	WarningEmbraceExpired	= "귀부인의 은총 사라짐 경고 보기",
+})
+
+L:SetMiscLocalization({
+	Pull					= "Kneel before me, worm!"--Not actually pull trigger, but often said on pull
 })
 
 ---------------
@@ -107,6 +113,10 @@ L:SetOptionLocalization({
 	TimerTeleportBack		= "방으로 순간이동 타이머 보기"
 })
 
+L:SetMiscLocalization({
+	Pull				= "Die, trespasser!"
+})
+
 --------------------------
 --  부정의 헤이건  --
 --------------------------
@@ -129,6 +139,10 @@ L:SetOptionLocalization({
 	WarningTeleportNow		= "순간이동 경고 보기",
 	WarningTeleportSoon		= "순간이동 사전 경고 보기",
 	TimerTeleport			= "순간이동 타이머 보기",
+})
+
+L:SetMiscLocalization({
+	Pull				= "You are mine now."
 })
 
 ----------------

@@ -22,7 +22,9 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	ArachnophobiaTimer	= "Arachnophobie"
+	ArachnophobiaTimer	= "Arachnophobie",
+	Pull1				= "Rennt! Das bringt das Blut in Wallung!",
+	Pull2				= "Nur einmal kosten..." --needs to be verified (wowhead-captured translation)
 })
 
 ----------------------------
@@ -42,6 +44,10 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	WarningEmbraceExpire	= "Zeige Vorwarnung für das Ende von $spell:28732",
 	WarningEmbraceExpired	= "Zeige Warnung, wenn $spell:28732 endet"
+})
+
+L:SetMiscLocalization({
+	Pull					= "Kniet nieder, Wurm!" --needs to be verified (wowhead-captured translation)
 })
 
 ---------------
@@ -99,6 +105,10 @@ L:SetOptionLocalization({
 	TimerTeleportBack	= "Zeige Zeit bis sich Noth zurück teleportiert"
 })
 
+L:SetMiscLocalization({
+	Pull				= "Sterbt, Eindringling!"
+})
+
 --------------------------
 --  Heigan the Unclean  --
 --------------------------
@@ -121,6 +131,10 @@ L:SetOptionLocalization({
 	WarningTeleportNow	= "Zeige Warnung für Teleport",
 	WarningTeleportSoon	= "Zeige Vorwarnung für Teleport",
 	TimerTeleport		= "Zeige Zeit bis Teleport"
+})
+
+L:SetMiscLocalization({
+	Pull				= "Ihr gehört mir..."
 })
 
 ---------------

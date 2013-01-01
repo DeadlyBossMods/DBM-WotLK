@@ -28,7 +28,7 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	ArachnophobiaTimer	= "거미의 공포",
-	Pull1				= "Yes, run! It makes the blood pump faster!"
+	Pull1				= "Yes, run! It makes the blood pump faster!",
 	Pull2				= "Just a little taste..."
 })
 

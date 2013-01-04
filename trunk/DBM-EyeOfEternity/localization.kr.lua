@@ -27,4 +27,3 @@ L:SetMiscLocalization({
 	YellBreath		= "내가 숨 쉬는 한, 너희는 이길 수 없다!",
 	YellPhase3		= "네놈들의 후원자가 나타났구나"
 })
-

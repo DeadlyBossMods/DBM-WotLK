@@ -43,7 +43,7 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	SpecWarnTrap	= "Спец-предупреждение для активации ловушки",
-	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127, GetSpellInfo(71127) or "unknown")
+	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127)
 }
 
 L:SetMiscLocalization{
@@ -144,7 +144,7 @@ L:SetOptionLocalization{
 	WarnReanimating				= "Предупреждение при воскрешении помощников",											-- Reanimated Adherent/Fanatic spawning
 	TimerAdds					= "Отсчет времени до призыва помощников",
 	ShieldHealthFrame			= "Показывать здоровье босса с индикатором здоровья для \n$spell:70842",
-	WarnTouchInsignificance		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204, GetSpellInfo(71204) or "unknown"),	
+	WarnTouchInsignificance		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204),	
 	SetIconOnDominateMind		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71289),
 	SetIconOnDeformedFanatic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70900),
 	SetIconOnEmpoweredAdherent	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70901)
@@ -174,7 +174,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638, GetSpellInfo(69638) or "Battle Fury"),
+	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638),
 	TimerCombatStart	= "Отсчет времени до начала боя",
 	WarnAddsSoon		= "Предупреждать заранее о призыве помощников",
 	TimerAdds			= "Отсчет времени до новых помощников"
@@ -245,7 +245,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	InhaledBlight		= "Предупреждение для $spell:71912",
 	RangeFrame			= "Показывать окно проверки дистанции (8 м)",
-	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72551, GetSpellInfo(72551) or "unknown"),	
+	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72551),	
 	SetIconOnGasSpore	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279),
 	AnnounceSporeIcons	= "Объявлять метки целей заклинания $spell:69279 в рейд-чат\n(требуются права помощника)",
 	AchievementCheck	= "Объявлять о провале достижения 'Масок нет!' в рейд-чат\n(требуются права помощника)"
@@ -280,7 +280,7 @@ L:SetOptionLocalization{
 	WarnOozeSpawn				= "Предупреждение при появлении Малого слизнюка",
 	SpecWarnLittleOoze			= "Спец-предупреждение, когда вас атакует Малый слизнюк",--creatureid 36897
 	RangeFrame					= "Показывать окно проверки дистанции (8 м)",
-	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558, GetSpellInfo(69558) or "unknown"),
+	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558),
 	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71224),
 	TankArrow					= "Показывать стрелку для кайтера Большого слизнюка (экспериментально)"
 }
@@ -314,7 +314,7 @@ L:SetOptionLocalization{
 	WarnPhase3Soon				= "Предупреждать заранее о фазе 3 (на ~38%)",
 	SpecWarnMalleableGoo		= "Спец-предупреждение, когда вы - первая цель заклинания\n$spell:72295",
 	SpecWarnMalleableGooNear	= "Спец-предупреждение, когда вы около первой цели заклинания\n$spell:72295",
-	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451, GetSpellInfo(72451) or "unknown"),
+	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451),
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72856),
@@ -428,7 +428,7 @@ L:SetOptionLocalization{
 	TimerPortalsOpen			= "Отсчет времени для открытия порталов",
 	TimerBlazingSkeleton		= "Отсчет времени до Исторгающего пламя скелета",
 	TimerAbom					= "Отсчет времени до след. Прожорливого поганища (экспериментальный)",
-	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751, GetSpellInfo(70751) or "unknown")
+	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751)
 }
 
 L:SetMiscLocalization{

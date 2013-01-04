@@ -42,7 +42,7 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	SpecWarnTrap	= "Zeige Spezialwarnung für Fallenaktivierung",
-	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127, GetSpellInfo(71127) or "unbekannt")
+	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127)
 }
 
 L:SetMiscLocalization{
@@ -143,7 +143,7 @@ L:SetOptionLocalization{
 	WarnReanimating				= "Zeige Warnung, wenn ein Add wiederbelebt wird",	-- Reanimated Adherent/Fanatic spawning
 	TimerAdds					= "Zeige Zeit bis neue Adds erscheinen",
 	ShieldHealthFrame			= "Zeige Lebensanzeige mit einem Balken für $spell:70842",
-	WarnTouchInsignificance		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204, GetSpellInfo(71204) or "unbekannt"),	
+	WarnTouchInsignificance		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204),
 	SetIconOnDominateMind		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71289),
 	SetIconOnDeformedFanatic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70900),
 	SetIconOnEmpoweredAdherent	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70901)
@@ -173,7 +173,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638, GetSpellInfo(69638) or "Kampfesfuror"),
+	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638),
 	TimerCombatStart	= "Zeige Zeit bis Kampfbeginn",
 	WarnAddsSoon		= "Zeige Vorwarnung für erscheinende Adds",
 	TimerAdds			= "Zeige Zeit bis neue Adds erscheinen"
@@ -246,7 +246,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	InhaledBlight		= "Zeige Warnung für $spell:69166",
 	RangeFrame			= "Zeige Abstandsfenster (8m)",
-	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72219, GetSpellInfo(72219) or "unbekannt"),	
+	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72219),
 	SetIconOnGasSpore	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279),
 	AnnounceSporeIcons	= "Verkünde Zeichen für Ziele von $spell:69279 im Schlachtzugchat (nur als Leiter)",
 	AchievementCheck	= "Verkünde Fehlschlag des Erfolgs 'Grippeimpfungs-Engpass' an Schlachtzug (nur als Leiter/Assistent)"
@@ -281,7 +281,7 @@ L:SetOptionLocalization{
 	WarnOozeSpawn				= "Zeige Warnung für Erscheinen eines Kleinen Schlamm",
 	SpecWarnLittleOoze			= "Zeige Spezialwarnung, wenn du von einem Kleinen Schlamm angegriffen wirst",--creatureid 36897
 	RangeFrame					= "Zeige Abstandsfenster (8m)",
-	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558, GetSpellInfo(69558) or "unbekannt"),
+	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558),
 	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69674),
 	TankArrow					= "Zeige DBM-Pfeil zum Kiter von 'Großer Schlamm'" 
 }
@@ -315,7 +315,7 @@ L:SetOptionLocalization{
 	WarnPhase3Soon				= "Zeige Vorwarnung für Phase 3 (bei ~38%)",
 	SpecWarnMalleableGoo		= "Zeige Spezialwarnung, falls du das erste Ziel von $spell:72295 bist",
 	SpecWarnMalleableGooNear	= "Zeige Spezialwarnung, falls das erste Ziel von $spell:72295 in\ndeiner Nähe ist",
-	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451, GetSpellInfo(72451) or "unbekannt"),
+	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451),
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
@@ -428,7 +428,7 @@ L:SetOptionLocalization{
 	TimerPortalsOpen			= "Zeige Zeit bis Alptraumportale geöffnet sind",
 	TimerBlazingSkeleton		= "Zeige Zeit bis nächstes Loderndes Skelett erscheint",
 	TimerAbom					= "Zeige Zeit bis nächste Gefräßige Monstrosität erscheint (experimentell)",
-	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751, GetSpellInfo(70751) or "unbekannt")
+	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751)
 }
 
 L:SetMiscLocalization{

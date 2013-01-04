@@ -12,7 +12,6 @@ L:SetGeneralLocalization({
 	name = "샤드론"
 })
 
-
 ---------------
 --  테네브론  --
 ---------------
@@ -22,7 +21,6 @@ L:SetGeneralLocalization({
 	name = "테네브론"
 })
 
-
 ---------------
 --  베스페론  --
 ---------------
@@ -31,7 +29,6 @@ L = DBM:GetModLocalization("Vesperon")
 L:SetGeneralLocalization({
 	name = "베스페론"
 })
-
 
 ---------------
 --  살타리온  --
@@ -47,30 +44,29 @@ L:SetWarningLocalization({
 	WarningShadron			= "샤드론 진입",
 	WarningVesperon			= "베스페론 진입",
 	WarningFireWall			= "화염의 벽!",
-	WarningVesperonPortal	= "베스페론의 포탈!!",
-	WarningTenebronPortal	= "테네브론의 포탈!!",
-	WarningShadronPortal	= "샤드론의 포탈!!",
+	WarningVesperonPortal	= "베스페론의 차원문 생성!!",
+	WarningTenebronPortal	= "테네브론의 차원문 생성!!",
+	WarningShadronPortal	= "샤드론의 차원문 생성!!",
 })
 
 L:SetTimerLocalization({
-
 	TimerTenebron		= "테네브론 진입",
 	TimerShadron		= "샤드론 진입",
 	TimerVesperon		= "베스페론 진입"
 })
 
 L:SetOptionLocalization({
-	AnnounceFails			= "화염의 벽 및 어둠의 균열을 피하지 못한 공대원 채팅창에 알리기\n(공대 경보 권한이 있을 경우)",
-	TimerTenebron			= "테네브론 타이머 보기",
-	TimerShadron			= "샤드론 타이머 보기",
-	TimerVesperon			= "베스페론 타이머 보기",
+	AnnounceFails			= "화염의 벽 및 어둠의 균열을 피하지 못한 공대원을 대화창에 알리기\n(승급 권한 필요)",
+	TimerTenebron			= "테네브론 진입 바 표시",
+	TimerShadron			= "샤드론 진입 바 표시",
+	TimerVesperon			= "베스페론 진입 바 표시",
 	WarningFireWall			= "화염의 벽 특수 경고 보기",
-	WarningTenebron			= "테네브론 생성 알리기",
-	WarningShadron			= "샤드론 생성 알리기",
-	WarningVesperon			= "베스페론 생성 알리기",
-	WarningTenebronPortal	= "테네브론 포탈 특수 경고 보기",
-	WarningShadronPortal	= "샤드론 포탈 특수 경고 보기",
-	WarningVesperonPortal	= "베스페론 포탈 특수 경고 보기",
+	WarningTenebron			= "테네브론 진입 알림",
+	WarningShadron			= "샤드론 진입 알림",
+	WarningVesperon			= "베스페론 진입 알림",
+	WarningTenebronPortal	= "테네브론의 차원문 특수 경고 보기",
+	WarningShadronPortal	= "샤드론의 차원문 특수 경고 보기",
+	WarningVesperonPortal	= "베스페론의 차원문 특수 경고 보기",
 })
 
 L:SetMiscLocalization({
@@ -83,8 +79,8 @@ L:SetMiscLocalization({
 	NameVesperon	= "베스페론",
 	FireWallOn		= "용암 파도 : %s",
 	VoidZoneOn		= "어둠의 균열 : %s",
-	VoidZones		= "어둠의 균열 실패(현재 트라이): %s",
-	FireWalls		= "용암 파도 실패 (현재 트라이): %s",
+	VoidZones		= "어둠의 균열 실패(현재 시도): %s",
+	FireWalls		= "용암 파도 실패(현재 시도): %s",
 	--[[ not in use; don't translate.
 	Vesperon	= "베스페론, 알이 위험하다! 날 도와라!",
 	Shadron		= "샤드론! 이리 와라! 위험한 상황이다!",
@@ -108,14 +104,13 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningSplitSoon	= "분리 사전 경고 보기",
-	RangeFrame			= "거리 프레임 보기 (12 미터)",
+	WarningSplitSoon	= "분리 사전 알림 보기",
+	RangeFrame			= "거리 창 보기(12m)",
 	SetIconOnBrand		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74505)
 })
 
 L:SetMiscLocalization({
 })
-
 
 -------------------------
 --  Saviana Ragefire  --
@@ -132,7 +127,7 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	SpecialWarningTranq		= "$spell:78722 특수 경고 보기(마취)",
-	RangeFrame				= "거리 프레임 보기 (10 미터)",
+	RangeFrame				= "거리 창 보기(10m)",
 	BeaconIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74453)
 })
 
@@ -149,18 +144,18 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarnAdds			= "새로운 몹",
-	warnCleaveArmor		= "%s : >%s< (%s)"		-- Cleave Armor on >args.destName< (args.amount)
+	WarnAdds			= "지원 병력",
+	warnCleaveArmor		= "%s : >%s< (%s)"
 })
 
 L:SetTimerLocalization({
-	TimerAdds	= "새로운 몹"
+	TimerAdds	= "다음 지원 병력"
 })
 
 L:SetOptionLocalization({
-	WarnAdds		= "새로운 추가몹 알리기",
-	TimerAdds		= "새로운 추가몹 타이머 보기",
-	warnCleaveArmor	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(74367, GetSpellInfo(74367) or "알 수 없음")	
+	WarnAdds		= "지원 병력 알림 보기",
+	TimerAdds		= "다음 지원 병력 바 표시",
+	warnCleaveArmor	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(74367)
 })
 
 L:SetMiscLocalization({
@@ -182,14 +177,14 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	WarnPhase2Soon			= "2 단계 사전 경고 보기 (79% 전)",
-	WarnPhase3Soon			= "3 단계 사전 경고 보기 (54% 전)",
-	TwilightCutterCast		= "$spell:74769 시전시 경고 보기",	
-	AnnounceAlternatePhase	= "해당 위치에 없을 경우에도 모든 단계의 경고/타이머 보기",
-	SoundOnConsumption		= "$spell:74562 또는 $spell:74792 소리 재생",--We use localized text for these functions
-	SetIconOnConsumption	= "$spell:74562 또는 $spell:74792 대상 전술 목표 아이콘 설정",--So we can use single functions for both versions of spell.
-	YellOnConsumption		= "$spell:74562 또는 $spell:74792 외치기",
-	WhisperOnConsumption	= "$spell:74562 또는 $spell:74792의 대상에게 귓속말 보내기(공대 경보 권한이 있을 경우)"	
+	WarnPhase2Soon			= "2 단계 사전 알림 보기(79% 전)",
+	WarnPhase3Soon			= "3 단계 사전 알림 보기(54% 전)",
+	TwilightCutterCast		= "$spell:74769 시전 알림 보기",
+	AnnounceAlternatePhase	= "다른 위상에 관련된 알림/바 보기",
+	SoundOnConsumption		= "$spell:74562 또는 $spell:74792 주문의 영향을 받은 경우 별도 경고음 듣기",
+	SetIconOnConsumption	= "$spell:74562 또는 $spell:74792 대상에게 전술 목표 아이콘 설정",
+	YellOnConsumption		= "$spell:74562 또는 $spell:74792 주문의 영향을 받은 경우 대화로 알리기",
+	WhisperOnConsumption	= "$spell:74562 또는 $spell:74792 대상에게 귓속말 보내기(승급 권한 필요)"
 })
 
 L:SetMiscLocalization({
@@ -199,8 +194,8 @@ L:SetMiscLocalization({
 	Phase3					= "나는 빛이자 어둠이다! 필멸자들아, 데스윙의 사자 앞에 무릎 꿇어라!",
 	twilightcutter			= "주위를 회전하는 구슬들이 고동치며 어둠의 기운을 내뿜습니다!",
 	YellCombustion			= "나에게 맹렬한 발화!",
-	WhisperCombustion		= "당신에게 맹렬한 발화! 외곽으로 뛰셈!",	
+	WhisperCombustion		= "당신에게 맹렬한 발화! 외곽으로 뛰셈!",
 	YellConsumption			= "나에게 영혼 소진!",
-	WhisperConsumption		= "당신에게 영혼 소진! 외곽으로 뛰셈!",	
+	WhisperConsumption		= "당신에게 영혼 소진! 외곽으로 뛰셈!",
 	Kill					= "필멸자들아, 승리를 만끽해라. 그것이 마지막일 테니. 주인님이 돌아오시면 이 세상은 불타버리리라!"
 })

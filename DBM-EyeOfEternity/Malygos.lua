@@ -130,7 +130,10 @@ function mod:SPELL_CAST_SUCCESS(args)
 end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg)
-	if msg:sub(0, L.YellPhase2:len()) == L.YellPhase2 then
+	--Secondary pull trigger, so we can detect combat when he's pulled while already in combat (which is about 99% of time)
+	if (msg == L.YellPull or msg:find(L.YellPull)) and not self:IsInCombat() then
+		DBM:StartCombat(self, 0)
+	elseif msg:sub(0, L.YellPhase2:len()) == L.YellPhase2 then
 		self:SendSync("Phase2")
 	elseif msg == L.YellBreath or msg:find(L.YellBreath) then
 		self:SendSync("BreathSoon")

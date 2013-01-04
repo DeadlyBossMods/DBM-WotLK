@@ -43,7 +43,7 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	SpecWarnTrap	= "Show special warning for trap activation",
-	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127, GetSpellInfo(71127) or "unknown")
+	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127)
 }
 
 L:SetMiscLocalization{
@@ -115,7 +115,7 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	WarnAddsSoon					= "Montre une pré-alerte avant que les adds arrivent",
-	WarnTouchInsignificance			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204, GetSpellInfo(71204) or "unknown"),
+	WarnTouchInsignificance			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204),
 	WarnReanimating					= "Montre une alerte quand les adds vont revenir a la vie",
 	TimerAdds						= "Montre le timer pour les nouveaux adds",
 	ShieldHealthFrame				= "Montre la vie du boss avec une barre de vie pour la $spell:70842",
@@ -180,7 +180,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638, GetSpellInfo(69638) or "Battle Fury"),
+	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638),
 	TimerCombatStart	= "Montre le timer pour le début du combat",
 	WarnAddsSoon		= "Montre une alerte avant que les adds arrivent",
 	TimerAdds			= "Montre le timer pour les nouveaux adds"
@@ -215,7 +215,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	InhaledBlight		= "Montre une alerte pour le $spell:71912",
 	RangeFrame			= "Montre la fenêtre de portée (8 Mètres)",
-	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72551, GetSpellInfo(72551) or "unknown"),	
+	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72551),	
 	SetIconOnGasSpore	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279)
 }
 
@@ -244,7 +244,7 @@ L:SetOptionLocalization{
 	InfectionIcon				= "Met des icones sur la cible de l'Infection mutée",
 	WarnOozeSpawn				= "Montre une alerte pour l'arrivée des Limons",
 	SpecWarnLittleOoze			= "Montre une alerte spéciale quand vous êtes attaquer par des Limons",
-	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558, GetSpellInfo(69558) or "unknown")
+	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558)
 }
 
 L:SetMiscLocalization{
@@ -276,7 +276,7 @@ L:SetOptionLocalization{
 	WarnPhase3Soon				= "Montre une alerte avant la 3 (at ~38%)",
 	SpecWarnMalleableGoo		= "Montre une alerte spéciale si la Gelée malléable va sur vous (Marche seulement si vous êtes la première cible)",
 	SpecWarnMalleableGooNear	= "Montre une alerte spéciale si la Gelée malléable va sur un joueur a coter de vous (Marche seulement si le joueur a coter de vous est la première cible)",
-	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451, GetSpellInfo(72451) or "unknown"),
+	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451),
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72856),
@@ -376,7 +376,7 @@ L:SetOptionLocalization{
 	SetIconOnBlazingSkeleton	= "Met une icone sur le Squelette flamboyant (Tête de mort)",
 	WarnPortalOpen				= "Prévient via une alerte quand Valithria ouvre des portails.",
 	TimerPortalsOpen			= "Montre une timer pour voir quand Valithria ouvre des portails.",
-	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751, GetSpellInfo(70751) or "unknown")
+	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751)
 }
 
 L:SetMiscLocalization{

@@ -41,7 +41,7 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	SpecWarnTrap	= "Show special warning for trap activation",
-	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127, GetSpellInfo(71127) or "unknown")
+	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127)
 }
 
 L:SetMiscLocalization{
@@ -142,7 +142,7 @@ L:SetOptionLocalization{
 	WarnReanimating				= "Show warning when an add is being revived",	-- Reanimated Adherent/Fanatic spawning
 	TimerAdds					= "Show timer for new adds",
 	ShieldHealthFrame			= "Show boss health with a health bar for $spell:70842",
-	WarnTouchInsignificance		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204, GetSpellInfo(71204) or "unknown"),	
+	WarnTouchInsignificance		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204),
 	SetIconOnDominateMind		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71289),
 	SetIconOnDeformedFanatic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70900),
 	SetIconOnEmpoweredAdherent	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70901)
@@ -172,7 +172,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638, GetSpellInfo(69638) or "Battle Fury"),
+	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638),
 	TimerCombatStart	= "Show time for start of combat",
 	WarnAddsSoon		= "Show pre-warning for adds spawning",
 	TimerAdds			= "Show timer for new adds"
@@ -245,7 +245,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	InhaledBlight		= "Show warning for $spell:69166",
 	RangeFrame			= "Show range frame (8 yards)",
-	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72219, GetSpellInfo(72219) or "unknown"),	
+	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72219),
 	SetIconOnGasSpore	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279),
 	AnnounceSporeIcons	= "Announce icons for $spell:69279 targets to raid chat\n(requires raid leader)",
 	AchievementCheck	= "Announce 'Flu Shot Shortage' achievement failure to raid\n(requires promoted status)"
@@ -280,7 +280,7 @@ L:SetOptionLocalization{
 	WarnOozeSpawn				= "Show warning for Little Ooze spawning",
 	SpecWarnLittleOoze			= "Show special warning when you are attacked by Little Ooze",--creatureid 36897
 	RangeFrame					= "Show range frame (8 yards)",
-	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558, GetSpellInfo(69558) or "unknown"),
+	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558),
 	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69674),
 	TankArrow					= "Show DBM arrow for Big Ooze kiter"
 }
@@ -304,9 +304,7 @@ L:SetWarningLocalization{
 	WarnPhase3Soon				= "Phase 3 soon",
 	WarnMutatedPlague			= "%s on >%s< (%d)",	-- Mutated Plague on >args.destName< (args.amount)
 	SpecWarnMalleableGoo		= "Malleable Goo on you - Move away",
-	SpecWarnMalleableGooNear	= "Malleable Goo near you - Watch out",
-	SpecWarnUnboundPlague		= "Drop off the Unbound Plague",
-	SpecWarnNextPlageSelf		= "Unbound Plage to you next, get prepared!"
+	SpecWarnMalleableGooNear	= "Malleable Goo near you - Watch out"
 }
 
 L:SetOptionLocalization{
@@ -314,7 +312,7 @@ L:SetOptionLocalization{
 	WarnPhase3Soon				= "Show pre-warning for Phase 3 (at ~38%)",
 	SpecWarnMalleableGoo		= "Show special warning if you are first $spell:72295 target",
 	SpecWarnMalleableGooNear	= "Show special warning if you are near first $spell:72295 target",
-	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451, GetSpellInfo(72451) or "unknown"),
+	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451),
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
@@ -322,9 +320,7 @@ L:SetOptionLocalization{
 	NextUnboundPlagueTargetIcon	= "Set icon on next $spell:70911 target",
 	YellOnMalleableGoo			= "Yell on $spell:72295",
 	YellOnUnbound				= "Yell on $spell:70911",
-	GooArrow					= "Show DBM arrow when $spell:72295 is near you",
-	SpecWarnUnboundPlague		= "Show special warning for $spell:70911 transfer",
-	SpecWarnNextPlageSelf		= "Show special warning when you are the next $spell:70911 target"
+	GooArrow					= "Show DBM arrow when $spell:72295 is near you"
 }
 
 L:SetMiscLocalization{
@@ -362,8 +358,7 @@ L:SetOptionLocalization{
 	EmpoweredFlameIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72040),
 	ActivePrinceIcon		= "Set icon on the empowered Prince (skull)",
 	RangeFrame				= "Show range frame (12 yards)",
-	VortexArrow				= "Show DBM arrow when $spell:72037 is near you",
-	BypassLatencyCheck		= "Don't use latency based sync check for $spell:72037\n(only use this if you're having problems otherwise)"
+	VortexArrow				= "Show DBM arrow when $spell:72037 is near you"
 }
 
 L:SetMiscLocalization{
@@ -427,7 +422,7 @@ L:SetOptionLocalization{
 	TimerPortalsOpen			= "Show timer when Nightmare Portals are opened up",
 	TimerBlazingSkeleton		= "Show timer for next Blazing Skeleton spawn",
 	TimerAbom					= "Show timer for next Gluttonous Abomination spawn (Experimental)",
-	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751, GetSpellInfo(70751) or "unknown")
+	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751)
 }
 
 L:SetMiscLocalization{
@@ -543,7 +538,6 @@ L:SetOptionLocalization{
 	ValkyrIcon				= "Set icons on Valkyrs",
 	DefileArrow				= "Show DBM arrow when $spell:72762 is near you",
 	TrapArrow				= "Show DBM arrow when $spell:73539 is near you",
-	LKBugWorkaround			= "Don't use latency based sync check for defile/shadow trap\n(Default on until a bug in sync check is worked out)",
 	AnnounceValkGrabs		= "Announce Val'kyr Shadowguard grab targets to raid chat\n(requires announce to be enabled and promoted status)",
 	SpecWarnValkyrLow		= "Show special warning when Valkyr is below 55% HP",
 	AnnouncePlagueStack		= "Announce $spell:70337 stacks to raid (10 stacks, every 5 after 10)\n(requires promoted status)"

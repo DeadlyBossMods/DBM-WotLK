@@ -150,7 +150,7 @@ L:SetTimerLocalization({
 L:SetOptionLocalization({
 	WarnAdds		= "提示新的小怪",
 	TimerAdds		= "為新的小怪顯示計時器",
-	warnCleaveArmor		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(74367, GetSpellInfo(74367) or "unknown")
+	warnCleaveArmor		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(74367)
 })
 
 L:SetMiscLocalization({

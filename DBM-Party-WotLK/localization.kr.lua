@@ -2,16 +2,16 @@
 
 local L
 
-local spell					= "%s"				
-local debuff				= "%s: >%s<"			
-local spellCD				= "%s 쿨다운"			-- translate
-local spellSoon				= "곧 %s 사용"			-- translate
-local optionWarning			= "%s 경고 보기"		-- translate
-local optionPreWarning		= "%s 사전 경고 보기"	-- translate
-local optionSpecWarning		= "%s 특수 경고 보기"	-- translate
-local optionTimerCD			= "%s 쿨다운 타이머 보기"	-- translate
-local optionTimerDur		= "%s 지속 타이머 보기"	-- translate
-local optionTimerCast		= "%s 시전 타이머 보기"	-- translate
+local spell					= "%s"
+local debuff				= "%s: >%s<"
+local spellCD				= "%s 가능"
+local spellSoon				= "곧 %s"
+local optionWarning			= "%s 알림 보기"
+local optionPreWarning		= "%s 사전 알림 보기"
+local optionSpecWarning		= "%s 특수 경고 보기"
+local optionTimerCD			= "%s 대기시간 바 표시"
+local optionTimerDur		= "%s 지속시간 바 표시"
+local optionTimerCast		= "%s 시전 바 표시"
 
 --------------------------------
 -- 안카헤트 - 고대 왕국       --
@@ -245,22 +245,22 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("StratWaves")
 
 L:SetGeneralLocalization({
-	name = "스트라솔룸 웨이브"
+	name = "스트라솔름 일반구간"
 })
 
 L:SetWarningLocalization({
-	WarningWaveNow		= "웨이브 %d: %s 등장",
+	WarningWaveNow		= "스컬지 공격 %d: %s",
 })
 
 L:SetTimerLocalization({
-	TimerWaveIn			= "다음 웨이브 (6)",
-	TimerRoleplay		= "아서스 이야기"	
+	TimerWaveIn			= "다음 스컬지 공격 (6)",
+	TimerRoleplay		= "아서스 이야기 종료"
 })
 
 L:SetOptionLocalization({
-	WarningWaveNow		= optionWarning:format("새로운 웨이브"),
-	TimerWaveIn			= "다음 웨이브 타이머 보기 (5번째 보스 웨이브 이후)",
-	TimerRoleplay		= "시작 이벤트 타이머 보기"
+	WarningWaveNow		= optionWarning:format("스컬지 공격"),
+	TimerWaveIn			= "우두머리 처치 이후 다음 스컬지 공격 바 표시",
+	TimerRoleplay		= "시작 이야기 남은시간 바 표시"
 })
 
 L:SetMiscLocalization({
@@ -313,7 +313,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarnCrystalHandler	= "수정 제어사 등장 (%d 남음)"
+	WarnCrystalHandler	= "수정 제어사 (%d 남음)"
 })
 
 L:SetTimerLocalization({
@@ -321,8 +321,8 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarnCrystalHandler	= "수정 제어사 등장 경고 보기",
-	timerCrystalHandler	= "다음 수정 제어사 등장 타이머 보기"
+	WarnCrystalHandler	= "수정 제어사 알림 보기",
+	timerCrystalHandler	= "다음 수정 제어사 바 표시"
 })
 
 L:SetMiscLocalization({
@@ -424,8 +424,8 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningElemental	= "드라카리 정령 단계 경고 보기",	-- translate ;)
-	WarningStone		= "드라카리 거대골렘 단계 경고 보기"		-- translate :)
+	WarningElemental	= "드라카리 정령 단계 알림 보기",	-- translate ;)
+	WarningStone		= "드라카리 거대골렘 단계 알림 보기"		-- translate :)
 })
 
 ---------------
@@ -616,12 +616,12 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	timerEvent		= "이벤트"
+	timerEvent		= "전투 종료"
 })
 
 L:SetOptionLocalization({
 	WarningPhase	= optionWarning:format("단계 전환"),
-	timerEvent		= "이벤트 타이머 보기"
+	timerEvent		= "전투 종료 남은시간 바 표시"
 })
 
 L:SetMiscLocalization({
@@ -678,24 +678,24 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningMerge		= "융합",		-- translate
-	WarningSplitSoon	= "곧 분리",		-- translate
-	WarningSplitNow		= "분리",		-- translate	
+	WarningMerge		= "융합",
+	WarningSplitSoon	= "곧 분리",
+	WarningSplitNow		= "분리"
 })
 
 L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningSplitSoon	= "분리 사전 경고 보기",	-- translate
-	WarningSplitNow		= "분리 경고 보기",	-- translate
-	WarningMerge		= "융합 경고 보기"	-- translate
+	WarningSplitSoon	= "분리 사전 알림 보기",
+	WarningSplitNow		= "분리 알림 보기",
+	WarningMerge		= "융합 알림 보기"
 })
 
 L:SetMiscLocalization({
-	SplitTrigger1		= "호기심이 화를 부르는 법이지..",		-- translate
-	SplitTrigger2 		= "과연 나를 감당할 수 있겠느냐!",	-- translate
-	MergeTrigger		= "이제 끝을 볼 때다!"				-- translate
+	SplitTrigger1		= "호기심이 화를 부르는 법이지..",
+	SplitTrigger2 		= "과연 나를 감당할 수 있겠느냐!",
+	MergeTrigger		= "이제 끝을 볼 때다!"
 })
 
 -----------------
@@ -759,11 +759,11 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	MakeitCountTimer		= "매 순간을 소중히 업적 타이머 보기"
+	MakeitCountTimer		= "매 순간을 소중히 업적 바 표시"
 })
 
 L:SetMiscLocalization({
-	MakeitCountTimer		= "매 순간을 소중히"
+	MakeitCountTimer		= "매 순간을 소중히 가능"
 })
 
 --------------------
@@ -816,18 +816,18 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningShiftEnd		= "차원 이동 종료"		-- translate
+	WarningShiftEnd		= "차원 이동 종료"
 })
 
 L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningShiftEnd		= optionWarning:format(GetSpellInfo(51162).." 종료") 	-- translate the word 'ending'
+	WarningShiftEnd		= optionWarning:format(GetSpellInfo(51162).." 종료")
 })
 
 L:SetMiscLocalization({
-	MakeitCountTimer	= "매 순간을 소중히"
+	MakeitCountTimer	= "매 순간을 소중히 가능"
 })
 
 ------------------
@@ -951,7 +951,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	timerRoleplay		= "스발라 소로우그레이브 활성 타이머 보기"
+	timerRoleplay		= "스발라 소로우그레이브 활성 바 표시"
 })
 
 L:SetMiscLocalization({
@@ -995,7 +995,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	TimerCombatStart	= "전투 시작 타이머 보기"
+	TimerCombatStart	= "전투 시작 바 표시"
 })
 
 L:SetMiscLocalization({
@@ -1126,7 +1126,7 @@ L:SetGeneralLocalization({
 L:SetWarningLocalization({
 	WarningPortalSoon		= "곧 새로운 차원문",
 	WarningPortalNow		= "차원문 #%d",
-	WarningBossNow			= "곧 보스 등장"
+	WarningBossNow			= "우두머리 등장"
 })
 
 L:SetTimerLocalization({
@@ -1134,11 +1134,11 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningPortalNow		= optionWarning:format("새로운 차원문"),
+	WarningPortalNow		= optionWarning:format("차원문"),
 	WarningPortalSoon		= optionPreWarning:format("새로운 차원문"),
-	WarningBossNow			= optionWarning:format("보스 등장"),
-	TimerPortalIn			= "다음 차원문 타이머 보기(보스 이후)",
-	ShowAllPortalTimers		= "모든 차원문 타이머 보기"
+	WarningBossNow			= optionWarning:format("우두머리 등장"),
+	TimerPortalIn			= "우두머리 처치 이후 다음 차원문 바 표시",
+	ShowAllPortalTimers		= "모든 차원문 바 표시"
 })
 
 L:SetMiscLocalization({
@@ -1159,7 +1159,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	warnExplode				= "구울 폭발을 시전합니다. 이동하세요!"
+	warnExplode				= "주문시전 : 구울 폭발"
 })
 
 L:SetTimerLocalization{
@@ -1167,16 +1167,16 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization({
-	TimerCombatStart		= "전투 시작 타이머 보기",
-	warnExplode				= "구울 폭발을 시전할 경우 경고 알리기",
-	AchievementCheck		= "'이건 약과야' 업적 실패를 파티에 알림",
+	TimerCombatStart		= "전투 시작 바 표시",
+	warnExplode				= "구울 폭발 시전 알림 보기",
+	AchievementCheck		= "이건 약과야 업적 실패를 파티 대화로 알리기",
 	SetIconOnMarkedTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67823)
 })
 
 L:SetMiscLocalization({
 	Pull					= "잘했네. 오늘 자네의 가치를 잘 보여주었...",
 	AchievementFailed		= ">> 업적 실패 : 구울 폭발에 피해 입음 (%s) <<",
-	YellCombatEnd			= "축하하네, 용사들이여. 예정된 시험이든 뜻밖의 시험이든, 그대들은 모두 이겨냈군."	-- can also be "No! I must not fail... again ..."
+	YellCombatEnd			= "축하하네, 용사들이여. 예정된 시험이든 뜻밖의 시험이든, 그대들은 모두 이겨냈군."--확인필요
 })
 
 -------------------
@@ -1231,7 +1231,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	specwarnRadiance			= "$spell:66935의 특수 경고 보기.",
+	specwarnRadiance			= "$spell:66935 특수 경고 보기.",
 	SetIconOnHammerTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66940)
 })
 
@@ -1256,16 +1256,14 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	warnPursuit				= "추격 대상 알리기",
-	specWarnPursuit			= "당신을 추격 하게 될 경우 특수 경고 보기",
+	warnPursuit				= "추격 대상 알림 보기",
+	specWarnPursuit			= "추격 대상이 당신일 경우 특수 경고 보기",
 	SetIconOnPursuitTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68987)
 })
 
 L:SetMiscLocalization({
---	IckPursuit			= "%s|1이;가; 당신을 쫓습니다!",
 	IckPursuit			= "당신을 쫓습니다!",
-	Barrage				= "%s|1이;가; 빠른 속도로 지뢰를 만들어냅니다!"
---	YellCombatEnd		= ""--in case removing kricks creatureid doesn't fix it thinking we wipe.	
+	Barrage				= "빠른 속도로 지뢰를 만들어냅니다!"
 })
 
 --------------------------
@@ -1278,25 +1276,24 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	warnSaroniteRock			= "사로나이트 덩어리를 던졌습니다. - 위치 확인",
-	specWarnSaroniteRock		= "당신에게 사로나이트를 던집니다. 이동!",
-	specWarnSaroniteRockNear	= "당신 주변에 사로나이트를 던집니다. 주의하세요!",	
+	warnSaroniteRock			= "사로나이트 던지기",
+	specWarnSaroniteRock		= "당신에게 사로나이트 던지기 - 이동하세요!",
+	specWarnSaroniteRockNear	= "당신 주변에 사로나이트 던지기 - 주의하세요!",
 	specWarnPermafrost			= "%s : %s"
 })
 
 L:SetOptionLocalization({
-	warnSaroniteRock			= "$spell:68789 대상 알리기",
-	specWarnSaroniteRock		= "$spell:68789의 대상이 될 경우 특수 경고 보기",
-	specWarnSaroniteRockNear	= "당신 주변에 $spell:68789 대상이 있을 경우 특수 경고 보기",	
-	specWarnPermafrost			= "$spell:68786 중첩이 많을 경우 특수 경고 보기(11 중첩)",
-	AchievementCheck			= "'11번은 제발!' 업적관련 경보를 파티 채팅으로 알리기",	
+	warnSaroniteRock			= "$spell:68789 대상 알림 보기",
+	specWarnSaroniteRock		= "$spell:68789 대상이 당신일 경우 특수 경고 보기",
+	specWarnSaroniteRockNear	= "$spell:68789 대상이 근처에 있을 경우 특수 경고 보기",
+	specWarnPermafrost			= "$spell:68786 주문이 11 중첩 이상시 특수 경고 보기",
+	AchievementCheck			= "11번은 제발! 업적 실패시 파티 대화로 알리기",
 	SetIconOnSaroniteRockTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68789)
 })
 
 L:SetMiscLocalization({
---	SaroniteRockThrow			= "%s|1이;가; 거대한 사로나이트 덩어리를 당신에게 던집니다!"
 	SaroniteRockThrow			= "거대한 사로나이트 덩어리를 당신에게 던집니다!",
-	AchievementFailed			= ">> 업적 실패 : %s의 영구 결빙 %d 중첩 <<"	
+	AchievementFailed			= ">> 11번은 제발 업적 실패 : %s (%d 중첩) <<"	
 })
 
 -------------------
@@ -1309,9 +1306,8 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
---	specTyrannusEngaged			= "스컬지군주 티라누스가 곧 내려옵니다. - 준비하세요.",
 	specWarnHoarfrost			= "당신에게 흰 서리!",
-	specWarnHoarfrostNear		= "당신 주변에 흰 서리! 이동하세요!",
+	specWarnHoarfrostNear		= "당신 주변에 흰 서리 - 이동하세요!",
 })
 
 L:SetTimerLocalization{
@@ -1319,10 +1315,9 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization({
---	specTyrannusEngaged			= "스컬지군주 티라누스 착지 특수 경고 보기",
-	specWarnHoarfrost			= "$spell:69246의 대상이 될 경우 특수 경고 보기",
-	specWarnHoarfrostNear		= "주변에 $spell:69246 대상이 있을 경우 특수 경고 보기",
-	TimerCombatStart			= "전투 시작 타이머 보기",	
+	specWarnHoarfrost			= "$spell:69246 대상이 당신일 경우 특수 경고 보기",
+	specWarnHoarfrostNear		= "$spell:69246 대상이 근처에 있을 경우 특수 경고 보기",
+	TimerCombatStart			= "전투 시작 바 표시",
 	SetIconOnHoarfrostTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69246)
 })
 
@@ -1349,7 +1344,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	specwarnSoulstorm		= "$spell:68872을 시전 할 경우 특수 경고 보기(이동경고)"
+	specwarnSoulstorm		= "$spell:68872 시전시 특수 경고 보기(이동)"
 })
 
 -------------------
@@ -1363,14 +1358,14 @@ L:SetGeneralLocalization({
 
 L:SetWarningLocalization({
 	specwarnMirroredSoul		= "비춰진 영혼! 딜 중지!",
-	specwarnWailingSouls		= "울부짖는 영혼"	-- Get behind
+	specwarnWailingSouls		= "울부짖는 영혼 - 포식자 뒤로 이동!"
 
 })
 
 L:SetOptionLocalization({
-	specwarnMirroredSoul		= "$spell:69051 딜 중지 특수 경고 보기",
-	specwarnWailingSouls		= "$spell:68899을 시전 할 경우 특수 경고 보기",	
-	SetIconOnMirroredTarget		= "$spell:69051 대상 전술 목표 아이콘 설정"
+	specwarnMirroredSoul		= "$spell:69051 특수 경고 보기",
+	specwarnWailingSouls		= "$spell:68899 시전시 특수 경고 보기",
+	SetIconOnMirroredTarget		= "$spell:69051 대상에게 전술 목표 아이콘 설정"
 })
 
 -------------------------
@@ -1381,24 +1376,24 @@ L:SetOptionLocalization({
 L = DBM:GetModLocalization("HoRWaveTimer")
 
 L:SetGeneralLocalization({
-	name = "투영의 전당 웨이브"
+	name = "투영의 전당 일반구간"
 })
 
 L:SetWarningLocalization({
-	WarnNewWaveSoon		= "곧 새로운 웨이브",
+	WarnNewWaveSoon		= "곧 새로운 영혼 공격 시작",
 	WarnNewWave			= "%s 시작"
 })
 
 L:SetTimerLocalization({
-	TimerNextWave		= "다음 웨이브"
+	TimerNextWave		= "다음 영혼 공격"
 })
 
 L:SetOptionLocalization({
-	WarnNewWave				= "새로운 보스가 올 때 경고 보기",
-	WarnNewWaveSoon			= "새로운 웨이브 사전 경고 보기(5 웨이브 보스 이후)",
-	ShowAllWaveWarnings		= "모든 웨이브 사전 경고 보기",	--Is this a warning or a pre-warning?
-	TimerNextWave			= "다음 웨이브 타이머 보기(5 웨이브 보스 이후)",
-	ShowAllWaveTimers		= "모든 웨이브의 사전 경고 및 타이머 보기(부정확)"
+	WarnNewWave				= "우두머리 공격 시작시 알림 보기",
+	WarnNewWaveSoon			= "우두머리 처치 이후 영혼 공격 사전 알림 보기",
+	ShowAllWaveWarnings		= "모든 영혼 공격 알림 보기",
+	TimerNextWave			= "우두머리 처치 이후 다음 영혼 공격 바 표시",
+	ShowAllWaveTimers		= "모든 영혼 공격 사전 알림 및 바 표시(부정확할 수 있음)"
 })
 
 L:SetMiscLocalization({
@@ -1454,7 +1449,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("LichKingEvent")
 
 L:SetGeneralLocalization({
-	name = "리치 왕 이벤트"
+	name = "아서스에게서 도망치기"
 })
 
 L:SetWarningLocalization({
@@ -1465,22 +1460,22 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	achievementEscape	= "탈출 시간"
+	achievementEscape	= "탈출 업적 시간"
 })
 
 L:SetOptionLocalization({
-	ShowWaves		= "웨이브 시작전 경고 보기"
+	ShowWaves		= "새로운 적 등장시 알림 보기"
 })
 
 L:SetMiscLocalization({
-	ACombatStart	= "He is too powerful. We must leave this place at once! My magic can hold him in place for only a short time. Come quickly, heroes!",
+	ACombatStart	= "He is too powerful. We must leave this place at once! My magic can hold him in place for only a short time. Come quickly, heroes!",--확인필요
 	HCombatStart	= "그는... 너무 강하다. 영웅들이여, 어서... 이쪽으로 오라! 즉시 이곳을 떠나야 한다! 도망치는 동안 그를 잡아놓을 수 있도록 조치를 취하겠다.",
-	Ghoul			= "분노한 구울",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
-	Abom			= "육중한 누더기골렘",--creature id 37069
-	WitchDoctor		= "되살아난 의술사",--creature id 36941	
+	Ghoul			= "분노한 구울",
+	Abom			= "육중한 누더기골렘",
+	WitchDoctor		= "되살아난 의술사",
 	Wave1			= "도망칠 방법은 없다!",
 	Wave2			= "무덤의 한기에 굴복하라.",
 	Wave3			= "또 막다른 곳이다.",
-	Wave4			= "얼마나 더 싸울 수 있겠느냐?",	
+	Wave4			= "얼마나 더 싸울 수 있겠느냐?",
 	YellCombatEnd	= "발사! 발사!"
 })

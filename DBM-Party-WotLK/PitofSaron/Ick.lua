@@ -75,13 +75,13 @@ end
 mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
 
 function mod:RAID_BOSS_EMOTE(msg)
-	if msg == L.Barrage then
+	if msg == L.Barrage or msg:find(L.IckPursuit) then
 		specWarnMines:Show()
 	end
 end
 
 function mod:RAID_BOSS_WHISPER(msg) 
-	if msg == L.IckPursuit or msg:match(L.IckPursuit) then 
+	if msg == L.IckPursuit or msg:find(L.IckPursuit) then 
 		specWarnPursuit:Show() 
 		soundPursuit:Play()
 		self:SendSync("Pursuit", UnitGUID("player"))

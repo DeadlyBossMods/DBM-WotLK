@@ -25,8 +25,8 @@ L:SetMiscLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningGrab 	= "분쇄의 도약 대상 알리기",
-	ArchavonEnrage	= "$spell:26662 타이머 보기"
+	WarningGrab 	= "분쇄의 도약 대상 알림 보기",
+	ArchavonEnrage	= "$spell:26662 바 표시"
 })
 
 --------------
@@ -49,9 +49,9 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	timerMobOvercharge	= "과충전 된 몹의 시간 보기(디버프 중첩)",
-	EmalonEnrage		= "$spell:26662 타이머 보기",
-	RangeFrame			= "거리 프레임 보기(10 m)"
+	timerMobOvercharge	= "과충전 폭발 까지 남은시간 바 표시",
+	EmalonEnrage		= "$spell:26662 바 표시",
+	RangeFrame			= "거리 창 보기(10m)"
 }
 
 ---------------
@@ -65,7 +65,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	BurningFury			= "불타는 격노 : >%d<"
+	BurningFury			= "불타는 격노 (%d)"
 }
 
 L:SetTimerLocalization{
@@ -73,12 +73,11 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	BurningFury			= "$spell:66721 경고 보기",
-	KoralonEnrage		= "$spell:26662 타이머 보기"
+	BurningFury			= "$spell:66721 알림 보기",
+	KoralonEnrage		= "$spell:26662 바 표시"
 }
 
 L:SetMiscLocalization{
---	Meteor	= "%s이 유성 주먹을 시전합니다!"
 	Meteor	= "유성 주먹을 시전합니다!"
 }
 
@@ -92,7 +91,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	Frostbite		= "동상 : >%s< (%d)"
+	Frostbite		= "냉증 : >%s< (%d)"
 }
 
 L:SetTimerLocalization{
@@ -100,9 +99,9 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	Frostbite		= "$spell:72004의 경고 보기",
+	Frostbite		= "$spell:72004 중첩 알림 보기",
 }
 
 L:SetMiscLocalization{
-	ToravonEnrage	= "$spell:26662 타이머 보기"
+	ToravonEnrage	= "$spell:26662 바 표시"
 }

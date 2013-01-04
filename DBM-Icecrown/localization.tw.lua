@@ -43,7 +43,7 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	SpecWarnTrap			= "當觸發陷阱時顯示特別警告",
-	WarnMortalWound			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127, GetSpellInfo(71127) or "unknown")
+	WarnMortalWound			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127)
 }
 
 L:SetMiscLocalization{
@@ -144,7 +144,7 @@ L:SetOptionLocalization{
 	WarnReanimating			= "當小怪再活化時顯示警告",
 	TimerAdds			= "為新的小怪顯示計時器",
 	ShieldHealthFrame		= "為$spell:70842顯示首領血量框架",
-	WarnTouchInsignificance		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204, GetSpellInfo(71204) or "unknown"),	
+	WarnTouchInsignificance		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204),
 	SetIconOnDominateMind		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71289),
 	SetIconOnDeformedFanatic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70900),
 	SetIconOnEmpoweredAdherent	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70901)
@@ -174,7 +174,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	WarnBattleFury			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638, GetSpellInfo(69638) or "戰鬥烈怒"),
+	WarnBattleFury			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638),
 	TimerCombatStart		= "為戰鬥開始顯示計時器",
 	WarnAddsSoon			= "為新的小怪出現顯示預先警告",
 	TimerAdds			= "為新的小怪顯示計時器"
@@ -246,7 +246,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	InhaledBlight			= "為$spell:71912顯示警告",
 	RangeFrame			= "顯示距離框 (8碼)",
-	WarnGastricBloat		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72551, GetSpellInfo(72551) or "unknown"),
+	WarnGastricBloat		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72551),
 	SetIconOnGasSpore		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279),
 	AnnounceSporeIcons		= "公佈$spell:69279目標設置的標記到團隊頻道\n(需要團隊隊長)",
 	AchievementCheck		= "公佈 '流感疫苗短缺' 成就失敗到團隊頻道\n(需助理權限)"
@@ -281,7 +281,7 @@ L:SetOptionLocalization{
 	WarnOozeSpawn			= "為小軟泥的出現顯示警告",
 	SpecWarnLittleOoze		= "當你被小軟泥怪盯上時顯示特別警告",
 	RangeFrame			= "顯示距離框 (8碼)",
-	WarnUnstableOoze		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558, GetSpellInfo(69558) or "unknown"),
+	WarnUnstableOoze		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558),
 	InfectionIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71224),
 	TankArrow			= "為大軟泥怪副坦顯示DBM箭頭 (測試中)"
 }
@@ -315,7 +315,7 @@ L:SetOptionLocalization{
 	WarnPhase3Soon			= "為第3階段顯示預先警告 (大約38%)",
 	SpecWarnMalleableGoo		= "當你是$spell:72295第一個目標時顯示特別警告",
 	SpecWarnMalleableGooNear	= "當你是附近$spell:72295第一個目標時顯示特別警告",
-	WarnMutatedPlague		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451, GetSpellInfo(72451) or "unknown"),
+	WarnMutatedPlague		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451),
 	OozeAdhesiveIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72856),
@@ -431,7 +431,7 @@ L:SetOptionLocalization{
 	TimerPortalsOpen		= "當夢魘之門開啟時顯示計時器",
 	TimerBlazingSkeleton		= "為下一次熾熱骷髏出現顯示計時器",
 	TimerAbom			= "為下一次貪吃的憎惡體出現顯示計時器 (測試中)",
-	WarnCorrosion			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751, GetSpellInfo(70751) or "unknown")
+	WarnCorrosion			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751)
 }
 
 L:SetMiscLocalization{

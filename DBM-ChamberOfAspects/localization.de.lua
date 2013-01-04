@@ -148,7 +148,7 @@ L:SetTimerLocalization({
 L:SetOptionLocalization({
 	WarnAdds		= "Verkünde neue Adds",
 	TimerAdds		= "Zeige Zeit bis neue Adds erscheinen",
-	warnCleaveArmor	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(74367, GetSpellInfo(74367) or "unbekannt")
+	warnCleaveArmor	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(74367)
 })
 
 L:SetMiscLocalization({

@@ -305,9 +305,7 @@ L:SetWarningLocalization{
 	WarnPhase3Soon				= "Phase 3 bald",
 	WarnMutatedPlague			= "%s auf >%s< (%d)",	-- Mutated Plague on >args.destName< (args.amount)
 	SpecWarnMalleableGoo		= "Formbarer Glibber auf dir - Lauf weg!",
-	SpecWarnMalleableGooNear	= "Formbarer Glibber in deiner Nähe - Aufpassen!",
-	SpecWarnUnboundPlague		= "Gebe Entfesselte Seuche weiter!",
-	SpecWarnNextPlageSelf		= "Entfesselte Seuche als nächstes auf dir, bereite dich vor!"
+	SpecWarnMalleableGooNear	= "Formbarer Glibber in deiner Nähe - Aufpassen!"
 }
 
 L:SetOptionLocalization{
@@ -323,9 +321,7 @@ L:SetOptionLocalization{
 	NextUnboundPlagueTargetIcon	= "Setze Zeichen auf nächstes Ziel von $spell:70911",
 	YellOnMalleableGoo			= "Schreie bei $spell:72295 auf dir",
 	YellOnUnbound				= "Schreie bei $spell:70911 auf dir",
-	GooArrow					= "Zeige DBM-Pfeil, wenn $spell:72295 in deiner Nähe ist",
-	SpecWarnUnboundPlague		= "Zeige Spezialwarnung für Übertragung von $spell:70911",
-	SpecWarnNextPlageSelf		= "Zeige Spezialwarnung, wenn du in der Nähe des Ziels von $spell:70911 bist"
+	GooArrow					= "Zeige DBM-Pfeil, wenn $spell:72295 in deiner Nähe ist"
 }
 
 L:SetMiscLocalization{
@@ -363,8 +359,7 @@ L:SetOptionLocalization{
 	EmpoweredFlameIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72040),
 	ActivePrinceIcon		= "Setze Zeichen auf den machterfüllten Prinzen (Totenkopf)",
 	RangeFrame				= "Zeige Abstandsfenster (12m)",
-	VortexArrow				= "Zeige DBM-Pfeil, wenn $spell:72037 in deiner Nähe ist",
-	BypassLatencyCheck		= "NICHT IMPLEMENTIERT! BypassLatencyCheck" -- obsolete
+	VortexArrow				= "Zeige DBM-Pfeil, wenn $spell:72037 in deiner Nähe ist"
 }
 
 L:SetMiscLocalization{
@@ -544,7 +539,6 @@ L:SetOptionLocalization{
 	ValkyrIcon				= "Setze Zeichen auf Schattenwächterinnen der Val'kyr",
 	DefileArrow				= "Zeige DBM-Pfeil, wenn $spell:72762 in deiner Nähe ist",
 	TrapArrow				= "Zeige DBM-Pfeil, wenn $spell:73539 in deiner Nähe ist",
-	LKBugWorkaround			= "NICHT IMPLEMENTIERT! LKBugWorkaround", -- obsolete
 	AnnounceValkGrabs		= "Verkünde Griffziele der Schattenwächterinnen der Val'kyr im SZ-Chat\n(benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)",
 	SpecWarnValkyrLow		= "Zeige Spezialwarnung, wenn eine Schattenwächterin der Val'kyr unter 55% Lebenspunkte ist",
 	AnnouncePlagueStack		= "Verkünde $spell:70337 Stapel an den Schlachtzug (ab 10 Stapel,\ndanach alle 5 Stapel)\n(nur als Leiter/Assistent)",

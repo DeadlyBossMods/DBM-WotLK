@@ -61,7 +61,9 @@ function mod:Whelps()--Not right, need to fix
 end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg)
-	if msg == L.YellP2 or msg:find(L.YellP2) then
+	if msg == L.YellPull and not self:IsInCombat() then
+		DBM:StartCombat(self, 0)
+	elseif msg == L.YellP2 or msg:find(L.YellP2) then
 		phase = 2
 		warnPhase2:Show()
 		timerNextDeepBreath:Start(77)

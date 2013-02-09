@@ -32,7 +32,7 @@ local soundPursued			= mod:NewSound(62374)
 local guids = {}
 local function buildGuidTable()
 	table.wipe(guids)
-	for i = 1, DBM:GetGroupMembers() do
+	for i = 1, DBM:GetNumGroupMembers() do
 		guids[UnitGUID("raid"..i.."pet") or "none"] = GetRaidRosterInfo(i)
 	end
 end

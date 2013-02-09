@@ -44,7 +44,7 @@ local guids = {}
 local surgeTargets = {}
 
 local function buildGuidTable()
-	for i = 1, DBM:GetGroupMembers() do
+	for i = 1, DBM:GetNumGroupMembers() do
 		guids[UnitGUID("raid"..i.."pet") or "none"] = GetRaidRosterInfo(i)
 	end
 end

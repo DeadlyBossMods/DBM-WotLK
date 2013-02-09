@@ -40,7 +40,7 @@ local guids = {}
 local function buildGuidTable()
 	table.wipe(guids)
 	guids[UnitGUID("player")] = DBM:GetUnitFullName("player")
-	for i = 1, DBM:GetGroupMembers() do
+	for i = 1, DBM:GetNumGroupMembers() do
 		guids[UnitGUID("party"..i) or "none"] = DBM:GetUnitFullName("party"..i)
 	end
 end

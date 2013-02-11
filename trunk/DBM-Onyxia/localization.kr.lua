@@ -30,6 +30,7 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{ 
+	YellPull 	= "How fortuitous. Usually, I must leave my lair in order to feed.",
 	YellP2 		= "쓸데없이 힘을 쓰는 것도 지루하군. 네 녀석들 머리 위에서 모조리 불살라 주마!",
 	YellP3 		= "혼이 더 나야 정신을 차리겠구나!"
 }

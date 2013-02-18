@@ -235,7 +235,7 @@ function mod:TrapHandler(warnTank)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(68981, 74270, 74271, 74272) or args:IsSpellID(72259, 74273, 74274, 74275) then -- Remorseless Winter (phase transition start)
+	if args:IsSpellID(68981, 72259) then -- Remorseless Winter (phase transition start)
 		warnRemorselessWinter:Show()
 		timerPhaseTransition:Start()
 		timerRagingSpiritCD:Start(6)
@@ -263,7 +263,7 @@ function mod:SPELL_CAST_START(args)
 	elseif args:IsSpellID(70498) then -- Vile Spirits
 		warnSummonVileSpirit:Show()
 		timerVileSpirit:Start()
-	elseif args:IsSpellID(70541, 73779, 73780, 73781) then -- Infest
+	elseif args:IsSpellID(70541) then -- Infest
 		warnInfest:Show()
 		specWarnInfest:Show()
 		timerInfestCD:Start()
@@ -292,7 +292,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(70337, 73912, 73913, 73914) then -- Necrotic Plague (SPELL_AURA_APPLIED is not fired for this spell)
+	if args:IsSpellID(70337) then -- Necrotic Plague (SPELL_AURA_APPLIED is not fired for this spell)
 		lastPlagueCast = GetTime()
 		warnNecroticPlague:Show(args.destName)
 		timerNecroticPlagueCD:Start()
@@ -303,7 +303,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		if self.Options.NecroticPlagueIcon then
 			self:SetIcon(args.destName, 5, 5)
 		end
-	elseif args:IsSpellID(69409, 73797, 73798, 73799) then -- Soul reaper (MT debuff)
+	elseif args:IsSpellID(69409) then -- Soul reaper (MT debuff)
 		warnSoulreaper:Show(args.destName)
 		specwarnSoulreaper:Show(args.destName)
 		timerSoulreaper:Start(args.destName)
@@ -324,7 +324,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		if self.Options.RagingSpiritIcon then
 			self:SetIcon(args.destName, 7, 5)
 		end
-	elseif args:IsSpellID(68980, 74325, 74326, 74327) then -- Harvest Soul
+	elseif args:IsSpellID(68980) then -- Harvest Soul
 		warnHarvestSoul:Show(args.destName)
 		timerHarvestSoul:Start(args.destName)
 		timerHarvestSoulCD:Start()
@@ -334,7 +334,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		if self.Options.HarvestSoulIcon then
 			self:SetIcon(args.destName, 6, 6)
 		end
-	elseif args:IsSpellID(73654, 74295, 74296, 74297) then -- Harvest Souls (Heroic)
+	elseif args:IsSpellID(73654) then -- Harvest Souls (Heroic)
 		specWarnHarvestSouls:Show()
 		timerVileSpirit:Cancel()
 		timerSoulreaperCD:Cancel()
@@ -346,7 +346,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 end
 
 function mod:SPELL_DISPEL(args)
-	if type(args.extraSpellId) == "number" and (args.extraSpellId == 70337 or args.extraSpellId == 73912 or args.extraSpellId == 73913 or args.extraSpellId == 73914 or args.extraSpellId == 70338 or args.extraSpellId == 73785 or args.extraSpellId == 73786 or args.extraSpellId == 73787) then
+	if type(args.extraSpellId) == "number" and (args.extraSpellId == 70337 or args.extraSpellId == 70338) then
 		if self.Options.NecroticPlagueIcon then
 			self:SetIcon(args.destName, 0)
 		end
@@ -357,10 +357,10 @@ do
 	local lastDefile = 0
 	local lastRestore = 0
 	function mod:SPELL_AURA_APPLIED(args)
-		if args:IsSpellID(72143, 72146, 72147, 72148) then -- Shambling Horror enrage effect.
+		if args:IsSpellID(72143 then -- Shambling Horror enrage effect.
 			warnShamblingEnrage:Show(args.destName)
 			timerEnrageCD:Start()
-		elseif args:IsSpellID(72754, 73708, 73709, 73710) and args:IsPlayer() and time() - lastDefile > 2 then		-- Defile Damage
+		elseif args:IsSpellID(72754) and args:IsPlayer() and time() - lastDefile > 2 then		-- Defile Damage
 			specWarnDefile:Show()
 			lastDefile = time()
 		elseif args:IsSpellID(73650) and time() - lastRestore > 3 then		-- Restore Soul (Heroic)
@@ -452,8 +452,8 @@ do
 	end, 1)
 end
 
-function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
-	if (spellId == 68983 or spellId == 73791 or spellId == 73792 or spellId == 73793) and destGUID == UnitGUID("player") and self:AntiSpam() then		-- Remorseless Winter
+function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
+	if spellId == 68983 and destGUID == UnitGUID("player") and self:AntiSpam() then		-- Remorseless Winter
 		specWarnWinter:Show()
 	end
 end

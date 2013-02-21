@@ -357,7 +357,7 @@ do
 	local lastDefile = 0
 	local lastRestore = 0
 	function mod:SPELL_AURA_APPLIED(args)
-		if args:IsSpellID(72143 then -- Shambling Horror enrage effect.
+		if args:IsSpellID(72143) then -- Shambling Horror enrage effect.
 			warnShamblingEnrage:Show(args.destName)
 			timerEnrageCD:Start()
 		elseif args:IsSpellID(72754) and args:IsPlayer() and time() - lastDefile > 2 then		-- Defile Damage

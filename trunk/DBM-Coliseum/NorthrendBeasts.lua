@@ -171,13 +171,13 @@ function mod:WormsSubmerge()
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(66331, 67477, 67478, 67479) then		-- Impale
+	if args:IsSpellID(66331) then		-- Impale
 		timerNextImpale:Start()
 		warnImpaleOn:Show(args.destName)
-	elseif args:IsSpellID(66759, 67657, 67658, 67659) then	-- Frothing Rage
+	elseif args:IsSpellID(66759) then	-- Frothing Rage
 		warnRage:Show()
 		specWarnTranq:Show()
-	elseif args:IsSpellID(66823, 67618, 67619, 67620) then	-- Paralytic Toxin
+	elseif args:IsSpellID(66823) then	-- Paralytic Toxin
 		self:UnscheduleMethod("warnToxin")
 		toxinTargets[#toxinTargets + 1] = args.destName
 		if args:IsPlayer() then
@@ -206,7 +206,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_AURA_APPLIED_DOSE(args)
-	if args:IsSpellID(66331, 67477, 67478, 67479) then		-- Impale
+	if args:IsSpellID(66331) then		-- Impale
 		timerNextImpale:Start()
 		warnImpaleOn:Show(args.destName)
 		if (args.amount >= 3 and not self:IsDifficulty("heroic10", "heroic25") ) or ( args.amount >= 2 and self:IsDifficulty("heroic10", "heroic25") ) then 
@@ -225,42 +225,42 @@ function mod:SPELL_AURA_APPLIED_DOSE(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(66689, 67650, 67651, 67652) then			-- Arctic Breath
+	if args:IsSpellID(66689) then			-- Arctic Breath
 		timerBreath:Start()
 		warnBreath:Show()
 	elseif args:IsSpellID(66313) then							-- FireBomb (Impaler)
 		warnFireBomb:Show()
-	elseif args:IsSpellID(66330, 67647, 67648, 67649) then		-- Staggering Stomp
+	elseif args:IsSpellID(66330) then		-- Staggering Stomp
 		timerNextStomp:Start()
 		specWarnSilence:Schedule(19)							-- prewarn ~1,5 sec before next
-	elseif args:IsSpellID(66794, 67644, 67645, 67646) then		-- Sweep stationary worm
+	elseif args:IsSpellID(66794) then		-- Sweep stationary worm
 		timerSweepCD:Start()
 	elseif args:IsSpellID(66821) then							-- Molten spew
 		timerMoltenSpewCD:Start()
 	elseif args:IsSpellID(66818) then							-- Acidic Spew
 		timerAcidicSpewCD:Start()
-	elseif args:IsSpellID(66901, 67615, 67616, 67617) then		-- Paralytic Spray
+	elseif args:IsSpellID(66901) then		-- Paralytic Spray
 		timerParalyticSprayCD:Start()
-	elseif args:IsSpellID(66902, 67627, 67628, 67629) then		-- Burning Spray
+	elseif args:IsSpellID(66902) then		-- Burning Spray
 		timerBurningSprayCD:Start()
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(66883, 67641, 67642, 67643) then			-- Slime Pool Cloud Spawn
+	if args:IsSpellID(66883) then			-- Slime Pool Cloud Spawn
 		warnSlimePool:Show()
 		timerSlimePoolCD:Show()
-	elseif args:IsSpellID(66824, 67612, 67613, 67614) then		-- Paralytic Bite
+	elseif args:IsSpellID(66824) then		-- Paralytic Bite
 		timerParalyticBiteCD:Start()
-	elseif args:IsSpellID(66879, 67624, 67625, 67626) then		-- Burning Bite
+	elseif args:IsSpellID(66879) then		-- Burning Bite
 		timerBurningBiteCD:Start()
 	end
 end
 
-function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
-	if (spellId == 66317 or spellId == 66320 or spellId == 67472 or spellId == 67473 or spellId == 67475) and destGUID == UnitGUID("player") and self:AntiSpam(3, 1) then	-- Fire Bomb (66317 is impact damage, not avoidable but leaving in because it still means earliest possible warning to move. Other 4 are tick damage from standing in it)
+function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
+	if (spellId == 66317 or spellId == 66320) and destGUID == UnitGUID("player") and self:AntiSpam(3, 1) then	-- Fire Bomb (66317 is impact damage, not avoidable but leaving in because it still means earliest possible warning to move. Other 4 are tick damage from standing in it)
 		specWarnFireBomb:Show()
-	elseif (spellId == 66881 or spellId == 67638 or spellId == 67639 or spellId == 67640) and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then							-- Slime Pool
+	elseif (spellId == 66881) and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then							-- Slime Pool
 		specWarnSlimePool:Show()
 	end
 end
@@ -274,13 +274,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 			self:ClearIcons()
 		end
 		if target == UnitName("player") then
---[[			local x, y = GetPlayerMapPosition(target)
-			if x == 0 and y == 0 then
-				SetMapToCurrentZone()
-				x, y = GetPlayerMapPosition(target)
-			end--]]
 			specWarnCharge:Show()
---			DBM.Arrow:ShowRunAway(x, y, 12, 5)
 			if self.Options.PingCharge then
 				Minimap:PingLocation()
 			end

@@ -24,7 +24,7 @@ local specWarnWellCorruption	= mod:NewSpecialWarningMove(72362)
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(72362) and args:IsPlayer() then
 		specWarnWellCorruption:Show()
-	elseif args:IsSpellID(72363, 72436) then
+	elseif args:IsSpellID(72363) then
 		if self:AntiSpam(5) then
 			warnCorruptedFlesh:Show()
 			timerCorruptedFlesh:Start()

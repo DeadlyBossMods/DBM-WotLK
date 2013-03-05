@@ -101,7 +101,6 @@ mod:AddBoolOption("HarvestSoulIcon")
 mod:AddBoolOption("YellOnDefile", true, "announce")
 mod:AddBoolOption("YellOnTrap", true, "announce")
 mod:AddBoolOption("AnnounceValkGrabs", false)
---mod:AddBoolOption("DefileArrow")
 mod:AddBoolOption("TrapArrow")
 
 local phase	= 0
@@ -150,16 +149,8 @@ function mod:DefileTarget()
 		local uId = DBM:GetRaidUnitId(targetname)
 		if uId then
 			local inRange = CheckInteractDistance(uId, 2)
---[[			local x, y = GetPlayerMapPosition(uId)
-			if x == 0 and y == 0 then
-				SetMapToCurrentZone()
-				x, y = GetPlayerMapPosition(uId)
-			end--]]
 			if inRange then
 				specWarnDefileNear:Show()
---				if self.Options.DefileArrow then
---					DBM.Arrow:ShowRunAway(x, y, 15, 5)
---				end
 			end
 		end
 	end
@@ -198,7 +189,6 @@ local function isTank(unit)
 	-- 1. check blizzard tanks first
 	-- 2. check blizzard roles second
 	-- 3. check boss1's highest threat target
-	-- 4. anyone with 180k+ health
 	if GetPartyAssignment("MAINTANK", unit, 1) then
 		return true
 	end
@@ -208,7 +198,6 @@ local function isTank(unit)
 	if UnitExists("boss1target") and UnitDetailedThreatSituation(unit, "boss1") then
 		return true
 	end
-	if UnitHealthMax(unit) >= 180000 then return true end--Will need tuning or removal for new expansions or maybe even new tiers.
 	return false
 end
 

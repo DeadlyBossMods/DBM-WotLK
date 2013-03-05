@@ -108,7 +108,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.BloodMirrorIcon then
 			self:SetIcon(args.destName, 7)
 		end
-	elseif args:IsSpellID(70877, 71474) then
+	elseif args:IsSpellID(70877) then
 		warnBloodthirst:Show(args.destName)
 		if args:IsPlayer() then
 			specWarnBloodthirst:Show()
@@ -121,7 +121,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				timerBloodThirst:Start()--10 seconds on 25 man
 			end
 		end
-	elseif args:IsSpellID(70867, 70879, 71473, 71525) or args:IsSpellID(71530, 71531, 71532, 71533) then	--Essence of the Blood Queen
+	elseif args:IsSpellID(70867, 70879) then	--Essence of the Blood Queen
 		warnEssenceoftheBloodQueen:Show(args.destName)
 		if args:IsPlayer() then
 			specWarnEssenceoftheBloodQueen:Show()
@@ -151,7 +151,7 @@ function mod:SPELL_AURA_REMOVED(args)
 		if self.Options.BloodMirrorIcon then
 			self:SetIcon(args.destName, 0)
 		end
-	elseif args:IsSpellID(70877, 71474) then
+	elseif args:IsSpellID(70877) then
 		if args:IsPlayer() then
 			timerBloodThirst:Cancel()
 		end
@@ -172,14 +172,14 @@ function mod:SPELL_CAST_SUCCESS(args)
 	end
 end
 
-function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
-	if (spellId == 71726 or spellId == 71727 or spellId == 71728 or spellId == 71729 or spellId == 70946 or spellId == 71475 or spellId == 71476 or spellId == 71477) and self:GetCIDFromGUID(sourceGUID) == 37955 then	-- Vampric Bite (first bite only, hers)
+function mod:SPELL_DAMAGE(sourceGUID, _, _, _, _, destName, _, _, spellId)
+	if (spellId == 71726 or spellId == 70946) and self:GetCIDFromGUID(sourceGUID) == 37955 then	-- Vampric Bite (first bite only, hers)
 		warnVampricBite:Show(destName)
 	end
 end
 
-function mod:SPELL_PERIODIC_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
-	if (spellId == 71277 or spellId == 72638 or spellId == 72639 or spellId == 72640) and destGUID == UnitGUID("player") and self:AntiSpam() then		--Swarn of Shadows (spell damage, you're standing in it.)
+function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
+	if spellId == 71277 and destGUID == UnitGUID("player") and self:AntiSpam() then		--Swarn of Shadows (spell damage, you're standing in it.)
 		specWarnSwarmingShadows:Show()
 	end
 end

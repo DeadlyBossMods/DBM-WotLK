@@ -78,14 +78,14 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(69057, 70826, 72088, 72089) then	-- Bone Spike Graveyard
+	if args:IsSpellID(69057) then	-- Bone Spike Graveyard
 		warnBoneSpike:Show()
 		timerBoneSpike:Start()
 	end
 end
 
-function mod:SPELL_PERIODIC_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
-	if (spellId == 69146 or spellId == 70823 or spellId == 70824 or spellId == 70825) and destGUID == UnitGUID("player") and self:AntiSpam() then
+function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
+	if spellId == 69146 and destGUID == UnitGUID("player") and self:AntiSpam() then
 		specWarnColdflame:Show()
 	end
 end

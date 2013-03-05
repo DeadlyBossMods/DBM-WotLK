@@ -42,21 +42,21 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(69167, 69629) then					-- Unholy Power
+	if args:IsSpellID(69167) then					-- Unholy Power
         warnUnholyPower:Show()
 		timerUnholyPower:Start()
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(69155, 69627) then					-- Forceful Smash
+	if args:IsSpellID(69155) then					-- Forceful Smash
         warnForcefulSmash:Show()
         timerForcefulSmash:Start()
 	end
 end
 
 function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
-	if (spellId == 69238 or spellId == 69628) and destGUID == UnitGUID("player") and self:AntiSpam() then		-- Icy Blast, MOVE!
+	if spellId == 69238 and destGUID == UnitGUID("player") and self:AntiSpam() then		-- Icy Blast, MOVE!
 		specWarnIcyBlast:Show()
 	end
 end

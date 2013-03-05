@@ -36,11 +36,11 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(66665, 67328) then
+	if args:IsSpellID(66665) then
 		warnBreath:Show()
 		timerBreath:Start()
 		timerBreathCD:Start()
-	elseif args:IsSpellID(66725, 68161) then
+	elseif args:IsSpellID(66725) then
 		warnMeteor:Show()
 		timerNextMeteor:Start()
 		warnMeteorSoon:Schedule(42)
@@ -48,12 +48,11 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsPlayer() and args:IsSpellID(66684, 67332) then
+	if args:IsPlayer() and args:IsSpellID(66684) then
 		specWarnCinder:Show()
 	elseif args:IsSpellID(66721) then
 		WarnBurningFury:Show(args.amount or 1)
 		timerNextBurningFury:Start()
 	end
 end
-
 mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED

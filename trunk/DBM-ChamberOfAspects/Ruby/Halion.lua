@@ -77,10 +77,10 @@ function mod:OnCombatStart(delay)--These may still need retuning too, log i had 
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(74806, 75954, 75955, 75956) then
+	if args:IsSpellID(74806) then
 		warningShadowBreath:Show()
 		timerShadowBreathCD:Start()
-	elseif args:IsSpellID(74525, 74526, 74527, 74528) then
+	elseif args:IsSpellID(74525) then
 		warningFieryBreath:Show()
 		timerFieryBreathCD:Start()
 	end
@@ -164,8 +164,8 @@ function mod:SPELL_AURA_REMOVED(args)
 	end
 end
 
-function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
-	if (spellId == 75947 or spellId == 75948 or spellId == 75949 or spellId == 75950 or spellId == 75951 or spellId == 75952) and destGUID == UnitGUID("player") and self:AntiSpam() then
+function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
+	if (spellId == 74712 or spellId == 74717) and destGUID == UnitGUID("player") and self:AntiSpam() then
 		specWarnMeteorStrike:Show()
 	end
 end

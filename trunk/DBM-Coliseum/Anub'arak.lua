@@ -26,7 +26,7 @@ local warnHoP				= mod:NewTargetAnnounce(1022, 2, nil, false)--Heroic strat revo
 local warnEmerge			= mod:NewAnnounce("WarnEmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
 local warnEmergeSoon		= mod:NewAnnounce("WarnEmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
 local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
-local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
+local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 local warnPhase3			= mod:NewPhaseAnnounce(3)
 
 local specWarnPursue		= mod:NewSpecialWarning("SpecWarnPursue")
@@ -124,7 +124,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			self:SetIcon(args.destName, 8, 15)
 		end
 		warnPursue:Show(args.destName)
-	elseif args:IsSpellID(66013, 67700, 68509, 68510) then		-- Penetrating Cold
+	elseif args:IsSpellID(66013) then		-- Penetrating Cold
 		timerPCold:Show()
 		if args:IsPlayer() then
 			specWarnPCold:Show()
@@ -148,29 +148,10 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerHoP:Start(args.destName)
 	end
 end
-
-function mod:SPELL_AURA_REFRESH(args)
-	if args:IsSpellID(66013, 67700, 68509, 68510) then		-- Penetrating Cold
-		timerPCold:Show()
-		if args:IsPlayer() then
-			specWarnPCold:Show()
-		end
-		if self.Options.SetIconsOnPCold then
-			table.insert(PColdTargets, DBM:GetRaidUnitId(args.destName))
-			self:UnscheduleMethod("SetPcoldIcons")
-			if (self:IsDifficulty("normal25", "heroic25") and #PColdTargets >= 5) or (self:IsDifficulty("normal10", "heroic10") and #PColdTargets >= 2) then
-				self:SetPcoldIcons()--Sort and fire as early as possible once we have all targets.
-			else
-				if self:LatencyCheck() then
-					self:ScheduleMethod(0.3, "SetPcoldIcons")
-				end
-			end
-		end
-	end
-end
+mod.SPELL_AURA_REFRESH = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(66013, 67700, 68509, 68510) then			-- Penetrating Cold
+	if args:IsSpellID(66013) then			-- Penetrating Cold
 		if self.Options.SetIconsOnPCold then
 			self:SetIcon(args.destName, 0)
 			if self.Options.AnnouncePColdIconsRemoved and DBM:GetRaidRank() > 0 then
@@ -183,7 +164,7 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(66118, 67630, 68646, 68647) then			-- Swarm (start p3)
+	if args:IsSpellID(66118) then			-- Swarm (start p3)
 		warnPhase3:Show()
 		warnEmergeSoon:Cancel()
 		warnSubmergeSoon:Cancel()

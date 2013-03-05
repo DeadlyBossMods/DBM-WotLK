@@ -33,27 +33,26 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(72034, 72096) then
+	if args:IsSpellID(72034) then
 		warnWhiteout:Show()
 		timerWhiteout:Start()
-	elseif args:IsSpellID(72091, 72095) then	--Frozen Orb(add)
+	elseif args:IsSpellID(72091) then	--Frozen Orb(add)
 		warnOrb:Show()
 		timerNextOrb:Start()
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(72090, 72104) then			-- Freezing Ground (Aoe and damage debuff)
+	if args:IsSpellID(72090) then			-- Freezing Ground (Aoe and damage debuff)
 		warnFreezingGround:Show()
 	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(72004, 72098) then		-- Frostbite (tanks only debuff)
+	if args:IsSpellID(72004) then		-- Frostbite (tanks only debuff)
 		WarnFrostbite:Show(args.destName, args.amount or 1)
 		timerNextFrostbite:Start()
 		timerFrostbite:Start(args.destName)
 	end
 end
-
 mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED

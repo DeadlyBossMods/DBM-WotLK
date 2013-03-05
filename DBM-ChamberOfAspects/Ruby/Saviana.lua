@@ -56,7 +56,7 @@ function mod:OnCombatEnd()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(74403, 74404) then
+	if args:IsSpellID(74403) then
 		warningWarnBreath:Show()
 		timerBreath:Start()
 	end

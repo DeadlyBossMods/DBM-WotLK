@@ -21,20 +21,20 @@ local timerImpendingDespair		= mod:NewTargetTimer(6, 72426)
 local timerQuiveringStrike		= mod:NewTargetTimer(5, 72422)
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(72422, 72453) then
+	if args:IsSpellID(72422) then
 		timerQuiveringStrike:Start(args.destName)
 		warnQuiveringStrike:Show(args.destName)
 	elseif args:IsSpellID(72426) then
 		timerImpendingDespair:Start(args.destName)
 		warnImpendingDespair:Show(args.destName)
-	elseif args:IsSpellID(72435, 72452) and self:AntiSpam() then
+	elseif args:IsSpellID(72435) and self:AntiSpam() then
 		warnFear:Show()
 		timerFear:Start()
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(72422, 72453) then
+	if args:IsSpellID(72422) then
 		timerQuiveringStrike:Cancel(args.destName)
 	elseif args:IsSpellID(72426) then
 		timerImpendingDespair:Cancel(args.destName)

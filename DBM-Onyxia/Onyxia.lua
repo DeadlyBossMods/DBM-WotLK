@@ -95,13 +95,13 @@ function mod:SPELL_CAST_START(args)
 		soundDeepBreath:Play()
 		timerBreath:Start()
 		timerNextDeepBreath:Start()
-	elseif args:IsSpellID(18435, 68970) then        -- Flame Breath (Ground phases)
+	elseif args:IsSpellID(18435) then        -- Flame Breath (Ground phases)
 		timerNextFlameBreath:Start()
 	end
 end
 
-function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
-	if (spellId == 68867 or spellId == 69286) and destGUID == UnitGUID("player") then		-- Tail Sweep
+function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
+	if spellId == 68867 and destGUID == UnitGUID("player") then		-- Tail Sweep
 		sndFunny:Play("Interface\\AddOns\\DBM-Onyxia\\sounds\\watch-the-tail.ogg")
 	end
 end

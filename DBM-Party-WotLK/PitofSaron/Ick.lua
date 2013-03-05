@@ -32,8 +32,8 @@ local timerPursuitCast			= mod:NewCastTimer(5, 68987)
 local timerPursuitConfusion		= mod:NewBuffActiveTimer(12, 69029)
 local timerPoisonNova			= mod:NewCastTimer(5, 68989)
 
-local soundPoisonNova	= mod:NewSound(68989, nil, mod:IsMelee())
-local soundPursuit		= mod:NewSound(68987)
+local soundPoisonNova			= mod:NewSound(68989, nil, mod:IsMelee())
+local soundPursuit				= mod:NewSound(68987)
 mod:AddBoolOption("SetIconOnPursuitTarget", true)
 
 local guids = {}
@@ -53,7 +53,7 @@ function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(68987) then							-- Pursuit
 		warnPursuitCast:Show()
 		timerPursuitCast:Start()
-	elseif args:IsSpellID(68989, 70434) then				-- Poison Nova
+	elseif args:IsSpellID(68989) then				-- Poison Nova
 		warnPoisonNova:Show()
 		timerPoisonNova:Start()
 		specWarnPoisonNova:Show()
@@ -62,13 +62,13 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(69029, 70850) then							-- Pursuit Confusion
+	if args:IsSpellID(69029) then							-- Pursuit Confusion
 		timerPursuitConfusion:Show(args.destName)
 	end
 end
 
 function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
-	if (spellId == 69024 or spellId == 70436) and destGUID == UnitGUID("player") and self:AntiSpam() then
+	if spellId == 69024 and destGUID == UnitGUID("player") and self:AntiSpam() then
 		specWarnToxic:Show()
 	end
 end

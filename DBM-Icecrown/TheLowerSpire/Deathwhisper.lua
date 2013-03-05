@@ -24,7 +24,6 @@ local canPurge = select(2, UnitClass("player")) == "MAGE"
 
 local warnAddsSoon					= mod:NewAnnounce("WarnAddsSoon", 2)
 local warnDominateMind				= mod:NewTargetAnnounce(71289, 3)
---local warnDeathDecay				= mod:NewSpellAnnounce(71001, 2)
 local warnSummonSpirit				= mod:NewSpellAnnounce(71426, 2)
 local warnReanimating				= mod:NewAnnounce("WarnReanimating", 3)
 local warnDarkTransformation		= mod:NewSpellAnnounce(70900, 4)
@@ -160,13 +159,10 @@ do
 			else
 				self:Schedule(0.9, showDominateMindWarning)
 			end
-		elseif args:IsSpellID(71001, 72108, 72109, 72110) then
+		elseif args:IsSpellID(71001) then
 			if args:IsPlayer() then
 				specWarnDeathDecay:Show()
 			end
---[[			if self:AntiSpam(5, 2) then--This is a terrible way to do it, one day i need to fix this to trigger off casts not people SIS.
-				warnDeathDecay:Show()
-			end--]]
 		elseif args:IsSpellID(71237) and args:IsPlayer() then
 			specWarnCurseTorpor:Show()
 		elseif args:IsSpellID(70674) and not args:IsDestTypePlayer() and (UnitName("target") == L.Fanatic1 or UnitName("target") == L.Fanatic2 or UnitName("target") == L.Fanatic3) then
@@ -196,7 +192,7 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(71420, 72007, 72501, 72502) then
+	if args:IsSpellID(71420) then
 		warnFrostbolt:Show()
 		specWarnFrostbolt:Show(args.sourceName)
 		timerFrostboltCast:Start()
@@ -212,14 +208,14 @@ function mod:SPELL_CAST_START(args)
 			empoweredAdherent = args.sourceGUID
 			self:TrySetTarget()
 		end
-	elseif args:IsSpellID(72499, 72500, 72497, 72496) then
+	elseif args:IsSpellID(71236) then
 		warnDarkMartyrdom:Show()
 		specWarnDarkMartyrdom:Show()
 	end
 end
 
 function mod:SPELL_INTERRUPT(args)
-	if type(args.extraSpellId) == "number" and (args.extraSpellId == 71420 or args.extraSpellId == 72007 or args.extraSpellId == 72501 or args.extraSpellId == 72502) then
+	if type(args.extraSpellId) == "number" and args.extraSpellId == 71420 then
 		timerFrostboltCast:Cancel()
 	end
 end

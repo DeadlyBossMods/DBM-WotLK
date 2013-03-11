@@ -123,10 +123,10 @@ end
 function mod:TrySetTarget()
 	if DBM:GetRaidRank() >= 1 then
 		for i = 1, DBM:GetNumGroupMembers() do
-			if UnitGUID("raid"..i.."target") == deformedFanatic then
+			if UnitGUID("raid"..i.."target") == deformedFanatic and self.Options.SetIconOnDeformedFanatic then
 				deformedFanatic = nil
 				SetRaidTarget("raid"..i.."target", 8)
-			elseif UnitGUID("raid"..i.."target") == empoweredAdherent then
+			elseif UnitGUID("raid"..i.."target") == empoweredAdherent and self.Options.SetIconOnEmpoweredAdherent then
 				empoweredAdherent = nil
 				SetRaidTarget("raid"..i.."target", 7)
 			end

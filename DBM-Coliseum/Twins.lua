@@ -194,7 +194,7 @@ function mod:SPELL_AURA_REMOVED(args)
 		end
 		self:Unschedule(hideShieldHealthBar)
 		hideShieldHealthBar()
-	elseif args:IsSpellID(65858 then		-- Shield of Lights
+	elseif args.spellId == 65858 then		-- Shield of Lights
 		if UnitCastingInfo("target") and self:GetUnitCreatureId("target") == 34497 then
 			specWarnKickNow:Show()
 		end

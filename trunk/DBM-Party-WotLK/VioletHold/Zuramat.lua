@@ -26,7 +26,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(59743, 54361) then			-- Void Shift            59743 (HC)  54361 (nonHC)
 		warningVoidShift:Show(args.destName)
 		timerVoidShift:Start(args.destName)
-	elseif args:IsSpellID(54343) then
+	elseif args.spellId == 54343 then
 		if args:IsPlayer() then
 			specWarnVoidShifted:Show()
 		end

@@ -26,28 +26,28 @@ local specwarnPhantomBlast		= mod:NewSpecialWarningInterrupt(68982, false)
 mod:AddBoolOption("SetIconOnMirroredTarget", true)
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(68982) then						-- Phantom Blast
+	if args.spellId == 68982 then						-- Phantom Blast
 		warnPhantomBlast:Show()
 		specwarnPhantomBlast:Show(args.sourceName)
-	elseif args:IsSpellID(68820) then					-- Well of Souls
+	elseif args.spellId == 68820 then					-- Well of Souls
 		warnWellofSouls:Show()
-	elseif args:IsSpellID(68939) then					-- Unleashed Souls
+	elseif args.spellId == 68939 then					-- Unleashed Souls
 		warnUnleashedSouls:Show()
-	elseif args:IsSpellID(68899) then					-- Wailing Souls
+	elseif args.spellId == 68899 then					-- Wailing Souls
 		warnWailingSouls:Show()
 		specwarnWailingSouls:Show()
 	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(69051) and args:IsDestTypePlayer() then	-- Mirrored Soul
+	if args.spellId == 69051 and args:IsDestTypePlayer() then	-- Mirrored Soul
 		warnMirroredSoul:Show(args.destName)
 		timerMirroredSoul:Show(args.destName)
 		specwarnMirroredSoul:Show()
 		if self.Options.SetIconOnMirroredTarget then 
 			self:SetIcon(args.destName, 8, 8) 
 		end 
-	elseif args:IsSpellID(68939) then							-- Unleashed Souls
+	elseif args.spellId == 68939 then							-- Unleashed Souls
 		timerUnleashedSouls:Start()
 	end
 end

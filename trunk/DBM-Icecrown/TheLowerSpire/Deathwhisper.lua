@@ -147,7 +147,7 @@ do
 	end
 	
 	function mod:SPELL_AURA_APPLIED(args)
-		if args:IsSpellID(71289) then
+		if args.spellId == 71289 then
 			dominateMindTargets[#dominateMindTargets + 1] = args.destName
 			if self.Options.SetIconOnDominateMind then
 				self:SetIcon(args.destName, dominateMindIcon, 12)
@@ -159,15 +159,15 @@ do
 			else
 				self:Schedule(0.9, showDominateMindWarning)
 			end
-		elseif args:IsSpellID(71001) then
+		elseif args.spellId == 71001 then
 			if args:IsPlayer() then
 				specWarnDeathDecay:Show()
 			end
-		elseif args:IsSpellID(71237) and args:IsPlayer() then
+		elseif args.spellId == 71237 and args:IsPlayer() then
 			specWarnCurseTorpor:Show()
-		elseif args:IsSpellID(70674) and not args:IsDestTypePlayer() and (UnitName("target") == L.Fanatic1 or UnitName("target") == L.Fanatic2 or UnitName("target") == L.Fanatic3) then
+		elseif args.spellId == 70674 and not args:IsDestTypePlayer() and (UnitName("target") == L.Fanatic1 or UnitName("target") == L.Fanatic2 or UnitName("target") == L.Fanatic3) then
 			specWarnVampricMight:Show(args.destName)
-		elseif args:IsSpellID(71204) then
+		elseif args.spellId == 71204 then
 			warnTouchInsignificance:Show(args.spellName, args.destName, args.amount or 1)
 			timerTouchInsignificance:Start(args.destName)
 			if args:IsPlayer() and (args.amount or 1) >= 3 and self:IsDifficulty("normal10", "normal25") then
@@ -181,7 +181,7 @@ do
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(70842) then
+	if args.spellId == 70842 then
 		warnPhase2:Show()
 		if self:IsDifficulty("normal10", "normal25") then
 			timerAdds:Cancel()
@@ -192,23 +192,23 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(71420) then
+	if args.spellId == 71420 then
 		warnFrostbolt:Show()
 		specWarnFrostbolt:Show(args.sourceName)
 		timerFrostboltCast:Start()
-	elseif args:IsSpellID(70900) then
+	elseif args.spellId == 70900 then
 		warnDarkTransformation:Show()
 		if self.Options.SetIconOnDeformedFanatic then
 			deformedFanatic = args.sourceGUID
 			self:TrySetTarget()
 		end
-	elseif args:IsSpellID(70901) then
+	elseif args.spellId == 70901 then
 		warnDarkEmpowerment:Show()
 		if self.Options.SetIconOnEmpoweredAdherent then
 			empoweredAdherent = args.sourceGUID
 			self:TrySetTarget()
 		end
-	elseif args:IsSpellID(71236) then
+	elseif args.spellId == 71236 then
 		warnDarkMartyrdom:Show()
 		specWarnDarkMartyrdom:Show()
 	end
@@ -221,7 +221,7 @@ function mod:SPELL_INTERRUPT(args)
 end
 
 function mod:SPELL_SUMMON(args)
-	if args:IsSpellID(71426) and self:AntiSpam(5, 1) then -- Summon Vengeful Shade
+	if args.spellId == 71426 and self:AntiSpam(5, 1) then -- Summon Vengeful Shade
 		warnSummonSpirit:Show()
 		timerSummonSpiritCD:Start()
 	end

@@ -90,19 +90,19 @@ local soundBladestorm		= mod:NewSound(65947, nil, mod:IsMelee())
 function mod:SPELL_CAST_SUCCESS(args)
 	if args:IsSpellID(65816, 68145, 68146, 68147) then		-- Warlock Hellfire
 		warnHellfire:Show()
-	elseif args:IsSpellID(65947) then						-- Warrior Bladestorm
+	elseif args.spellId == 65947 then						-- Warrior Bladestorm
 		warnBladestorm:Show()
 		timerBladestorm:Start()
 		timerBladestormCD:Start()
 		preWarnBladestorm:Schedule(85)                      -- Pre-Warn will only announce for 2nd and later bladestorm.
 		soundBladestorm:Play()
-	elseif args:IsSpellID(65983) then						-- Shamen Heroism
+	elseif args.spellId == 65983 then						-- Shamen Heroism
 		warnHeroism:Show()
-	elseif args:IsSpellID(65980) then						-- Shamen Blood lust
+	elseif args.spellId == 65980 then						-- Shamen Blood lust
 		warnBloodlust:Show()
 	elseif args:IsSpellID(68758, 68757, 68756, 66115) and not args:IsDestTypePlayer() then	-- Paladin Hand of Freedom on <mobname>
 		warnHandofFreedom:Show(args.destName)
-	elseif args:IsSpellID(66009) then						-- Paladin Hand of Protection on <mobname>
+	elseif args.spellId == 66009 then						-- Paladin Hand of Protection on <mobname>
 		warnHandofProt:Show(args.destName)
 		specWarnHandofProt:Show(args.destName)
 	elseif args:IsSpellID(66178, 68759, 68760, 68761) then	-- Rogue Shadowstep
@@ -123,15 +123,15 @@ function mod:SPELL_CAST_SUCCESS(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(66010) then                                      -- Divine Shield on <mobname>
+	if args.spellId == 66010 then                                      -- Divine Shield on <mobname>
 		warnDivineShield:Show(args.destName)
 		specWarnDivineShield:Show(args.destName)
-	elseif args:IsSpellID(65802) then                                  -- Iceblock on <mobname>
+	elseif args.spellId == 65802 then                                  -- Iceblock on <mobname>
 		warnIceBlock:Show(args.destName)
 		specWarnIceBlock:Show(args.destName)
-	elseif args:IsSpellID(65859) and args:IsDestTypePlayer() then      -- Cyclone on <playername>
+	elseif args.spellId == 65859 and args:IsDestTypePlayer() then      -- Cyclone on <playername>
 		warnCyclone:Show(args.destName)
-	elseif args:IsSpellID(65801) and args:IsDestTypePlayer() then      -- Sheep on <playername>
+	elseif args.spellId == 65801 and args:IsDestTypePlayer() then      -- Sheep on <playername>
 		warnSheep:Show(args.destName)
 	end
 end

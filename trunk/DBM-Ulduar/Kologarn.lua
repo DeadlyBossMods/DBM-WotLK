@@ -137,7 +137,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_AURA_APPLIED_DOSE(args)
-	if args:IsSpellID(64002) then		        -- Crunch Armor (25-man only)
+	if args.spellId == 64002 then		        -- Crunch Armor (25-man only)
 		warnCrunchArmor:Show(args.destName)
         if args.amount >= 2 then 
             if args:IsPlayer() then

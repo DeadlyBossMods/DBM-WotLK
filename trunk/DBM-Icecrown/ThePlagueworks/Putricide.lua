@@ -124,12 +124,12 @@ function mod:MalleableGooTarget()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(70351) then
+	if args.spellId == 70351 then
 		warnUnstableExperimentSoon:Cancel()
 		warnUnstableExperiment:Show()
 		timerUnstableExperimentCD:Start()
 		warnUnstableExperimentSoon:Schedule(33)
-	elseif args:IsSpellID(71617) then				--Tear Gas, normal phase change trigger
+	elseif args.spellId == 71617 then				--Tear Gas, normal phase change trigger
 		warnTearGas:Show()
 		warnUnstableExperimentSoon:Cancel()
 		warnChokingGasBombSoon:Cancel()
@@ -138,7 +138,7 @@ function mod:SPELL_CAST_START(args)
 		timerSlimePuddleCD:Cancel()
 		timerChokingGasBombCD:Cancel()
 		timerUnboundPlagueCD:Cancel()
-	elseif args:IsSpellID(72842) then		--Volatile Experiment (heroic phase change begin)
+	elseif args.spellId == 72842 then		--Volatile Experiment (heroic phase change begin)
 		warnVolatileExperiment:Show()
 		warnUnstableExperimentSoon:Cancel()
 		warnChokingGasBombSoon:Cancel()
@@ -147,12 +147,12 @@ function mod:SPELL_CAST_START(args)
 		timerSlimePuddleCD:Cancel()
 		timerChokingGasBombCD:Cancel()
 		timerUnboundPlagueCD:Cancel()
-	elseif args:IsSpellID(72851) then		--Create Concoction (Heroic phase change end)
+	elseif args.spellId == 72851 then		--Create Concoction (Heroic phase change end)
 		if self:IsDifficulty("heroic10", "heroic25") then
 			self:ScheduleMethod(40, "NextPhase")	--May need slight tweaking +- a second or two
 			timerPotions:Start()
 		end
-	elseif args:IsSpellID(73121) then		--Guzzle Potions (Heroic phase change end)
+	elseif args.spellId == 73121 then		--Guzzle Potions (Heroic phase change end)
 		if self:IsDifficulty("heroic10") then
 			self:ScheduleMethod(40, "NextPhase")	--May need slight tweaking +- a second or two
 			timerPotions:Start()
@@ -187,21 +187,21 @@ function mod:NextPhase()
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(70341) and self:AntiSpam(5, 1) then
+	if args.spellId == 70341 and self:AntiSpam(5, 1) then
 		warnSlimePuddle:Show()
 		if phase == 3 then
 			timerSlimePuddleCD:Start(20)--In phase 3 it's faster
 		else
 			timerSlimePuddleCD:Start()
 		end
-	elseif args:IsSpellID(71255) then
+	elseif args.spellId == 71255 then
 		warnChokingGasBomb:Show()
 		specWarnChokingGasBomb:Show()
 		timerChokingGasBombCD:Start()
 		warnChokingGasBombSoon:Schedule(30.5)
-	elseif args:IsSpellID(70911) then
+	elseif args.spellId == 70911 then
 		timerUnboundPlagueCD:Start()
-	elseif args:IsSpellID(72295) then
+	elseif args.spellId == 72295 then
 		warnMalleableGoo:Show()
 		specWarnMalleableGooCast:Show()
 		if self:IsDifficulty("heroic10", "heroic25") then
@@ -214,7 +214,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(70447) then--Green Slime
+	if args.spellId == 70447 then--Green Slime
 		warnVolatileOozeAdhesive:Show(args.destName)
 		specWarnVolatileOozeOther:Show(args.destName)
 		if args:IsPlayer() then
@@ -223,7 +223,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.OozeAdhesiveIcon then
 			self:SetIcon(args.destName, 8, 8)
 		end
-	elseif args:IsSpellID(70672) then	--Red Slime
+	elseif args.spellId == 70672 then	--Red Slime
 		warnGaseousBloat:Show(args.destName)
 		specWarnGaseousBloatOther:Show(args.destName)
 		timerGaseousBloat:Start(args.destName)
@@ -236,22 +236,22 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 	elseif args:IsSpellID(71615, 71618) then	--71615 used in 10 and 25 normal, 71618?
 		timerTearGas:Start()
-	elseif args:IsSpellID(72451) then	-- Mutated Plague
+	elseif args.spellId == 72451 then	-- Mutated Plague
 		warnMutatedPlague:Show(args.spellName, args.destName, args.amount or 1)
 		timerMutatedPlagueCD:Start()
-	elseif args:IsSpellID(70542) then
+	elseif args.spellId == 70542 then
 		timerMutatedSlash:Show(args.destName)
-	elseif args:IsSpellID(70539) then
+	elseif args.spellId == 70539 then
 		timerRegurgitatedOoze:Show(args.destName)
-	elseif args:IsSpellID(70352) then	--Ooze Variable
+	elseif args.spellId == 70352 then	--Ooze Variable
 		if args:IsPlayer() then
 			specWarnOozeVariable:Show()
 		end
-	elseif args:IsSpellID(70353) then	-- Gas Variable
+	elseif args.spellId == 70353 then	-- Gas Variable
 		if args:IsPlayer() then
 			specWarnGasVariable:Show()
 		end
-	elseif args:IsSpellID(70911) then	 -- Unbound Plague
+	elseif args.spellId == 70911 then	 -- Unbound Plague
 		warnUnboundPlague:Show(args.destName)
 		if self.Options.UnboundPlagueIcon then
 			self:SetIcon(args.destName, 5, 20)
@@ -267,42 +267,42 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_AURA_APPLIED_DOSE(args)
-	if args:IsSpellID(72451) then	-- Mutated Plague
+	if args.spellId == 72451 then	-- Mutated Plague
 		warnMutatedPlague:Show(args.spellName, args.destName, args.amount or 1)
 		timerMutatedPlagueCD:Start()
-	elseif args:IsSpellID(70542) then
+	elseif args.spellId == 70542 then
 		timerMutatedSlash:Show(args.destName)
 	end
 end
 
 function mod:SPELL_AURA_REFRESH(args)
-	if args:IsSpellID(70539) then
+	if args.spellId == 70539 then
 		timerRegurgitatedOoze:Show(args.destName)
-	elseif args:IsSpellID(70542) then
+	elseif args.spellId == 70542 then
 		timerMutatedSlash:Show(args.destName)
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(70447) then
+	if args.spellId == 70447 then
 		if self.Options.OozeAdhesiveIcon then
 			self:SetIcon(args.destName, 0)
 		end
-	elseif args:IsSpellID(70672) then
+	elseif args.spellId == 70672 then
 		timerGaseousBloat:Cancel(args.destName)
 		if self.Options.GaseousBloatIcon then
 			self:SetIcon(args.destName, 0)
 		end
-	elseif args:IsSpellID(70911) then 						-- Unbound Plague
+	elseif args.spellId == 70911 then 						-- Unbound Plague
 		timerUnboundPlague:Stop(args.destName)
 		if self.Options.UnboundPlagueIcon then
 			self:SetIcon(args.destName, 0)
 		end
-	elseif args:IsSpellID(71615) and self:AntiSpam(5, 2) then 	-- Tear Gas Removal
+	elseif args.spellId == 71615 and self:AntiSpam(5, 2) then 	-- Tear Gas Removal
 		self:NextPhase()
-	elseif args:IsSpellID(70539) then
+	elseif args.spellId == 70539 then
 		timerRegurgitatedOoze:Cancel(args.destName)
-	elseif args:IsSpellID(70542) then
+	elseif args.spellId == 70542 then
 		timerMutatedSlash:Cancel(args.destName)
 	end
 end

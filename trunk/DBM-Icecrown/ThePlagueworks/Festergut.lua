@@ -108,7 +108,7 @@ function mod:OnCombatEnd()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(69195) then	-- Pungent Blight
+	if args.spellId == 69195 then	-- Pungent Blight
 		specWarnPungentBlight:Show()
 		timerInhaledBlight:Start(38)
 	end
@@ -135,7 +135,7 @@ function mod:OnSync(event, arg)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(69279) then	-- Gas Spore
+	if args.spellId == 69279 then	-- Gas Spore
 		gasSporeTargets[#gasSporeTargets + 1] = args.destName
 		gasSporeCast = gasSporeCast + 1
 		if (gasSporeCast < 9 and self:IsDifficulty("normal25", "heroic25")) or (gasSporeCast < 6 and self:IsDifficulty("normal10", "heroic10")) then
@@ -164,7 +164,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		else
 			self:Schedule(0.3, warnGasSporeTargets)
 		end
-	elseif args:IsSpellID(69166) then	-- Inhaled Blight
+	elseif args.spellId == 69166 then	-- Inhaled Blight
 		warnInhaledBlight:Show(args.amount or 1)
 		if (args.amount or 1) >= 3 then
 			specWarnInhaled3:Show(args.amount)
@@ -173,21 +173,21 @@ function mod:SPELL_AURA_APPLIED(args)
 		if (args.amount or 1) <= 2 then	--Prevent timer from starting after 3rd stack since he won't cast it a 4th time, he does Pungent instead.
 			timerInhaledBlight:Start()
 		end
-	elseif args:IsSpellID(72219) then	-- Gastric Bloat
+	elseif args.spellId == 72219 then	-- Gastric Bloat
 		warnGastricBloat:Show(args.spellName, args.destName, args.amount or 1)
 		timerGastricBloat:Start(args.destName)
 		timerGastricBloatCD:Start()
 		if args:IsPlayer() and (args.amount or 1) >= 9 then
 			specWarnGastricBloat:Show(args.amount)
 		end
-	elseif args:IsSpellID(69240) and args:IsDestTypePlayer() then	-- Vile Gas
+	elseif args.spellId == 69240 and args:IsDestTypePlayer() then	-- Vile Gas
 		vileGasTargets[#vileGasTargets + 1] = args.destName
 		if args:IsPlayer() then
 			specWarnVileGas:Show()
 		end
 		self:Unschedule(warnVileGasTargets)
 		self:Schedule(0.8, warnVileGasTargets)
-	elseif args:IsSpellID(69291) then	--Inoculated
+	elseif args.spellId == 69291 then	--Inoculated
 		if args:IsDestTypePlayer() then
 			if self.Options.AchievementCheck and DBM:GetRaidRank() > 0 and not warnedfailed and self:AntiSpam(3, 1) then
 				if (args.amount or 1) == 3 then

@@ -22,7 +22,7 @@ function mod:APELL_AURA_APPLIED(args)
 	if args:IsSpellID(48294, 59301) then
 		warningBane:Show()
 		timerBane:Start()
-	elseif args:IsSpellID(51750) then
+	elseif args.spellId == 51750 then
 		warningScreams:Show()
 		timerScreams:Start()
 	end

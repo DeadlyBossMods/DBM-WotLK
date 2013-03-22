@@ -58,7 +58,7 @@ function mod:OnCombatEnd()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(74509) then
+	if args.spellId == 74509 then
 		warningRepellingWave:Show()
 		specWarnRepellingWave:Show()
 		timerRepellingWave:Show()
@@ -66,10 +66,10 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(75125) then
+	if args.spellId == 75125 then
 		warnWhirlwind:Show()
 		timerWhirlwind:Show()
-	elseif args:IsSpellID(74505) and self:IsInCombat() then--Only do this when boss is actually engaged, otherwise it doesn't really matter and just spams.
+	elseif args.spellId == 74505 and self:IsInCombat() then--Only do this when boss is actually engaged, otherwise it doesn't really matter and just spams.
 		brandTargets[#brandTargets + 1] = args.destName
 		if args:IsPlayer() then
 			specWarnBrand:Show()

@@ -39,7 +39,7 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(29234) then
+	if args.spellId == 29234 then
 		timerSpore:Start(sporeTimer)
 		warnSporeNow:Show()
 		warnSporeSoon:Schedule(sporeTimer - 5)
@@ -52,7 +52,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		end
 		warnDoomNow:Show(doomCounter)
 		timerDoom:Start(timer, doomCounter + 1)
-	elseif args:IsSpellID(55593) then
+	elseif args.spellId == 55593 then
 		timerAura:Start()
 		warnHealSoon:Schedule(14)
 		warnHealNow:Schedule(17)

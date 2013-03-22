@@ -128,24 +128,24 @@ function mod:TrySetTarget()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(72037) then		-- Shock Vortex
+	if args.spellId == 72037 then		-- Shock Vortex
 		timerShockVortex:Start()
 		self:ScheduleMethod(0.2, "ShockVortexTarget")
-	elseif args:IsSpellID(72039) then
+	elseif args.spellId == 72039 then
 		warnEmpoweredShockVortex:Show()
 		specWarnEmpoweredShockV:Show()
 		timerShockVortex:Start()
-	elseif args:IsSpellID(71718) then	-- Conjure Flames
+	elseif args.spellId == 71718 then	-- Conjure Flames
 		warnConjureFlames:Show()
 		timerConjureFlamesCD:Start()
-	elseif args:IsSpellID(72040) then	-- Conjure Empowered Flames
+	elseif args.spellId == 72040 then	-- Conjure Empowered Flames
 		warnEmpoweredFlamesCast:Show()
 		timerConjureFlamesCD:Start()
 	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(70952) then
+	if args.spellId == 70952 then
 		activePrince = args.destGUID
 		if self:IsInCombat() then
 			warnTargetSwitch:Show(L.Valanar)
@@ -155,7 +155,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				DBM.RangeCheck:Show(12)
 			end
 		end
-	elseif args:IsSpellID(70981) and self:IsInCombat() then
+	elseif args.spellId == 70981 and self:IsInCombat() then
 		warnTargetSwitch:Show(L.Keleseth)
 		warnTargetSwitchSoon:Schedule(42)
 		timerTargetSwitch:Start()
@@ -163,7 +163,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.RangeFrame then
 			self:ScheduleMethod(4.5, "HideRange")--delay hiding range frame for a few seconds after change incase valanaar got a last second vortex cast off
 		end
-	elseif args:IsSpellID(70982) and self:IsInCombat() then
+	elseif args.spellId == 70982 and self:IsInCombat() then
 		warnTargetSwitch:Show(L.Taldaram)
 		warnTargetSwitchSoon:Schedule(42)
 		timerTargetSwitch:Start()
@@ -171,14 +171,14 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.RangeFrame then
 			self:ScheduleMethod(4.5, "HideRange")--delay hiding range frame for a few seconds after change incase valanaar got a last second vortex cast off
 		end
-	elseif args:IsSpellID(72999) then	--Shadow Prison (hard mode)
+	elseif args.spellId == 72999 then	--Shadow Prison (hard mode)
 		if args:IsPlayer() then
 			timerShadowPrison:Start()
 			if (args.amount or 1) >= 6 then	--Placeholder right now, might use a different value
 				specWarnShadowPrison:Show(args.amount)
 			end
 		end
-	elseif args:IsSpellID(71807) and args:IsDestTypePlayer() then	-- Glittering Sparks(Dot/slow, dangerous on heroic during valanaar)
+	elseif args.spellId == 71807 and args:IsDestTypePlayer() then	-- Glittering Sparks(Dot/slow, dangerous on heroic during valanaar)
 		glitteringSparksTargets[#glitteringSparksTargets + 1] = args.destName
 		self:Unschedule(warnGlitteringSparksTargets)
 		self:Schedule(1, warnGlitteringSparksTargets)
@@ -188,7 +188,7 @@ end
 mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_SUMMON(args)
-	if args:IsSpellID(71943) then
+	if args.spellId == 71943 then
 		warnDarkNucleus:Show()
 		timerDarkNucleusCD:Start()
 	end

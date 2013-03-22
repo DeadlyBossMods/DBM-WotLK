@@ -24,7 +24,7 @@ function mod:OnCombatStart()
 end
 
 function mod:SPELL_SUMMON(args)
-	if args:IsSpellID(47743) then
+	if args.spellId == 47743 then
 		warningRiftNow:Show()
 	end
 end

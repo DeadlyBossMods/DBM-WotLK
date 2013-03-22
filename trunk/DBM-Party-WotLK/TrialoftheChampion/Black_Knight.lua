@@ -39,7 +39,7 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(67729) and self:AntiSpam(2, 2) then
+	if args.spellId == 67729 and self:AntiSpam(2, 2) then
 		warnExplode:Show()
 		specWarnExplode:Show()
 		soundExplode:Play()
@@ -60,13 +60,13 @@ end
 mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(67823) and args:IsDestTypePlayer() then
+	if args.spellId == 67823 and args:IsDestTypePlayer() then
 		if self.Options.SetIconOnMarkedTarget then
 			self:SetIcon(args.destName, 8, 10)
 		end
 		warnMarked:Show(args.destName)
 		timerMarked:Show(args.destName)
-	elseif args:IsSpellID(67751) and self:AntiSpam(2, 2) then	-- Ghoul Explode (BK exlodes Army of the dead. Phase 3)
+	elseif args.spellId == 67751 and self:AntiSpam(2, 2) then	-- Ghoul Explode (BK exlodes Army of the dead. Phase 3)
 		warnGhoulExplode:Show(args.destName)
 		specWarnExplode:Show()
 		soundExplode:Play()

@@ -37,7 +37,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(47981) then
+	if args.spellId == 47981 then
 		timerReflection:Start()
 		warningReflection:Show()
 		specWarnReflection:Show()
@@ -46,13 +46,13 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(47981) then
+	if args.spellId == 47981 then
 		timerReflection:Cancel()
 	end
 end
 
 function mod:SPELL_SUMMON(args)
-	if args:IsSpellID(61564) then
+	if args.spellId == 61564 then
 		warningAdd:Show()
 	end
 end

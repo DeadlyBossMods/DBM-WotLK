@@ -52,7 +52,7 @@ end
 
 local lastShift = 0
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(28089) then
+	if args.spellId == 28089 then
 		phase2 = true
 		timerNextShift:Start()
 		timerShiftCast:Start()

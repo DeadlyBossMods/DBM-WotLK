@@ -138,7 +138,7 @@ end
 function mod:SPELL_CAST_SUCCESS(args)
 	if args:IsSpellID(71179, 71741) then--Mana Void
 		warnManaVoid:Show()
-	elseif args:IsSpellID(70588) and self:AntiSpam(5, 1) then--Supression
+	elseif args.spellId == 70588 and self:AntiSpam(5, 1) then--Supression
 		warnSupression:Show(args.destName)
 	end
 end

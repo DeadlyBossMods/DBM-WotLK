@@ -105,7 +105,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(56505) then--His deep breath
+	if args.spellId == 56505 then--His deep breath
 		warnBreath:Show()
 		specWarnBreath:Show()
 		timerBreath:Start()
@@ -114,7 +114,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(56105) then
+	if args.spellId == 56105 then
 		timerVortexCD:Start()
 		warnVortexSoon:Schedule(54)
 		warnVortex:Show()
@@ -122,7 +122,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		if timerSpark:GetTime() < 11 and timerSpark:IsStarted() then
 			timerSpark:Update(18, 30)
 		end
-	elseif args:IsSpellID(57430) then
+	elseif args.spellId == 57430 then
 		self:ScheduleMethod(0.1, "StaticFieldTarget")
 --		warnStaticField:Show()
 		timerStaticFieldCD:Start()

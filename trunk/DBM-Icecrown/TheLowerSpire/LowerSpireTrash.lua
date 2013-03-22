@@ -29,7 +29,7 @@ mod:RemoveOption("SpeedKillTimer")
 
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(69483) then
+	if args.spellId == 69483 then
 		warnDarkReckoning:Show(args.destName)
 		timerDarkReckoning:Start(args.destName)
 		if args:IsPlayer() then
@@ -43,7 +43,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(71022) then
+	if args.spellId == 71022 then
 		warnDisruptingShout:Show()
 		specWarnDisruptingShout:Show()
 		timerDisruptingShout:Start()

@@ -23,7 +23,7 @@ function mod:OnCombatStart()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(55098) then
+	if args.spellId == 55098 then
 		warningTransform:Show()
 		if lowHealth then
 			timerTransform:Start(5) --cast every 5 seconds below 50% health

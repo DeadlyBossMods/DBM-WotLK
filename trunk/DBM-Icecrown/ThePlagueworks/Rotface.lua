@@ -91,14 +91,14 @@ function mod:WallSlime()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(69508) then
+	if args.spellId == 69508 then
 		timerSlimeSpray:Start()
 		warnSlimeSpray:Show()
 		specWarnSlimeSpray:Show()
-	elseif args:IsSpellID(69774) then
+	elseif args.spellId == 69774 then
 		timerStickyOoze:Start()
 		warnStickyOoze:Show()
-	elseif args:IsSpellID(69839) then --Unstable Ooze Explosion (Big Ooze)
+	elseif args.spellId == 69839 then --Unstable Ooze Explosion (Big Ooze)
 		if GetTime() - spamOoze < 4 then --This will prevent spam but breaks if there are 2 oozes. GUID work is required
 			specWarnOozeExplosion:Cancel()
 		end
@@ -111,13 +111,13 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsPlayer() and args:IsSpellID(71208) then
+	if args:IsPlayer() and args.spellId == 71208 then
 		specWarnStickyOoze:Show()
-	elseif args:IsSpellID(69760) then
+	elseif args.spellId == 69760 then
 		warnRadiatingOoze:Show()
-	elseif args:IsSpellID(69558) then
+	elseif args.spellId == 69558 then
 		warnUnstableOoze:Show(args.spellName, args.destName, args.amount or 1)
-	elseif args:IsSpellID(69674) then
+	elseif args.spellId == 69674 then
 		warnMutatedInfection:Show(args.destName)
 		timerMutatedInfection:Start(args.destName)
 		if args:IsPlayer() then
@@ -132,7 +132,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				InfectionIcon = 8
 			end
 		end
-	elseif args:IsSpellID(72272) and args:IsDestTypePlayer() then	-- Vile Gas(Heroic Rotface only, 25 man spellid the same as 10?)
+	elseif args.spellId == 72272 and args:IsDestTypePlayer() then	-- Vile Gas(Heroic Rotface only, 25 man spellid the same as 10?)
 		RFVileGasTargets[#RFVileGasTargets + 1] = args.destName
 		if args:IsPlayer() then
 			specWarnVileGas:Show()
@@ -145,13 +145,13 @@ end
 mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(72272) then
+	if args.spellId == 72272 then
 		timerVileGasCD:Start()
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(69674) then
+	if args.spellId == 69674 then
 		timerMutatedInfection:Cancel(args.destName)
 		warnOozeSpawn:Show()
 		if self.Options.InfectionIcon then

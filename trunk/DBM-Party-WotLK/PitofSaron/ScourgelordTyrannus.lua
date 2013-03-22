@@ -75,6 +75,7 @@ end
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 	if msg == L.HoarfrostTarget or msg:find(L.HoarfrostTarget) then
 		if not target then return end
+		local target = DBM:GetFullNameByShortName(target)
 		warnHoarfrost:Show(target)
 		if target == UnitName("player") then
 			specWarnHoarfrost:Show()

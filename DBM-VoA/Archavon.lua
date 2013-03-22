@@ -43,7 +43,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-  if args:IsSpellID(58963, 60895) then		
+  if args:IsSpellID(58963, 60895) then
     warnLeap:Show()
 	end
 end
@@ -57,6 +57,6 @@ end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 	if msg and msg:match(L.TankSwitch) or msg:find(L.TankSwitch) then
-		warnGrab:Show(target)
+		warnGrab:Show(DBM:GetFullNameByShortName(target))
 	end
 end

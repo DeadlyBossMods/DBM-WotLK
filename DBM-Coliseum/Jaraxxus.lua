@@ -124,7 +124,7 @@ do
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(66237) then			-- Incinerate Flesh
+	if args.spellId == 66237 then			-- Incinerate Flesh
 		warnFlesh:Show(args.destName)
 		timerFlesh:Start(args.destName)
 		timerFleshCD:Start()
@@ -137,7 +137,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		setIncinerateTarget(self, args.destGUID, args.destName)
 		self:Schedule(15, clearIncinerateTarget, self, args.destName)
 
-	elseif args:IsSpellID(66197) then		-- Legion Flame ids 66199 (second debuff) do the actual damage. First 2 seconds are trigger debuff only.
+	elseif args.spellId == 66197 then		-- Legion Flame ids 66199 (second debuff) do the actual damage. First 2 seconds are trigger debuff only.
 		local targetname = args.destName
 		timerFlame:Start(args.destName)
 		timerFlameCD:Start()		
@@ -151,17 +151,17 @@ function mod:SPELL_AURA_APPLIED(args)
 		if DBM:GetRaidRank() > 0 and self.Options.LegionFlameWhisper then
 			self:SendWhisper(L.WhisperFlame, targetname)
 		end
-	elseif args:IsSpellID(66334) and args:IsPlayer() then
+	elseif args.spellId == 66334 and args:IsPlayer() then
 		specWarnKiss:Show()
 
-	elseif args:IsSpellID(66532) then		-- Fel Fireball (announce if tank gets debuff for dispel)
+	elseif args.spellId == 66532 then		-- Fel Fireball (announce if tank gets debuff for dispel)
 		warnFelFireball:Show()
 		SpecWarnFelFireballDispel:Show(args.destName)
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(66237) then			-- Incinerate Flesh
+	if args.spellId == 66237 then			-- Incinerate Flesh
 		timerFlesh:Stop()
 		self:Unschedule(clearIncinerateTarget)
 		clearIncinerateTarget(self, args.destName)
@@ -169,26 +169,26 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(66532) and self:GetUnitCreatureId("target") == 34780 then	-- Fel Fireball (track cast for interrupt, only when targeted)
+	if args.spellId == 66532 and self:GetUnitCreatureId("target") == 34780 then	-- Fel Fireball (track cast for interrupt, only when targeted)
 		SpecWarnFelFireball:Show()
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(67009) then								-- Nether Power
+	if args.spellId == 67009 then								-- Nether Power
 		warnNetherPower:Show()
 		timerNetherPowerCD:Start()
 		specWarnNetherPower:Show()
 
-	elseif args:IsSpellID(66258) then		-- Infernal Volcano
+	elseif args.spellId == 66258 then		-- Infernal Volcano
 		timerVolcanoCD:Start()
 		warnVolcanoSoon:Schedule(110)
 
-	elseif args:IsSpellID(66269) then		-- Nether Portal
+	elseif args.spellId == 66269 then		-- Nether Portal
 		timerPortalCD:Start()
 		warnPortalSoon:Schedule(110)
 	
-	elseif args:IsSpellID(66197) then		-- Legion Flame
+	elseif args.spellId == 66197 then		-- Legion Flame
 		warnFlame:Show(args.destName)
 	end
 end

@@ -111,14 +111,14 @@ do	-- add the additional Rune Power Bar
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(72378) then	-- Blood Nova (only 2 cast IDs, 4 spell damage IDs, and one dummy)
+	if args.spellId == 72378 then	-- Blood Nova (only 2 cast IDs, 4 spell damage IDs, and one dummy)
 		warnBloodNova:Show()
 		timerBloodNova:Start()
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(72410) then
+	if args.spellId == 72410 then
 		warnRuneofBlood:Show(args.destName)
 		specwarnRuneofBlood:Show(args.destName)
 		timerRuneofBlood:Start()
@@ -169,11 +169,11 @@ do
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(72293) then		-- Mark of the Fallen Champion
+	if args.spellId == 72293 then		-- Mark of the Fallen Champion
 		Mark = Mark + 1
 		warnMark:Show(Mark, args.destName)
 		specwarnMark:Show(args.destName)
-	elseif args:IsSpellID(72385) then	-- Boiling Blood
+	elseif args.spellId == 72385 then	-- Boiling Blood
 		boilingBloodTargets[#boilingBloodTargets + 1] = args.destName
 		timerBoilingBlood:Start()
 		if self.Options.BoilingBloodIcons then
@@ -186,13 +186,13 @@ function mod:SPELL_AURA_APPLIED(args)
 		else
 			self:Schedule(0.3, warnBoilingBloodTargets)
 		end
-	elseif args:IsSpellID(72737) then						-- Frenzy
+	elseif args.spellId == 72737 then						-- Frenzy
 		warnFrenzy:Show()
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(72385) then
+	if args.spellId == 72385 then
 		self:SetIcon(args.destName, 0)
 	end
 end

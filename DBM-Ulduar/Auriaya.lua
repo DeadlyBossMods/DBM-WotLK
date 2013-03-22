@@ -60,7 +60,7 @@ end
 function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(64678, 64389) then -- Sentinel Blast
 		specWarnBlast:Show()
-	elseif args:IsSpellID(64386) then -- Terrifying Screech
+	elseif args.spellId == 64386 then -- Terrifying Screech
 		warnFear:Show()
 		timerFear:Start()
 		timerNextFear:Schedule(2)
@@ -73,18 +73,18 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(64396) then -- Guardian Swarm
+	if args.spellId == 64396 then -- Guardian Swarm
 		warnSwarm:Show(args.destName)
 		timerNextSwarm:Start()
-	elseif args:IsSpellID(64455) then -- Feral Essence
+	elseif args.spellId == 64455 then -- Feral Essence
 		DBM.BossHealth:AddBoss(34035, L.Defender:format(9))
-	elseif args:IsSpellID(64386) and args:IsPlayer() then
+	elseif args.spellId == 64386 and args:IsPlayer() then
 		isFeared = true		
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(64386) and args:IsPlayer() then
+	if args.spellId == 64386 and args:IsPlayer() then
 		isFeared = false	
 	end
 end

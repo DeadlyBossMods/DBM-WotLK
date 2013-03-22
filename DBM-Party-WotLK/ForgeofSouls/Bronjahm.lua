@@ -25,14 +25,14 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(68872) then							-- Soulstorm
+	if args.spellId == 68872 then							-- Soulstorm
 		specwarnSoulstorm:Show()
 		timerSoulstormCast:Start()
 	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(68839) then							-- Corrupt Soul
+	if args.spellId == 68839 then							-- Corrupt Soul
 		warnCorruptSoul:Show(args.destName)
 	end
 end

@@ -72,10 +72,10 @@ end
 
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(62042) then 					-- Storm Hammer
+	if args.spellId == 62042 then 					-- Storm Hammer
 		warnStormhammer:Show(args.destName)
 
-	elseif args:IsSpellID(62130) then				-- Unbalancing Strike
+	elseif args.spellId == 62130 then				-- Unbalancing Strike
 		warnUnbalancingStrike:Show(args.destName)
 		
 	elseif args:IsSpellID(62526, 62527) then	-- Runic Detonation
@@ -85,12 +85,12 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(62042) then 		-- Storm Hammer
+	if args.spellId == 62042 then 		-- Storm Hammer
 		timerStormhammer:Schedule(2)
-	elseif args:IsSpellID(62466) then   	-- Lightning Charge
+	elseif args.spellId == 62466 then   	-- Lightning Charge
 		warnLightningCharge:Show()
 		timerLightningCharge:Start()	
-	elseif args:IsSpellID(62130) then	-- Unbalancing Strike
+	elseif args.spellId == 62130 then	-- Unbalancing Strike
 		timerUnbalancingStrike:Start()
 	end
 end

@@ -21,23 +21,23 @@ local timerGhoulCD	= mod:NewCDTimer(20, 52451)
 local timerCurse	= mod:NewTargetTimer(30, 58845)
 
 function mod:SPELL_SUMMON(args)
-	if args:IsSpellID(52451) then
+	if args.spellId == 52451 then
 		warningGhoul:Show()
 		timerGhoulCD:Start()
 	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(58845) then
+	if args.spellId == 58845 then
 		warningCurse:Show(args.destName)
 		timerCurse:Start(args.destName)
-	elseif args:IsSpellID(52709) then
+	elseif args.spellId == 52709 then
 		warningSteal:Show(args.destName)
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(58845) then
+	if args.spellId == 58845 then
 		timerCurse:Cancel()
 	end
 end

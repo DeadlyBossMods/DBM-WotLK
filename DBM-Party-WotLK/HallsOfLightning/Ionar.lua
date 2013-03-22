@@ -39,7 +39,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(52770) then
+	if args.spellId == 52770 then
 		warningDisperse:Show()
 	end
 end

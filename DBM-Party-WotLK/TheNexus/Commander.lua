@@ -25,7 +25,7 @@ local timerWhirlwindCD	= mod:NewCDTimer(15, 38619)
 
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(19134) and self:IsInCombat() then
+	if args.spellId == 19134 and self:IsInCombat() then
 		warningFear:Show()
 		timerFearCD:Start()
 	end

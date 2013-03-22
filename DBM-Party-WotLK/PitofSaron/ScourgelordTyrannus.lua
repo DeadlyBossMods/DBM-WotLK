@@ -42,14 +42,14 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(69167) then					-- Unholy Power
+	if args.spellId == 69167 then					-- Unholy Power
         warnUnholyPower:Show()
 		timerUnholyPower:Start()
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(69155) then					-- Forceful Smash
+	if args.spellId == 69155 then					-- Forceful Smash
         warnForcefulSmash:Show()
         timerForcefulSmash:Start()
 	end
@@ -63,7 +63,7 @@ end
 mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(69172) then							-- Overlord's Brand
+	if args.spellId == 69172 then							-- Overlord's Brand
 		warnOverlordsBrand:Show(args.destName)
 		timerOverlordsBrand:Start(args.destName)
 		if args:IsPlayer() then

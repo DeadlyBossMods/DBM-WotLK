@@ -78,17 +78,17 @@ function mod:OnCombatEnd()
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(27808) then -- Frost Blast
+	if args.spellId == 27808 then -- Frost Blast
 		table.insert(frostBlastTargets, args.destName)
 		self:Unschedule(AnnounceBlastTargets)
 		self:Schedule(0.5, AnnounceBlastTargets)
 		blastTimer:Start()
-	elseif args:IsSpellID(27819) then -- Mana Bomb
+	elseif args.spellId == 27819 then -- Mana Bomb
 		warnMana:Show(args.destName)
 		if self.Options.SetIconOnManaBomb then
 			self:SetIcon(args.destName, 8, 5.5)
 		end
-	elseif args:IsSpellID(28410) then -- Chains of Kel'Thuzad
+	elseif args.spellId == 28410 then -- Chains of Kel'Thuzad
 		chainsTargets[#chainsTargets + 1] = args.destName
 		timerMC:Start()
 		timerMCCD:Start(60)--60 seconds?
@@ -106,7 +106,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(27810) then
+	if args.spellId == 27810 then
 		warnFissure:Show()
 	end
 end

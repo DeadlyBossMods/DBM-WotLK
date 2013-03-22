@@ -46,14 +46,14 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(62776) then					-- Tympanic Tantrum (aoe damge + daze)
+	if args.spellId == 62776 then					-- Tympanic Tantrum (aoe damge + daze)
 		timerTympanicTantrumCast:Start()
 		timerTympanicTantrumCD:Stop()
 	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(62775) and args.auraType == "DEBUFF" then	-- Tympanic Tantrum
+	if args.spellId == 62775 and args.auraType == "DEBUFF" then	-- Tympanic Tantrum
 		timerTympanicTantrumCD:Start()
 		timerTympanicTantrum:Start()
 
@@ -75,7 +75,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		warnGravityBomb:Show(args.destName)
 		timerGravityBomb:Start(args.destName)
-	elseif args:IsSpellID(63849) then
+	elseif args.spellId == 63849 then
 		timerHeart:Start()
 	end
 end

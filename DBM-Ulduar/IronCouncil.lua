@@ -106,7 +106,7 @@ local function warnStaticDisruptionTargets()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(61920) then -- Supercharge - Unleashes one last burst of energy as the caster dies, increasing all allies damage by 25% and granting them an additional ability.	
+	if args.spellId == 61920 then -- Supercharge - Unleashes one last burst of energy as the caster dies, increasing all allies damage by 25% and granting them an additional ability.	
 		warnSupercharge:Show()
 	elseif args:IsSpellID(63479, 61879) then	-- Chain light
 		warnChainlight:Show()
@@ -117,7 +117,7 @@ function mod:SPELL_CAST_START(args)
 		timerFusionPunchCast:Start()
 	elseif args:IsSpellID(62274, 63489) then	-- Shield of Runes
 		warnShieldofRunes:Show()
-	elseif args:IsSpellID(62273) then			-- Rune of Summoning
+	elseif args.spellId == 62273 then			-- Rune of Summoning
 		warnRuneofSummoning:Show()
 	end
 end

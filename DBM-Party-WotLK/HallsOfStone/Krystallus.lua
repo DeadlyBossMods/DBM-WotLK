@@ -16,7 +16,7 @@ local warningShatter	= mod:NewSpellAnnounce(50810, 3)
 local timerShatterCD	= mod:NewCDTimer(25, 50810)
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(50833) then
+	if args.spellId == 50833 then
 		warningShatter:Show()	-- Shatter warning when Ground Slam is cast
 		timerShatterCD:Start()
 	end

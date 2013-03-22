@@ -237,38 +237,38 @@ function mod:SPELL_CAST_START(args)
 		timerTrapCD:Cancel()
 		timerDefileCD:Cancel()
 		warnDefileSoon:Cancel()
-	elseif args:IsSpellID(72262) then -- Quake (phase transition end)
+	elseif args.spellId == 72262 then -- Quake (phase transition end)
 		warnQuake:Show()
 		timerRagingSpiritCD:Cancel()
 		self:NextPhase()
-	elseif args:IsSpellID(70372) then -- Shambling Horror
+	elseif args.spellId == 70372 then -- Shambling Horror
 		warnShamblingSoon:Cancel()
 		warnShamblingHorror:Show()
 		warnShamblingSoon:Schedule(55)
 		timerShamblingHorror:Start()
-	elseif args:IsSpellID(70358) then -- Drudge Ghouls
+	elseif args.spellId == 70358 then -- Drudge Ghouls
 		warnDrudgeGhouls:Show()
 		timerDrudgeGhouls:Start()
-	elseif args:IsSpellID(70498) then -- Vile Spirits
+	elseif args.spellId == 70498 then -- Vile Spirits
 		warnSummonVileSpirit:Show()
 		timerVileSpirit:Start()
-	elseif args:IsSpellID(70541) then -- Infest
+	elseif args.spellId == 70541 then -- Infest
 		warnInfest:Show()
 		specWarnInfest:Show()
 		timerInfestCD:Start()
-	elseif args:IsSpellID(72762) then -- Defile
+	elseif args.spellId == 72762 then -- Defile
 		self:ScheduleMethod(0.1, "DefileTarget")
 		warnDefileSoon:Cancel()
 		warnDefileSoon:Schedule(27)
 		timerDefileCD:Start()
-	elseif args:IsSpellID(73539) then -- Shadow Trap (Heroic)
+	elseif args.spellId == 73539 then -- Shadow Trap (Heroic)
 		trapScansDone = 0
 		timerTrapCD:Start()
 		self:TrapHandler()
-	elseif args:IsSpellID(73650) then -- Restore Soul (Heroic)
+	elseif args.spellId == 73650 then -- Restore Soul (Heroic)
 		warnRestoreSoul:Show()
 		timerRestoreSoul:Start()
-	elseif args:IsSpellID(72350) then -- Fury of Frostmourne
+	elseif args.spellId == 72350 then -- Fury of Frostmourne
 		self:SetWipeTime(190)--Change min wipe time mid battle to force dbm to keep module loaded for this long out of combat roleplay
 		timerRoleplay:Start()
 		timerVileSpirit:Cancel()
@@ -281,7 +281,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(70337) then -- Necrotic Plague (SPELL_AURA_APPLIED is not fired for this spell)
+	if args.spellId == 70337 then -- Necrotic Plague (SPELL_AURA_APPLIED is not fired for this spell)
 		lastPlagueCast = GetTime()
 		warnNecroticPlague:Show(args.destName)
 		timerNecroticPlagueCD:Start()
@@ -292,7 +292,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		if self.Options.NecroticPlagueIcon then
 			self:SetIcon(args.destName, 5, 5)
 		end
-	elseif args:IsSpellID(69409) then -- Soul reaper (MT debuff)
+	elseif args.spellId == 69409 then -- Soul reaper (MT debuff)
 		warnSoulreaper:Show(args.destName)
 		specwarnSoulreaper:Show(args.destName)
 		timerSoulreaper:Start(args.destName)
@@ -300,7 +300,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		if args:IsPlayer() then
 			specWarnSoulreaper:Show()
 		end
-	elseif args:IsSpellID(69200) then -- Raging Spirit
+	elseif args.spellId == 69200 then -- Raging Spirit
 		warnRagingSpirit:Show(args.destName)
 		if args:IsPlayer() then
 			specWarnRagingSpirit:Show()
@@ -313,7 +313,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		if self.Options.RagingSpiritIcon then
 			self:SetIcon(args.destName, 7, 5)
 		end
-	elseif args:IsSpellID(68980) then -- Harvest Soul
+	elseif args.spellId == 68980 then -- Harvest Soul
 		warnHarvestSoul:Show(args.destName)
 		timerHarvestSoul:Start(args.destName)
 		timerHarvestSoulCD:Start()
@@ -323,7 +323,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		if self.Options.HarvestSoulIcon then
 			self:SetIcon(args.destName, 6, 6)
 		end
-	elseif args:IsSpellID(73654) then -- Harvest Souls (Heroic)
+	elseif args.spellId == 73654 then -- Harvest Souls (Heroic)
 		specWarnHarvestSouls:Show()
 		timerVileSpirit:Cancel()
 		timerSoulreaperCD:Cancel()
@@ -346,13 +346,13 @@ do
 	local lastDefile = 0
 	local lastRestore = 0
 	function mod:SPELL_AURA_APPLIED(args)
-		if args:IsSpellID(72143) then -- Shambling Horror enrage effect.
+		if args.spellId == 72143 then -- Shambling Horror enrage effect.
 			warnShamblingEnrage:Show(args.destName)
 			timerEnrageCD:Start()
-		elseif args:IsSpellID(72754) and args:IsPlayer() and time() - lastDefile > 2 then		-- Defile Damage
+		elseif args.spellId == 72754 and args:IsPlayer() and time() - lastDefile > 2 then		-- Defile Damage
 			specWarnDefile:Show()
 			lastDefile = time()
-		elseif args:IsSpellID(73650) and time() - lastRestore > 3 then		-- Restore Soul (Heroic)
+		elseif args.spellId == 73650 and time() - lastRestore > 3 then		-- Restore Soul (Heroic)
 			lastRestore = time()
 			timerHarvestSoulCD:Start(60)
 			timerVileSpirit:Start(10)--May be wrong too but we'll see, didn't have enough log for this one.
@@ -409,7 +409,7 @@ do
 	
 	
 	function mod:SPELL_SUMMON(args)
-		if args:IsSpellID(69037) then -- Summon Val'kyr
+		if args.spellId == 69037 then -- Summon Val'kyr
 			if time() - lastValk > 15 then -- show the warning and timer just once for all three summon events
 				warnSummonValkyr:Show()
 				timerSummonValkyr:Start()

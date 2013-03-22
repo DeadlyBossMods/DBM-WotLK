@@ -87,7 +87,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(68958) then
+	if args.spellId == 68958 then
         specWarnBlastNova:Show()
 		soundBlastNova:Play()
 	elseif args:IsSpellID(17086, 18351, 18564, 18576) or args:IsSpellID(18584, 18596, 18609, 18617) then	-- 1 ID for each direction
@@ -95,7 +95,7 @@ function mod:SPELL_CAST_START(args)
 		soundDeepBreath:Play()
 		timerBreath:Start()
 		timerNextDeepBreath:Start()
-	elseif args:IsSpellID(18435) then        -- Flame Breath (Ground phases)
+	elseif args.spellId == 18435 then        -- Flame Breath (Ground phases)
 		timerNextFlameBreath:Start()
 	end
 end

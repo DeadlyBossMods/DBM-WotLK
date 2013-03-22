@@ -115,7 +115,7 @@ do
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(67574) then			-- Pursue
+	if args.spellId == 67574 then			-- Pursue
 		if args:IsPlayer() then
 			specWarnPursue:Show()
 			soundPursue:Play()
@@ -124,7 +124,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			self:SetIcon(args.destName, 8, 15)
 		end
 		warnPursue:Show(args.destName)
-	elseif args:IsSpellID(66013) then		-- Penetrating Cold
+	elseif args.spellId == 66013 then		-- Penetrating Cold
 		timerPCold:Show()
 		if args:IsPlayer() then
 			specWarnPCold:Show()
@@ -140,10 +140,10 @@ function mod:SPELL_AURA_APPLIED(args)
 				end
 			end
 		end
-	elseif args:IsSpellID(66012) then							-- Freezing Slash
+	elseif args.spellId == 66012 then							-- Freezing Slash
 		warnFreezingSlash:Show(args.destName)
 		timerFreezingSlash:Start()
-	elseif args:IsSpellID(1022) and self:IsInCombat() then		-- Hand of Protection
+	elseif args.spellId == 1022 and self:IsInCombat() then		-- Hand of Protection
 		warnHoP:Show(args.destName)
 		timerHoP:Start(args.destName)
 	end
@@ -151,20 +151,20 @@ end
 mod.SPELL_AURA_REFRESH = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(66013) then			-- Penetrating Cold
+	if args.spellId == 66013 then			-- Penetrating Cold
 		if self.Options.SetIconsOnPCold then
 			self:SetIcon(args.destName, 0)
 			if self.Options.AnnouncePColdIconsRemoved and DBM:GetRaidRank() > 0 then
 				SendChatMessage(L.PcoldIconRemoved:format(args.destName), "RAID")
 			end
 		end
-	elseif args:IsSpellID(1022) and self:IsInCombat() then		-- Hand of Protection
+	elseif args.spellId == 1022 and self:IsInCombat() then		-- Hand of Protection
 		timerHoP:Cancel(args.destName)
 	end
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(66118) then			-- Swarm (start p3)
+	if args.spellId == 66118 then			-- Swarm (start p3)
 		warnPhase3:Show()
 		warnEmergeSoon:Cancel()
 		warnSubmergeSoon:Cancel()
@@ -176,7 +176,7 @@ function mod:SPELL_CAST_START(args)
 			warnAdds:Cancel() 
 			self:UnscheduleMethod("Adds")
 		end
-	elseif args:IsSpellID(66134) then							-- Shadow Strike
+	elseif args.spellId == 66134 then							-- Shadow Strike
 		self:ShadowStrike()
 		specWarnShadowStrike:Show()
 		warnShadowStrike:Show()

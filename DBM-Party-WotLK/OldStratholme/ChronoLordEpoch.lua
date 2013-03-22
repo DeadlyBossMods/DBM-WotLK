@@ -27,14 +27,14 @@ function mod:SPELL_CAST_SUCCESS(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(52772) then
+	if args.spellId == 52772 then
 		warningCurse:Show(args.destName)
 		timerCurse:Start(args.destName)
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(52772) then
+	if args.spellId == 52772 then
 		timerCurse:Cancel(args.destName)
 	end
 end

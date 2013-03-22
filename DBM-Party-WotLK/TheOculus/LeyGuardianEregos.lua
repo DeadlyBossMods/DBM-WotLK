@@ -28,11 +28,11 @@ function mod:OnCombatEnd(wipe)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(51162) then
+	if args.spellId == 51162 then
 		warningShift:Show()
 		warningShiftEnd:Schedule(13)
 		timerShift:Start()
-	elseif args:IsSpellID(51170) then
+	elseif args.spellId == 51170 then
 		warningEnraged:Show()
 		timerEnraged:Start()
 	end

@@ -22,7 +22,7 @@ local timerFlameCD		= mod:NewCDTimer(17, 55959)
 
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(55931) then
+	if args.spellId == 55931 then
 		warningFlame:Show()
 		timerFlameCD:Start()
 	end

@@ -62,19 +62,19 @@ local lightEssence = GetSpellInfo(67223)
 local darkEssence = GetSpellInfo(67176)
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(66046) then 			-- Light Vortex
+	if args.spellId == 66046 then 			-- Light Vortex
 		local debuff = UnitDebuff("player", lightEssence)
 		self:SpecialAbility(debuff)
-	elseif args:IsSpellID(66058) then		-- Dark Vortex
+	elseif args.spellId == 66058 then		-- Dark Vortex
 		local debuff = UnitDebuff("player", darkEssence)
 		self:SpecialAbility(debuff)
-	elseif args:IsSpellID(65875) then 		-- Twin's Pact
+	elseif args.spellId == 65875 then 		-- Twin's Pact
 		timerHeal:Start()
 		self:SpecialAbility(true)
 		if self:GetUnitCreatureId("target") == 34497 then	-- if lightbane, then switch to darkbane
 			specWarnSwitch:Show()	
 		end
-	elseif args:IsSpellID(65876) then		-- Light Pact
+	elseif args.spellId == 65876 then		-- Light Pact
 		timerHeal:Start()
 		self:SpecialAbility(true)
 		if self:GetUnitCreatureId("target") == 34496 then	-- if darkbane, then switch to lightbane
@@ -152,11 +152,11 @@ do
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsPlayer() and args:IsSpellID(65724) then 		-- Empowered Darkness
+	if args:IsPlayer() and args.spellId == 65724 then 		-- Empowered Darkness
 		specWarnEmpoweredDarkness:Show()
-	elseif args:IsPlayer() and args:IsSpellID(65748) then	-- Empowered Light
+	elseif args:IsPlayer() and args.spellId == 65748 then	-- Empowered Light
 		specWarnEmpoweredLight:Show()
-	elseif args:IsSpellID(65950) then	-- Touch of Light
+	elseif args.spellId == 65950 then	-- Touch of Light
 		if args:IsPlayer() and self.Options.SpecialWarnOnDebuff then
 			specWarnSpecial:Show()
 		end
@@ -168,7 +168,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		debuffTargets[#debuffTargets + 1] = args.destName
 		self:UnscheduleMethod("warnDebuff")
 		self:ScheduleMethod(0.9, "warnDebuff")
-	elseif args:IsSpellID(66001) then	-- Touch of Darkness
+	elseif args.spellId == 66001 then	-- Touch of Darkness
 		if args:IsPlayer() and self.Options.SpecialWarnOnDebuff then
 			specWarnSpecial:Show()
 		end
@@ -188,7 +188,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(65874) then			-- Shield of Darkness
+	if args.spellId == 65874 then			-- Shield of Darkness
 		if UnitCastingInfo("target") and self:GetUnitCreatureId("target") == 34496 then
 			specWarnKickNow:Show()
 		end
@@ -200,12 +200,12 @@ function mod:SPELL_AURA_REMOVED(args)
 		end
 		self:Unschedule(hideShieldHealthBar)
 		hideShieldHealthBar()
-	elseif args:IsSpellID(65950) then	-- Touch of Light
+	elseif args.spellId == 65950 then	-- Touch of Light
 		timerLightTouch:Stop(args.destName)
 		if self.Options.SetIconOnDebuffTarget then
 			self:SetIcon(args.destName, 0)
 		end
-	elseif args:IsSpellID(66001) then	-- Touch of Darkness
+	elseif args.spellId == 66001 then	-- Touch of Darkness
 		timerDarkTouch:Start(args.destName)
 		if self.Options.SetIconOnDebuffTarget then
 			self:SetIcon(args.destName, 0)

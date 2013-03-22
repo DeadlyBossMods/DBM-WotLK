@@ -44,7 +44,7 @@ end
 
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(28522) and args:IsPlayer() and self.Options.WarningIceblock then
+	if args.spellId == 28522 and args:IsPlayer() and self.Options.WarningIceblock then
 		SendChatMessage(L.WarningYellIceblock, "YELL")
 	end
 end

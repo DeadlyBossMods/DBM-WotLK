@@ -176,7 +176,7 @@ function mod:SPELL_CAST_START(args)
 end	
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(70126) then
+	if args.spellId == 70126 then
 		beaconTargets[#beaconTargets + 1] = args.destName
 		if args:IsPlayer() then
 			playerBeaconed = true
@@ -209,7 +209,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		else
 			self:Schedule(0.3, warnBeaconTargets)
 		end
-	elseif args:IsSpellID(69762) then
+	elseif args.spellId == 69762 then
 		unchainedTargets[#unchainedTargets + 1] = args.destName
 		if args:IsPlayer() then
 			playerUnchained = true
@@ -225,7 +225,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		else
 			self:Schedule(0.3, warnUnchainedTargets)
 		end
-	elseif args:IsSpellID(70106) then	--Chilled to the bone (melee)
+	elseif args.spellId == 70106 then	--Chilled to the bone (melee)
 		if args:IsPlayer() then
 			warnChilledtotheBone:Show(args.amount or 1)
 			timerChilledtotheBone:Start()
@@ -233,7 +233,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				specWarnChilledtotheBone:Show(args.amount)
 			end
 		end
-	elseif args:IsSpellID(69766) then	--Instability (casters)
+	elseif args.spellId == 69766 then	--Instability (casters)
 		if args:IsPlayer() then
 			warnInstability:Show(args.amount or 1)
 			timerInstability:Start()
@@ -269,7 +269,7 @@ end
 mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(70117) then--Icy Grip Cast, not blistering cold, but adds an extra 1sec to the warning
+	if args.spellId == 70117 then--Icy Grip Cast, not blistering cold, but adds an extra 1sec to the warning
 		warnBlisteringCold:Show()
 		specWarnBlisteringCold:Show()
 		timerBlisteringCold:Start()
@@ -279,21 +279,21 @@ function mod:SPELL_CAST_SUCCESS(args)
 end	
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(69762) then
+	if args.spellId == 69762 then
 		if self.Options.SetIconOnUnchainedMagic and not activeBeacons then
 			self:SetIcon(args.destName, 0)
 		end
-	elseif args:IsSpellID(70157) then
+	elseif args.spellId == 70157 then
 		if self.Options.SetIconOnFrostBeacon then
 			self:SetIcon(args.destName, 0)
 		end
-	elseif args:IsSpellID(70126) then
+	elseif args.spellId == 70126 then
 		activeBeacons = false
-	elseif args:IsSpellID(70106) then	--Chilled to the bone (melee)
+	elseif args.spellId == 70106 then	--Chilled to the bone (melee)
 		if args:IsPlayer() then
 			timerChilledtotheBone:Cancel()
 		end
-	elseif args:IsSpellID(69766) then	--Instability (casters)
+	elseif args.spellId == 69766 then	--Instability (casters)
 		if args:IsPlayer() then
 			timerInstability:Cancel()
 		end

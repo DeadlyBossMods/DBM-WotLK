@@ -28,9 +28,9 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerShout:Start()
 		warnShoutNow:Show()
 		warnShoutSoon:Schedule(11)
-	elseif args:IsSpellID(29060) then -- Taunt
+	elseif args.spellId == 29060 then -- Taunt
 		timerTaunt:Start()
-	elseif args:IsSpellID(29061) then -- ShieldWall
+	elseif args.spellId == 29061 then -- ShieldWall
 		timerShieldWall:Start()
 		warnShieldWall:Schedule(15)
 	end

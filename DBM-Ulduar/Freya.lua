@@ -75,9 +75,9 @@ function mod:SPELL_CAST_START(args)
 end 
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(62678) then -- Summon Allies of Nature
+	if args.spellId == 62678 then -- Summon Allies of Nature
 		timerAlliesOfNature:Start()
-	elseif args:IsSpellID(62619) and self:GetUnitCreatureId(args.sourceName) == 33228 then -- Pheromones spell, cast by newly spawned Eonar's Gift second they spawn to allow melee to dps them while protector is up.
+	elseif args.spellId == 62619 and self:GetUnitCreatureId(args.sourceName) == 33228 then -- Pheromones spell, cast by newly spawned Eonar's Gift second they spawn to allow melee to dps them while protector is up.
 		warnLifebinder:Show()
 		specWarnLifebinder:Show()
 		timerLifebinderCD:Start()

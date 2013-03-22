@@ -171,20 +171,20 @@ function mod:WormsSubmerge()
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsSpellID(66331) then		-- Impale
+	if args.spellId == 66331 then		-- Impale
 		timerNextImpale:Start()
 		warnImpaleOn:Show(args.destName)
-	elseif args:IsSpellID(66759) then	-- Frothing Rage
+	elseif args.spellId == 66759 then	-- Frothing Rage
 		warnRage:Show()
 		specWarnTranq:Show()
-	elseif args:IsSpellID(66823) then	-- Paralytic Toxin
+	elseif args.spellId == 66823 then	-- Paralytic Toxin
 		self:UnscheduleMethod("warnToxin")
 		toxinTargets[#toxinTargets + 1] = args.destName
 		if args:IsPlayer() then
 			specWarnToxin:Show()
 		end
 		self:ScheduleMethod(0.2, "warnToxin")
-	elseif args:IsSpellID(66869) then		-- Burning Bile
+	elseif args.spellId == 66869 then		-- Burning Bile
 		self:UnscheduleMethod("warnBile")
 		bileTargets[#bileTargets + 1] = args.destName
 		if args:IsPlayer() then
@@ -195,18 +195,18 @@ function mod:SPELL_AURA_APPLIED(args)
 			burnIcon = burnIcon - 1
 		end
 		self:ScheduleMethod(0.2, "warnBile")
-	elseif args:IsSpellID(66758) then
+	elseif args.spellId == 66758 then
 		timerStaggeredDaze:Start()
-	elseif args:IsSpellID(66636) then						-- Rising Anger
+	elseif args.spellId == 66636 then						-- Rising Anger
 		WarningSnobold:Show()
 		timerRisingAnger:Show()
-	elseif args:IsSpellID(68335) then
+	elseif args.spellId == 68335 then
 		warnEnrageWorm:Show()
 	end
 end
 
 function mod:SPELL_AURA_APPLIED_DOSE(args)
-	if args:IsSpellID(66331) then		-- Impale
+	if args.spellId == 66331 then		-- Impale
 		timerNextImpale:Start()
 		warnImpaleOn:Show(args.destName)
 		if (args.amount >= 3 and not self:IsDifficulty("heroic10", "heroic25") ) or ( args.amount >= 2 and self:IsDifficulty("heroic10", "heroic25") ) then 
@@ -214,7 +214,7 @@ function mod:SPELL_AURA_APPLIED_DOSE(args)
 				specWarnImpale3:Show(args.amount)
 			end
 		end
-	elseif args:IsSpellID(66636) then						-- Rising Anger
+	elseif args.spellId == 66636 then						-- Rising Anger
 		WarningSnobold:Show()
 		if args.amount <= 3 then
 			timerRisingAnger:Show()
@@ -225,34 +225,34 @@ function mod:SPELL_AURA_APPLIED_DOSE(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(66689) then			-- Arctic Breath
+	if args.spellId == 66689 then			-- Arctic Breath
 		timerBreath:Start()
 		warnBreath:Show()
-	elseif args:IsSpellID(66313) then							-- FireBomb (Impaler)
+	elseif args.spellId == 66313 then							-- FireBomb (Impaler)
 		warnFireBomb:Show()
-	elseif args:IsSpellID(66330) then		-- Staggering Stomp
+	elseif args.spellId == 66330 then		-- Staggering Stomp
 		timerNextStomp:Start()
 		specWarnSilence:Schedule(19)							-- prewarn ~1,5 sec before next
-	elseif args:IsSpellID(66794) then		-- Sweep stationary worm
+	elseif args.spellId == 66794 then		-- Sweep stationary worm
 		timerSweepCD:Start()
-	elseif args:IsSpellID(66821) then							-- Molten spew
+	elseif args.spellId == 66821 then							-- Molten spew
 		timerMoltenSpewCD:Start()
-	elseif args:IsSpellID(66818) then							-- Acidic Spew
+	elseif args.spellId == 66818 then							-- Acidic Spew
 		timerAcidicSpewCD:Start()
-	elseif args:IsSpellID(66901) then		-- Paralytic Spray
+	elseif args.spellId == 66901 then		-- Paralytic Spray
 		timerParalyticSprayCD:Start()
-	elseif args:IsSpellID(66902) then		-- Burning Spray
+	elseif args.spellId == 66902 then		-- Burning Spray
 		timerBurningSprayCD:Start()
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(66883) then			-- Slime Pool Cloud Spawn
+	if args.spellId == 66883 then			-- Slime Pool Cloud Spawn
 		warnSlimePool:Show()
 		timerSlimePoolCD:Show()
-	elseif args:IsSpellID(66824) then		-- Paralytic Bite
+	elseif args.spellId == 66824 then		-- Paralytic Bite
 		timerParalyticBiteCD:Start()
-	elseif args:IsSpellID(66879) then		-- Burning Bite
+	elseif args.spellId == 66879 then		-- Burning Bite
 		timerBurningBiteCD:Start()
 	end
 end

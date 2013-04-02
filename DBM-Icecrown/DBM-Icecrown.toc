@@ -14,6 +14,7 @@
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: DBMIcecrown_SavedVars, DBMIcecrown_SavedStats
 ## X-DBM-Mod: 1
+## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
 ## X-DBM-Mod-SubCategories: The Lower Spire, The Plagueworks, The Crimson Hall, Frostwing Halls, The Frozen Throne
 ## X-DBM-Mod-SubCategories-deDE: Die Untere Spitze, Die Seuchenwerke, Die Blutrote Halle, Die Frostschwingenhallen, Der Frostthron

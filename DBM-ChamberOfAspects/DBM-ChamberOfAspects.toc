@@ -12,6 +12,7 @@
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: DBMChamberOfAspects_SavedVars, DBMChamberOfAspects_SavedStats
 ## X-DBM-Mod: 1
+## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
 ## X-DBM-Mod-SubCategories: The Obsidian Sanctum, The Ruby Sanctum
 ## X-DBM-Mod-SubCategories-deDE: Das Obsidiansanktum, Das Rubinsanktum

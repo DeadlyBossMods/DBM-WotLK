@@ -14,8 +14,9 @@
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: DBMOnyxia_SavedVars, DBMOnyxia_SavedStats
 ## X-DBM-Mod: 1
+## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
-## X-DBM-Mod-Has-Heroic-Mode: 0
+## X-DBM-Mod-No-Heroic: 1
 ## X-DBM-Mod-Sort: 203
 ## X-DBM-Mod-Name: Onyxia's Lair
 ## X-DBM-Mod-Name-frFR: Repaire d'Onyxia

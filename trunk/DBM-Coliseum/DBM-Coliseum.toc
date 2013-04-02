@@ -13,6 +13,7 @@
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: DBMColiseum_SavedVars, DBMColiseum_SavedStats
 ## X-DBM-Mod: 1
+## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
 ## X-DBM-Mod-Name: Crusader's Coliseum
 ## X-DBM-Mod-Name-koKR: 십자군의 시험장

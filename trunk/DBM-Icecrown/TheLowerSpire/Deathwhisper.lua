@@ -30,7 +30,7 @@ local warnDarkTransformation		= mod:NewSpellAnnounce(70900, 4)
 local warnDarkEmpowerment			= mod:NewSpellAnnounce(70901, 4)
 local warnPhase2					= mod:NewPhaseAnnounce(2, 1)	
 local warnFrostbolt					= mod:NewCastAnnounce(71420, 2)
-local warnTouchInsignificance		= mod:NewAnnounce("WarnTouchInsignificance", 2, 71204, mod:IsTank() or mod:IsHealer())
+local warnTouchInsignificance		= mod:NewStackAnnounce(71204, 2, nil, mod:IsTank() or mod:IsHealer())
 local warnDarkMartyrdom				= mod:NewSpellAnnounce(71236, 4)
 
 local specWarnCurseTorpor			= mod:NewSpecialWarningYou(71237)
@@ -85,6 +85,7 @@ end
 
 do	-- add the additional Shield Bar
 	local last = 100
+	local shieldName = GetSpellInfo(70842)
 	local function getShieldPercent()
 		local guid = UnitGUID("focus")
 		if mod:GetCIDFromGUID(guid) == 36855 then 
@@ -102,7 +103,7 @@ do	-- add the additional Shield Bar
 		return last
 	end
 	function mod:CreateShieldHPFrame()
-		DBM.BossHealth:AddBoss(getShieldPercent, L.ShieldPercent)
+		DBM.BossHealth:AddBoss(getShieldPercent, shieldName)
 	end
 end
 

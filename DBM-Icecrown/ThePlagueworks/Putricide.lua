@@ -32,20 +32,22 @@ local warnMalleableGoo				= mod:NewSpellAnnounce(72295, 2)		-- Phase 2 ability
 local warnChokingGasBombSoon		= mod:NewPreWarnAnnounce(71255, 5, 3, nil, mod:IsMelee())
 local warnChokingGasBomb			= mod:NewSpellAnnounce(71255, 3, nil, mod:IsMelee())		-- Phase 2 ability
 local warnPhase3Soon				= mod:NewAnnounce("WarnPhase3Soon", 2)
-local warnMutatedPlague				= mod:NewAnnounce("WarnMutatedPlague", 2, 72451, mod:IsTank() or mod:IsHealer()) -- Phase 3 ability
-local warnUnboundPlague				= mod:NewTargetAnnounce(70911, 3)			-- Heroic Ability
+local warnMutatedPlague				= mod:NewStackAnnounce(72451, 3, nil, mod:IsTank() or mod:IsHealer()) -- Phase 3 ability
+local warnUnboundPlague				= mod:NewTargetAnnounce(70911, 3)		-- Heroic Ability
 
 local specWarnVolatileOozeAdhesive	= mod:NewSpecialWarningYou(70447)
 local specWarnGaseousBloat			= mod:NewSpecialWarningYou(70672)
 local specWarnVolatileOozeOther		= mod:NewSpecialWarningTarget(70447, false)
 local specWarnGaseousBloatOther		= mod:NewSpecialWarningTarget(70672, false)
-local specWarnMalleableGoo			= mod:NewSpecialWarning("SpecWarnMalleableGoo")
-local specWarnMalleableGooNear		= mod:NewSpecialWarning("SpecWarnMalleableGooNear")
-local specWarnChokingGasBomb		= mod:NewSpecialWarningSpell(71255, mod:IsTank())
-local specWarnMalleableGooCast		= mod:NewSpecialWarningSpell(72295, false)
+local specWarnMalleableGoo			= mod:NewSpecialWarningYou(72295)
+local yellMalleableGoo				= mod:NewYell(72295)
+local specWarnMalleableGooNear		= mod:NewSpecialWarningClose(72295)
+local specWarnChokingGasBomb		= mod:NewSpecialWarningMove(71255, mod:IsTank())
+local specWarnMalleableGooCast		= mod:NewSpecialWarningSpell(72295, nil, nil, nil, 2)
 local specWarnOozeVariable			= mod:NewSpecialWarningYou(70352)		-- Heroic Ability
 local specWarnGasVariable			= mod:NewSpecialWarningYou(70353)		-- Heroic Ability
 local specWarnUnboundPlague			= mod:NewSpecialWarningYou(70911)		-- Heroic Ability
+local yellUnboundPlague				= mod:NewYell(70911)
 
 local timerGaseousBloat				= mod:NewTargetTimer(20, 70672)			-- Duration of debuff
 local timerSlimePuddleCD			= mod:NewCDTimer(35, 70341)				-- Approx
@@ -71,8 +73,6 @@ mod:AddBoolOption("GaseousBloatIcon")
 mod:AddBoolOption("MalleableGooIcon")
 mod:AddBoolOption("UnboundPlagueIcon")					-- icon on the player with active buff
 mod:AddBoolOption("GooArrow")
-mod:AddBoolOption("YellOnMalleableGoo", true, "announce")
-mod:AddBoolOption("YellOnUnbound", true, "announce")
 
 local warned_preP2 = false
 local warned_preP3 = false
@@ -93,19 +93,15 @@ function mod:OnCombatStart(delay)
 	end
 end
 
-function mod:MalleableGooTarget()
-	local targetname = self:GetBossTarget(36678)
+function mod:MalleableGooTarget(targetname, uId)
 	if not targetname then return end
 		if self.Options.MalleableGooIcon then
 			self:SetIcon(targetname, 6, 10)
 		end
 	if targetname == UnitName("player") then
 		specWarnMalleableGoo:Show()
-		if self.Options.YellOnMalleableGoo then
-			SendChatMessage(L.YellMalleable, "SAY")
-		end
-	elseif targetname then
-		local uId = DBM:GetRaidUnitId(targetname)
+		yellMalleableGoo:Yell()
+	else
 		if uId then
 			local inRange = CheckInteractDistance(uId, 2)
 			local x, y = GetPlayerMapPosition(uId)
@@ -114,7 +110,7 @@ function mod:MalleableGooTarget()
 				x, y = GetPlayerMapPosition(uId)
 			end
 			if inRange then
-				specWarnMalleableGooNear:Show()
+				specWarnMalleableGooNear:Show(targetname)
 				if self.Options.GooArrow then
 					DBM.Arrow:ShowRunAway(x, y, 10, 5)
 				end
@@ -209,7 +205,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		else
 			timerMalleableGooCD:Start()
 		end
-		self:ScheduleMethod(0.2, "MalleableGooTarget")
+		self:BossTargetScanner(36678, "MalleableGooTarget", 0.05, 6)
 	end
 end
 
@@ -259,9 +255,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then
 			specWarnUnboundPlague:Show()
 			timerUnboundPlague:Start()
-			if self.Options.YellOnUnbound then
-				SendChatMessage(L.YellUnbound, "SAY")
-			end
+			yellUnboundPlague:Yell()
 		end
 	end
 end

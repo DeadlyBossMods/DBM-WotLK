@@ -14,8 +14,8 @@ mod:RegisterEvents(
 	"UNIT_SPELLCAST_SUCCEEDED"
 )
 
-local warnInhaledBlight		= mod:NewAnnounce("InhaledBlight", 3, 69166)
-local warnGastricBloat		= mod:NewAnnounce("WarnGastricBloat", 2, 72219, mod:IsTank() or mod:IsHealer())
+local warnInhaledBlight		= mod:NewStackAnnounce(69166, 3)
+local warnGastricBloat		= mod:NewStackAnnounce(72219, 2, nil, mod:IsTank() or mod:IsHealer())
 local warnGasSpore			= mod:NewTargetAnnounce(69279, 4)
 local warnVileGas			= mod:NewTargetAnnounce(69240, 3)
 
@@ -165,20 +165,21 @@ function mod:SPELL_AURA_APPLIED(args)
 			self:Schedule(0.3, warnGasSporeTargets)
 		end
 	elseif args.spellId == 69166 then	-- Inhaled Blight
-		warnInhaledBlight:Show(args.amount or 1)
-		if (args.amount or 1) >= 3 then
-			specWarnInhaled3:Show(args.amount)
+		local amount = args.amount or 1
+		warnInhaledBlight:Show(args.spellName, args.destName, amount)
+		if amount >= 3 then
+			specWarnInhaled3:Show(amount)
 			timerPungentBlight:Start()
-		end
-		if (args.amount or 1) <= 2 then	--Prevent timer from starting after 3rd stack since he won't cast it a 4th time, he does Pungent instead.
+		else	--Prevent timer from starting after 3rd stack since he won't cast it a 4th time, he does Pungent instead.
 			timerInhaledBlight:Start()
 		end
 	elseif args.spellId == 72219 then	-- Gastric Bloat
-		warnGastricBloat:Show(args.spellName, args.destName, args.amount or 1)
+		local amount = args.amount or 1
+		warnGastricBloat:Show(args.spellName, args.destName, amount)
 		timerGastricBloat:Start(args.destName)
 		timerGastricBloatCD:Start()
-		if args:IsPlayer() and (args.amount or 1) >= 9 then
-			specWarnGastricBloat:Show(args.amount)
+		if args:IsPlayer() and amount >= 9 then
+			specWarnGastricBloat:Show(amount)
 		end
 	elseif args.spellId == 69240 and args:IsDestTypePlayer() then	-- Vile Gas
 		vileGasTargets[#vileGasTargets + 1] = args.destName
@@ -187,13 +188,12 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		self:Unschedule(warnVileGasTargets)
 		self:Schedule(0.8, warnVileGasTargets)
-	elseif args.spellId == 69291 then	--Inoculated
-		if args:IsDestTypePlayer() then
-			if self.Options.AchievementCheck and DBM:GetRaidRank() > 0 and not warnedfailed and self:AntiSpam(3, 1) then
-				if (args.amount or 1) == 3 then
-					warnedfailed = true
-					SendChatMessage(L.AchievementFailed:format(args.destName, (args.amount or 1)), "RAID_WARNING")
-				end
+	elseif args.spellId == 69291 and args:IsDestTypePlayer() then	--Inoculated
+		local amount = args.amount or 1
+		if self.Options.AchievementCheck and DBM:GetRaidRank() > 0 and not warnedfailed and self:AntiSpam(3, 1) then
+			if amount == 3 then
+				warnedfailed = true
+				SendChatMessage(L.AchievementFailed:format(args.destName, amount), "RAID_WARNING")
 			end
 		end
 	end

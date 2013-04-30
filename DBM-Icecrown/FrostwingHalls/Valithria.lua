@@ -19,7 +19,7 @@ mod:RegisterEvents(
 	"UNIT_TARGET"
 )
 
-local warnCorrosion			= mod:NewAnnounce("WarnCorrosion", 2, 70751, false)
+local warnCorrosion			= mod:NewStackAnnounce(70751, 2, nil, false)
 local warnGutSpray			= mod:NewTargetAnnounce(70633, 3, nil, mod:IsTank() or mod:IsHealer())
 local warnManaVoid			= mod:NewSpellAnnounce(71179, 2, nil, mod:IsManaUser())
 local warnSupression		= mod:NewSpellAnnounce(70588, 3)

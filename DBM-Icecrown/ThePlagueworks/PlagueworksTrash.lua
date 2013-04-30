@@ -15,11 +15,11 @@ mod:RegisterEvents(
 )
 
 local warnZombies			= mod:NewSpellAnnounce(71159, 2)
-local warnMortalWound		= mod:NewAnnounce("WarnMortalWound", 2, 71127, false)
+local warnMortalWound		= mod:NewStackAnnounce(71127, 2, nil, mod:IsTank() or mod:IsHealer())
 local warnDecimateSoon		= mod:NewSoonAnnounce(71123, 3)
 
 local specWarnDecimate		= mod:NewSpecialWarningSpell(71123)
-local specWarnMortalWound	= mod:NewSpecialWarningStack(71127, nil, 5)
+local specWarnMortalWound	= mod:NewSpecialWarningStack(71127, mod:IsTank() or mod:IsHealer(), 5)
 local specWarnTrap			= mod:NewSpecialWarning("SpecWarnTrap")
 local specWarnBlightBomb	= mod:NewSpecialWarningSpell(71088)
 
@@ -33,10 +33,11 @@ mod:RemoveOption("SpeedKillTimer")
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 71127 then
-		warnMortalWound:Show(args.spellName, args.destName, args.amount or 1)
+		local amount = args.amount or 1
+		warnMortalWound:Show(args.spellName, args.destName, amount)
 		timerMortalWound:Start(args.destName)
-		if args:IsPlayer() and (args.amount or 1) >= 5 then
-			specWarnMortalWound:Show(args.amount)
+		if args:IsPlayer() and amount >= 5 then
+			specWarnMortalWound:Show(amount)
 		end
 	end
 end

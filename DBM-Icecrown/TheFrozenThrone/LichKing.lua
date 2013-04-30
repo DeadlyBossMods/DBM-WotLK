@@ -93,10 +93,10 @@ local soundShadowTrap		= mod:NewSound(73539)
 mod:AddBoolOption("SpecWarnHealerGrabbed", mod:IsTank() or mod:IsHealer(), "announce")
 mod:AddBoolOption("DefileIcon")
 mod:AddBoolOption("NecroticPlagueIcon")
-mod:AddBoolOption("RagingSpiritIcon")
+mod:AddBoolOption("RagingSpiritIcon", false)
 mod:AddBoolOption("TrapIcon")
 mod:AddBoolOption("ValkyrIcon")
-mod:AddBoolOption("HarvestSoulIcon")
+mod:AddBoolOption("HarvestSoulIcon", false)
 mod:AddBoolOption("AnnounceValkGrabs", false)
 
 local phase	= 0
@@ -146,7 +146,7 @@ function mod:DefileTarget(targetname, uId)
 		if uId then
 			local inRange = CheckInteractDistance(uId, 2)
 			if inRange then
-				specWarnDefileNear:Show()
+				specWarnDefileNear:Show(targetname)
 			end
 		end
 	end

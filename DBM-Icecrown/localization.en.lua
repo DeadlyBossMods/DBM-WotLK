@@ -35,13 +35,11 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnMortalWound	= "%s on >%s< (%d)",		-- Mortal Wound on >args.destName< (args.amount)
 	SpecWarnTrap	= "Trap Activated! - Vengeful Fleshreapers incoming"--creatureid 37038
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrap	= "Show special warning for trap activation",
-	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127)
+	SpecWarnTrap	= "Show special warning for trap activation"
 }
 
 L:SetMiscLocalization{
@@ -108,12 +106,7 @@ L:SetTimerLocalization{
 	AchievementBoned	= "Time to free"
 }
 
-L:SetWarningLocalization{
-	WarnImpale			= ">%s< is impaled"
-}
-
 L:SetOptionLocalization{
-	WarnImpale			= "Announce $spell:69062 targets",
 	AchievementBoned	= "Show timer for Boned achievement",
 	SetIconOnImpale		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69062)
 }
@@ -133,7 +126,6 @@ L:SetTimerLocalization{
 
 L:SetWarningLocalization{
 	WarnReanimating				= "Add reviving",			-- Reanimating an adherent or fanatic
-	WarnTouchInsignificance		= "%s on >%s< (%d)",		-- Touch of Insignificance on >args.destName< (args.amount)
 	WarnAddsSoon				= "New adds soon"
 }
 
@@ -142,7 +134,6 @@ L:SetOptionLocalization{
 	WarnReanimating				= "Show warning when an add is being revived",	-- Reanimated Adherent/Fanatic spawning
 	TimerAdds					= "Show timer for new adds",
 	ShieldHealthFrame			= "Show boss health with a health bar for $spell:70842",
-	WarnTouchInsignificance		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204),
 	SetIconOnDominateMind		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71289),
 	SetIconOnDeformedFanatic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70900),
 	SetIconOnEmpoweredAdherent	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70901)
@@ -151,7 +142,6 @@ L:SetOptionLocalization{
 L:SetMiscLocalization{
 	YellPull				= "What is this disturbance? You dare trespass upon this hallowed ground? This shall be your final resting place!",
 	YellReanimatedFanatic	= "Arise, and exult in your pure form!",
-	ShieldPercent			= "Mana Barrier",--Translate Spell id 70842
 	Fanatic1				= "Cult Fanatic",
 	Fanatic2				= "Deformed Fanatic",
 	Fanatic3				= "Reanimated Fanatic"
@@ -167,12 +157,10 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnBattleFury	= "%s (%d)",
 	WarnAddsSoon	= "New adds soon"
 }
 
 L:SetOptionLocalization{
-	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638),
 	TimerCombatStart	= "Show time for start of combat",
 	WarnAddsSoon		= "Show pre-warning for adds spawning",
 	TimerAdds			= "Show timer for new adds"
@@ -203,19 +191,12 @@ L:SetGeneralLocalization{
 	name = "Deathbringer Saurfang"
 }
 
-L:SetWarningLocalization{
-	WarnFrenzySoon	= "Frenzy soon",
-	warnMark 		= "Mark of the Fallen Champion (%d) on >%s<"
-}
-
 L:SetTimerLocalization{
 	TimerCombatStart		= "Combat starts"
 }
 
 L:SetOptionLocalization{
-	warnMark				= "Announce $spell:72293 targets",
 	TimerCombatStart		= "Show time for start of combat",
-	WarnFrenzySoon			= "Show pre-warning for Frenzy (at ~33%)",
 	BoilingBloodIcons		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72385),
 	RangeFrame				= "Show range frame (12 yards)",
 	RunePowerFrame			= "Show Boss Health + $spell:72371 bar",
@@ -237,22 +218,15 @@ L:SetGeneralLocalization{
 	name = "Festergut"
 }
 
-L:SetWarningLocalization{
-	InhaledBlight		= "Inhaled Blight >%d<",
-	WarnGastricBloat	= "%s on >%s< (%d)",		-- Gastric Bloat on >args.destName< (args.amount)
-}
-
 L:SetOptionLocalization{
-	InhaledBlight		= "Show warning for $spell:69166",
 	RangeFrame			= "Show range frame (8 yards)",
-	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72219),
 	SetIconOnGasSpore	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279),
 	AnnounceSporeIcons	= "Announce icons for $spell:69279 targets to raid chat\n(requires raid leader)",
 	AchievementCheck	= "Announce 'Flu Shot Shortage' achievement failure to raid\n(requires promoted status)"
 }
 
 L:SetMiscLocalization{
-	SporeSet	= "Gas Spore icon {rt%d} set on %s",
+	SporeSet			= "Gas Spore icon {rt%d} set on %s",
 	AchievementFailed	= ">> ACHIEVEMENT FAILED: %s has %d stacks of Inoculated <<"
 }
 
@@ -271,12 +245,7 @@ L:SetWarningLocalization{
 	SpecWarnLittleOoze			= "Little Ooze attacking you - Run Away"--creatureid 36897
 }
 
-L:SetTimerLocalization{
-	NextPoisonSlimePipes		= "Next Poison Slime Pipes"
-}
-
 L:SetOptionLocalization{
-	NextPoisonSlimePipes		= "Show timer for next Poison Slime Pipes",
 	WarnOozeSpawn				= "Show warning for Little Ooze spawning",
 	SpecWarnLittleOoze			= "Show special warning when you are attacked by Little Ooze",--creatureid 36897
 	RangeFrame					= "Show range frame (8 yards)",
@@ -302,7 +271,6 @@ L:SetGeneralLocalization{
 L:SetWarningLocalization{
 	WarnPhase2Soon				= "Phase 2 soon",
 	WarnPhase3Soon				= "Phase 3 soon",
-	WarnMutatedPlague			= "%s on >%s< (%d)",	-- Mutated Plague on >args.destName< (args.amount)
 	SpecWarnMalleableGoo		= "Malleable Goo on you - Move away",
 	SpecWarnMalleableGooNear	= "Malleable Goo near you - Watch out"
 }
@@ -310,23 +278,15 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnPhase2Soon				= "Show pre-warning for Phase 2 (at ~83%)",
 	WarnPhase3Soon				= "Show pre-warning for Phase 3 (at ~38%)",
-	SpecWarnMalleableGoo		= "Show special warning if you are first $spell:72295 target",
-	SpecWarnMalleableGooNear	= "Show special warning if you are near first $spell:72295 target",
-	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451),
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
 	MalleableGooIcon			= "Set icon on first $spell:72295 target",
-	NextUnboundPlagueTargetIcon	= "Set icon on next $spell:70911 target",
-	YellOnMalleableGoo			= "Yell on $spell:72295",
-	YellOnUnbound				= "Yell on $spell:70911",
 	GooArrow					= "Show DBM arrow when $spell:72295 is near you"
 }
 
 L:SetMiscLocalization{
-	YellPull		= "Good news, everyone! I think I've perfected a plague that will destroy all life on Azeroth!",
-	YellMalleable	= "Malleable Goo on me!",
-	YellUnbound		= "Unbound Plague on me!"
+	YellPull		= "Good news, everyone! I think I've perfected a plague that will destroy all life on Azeroth!"
 }
 
 ----------------------------
@@ -340,9 +300,7 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{
 	WarnTargetSwitch		= "Switch target to: %s",
-	WarnTargetSwitchSoon	= "Target switch soon",
-	SpecWarnVortex			= "Shock Vortex on you - Move away",
-	SpecWarnVortexNear		= "Shock Vortex near you - Watch out"
+	WarnTargetSwitchSoon	= "Target switch soon"
 }
 
 L:SetTimerLocalization{
@@ -353,8 +311,6 @@ L:SetOptionLocalization{
 	WarnTargetSwitch		= "Show warning to switch targets",-- Warn when another Prince needs to be damaged
 	WarnTargetSwitchSoon	= "Show pre-warning to switch targets",-- Every ~47 secs, you have to dps a different Prince
 	TimerTargetSwitch		= "Show timer for target switch cooldown",
-	SpecWarnVortex			= "Show special warning for $spell:72037 on you",
-	SpecWarnVortexNear		= "Show special warning for $spell:72037 near you",
 	EmpoweredFlameIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72040),
 	ActivePrinceIcon		= "Set icon on the empowered Prince (skull)",
 	RangeFrame				= "Show range frame (12 yards)",
@@ -406,7 +362,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnCorrosion	= "%s on >%s< (%d)",		-- Corrosion on >args.destName< (args.amount)
 	WarnPortalOpen	= "Portals open"
 }
 
@@ -421,15 +376,13 @@ L:SetOptionLocalization{
 	WarnPortalOpen				= "Show warning when Nightmare Portals are opened up",
 	TimerPortalsOpen			= "Show timer when Nightmare Portals are opened up",
 	TimerBlazingSkeleton		= "Show timer for next Blazing Skeleton spawn",
-	TimerAbom					= "Show timer for next Gluttonous Abomination spawn (Experimental)",
-	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751)
+	TimerAbom					= "Show timer for next Gluttonous Abomination spawn (Experimental)"
 }
 
 L:SetMiscLocalization{
 	YellPull		= "Intruders have breached the inner sanctum. Hasten the destruction of the green dragon! Leave only bones and sinew for the reanimation!",
 	YellKill		= "I AM RENEWED! Ysera grant me the favor to lay these foul creatures to rest!",
-	YellPortals		= "I have opened a portal into the Dream. Your salvation lies within, heroes...",
-	YellPhase2		= "My strength is returning. Press on, heroes!"--Need to confirm this is when adds spawn faster (phase 2) before used in mod
+	YellPortals		= "I have opened a portal into the Dream. Your salvation lies within, heroes..."
 }
 
 ------------------
@@ -450,10 +403,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	WarnPhase2soon			= "Phase 2 soon",
 	WarnAirphase			= "Air phase",
-	WarnGroundphaseSoon		= "Sindragosa landing soon",
-	WarnInstability			= "Instability >%d<",
-	WarnChilledtotheBone	= "Chilled to the Bone >%d<",
-	WarnMysticBuffet		= "Mystic Buffet >%d<"
+	WarnGroundphaseSoon		= "Sindragosa landing soon"
 }
 
 L:SetOptionLocalization{
@@ -462,9 +412,6 @@ L:SetOptionLocalization{
 	WarnPhase2soon			= "Show pre-warning for Phase 2 (at ~38%)",
 	TimerNextAirphase		= "Show timer for next air phase",
 	TimerNextGroundphase	= "Show timer for next ground phase",
-	WarnInstability			= "Show warning for your $spell:69766 stacks",
-	WarnChilledtotheBone	= "Show warning for your $spell:70106 stacks",
-	WarnMysticBuffet		= "Show warning for your $spell:70128 stacks",
 	AnnounceFrostBeaconIcons= "Announce icons for $spell:70126 targets to raid chat\n(requires raid leader)",
 	SetIconOnFrostBeacon	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70126),
 	SetIconOnUnchainedMagic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69762),

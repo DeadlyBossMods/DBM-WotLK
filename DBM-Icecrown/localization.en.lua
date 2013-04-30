@@ -498,12 +498,7 @@ L:SetWarningLocalization{
 	WarnPhase3Soon			= "Phase 3 transition soon",
 	ValkyrWarning			= ">%s< has been grabbed!",
 	SpecWarnYouAreValkd		= "You have been grabbed",
-	SpecWarnDefileCast		= "Defile on you - Move away",
-	SpecWarnDefileNear		= "Defile near you - Watch out",
-	SpecWarnTrapNear		= "Shadow Trap near you - Watch out",
 	WarnNecroticPlagueJump	= "Necrotic Plague jumped to >%s<",
-	SpecWarnPALGrabbed		= "Paladin Healer %s has been grabbed",
-	SpecWarnPRIGrabbed		= "Priest Healer %s has been grabbed",
 	SpecWarnValkyrLow		= "Valkyr below 55%"
 }
 
@@ -524,20 +519,12 @@ L:SetOptionLocalization{
 	WarnPhase3Soon			= "Show pre-warning for Phase 3 transition (at ~43%)",
 	ValkyrWarning			= "Announce who has been grabbed by Val'kyr Shadowguards",
 	SpecWarnYouAreValkd		= "Show special warning when you have been grabbed by a Val'kyr Shadowguard",--npc36609
-	SpecWarnHealerGrabbed	= "Show special warning when a paladin or priest healer has been grabbed\n(requires that healer to be running DBM)",
-	SpecWarnDefileCast		= "Show special warning for $spell:72762 on you",
-	SpecWarnDefileNear		= "Show special warning for $spell:72762 near you",
-	SpecWarnTrapNear		= "Show special warning for $spell:73539 near you",
-	YellOnDefile			= "Yell on $spell:72762",
-	YellOnTrap				= "Yell on $spell:73539",
 	DefileIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72762),
 	NecroticPlagueIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70337),
 	RagingSpiritIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69200),
 	TrapIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(73539),
 	HarvestSoulIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68980),
 	ValkyrIcon				= "Set icons on Valkyrs",
-	DefileArrow				= "Show DBM arrow when $spell:72762 is near you",
-	TrapArrow				= "Show DBM arrow when $spell:73539 is near you",
 	AnnounceValkGrabs		= "Announce Val'kyr Shadowguard grab targets to raid chat\n(requires announce to be enabled and promoted status)",
 	SpecWarnValkyrLow		= "Show special warning when Valkyr is below 55% HP",
 	AnnouncePlagueStack		= "Announce $spell:70337 stacks to raid (10 stacks, every 5 after 10)\n(requires promoted status)"
@@ -545,11 +532,8 @@ L:SetOptionLocalization{
 
 L:SetMiscLocalization{
 	LKPull					= "So the Light's vaunted justice has finally arrived? Shall I lay down Frostmourne and throw myself at your mercy, Fordring?",
-	YellDefile				= "Defile on me!",
-	YellTrap				= "Shadow Trap on me!",
 	YellValk				= "I've been grabbed!",
 	LKRoleplay				= "Is it truly righteousness that drives you? I wonder...",
-	PlagueWhisper			= "You have been infected by",
 	ValkGrabbedIcon			= "Valkyr Shadowguard {rt%d} grabbed %s",
 	ValkGrabbed				= "Valkyr Shadowguard grabbed %s",
 	PlagueStackWarning		= "Warning: %s has %d stacks of Necrotic Plague",

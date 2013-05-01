@@ -36,13 +36,11 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnMortalWound	= "%s auf >%s< (%s)",		-- Mortal Wound on >args.destName< (args.amount)
 	SpecWarnTrap	= "Falle aktiviert! - Rachsüchtige Fleischernter kommen" --creatureid 37038
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrap	= "Zeige Spezialwarnung für Fallenaktivierung",
-	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127)
+	SpecWarnTrap	= "Zeige Spezialwarnung für Fallenaktivierung"
 }
 
 L:SetMiscLocalization{
@@ -109,12 +107,7 @@ L:SetTimerLocalization{
 	AchievementBoned	= "Zeit zum Befreien"
 }
 
-L:SetWarningLocalization{
-	WarnImpale			= ">%s< ist aufgespießt"
-}
-
 L:SetOptionLocalization{
-	WarnImpale			= "Verkünde Ziele von $spell:69062",
 	AchievementBoned	= "Zeige Timer für Erfolg 'Entknöchert'",
 	SetIconOnImpale		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69062)
 }
@@ -134,7 +127,6 @@ L:SetTimerLocalization{
 
 L:SetWarningLocalization{
 	WarnReanimating				= "Add-Wiederbelebung",			-- Reanimating an adherent or fanatic
-	WarnTouchInsignificance		= "%s auf >%s< (%d)",		-- Touch of Insignificance on >args.destName< (args.amount)
 	WarnAddsSoon				= "Neue Adds bald"
 }
 
@@ -143,7 +135,6 @@ L:SetOptionLocalization{
 	WarnReanimating				= "Zeige Warnung, wenn ein Add wiederbelebt wird",	-- Reanimated Adherent/Fanatic spawning
 	TimerAdds					= "Zeige Zeit bis neue Adds erscheinen",
 	ShieldHealthFrame			= "Zeige Lebensanzeige mit einem Balken für $spell:70842",
-	WarnTouchInsignificance		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204),
 	SetIconOnDominateMind		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71289),
 	SetIconOnDeformedFanatic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70900),
 	SetIconOnEmpoweredAdherent	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70901)
@@ -152,7 +143,6 @@ L:SetOptionLocalization{
 L:SetMiscLocalization{
 	YellPull				= "Was soll die Störung? Ihr wagt es, heiligen Boden zu betreten? Dies wird der Ort Eurer letzten Ruhe sein!",
 	YellReanimatedFanatic	= "Erhebt Euch und frohlocket ob Eurer reinen Form!",
-	ShieldPercent			= "Manabarriere", --Translate Spell id 70842
 	Fanatic1				= "Fanatischer Kultist",
 	Fanatic2				= "Deformierter Fanatiker",
 	Fanatic3				= "Wiederbelebter Fanatiker"
@@ -168,12 +158,10 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnBattleFury	= "%s (%d)",
 	WarnAddsSoon	= "Neue Adds bald"
 }
 
 L:SetOptionLocalization{
-	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638),
 	TimerCombatStart	= "Zeige Zeit bis Kampfbeginn",
 	WarnAddsSoon		= "Zeige Vorwarnung für erscheinende Adds",
 	TimerAdds			= "Zeige Zeit bis neue Adds erscheinen"
@@ -204,19 +192,12 @@ L:SetGeneralLocalization{
 	name = "Todesbringer Saurfang"
 }
 
-L:SetWarningLocalization{
-	WarnFrenzySoon	= "Wahnsinn bald",
-	warnMark 		= "Mal des gefallenen Champions (%d) auf >%s<"
-}
-
 L:SetTimerLocalization{
 	TimerCombatStart		= "Kampfbeginn"
 }
 
 L:SetOptionLocalization{
-	warnMark				= "Verkünde Ziele von $spell:72293",
 	TimerCombatStart		= "Zeige Zeit bis Kampfbeginn",
-	WarnFrenzySoon			= "Zeige Vorwarnung für $spell:72737 (bei ~33%)",
 	BoilingBloodIcons		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72385),
 	RangeFrame				= "Zeige Abstandsfenster (12m)",
 	RunePowerFrame			= "Zeige Lebensanzeige und einen Balken für $spell:72371",
@@ -238,22 +219,15 @@ L:SetGeneralLocalization{
 	name = "Fauldarm"
 }
 
-L:SetWarningLocalization{
-	InhaledBlight		= "Eingeatmete Seuche >%d<",
-	WarnGastricBloat	= "%s auf >%s< (%s)",		-- Gastric Bloat on >args.destName< (args.amount)
-}
-
 L:SetOptionLocalization{
-	InhaledBlight		= "Zeige Warnung für $spell:69166",
 	RangeFrame			= "Zeige Abstandsfenster (8m)",
-	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72219),
 	SetIconOnGasSpore	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279),
 	AnnounceSporeIcons	= "Verkünde Zeichen für Ziele von $spell:69279 im Schlachtzugchat (nur als Leiter)",
 	AchievementCheck	= "Verkünde Fehlschlag des Erfolgs 'Grippeimpfungs-Engpass' an Schlachtzug (nur als Leiter/Assistent)"
 }
 
 L:SetMiscLocalization{
-	SporeSet	= "Gassporenzeichen {rt%d} auf %s gesetzt",
+	SporeSet			= "Gassporenzeichen {rt%d} auf %s gesetzt",
 	AchievementFailed	= ">> ERFOLG FEHLGESCHLAGEN: %s hat %d Stapel von Geimpft <<"
 }
 
@@ -272,12 +246,7 @@ L:SetWarningLocalization{
 	SpecWarnLittleOoze			= "Kleiner Schlamm greift dich an - Lauf weg!"--creatureid 36897
 }
 
-L:SetTimerLocalization{
-	NextPoisonSlimePipes		= "Nächster Giftschleim"
-}
-
 L:SetOptionLocalization{
-	NextPoisonSlimePipes		= "Zeige Zeit bis nächster Auslauf von Giftschleim", -- "Giftschleim" (see trigger), because npc name "Klebriger Schlamm" (37006) == spell name "Klebriger Schlamm" (69774, ...)
 	WarnOozeSpawn				= "Zeige Warnung für Erscheinen eines Kleinen Schlamm",
 	SpecWarnLittleOoze			= "Zeige Spezialwarnung, wenn du von einem Kleinen Schlamm angegriffen wirst",--creatureid 36897
 	RangeFrame					= "Zeige Abstandsfenster (8m)",
@@ -303,7 +272,6 @@ L:SetGeneralLocalization{
 L:SetWarningLocalization{
 	WarnPhase2Soon				= "Phase 2 bald",
 	WarnPhase3Soon				= "Phase 3 bald",
-	WarnMutatedPlague			= "%s auf >%s< (%d)",	-- Mutated Plague on >args.destName< (args.amount)
 	SpecWarnMalleableGoo		= "Formbarer Glibber auf dir - Lauf weg!",
 	SpecWarnMalleableGooNear	= "Formbarer Glibber in deiner Nähe - Aufpassen!"
 }
@@ -311,23 +279,15 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnPhase2Soon				= "Zeige Vorwarnung für Phase 2 (bei ~83%)",
 	WarnPhase3Soon				= "Zeige Vorwarnung für Phase 3 (bei ~38%)",
-	SpecWarnMalleableGoo		= "Zeige Spezialwarnung, falls du das erste Ziel von $spell:72295 bist",
-	SpecWarnMalleableGooNear	= "Zeige Spezialwarnung, falls das erste Ziel von $spell:72295 in\ndeiner Nähe ist",
-	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451),
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
 	MalleableGooIcon			= "Setze Zeichen auf erstes Ziel von $spell:72295",
-	NextUnboundPlagueTargetIcon	= "Setze Zeichen auf nächstes Ziel von $spell:70911",
-	YellOnMalleableGoo			= "Schreie bei $spell:72295 auf dir",
-	YellOnUnbound				= "Schreie bei $spell:70911 auf dir",
 	GooArrow					= "Zeige DBM-Pfeil, wenn $spell:72295 in deiner Nähe ist"
 }
 
 L:SetMiscLocalization{
-	YellPull		= "Gute Nachricht, Freunde! Ich habe eine Seuche perfektioniert, die alles Leben Azeroths auslöscht!",
-	YellMalleable	= "Formbarer Glibber auf mir!",
-	YellUnbound		= "Entfesselte Seuche auf mir!"
+	YellPull		= "Gute Nachricht, Freunde! Ich habe eine Seuche perfektioniert, die alles Leben Azeroths auslöscht!"
 }
 
 ----------------------------
@@ -341,9 +301,7 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{
 	WarnTargetSwitch		= "Ziel wechseln auf: %s",
-	WarnTargetSwitchSoon	= "Zielwechsel bald",
-	SpecWarnVortex			= "Schockvortex auf dir - Lauf weg!",
-	SpecWarnVortexNear		= "Schockvortex in deiner Nähe - Aufpassen!"
+	WarnTargetSwitchSoon	= "Zielwechsel bald"
 }
 
 L:SetTimerLocalization{
@@ -354,8 +312,6 @@ L:SetOptionLocalization{
 	WarnTargetSwitch		= "Zeige Warnung für Zielwechsel",-- Warn when another Prince needs to be damaged
 	WarnTargetSwitchSoon	= "Zeige Vorwarnung für Zielwechsel",-- Every ~47 secs, you have to dps a different Prince
 	TimerTargetSwitch		= "Zeige Zeit bis Zielwechsel",
-	SpecWarnVortex			= "Zeige Spezialwarnung für $spell:72037 auf dich",
-	SpecWarnVortexNear		= "Zeige Spezialwarnung für $spell:72037 in deiner Nähe",
 	EmpoweredFlameIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72040),
 	ActivePrinceIcon		= "Setze Zeichen auf den machterfüllten Prinzen (Totenkopf)",
 	RangeFrame				= "Zeige Abstandsfenster (12m)",
@@ -407,7 +363,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnCorrosion	= "%s auf >%s< (%d)",		-- Corrosion on >args.destName< (args.amount)
 	WarnPortalOpen	= "Portale offen"
 }
 
@@ -422,15 +377,13 @@ L:SetOptionLocalization{
 	WarnPortalOpen				= "Zeige Warnung, wenn Alptraumportale geöffnet sind",
 	TimerPortalsOpen			= "Zeige Zeit bis Alptraumportale geöffnet sind",
 	TimerBlazingSkeleton		= "Zeige Zeit bis nächstes Loderndes Skelett erscheint",
-	TimerAbom					= "Zeige Zeit bis nächste Gefräßige Monstrosität erscheint (experimentell)",
-	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751)
+	TimerAbom					= "Zeige Zeit bis nächste Gefräßige Monstrosität erscheint (experimentell)"
 }
 
 L:SetMiscLocalization{
 	YellPull		= "Eindringlinge im Inneren Sanktum! Beschleunigt die Vernichtung des grünen Drachen! Bewahrt nur Knochen und Sehnen für die Wiederbelebung auf!",
 	YellKill		= "ICH BIN GEHEILT! Ysera, erlaubt mir, diese üblen Kreaturen zu beseitigen",
-	YellPortals		= "Ich habe ein Portal in den Traum geöffnet. Darin liegt Eure Erlösung, Helden...",
-	YellPhase2		= "Meine Kraft kehrt zurück. Macht weiter, Helden!"
+	YellPortals		= "Ich habe ein Portal in den Traum geöffnet. Darin liegt Eure Erlösung, Helden..."
 }
 
 ------------------
@@ -451,10 +404,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	WarnPhase2soon			= "Phase 2 bald",
 	WarnAirphase			= "Luftphase",
-	WarnGroundphaseSoon		= "Sindragosa landet bald",
-	WarnInstability			= "Instabilität >%d<",
-	WarnChilledtotheBone	= "Durchgefroren >%d<",
-	WarnMysticBuffet		= "Mystischer Puffer >%d<"
+	WarnGroundphaseSoon		= "Sindragosa landet bald"
 }
 
 L:SetOptionLocalization{
@@ -463,9 +413,6 @@ L:SetOptionLocalization{
 	WarnPhase2soon			= "Zeige Vorwarnung für Phase 2 (bei ~38%)",
 	TimerNextAirphase		= "Zeige Zeit bis nächste Luftphase",
 	TimerNextGroundphase	= "Zeige Zeit bis nächste Bodenphase",
-	WarnInstability			= "Zeige Warnung für deine $spell:69766 Stapel",
-	WarnChilledtotheBone	= "Zeige Warnung für deine $spell:70106 Stapel",
-	WarnMysticBuffet		= "Zeige Warnung für deine $spell:70128 Stapel",
 	AnnounceFrostBeaconIcons= "Verkünde Zeichen für Ziele von $spell:70126 im SZ-Chat (nur als Leiter)",
 	SetIconOnFrostBeacon	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70126),
 	SetIconOnUnchainedMagic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69762),
@@ -499,12 +446,7 @@ L:SetWarningLocalization{
 	WarnPhase3Soon			= "Übergang in Phase 3 bald",
 	ValkyrWarning			= ">%s< wurde gegriffen!",
 	SpecWarnYouAreValkd		= "Du wurdest gegriffen",
-	SpecWarnDefileCast		= "Entweihen auf dir - Lauf weg!",
-	SpecWarnDefileNear		= "Entweihen in deiner Nähe - Aufpassen!",
-	SpecWarnTrapNear		= "Schattenfalle in deiner Nähe - Aufpassen!",
 	WarnNecroticPlagueJump	= "Nekrotische Seuche auf >%s< gesprungen",
-	SpecWarnPALGrabbed		= "Paladin Heiler %s wurde gegriffen",
-	SpecWarnPRIGrabbed		= "Priester Heiler %s wurde gegriffen",
 	SpecWarnValkyrLow		= "Schattenwächterin unter 55%%"
 }
 
@@ -525,20 +467,12 @@ L:SetOptionLocalization{
 	WarnPhase3Soon			= "Zeige Vorwarnung für Übergang in Phase 3 (bei ~43%)",
 	ValkyrWarning			= "Verkünde Griffziele der Schattenwächterinnen der Val'kyr",
 	SpecWarnYouAreValkd		= "Zeige Spezialwarnung, wenn du von einer Schattenwächterin der Val'kyr gegriffen wurdest",--npc36609
-	SpecWarnHealerGrabbed	= "Zeige Spezialwarnung, wenn ein Paladin Heiler oder Priester Heiler\ngegriffen wurde (nur wenn der Heiler selbst auch DBM ausführt)",
-	SpecWarnDefileCast		= "Zeige Spezialwarnung für $spell:72762 auf dir",
-	SpecWarnDefileNear		= "Zeige Spezialwarnung für $spell:72762 in deiner Nähe",
-	SpecWarnTrapNear		= "Zeige Spezialwarnung für $spell:73539 in deiner Nähe",
-	YellOnDefile			= "Schreie bei $spell:72762 auf dir",
-	YellOnTrap				= "Schreie bei $spell:73539 auf dir",
 	DefileIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72762),
 	NecroticPlagueIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70337),
 	RagingSpiritIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69200),
 	TrapIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(73539),
 	HarvestSoulIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68980),
 	ValkyrIcon				= "Setze Zeichen auf Schattenwächterinnen der Val'kyr",
-	DefileArrow				= "Zeige DBM-Pfeil, wenn $spell:72762 in deiner Nähe ist",
-	TrapArrow				= "Zeige DBM-Pfeil, wenn $spell:73539 in deiner Nähe ist",
 	AnnounceValkGrabs		= "Verkünde Griffziele der Schattenwächterinnen der Val'kyr im SZ-Chat\n(benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)",
 	SpecWarnValkyrLow		= "Zeige Spezialwarnung, wenn eine Schattenwächterin der Val'kyr unter 55% Lebenspunkte ist",
 	AnnouncePlagueStack		= "Verkünde $spell:70337 Stapel an den Schlachtzug (ab 10 Stapel,\ndanach alle 5 Stapel)\n(nur als Leiter/Assistent)",
@@ -546,11 +480,8 @@ L:SetOptionLocalization{
 
 L:SetMiscLocalization{
 	LKPull					= "Der vielgerühmte Streiter des Lichts ist endlich hier? Soll ich Frostgram niederlegen und mich Eurer Gnade ausliefern, Fordring?",
-	YellDefile				= "Entweihen auf mir!",
-	YellTrap				= "Schattenfalle auf mir!",
 	YellValk				= "Ich wurde gegriffen!",
 	LKRoleplay				= "Ist es wirklich Rechtschaffenheit, die Euch treibt? Ich bin mir nicht sicher…",
-	PlagueWhisper			= "Ihr wurdet von der",
 	ValkGrabbedIcon			= "Schattenwächterin der Val'kyr {rt%d} hat %s gegriffen",
 	ValkGrabbed				= "Schattenwächterin der Val'kyr hat %s gegriffen",
 	PlagueStackWarning		= "Warnung: %s hat %d Stapel von Nekrotischer Seuche",

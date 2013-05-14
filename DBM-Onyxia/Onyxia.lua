@@ -28,8 +28,8 @@ local timerNextFlameBreath	= mod:NewCDTimer(20, 18435)--Breath she does on groun
 local timerNextDeepBreath	= mod:NewCDTimer(35, 18584)--Range from 35-60seconds in between based on where she moves to.
 local timerBreath			= mod:NewCastTimer(8, 18584)
 local timerWhelps			= mod:NewTimer(105, "TimerWhelps", 10697)
-local timerAchieve			= mod:NewAchievementTimer(300, 4405, "TimerSpeedKill") 
-local timerAchieveWhelps	= mod:NewAchievementTimer(10, 4406, "TimerWhelps") 
+local timerAchieve			= mod:NewAchievementTimer(300, 4405) 
+local timerAchieveWhelps	= mod:NewAchievementTimer(10, 4406) 
 
 local soundBlastNova		= mod:NewSound(68958, nil, mod:IsMelee())
 local soundDeepBreath 		= mod:NewSound(18584)

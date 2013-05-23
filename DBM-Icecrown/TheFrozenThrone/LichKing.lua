@@ -90,7 +90,6 @@ local berserkTimer			= mod:NewBerserkTimer(900)
 local soundDefile			= mod:NewSound(72762)
 local soundShadowTrap		= mod:NewSound(73539)
 
-mod:AddBoolOption("SpecWarnHealerGrabbed", mod:IsTank() or mod:IsHealer(), "announce")
 mod:AddBoolOption("DefileIcon")
 mod:AddBoolOption("NecroticPlagueIcon")
 mod:AddBoolOption("RagingSpiritIcon", false)
@@ -99,7 +98,7 @@ mod:AddBoolOption("ValkyrIcon")
 mod:AddBoolOption("HarvestSoulIcon", false)
 mod:AddBoolOption("AnnounceValkGrabs", false)
 
-local phase	= 0
+local phase = 0
 local warned_preP2 = false
 local warned_preP3 = false
 local trapScansDone = 0

@@ -241,7 +241,6 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{
 	WarnOozeSpawn				= "Little Ooze spawning",
-	WarnUnstableOoze			= "%s on >%s< (%d)",			-- Unstable Ooze on >args.destName< (args.amount)
 	SpecWarnLittleOoze			= "Little Ooze attacking you - Run Away"--creatureid 36897
 }
 
@@ -249,7 +248,6 @@ L:SetOptionLocalization{
 	WarnOozeSpawn				= "Show warning for Little Ooze spawning",
 	SpecWarnLittleOoze			= "Show special warning when you are attacked by Little Ooze",--creatureid 36897
 	RangeFrame					= "Show range frame (8 yards)",
-	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558),
 	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69674),
 	TankArrow					= "Show DBM arrow for Big Ooze kiter"
 }
@@ -269,15 +267,11 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnPhase2Soon				= "Phase 2 soon",
-	WarnPhase3Soon				= "Phase 3 soon",
 	SpecWarnMalleableGoo		= "Malleable Goo on you - Move away",
 	SpecWarnMalleableGooNear	= "Malleable Goo near you - Watch out"
 }
 
 L:SetOptionLocalization{
-	WarnPhase2Soon				= "Show pre-warning for Phase 2 (at ~83%)",
-	WarnPhase3Soon				= "Show pre-warning for Phase 3 (at ~38%)",
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
@@ -401,7 +395,6 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnPhase2soon			= "Phase 2 soon",
 	WarnAirphase			= "Air phase",
 	WarnGroundphaseSoon		= "Sindragosa landing soon"
 }
@@ -409,7 +402,6 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnAirphase			= "Announce air phase",
 	WarnGroundphaseSoon		= "Show pre-warning for ground phase",
-	WarnPhase2soon			= "Show pre-warning for Phase 2 (at ~38%)",
 	TimerNextAirphase		= "Show timer for next air phase",
 	TimerNextGroundphase	= "Show timer for next ground phase",
 	AnnounceFrostBeaconIcons= "Announce icons for $spell:70126 targets to raid chat\n(requires raid leader)",
@@ -441,8 +433,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnPhase2Soon			= "Phase 2 transition soon",
-	WarnPhase3Soon			= "Phase 3 transition soon",
 	ValkyrWarning			= ">%s< has been grabbed!",
 	SpecWarnYouAreValkd		= "You have been grabbed",
 	WarnNecroticPlagueJump	= "Necrotic Plague jumped to >%s<",
@@ -462,8 +452,6 @@ L:SetOptionLocalization{
 	WarnNecroticPlagueJump	= "Announce $spell:70337 jump targets",
 	TimerNecroticPlagueCleanse	= "Show timer to cleanse Necrotic Plague before\nthe first tick",
 	PhaseTransition			= "Show time for phase transitions",
-	WarnPhase2Soon			= "Show pre-warning for Phase 2 transition (at ~73%)",
-	WarnPhase3Soon			= "Show pre-warning for Phase 3 transition (at ~43%)",
 	ValkyrWarning			= "Announce who has been grabbed by Val'kyr Shadowguards",
 	SpecWarnYouAreValkd		= "Show special warning when you have been grabbed by a Val'kyr Shadowguard",--npc36609
 	DefileIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72762),
@@ -479,7 +467,6 @@ L:SetOptionLocalization{
 
 L:SetMiscLocalization{
 	LKPull					= "So the Light's vaunted justice has finally arrived? Shall I lay down Frostmourne and throw myself at your mercy, Fordring?",
-	YellValk				= "I've been grabbed!",
 	LKRoleplay				= "Is it truly righteousness that drives you? I wonder...",
 	ValkGrabbedIcon			= "Valkyr Shadowguard {rt%d} grabbed %s",
 	ValkGrabbed				= "Valkyr Shadowguard grabbed %s",

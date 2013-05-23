@@ -166,7 +166,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 	elseif args.spellId == 69166 then	-- Inhaled Blight
 		local amount = args.amount or 1
-		warnInhaledBlight:Show(args.spellName, args.destName, amount)
+		warnInhaledBlight:Show(args.destName, amount)
 		if amount >= 3 then
 			specWarnInhaled3:Show(amount)
 			timerPungentBlight:Start()
@@ -175,7 +175,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 	elseif args.spellId == 72219 then	-- Gastric Bloat
 		local amount = args.amount or 1
-		warnGastricBloat:Show(args.spellName, args.destName, amount)
+		warnGastricBloat:Show(args.destName, amount)
 		timerGastricBloat:Start(args.destName)
 		timerGastricBloatCD:Start()
 		if args:IsPlayer() and amount >= 9 then

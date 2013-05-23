@@ -35,13 +35,13 @@ local warnShamblingEnrage	= mod:NewTargetAnnounce(72143, 3, nil, mod:IsHealer() 
 local warnNecroticPlague	= mod:NewTargetAnnounce(70337, 4) --Phase 1+ Ability
 local warnNecroticPlagueJump= mod:NewAnnounce("WarnNecroticPlagueJump", 4, 70337) --Phase 1+ Ability
 local warnInfest			= mod:NewSpellAnnounce(70541, 3, nil, mod:IsHealer()) --Phase 1 & 2 Ability
-local warnPhase2Soon		= mod:NewAnnounce("WarnPhase2Soon", 1, "Interface\\Icons\\Spell_Nature_WispSplode")
+local warnPhase2Soon		= mod:NewPrePhaseAnnounce(2)
 local valkyrWarning			= mod:NewAnnounce("ValkyrWarning", 3, 71844)--Phase 2 Ability
 local warnDefileSoon		= mod:NewSoonAnnounce(72762, 3)	--Phase 2+ Ability
 local warnSoulreaper		= mod:NewSpellAnnounce(69409, 4, nil, mod:IsTank() or mod:IsHealer()) --Phase 2+ Ability
 local warnDefileCast		= mod:NewTargetAnnounce(72762, 4) --Phase 2+ Ability
 local warnSummonValkyr		= mod:NewSpellAnnounce(69037, 3, 71844) --Phase 2 Add
-local warnPhase3Soon		= mod:NewAnnounce("WarnPhase3Soon", 1, "Interface\\Icons\\Spell_Nature_WispSplode")
+local warnPhase3Soon		= mod:NewPrePhaseAnnounce(3)
 local warnSummonVileSpirit	= mod:NewSpellAnnounce(70498, 2) --Phase 3 Add
 local warnHarvestSoul		= mod:NewTargetAnnounce(68980, 4) --Phase 3 Ability
 local warnTrapCast			= mod:NewTargetAnnounce(73539, 3) --Phase 1 Heroic Ability
@@ -441,7 +441,7 @@ function mod:UNIT_AURA(uId)
 	local spellId = select(11, UnitDebuff(uId, plagueHop)) or 0
 	if spellId == 70338 and expires > 0 and not plagueExpires[expires] then
 		plagueExpires[expires] = true
-		warnNecroticPlagueJump(name)
+		warnNecroticPlagueJump:Show(name)
 		timerNecroticPlagueCleanse:Start()
 		if self.Options.NecroticPlagueIcon then
 			self:SetIcon(uId, 5, 5)

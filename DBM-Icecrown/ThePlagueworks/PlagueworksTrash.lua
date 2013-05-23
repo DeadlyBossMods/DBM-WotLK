@@ -34,7 +34,7 @@ mod:RemoveOption("SpeedKillTimer")
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 71127 then
 		local amount = args.amount or 1
-		warnMortalWound:Show(args.spellName, args.destName, amount)
+		warnMortalWound:Show(args.destName, amount)
 		timerMortalWound:Start(args.destName)
 		if args:IsPlayer() and amount >= 5 then
 			specWarnMortalWound:Show(amount)

@@ -169,7 +169,7 @@ do
 		elseif args.spellId == 70674 and not args:IsDestTypePlayer() and (UnitName("target") == L.Fanatic1 or UnitName("target") == L.Fanatic2 or UnitName("target") == L.Fanatic3) then
 			specWarnVampricMight:Show(args.destName)
 		elseif args.spellId == 71204 then
-			warnTouchInsignificance:Show(args.spellName, args.destName, args.amount or 1)
+			warnTouchInsignificance:Show(args.destName, args.amount or 1)
 			timerTouchInsignificance:Start(args.destName)
 			if args:IsPlayer() and (args.amount or 1) >= 3 and self:IsDifficulty("normal10", "normal25") then
 				specWarnTouchInsignificance:Show(args.amount)

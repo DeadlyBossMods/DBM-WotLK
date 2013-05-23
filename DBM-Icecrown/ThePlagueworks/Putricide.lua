@@ -25,13 +25,13 @@ local warnUnstableExperimentSoon	= mod:NewSoonAnnounce(70351, 3)
 local warnUnstableExperiment		= mod:NewSpellAnnounce(70351, 4)
 local warnVolatileOozeAdhesive		= mod:NewTargetAnnounce(70447, 3)
 local warnGaseousBloat				= mod:NewTargetAnnounce(70672, 3)
-local warnPhase2Soon				= mod:NewAnnounce("WarnPhase2Soon", 2)
+local warnPhase2Soon				= mod:NewPrePhaseAnnounce(2)
 local warnTearGas					= mod:NewSpellAnnounce(71617, 2)		-- Phase transition normal
 local warnVolatileExperiment		= mod:NewSpellAnnounce(72840, 4)		-- Phase transition heroic
 local warnMalleableGoo				= mod:NewSpellAnnounce(72295, 2)		-- Phase 2 ability
 local warnChokingGasBombSoon		= mod:NewPreWarnAnnounce(71255, 5, 3, nil, mod:IsMelee())
 local warnChokingGasBomb			= mod:NewSpellAnnounce(71255, 3, nil, mod:IsMelee())		-- Phase 2 ability
-local warnPhase3Soon				= mod:NewAnnounce("WarnPhase3Soon", 2)
+local warnPhase3Soon				= mod:NewPrePhaseAnnounce(3)
 local warnMutatedPlague				= mod:NewStackAnnounce(72451, 3, nil, mod:IsTank() or mod:IsHealer()) -- Phase 3 ability
 local warnUnboundPlague				= mod:NewTargetAnnounce(70911, 3)		-- Heroic Ability
 

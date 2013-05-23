@@ -25,7 +25,7 @@ local warnMutatedInfection		= mod:NewTargetAnnounce(69674, 4)
 local warnRadiatingOoze			= mod:NewSpellAnnounce(69760, 3)
 local warnOozeSpawn				= mod:NewAnnounce("WarnOozeSpawn", 1)
 local warnStickyOoze			= mod:NewSpellAnnounce(69774, 1)
-local warnUnstableOoze			= mod:NewAnnounce("WarnUnstableOoze", 2, 69558)
+local warnUnstableOoze			= mod:NewStackAnnounce(69558, 2)
 local warnVileGas				= mod:NewTargetAnnounce(72272, 3)
 
 local specWarnMutatedInfection	= mod:NewSpecialWarningYou(69674)
@@ -115,7 +115,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 69760 then
 		warnRadiatingOoze:Show()
 	elseif args.spellId == 69558 then
-		warnUnstableOoze:Show(args.spellName, args.destName, args.amount or 1)
+		warnUnstableOoze:Show(args.destName, args.amount or 1)
 	elseif args.spellId == 69674 then
 		warnMutatedInfection:Show(args.destName)
 		timerMutatedInfection:Start(args.destName)

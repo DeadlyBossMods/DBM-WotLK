@@ -10,7 +10,7 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
 	"SPELL_CAST_SUCCESS",
-	"UNIT_HEALTH"
+	"UNIT_HEALTH boss1 target focus mousover"
 )
 
 local warningDecayFleshSoon	= mod:NewSoonAnnounce(49356, 2)

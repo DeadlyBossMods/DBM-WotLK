@@ -16,7 +16,7 @@ mod:RegisterEvents(
 	"SPELL_AURA_APPLIED_DOSE",
 	"RAID_BOSS_EMOTE",
 	"CHAT_MSG_MONSTER_YELL",
-	"UNIT_HEALTH"
+	"UNIT_HEALTH target focus mouseover"
 )
 
 local announceBigBang			= mod:NewSpellAnnounce(64584, 4)

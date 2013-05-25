@@ -17,9 +17,9 @@ mod:RegisterEvents(
 	"SPELL_DISPEL",
 	"SPELL_AURA_APPLIED",
 	"SPELL_SUMMON",
-	"UNIT_HEALTH",
+	"UNIT_HEALTH target boss1",
 	"CHAT_MSG_MONSTER_YELL",
-	"UNIT_AURA"
+	"UNIT_AURA_UNFILTERED"
 )
 
 local isPAL = select(2, UnitClass("player")) == "PALADIN"
@@ -433,7 +433,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 	end
 end
 
-function mod:UNIT_AURA(uId)
+function mod:UNIT_AURA_UNFILTERED(uId)
 	local name = DBM:GetUnitFullName(uId)
 	if (not name) or (name == lastPlague) then return end
 	local expires = select(7, UnitDebuff(uId, plagueHop)) or 0

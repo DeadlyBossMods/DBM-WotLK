@@ -12,7 +12,7 @@ mod:RegisterEvents(
 	"SPELL_CAST_START",
 	"SPELL_DAMAGE",
 	"UNIT_DIED",
-	"UNIT_HEALTH"
+	"UNIT_HEALTH target focus mouseover"
 )
 
 local warnWhelpsSoon		= mod:NewAnnounce("WarnWhelpsSoon", 1, 69004)

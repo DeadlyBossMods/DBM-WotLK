@@ -15,7 +15,7 @@ mod:RegisterEvents(
 	"SPELL_INTERRUPT",
 	"SPELL_SUMMON",
 	"CHAT_MSG_MONSTER_YELL",
-	"UNIT_TARGET"
+	"UNIT_TARGET_UNFILTERED"
 )
 
 local canPurge = select(2, UnitClass("player")) == "MAGE"
@@ -228,7 +228,7 @@ function mod:SPELL_SUMMON(args)
 	end
 end
 
-function mod:UNIT_TARGET()
+function mod:UNIT_TARGET_UNFILTERED()
 	if empoweredAdherent or deformedFanatic then
 		self:TrySetTarget()
 	end

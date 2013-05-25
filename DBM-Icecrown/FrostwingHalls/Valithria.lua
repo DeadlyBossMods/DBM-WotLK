@@ -16,7 +16,7 @@ mod:RegisterEvents(
 	"SPELL_DAMAGE",
 	"SPELL_MISSED",
 	"CHAT_MSG_MONSTER_YELL",
-	"UNIT_TARGET"
+	"UNIT_TARGET_UNFILTERED"
 )
 
 local warnCorrosion			= mod:NewStackAnnounce(70751, 2, nil, false)
@@ -179,7 +179,7 @@ function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, 
 end
 mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
-function mod:UNIT_TARGET()
+function mod:UNIT_TARGET_UNFILTERED()
 	if blazingSkeleton then
 		self:TrySetTarget()
 	end

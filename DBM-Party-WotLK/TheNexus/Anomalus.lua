@@ -11,7 +11,7 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
 	"SPELL_SUMMON",
-	"UNIT_HEALTH"
+	"UNIT_HEALTH boss1 target focus mousover"
 )
 
 local warningRiftSoon	= mod:NewSoonAnnounce(47743, 2)

@@ -11,7 +11,7 @@ mod:RegisterCombat("combat")
 mod:RegisterEvents(
 	"SPELL_CAST_START",
 	"SPELL_HEAL",
-	"UNIT_TARGET",
+	"UNIT_TARGET_UNFILTERED",
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_REMOVED"
 )
@@ -59,7 +59,7 @@ function mod:SPELL_CAST_START(args)
 	end
 end
 
-function mod:UNIT_TARGET()
+function mod:UNIT_TARGET_UNFILTERED()
 	if overchargedMob then
 		self:TrySetTarget(overchargedMob)
 	end

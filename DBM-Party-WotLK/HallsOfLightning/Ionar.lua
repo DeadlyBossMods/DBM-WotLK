@@ -12,7 +12,7 @@ mod:RegisterCombat("combat")
 mod:RegisterEvents(
 	"SPELL_AURA_APPLIED",
 	"SPELL_CAST_START",
-	"UNIT_HEALTH"
+	"UNIT_HEALTH target focus mouseover boss1"
 )
 
 local warningDisperseSoon	= mod:NewSoonAnnounce(52770, 2)

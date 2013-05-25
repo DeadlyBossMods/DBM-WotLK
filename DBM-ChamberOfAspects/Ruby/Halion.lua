@@ -20,7 +20,7 @@ mod:RegisterEvents(
 	"SPELL_MISSED",
 	"CHAT_MSG_MONSTER_YELL",
 	"RAID_BOSS_EMOTE",
-	"UNIT_HEALTH"
+	"UNIT_HEALTH target focus mouseover"
 )
 
 local warnPhase2Soon				= mod:NewAnnounce("WarnPhase2Soon", 2)

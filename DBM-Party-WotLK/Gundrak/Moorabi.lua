@@ -10,7 +10,7 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
 	"SPELL_CAST_START",
-	"UNIT_HEALTH"
+	"UNIT_HEALTH boss1 target focus mouseover"
 )
 
 local warningTransform	= mod:NewSpellAnnounce(55098, 3)

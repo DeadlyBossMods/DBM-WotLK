@@ -106,6 +106,7 @@ local playerLevel = UnitLevel("player")
 local warnedValkyrGUIDs = {}
 local plagueHop = GetSpellInfo(70338)--Hop spellID only, not cast one.
 local plagueExpires = {}
+local lastPlague
 
 function mod:OnCombatStart(delay)
 	phase = 0

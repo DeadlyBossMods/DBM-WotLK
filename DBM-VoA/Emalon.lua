@@ -84,7 +84,7 @@ function mod:TrySetTarget(target, icon)
 	end
 end
 
-function mod:SPELL_HEAL(_, _, _, _, _, _, _, _, spellId)
+function mod:SPELL_HEAL(_, _, _, _, destGUID, _, _, _, spellId)
 	if spellId == 64218 then
 		warnOverCharge:Show()
 		timerOvercharge:Start()

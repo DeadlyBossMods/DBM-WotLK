@@ -13,7 +13,7 @@ mod:RegisterEvents(
 	"SPELL_CAST_SUCCESS",
 	"CHAT_MSG_MONSTER_YELL",
 	"RAID_BOSS_EMOTE",
-	"UNIT_SPELLCAST_SUCCEEDED target focus mouseover"
+	"UNIT_SPELLCAST_SUCCEEDED target focus"
 )
 
 local warnSpark					= mod:NewSpellAnnounce(56140, 2, 59381)

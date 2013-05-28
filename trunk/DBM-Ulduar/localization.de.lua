@@ -26,10 +26,10 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecialPursueWarnYou	= "Zeige Spezialwarnung, wenn du $spell:62374 wirst",
+	SpecialPursueWarnYou	= "Spezialwarnung, wenn du $spell:62374 wirst",
 	PursueWarn				= "Verkünde Ziele von $spell:62374",
 	warnNextPursueSoon		= "Zeige Vorwarnung für nächstes $spell:62374",
-	warnWardofLife			= "Zeige Spezialwarnung, wenn Zauberschutz des Lebens erscheint"
+	warnWardofLife			= "Spezialwarnung, wenn Zauberschutz des Lebens erscheint"
 }
 
 --------------------------------
@@ -163,7 +163,7 @@ L:SetOptionLocalization{
 	NextCollapsingStar		= "Zeige Zeit bis nächste Kollabierende Sterne erscheinen",
 	TimerCombatStart		= "Zeige Zeit bis Kampfbeginn",
 	WarnPhase2Soon			= "Zeige Vorwarnung für Phase 2 (bei ~23%)",
-	warnStarLow				= "Zeige Spezialwarnung, wenn ein Kollabierender Stern bald stirbt (bei ~25%)"
+	warnStarLow				= "Spezialwarnung, wenn ein Kollabierender Stern bald stirbt (bei ~25%)"
 }
 
 L:SetMiscLocalization{
@@ -237,7 +237,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast	= "Zeige Spezialwarnung für Schildwachenschlag (zum Unterbrechen)",
+	SpecWarnBlast	= "Spezialwarnung für Schildwachenschlag (zum Unterbrechen)",
 	WarnCatDied		= "Zeige Warnung, wenn der Wilde Verteidiger stirbt",
 	WarnCatDiedOne	= "Zeige Warnung, wenn der Wilde Verteidiger nur noch 1 Leben übrig hat",
 	timerDefender	= "Zeige Zeit bis zur Aktivierung des Wilden Verteidigers"
@@ -285,7 +285,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerHardmode	= "Zeige Timer für Hard Mode",
 	RangeFrame		= "Zeige Abstandsfenster (10m)",
-	AnnounceFails	= "Verkünde Spieler im Schlachtzugchat, die bei $spell:62466 scheitern\n(benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)"
+	AnnounceFails	= "Verkünde Spieler im Schlachtzugchat, die bei $spell:62466 scheitern (benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)"
 }
 
 L:SetMiscLocalization{
@@ -375,8 +375,8 @@ L:SetOptionLocalization{
 	AutoChangeLootToFFA		= "Plündermodus in Phase 3 automatisch auf 'Jeder gegen jeden' einstellen",
 	WarnBombSpawn			= "Zeige Warnung für Bombenbot",
 	TimerHardmode			= "Zeige Timer für Hard Mode",
-	ShockBlastWarningInP1	= "Zeige Spezialwarnung für $spell:63631 in Phase 1",
-	ShockBlastWarningInP4	= "Zeige Spezialwarnung für $spell:63631 in Phase 4",
+	ShockBlastWarningInP1	= "Spezialwarnung für $spell:63631 in Phase 1",
+	ShockBlastWarningInP4	= "Spezialwarnung für $spell:63631 in Phase 4",
 	RangeFrame				= "Zeige Abstandsfenster in Phase 1 (6m)",
 	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
 	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
@@ -416,9 +416,9 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	SetIconOnShadowCrash			= "Setze Zeichen auf Ziele von $spell:62660 (Totenkopf)",
 	SetIconOnLifeLeach				= "Setze Zeichen auf Ziele von $spell:63276 (Kreuz)",
-	SpecialWarningShadowCrash		= "Zeige Spezialwarnung, wenn du von $spell:62660 betroffen bist\n(muss anvisiert oder im Fokus mindestens eines Schlachtzugmitglieds sein)",
-	SpecialWarningShadowCrashNear	= "Zeige Spezialwarnung, wenn jemand in deiner Nähe von $spell:62660\nbetroffen ist",
-	SpecialWarningLLNear			= "Zeige Spezialwarnung, wenn jemand in deiner Nähe von\n$spell:63276 betroffen ist",
+	SpecialWarningShadowCrash		= "Spezialwarnung, wenn du von $spell:62660 betroffen bist (muss anvisiert oder im Fokus mindestens eines Schlachtzugmitglieds sein)",
+	SpecialWarningShadowCrashNear	= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:62660 betroffen ist",
+	SpecialWarningLLNear			= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:63276 betroffen ist",
 	hardmodeSpawn					= "Zeige Zeit bis zum Erscheinen des Saronitanimus (Hard Mode)",
 	CrashArrow						= "Zeige DBM-Pfeil, wenn $spell:62660 in deiner Nähe ist"
 }
@@ -465,18 +465,18 @@ L:SetOptionLocalization{
 	WarningGuardianSpawned			= "Zeige Warnung, wenn ein Wächter des Yogg-Saron erscheint",
 	WarningCrusherTentacleSpawned	= "Zeige Warnung, wenn ein Schmettertentakel erscheint",
 	WarningSanity					= "Zeige Warnung, wenn deine $spell:63050 niedrig ist",
-	SpecWarnSanity					= "Zeige Spezialwarnung, wenn deine $spell:63050 sehr niedrig ist",
-	SpecWarnGuardianLow				= "Zeige Spezialwarnung, wenn ein Wächter des Yogg-Saron (Phase 1) fast tot ist (für DDs)",
+	SpecWarnSanity					= "Spezialwarnung, wenn deine $spell:63050 sehr niedrig ist",
+	SpecWarnGuardianLow				= "Spezialwarnung, wenn ein Wächter des Yogg-Saron (Phase 1) fast tot ist (für DDs)",
 	WarnBrainPortalSoon				= "Zeige Vorwarnung für Gehirnportale",
-	SpecWarnMadnessOutNow			= "Zeige Spezialwarnung kurz bevor $spell:64059 zu Ende gewirkt wird",
+	SpecWarnMadnessOutNow			= "Spezialwarnung kurz bevor $spell:64059 zu Ende gewirkt wird",
 	SetIconOnFearTarget				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63881),
-	SpecWarnFervorCast				= "Zeige Spezialwarnung, wenn $spell:63138 auf dich gewirkt wird\n(muss anvisiert oder im Fokus mindestens eines Schlachtzugmitglieds sein)",
-	specWarnBrainPortalSoon			= "Zeige Spezialwarnung für nächste Gehirnportale",
+	SpecWarnFervorCast				= "Spezialwarnung, wenn $spell:63138 auf dich gewirkt wird (muss anvisiert oder im Fokus mindestens eines Schlachtzugmitglieds sein)",
+	specWarnBrainPortalSoon			= "Spezialwarnung für nächste Gehirnportale",
 	WarningSqueeze					= "Schreie bei Quetschen auf dir",
 	NextPortal						= "Zeige Zeit bis nächste Gehirnportale",
 	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138),
-	ShowSaraHealth					= "Zeige Lebensanzeige für Sara in Phase 1\n(muss anvisiert oder im Fokus mindestens eines Schlachtzugmitglieds sein)",
-	SpecWarnMaladyNear				= "Zeige Spezialwarnung, wenn jemand in deiner Nähe von $spell:63881\nbetroffen ist",
+	ShowSaraHealth					= "Zeige Lebensanzeige für Sara in Phase 1 (muss anvisiert oder im Fokus mindestens eines Schlachtzugmitglieds sein)",
+	SpecWarnMaladyNear				= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:63881 betroffen ist",
 	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
 	MaladyArrow						= "Zeige DBM-Pfeil, wenn $spell:63881 in deiner Nähe ist"
 }

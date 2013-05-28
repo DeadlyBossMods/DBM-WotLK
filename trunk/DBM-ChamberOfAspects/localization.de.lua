@@ -56,17 +56,17 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	AnnounceFails			= "Verkünde Spieler im SZ-Chat, die bei Feuerwand und Schattenspalt\nscheitern (benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)",
+	AnnounceFails			= "Verkünde Spieler im SZ-Chat, die bei Feuerwand und Schattenspalt scheitern (benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)",
 	TimerTenebron			= "Zeige Zeit bis Tenebron in den Kampf eingreift",
 	TimerShadron			= "Zeige Zeit bis Shadron in den Kampf eingreift",
 	TimerVesperon			= "Zeige Zeit bis Vesperon in den Kampf eingreift",
-	WarningFireWall			= "Zeige Spezialwarnung für Feuerwand",
+	WarningFireWall			= "Spezialwarnung für Feuerwand",
 	WarningTenebron			= "Verkünde das Eingreifen von Tenebron in den Kampf",
 	WarningShadron			= "Verkünde das Eingreifen von Shadron in den Kampf",
 	WarningVesperon			= "Verkünde das Eingreifen von Vesperon in den Kampf",
-	WarningTenebronPortal	= "Zeige Spezialwarnung für Tenebrons Portal",
-	WarningShadronPortal	= "Zeige Spezialwarnung für Shadrons Portal",
-	WarningVesperonPortal	= "Zeige Spezialwarnung für Vesperons Portal"
+	WarningTenebronPortal	= "Spezialwarnung für Tenebrons Portal",
+	WarningShadronPortal	= "Spezialwarnung für Shadrons Portal",
+	WarningVesperonPortal	= "Spezialwarnung für Vesperons Portal"
 })
 
 L:SetMiscLocalization({
@@ -119,7 +119,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	SpecialWarningTranq		= "Zeige Spezialwarnung für $spell:78722",
+	SpecialWarningTranq		= "Spezialwarnung für $spell:78722",
 	RangeFrame				= "Zeige Abstandsfenster (10m)",
 	BeaconIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74453)
 })
@@ -175,10 +175,10 @@ L:SetOptionLocalization({
 	WarnPhase3Soon			= "Zeige Vorwarnung für Phase 3 (bei ~54%)",
 	TwilightCutterCast		= "Zeige Warnung, wenn $spell:74769 gewirkt wird",
 	AnnounceAlternatePhase	= "Zeige auch Warnungen/Timer für Phasen, in denen du dich nicht befindest",
-	SoundOnConsumption		= "Spiele Sound, wenn du von $spell:74562 oder $spell:74792\nbetroffen bist",
+	SoundOnConsumption		= "Spiele Sound, wenn du von $spell:74562 oder $spell:74792 betroffen bist",
 	SetIconOnConsumption	= "Setze Zeichen auf Ziele von $spell:74562 und $spell:74792",
-	YellOnConsumption		= "Schreie, wenn du von $spell:74562 oder $spell:74792\nbetroffen bist",
-	WhisperOnConsumption	= "Ziele von $spell:74562 und $spell:74792 anflüstern\n(benötigt Schlachtzugleitung)"
+	YellOnConsumption		= "Schreie, wenn du von $spell:74562 oder $spell:74792 betroffen bist",
+	WhisperOnConsumption	= "Ziele von $spell:74562 und $spell:74792 anflüstern (benötigt Schlachtzugleitung)"
 })
 
 L:SetMiscLocalization({

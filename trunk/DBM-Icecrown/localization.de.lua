@@ -15,7 +15,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrap		= "Zeige Spezialwarnung für Fallenaktivierung",
+	SpecWarnTrap		= "Spezialwarnung für Fallenaktivierung",
 	SetIconOnDarkReckoning	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69483),
 	SetIconOnDeathPlague	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72865)
 }
@@ -40,7 +40,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrap	= "Zeige Spezialwarnung für Fallenaktivierung"
+	SpecWarnTrap	= "Spezialwarnung für Fallenaktivierung"
 }
 
 L:SetMiscLocalization{
@@ -86,7 +86,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnGosaEvent	= "Zeige Spezialwarnung für Sindragosa-Spießrutenlauf",
+	SpecWarnGosaEvent	= "Spezialwarnung für Sindragosa-Spießrutenlauf",
 	GosaTimer			= "Dauer des Sindragosa-Spießrutenlaufs anzeigen"
 }
 
@@ -242,15 +242,13 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{
 	WarnOozeSpawn				= "Kleiner Schlamm erscheint",
-	WarnUnstableOoze			= "%s auf >%s< (%d)",			-- Unstable Ooze on >args.destName< (args.amount)
 	SpecWarnLittleOoze			= "Kleiner Schlamm greift dich an - Lauf weg!"--creatureid 36897
 }
 
 L:SetOptionLocalization{
 	WarnOozeSpawn				= "Zeige Warnung für Erscheinen eines Kleinen Schlamm",
-	SpecWarnLittleOoze			= "Zeige Spezialwarnung, wenn du von einem Kleinen Schlamm angegriffen wirst",--creatureid 36897
+	SpecWarnLittleOoze			= "Spezialwarnung, wenn du von einem Kleinen Schlamm angegriffen wirst",--creatureid 36897
 	RangeFrame					= "Zeige Abstandsfenster (8m)",
-	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558),
 	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69674),
 	TankArrow					= "Zeige DBM-Pfeil zum Kiter von 'Großer Schlamm'" 
 }
@@ -270,15 +268,11 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnPhase2Soon				= "Phase 2 bald",
-	WarnPhase3Soon				= "Phase 3 bald",
 	SpecWarnMalleableGoo		= "Formbarer Glibber auf dir - Lauf weg!",
 	SpecWarnMalleableGooNear	= "Formbarer Glibber in deiner Nähe - Aufpassen!"
 }
 
 L:SetOptionLocalization{
-	WarnPhase2Soon				= "Zeige Vorwarnung für Phase 2 (bei ~83%)",
-	WarnPhase3Soon				= "Zeige Vorwarnung für Phase 3 (bei ~38%)",
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
@@ -402,7 +396,6 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnPhase2soon			= "Phase 2 bald",
 	WarnAirphase			= "Luftphase",
 	WarnGroundphaseSoon		= "Sindragosa landet bald"
 }
@@ -410,7 +403,6 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnAirphase			= "Verkünde Luftphase",
 	WarnGroundphaseSoon		= "Zeige Vorwarnung für Bodenphase",
-	WarnPhase2soon			= "Zeige Vorwarnung für Phase 2 (bei ~38%)",
 	TimerNextAirphase		= "Zeige Zeit bis nächste Luftphase",
 	TimerNextGroundphase	= "Zeige Zeit bis nächste Bodenphase",
 	AnnounceFrostBeaconIcons= "Verkünde Zeichen für Ziele von $spell:70126 im SZ-Chat (nur als Leiter)",
@@ -418,7 +410,7 @@ L:SetOptionLocalization{
 	SetIconOnUnchainedMagic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69762),
 	ClearIconsOnAirphase	= "Entferne alle Zeichen vor der Luftphase",
 	AchievementCheck		= "Verkünde Warnungen für den Erfolg 'Das Buffet ist eröffnet' an Schlachtzug (nur als Leiter/Assistent)",
-	RangeFrame				= "Zeige dynamisches Abstandsfenster (10m/20m) basierend auf zuletzt\ngenutzten Bossfähigkeiten und Spieler-Debuffs"
+	RangeFrame				= "Zeige dynamisches Abstandsfenster (10m/20m) basierend auf zuletzt genutzten Bossfähigkeiten und Spieler-Debuffs"
 }
 
 L:SetMiscLocalization{
@@ -442,8 +434,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnPhase2Soon			= "Übergang in Phase 2 bald",
-	WarnPhase3Soon			= "Übergang in Phase 3 bald",
 	ValkyrWarning			= ">%s< wurde gegriffen!",
 	SpecWarnYouAreValkd		= "Du wurdest gegriffen",
 	WarnNecroticPlagueJump	= "Nekrotische Seuche auf >%s< gesprungen",
@@ -461,26 +451,23 @@ L:SetOptionLocalization{
 	TimerCombatStart		= "Zeige Zeit bis Kampfbeginn",
 	TimerRoleplay			= "Dauer des Rollenspiels (bei 10%) anzeigen",
 	WarnNecroticPlagueJump	= "Verkünde Sprungziele von $spell:70337",
-	TimerNecroticPlagueCleanse	= "Zeige Timer zum Reinigen von $spell:73912 vor dem ersten Tick",
+	TimerNecroticPlagueCleanse	= "Zeige Timer zum Reinigen von $spell:70337 vor dem ersten Tick",
 	PhaseTransition			= "Dauer der Phasenübergänge anzeigen",
-	WarnPhase2Soon			= "Zeige Vorwarnung für Übergang in Phase 2 (bei ~73%)",
-	WarnPhase3Soon			= "Zeige Vorwarnung für Übergang in Phase 3 (bei ~43%)",
 	ValkyrWarning			= "Verkünde Griffziele der Schattenwächterinnen der Val'kyr",
-	SpecWarnYouAreValkd		= "Zeige Spezialwarnung, wenn du von einer Schattenwächterin der Val'kyr gegriffen wurdest",--npc36609
+	SpecWarnYouAreValkd		= "Spezialwarnung, wenn du von einer Schattenwächterin der Val'kyr gegriffen wurdest",--npc36609
 	DefileIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72762),
 	NecroticPlagueIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70337),
 	RagingSpiritIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69200),
 	TrapIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(73539),
 	HarvestSoulIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68980),
 	ValkyrIcon				= "Setze Zeichen auf Schattenwächterinnen der Val'kyr",
-	AnnounceValkGrabs		= "Verkünde Griffziele der Schattenwächterinnen der Val'kyr im SZ-Chat\n(benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)",
-	SpecWarnValkyrLow		= "Zeige Spezialwarnung, wenn eine Schattenwächterin der Val'kyr unter 55% Lebenspunkte ist",
-	AnnouncePlagueStack		= "Verkünde $spell:70337 Stapel an den Schlachtzug (ab 10 Stapel,\ndanach alle 5 Stapel)\n(nur als Leiter/Assistent)",
+	AnnounceValkGrabs		= "Verkünde Griffziele der Schattenwächterinnen der Val'kyr im SZ-Chat (benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)",
+	SpecWarnValkyrLow		= "Spezialwarnung, wenn eine Schattenwächterin der Val'kyr unter 55% Lebenspunkte ist",
+	AnnouncePlagueStack		= "Verkünde $spell:70337 Stapel an den Schlachtzug (ab 10 Stapel, danach alle 5 Stapel) (nur als Leiter/Assistent)",
 }
 
 L:SetMiscLocalization{
 	LKPull					= "Der vielgerühmte Streiter des Lichts ist endlich hier? Soll ich Frostgram niederlegen und mich Eurer Gnade ausliefern, Fordring?",
-	YellValk				= "Ich wurde gegriffen!",
 	LKRoleplay				= "Ist es wirklich Rechtschaffenheit, die Euch treibt? Ich bin mir nicht sicher…",
 	ValkGrabbedIcon			= "Schattenwächterin der Val'kyr {rt%d} hat %s gegriffen",
 	ValkGrabbed				= "Schattenwächterin der Val'kyr hat %s gegriffen",

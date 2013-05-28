@@ -48,19 +48,6 @@ mod:AddBoolOption("HealthFrame", true)
 mod:AddBoolOption("SetIconOnGripTarget", true)
 mod:AddBoolOption("SetIconOnEyebeamTarget", true)
 
-
-local guids = {}
-local function buildGuidTable()
-	table.wipe(guids)
-	for i = 1, DBM:GetNumGroupMembers() do
-		guids[UnitGUID("raid"..i) or "none"] = GetRaidRosterInfo(i)
-	end
-end
-
-function mod:OnCombatStart(delay)
-	buildGuidTable()
-end
-
 function mod:UNIT_DIED(args)
 	if self:GetCIDFromGUID(args.destGUID) == 32934 then 		-- right arm
 		timerRespawnRightArm:Start()
@@ -99,8 +86,11 @@ function mod:RAID_BOSS_WHISPER(msg)
 end
 
 function mod:OnSync(msg, guid)
+	local target
+	if guid then
+		target = DBM:GetFullPlayerNameByGUID(guid)
+	end
 	if msg == "EyeBeamOn" and guid then
-		local target = guids[guid]
 		timerNextEyebeam:Start()
 		if target then
 			warnFocusedEyebeam:Show()

@@ -90,20 +90,11 @@ end
 do	-- add the additional Rune Power Bar
 	local last = 0
 	local function getRunePowerPercent()
-		local guid = UnitGUID("focus")
-		if mod:GetCIDFromGUID(guid) == 37813 then 
-			last = math.floor(UnitPower("focus")/UnitPowerMax("focus") * 100)
+		local guid = UnitGUID("boss1")
+		if guid and mod:GetCIDFromGUID(guid) == 37813 then 
+			last = math.floor(UnitPower("boss1")/UnitPowerMax("boss1") * 100)
 			return last
 		end
-		for i = 0, DBM:GetNumGroupMembers(), 1 do
-			local unitId = ((i == 0) and "target") or "raid"..i.."target"
-			local guid = UnitGUID(unitId)
-			if mod:GetCIDFromGUID(guid) == 37813 then
-				last = math.floor(UnitPower(unitId)/UnitPowerMax(unitId) * 100)
-				return last
-			end
-		end
-		return last
 	end
 	function mod:CreateBossRPFrame()
 		DBM.BossHealth:AddBoss(getRunePowerPercent, L.RunePower)
@@ -155,11 +146,11 @@ do
 	
 	mod:RegisterOnUpdateHandler(function(self)
 		if self.Options.BeastIcons and (DBM:GetRaidRank() > 0 and not (iconsSet == 5 and self:IsDifficulty("normal25", "heroic25") or iconsSet == 2 and self:IsDifficulty("normal10", "heroic10"))) then
-			for i = 1, DBM:GetNumGroupMembers() do
-				local uId = "raid"..i.."target"
-				local guid = UnitGUID(uId)
+			for uId in DBM:GetGroupMembers() do
+				local unitId = uId.."target"
+				local guid = UnitGUID(unitId)
 				if beastIcon[guid] then
-					SetRaidTarget(uId, beastIcon[guid])
+					SetRaidTarget(unitId, beastIcon[guid])
 					iconsSet = iconsSet + 1
 					beastIcon[guid] = nil
 				end

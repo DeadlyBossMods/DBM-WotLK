@@ -87,20 +87,11 @@ do	-- add the additional Shield Bar
 	local last = 100
 	local shieldName = GetSpellInfo(70842)
 	local function getShieldPercent()
-		local guid = UnitGUID("focus")
-		if mod:GetCIDFromGUID(guid) == 36855 then 
-			last = math.floor(UnitMana("focus")/UnitManaMax("focus") * 100)
+		local guid = UnitGUID("boss1")
+		if guid and mod:GetCIDFromGUID(guid) == 36855 then 
+			last = math.floor(UnitMana("boss1")/UnitManaMax("boss1") * 100)
 			return last
 		end
-		for i = 0, DBM:GetNumGroupMembers(), 1 do
-			local unitId = ((i == 0) and "target") or "raid"..i.."target"
-			local guid = UnitGUID(unitId)
-			if mod:GetCIDFromGUID(guid) == 36855 then
-				last = math.floor(UnitMana(unitId)/UnitManaMax(unitId) * 100)
-				return last
-			end
-		end
-		return last
 	end
 	function mod:CreateShieldHPFrame()
 		DBM.BossHealth:AddBoss(getShieldPercent, shieldName)
@@ -123,13 +114,13 @@ end
 
 function mod:TrySetTarget()
 	if DBM:GetRaidRank() >= 1 then
-		for i = 1, DBM:GetNumGroupMembers() do
-			if UnitGUID("raid"..i.."target") == deformedFanatic and self.Options.SetIconOnDeformedFanatic then
+		for uId in DBM:GetGroupMembers() do
+			if UnitGUID(uId.."target") == deformedFanatic and self.Options.SetIconOnDeformedFanatic then
 				deformedFanatic = nil
-				SetRaidTarget("raid"..i.."target", 8)
-			elseif UnitGUID("raid"..i.."target") == empoweredAdherent and self.Options.SetIconOnEmpoweredAdherent then
+				SetRaidTarget(uId.."target", 8)
+			elseif UnitGUID(uId.."target") == empoweredAdherent and self.Options.SetIconOnEmpoweredAdherent then
 				empoweredAdherent = nil
-				SetRaidTarget("raid"..i.."target", 7)
+				SetRaidTarget(uId.."target", 7)
 			end
 			if not (deformedFanatic or empoweredAdherent) then
 				break

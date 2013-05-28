@@ -69,10 +69,10 @@ function mod:TrySetTarget(target, icon)
 	icon = icon or 8
 	if DBM:GetRaidRank() >= 1 then
 		local found = false
-		for i = 1, DBM:GetNumGroupMembers() do
-			if UnitGUID("raid"..i.."target") == target then
+		for uId in DBM:GetGroupMembers() do
+			if UnitGUID(uId.."target") == target then
 				found = true
-				SetRaidTarget("raid"..i.."target", icon)
+				SetRaidTarget(uId.."target", icon)
 				break
 			end
 		end

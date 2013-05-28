@@ -323,19 +323,19 @@ do
 	
 	local function scanValkyrTargets()
 		if (time() - lastValk) < 10 then    -- scan for like 10secs
-			for i = 1, DBM:GetNumGroupMembers() do        -- for every raid member check ..
-				if UnitInVehicle("raid"..i) and not valkyrTargets[i] then      -- if person #i is in a vehicle and not already announced 
-					valkyrWarning:Show(GetRaidRosterInfo(i))  -- GetRaidRosterInfo(i) returns the name of the person who got valkyred
-					valkyrTargets[i] = true          -- this person has been announced
-					if GetRaidRosterInfo(i) == UnitName("player") then
+			for uId in DBM:GetGroupMembers() do        -- for every raid member check ..
+				if UnitInVehicle(uId) and not valkyrTargets[uId] then      -- if person #i is in a vehicle and not already announced 
+					valkyrWarning:Show(UnitName(uId))  -- GetRaidRosterInfo(i) returns the name of the person who got valkyred
+					valkyrTargets[uId] = true          -- this person has been announced
+					if UnitIsUnit(uId, "player") then
 						specWarnYouAreValkd:Show()
 					end
 					if mod.Options.AnnounceValkGrabs and DBM:GetRaidRank() > 1 then
 						if mod.Options.ValkyrIcon then
-							SendChatMessage(L.ValkGrabbedIcon:format(grabIcon, GetRaidRosterInfo(i)), "RAID")
+							SendChatMessage(L.ValkGrabbedIcon:format(grabIcon, UnitName(uId)), "RAID")
 							grabIcon = grabIcon + 1
 						else
-							SendChatMessage(L.ValkGrabbed:format(GetRaidRosterInfo(i)), "RAID")
+							SendChatMessage(L.ValkGrabbed:format(UnitName(uId)), "RAID")
 						end
 					end
 				end

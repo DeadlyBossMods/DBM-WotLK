@@ -36,17 +36,8 @@ local soundPoisonNova			= mod:NewSound(68989, nil, mod:IsMelee())
 local soundPursuit				= mod:NewSound(68987)
 mod:AddBoolOption("SetIconOnPursuitTarget", true)
 
-local guids = {}
-local function buildGuidTable()
-	table.wipe(guids)
-	guids[UnitGUID("player")] = DBM:GetUnitFullName("player")
-	for i = 1, DBM:GetNumGroupMembers() do
-		guids[UnitGUID("party"..i) or "none"] = DBM:GetUnitFullName("party"..i)
-	end
-end
-
 function mod:OnCombatStart(delay)
-	buildGuidTable()
+
 end
 
 function mod:SPELL_CAST_START(args)
@@ -89,8 +80,11 @@ function mod:RAID_BOSS_WHISPER(msg)
 end 
 
 function mod:OnSync(msg, guid) 
+	local target
+	if guid then
+		target = DBM:GetFullPlayerNameByGUID(guid)
+	end
 	if msg == "Pursuit" and guid then 
-		local target = guids[guid]
 		if target then
 			warnPursuit:Show(target)
 			if self.Options.SetIconOnPursuitTarget then 

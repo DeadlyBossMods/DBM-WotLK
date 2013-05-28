@@ -85,10 +85,10 @@ end
 mod:RegisterOnUpdateHandler(function(self, elapsed)
 	if not self:IsInCombat() then return end
 		local foundBoss, target
-		for i = 1, DBM:GetNumGroupMembers() do
-			local uId = "raid"..i.."target"
-			if self:GetUnitCreatureId(uId) == 15989 and UnitAffectingCombat(uId) then
-				target = DBM:GetUnitFullName(uId.."target")
+		for uId in DBM:GetGroupMembers() do
+			local unitID = uId.."target"
+			if self:GetUnitCreatureId(unitID) == 15989 and UnitAffectingCombat(unitID) then
+				target = DBM:GetUnitFullName(unitID.."target")
 				foundBoss = true
 				break
 			end

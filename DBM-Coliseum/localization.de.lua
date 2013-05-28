@@ -23,13 +23,13 @@ L:SetMiscLocalization{
 
 L:SetOptionLocalization{
 	WarningSnobold				= "Zeige Warnung, wenn ein Schneeboldvasall erscheint",
-	SpecialWarningImpale3		= "Zeige Spezialwarnung für Pfählen (>=3 Stapel)",
-	SpecialWarningAnger3		= "Zeige Spezialwarnung für $spell:66636 (>=3 Stapel)",
-	SpecialWarningSilence		= "Zeige Spezialwarnung für Erschütterndes Stampfen (Stille)",
-	SpecialWarningCharge		= "Zeige Spezialwarnung, wenn Eisheuler dich niedertrampeln will",
-	SpecialWarningTranq			= "Zeige Spezialwarnung, wenn Eisheuler Schäumende Wut erhält (zum Einlullen/Beruhigen)",
+	SpecialWarningImpale3		= "Spezialwarnung für Pfählen (>=3 Stapel)",
+	SpecialWarningAnger3		= "Spezialwarnung für $spell:66636 (>=3 Stapel)",
+	SpecialWarningSilence		= "Spezialwarnung für Erschütterndes Stampfen (Stille)",
+	SpecialWarningCharge		= "Spezialwarnung, wenn Eisheuler dich niedertrampeln will",
+	SpecialWarningTranq			= "Spezialwarnung, wenn Eisheuler Schäumende Wut erhält (zum Einlullen/Beruhigen)",
 	PingCharge					= "Pingt die Minimap, wenn Eisheuler dich niedertrampeln will",
-	SpecialWarningChargeNear	= "Zeige Spezialwarnung, wenn Eisheuler jemand in deiner Nähe niedertrampeln will",
+	SpecialWarningChargeNear	= "Spezialwarnung, wenn Eisheuler jemand in deiner Nähe niedertrampeln will",
 	SetIconOnChargeTarget		= "Setze Zeichen auf Ziele von Trampeln (Totenkopf)",
 	SetIconOnBileTarget			= "Setze Zeichen auf Ziele von $spell:66869",
 	ClearIconsOnIceHowl			= "Entferne alle Zeichen vor dem Trampeln",
@@ -86,11 +86,11 @@ L:SetMiscLocalization{
 
 L:SetOptionLocalization{
 	TimerCombatStart			= "Zeige Zeit bis Kampfbeginn",
-	WarnNetherPower				= "Zeige Warnung, wenn Lord Jaraxxus $spell:67009 erhält\n(zum Reinigen/Rauben)",
-	SpecWarnTouch				= "Zeige Spezialwarnung, wenn du von $spell:66209 betroffen bist", -- obsolete
-	SpecWarnTouchNear			= "Zeige Spezialwarnung, wenn jemand in deiner Nähe von $spell:66209 betroffen ist", -- obsolete
-	SpecWarnNetherPower			= "Zeige Spezialwarnung für $spell:67009 (zum Reinigen/Rauben)",
-	SpecWarnFelFireball			= "Zeige Spezialwarnung für Teufelsfeuerball (zum Unterbrechen)",
+	WarnNetherPower				= "Zeige Warnung, wenn Lord Jaraxxus $spell:67009 erhält (zum Reinigen/Rauben)",
+	SpecWarnTouch				= "Spezialwarnung, wenn du von $spell:66209 betroffen bist", -- obsolete
+	SpecWarnTouchNear			= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:66209 betroffen ist", -- obsolete
+	SpecWarnNetherPower			= "Spezialwarnung für $spell:67009 (zum Reinigen/Rauben)",
+	SpecWarnFelFireball			= "Spezialwarnung für Teufelsfeuerball (zum Unterbrechen)",
 	TouchJaraxxusIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66209),
 	IncinerateFleshIcon			= "Setze Zeichen auf Ziele von Fleisch einäschern",
 	LegionFlameIcon				= "Setze Zeichen auf Ziele von Legionsflamme",
@@ -189,14 +189,14 @@ L:SetMiscLocalization{
 L:SetOptionLocalization{
 	TimerSpecialSpell			= "Zeige Zeit bis nächste Spezialfähigkeit",
 	WarnSpecialSpellSoon		= "Zeige Vorwarnung für nächste Spezialfähigkeit",
-	SpecWarnSpecial				= "Zeige Spezialwarnung, wenn du die Farbe wechseln musst",
-	SpecWarnSwitchTarget		= "Zeige Spezialwarnung, wenn der andere Zwilling zaubert",
-	SpecWarnKickNow				= "Zeige Spezialwarnung zum Unterbrechen",
-	SpecialWarnOnDebuff			= "Zeige Spezialwarnung bei Berührung (um Farbe zu wechseln)",
+	SpecWarnSpecial				= "Spezialwarnung, wenn du die Farbe wechseln musst",
+	SpecWarnSwitchTarget		= "Spezialwarnung, wenn der andere Zwilling zaubert",
+	SpecWarnKickNow				= "Spezialwarnung zum Unterbrechen",
+	SpecialWarnOnDebuff			= "Spezialwarnung bei Berührung (um Farbe zu wechseln)",
 	SetIconOnDebuffTarget		= "Setze Zeichen auf Ziele von Berührung des Lichts/der Nacht (heroisch)",
 	WarningTouchDebuff			= "Verkünde Ziele von Berührung des Lichts/der Nacht",
 	WarningPoweroftheTwins		= "Verkünde Ziele von Macht der Zwillinge",
-	SpecWarnPoweroftheTwins		= "Zeige Spezialwarnung, wenn du einen gestärkten Zwilling tankst"
+	SpecWarnPoweroftheTwins		= "Spezialwarnung, wenn du einen gestärkten Zwilling tankst"
 }
 
 -----------------
@@ -238,16 +238,16 @@ L:SetOptionLocalization{
 	WarnEmergeSoon			= "Zeige Vorwarnung für Auftauchen",
 	WarnSubmerge			= "Zeige Warnung für Abtauchen",
 	WarnSubmergeSoon		= "Zeige Vorwarnung für Abtauchen",
-	specWarnSubmergeSoon	= "Zeige Spezialwarnung für baldiges Abtauchen",
-	SpecWarnPursue			= "Zeige Spezialwarnung, wenn du verfolgt wirst",
+	specWarnSubmergeSoon	= "Spezialwarnung für baldiges Abtauchen",
+	SpecWarnPursue			= "Spezialwarnung, wenn du verfolgt wirst",
 	warnAdds				= "Verkünde neue Adds",
 	timerAdds				= "Zeige Zeit bis neue Adds erscheinen",
 	TimerEmerge				= "Zeige Zeit bis Auftauchen",
 	TimerSubmerge			= "Zeige Zeit bis Abtauchen",
 	PursueIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67574),
-	SpecWarnShadowStrike	= "Zeige Spezialwarnung für $spell:66134 (zum Unterbrechen)",
+	SpecWarnShadowStrike	= "Spezialwarnung für $spell:66134 (zum Unterbrechen)",
 	SetIconsOnPCold         = DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66013),
-	AnnouncePColdIcons		= "Verkünde Zeichen für Ziele von $spell:66013 im Schlachtzugchat\n(nur als Leiter)",
-	AnnouncePColdIconsRemoved	= "Verkünde auch das Entfernen von Zeichen für $spell:66013\n(benötigt obige Einstellung)"
+	AnnouncePColdIcons		= "Verkünde Zeichen für Ziele von $spell:66013 im Schlachtzugchat (nur als Leiter)",
+	AnnouncePColdIconsRemoved	= "Verkünde auch das Entfernen von Zeichen für $spell:66013 (benötigt obige Einstellung)"
 }
 

@@ -16,7 +16,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	SpecialLocust		= "Zeige Spezialwarnung für $spell:28785",
+	SpecialLocust		= "Spezialwarnung für $spell:28785",
 	WarningLocustFaded	= "Zeige Warnung, wenn $spell:28785 endet",
 	ArachnophobiaTimer	= "Zeige Timer für Erfolg 'Arachnophobie'"
 })
@@ -183,7 +183,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetOptionLocalization({
-	SpecialWarningInjection		= "Zeige Spezialwarnung, wenn du von $spell:28169 betroffen bist",
+	SpecialWarningInjection		= "Spezialwarnung, wenn du von $spell:28169 betroffen bist",
 	SetIconOnInjectionTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(28169)
 })
 
@@ -223,11 +223,11 @@ L:SetMiscLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningChargeChanged	= "Zeige Spezialwarnung, wenn deine Polarität gewechselt hat",
-	WarningChargeNotChanged	= "Zeige Spezialwarnung, wenn deine Polarität nicht gewechselt hat",
+	WarningChargeChanged	= "Spezialwarnung, wenn deine Polarität gewechselt hat",
+	WarningChargeNotChanged	= "Spezialwarnung, wenn deine Polarität nicht gewechselt hat",
 	ArrowsEnabled			= "Zeige Pfeile (normale \"2-Camps\"-Strategie)",
-	ArrowsRightLeft			= "Zeige Links-/Rechtspfeil für die \"4-Camps\"-Strategie\n(zeige Linkspfeil bei Polaritätsänderung, Rechtspfeil bei keiner Änderung)",
-	ArrowsInverse			= "Umgedrehte \"4-Camps\"-Strategie\n(zeige Rechtspfeil bei Polaritätsänderung, Linkspfeil bei keiner Änderung)"
+	ArrowsRightLeft			= "Zeige Links-/Rechtspfeil für die \"4-Camps\"-Strategie\n(Linkspfeil bei Polaritätsänderung, Rechtspfeil bei keiner Änderung)",
+	ArrowsInverse			= "Umgedrehte \"4-Camps\"-Strategie\n(Rechtspfeil bei Polaritätsänderung, Linkspfeil bei keiner Änderung)"
 })
 
 L:SetWarningLocalization({
@@ -316,7 +316,7 @@ L:SetGeneralLocalization({
 L:SetOptionLocalization({
 	WarningMarkSoon				= "Zeige Vorwarnung für Mal",
 	WarningMarkNow				= "Zeige Warnung für Mal",
-	SpecialWarningMarkOnPlayer	= "Zeige Spezialwarnung, wenn sich ein Mal mehr als 4-mal auf dir stapelt"
+	SpecialWarningMarkOnPlayer	= "Spezialwarnung, wenn sich ein Mal mehr als 4-mal auf dir stapelt"
 })
 
 L:SetTimerLocalization({
@@ -351,7 +351,7 @@ L:SetOptionLocalization({
 	TimerAir			= "Zeige Zeit bis nächste Luftphase",
 	TimerLanding		= "Zeige Zeit bis nächste Bodenphase",
 	TimerIceBlast		= "Zeige Zeit bis $spell:28524",
-	WarningDeepBreath	= "Zeige Spezialwarnung für $spell:28524",
+	WarningDeepBreath	= "Spezialwarnung für $spell:28524",
 	WarningIceblock		= "Schreie, wenn du ein Eisblock bist"
 })
 
@@ -385,7 +385,7 @@ L:SetGeneralLocalization({
 
 L:SetOptionLocalization({
 	TimerPhase2			= "Zeige Zeit bis Phase 2",
-	specwarnP2Soon		= "Zeige Spezialwarnung 10 Sekunden bevor Kel'Thuzad angreift",
+	specwarnP2Soon		= "Spezialwarnung 10 Sekunden bevor Kel'Thuzad angreift",
 	warnAddsSoon		= "Zeige Vorwarnung für Wächter von Eiskrone",
 	SetIconOnMC			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(28410),
 	SetIconOnManaBomb	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(27819),

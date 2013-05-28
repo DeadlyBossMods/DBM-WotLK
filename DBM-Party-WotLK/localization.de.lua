@@ -7,7 +7,7 @@ local spellCD			= "%s CD"
 local spellSoon			= "%s bald"
 local optionWarning		= "Zeige Warnung für %s"
 local optionPreWarning	= "Zeige Vorwarnung für %s"
-local optionSpecWarning	= "Zeige Spezialwarnung für %s"
+local optionSpecWarning	= "Spezialwarnung für %s"
 local optionTimerCD		= "Abklingzeit von %s anzeigen"
 local optionTimerDur	= "Dauer von %s anzeigen"
 local optionTimerCast	= "Wirkzeit von %s anzeigen"
@@ -1229,7 +1229,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	specwarnRadiance		= "Zeige Spezialwarnung für $spell:66935",
+	specwarnRadiance		= "Spezialwarnung für $spell:66935",
 	SetIconOnHammerTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66940)
 })
 
@@ -1255,7 +1255,7 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	warnPursuit				= "Verkünde verfolgte Ziele",
-	specWarnPursuit			= "Zeige Spezialwarnung, wenn du verfolgt wirst",
+	specWarnPursuit			= "Spezialwarnung, wenn du verfolgt wirst",
 	SetIconOnPursuitTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68987)
 })
 
@@ -1281,9 +1281,9 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	warnSaroniteRock			= "Verkünde Ziele von $spell:68789",
-	specWarnSaroniteRock		= "Zeige Spezialwarnung, wenn du von $spell:68789 betroffen bist",
-	specWarnSaroniteRockNear	= "Zeige Spezialwarnung, wenn jemand in deiner Nähe von $spell:68789\nbetroffen ist",
-	specWarnPermafrost			= "Zeige Spezialwarnung, wenn $spell:68786 zu hoch stapelt",
+	specWarnSaroniteRock		= "Spezialwarnung, wenn du von $spell:68789 betroffen bist",
+	specWarnSaroniteRockNear	= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:68789 betroffen ist",
+	specWarnPermafrost			= "Spezialwarnung, wenn $spell:68786 zu hoch stapelt",
 	AchievementCheck			= "Verkünde Warnungen für den Erfolg 'Elfer raus!' an Gruppe",
 	SetIconOnSaroniteRockTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68789)
 })
@@ -1313,8 +1313,8 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization({
-	specWarnHoarfrost			= "Zeige Spezialwarnung, wenn du von $spell:69246 betroffen bist",
-	specWarnHoarfrostNear		= "Zeige Spezialwarnung, wenn jemand in deiner Nähe von $spell:69246 betroffen ist",
+	specWarnHoarfrost			= "Spezialwarnung, wenn du von $spell:69246 betroffen bist",
+	specWarnHoarfrostNear		= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:69246 betroffen ist",
 	TimerCombatStart			= "Zeige Zeit bis Kampfbeginn",
 	SetIconOnHoarfrostTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69246)
 })
@@ -1341,7 +1341,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	specwarnSoulstorm	= "Zeige Spezialwarnung, wenn $spell:68872 gewirkt wird (zum Reinlaufen)"
+	specwarnSoulstorm	= "Spezialwarnung, wenn $spell:68872 gewirkt wird (zum Reinlaufen)"
 })
 
 -------------------------
@@ -1359,8 +1359,8 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	specwarnMirroredSoul	= "Zeige Spezialwarnung für Schadensstop bei $spell:69051",
-	specwarnWailingSouls	= "Zeige Spezialwarnung, wenn $spell:68899 gewirkt wird",
+	specwarnMirroredSoul	= "Spezialwarnung für Schadensstop bei $spell:69051",
+	specwarnWailingSouls	= "Spezialwarnung, wenn $spell:68899 gewirkt wird",
 	SetIconOnMirroredTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69051)
 })
 

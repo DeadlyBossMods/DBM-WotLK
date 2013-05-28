@@ -330,12 +330,13 @@ do
 					if UnitIsUnit(uId, "player") then
 						specWarnYouAreValkd:Show()
 					end
-					if mod.Options.AnnounceValkGrabs and DBM:GetRaidRank() > 1 then
+					if IsInGroup() and mod.Options.AnnounceValkGrabs and DBM:GetRaidRank() > 1 then
+						local channel = (IsInRaid() and "RAID") or "PARTY"
 						if mod.Options.ValkyrIcon then
-							SendChatMessage(L.ValkGrabbedIcon:format(grabIcon, UnitName(uId)), "RAID")
+							SendChatMessage(L.ValkGrabbedIcon:format(grabIcon, UnitName(uId)), channel)
 							grabIcon = grabIcon + 1
 						else
-							SendChatMessage(L.ValkGrabbed:format(UnitName(uId)), "RAID")
+							SendChatMessage(L.ValkGrabbed:format(UnitName(uId)), channel)
 						end
 					end
 				end

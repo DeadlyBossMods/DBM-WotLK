@@ -18,8 +18,8 @@ mod:RegisterEvents(
 local warnWhelpsSoon		= mod:NewAnnounce("WarnWhelpsSoon", 1, 69004)
 local warnPhase2			= mod:NewPhaseAnnounce(2)
 local warnPhase3			= mod:NewPhaseAnnounce(3)
-local warnPhase2Soon		= mod:NewAnnounce("WarnPhase2Soon", 1, "Interface\\Icons\\Spell_Nature_WispSplode")
-local warnPhase3Soon		= mod:NewAnnounce("WarnPhase3Soon", 1, "Interface\\Icons\\Spell_Nature_WispSplode")
+local warnPhase2Soon		= mod:NewPrePhaseAnnounce(2)
+local warnPhase3Soon		= mod:NewPrePhaseAnnounce(3)
 
 local specWarnBreath		= mod:NewSpecialWarningSpell(18584, nil, nil, nil, true)
 local specWarnBlastNova		= mod:NewSpecialWarningRun(68958, mod:IsMelee())

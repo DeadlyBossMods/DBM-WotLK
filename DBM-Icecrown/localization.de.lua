@@ -15,9 +15,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrap		= "Spezialwarnung für Fallenaktivierung",
-	SetIconOnDarkReckoning	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69483),
-	SetIconOnDeathPlague	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72865)
+	SpecWarnTrap		= "Spezialwarnung für Fallenaktivierung"
 }
 
 L:SetMiscLocalization{
@@ -58,16 +56,6 @@ L:SetGeneralLocalization{
 	name = "Trash der Blutroten Halle"
 }
 
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
-	BloodMirrorIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70451)
-}
-
-L:SetMiscLocalization{
-}
-
 ---------------------------
 --  Trash - Frostwing Hall  --
 ---------------------------
@@ -81,13 +69,8 @@ L:SetWarningLocalization{
 	SpecWarnGosaEvent	= "Sindragosa-Spießrutenlauf gestartet!"
 }
 
-L:SetTimerLocalization{
-	GosaTimer			= "Zeit verbleibend"
-}
-
 L:SetOptionLocalization{
-	SpecWarnGosaEvent	= "Spezialwarnung für Sindragosa-Spießrutenlauf",
-	GosaTimer			= "Dauer des Sindragosa-Spießrutenlaufs anzeigen"
+	SpecWarnGosaEvent	= "Spezialwarnung für Sindragosa-Spießrutenlauf"
 }
 
 L:SetMiscLocalization{
@@ -108,8 +91,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	AchievementBoned	= "Zeige Timer für Erfolg 'Entknöchert'",
-	SetIconOnImpale		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69062)
+	AchievementBoned	= "Zeige Timer für Erfolg 'Entknöchert'"
 }
 
 -------------------------
@@ -134,14 +116,10 @@ L:SetOptionLocalization{
 	WarnAddsSoon				= "Zeige Vorwarnung für erscheinende Adds",
 	WarnReanimating				= "Zeige Warnung, wenn ein Add wiederbelebt wird",	-- Reanimated Adherent/Fanatic spawning
 	TimerAdds					= "Zeige Zeit bis neue Adds erscheinen",
-	ShieldHealthFrame			= "Zeige Lebensanzeige mit einem Balken für $spell:70842",
-	SetIconOnDominateMind		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71289),
-	SetIconOnDeformedFanatic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70900),
-	SetIconOnEmpoweredAdherent	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70901)
+	ShieldHealthFrame			= "Zeige Lebensanzeige mit einem Balken für $spell:70842"
 }
 
 L:SetMiscLocalization{
-	YellPull				= "Was soll die Störung? Ihr wagt es, heiligen Boden zu betreten? Dies wird der Ort Eurer letzten Ruhe sein!",
 	YellReanimatedFanatic	= "Erhebt Euch und frohlocket ob Eurer reinen Form!",
 	Fanatic1				= "Fanatischer Kultist",
 	Fanatic2				= "Deformierter Fanatiker",
@@ -198,7 +176,6 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	TimerCombatStart		= "Zeige Zeit bis Kampfbeginn",
-	BoilingBloodIcons		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72385),
 	RangeFrame				= "Zeige Abstandsfenster (12m)",
 	RunePowerFrame			= "Zeige Lebensanzeige und einen Balken für $spell:72371",
 	BeastIcons				= "Setze Zeichen auf Blutbestien"
@@ -221,7 +198,6 @@ L:SetGeneralLocalization{
 
 L:SetOptionLocalization{
 	RangeFrame			= "Zeige Abstandsfenster (8m)",
-	SetIconOnGasSpore	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279),
 	AnnounceSporeIcons	= "Verkünde Zeichen für Ziele von $spell:69279 im Schlachtzugchat (nur als Leiter)",
 	AchievementCheck	= "Verkünde Fehlschlag des Erfolgs 'Grippeimpfungs-Engpass' an Schlachtzug (nur als Leiter/Assistent)"
 }
@@ -249,7 +225,6 @@ L:SetOptionLocalization{
 	WarnOozeSpawn				= "Zeige Warnung für Erscheinen eines Kleinen Schlamm",
 	SpecWarnLittleOoze			= "Spezialwarnung, wenn du von einem Kleinen Schlamm angegriffen wirst",--creatureid 36897
 	RangeFrame					= "Zeige Abstandsfenster (8m)",
-	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69674),
 	TankArrow					= "Zeige DBM-Pfeil zum Kiter von 'Großer Schlamm'" 
 }
 
@@ -267,21 +242,9 @@ L:SetGeneralLocalization{
 	name = "Professor Seuchenmord"
 }
 
-L:SetWarningLocalization{
-	SpecWarnMalleableGoo		= "Formbarer Glibber auf dir - Lauf weg!",
-	SpecWarnMalleableGooNear	= "Formbarer Glibber in deiner Nähe - Aufpassen!"
-}
-
 L:SetOptionLocalization{
-	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
-	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
-	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
 	MalleableGooIcon			= "Setze Zeichen auf erstes Ziel von $spell:72295",
 	GooArrow					= "Zeige DBM-Pfeil, wenn $spell:72295 in deiner Nähe ist"
-}
-
-L:SetMiscLocalization{
-	YellPull		= "Gute Nachricht, Freunde! Ich habe eine Seuche perfektioniert, die alles Leben Azeroths auslöscht!"
 }
 
 ----------------------------
@@ -306,7 +269,6 @@ L:SetOptionLocalization{
 	WarnTargetSwitch		= "Zeige Warnung für Zielwechsel",-- Warn when another Prince needs to be damaged
 	WarnTargetSwitchSoon	= "Zeige Vorwarnung für Zielwechsel",-- Every ~47 secs, you have to dps a different Prince
 	TimerTargetSwitch		= "Zeige Zeit bis Zielwechsel",
-	EmpoweredFlameIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72040),
 	ActivePrinceIcon		= "Setze Zeichen auf den machterfüllten Prinzen (Totenkopf)",
 	RangeFrame				= "Zeige Abstandsfenster (12m)",
 	VortexArrow				= "Zeige DBM-Pfeil, wenn $spell:72037 in deiner Nähe ist"
@@ -328,18 +290,8 @@ L:SetGeneralLocalization{
 	name = "Blutkönigin Lana'thel"
 }
 
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
-}
-
 L:SetOptionLocalization{
-	SetIconOnDarkFallen		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71340),
-	SwarmingShadowsIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71266),
-	BloodMirrorIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70838),
-	RangeFrame				= "Zeige Abstandsfenster (8m)",
-	YellOnFrenzy			= "Schreie, wenn du von $spell:70877 betroffen bist"
+	RangeFrame				= "Zeige Abstandsfenster (8m)"
 }
 
 L:SetMiscLocalization{
@@ -406,8 +358,6 @@ L:SetOptionLocalization{
 	TimerNextAirphase		= "Zeige Zeit bis nächste Luftphase",
 	TimerNextGroundphase	= "Zeige Zeit bis nächste Bodenphase",
 	AnnounceFrostBeaconIcons= "Verkünde Zeichen für Ziele von $spell:70126 im SZ-Chat (nur als Leiter)",
-	SetIconOnFrostBeacon	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70126),
-	SetIconOnUnchainedMagic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69762),
 	ClearIconsOnAirphase	= "Entferne alle Zeichen vor der Luftphase",
 	AchievementCheck		= "Verkünde Warnungen für den Erfolg 'Das Buffet ist eröffnet' an Schlachtzug (nur als Leiter/Assistent)",
 	RangeFrame				= "Zeige dynamisches Abstandsfenster (10m/20m) basierend auf zuletzt genutzten Bossfähigkeiten und Spieler-Debuffs"
@@ -420,8 +370,7 @@ L:SetMiscLocalization{
 	YellPhase2Dem		= "Zar kiel xi romathIs zilthuras revos ruk toralar ",--Demonic, since curse of tonges is used by some guilds and it messes up yell detection.
 	BeaconIconSet		= "Frostleuchtfeuer-Zeichen {rt%d} auf %s gesetzt",
 	AchievementWarning	= "Warnung: %s hat 5 Stapel von Mystischer Puffer",
-	AchievementFailed	= ">> ERFOLG FEHLGESCHLAGEN: %s hat %d Stapel von Mystischer Puffer <<",
-	YellPull			= "Ihr seid Narren, euch hierher zu wagen. Der eisige Wind Nordends wird eure Seelen verschlingen!"	--Not currently in use.
+	AchievementFailed	= ">> ERFOLG FEHLGESCHLAGEN: %s hat %d Stapel von Mystischer Puffer <<"
 }
 
 ---------------------
@@ -455,11 +404,6 @@ L:SetOptionLocalization{
 	PhaseTransition			= "Dauer der Phasenübergänge anzeigen",
 	ValkyrWarning			= "Verkünde Griffziele der Schattenwächterinnen der Val'kyr",
 	SpecWarnYouAreValkd		= "Spezialwarnung, wenn du von einer Schattenwächterin der Val'kyr gegriffen wurdest",--npc36609
-	DefileIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72762),
-	NecroticPlagueIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70337),
-	RagingSpiritIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69200),
-	TrapIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(73539),
-	HarvestSoulIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68980),
 	ValkyrIcon				= "Setze Zeichen auf Schattenwächterinnen der Val'kyr",
 	AnnounceValkGrabs		= "Verkünde Griffziele der Schattenwächterinnen der Val'kyr im SZ-Chat (benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)",
 	SpecWarnValkyrLow		= "Spezialwarnung, wenn eine Schattenwächterin der Val'kyr unter 55% Lebenspunkte ist",

@@ -18,7 +18,7 @@ else
 end
 mod:SetMinCombatTime(50)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
@@ -26,6 +26,7 @@ mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_YELL"
 )
 
+--TODO, see if IEEU fires here and if we need yell triggers for engage
 local warnBelowZero			= mod:NewSpellAnnounce(69705, 4)
 local warnExperienced		= mod:NewTargetAnnounce(71188, 1, nil, false)		-- might be spammy
 local warnVeteran			= mod:NewTargetAnnounce(71193, 2, nil, false)		-- might be spammy

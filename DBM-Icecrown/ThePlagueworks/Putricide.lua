@@ -8,9 +8,9 @@ mod:SetUsedIcons(5, 6, 7, 8)
 --mod:SetMinSyncRevision(3860)
 mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
 
-mod:RegisterCombat("yell", L.YellPull)
+mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_AURA_APPLIED",

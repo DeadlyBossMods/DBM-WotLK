@@ -7,7 +7,7 @@ mod:SetModelID(31006)
 mod:RegisterCombat("combat")
 mod:SetUsedIcons(6, 7, 8)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_APPLIED_DOSE",

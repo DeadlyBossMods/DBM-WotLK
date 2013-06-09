@@ -12,9 +12,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnWhelpsSoon		= "Скоро дракончики Ониксии",
-	WarnPhase2Soon		= "Скоро фаза 2",
-	WarnPhase3Soon		= "Скоро фаза 3"
+	WarnWhelpsSoon		= "Скоро дракончики Ониксии"
 }
 
 L:SetTimerLocalization{
@@ -24,9 +22,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerWhelps				= "Отсчет времени до дракончиков Ониксии",
 	WarnWhelpsSoon			= "Предупреждать заранее о дракончиках Ониксии",
-	SoundWTF				= "Воспроизводить забавное озвучивание легендарного классического рейда на Ониксию (англ.)",
-	WarnPhase2Soon			= "Предупреждать заранее о фазе 2 (на ~70%)",
-	WarnPhase3Soon			= "Предупреждать заранее о фазе 3 (на ~45%)"
+	SoundWTF				= "Воспроизводить забавное озвучивание легендарного классического рейда на Ониксию (англ.)"
 }
 
 L:SetMiscLocalization{

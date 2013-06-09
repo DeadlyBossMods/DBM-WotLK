@@ -12,9 +12,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnWhelpsSoon	= "Pronto saldran crias",
-	WarnPhase2Soon		= "Fase 2 pronto",
-	WarnPhase3Soon		= "Fase 3 pronto"
+	WarnWhelpsSoon	= "Pronto saldran crias"
 }
 
 L:SetTimerLocalization{
@@ -24,9 +22,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerWhelps		= "Mostrar tiempo para las crias",
 	WarnWhelpsSoon	= "Mostrar pre-aviso para las crias",
-	SoundWTF				= "Reproducir sonidos divertidos de una banda legendaria de Onyxia classico",
-	WarnPhase2Soon			= "Mostrar pre-aviso para Fase 2 (al ~70%)",
-	WarnPhase3Soon			= "Mostrar pre-aviso para Fase 3 (al ~45%)"
+	SoundWTF				= "Reproducir sonidos divertidos de una banda legendaria de Onyxia classico"
 }
 
 L:SetMiscLocalization{

@@ -28,14 +28,16 @@ local warnPhase3Soon				= mod:NewAnnounce("WarnPhase3Soon", 2)
 local warnPhase2					= mod:NewPhaseAnnounce(2)
 local warnPhase3					= mod:NewPhaseAnnounce(3)
 local warningShadowConsumption		= mod:NewTargetAnnounce(74792, 4)
-local warningFieryConsumption		= mod:NewTargetAnnounce(74562, 4)
+local warningFieryCombustion		= mod:NewTargetAnnounce(74562, 4)
 local warningMeteor					= mod:NewSpellAnnounce(74648, 3)
 local warningShadowBreath			= mod:NewSpellAnnounce(74806, 2, nil, mod:IsTank() or mod:IsHealer())
 local warningFieryBreath			= mod:NewSpellAnnounce(74525, 2, nil, mod:IsTank() or mod:IsHealer())
 local warningTwilightCutter			= mod:NewAnnounce("TwilightCutterCast", 4, 74769)
 
 local specWarnShadowConsumption		= mod:NewSpecialWarningRun(74792)
-local specWarnFieryConsumption		= mod:NewSpecialWarningRun(74562)
+local yellShadowconsumption			= mod:NewYell(74792)
+local specWarnFieryCombustion		= mod:NewSpecialWarningRun(74562)
+local yellFieryCombustion			= mod:NewYell(74562)
 local specWarnMeteorStrike			= mod:NewSpecialWarningMove(74648)
 local specWarnTwilightCutter		= mod:NewSpecialWarningSpell(74769)
 
@@ -53,7 +55,6 @@ local berserkTimer					= mod:NewBerserkTimer(480)
 
 local soundConsumption 				= mod:NewSound(74562, "SoundOnConsumption")
 
-mod:AddBoolOption("YellOnConsumption", true, "announce")
 mod:AddBoolOption("AnnounceAlternatePhase", true, "announce")
 mod:AddBoolOption("WhisperOnConsumption", false, "announce")
 mod:AddBoolOption("SetIconOnConsumption", true)
@@ -116,13 +117,11 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		if args:IsPlayer() then
 			specWarnShadowConsumption:Show()
 			soundConsumption:Play()
-			if self.Options.YellOnConsumption then
-				SendChatMessage(L.YellConsumption, "SAY")
-			end
+			yellShadowconsumption:Yell()
 		end
 		if not self.Options.AnnounceAlternatePhase then
 			warningShadowConsumption:Show(args.destName)
-			if DBM:GetRaidRank() > 0 and self.Options.WhisperOnConsumption then
+			if DBM:GetRaidRank() > 1 and self.Options.WhisperOnConsumption then
 				self:SendWhisper(L.WhisperConsumption, args.destName)
 			end
 		end
@@ -134,15 +133,13 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 			self:SendSync("FieryTarget", args.destName)
 		end
 		if args:IsPlayer() then
-			specWarnFieryConsumption:Show()
+			specWarnFieryCombustion:Show()
 			soundConsumption:Play()
-			if self.Options.YellOnConsumption then
-				SendChatMessage(L.YellCombustion, "SAY")
-			end
+			yellFieryCombustion:Yell()
 		end
 		if not self.Options.AnnounceAlternatePhase then
-			warningFieryConsumption:Show(args.destName)
-			if DBM:GetRaidRank() > 0 and self.Options.WhisperOnConsumption then
+			warningFieryCombustion:Show(args.destName)
+			if DBM:GetRaidRank() > 1 and self.Options.WhisperOnConsumption then
 				self:SendWhisper(L.WhisperCombustion, args.destName)
 			end
 		end

@@ -179,7 +179,6 @@ L:SetOptionLocalization({
 	AnnounceAlternatePhase	= "不管你進不進下一階段一樣顯示警告/計時器",
 	SoundOnConsumption	= "為$spell:74562或$spell:74792播放音效",--We use localized text for these functions
 	SetIconOnConsumption	= "為$spell:74562或$spell:74792的目標設置標記",--So we can use single functions for both versions of spell.
-	YellOnConsumption	= "當你中了$spell:74562或$spell:74792時大喊",
 	WhisperOnConsumption	= "密語提示$spell:74562或$spell:74792的目標 (需要團隊隊長)"
 })
 
@@ -190,7 +189,5 @@ L:SetMiscLocalization({
 	Phase2			= "在暮光的國度只有磨難在等著你!有膽量的話就進去吧!",
 	Phase3			= "我是光明亦是黑暗!凡人，匍匐在死亡之翼的信使面前吧!",
 	twilightcutter		= "這些環繞的球體散發著黑暗能量!",
-	YellCombustion		= "我中了熾熱燃灼!",
-	YellConsumption		= "我中了靈魂耗損!",
 	Kill			= "享受這場勝利吧，凡人們，因為這是你們最後一次的勝利。這世界將會在主人回歸時化為火海!"
 })

@@ -183,7 +183,6 @@ L:SetOptionLocalization({
 	AnnounceAlternatePhase	= "다른 위상에 관련된 알림/바 보기",
 	SoundOnConsumption		= "$spell:74562 또는 $spell:74792 주문의 영향을 받은 경우 별도 경고음 듣기",
 	SetIconOnConsumption	= "$spell:74562 또는 $spell:74792 대상에게 전술 목표 아이콘 설정",
-	YellOnConsumption		= "$spell:74562 또는 $spell:74792 주문의 영향을 받은 경우 대화로 알리기",
 	WhisperOnConsumption	= "$spell:74562 또는 $spell:74792 대상에게 귓속말 보내기(승급 권한 필요)"
 })
 
@@ -193,9 +192,7 @@ L:SetMiscLocalization({
 	Phase2					= "황혼 세계에서는 고통만이 있으리라! 자신 있다면 들어와 봐라!",
 	Phase3					= "나는 빛이자 어둠이다! 필멸자들아, 데스윙의 사자 앞에 무릎 꿇어라!",
 	twilightcutter			= "주위를 회전하는 구슬들이 고동치며 어둠의 기운을 내뿜습니다!",
-	YellCombustion			= "나에게 맹렬한 발화!",
 	WhisperCombustion		= "당신에게 맹렬한 발화! 외곽으로 뛰셈!",
-	YellConsumption			= "나에게 영혼 소진!",
 	WhisperConsumption		= "당신에게 영혼 소진! 외곽으로 뛰셈!",
 	Kill					= "필멸자들아, 승리를 만끽해라. 그것이 마지막일 테니. 주인님이 돌아오시면 이 세상은 불타버리리라!"
 })

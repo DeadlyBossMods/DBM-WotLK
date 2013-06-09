@@ -177,7 +177,6 @@ L:SetOptionLocalization({
 	AnnounceAlternatePhase	= "Zeige auch Warnungen/Timer für Phasen, in denen du dich nicht befindest",
 	SoundOnConsumption		= "Spiele Sound, wenn du von $spell:74562 oder $spell:74792 betroffen bist",
 	SetIconOnConsumption	= "Setze Zeichen auf Ziele von $spell:74562 und $spell:74792",
-	YellOnConsumption		= "Schreie, wenn du von $spell:74562 oder $spell:74792 betroffen bist",
 	WhisperOnConsumption	= "Ziele von $spell:74562 und $spell:74792 anflüstern (benötigt Schlachtzugleitung)"
 })
 
@@ -187,9 +186,7 @@ L:SetMiscLocalization({
 	Phase2					= "Ihr werdet im Reich des Zwielichts nur Leid finden! Tretet ein, wenn ihr es wagt!",
 	Phase3					= "Ich bin das Licht und die Dunkelheit! Zittert, Sterbliche, vor dem Herold Todesschwinges!",
 	twilightcutter			= "Die kreisenden Sphären pulsieren vor dunkler Energie!",
-	YellCombustion			= "Feurige Einäscherung auf mir!",
 	WhisperCombustion		= "Feurige Einäscherung auf dir! Lauf zur Wand!",
-	YellConsumption			= "Seelenverzehrung auf mir!",
 	WhisperConsumption		= "Seelenverzehrung auf dir! Lauf zur Wand!",
 	Kill					= "Genießt euren Sieg, Sterbliche, denn es war euer letzter. Bei der Rückkehr des Meisters wird diese Welt brennen!"
 })

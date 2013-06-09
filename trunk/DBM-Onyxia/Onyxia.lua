@@ -47,6 +47,14 @@ function mod:OnCombatStart(delay)
 	sndFunny:Play("Interface\\AddOns\\DBM-Onyxia\\sounds\\dps-very-very-slowly.ogg")
 	sndFunny:Schedule(20, "Interface\\AddOns\\DBM-Onyxia\\sounds\\hit-it-like-you-mean-it.ogg")
 	sndFunny:Schedule(30, "Interface\\AddOns\\DBM-Onyxia\\sounds\\now-hit-it-very-hard-and-fast.ogg")
+	--Show correct achievement text
+	if self:IsDifficulty("normal25") then
+		timerAchieve		= mod:NewAchievementTimer(300, 4405) 
+		timerAchieveWhelps	= mod:NewAchievementTimer(10, 4406)
+	else
+		timerAchieve		= mod:NewAchievementTimer(300, 4402) 
+		timerAchieveWhelps	= mod:NewAchievementTimer(10, 4403) 
+	end
 end
 
 function mod:Whelps()--Not right, need to fix

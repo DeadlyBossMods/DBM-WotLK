@@ -11,7 +11,7 @@ mod:SetMinSyncRevision(7)--Could break if someone is running out of date version
 
 mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_DISPEL",

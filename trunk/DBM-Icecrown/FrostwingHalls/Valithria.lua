@@ -5,10 +5,10 @@ mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(36789)
 mod:SetModelID(30318)
 mod:SetUsedIcons(8)
-mod:RegisterCombat("yell", L.YellPull)
+mod:RegisterCombat("yell", L.YellPull)--TODO, see if she fires IEEU
 mod:RegisterKill("yell", L.YellKill)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_AURA_APPLIED",

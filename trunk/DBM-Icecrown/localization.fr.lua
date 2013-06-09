@@ -16,9 +16,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrap		= "Show special warning for trap activation",
-	SetIconOnDarkReckoning	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69483),
-	SetIconOnDeathPlague	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72865)
+	SpecWarnTrap		= "Show special warning for trap activation"
 }
 
 L:SetMiscLocalization{
@@ -42,8 +40,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrap	= "Show special warning for trap activation",
-	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71127)
+	SpecWarnTrap	= "Show special warning for trap activation"
 }
 
 L:SetMiscLocalization{
@@ -59,16 +56,6 @@ L = DBM:GetModLocalization("CrimsonHallTrash")
 
 L:SetGeneralLocalization{
 	name = "Crimson Hall Trash"
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
-	BloodMirrorIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70451)
-}
-
-L:SetMiscLocalization{
 }
 
 ----------------------
@@ -115,19 +102,13 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	WarnAddsSoon					= "Montre une pré-alerte avant que les adds arrivent",
-	WarnTouchInsignificance			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(71204),
 	WarnReanimating					= "Montre une alerte quand les adds vont revenir a la vie",
 	TimerAdds						= "Montre le timer pour les nouveaux adds",
-	ShieldHealthFrame				= "Montre la vie du boss avec une barre de vie pour la $spell:70842",
-	SetIconOnDominateMind			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71289),
-	SetIconOnDeformedFanatic		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70900),
-	SetIconOnEmpoweredAdherent		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70901)
+	ShieldHealthFrame				= "Montre la vie du boss avec une barre de vie pour la $spell:70842"
 }
 
 L:SetMiscLocalization{
-	YellPull						= "Quelle est cette perturbation ? Vous osez profaner cette terre sacrée ? Elle deviendra votre sépulture !",
 	YellReanimatedFanatic			= "Lève-toi, dans l'exultation de cette nouvelle pureté",
-	ShieldPercent					= "Barrière de mana",
 	Fanatic1						= "Membres du culte",
 	Fanatic2						= "Fanatique déformé",
 	Fanatic3						= "Fanatique réanimé"
@@ -154,7 +135,6 @@ L:SetOptionLocalization{
 	WarnFrenzySoon		= "Montre une pré-alerte pour la Frénésie (à ~33%)",
 	RangeFrame			= "Montre la fenêtre de proximité",
 	TimerCombatStart	= "Montre le timer pour le début du combat",
-	BoilingBloodIcons	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72441),
 	MarkCastIcon		= "Met des icones sur les cibles de $spell:72444 durant l'incantation (Experimental)",
 	RunePowerFrame		= "Montre la barre de vie du boss + la barre de $spell:72371"
 }
@@ -180,7 +160,6 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	WarnBattleFury		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69638),
 	TimerCombatStart	= "Montre le timer pour le début du combat",
 	WarnAddsSoon		= "Montre une alerte avant que les adds arrivent",
 	TimerAdds			= "Montre le timer pour les nouveaux adds"
@@ -214,9 +193,7 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	InhaledBlight		= "Montre une alerte pour le $spell:71912",
-	RangeFrame			= "Montre la fenêtre de portée (8 Mètres)",
-	WarnGastricBloat	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72551),	
-	SetIconOnGasSpore	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279)
+	RangeFrame			= "Montre la fenêtre de portée (8 Mètres)"
 }
 
 ---------------
@@ -243,8 +220,7 @@ L:SetOptionLocalization{
 	SpecWarnMutatedInfection 	= "Montre une alerte spéciale quand vous êtes affecté par Infection mutée",
 	InfectionIcon				= "Met des icones sur la cible de l'Infection mutée",
 	WarnOozeSpawn				= "Montre une alerte pour l'arrivée des Limons",
-	SpecWarnLittleOoze			= "Montre une alerte spéciale quand vous êtes attaquer par des Limons",
-	WarnUnstableOoze			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(69558)
+	SpecWarnLittleOoze			= "Montre une alerte spéciale quand vous êtes attaquer par des Limons"
 }
 
 L:SetMiscLocalization{
@@ -276,19 +252,13 @@ L:SetOptionLocalization{
 	WarnPhase3Soon				= "Montre une alerte avant la 3 (at ~38%)",
 	SpecWarnMalleableGoo		= "Montre une alerte spéciale si la Gelée malléable va sur vous (Marche seulement si vous êtes la première cible)",
 	SpecWarnMalleableGooNear	= "Montre une alerte spéciale si la Gelée malléable va sur un joueur a coter de vous (Marche seulement si le joueur a coter de vous est la première cible)",
-	WarnMutatedPlague			= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(72451),
-	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
-	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
-	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72856),
 	MalleableGooIcon			= "Met une icone sur la première cible de $spell:72295",
 	NextUnboundPlagueTargetIcon	= "Met une icone sur la prochaine cible de $spell:72856",
-	YellOnMalleableGoo			= "Crie pour $spell:72295",	
 	SpecWarnUnboundPlague		= "Montre une alerte spéciale pour le transfert de $spell:72856",
 	SpecWarnNextPlageSelf		= "Montre une alerte spéciale si vous êtes la cible suivante de $spell:72856"
 }
 
 L:SetMiscLocalization{
-	YellPull		= "mis au point une peste qui va",
 	YellMalleable	= "Gelée malléable sur MOI !"
 }
 
@@ -318,7 +288,6 @@ L:SetOptionLocalization{
 	TimerTargetSwitch		= "Montre un timer pour le changement de cible",
 	SpecWarnVortex			= "Montre une alerte spéciale pour le $spell:72037 sur vous",
 	SpecWarnVortexNear		= "Montre une alerte spéciale pour le $spell:72037 à coter de vous",
-	EmpoweredFlameIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72040),
 	ActivePrinceIcon		= "Place l'icône de raid principale sur le prince de sang actuellement surpuissant (nécessite d'être assistant ou mieux)."
 }
 
@@ -336,18 +305,6 @@ L = DBM:GetModLocalization("Lanathel")
 
 L:SetGeneralLocalization{
 	name = "Reine de sang Lana'thel"
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
-}
-
-L:SetOptionLocalization{
-	SetIconOnDarkFallen			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71340),
-	SwarmingShadowsIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71266),
-	BloodMirrorIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70838)
 }
 
 L:SetMiscLocalization{
@@ -375,8 +332,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	SetIconOnBlazingSkeleton	= "Met une icone sur le Squelette flamboyant (Tête de mort)",
 	WarnPortalOpen				= "Prévient via une alerte quand Valithria ouvre des portails.",
-	TimerPortalsOpen			= "Montre une timer pour voir quand Valithria ouvre des portails.",
-	WarnCorrosion				= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(70751)
+	TimerPortalsOpen			= "Montre une timer pour voir quand Valithria ouvre des portails."
 }
 
 L:SetMiscLocalization{
@@ -420,8 +376,6 @@ L:SetOptionLocalization{
 	WarnChilledtotheBone		= "Montre une alerte pour les stacks de $spell:70106",
 	WarnMysticBuffet			= "Montre une alerte pour les stacks de $spell:70128",
 	AnnounceFrostBeaconIcons	= "Annonce les icones pour les cibles de $spell:70126 dans le chat de raid (requires announce to be enabled and leader/promoted status)",
-	SetIconOnFrostBeacon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70126),
-	SetIconOnUnchainedMagic		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69762),
 	ClearIconsOnAirphase		= "Retire toutes les icones avant la phase d'envol",
 	RangeFrame					= "Montre la fenêtre de portée (10 normal, 20 heroic) (Montre uniquement les icones marquer sur les joueurs)"
 }
@@ -431,8 +385,7 @@ L:SetMiscLocalization{
 	YellPhase2		= "Sentez maintenant le pouvoir infini de mon",
 	YellAirphaseDem		= "Rikk zilthuras rikk zila Aman adare tiriosh ",--Demonic, since curse of tonges is used by some guilds and it messes up yell detection.
 	YellPhase2Dem		= "Zar kiel xi romathIs zilthuras revos ruk toralar ",--Demonic, since curse of tonges is used by some guilds and it messes up yell detection.
-	BeaconIconSet	= "Icone de Guide de givre {rt%d} mis sur %s",
-	YellPull		= "est stupide d'être venus ici"
+	BeaconIconSet	= "Icone de Guide de givre {rt%d} mis sur %s"
 }
 
 ---------------------
@@ -474,12 +427,6 @@ L:SetOptionLocalization{
 	SpecWarnDefileCast			= "Montre une alerte spéciale pour la $spell:72762 sur vous",
 	SpecWarnDefileNear			= "Montre une alerte spéciale pour la $spell:72762 à coter de vous",
 	SpecWarnTrapNear			= "Montre une alerte spéciale pour le $spell:73539 à coter de vous",
-	YellOnDefile				= "Crie pour $spell:72762",
-	YellOnTrap					= "Crie pour $spell:73539",
-	DefileIcon					= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72762),
-	NecroticPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(73912),
-	RagingSpiritIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69200),
-	TrapIcon					= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(73539),
 	ValkyrIcon					= "Met des icones sur les Valkyrs",
 	DefileArrow					= "Montre les flèches de DBM quand $spell:72762 est à coter de vous",
 	TrapArrow					= "Montre les flèches de DBM quand $spell:73539 est à coter de vous",
@@ -488,8 +435,6 @@ L:SetOptionLocalization{
 
 L:SetMiscLocalization{
 	LKPull			= "la fameuse justice de la Lumière",
-	YellDefile		= "Profanation sur MOI !",
-	YellTrap		= "Piège d'ombre sur MOI !",
 	YellKill		= "No questions remain unanswered. No doubts linger. You ARE Azeroth's greatest champions. You overcame every challenge I laid before you. My mightiest servants have fallen before your relentless onslaught... your unbridled fury...",
 	LKRoleplay		= "Is it truly righteousness that drives you? I wonder...",
 	PlagueWhisper	= "Vous êtes infecter par"

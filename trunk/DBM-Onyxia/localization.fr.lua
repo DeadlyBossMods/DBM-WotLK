@@ -12,11 +12,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecWarnBreath		= "Respiration profonde",
-	SpecWarnBlastNova	= "Nova explosive. BOUGEZ !",
-	WarnWhelpsSoon		= "Les Jeunes dragonnets onyxien arrivent bientôt",
-	WarnPhase2Soon		= "Phase 2 bientôt",
-	WarnPhase3Soon		= "Phase 3 bientôt"
+	WarnWhelpsSoon		= "Les Jeunes dragonnets onyxien arrivent bientôt"
 }
 
 L:SetTimerLocalization{
@@ -24,15 +20,9 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnBreath			= "Montre une alerte spéciale pour la Respiration profonde",
-	SpecWarnBlastNova		= "Montre une alerte spéciale pour la Nova explosive",
 	TimerWhelps				= "Montre le timer pour l'arrivée des Jeunes dragonnets onyxien",
 	WarnWhelpsSoon			= "Montre une pré-alerte avant l'arrivée des Jeunes dragonnets onyxien",
-	SoundBreath				= "Joue un son pour la Respiration profonde",
-	PlaySoundOnBlastNova	= "Joue un sons pour la Nova explosive",
-	SoundWTF				= "Joue des sons amusants du légendaire raid classic d'Onyxia",
-	WarnPhase2Soon			= "Montre une alerte pour la phase 2 (~70%)",
-	WarnPhase3Soon			= "Montre une alerte pour la phase 3 (~45%)"
+	SoundWTF				= "Joue des sons amusants du légendaire raid classic d'Onyxia"
 }
 
 L:SetMiscLocalization{

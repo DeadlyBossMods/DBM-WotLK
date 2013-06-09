@@ -16,9 +16,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrap				= "함정 활성화 특수 경고 보기",
-	SetIconOnDarkReckoning		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69483),
-	SetIconOnDeathPlague		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72865)
+	SpecWarnTrap				= "함정 활성화 특수 경고 보기"
 }
 
 L:SetMiscLocalization{
@@ -59,16 +57,6 @@ L:SetGeneralLocalization{
 	name = "진홍빛 전당 일반구간"
 }
 
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
-	BloodMirrorIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70451)
-}
-
-L:SetMiscLocalization{
-}
-
 ---------------------------
 --  Trash - Frostwing Hall  --
 ---------------------------
@@ -82,13 +70,9 @@ L:SetWarningLocalization{
 	SpecWarnGosaEvent	= "신드라고사 수호병"
 }
 
-L:SetTimerLocalization{
-	GosaTimer			= "신비한 강타"
-}
 
 L:SetOptionLocalization{
-	SpecWarnGosaEvent	= "신드라고사 수호병 특수 경고 보기",
-	GosaTimer			= "신비한 강타 유지시간 바 표시"
+	SpecWarnGosaEvent	= "신드라고사 수호병 특수 경고 보기"
 }
 
 L:SetMiscLocalization{
@@ -109,8 +93,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	AchievementBoned		= "뼈도 못 추릴라 업적 바 표시",
-	SetIconOnImpale			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69062)
+	AchievementBoned		= "뼈도 못 추릴라 업적 바 표시"
 }
 
 -------------------------
@@ -135,14 +118,10 @@ L:SetOptionLocalization{
 	WarnAddsSoon					= "이교도 추가 사전 알림 보기",
 	WarnReanimating					= "이교도 부활을 시전시 알림 보기",
 	TimerAdds						= "새로운 이교도 추가 바 표시",
-	ShieldHealthFrame				= "우두머리 체력 바 사용시 $spell:70842 바 함께 보기",
-	SetIconOnDominateMind			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71289),
-	SetIconOnDeformedFanatic		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70900),
-	SetIconOnEmpoweredAdherent		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70901)
+	ShieldHealthFrame				= "우두머리 체력 바 사용시 $spell:70842 바 함께 보기"
 }
 
 L:SetMiscLocalization{
-	YellPull						= "이게 무슨 소란이지? 감히 이 신성한 땅을 지나가려 해? 여기가 마지막 숨을 거둘 곳이 되리라!",
 	YellReanimatedFanatic			= "일어나라, 순수한 모습을 기뻐하라!",
 	Fanatic1						= "교단 광신자",
 	Fanatic2						= "변형된 광신자",
@@ -199,7 +178,6 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	TimerCombatStart		= "전투 시작 바 표시",
-	BoilingBloodIcons		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72385),
 	RangeFrame				= "거리 창 보기(12m)",
 	RunePowerFrame			= "우두머리 체력 바 사용시 $spell:72371 바 함께 보기",
 	BeastIcons				= "피의 괴물에 전술 목표 아이콘 설정"
@@ -222,7 +200,6 @@ L:SetGeneralLocalization{
 
 L:SetOptionLocalization{
 	RangeFrame				= "거리 창 보기(8m)",
-	SetIconOnGasSpore		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279),
 	AnnounceSporeIcons		= "$spell:69279 전술 목표 아이콘 설정 내역을 공격대 대화로 알리기\n(공격대장 권한 필요)",
 	AchievementCheck		= "역병 예방 접종 업적 실패시 실패 내용을 공격대 대화로 알리기\n(공격대장 권한 필요)"
 }
@@ -250,7 +227,6 @@ L:SetOptionLocalization{
 	WarnOozeSpawn				= "작은 수액괴물 생성 알림 보기",
 	SpecWarnLittleOoze			= "작은 수액괴물에게 공격을 받을 경우 특수 경고 보기",
 	RangeFrame					= "거리 창 보기(8m)",
-	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69674),
 	TankArrow					= "큰 수액괴물 탱커 방향 으로 DBM 화살표 보기(부정확함)"
 }
 
@@ -274,15 +250,8 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
-	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
-	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
 	MalleableGooIcon			= "$spell:72295 대상에게 전술 목표 아이콘 설정",
 	GooArrow					= "$spell:72295 첫번째 대상이 당신 주변에 있을 경우 DBM 화살표 보기"
-}
-
-L:SetMiscLocalization{
-	YellPull					= "좋은 소식이에요, 여러분! 아제로스의 모든 생명체를 파괴할 역병을 완성했어요!"
 }
 
 ----------------------------
@@ -307,7 +276,6 @@ L:SetOptionLocalization{
 	WarnTargetSwitch			= "대상 전환 알림 보기",
 	WarnTargetSwitchSoon		= "대상 전환 사전 알림 보기",
 	TimerTargetSwitch			= "다음 대상 전환 바 표시",
-	EmpoweredFlameIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72040),
 	ActivePrinceIcon			= "활성화 된 공작에게 전술 목표 아이콘 설정(해골)",
 	RangeFrame					= "거리 창 보기(12m)",
 	VortexArrow					= "$spell:72037 대상이 근처에 있을 경우 DBM 화살표 보기"
@@ -331,9 +299,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnDarkFallen		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71340),
-	SwarmingShadowsIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71266),
-	BloodMirrorIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70838),
 	RangeFrame				= "거리 창 보기(8m)",
 	YellOnFrenzy			= "$spell:70877 주문의 영향을 받은 경우 대화로 알리기"
 }
@@ -403,8 +368,6 @@ L:SetOptionLocalization{
 	TimerNextAirphase			= "다음 공중 단계 바 표시",
 	TimerNextGroundphase		= "다음 지상 단계 바 표시",
 	AnnounceFrostBeaconIcons	= "$spell:70126 전술 목표 아이콘 설정 내역을 공격대 대화로 알리기\n(공격대장 권한 필요)",
-	SetIconOnFrostBeacon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70126),
-	SetIconOnUnchainedMagic		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69762),
 	ClearIconsOnAirphase		= "공중 단계에서 모든 전술 목표 아이콘 제거",
 	AchievementCheck			= "신비한 아픔 업적 실패시 실패 내용을 공격대 대화로 알리기\n(공격대장 권한 필요)",
 	RangeFrame					= "강화 또는 약화 효과 상태에 맞추어 거리 창 보기(10/20m)"
@@ -417,8 +380,7 @@ L:SetMiscLocalization{
 	YellPhase2Dem			= "Zar kiel xi romathIs zilthuras revos ruk toralar",
 	BeaconIconSet			= "냉기 봉화 아이콘{rt%d} : %s",
 	AchievementWarning		= "경고 : %s님의 신비한 강타가 5 중첩입니다.",
-	AchievementFailed		= ">> 업적 실패 - 신비한 아픔 : %s (%d 중첩) <<",
-	YellPull				= "여기까지 오다니 너무나 어리석구나. 노스렌드의 얼음 바람이 영혼까지 삼키리라!"
+	AchievementFailed		= ">> 업적 실패 - 신비한 아픔 : %s (%d 중첩) <<"
 }
 
 ---------------------
@@ -452,11 +414,6 @@ L:SetOptionLocalization{
 	PhaseTransition				= "다음 단계 전환 바 표시",
 	ValkyrWarning				= "발키리 대상 알림 보기",
 	SpecWarnYouAreValkd			= "발키리에게 붙잡혔을 때 특수 경고 보기",
-	DefileIcon					= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72762),
-	HarvestSoulIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68980),
-	NecroticPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70337),
-	RagingSpiritIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69200),
-	TrapIcon					= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(73539),
 	ValkyrIcon					= "발키리에 전술 목표 아이콘 설정",
 	AnnounceValkGrabs			= "발키리 대상 및 전술 목표 아이콘 설정 내용을 공격대 대화로 알리기\n(공격대장 권한 필요)",
 	SpecWarnValkyrLow			= "발키리의 HP가 55%이하가 될 경우 특수 경고 보기",

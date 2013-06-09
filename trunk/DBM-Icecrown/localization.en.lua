@@ -57,14 +57,8 @@ L:SetGeneralLocalization{
 	name = "Crimson Hall Trash"
 }
 
-L:SetWarningLocalization{
-}
-
 L:SetOptionLocalization{
 	BloodMirrorIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70451)
-}
-
-L:SetMiscLocalization{
 }
 
 ---------------------------
@@ -80,13 +74,8 @@ L:SetWarningLocalization{
 	SpecWarnGosaEvent	= "Sindragosa gauntlet started!"
 }
 
-L:SetTimerLocalization{
-	GosaTimer			= "Time remaining"
-}
-
 L:SetOptionLocalization{
-	SpecWarnGosaEvent	= "Show special warning for Sindragosa gauntlet event",
-	GosaTimer			= "Show timer for Sindragosa gauntlet event duration"
+	SpecWarnGosaEvent	= "Show special warning for Sindragosa gauntlet event"
 }
 
 L:SetMiscLocalization{
@@ -140,7 +129,6 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull				= "What is this disturbance? You dare trespass upon this hallowed ground? This shall be your final resting place!",
 	YellReanimatedFanatic	= "Arise, and exult in your pure form!",
 	Fanatic1				= "Cult Fanatic",
 	Fanatic2				= "Deformed Fanatic",
@@ -266,21 +254,12 @@ L:SetGeneralLocalization{
 	name = "Professor Putricide"
 }
 
-L:SetWarningLocalization{
-	SpecWarnMalleableGoo		= "Malleable Goo on you - Move away",
-	SpecWarnMalleableGooNear	= "Malleable Goo near you - Watch out"
-}
-
 L:SetOptionLocalization{
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
 	MalleableGooIcon			= "Set icon on first $spell:72295 target",
 	GooArrow					= "Show DBM arrow when $spell:72295 is near you"
-}
-
-L:SetMiscLocalization{
-	YellPull		= "Good news, everyone! I think I've perfected a plague that will destroy all life on Azeroth!"
 }
 
 ----------------------------
@@ -327,18 +306,11 @@ L:SetGeneralLocalization{
 	name = "Blood-Queen Lana'thel"
 }
 
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
-}
-
 L:SetOptionLocalization{
 	SetIconOnDarkFallen		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71340),
 	SwarmingShadowsIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71266),
 	BloodMirrorIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70838),
-	RangeFrame				= "Show range frame (8 yards)",
-	YellOnFrenzy			= "Yell on $spell:70877"
+	RangeFrame				= "Show range frame (8 yards)"
 }
 
 L:SetMiscLocalization{
@@ -388,15 +360,15 @@ L:SetGeneralLocalization{
 	name = "Sindragosa"
 }
 
+L:SetWarningLocalization{
+	WarnAirphase			= "Air phase",
+	WarnGroundphaseSoon		= "Sindragosa landing soon"
+}
+
 L:SetTimerLocalization{
 	TimerNextAirphase		= "Next air phase",
 	TimerNextGroundphase	= "Next ground phase",
 	AchievementMystic		= "Time to clear Mystic stacks"
-}
-
-L:SetWarningLocalization{
-	WarnAirphase			= "Air phase",
-	WarnGroundphaseSoon		= "Sindragosa landing soon"
 }
 
 L:SetOptionLocalization{
@@ -419,8 +391,7 @@ L:SetMiscLocalization{
 	YellPhase2Dem		= "Zar kiel xi romathIs zilthuras revos ruk toralar ",--Demonic, since curse of tonges is used by some guilds and it messes up yell detection.
 	BeaconIconSet		= "Frost Beacon icon {rt%d} set on %s",
 	AchievementWarning	= "Warning: %s has 5 stacks of Mystic Buffet",
-	AchievementFailed	= ">> ACHIEVEMENT FAILED: %s has %d stacks of Mystic Buffet <<",
-	YellPull			= "You are fools to have come to this place. The icy winds of Northrend will consume your souls!"--Not currently in use.
+	AchievementFailed	= ">> ACHIEVEMENT FAILED: %s has %d stacks of Mystic Buffet <<"
 }
 
 ---------------------

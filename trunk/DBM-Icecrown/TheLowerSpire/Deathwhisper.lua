@@ -5,9 +5,9 @@ mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(36855)
 mod:SetModelID(30893)
 mod:SetUsedIcons(4, 5, 6, 7, 8)
-mod:RegisterCombat("yell", L.YellPull)
+mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",

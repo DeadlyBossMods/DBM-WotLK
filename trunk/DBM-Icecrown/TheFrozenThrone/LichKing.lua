@@ -102,7 +102,6 @@ local phase = 0
 local warned_preP2 = false
 local warned_preP3 = false
 local trapScansDone = 0
-local playerLevel = UnitLevel("player")
 local warnedValkyrGUIDs = {}
 local plagueHop = GetSpellInfo(70338)--Hop spellID only, not cast one.
 local plagueExpires = {}
@@ -116,7 +115,7 @@ function mod:OnCombatStart(delay)
 	self:NextPhase()
 	table.wipe(warnedValkyrGUIDs)
 	table.wipe(plagueExpires)
-	if playerLevel < 90 then--Only warning that uses these events is remorseless winter and that warning is completely useless spam for level 90s.
+	if not self:IsTrivial(90) then--Only warning that uses these events is remorseless winter and that warning is completely useless spam for level 90s.
 		self:RegisterShortTermEvents(
 			"SPELL_DAMAGE",
 			"SPELL_MISSED"

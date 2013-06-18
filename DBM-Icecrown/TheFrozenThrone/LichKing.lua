@@ -11,6 +11,10 @@ mod:SetMinSyncRevision(7)--Could break if someone is running out of date version
 
 mod:RegisterCombat("combat")
 
+mod:RegisterEvents(
+	"CHAT_MSG_MONSTER_YELL"
+)
+
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
@@ -18,7 +22,6 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_SUMMON",
 	"UNIT_HEALTH target boss1",
-	"CHAT_MSG_MONSTER_YELL",
 	"UNIT_AURA_UNFILTERED"
 )
 

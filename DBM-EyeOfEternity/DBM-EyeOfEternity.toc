@@ -15,17 +15,8 @@
 ## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
 ## X-DBM-Mod-No-Heroic: 1
-## X-DBM-Mod-Name: Eye of Eternity
-## X-DBM-Mod-Name-frFR: L'Œil de l'éternité
-## X-DBM-Mod-Name-deDE: Das Auge der Ewigkeit
-## X-DBM-Mod-Name-ruRU: Око Вечности
-## X-DBM-Mod-Name-zhTW: 永恆之眼
-## X-DBM-Mod-Name-zhCN: 永恒之眼
-## X-DBM-Mod-Name-koKR: 영원의 눈
-## X-DBM-Mod-Name-esES: El Ojo de la Eternidad
-## X-DBM-Mod-Name-esMXS: El Ojo de la Eternidad
+## X-DBM-Mod-MapID: 616
 ## X-DBM-Mod-Sort: 205
-## X-DBM-Mod-LoadZoneID: 527
 localization.en.lua
 localization.fr.lua
 localization.de.lua

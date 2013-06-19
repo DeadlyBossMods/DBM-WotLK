@@ -25,17 +25,8 @@
 ## X-DBM-Mod-SubCategories-ruRU: Шпиль, Чумодельня, Багровый зал, Зал Ледокрылых, Ледяной Трон
 ## X-DBM-Mod-SubCategories-esES: La Ciudadela Inferior, Los Talleres de la Peste, La Sala Carmesí, Las Cámaras de Alaescarcha, El Trono Helado
 ## X-DBM-Mod-SubCategories-esMX: La Ciudadela Inferior, Los Talleres de la Peste, La Sala Carmesí, Las Cámaras de Alaescarcha, El Trono Helado
-## X-DBM-Mod-Name: Icecrown Citadel
-## X-DBM-Mod-Name-deDE: Eiskronenzitadelle
-## X-DBM-Mod-Name-frFR: Citadelle de la Couronne de glace
-## X-DBM-Mod-Name-koKR: 얼음왕관 성채
-## X-DBM-Mod-Name-ruRU: Цитадель Ледяной Короны
-## X-DBM-Mod-Name-zhTW: 冰冠城塞
-## X-DBM-Mod-Name-zhCN: 冰冠堡垒
-## X-DBM-Mod-Name-esES: Ciudadela de la Corona de Hielo
-## X-DBM-Mod-Name-esMX: Ciudadela de la Corona de Hielo
+## X-DBM-Mod-MapID: 631
 ## X-DBM-Mod-Sort: 200
-## X-DBM-Mod-LoadZoneID: 604
 localization.en.lua
 localization.de.lua
 localization.kr.lua

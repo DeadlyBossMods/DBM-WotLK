@@ -15,17 +15,8 @@
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
-## X-DBM-Mod-Name: Crusader's Coliseum
-## X-DBM-Mod-Name-koKR: 십자군의 시험장
-## X-DBM-Mod-Name-deDE: Prüfung des Kreuzfahrers
-## X-DBM-Mod-Name-frFR: L'Appel de la Croisade
-## X-DBM-Mod-Name-ruRU: Колизей Авангарда
-## X-DBM-Mod-Name-zhTW: 十字軍試煉
-## X-DBM-Mod-Name-zhCN: 十字军的试炼
-## X-DBM-Mod-Name-esES: Coliseo de los Cruzados
-## X-DBM-Mod-Name-esMX: Coliseo de los Cruzados
+## X-DBM-Mod-MapID: 649
 ## X-DBM-Mod-Sort: 202
-## X-DBM-Mod-LoadZoneID: 543
 localization.en.lua
 localization.de.lua
 localization.fr.lua

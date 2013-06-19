@@ -19,7 +19,6 @@
 ## X-DBM-Mod-No-Heroic: 1
 ## X-DBM-Mod-Sort: 203
 ## X-DBM-Mod-MapID: 249
-## X-DBM-Mod-LoadZoneID: 718
 localization.en.lua
 localization.de.lua
 localization.fr.lua

@@ -34,7 +34,7 @@
 ## X-DBM-Mod-Name-koKR: 5인 던전 (리치왕의 분노)
 ## X-DBM-Mod-Name-esMX: Mazmorras-WotLK
 ## X-DBM-Mod-Sort: 225
-## X-DBM-Mod-LoadZoneID: 522,533,521,534,530,525,526,520,528,523,524,536,602,601,603,542
+## X-DBM-Mod-MapID: 619,601,595,600,604,602,599,576,578,574,575,608,658,632,668,650
 localization.en.lua
 localization.cn.lua
 localization.ru.lua

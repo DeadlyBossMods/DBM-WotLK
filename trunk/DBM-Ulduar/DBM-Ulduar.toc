@@ -24,7 +24,6 @@ localization.kr.lua
 localization.tw.lua
 localization.es.lua
 localization.cn.lua
-MapSizes.lua
 FlameLeviathan.lua
 Ignis.lua
 Razorscale.lua

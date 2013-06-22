@@ -34,7 +34,6 @@ localization.tw.lua
 localization.kr.lua
 localization.es.lua
 localization.cn.lua
-MapSizes.lua
 ArachnidQuarter\Anub'Rekhan.lua
 ArachnidQuarter\Faerlina.lua
 ArachnidQuarter\Maexxna.lua

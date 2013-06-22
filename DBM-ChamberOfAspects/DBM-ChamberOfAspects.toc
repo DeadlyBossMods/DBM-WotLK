@@ -42,12 +42,10 @@ localization.kr.lua
 localization.fr.lua
 localization.es.lua
 localization.cn.lua
-Obsidian\MapSizes.lua
 Obsidian\Shadron.lua
 Obsidian\Tenebron.lua
 Obsidian\Vesperon.lua
 Obsidian\Sartharion.lua
-Ruby\MapSizes.lua
 Ruby\Baltharus.lua
 Ruby\Saviana.lua
 Ruby\Zarithrian.lua

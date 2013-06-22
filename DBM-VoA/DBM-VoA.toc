@@ -26,7 +26,6 @@ localization.es.lua
 localization.ru.lua
 localization.fr.lua
 localization.kr.lua
-MapSizes.lua
 Archavon.lua
 Emalon.lua
 Koralon.lua

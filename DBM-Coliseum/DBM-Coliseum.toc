@@ -26,7 +26,6 @@ localization.kr.lua
 localization.tw.lua
 localization.es.lua
 localization.cn.lua
-MapSizes.lua
 NorthrendBeasts.lua
 Jaraxxus.lua
 Champions.lua

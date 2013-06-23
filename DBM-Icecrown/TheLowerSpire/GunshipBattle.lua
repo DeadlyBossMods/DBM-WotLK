@@ -26,7 +26,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
-	"SPELL_CAST_START""
+	"SPELL_CAST_START"
 )
 
 --TODO, see if IEEU fires here and if we need yell triggers for engage

@@ -24,7 +24,7 @@ function mod:OnCombatStart(delay)
 	timerEvent:Start(-delay)
 end
 
-function mod:CHAT_MSG_MONSTER_YELL(msg, sender)
+function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if L.Phase1 == msg then
 		warningPhase:Show(1)
 	elseif msg == L.Phase2 then

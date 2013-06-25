@@ -18,11 +18,8 @@ else
 end
 mod:SetMinCombatTime(50)
 
-mod:RegisterEvents(
-	"CHAT_MSG_MONSTER_YELL"
-)
-
 mod:RegisterEventsInCombat(
+	"CHAT_MSG_MONSTER_YELL",
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",

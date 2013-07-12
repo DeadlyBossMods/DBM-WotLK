@@ -35,7 +35,7 @@ local warnShamblingSoon		= mod:NewSoonAnnounce(70372, 2) --Phase 1 Add
 local warnShamblingHorror	= mod:NewSpellAnnounce(70372, 3) --Phase 1 Add
 local warnDrudgeGhouls		= mod:NewSpellAnnounce(70358, 2) --Phase 1 Add
 local warnShamblingEnrage	= mod:NewTargetAnnounce(72143, 3, nil, mod:IsHealer() or mod:IsTank() or mod:CanRemoveEnrage()) --Phase 1 Add Ability
-local warnNecroticPlague	= mod:NewTargetAnnounce(70337, 4) --Phase 1+ Ability
+local warnNecroticPlague	= mod:NewTargetAnnounce(70337, 3) --Phase 1+ Ability
 local warnNecroticPlagueJump= mod:NewAnnounce("WarnNecroticPlagueJump", 4, 70337) --Phase 1+ Ability
 local warnInfest			= mod:NewSpellAnnounce(70541, 3, nil, mod:IsHealer()) --Phase 1 & 2 Ability
 local warnPhase2Soon		= mod:NewPrePhaseAnnounce(2)
@@ -46,8 +46,8 @@ local warnDefileCast		= mod:NewTargetAnnounce(72762, 4) --Phase 2+ Ability
 local warnSummonValkyr		= mod:NewSpellAnnounce(69037, 3, 71844) --Phase 2 Add
 local warnPhase3Soon		= mod:NewPrePhaseAnnounce(3)
 local warnSummonVileSpirit	= mod:NewSpellAnnounce(70498, 2) --Phase 3 Add
-local warnHarvestSoul		= mod:NewTargetAnnounce(68980, 4) --Phase 3 Ability
-local warnTrapCast			= mod:NewTargetAnnounce(73539, 3) --Phase 1 Heroic Ability
+local warnHarvestSoul		= mod:NewTargetAnnounce(68980, 3) --Phase 3 Ability
+local warnTrapCast			= mod:NewTargetAnnounce(73539, 4) --Phase 1 Heroic Ability
 local warnRestoreSoul		= mod:NewCastAnnounce(73650, 2) --Phase 3 Heroic
 
 local specWarnSoulreaper	= mod:NewSpecialWarningYou(69409) --Phase 1+ Ability
@@ -60,11 +60,11 @@ local specWarnDefileNear	= mod:NewSpecialWarningClose(72762) --Phase 2+ Ability
 local specWarnDefile		= mod:NewSpecialWarningMove(72762) --Phase 2+ Ability
 local specWarnWinter		= mod:NewSpecialWarningMove(68983) --Transition Ability
 local specWarnHarvestSoul	= mod:NewSpecialWarningYou(68980) --Phase 3+ Ability
-local specWarnInfest		= mod:NewSpecialWarningSpell(70541, false) --Phase 1+ Ability
+local specWarnInfest		= mod:NewSpecialWarningSpell(70541, nil, nil, nil, 2) --Phase 1+ Ability
 local specwarnSoulreaper	= mod:NewSpecialWarningTarget(69409, mod:IsTank()) --phase 2+
-local specWarnTrap			= mod:NewSpecialWarningYou(73539) --Heroic Ability
+local specWarnTrap			= mod:NewSpecialWarningYou(73539, nil, nil, nil, 3) --Heroic Ability
 local yellTrap				= mod:NewYell(73539)
-local specWarnTrapNear		= mod:NewSpecialWarningClose(73539) --Heroic Ability
+local specWarnTrapNear		= mod:NewSpecialWarningClose(73539, nil, nil, nil, 3) --Heroic Ability
 local specWarnHarvestSouls	= mod:NewSpecialWarningSpell(73654) --Heroic Ability
 local specWarnValkyrLow		= mod:NewSpecialWarning("SpecWarnValkyrLow")
 
@@ -74,7 +74,7 @@ local timerSoulreaper	 	= mod:NewTargetTimer(5.1, 69409, nil, mod:IsTank() or mo
 local timerSoulreaperCD	 	= mod:NewNextTimer(30.5, 69409, nil, mod:IsTank() or mod:IsHealer())
 local timerHarvestSoul	 	= mod:NewTargetTimer(6, 68980)
 local timerHarvestSoulCD	= mod:NewNextTimer(75, 68980)
-local timerInfestCD			= mod:NewNextTimer(22.5, 70541, nil, mod:IsHealer())
+local timerInfestCD			= mod:NewNextTimer(22.5, 70541)
 local timerNecroticPlagueCleanse = mod:NewTimer(5, "TimerNecroticPlagueCleanse", 70337, mod:IsHealer())
 local timerNecroticPlagueCD	= mod:NewNextTimer(30, 70337)
 local timerDefileCD			= mod:NewNextTimer(32.5, 72762)
@@ -89,6 +89,9 @@ local timerRestoreSoul 		= mod:NewCastTimer(40, 73650)
 local timerRoleplay			= mod:NewTimer(162, "TimerRoleplay", 72350)
 
 local berserkTimer			= mod:NewBerserkTimer(900)
+
+local countdownInfest		= mod:NewCountdown(22.5, 70541)
+local countdownDefile		= mod:NewCountdown(32.5, 72762, nil, nil, nil, nil, true)
 
 local soundDefile			= mod:NewSound(72762)
 local soundShadowTrap		= mod:NewSound(73539)
@@ -189,9 +192,11 @@ function mod:SPELL_CAST_START(args)
 		timerDrudgeGhouls:Cancel()
 		timerSummonValkyr:Cancel()
 		timerInfestCD:Cancel()
+		countdownInfest:Cancel()
 		timerNecroticPlagueCD:Cancel()
 		timerTrapCD:Cancel()
 		timerDefileCD:Cancel()
+		countdownDefile:Cancel()
 		warnDefileSoon:Cancel()
 	elseif args.spellId == 72262 then -- Quake (phase transition end)
 		warnQuake:Show()
@@ -212,11 +217,13 @@ function mod:SPELL_CAST_START(args)
 		warnInfest:Show()
 		specWarnInfest:Show()
 		timerInfestCD:Start()
+		countdownInfest:Start()
 	elseif args.spellId == 72762 then -- Defile
 		self:BossTargetScanner(36597, "DefileTarget", 0.02, 15)
 		warnDefileSoon:Cancel()
 		warnDefileSoon:Schedule(27)
 		timerDefileCD:Start()
+		countdownDefile:Start()
 	elseif args.spellId == 73539 then -- Shadow Trap (Heroic)
 		self:BossTargetScanner(36597, "TrapTarget", 0.02, 15)
 		timerTrapCD:Start()
@@ -229,6 +236,7 @@ function mod:SPELL_CAST_START(args)
 		timerVileSpirit:Cancel()
 		timerSoulreaperCD:Cancel()
 		timerDefileCD:Cancel()
+		countdownDefile:Cancel()
 		timerHarvestSoulCD:Cancel()
 		berserkTimer:Cancel()
 		warnDefileSoon:Cancel()
@@ -283,6 +291,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerVileSpirit:Cancel()
 		timerSoulreaperCD:Cancel()
 		timerDefileCD:Cancel()
+		countdownDefile:Cancel()
 		warnDefileSoon:Cancel()
 		self:SetWipeTime(50)--We set a 45 sec min wipe time to keep mod from ending combat if you die while rest of raid is in frostmourn
 		self:ScheduleMethod(50, "RestoreWipeTime")
@@ -420,12 +429,15 @@ function mod:NextPhase()
 		timerSummonValkyr:Start(20)
 		timerSoulreaperCD:Start(40)
 		timerDefileCD:Start(38)
+		countdownDefile:Start(38)
 		timerInfestCD:Start(14)
+		countdownInfest:Start(14)
 		warnDefileSoon:Schedule(33)
 	elseif phase == 3 then
 		timerVileSpirit:Start(20)
 		timerSoulreaperCD:Start(40)
 		timerDefileCD:Start(38)
+		countdownDefile:Start(38)
 		timerHarvestSoulCD:Start(14)
 		warnDefileSoon:Schedule(33)
 	end

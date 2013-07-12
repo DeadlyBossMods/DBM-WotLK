@@ -91,12 +91,7 @@ L:SetGeneralLocalization{
 	name = "Lord Marrowgar"
 }
 
-L:SetTimerLocalization{
-	AchievementBoned	= "Time to free"
-}
-
 L:SetOptionLocalization{
-	AchievementBoned	= "Show timer for Boned achievement",
 	SetIconOnImpale		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69062)
 }
 

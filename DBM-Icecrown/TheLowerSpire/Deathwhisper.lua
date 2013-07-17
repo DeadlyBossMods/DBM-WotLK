@@ -64,7 +64,7 @@ function mod:OnCombatStart(delay)
 	if self.Options.ShieldHealthFrame then
 		DBM.BossHealth:Show(L.name)
 		DBM.BossHealth:AddBoss(36855, L.name)
-		self:ScheduleMethod(0.5, "CreateShieldHPFrame")
+		self:ScheduleMethod(0.75, "CreateShieldHPFrame")
 	end		
 	berserkTimer:Start(-delay)
 	timerAdds:Start(7)
@@ -94,7 +94,10 @@ do	-- add the additional Shield Bar
 		end
 	end
 	function mod:CreateShieldHPFrame()
-		DBM.BossHealth:AddBoss(getShieldPercent, shieldName)
+		local percent = getShieldPercent()
+		if percent then
+			DBM.BossHealth:AddBoss(percent, shieldName)
+		end
 	end
 end
 

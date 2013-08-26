@@ -245,7 +245,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("StratWaves")
 
 L:SetGeneralLocalization({
-	name = "스트라솔름 일반구간"
+	name = "스트라솔름: 일반구간"
 })
 
 L:SetWarningLocalization({
@@ -1376,7 +1376,7 @@ L:SetOptionLocalization({
 L = DBM:GetModLocalization("HoRWaveTimer")
 
 L:SetGeneralLocalization({
-	name = "투영의 전당 일반구간"
+	name = "투영의 전당: 일반구간"
 })
 
 L:SetWarningLocalization({

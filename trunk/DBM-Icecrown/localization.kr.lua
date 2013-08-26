@@ -8,7 +8,7 @@ local L
 L = DBM:GetModLocalization("LowerSpireTrash")
 
 L:SetGeneralLocalization{
-	name = "성채 하층부 일반구간"
+	name = "성채 하층부: 일반구간"
 }
 
 L:SetWarningLocalization{
@@ -31,7 +31,7 @@ L:SetMiscLocalization{
 L = DBM:GetModLocalization("PlagueworksTrash")
 
 L:SetGeneralLocalization{
-	name = "역병작업장 일반구간"
+	name = "역병작업장: 일반구간"
 }
 
 L:SetWarningLocalization{
@@ -54,7 +54,7 @@ L:SetMiscLocalization{
 L = DBM:GetModLocalization("CrimsonHallTrash")
 
 L:SetGeneralLocalization{
-	name = "진홍빛 전당 일반구간"
+	name = "진홍빛 전당: 일반구간"
 }
 
 ---------------------------
@@ -63,7 +63,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("FrostwingHallTrash")
 
 L:SetGeneralLocalization{
-	name = "서리날개 전당 일반구간"
+	name = "서리날개 전당: 일반구간"
 }
 
 L:SetWarningLocalization{

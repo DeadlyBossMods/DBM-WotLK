@@ -1283,9 +1283,9 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	warnSaroniteRock			= "Объявлять цели заклинания $spell:70851",
-	specWarnSaroniteRock		= "Спец-предупреждение, когда вас выбрали целью заклинания \n$spell:70851",
-	specWarnSaroniteRockNear	= "Спец-предупреждение, когда вы около цели заклинания \n$spell:70851",
-	specWarnPermafrost			= "Спец-предупреждение при слишком большом количестве стаков \nзаклинания $spell:70336 (11 стаков)",
+	specWarnSaroniteRock		= "Спец-предупреждение, когда вас выбрали целью заклинания <br/>$spell:70851",
+	specWarnSaroniteRockNear	= "Спец-предупреждение, когда вы около цели заклинания <br/>$spell:70851",
+	specWarnPermafrost			= "Спец-предупреждение при слишком большом количестве стаков <br/>заклинания $spell:70336 (11 стаков)",
 	AchievementCheck			= "Объявлять предупреждения о достижении 'Не жди до одиннадцати!' в чат группы",
 	SetIconOnSaroniteRockTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70851)
 })
@@ -1343,7 +1343,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	specwarnSoulstorm	= "Спец-предупреждение о применении заклинания $spell:68872 \n(для приближения)"
+	specwarnSoulstorm	= "Спец-предупреждение о применении заклинания $spell:68872 <br/>(для приближения)"
 })
 
 -------------------------
@@ -1361,7 +1361,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	specwarnMirroredSoul	= "Спец-предупреждение для прекращения атаки при \n$spell:69051",
+	specwarnMirroredSoul	= "Спец-предупреждение для прекращения атаки при <br/>$spell:69051",
 	specwarnWailingSouls	= "Спец-предупреждение о заклинании $spell:68899",
 	SetIconOnMirroredTarget	= "Устанавливать метки на цели заклинания $spell:69051"
 })

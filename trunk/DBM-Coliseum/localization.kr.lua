@@ -238,8 +238,8 @@ L:SetOptionLocalization{
 	PursueIcon					= "추격 대상에게 전술 목표 아이콘 설정",
 	SetIconsOnPCold				= "$spell:66013 대상에게 전술 목표 아이콘 설정",
 	SpecWarnShadowStrike		= "$spell:66134 시전시 특수 경고 보기(차단)",
-	AnnouncePColdIcons			= "$spell:66013 전술 목표 아이콘 설정 내역을 공격대 대화로 알리기\n(공격대장 권한 필요)",
-	AnnouncePColdIconsRemoved	= "$spell:66013 전술 목표 아이콘이 제거될때 공격대 대화로 알리기\n(위 설정이 선택되어 있어야함)"
+	AnnouncePColdIcons			= "$spell:66013 전술 목표 아이콘 설정 내역을 공격대 대화로 알리기<br/>(공격대장 권한 필요)",
+	AnnouncePColdIconsRemoved	= "$spell:66013 전술 목표 아이콘이 제거될때 공격대 대화로 알리기<br/>(위 설정이 선택되어 있어야함)"
 }
 
 L:SetMiscLocalization{

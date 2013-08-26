@@ -55,7 +55,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	AnnounceFails			= "Post player fails for Fire Wall and Shadow Fissure to raid chat\n(requires announce to be enabled and leader/promoted status)",
+	AnnounceFails			= "Post player fails for Fire Wall and Shadow Fissure to raid chat<br/>(requires announce to be enabled and leader/promoted status)",
 	TimerTenebron			= "Show timer for Tenebron's arrival",
 	TimerShadron			= "Show timer for Shadron's arrival",
 	TimerVesperon			= "Show timer for Vesperon's arrival",
@@ -176,7 +176,7 @@ L:SetOptionLocalization({
 	AnnounceAlternatePhase	= "Show warnings/timers for phase you aren't in as well",
 	SoundOnConsumption		= "Play sound on $spell:74562 or $spell:74792",--We use localized text for these functions
 	SetIconOnConsumption	= "Set icons on $spell:74562 or $spell:74792 targets",--So we can use single functions for both versions of spell.
-	WhisperOnConsumption	= "Send whisper to $spell:74562 or $spell:74792\ntargets (requires Raid Leader)"
+	WhisperOnConsumption	= "Send whisper to $spell:74562 or $spell:74792<br/>targets (requires Raid Leader)"
 })
 
 L:SetMiscLocalization({

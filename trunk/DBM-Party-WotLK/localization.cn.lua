@@ -1290,8 +1290,8 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	warnSaroniteRock			= "Announce $spell:70851 targets",
-	specWarnSaroniteRock		= "Show special warning when you are targeted by \n $spell:70851",
-	specWarnSaroniteRockNear	= "Show special warning when you are near \n $spell:70851 target",
+	specWarnSaroniteRock		= "Show special warning when you are targeted by <br/> $spell:70851",
+	specWarnSaroniteRockNear	= "Show special warning when you are near <br/> $spell:70851 target",
 	specWarnPermafrost			= "Show special warning when $spell:70336 stacks get too high",
 	AchievementCheck			= "Announce 'Doesn't Go to Eleven' achievement warnings to party",
 	SetIconOnSaroniteRockTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70851)

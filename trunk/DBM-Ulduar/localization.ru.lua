@@ -134,7 +134,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
 	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
-	AlwaysWarnOnOverload		= "Всегда предупреждать при $spell:63481\n(иначе, только когда босс в цели)"
+	AlwaysWarnOnOverload		= "Всегда предупреждать при $spell:63481<br/>(иначе, только когда босс в цели)"
 }
 
 L:SetMiscLocalization{
@@ -291,7 +291,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerHardmode	= "Отсчет времени для сложного режима",
 	RangeFrame		= "Показывать окно проверки дистанции",
-	AnnounceFails	= "Объявлять игроков, попавших под $spell:62017, в рейд-чат\n(требуются права лидера или помощника)",
+	AnnounceFails	= "Объявлять игроков, попавших под $spell:62017, в рейд-чат<br/>(требуются права лидера или помощника)",
 }
 
 L:SetMiscLocalization{
@@ -425,14 +425,14 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	SetIconOnShadowCrash			= "Устанавливать метки на цели заклинания $spell:62660 (череп)",
 	SetIconOnLifeLeach				= "Устанавливать метки на цели заклинания $spell:63276 (крест)",
-	SpecialWarningShadowCrash		= "Спец-предупреждение для $spell:62660\n(должен быть в цели или фокусе хотя бы у одного члена рейда)",
+	SpecialWarningShadowCrash		= "Спец-предупреждение для $spell:62660<br/>(должен быть в цели или фокусе хотя бы у одного члена рейда)",
 	SpecialWarningShadowCrashNear	= "Спец-предупреждение о $spell:62660 около вас",
 	SpecialWarningLLNear			= "Спец-предупреждение о $spell:63276 около вас",
 	YellOnLifeLeech					= "Кричать, когда на вас $spell:63276",
 	YellOnShadowCrash				= "Кричать, когда на вас $spell:62660",
 	hardmodeSpawn					= "Отсчет времени до появления Саронитового врага (сложный режим)",
 	CrashArrow						= "Показывать стрелку, когда $spell:62660 около вас",
-	BypassLatencyCheck				= "Отключить синхр-цию для $spell:62660\n(используйте только в случае возникновения проблем)"
+	BypassLatencyCheck				= "Отключить синхр-цию для $spell:62660<br/>(используйте только в случае возникновения проблем)"
 }
 
 L:SetMiscLocalization{
@@ -484,7 +484,7 @@ L:SetOptionLocalization{
 	WarnBrainPortalSoon				= "Предупреждать заранее о Провале Безумия",
 	SpecWarnMadnessOutNow			= "Спец-предупреждение незадолго до окончания $spell:64059",
 	SetIconOnFearTarget				= "Устанавливать метки на цели заклинания $spell:63881",
-	SpecWarnFervorCast				= "Спец-предупреждение, когда на вас накладывается $spell:63138\n(должна быть в цели или фокусе хотя бы у одного члена рейда)",
+	SpecWarnFervorCast				= "Спец-предупреждение, когда на вас накладывается $spell:63138<br/>(должна быть в цели или фокусе хотя бы у одного члена рейда)",
 	specWarnBrainPortalSoon			= "Спец-предупреждение о следующем Провале Безумия",
 	WarningSqueeze					= "Кричать, когда на вас Выдавливание",
 	NextPortal						= "Отсчет времени до следующего Провала Безумия",

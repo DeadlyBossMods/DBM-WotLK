@@ -200,8 +200,8 @@ L:SetGeneralLocalization{
 
 L:SetOptionLocalization{
 	RangeFrame			= "顯示距離框 (8碼)",
-	AnnounceSporeIcons		= "公佈$spell:69279目標設置的標記到團隊頻道\n(需要團隊隊長)",
-	AchievementCheck		= "公佈 '流感疫苗短缺' 成就失敗到團隊頻道\n(需助理權限)"
+	AnnounceSporeIcons		= "公佈$spell:69279目標設置的標記到團隊頻道<br/>(需要團隊隊長)",
+	AchievementCheck		= "公佈 '流感疫苗短缺' 成就失敗到團隊頻道<br/>(需助理權限)"
 }
 
 L:SetMiscLocalization{
@@ -360,9 +360,9 @@ L:SetOptionLocalization{
 	WarnGroundphaseSoon		= "為地上階段顯示預先警告",
 	TimerNextAirphase		= "為下一次 空中階段顯示計時器",
 	TimerNextGroundphase		= "為下一次 地上階段顯示計時器",
-	AnnounceFrostBeaconIcons	= "公佈$spell:70126目標設置的標記到團隊頻道\n(需要團隊隊長)",
+	AnnounceFrostBeaconIcons	= "公佈$spell:70126目標設置的標記到團隊頻道<br/>(需要團隊隊長)",
 	ClearIconsOnAirphase		= "空中階段前清除所有標記",
-	AchievementCheck		= "公佈 '吃到飽' 成就警告到團隊頻道\n(需助理權限)",
+	AchievementCheck		= "公佈 '吃到飽' 成就警告到團隊頻道<br/>(需助理權限)",
 	RangeFrame			= "顯示距離框 (普通10碼, 困難20碼)"
 }
 
@@ -408,9 +408,9 @@ L:SetOptionLocalization{
 	ValkyrWarning			= "提示誰給華爾琪影衛抓住了",
 	SpecWarnYouAreValkd		= "當你給華爾琪影衛抓住時顯示特別警告",
 	ValkyrIcon			= "為華爾琪影衛設置標記",
-	AnnounceValkGrabs		= "提示誰被華爾琪影衛抓住到團隊頻道\n(需開啟團隊廣播及助理權限)",
+	AnnounceValkGrabs		= "提示誰被華爾琪影衛抓住到團隊頻道<br/>(需開啟團隊廣播及助理權限)",
 	SpecWarnValkyrLow		= "當華爾琪血量低於55%時顯示特別警告",
-	AnnouncePlagueStack		= "提示$spell:73912層數到團隊頻道 (10層, 10層後每5層提示一次)\n(需開啟助理權限)"
+	AnnouncePlagueStack		= "提示$spell:73912層數到團隊頻道 (10層, 10層後每5層提示一次)<br/>(需開啟助理權限)"
 }
 
 L:SetMiscLocalization{

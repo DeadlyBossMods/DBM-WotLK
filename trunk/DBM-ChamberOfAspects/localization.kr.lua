@@ -56,7 +56,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	AnnounceFails			= "화염의 벽 및 어둠의 균열을 피하지 못한 공대원을 대화창에 알리기\n(승급 권한 필요)",
+	AnnounceFails			= "화염의 벽 및 어둠의 균열을 피하지 못한 공대원을 대화창에 알리기<br/>(승급 권한 필요)",
 	TimerTenebron			= "테네브론 진입 바 표시",
 	TimerShadron			= "샤드론 진입 바 표시",
 	TimerVesperon			= "베스페론 진입 바 표시",

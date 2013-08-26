@@ -282,7 +282,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerHardmode	= "Show timer for hard mode",
 	RangeFrame		= "Show range frame",
-	AnnounceFails	= "Post player fails for $spell:62017 to raid chat\n(requires announce to be enabled and leader/promoted status)"
+	AnnounceFails	= "Post player fails for $spell:62017 to raid chat<br/>(requires announce to be enabled and leader/promoted status)"
 }
 
 L:SetMiscLocalization{
@@ -413,7 +413,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	SetIconOnShadowCrash			= "Set icons on $spell:62660 targets (skull)",
 	SetIconOnLifeLeach				= "Set icons on $spell:63276 targets (cross)",
-	SpecialWarningShadowCrash		= "Show special warning for $spell:62660\n(must be targeted or focused by at least one raid member)",
+	SpecialWarningShadowCrash		= "Show special warning for $spell:62660<br/>(must be targeted or focused by at least one raid member)",
 	SpecialWarningShadowCrashNear	= "Show special warning for $spell:62660 near you",
 	SpecialWarningLLNear			= "Show special warning for $spell:63276 near you",
 	hardmodeSpawn					= "Show timer for Saronite Animus spawn (hard mode)",

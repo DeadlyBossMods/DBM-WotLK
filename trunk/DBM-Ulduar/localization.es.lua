@@ -293,7 +293,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerHardmode	= "Mostrar tiempo para modo heroico",
 	RangeFrame		= "Mostrar distancia",
-	AnnounceFails	= "Anunciar los fallos de $spell:62017 en el chat de banda\n(require 'anunciar' habilitado y líder o ayudante de banda)"
+	AnnounceFails	= "Anunciar los fallos de $spell:62017 en el chat de banda<br/>(require 'anunciar' habilitado y líder o ayudante de banda)"
 }
 
 L:SetMiscLocalization{
@@ -436,7 +436,7 @@ L:SetOptionLocalization{
 	YellOnShadowCrash				= "Gritar si eres objetivo de $spell:62660",
 	hardmodeSpawn					= "Mostrar tiempo para salida de Animus de saronita (Modo Difícil)",
 	CrashArrow						= "Mostrar una flecha cuando $spell:62660 va a caer cerca de ti",
-	BypassLatencyCheck				= "No usar la comprobación de sincronización basada en latencia para $spell:62660\n(sólo usar esta opción si tienes problemas de otro modo)"
+	BypassLatencyCheck				= "No usar la comprobación de sincronización basada en latencia para $spell:62660<br/>(sólo usar esta opción si tienes problemas de otro modo)"
 }
 
 L:SetMiscLocalization{

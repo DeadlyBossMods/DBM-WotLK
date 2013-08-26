@@ -200,8 +200,8 @@ L:SetGeneralLocalization{
 
 L:SetOptionLocalization{
 	RangeFrame				= "거리 창 보기(8m)",
-	AnnounceSporeIcons		= "$spell:69279 전술 목표 아이콘 설정 내역을 공격대 대화로 알리기\n(공격대장 권한 필요)",
-	AchievementCheck		= "역병 예방 접종 업적 실패시 실패 내용을 공격대 대화로 알리기\n(공격대장 권한 필요)"
+	AnnounceSporeIcons		= "$spell:69279 전술 목표 아이콘 설정 내역을 공격대 대화로 알리기<br/>(공격대장 권한 필요)",
+	AchievementCheck		= "역병 예방 접종 업적 실패시 실패 내용을 공격대 대화로 알리기<br/>(공격대장 권한 필요)"
 }
 
 L:SetMiscLocalization{
@@ -367,9 +367,9 @@ L:SetOptionLocalization{
 	WarnPhase2soon				= "2 단계 사전 알림 보기(38% 이하)",
 	TimerNextAirphase			= "다음 공중 단계 바 표시",
 	TimerNextGroundphase		= "다음 지상 단계 바 표시",
-	AnnounceFrostBeaconIcons	= "$spell:70126 전술 목표 아이콘 설정 내역을 공격대 대화로 알리기\n(공격대장 권한 필요)",
+	AnnounceFrostBeaconIcons	= "$spell:70126 전술 목표 아이콘 설정 내역을 공격대 대화로 알리기<br/>(공격대장 권한 필요)",
 	ClearIconsOnAirphase		= "공중 단계에서 모든 전술 목표 아이콘 제거",
-	AchievementCheck			= "신비한 아픔 업적 실패시 실패 내용을 공격대 대화로 알리기\n(공격대장 권한 필요)",
+	AchievementCheck			= "신비한 아픔 업적 실패시 실패 내용을 공격대 대화로 알리기<br/>(공격대장 권한 필요)",
 	RangeFrame					= "강화 또는 약화 효과 상태에 맞추어 거리 창 보기(10/20m)"
 }
 
@@ -415,9 +415,9 @@ L:SetOptionLocalization{
 	ValkyrWarning				= "발키리 대상 알림 보기",
 	SpecWarnYouAreValkd			= "발키리에게 붙잡혔을 때 특수 경고 보기",
 	ValkyrIcon					= "발키리에 전술 목표 아이콘 설정",
-	AnnounceValkGrabs			= "발키리 대상 및 전술 목표 아이콘 설정 내용을 공격대 대화로 알리기\n(공격대장 권한 필요)",
+	AnnounceValkGrabs			= "발키리 대상 및 전술 목표 아이콘 설정 내용을 공격대 대화로 알리기<br/>(공격대장 권한 필요)",
 	SpecWarnValkyrLow			= "발키리의 HP가 55%이하가 될 경우 특수 경고 보기",
-	AnnouncePlagueStack			= "$spell:70337 중첩 알림 보기(10중첩 이상일때, 5 중첩마다)\n(공격대장 권한 필요)"
+	AnnouncePlagueStack			= "$spell:70337 중첩 알림 보기(10중첩 이상일때, 5 중첩마다)<br/>(공격대장 권한 필요)"
 }
 
 L:SetMiscLocalization{

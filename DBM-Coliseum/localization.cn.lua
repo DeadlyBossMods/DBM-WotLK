@@ -258,6 +258,6 @@ L:SetOptionLocalization{
 	PursueIcon			= "为被追击的目标设置标记(骷髅)",
 	SpecWarnShadowStrike		= "为$spell:66134显示特殊警报(打断用)",
 	SetIconsOnPCold			= "为$spell:68510的目标设置标记",
-	AnnouncePColdIcons		= "公布$spell:68510目标设置的标记到团队频道\n(需要团长或助理权限)",
-	AnnouncePColdIconsRemoved	= "当移除$spell:68510的标记时也提示\n(需要上述选项)"
+	AnnouncePColdIcons		= "公布$spell:68510目标设置的标记到团队频道<br/>(需要团长或助理权限)",
+	AnnouncePColdIconsRemoved	= "当移除$spell:68510的标记时也提示<br/>(需要上述选项)"
 }

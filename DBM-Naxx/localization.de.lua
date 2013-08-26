@@ -226,8 +226,8 @@ L:SetOptionLocalization({
 	WarningChargeChanged	= "Spezialwarnung, wenn deine Polarität gewechselt hat",
 	WarningChargeNotChanged	= "Spezialwarnung, wenn deine Polarität nicht gewechselt hat",
 	ArrowsEnabled			= "Zeige Pfeile (normale \"2-Camps\"-Strategie)",
-	ArrowsRightLeft			= "Zeige Links-/Rechtspfeil für die \"4-Camps\"-Strategie\n(Linkspfeil bei Polaritätsänderung, Rechtspfeil bei keiner Änderung)",
-	ArrowsInverse			= "Umgedrehte \"4-Camps\"-Strategie\n(Rechtspfeil bei Polaritätsänderung, Linkspfeil bei keiner Änderung)"
+	ArrowsRightLeft			= "Zeige Links-/Rechtspfeil für die \"4-Camps\"-Strategie<br/>(Linkspfeil bei Polaritätsänderung, Rechtspfeil bei keiner Änderung)",
+	ArrowsInverse			= "Umgedrehte \"4-Camps\"-Strategie<br/>(Rechtspfeil bei Polaritätsänderung, Linkspfeil bei keiner Änderung)"
 })
 
 L:SetWarningLocalization({

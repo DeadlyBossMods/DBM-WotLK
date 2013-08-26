@@ -246,7 +246,7 @@ L:SetOptionLocalization{
 	PursueIcon				= "Set icons on pursued targets",
 	SpecWarnShadowStrike	= "Show special warning for $spell:66134 (to interrupt)",
 	SetIconsOnPCold         = "Set icons on $spell:66013 targets",
-	AnnouncePColdIcons		= "Announce icons for $spell:66013 targets to raid chat\n(requires raid leader)",
-	AnnouncePColdIconsRemoved	= "Also announce when icons are removed for $spell:66013\n(requires above option)"
+	AnnouncePColdIcons		= "Announce icons for $spell:66013 targets to raid chat<br/>(requires raid leader)",
+	AnnouncePColdIconsRemoved	= "Also announce when icons are removed for $spell:66013<br/>(requires above option)"
 }
 

@@ -290,7 +290,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerHardmode			= "為困難模式顯示計時器",
 	RangeFrame			= "顯示距離框",
-	AnnounceFails			= "公佈中了閃電充能的玩家到團隊頻道\n(需要團隊隊長或助理權限)"
+	AnnounceFails			= "公佈中了閃電充能的玩家到團隊頻道<br/>(需要團隊隊長或助理權限)"
 }
 
 L:SetMiscLocalization{
@@ -429,7 +429,7 @@ L:SetOptionLocalization{
 	YellOnShadowCrash		= "當你中了$spell:62660時大喊",
 	hardmodeSpawn			= "為薩倫聚惡體出現顯示計時器 (困難模式)",
 	CrashArrow			= "當你附近的人中了$spell:62660時顯示DBM箭頭",
-	BypassLatencyCheck		= "不對$spell:62660使用同步延遲查詢\n(只有出現問題時才使用這個)"
+	BypassLatencyCheck		= "不對$spell:62660使用同步延遲查詢<br/>(只有出現問題時才使用這個)"
 }
 
 L:SetMiscLocalization{

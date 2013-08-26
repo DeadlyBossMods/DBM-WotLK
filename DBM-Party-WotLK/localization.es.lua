@@ -1340,8 +1340,8 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	warnSaroniteRock			= "Mostrar los objetivos de $spell:70851",
-	specWarnSaroniteRock		= "Mostrar aviso especial cuando seas objetivo de\n $spell:70851",
-	specWarnSaroniteRockNear	= "Mostrar aviso especial cuando estés cerca del objetivo de\n $spell:70851",
+	specWarnSaroniteRock		= "Mostrar aviso especial cuando seas objetivo de<br/> $spell:70851",
+	specWarnSaroniteRockNear	= "Mostrar aviso especial cuando estés cerca del objetivo de<br/> $spell:70851",
 	specWarnPermafrost			= "Mostrar aviso cuando tengas mucha $spell:70336 acumulada",
 	AchievementCheck			= "Anunciar avisos del logro 'Solo once campanadas' en el chat de grupo",
 	SetIconOnSaroniteRockTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70851)

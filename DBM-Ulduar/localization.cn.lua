@@ -306,7 +306,7 @@ L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
 	TimerHardmode			= "为困难模式显示计时条",
 	RangeFrame			= "显示距离框",
-	AnnounceFails			= "公布中了闪电充能的玩家到团队频道\n(需要团长或助理权限)"
+	AnnounceFails			= "公布中了闪电充能的玩家到团队频道<br/>(需要团长或助理权限)"
 }
 
 L:SetMiscLocalization{
@@ -454,7 +454,7 @@ L:SetOptionLocalization{
 	YellOnShadowCrash		= "当你中了$spell:62660时大喊",
 	hardmodeSpawn			= "为萨隆邪铁畸体出现显示计时条 (困难模式)",
 	CrashArrow			= "当你附近的人中了$spell:62660时显示DBM箭头",
-	BypassLatencyCheck		= "不对$spell:62660使用同步延迟查询\n(只有出现问题时才使用这个)"
+	BypassLatencyCheck		= "不对$spell:62660使用同步延迟查询<br/>(只有出现问题时才使用这个)"
 }
 
 L:SetMiscLocalization{

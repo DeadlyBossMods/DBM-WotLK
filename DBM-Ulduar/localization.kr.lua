@@ -253,7 +253,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerHardmode			= "영웅 난이도 가능까지 남은시간 바 표시",
 	RangeFrame				= "거리 창 보기",
-	AnnounceFails			= "$spell:62017 주문에 피해를 입은 대상을 공격대 대화로 알림\n(승급 권한 필요)" 
+	AnnounceFails			= "$spell:62017 주문에 피해를 입은 대상을 공격대 대화로 알림<br/>(승급 권한 필요)" 
 }
 
 L:SetMiscLocalization{
@@ -429,12 +429,12 @@ L:SetOptionLocalization{
 	WarnBrainPortalSoon				= "차원문 사전 알림 표시",
 	SpecWarnMadnessOutNow			= "$spell:64059이 끝나기 전 특수 경고 보기",
 	SetIconOnFearTarget				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63881),
-	SpecWarnFervorCast				= "$spell:63138을 당신에게 시전할 경우 특수 경고 보기\n(공격대원 중 최소 한명이 사라를 대상 또는 주시대상으로 설정해야 함)",
+	SpecWarnFervorCast				= "$spell:63138을 당신에게 시전할 경우 특수 경고 보기<br/>(공격대원 중 최소 한명이 사라를 대상 또는 주시대상으로 설정해야 함)",
 	specWarnBrainPortalSoon			= "차원문 특수 경고 표시",
 	WarningSqueeze					= "압착의 촉수의 대상 되었을 경우 대화로 알리기",
 	NextPortal						= "다음 차원문 바 표시",
 	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138),
-	ShowSaraHealth					= "우두머리 체력 바 사용시 사라의 체력 바도 함께 보기\n(공격대원 중 최소 한명이 사라를 대상 또는 주시대상으로 설정해야 해야 작동함)",
+	ShowSaraHealth					= "우두머리 체력 바 사용시 사라의 체력 바도 함께 보기<br/>(공격대원 중 최소 한명이 사라를 대상 또는 주시대상으로 설정해야 해야 작동함)",
 	SpecWarnMaladyNear				= "$spell:63881 주문이 근처에 시전된 경우 특수 경고 보기",
 	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
 	MaladyArrow						= "$spell:63881 대상이 근처에 있을 경우 DBM 화살표 보기"

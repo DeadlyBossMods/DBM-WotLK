@@ -57,7 +57,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	AnnounceFails			= "Объявлять игроков, потерпевших неудачу в Огненной стене и Расщелине тьмы\n(требуются права лидера или помощника)",
+	AnnounceFails			= "Объявлять игроков, потерпевших неудачу в Огненной стене и Расщелине тьмы<br/>(требуются права лидера или помощника)",
 	TimerTenebron			= "Отсчет времени до прибытия Тенеброна",
 	TimerShadron			= "Отсчет времени до прибытия Шадрона",
 	TimerVesperon			= "Отсчет времени до прибытия Весперона",
@@ -177,7 +177,7 @@ L:SetOptionLocalization({
 	TwilightCutterCast		= "Предупреждать о применении заклинания $spell:77844",
 	AnnounceAlternatePhase	= "Показывать предупреждения и таймеры для обоих миров",
 	SoundOnConsumption		= "Звуковой сигнал при $spell:74562 и $spell:74792",--We use localized text for these functions
-	SetIconOnConsumption	= "Устанавливать метки на цели заклинаний $spell:74562 и\n$spell:74792",--So we can use single functions for both versions of spell.
+	SetIconOnConsumption	= "Устанавливать метки на цели заклинаний $spell:74562 и<br/>$spell:74792",--So we can use single functions for both versions of spell.
 	WhisperOnConsumption	= "Шепот целям заклинаний $spell:74562 и $spell:74792"
 })
 

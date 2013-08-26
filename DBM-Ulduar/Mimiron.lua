@@ -93,7 +93,6 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:OnCombatEnd()
-	DBM.BossHealth:Hide()
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Hide()
 	end
@@ -203,7 +202,7 @@ end
 function mod:NextPhase()
 	phase = phase + 1
 	if phase == 1 then
-		if self.Options.HealthFrame then
+		if DBM.BossHealth:IsShown() then
 			DBM.BossHealth:Clear()
 			DBM.BossHealth:AddBoss(33432, L.MobPhase1)
 		end
@@ -214,7 +213,7 @@ function mod:NextPhase()
 		timerFlameSuppressant:Stop()
 		timerPlasmaBlastCD:Stop()
 		timerP1toP2:Start()
-		if self.Options.HealthFrame then
+		if DBM.BossHealth:IsShown() then
 			DBM.BossHealth:Clear()
 			DBM.BossHealth:AddBoss(33651, L.MobPhase2)
 		end
@@ -233,7 +232,7 @@ function mod:NextPhase()
 		timerNextDarkGlare:Cancel()
 		timerNextFrostBomb:Cancel()
 		timerP2toP3:Start()
-		if self.Options.HealthFrame then
+		if DBM.BossHealth:IsShown() then
 			DBM.BossHealth:Clear()
 			DBM.BossHealth:AddBoss(33670, L.MobPhase3)
 		end
@@ -247,7 +246,8 @@ function mod:NextPhase()
 			end
 		end
 		timerP3toP4:Start()
-		if self.Options.HealthFramePhase4 or self.Options.HealthFrame then
+		if self.Options.HealthFramePhase4 or DBM.BossHealth:IsShown() then
+			DBM.BossHealth:Clear()
 			DBM.BossHealth:Show(L.name)
 			DBM.BossHealth:AddBoss(33670, L.MobPhase3)
 			DBM.BossHealth:AddBoss(33651, L.MobPhase2)

@@ -73,7 +73,7 @@ function mod:OnCombatStart(delay)
 	phase = 1
 	enrageTimer:Start()
 	timerAchieve:Start()
-	if self.Options.ShowSaraHealth and not self.Options.HealthFrame then
+	if self.Options.ShowSaraHealth and not DBM.BossHealth:IsShown() then
 		DBM.BossHealth:Show(L.name)
 	end
 	if self.Options.ShowSaraHealth then
@@ -160,10 +160,10 @@ function mod:SPELL_AURA_APPLIED(args)
 				end
 			end 
 		end 
-	elseif args:IsSpellID(64126, 64125) then	-- Squeeze		
+	elseif args:IsSpellID(64126, 64125) then	-- Squeeze
 		warnSqueeze:Show(args.destName)
-		if args:IsPlayer() and self.Options.WarningSqueeze then			
-			SendChatMessage(L.WarningYellSqueeze, "SAY")			
+		if args:IsPlayer() and self.Options.WarningSqueeze then	
+			SendChatMessage(L.WarningYellSqueeze, "SAY")
 		end	
 	elseif args.spellId == 63138 then	-- Sara's Fervor
 		warnFervor:Show(args.destName)
@@ -182,9 +182,9 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnP2:Show()
 		if self.Options.ShowSaraHealth then
 			DBM.BossHealth:RemoveBoss(33134)
-			if not self.Options.HealthFrame then
-				DBM.BossHealth:Hide()
-			end
+		end
+		if not (self.Options.HealthFrame or DBM.Options.AlwaysShowHealthFrame) then
+			DBM.BossHealth:Hide()
 		end
 	elseif args:IsSpellID(64167, 64163) then	-- Lunatic Gaze (reduces sanity)
 		timerLunaricGaze:Start()
@@ -227,7 +227,7 @@ function mod:OnSync(msg)
 		warnBrainPortalSoon:Cancel()
         timerEmpower:Start()
 		warnP3:Show()
-        warnEmpowerSoon:Schedule(40)	
+        warnEmpowerSoon:Schedule(40)
 		timerNextDeafeningRoar:Start(30)
 		warnDeafeningRoarSoon:Schedule(25)
 	end

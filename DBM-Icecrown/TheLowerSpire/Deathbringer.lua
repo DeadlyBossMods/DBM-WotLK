@@ -45,7 +45,6 @@ mod:AddBoolOption("RangeFrame", mod:IsRanged())
 mod:AddBoolOption("RunePowerFrame", true, "misc")
 mod:AddBoolOption("BeastIcons", true)
 mod:AddBoolOption("BoilingBloodIcons", false)
-mod:RemoveOption("HealthFrame")
 
 local warned_preFrenzy = false
 local boilingBloodTargets = {}
@@ -59,7 +58,8 @@ local function warnBoilingBloodTargets()
 end
 
 function mod:OnCombatStart(delay)
-	if self.Options.RunePowerFrame then
+	if DBM.BossHealth:IsShown() and self.Options.RunePowerFrame then
+		DBM.BossHealth:Clear()
 		DBM.BossHealth:Show(L.name)
 		DBM.BossHealth:AddBoss(37813, L.name)
 		self:ScheduleMethod(0.5, "CreateBossRPFrame")
@@ -87,7 +87,6 @@ function mod:OnCombatEnd()
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Hide()
 	end
-	DBM.BossHealth:Clear()
 end
 
 do	-- add the additional Rune Power Bar

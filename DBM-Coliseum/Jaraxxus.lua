@@ -58,11 +58,11 @@ mod:AddBoolOption("LegionFlameWhisper", false, "announce")
 mod:AddBoolOption("LegionFlameIcon", true)
 mod:AddBoolOption("IncinerateFleshIcon", true)
 
-mod:RemoveOption("HealthFrame")
 mod:AddBoolOption("IncinerateShieldFrame", true, "misc")
 
 function mod:OnCombatStart(delay)
-	if self.Options.IncinerateShieldFrame then
+	if self.Options.IncinerateShieldFrame and DBM.BossHealth:IsShown() then
+		DBM.BossHealth:Clear()
 		DBM.BossHealth:Show(L.name)
 		DBM.BossHealth:AddBoss(34780, L.name)
 	end
@@ -73,10 +73,6 @@ function mod:OnCombatStart(delay)
 	timerFleshCD:Start(14-delay)
 	timerFlameCD:Start(20-delay)
 	enrageTimer:Start(-delay)
-end
-
-function mod:OnCombatEnd()
-	DBM.BossHealth:Clear()
 end
 
 function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
@@ -134,9 +130,10 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then
 			specWarnFlesh:Show()
 		end
-		setIncinerateTarget(self, args.destGUID, args.destName)
-		self:Schedule(15, clearIncinerateTarget, self, args.destName)
-
+		if DBM.BossHealth:IsShown() and self.Options.IncinerateShieldFrame then
+			setIncinerateTarget(self, args.destGUID, args.destName)
+			self:Schedule(15, clearIncinerateTarget, self, args.destName)
+		end
 	elseif args.spellId == 66197 then		-- Legion Flame ids 66199 (second debuff) do the actual damage. First 2 seconds are trigger debuff only.
 		local targetname = args.destName
 		timerFlame:Start(args.destName)
@@ -164,7 +161,9 @@ function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 66237 then			-- Incinerate Flesh
 		timerFlesh:Stop()
 		self:Unschedule(clearIncinerateTarget)
-		clearIncinerateTarget(self, args.destName)
+		if DBM.BossHealth:IsShown() and self.Options.IncinerateShieldFrame then
+			clearIncinerateTarget(self, args.destName)
+		end
 	end
 end
 

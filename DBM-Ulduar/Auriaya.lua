@@ -76,7 +76,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 64396 then -- Guardian Swarm
 		warnSwarm:Show(args.destName)
 		timerNextSwarm:Start()
-	elseif args.spellId == 64455 then -- Feral Essence
+	elseif args.spellId == 64455 and DBM.BossHealth:IsShown() then -- Feral Essence
 		DBM.BossHealth:AddBoss(34035, L.Defender:format(9))
 	elseif args.spellId == 64386 and args:IsPlayer() then
 		isFeared = true		
@@ -101,12 +101,12 @@ function mod:UNIT_DIED(args)
 				warnCatDied:Show(catLives)
 				timerDefender:Start()
          	end
-			if self.Options.HealthFrame then
+			if DBM.BossHealth:IsShown() then
 				DBM.BossHealth:RemoveBoss(34035)
 				DBM.BossHealth:AddBoss(34035, L.Defender:format(catLives))
 			end
 		else
-			if self.Options.HealthFrame then
+			if DBM.BossHealth:IsShown() then
 				DBM.BossHealth:RemoveBoss(34035)
 			end
 		end

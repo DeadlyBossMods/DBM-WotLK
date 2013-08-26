@@ -182,7 +182,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		self:ScheduleMethod(0.75, "warnDebuff")
 	elseif args:IsSpellID(65879, 65916) then -- Power of the Twins 
 		self:Schedule(0.1, showPowerWarning, self, args:GetDestCreatureID())
-	elseif args:IsSpellID(65874, 65858) then -- Shield of Darkness/Lights
+	elseif args:IsSpellID(65874, 65858) and DBM.BossHealth:IsShown() then -- Shield of Darkness/Lights
 		showShieldHealthBar(self, args.destGUID, args.spellName)
 	end
 end
@@ -193,13 +193,17 @@ function mod:SPELL_AURA_REMOVED(args)
 			specWarnKickNow:Show()
 		end
 		self:Unschedule(hideShieldHealthBar)
-		hideShieldHealthBar()
+		if DBM.BossHealth:IsShown() then
+			hideShieldHealthBar()
+		end
 	elseif args.spellId == 65858 then		-- Shield of Lights
 		if UnitCastingInfo("target") and self:GetUnitCreatureId("target") == 34497 then
 			specWarnKickNow:Show()
 		end
 		self:Unschedule(hideShieldHealthBar)
-		hideShieldHealthBar()
+		if DBM.BossHealth:IsShown() then
+			hideShieldHealthBar()
+		end
 	elseif args.spellId == 65950 then	-- Touch of Light
 		timerLightTouch:Stop(args.destName)
 		if self.Options.SetIconOnDebuffTarget then

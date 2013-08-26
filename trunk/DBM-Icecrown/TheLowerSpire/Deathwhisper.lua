@@ -53,7 +53,6 @@ mod:AddBoolOption("SetIconOnDominateMind", true)
 mod:AddBoolOption("SetIconOnDeformedFanatic", true)
 mod:AddBoolOption("SetIconOnEmpoweredAdherent", false)
 mod:AddBoolOption("ShieldHealthFrame", true)
-mod:RemoveOption("HealthFrame")
 
 local dominateMindTargets = {}
 local dominateMindIcon = 6
@@ -61,11 +60,12 @@ local deformedFanatic
 local empoweredAdherent
 
 function mod:OnCombatStart(delay)
-	if self.Options.ShieldHealthFrame then
+	if DBM.BossHealth:IsShown() and self.Options.ShieldHealthFrame then
+		DBM.BossHealth:Clear()
 		DBM.BossHealth:Show(L.name)
 		DBM.BossHealth:AddBoss(36855, L.name)
 		self:ScheduleMethod(0.75, "CreateShieldHPFrame")
-	end		
+	end
 	berserkTimer:Start(-delay)
 	timerAdds:Start(7)
 	warnAddsSoon:Schedule(4)			-- 3sec pre-warning on start
@@ -77,10 +77,6 @@ function mod:OnCombatStart(delay)
 	dominateMindIcon = 6
 	deformedFanatic = nil
 	empoweredAdherent = nil
-end
-
-function mod:OnCombatEnd()
-	DBM.BossHealth:Clear()
 end
 
 do	-- add the additional Shield Bar

@@ -88,14 +88,6 @@ L:SetGeneralLocalization{
 	name = "군주 매로우가르"
 }
 
-L:SetTimerLocalization{
-	AchievementBoned		= "뼈도 못 추릴라 업적 가능"
-}
-
-L:SetOptionLocalization{
-	AchievementBoned		= "뼈도 못 추릴라 업적 바 표시"
-}
-
 -------------------------
 --  Lady Deathwhisper  --
 -------------------------

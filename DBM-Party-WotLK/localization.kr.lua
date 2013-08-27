@@ -857,7 +857,7 @@ L:SetOptionLocalization({
 L = DBM:GetModLocalization("ConstructorAndController")
 
 L:SetGeneralLocalization({
-	name = "건축가 스카발드 & 감시자 달론"
+	name = "건축가 스카발드와 감시자 달론"
 })
 
 L:SetWarningLocalization({

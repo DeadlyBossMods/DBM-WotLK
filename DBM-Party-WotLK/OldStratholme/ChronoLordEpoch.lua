@@ -1,9 +1,8 @@
-local mod	= DBM:NewMod("ChronoLordEpoch", "DBM-Party-WotLK", 3)
+local mod	= DBM:NewMod(613, "DBM-Party-WotLK", 3, 279)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(26532)
-mod:SetModelID(26580)
 mod:SetZone()
 
 mod:RegisterCombat("combat")

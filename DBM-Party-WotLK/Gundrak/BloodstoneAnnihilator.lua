@@ -1,9 +1,8 @@
-local mod	= DBM:NewMod("BloodstoneAnnihilator", "DBM-Party-WotLK", 5)
+local mod	= DBM:NewMod(593, "DBM-Party-WotLK", 5, 274)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(29307)
-mod:SetModelID(26589)
 --mod:SetZone()
 
 mod:RegisterCombat("combat")

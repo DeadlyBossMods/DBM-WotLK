@@ -1,9 +1,8 @@
-local mod	= DBM:NewMod("GortokPalehoof", "DBM-Party-WotLK", 11)
+local mod	= DBM:NewMod(642, "DBM-Party-WotLK", 11, 286)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(26687)
---mod:SetModelID(27419)  -- Only his feet visible
 mod:SetZone()
 
 mod:RegisterCombat("combat")

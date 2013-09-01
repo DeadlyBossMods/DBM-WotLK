@@ -1,9 +1,8 @@
-local mod	= DBM:NewMod("Zuramat", "DBM-Party-WotLK", 12)
+local mod	= DBM:NewMod(631, "DBM-Party-WotLK", 12, 283)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(29314)
-mod:SetModelID(27855)
 mod:SetZone()
 
 mod:RegisterCombat("combat")

@@ -1,9 +1,8 @@
-local mod	= DBM:NewMod("Meathook", "DBM-Party-WotLK", 3)
+local mod	= DBM:NewMod(611, "DBM-Party-WotLK", 3, 279)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(26529)
-mod:SetModelID(26579)
 mod:SetZone()
 
 mod:RegisterCombat("combat")

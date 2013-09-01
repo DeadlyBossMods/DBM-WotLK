@@ -1450,10 +1450,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarnWave1		= "6 Tobende Ghule, 1 Auferstandener Hexendoktor kommen",--6 Ghoul, 1 WitchDocter
-	WarnWave2		= "6 Tobende Ghule, 2 Auferstandene Hexendoktoren, 1 Schwerfällige Monstrosität kommen",--6 Ghoul, 2 WitchDocter, 1 Abom
-	WarnWave3		= "6 Tobende Ghule, 2 Auferstandene Hexendoktoren, 2 Schwerfällige Monstrositäten kommen",--6 Ghoul, 2 WitchDocter, 2 Abom
-	WarnWave4		= "12 Tobende Ghule, 4 Auferstandene Hexendoktoren, 3 Schwerfällige Monstrositäten kommen"--12 Ghoul, 3 WitchDocter, 3 Abom
+	WarnWave		= "%s"
 })
 
 L:SetTimerLocalization({
@@ -1461,13 +1458,10 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	ShowWaves	= "Zeige Warnung für Monsterwellen"
+	WarnWave	= "Zeige Warnung für Monsterwellen"
 })
 
 L:SetMiscLocalization({
-	Ghoul			= "Tobender Ghul",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
-	Abom			= "Schwerfällige Monstrosität",--creature id 37069
-	WitchDoctor		= "Auferstandener Hexendoktor",--creature id 36941
 	ACombatStart	= "Seine Macht ist zu groß. Wir müssen diesen Ort sofort verlassen! Meine Magie kann ihn nur kurze Zeit halten. Beeilt Euch, Helden!",
 	HCombatStart	= "Er ist... zu mächtig. Schnell, Helden... kommt! Wir müssen fliehen. Ich werde mein Möglichstes tun, um ihn solange es geht an Ort und Stelle zu halten.",
 	Wave1			= "Es gibt kein Entkommen!",

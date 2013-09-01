@@ -23,12 +23,12 @@ local warnForcefulSmash			= mod:NewSpellAnnounce(69155, 2)
 local warnOverlordsBrand		= mod:NewTargetAnnounce(69172, 4)
 local warnHoarfrost				= mod:NewTargetAnnounce(69246, 2)
 
-local specWarnHoarfrost			= mod:NewSpecialWarning("specWarnHoarfrost")
-local specWarnHoarfrostNear		= mod:NewSpecialWarning("specWarnHoarfrostNear")
+local specWarnHoarfrost			= mod:NewSpecialWarningYou(69246)
+local specWarnHoarfrostNear		= mod:NewSpecialWarningClose(69246)
 local specWarnIcyBlast			= mod:NewSpecialWarningMove(69238)
 local specWarnOverlordsBrand	= mod:NewSpecialWarningYou(69172)
 
-local timerCombatStart			= mod:NewTimer(31, "TimerCombatStart", 2457)
+local timerCombatStart			= mod:NewCombatTimer(31)
 local timerOverlordsBrand		= mod:NewTargetTimer(8, 69172)
 local timerUnholyPower			= mod:NewBuffActiveTimer(10, 69167)
 local timerForcefulSmash		= mod:NewCDTimer(50, 69155) --hotfixed? new combat logs show it every 50 seconds'ish.

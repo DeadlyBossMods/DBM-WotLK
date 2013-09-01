@@ -8,7 +8,8 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
 	"SPELL_CAST_START",
-	"SPELL_AURA_APPLIED"
+	"SPELL_AURA_APPLIED",
+	"SPELL_AURA_REMOVED"
 )
 
 local warnPhantomBlast			= mod:NewSpellAnnounce(68982, 2)
@@ -18,8 +19,8 @@ local warnWellofSouls			= mod:NewSpellAnnounce(68820, 3)
 local warnMirroredSoul			= mod:NewTargetAnnounce(69051, 4)
 local timerMirroredSoul			= mod:NewTargetTimer(8, 69051)
 local timerUnleashedSouls		= mod:NewBuffActiveTimer(5, 68939)
-local specwarnMirroredSoul		= mod:NewSpecialWarning("specwarnMirroredSoul")
-local specwarnWailingSouls		= mod:NewSpecialWarning("specwarnWailingSouls")
+local specwarnMirroredSoul		= mod:NewSpecialWarningReflect(69051)
+local specwarnWailingSouls		= mod:NewSpecialWarningSpell(68899, nil, nil, nil, 2)
 local specwarnPhantomBlast		= mod:NewSpecialWarningInterrupt(68982, false)
 
 mod:AddBoolOption("SetIconOnMirroredTarget", true)
@@ -41,12 +42,22 @@ end
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 69051 and args:IsDestTypePlayer() then	-- Mirrored Soul
 		warnMirroredSoul:Show(args.destName)
-		timerMirroredSoul:Show(args.destName)
+		timerMirroredSoul:Start(args.destName)
 		specwarnMirroredSoul:Show()
 		if self.Options.SetIconOnMirroredTarget then 
 			self:SetIcon(args.destName, 8, 8) 
 		end 
 	elseif args.spellId == 68939 then							-- Unleashed Souls
 		timerUnleashedSouls:Start()
+	end
+end
+
+
+function mod:SPELL_AURA_APPLIED(args)
+	if args.spellId == 69051 and args:IsDestTypePlayer() then	-- Mirrored Soul
+		timerMirroredSoul:Cancel(args.destName)
+		if self.Options.SetIconOnMirroredTarget then 
+			self:SetIcon(args.destName, 0) 
+		end 
 	end
 end

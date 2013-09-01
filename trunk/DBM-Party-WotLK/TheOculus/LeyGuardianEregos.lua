@@ -11,8 +11,8 @@ mod:RegisterEvents(
 	"SPELL_AURA_APPLIED"
 )
 
-local warningShift		= mod:NewSpellAnnounce(51162, 1)
-local warningShiftEnd	= mod:NewAnnounce("WarningShiftEnd", 1, 51162)
+local warningShift		= mod:NewSpellAnnounce(51162, 4)
+local warningShiftEnd	= mod:NewEndAnnounce(51162, 1)
 local warningEnraged	= mod:NewSpellAnnounce(51170, 3)
 local timerEnraged		= mod:NewBuffActiveTimer(12, 51170)
 local timerShift		= mod:NewBuffActiveTimer(18, 51162)

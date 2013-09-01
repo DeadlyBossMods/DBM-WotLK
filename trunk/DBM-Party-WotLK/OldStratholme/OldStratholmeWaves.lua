@@ -13,17 +13,20 @@ local warningWaveNow	= mod:NewAnnounce("WarningWaveNow", 3)
 local timerWaveIn		= mod:NewTimer(20, "TimerWaveIn")
 local timerRoleplay		= mod:NewTimer(162, "TimerRoleplay")
 
+local meathook = EJ_GetEncounterInfo(611)
+local salramm = EJ_GetEncounterInfo(612)
+
 local wavesNormal = {
 	{2, L.Devouring},
 	{2, L.Devouring},
 	{2, L.Devouring},
 	{2, L.Devouring},
-	{L.Meathook},
+	{meathook},
 	{2, L.Devouring},
 	{2, L.Devouring},
 	{2, L.Devouring},
 	{2, L.Devouring},
-	{L.Salramm},
+	{salramm},
 }
 
 local wavesHeroic = {
@@ -31,12 +34,12 @@ local wavesHeroic = {
 	{1, L.Devouring, 1, L.Enraged, 1, L.Necro},
 	{1, L.Devouring, 1, L.Enraged, 1, L.Necro, 1, L.Fiend},
 	{1, L.Necro, 4, L.Acolyte, 1, L.Fiend},
-	{L.Meathook},
+	{meathook},
 	{1, L.Devouring, 1, L.Necro, 1, L.Fiend, 1, L.Stalker},
 	{1, L.Devouring, 2, L.Enraged, 1, L.Abom},
 	{1, L.Devouring, 1, L.Enraged, 1, L.Necro, 1, L.Abom},
 	{1, L.Devouring, 1, L.Necro, 1, L.Fiend, 1, L.Abom},
-	{L.Salramm},
+	{salramm},
 }
 
 local waves		= wavesNormal

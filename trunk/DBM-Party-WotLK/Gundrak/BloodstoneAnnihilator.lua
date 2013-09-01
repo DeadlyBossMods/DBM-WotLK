@@ -11,8 +11,8 @@ mod:RegisterEvents(
 	"SPELL_CAST_START"
 )
 
-local warningElemental	= mod:NewAnnounce("WarningElemental", 3, 54850)
-local warningStone		= mod:NewAnnounce("WarningStone", 3, 54878)
+local warningElemental	= mod:NewSpellAnnounce("ej6421", 3, 54850)
+local warningStone		= mod:NewSpellAnnounce("ej6418", 3, 54878)
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 54850 then

@@ -1452,10 +1452,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarnWave1		= "6 Гневных вурдалаков, 1 Воскрешенный ведьмак вступают в бой",--6 Ghoul, 1 WitchDocter
-	WarnWave2		= "6 Гневных вурдалаков, 2 Воскрешенных ведьмака, 1 Неуклюжее поганище вступают в бой",--6 Ghoul, 2 WitchDocter, 1 Abom
-	WarnWave3		= "6 Гневных вурдалаков, 2 Воскрешенных ведьмака, 2 Неуклюжих поганища вступают в бой",--6 Ghoul, 2 WitchDocter, 2 Abom
-	WarnWave4		= "12 Гневных вурдалаков, 4 Воскрешенных ведьмака, 3 Неуклюжих поганища вступают в бой"--12 Ghoul, 3 WitchDocter, 3 Abom
+	WarnWave		= "%s"
 })
 
 L:SetTimerLocalization({
@@ -1463,13 +1460,10 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	ShowWaves	= "Предупреждение для прибывающих волн"
+	WarnWave	= "Предупреждение для прибывающих волн"
 })
 
 L:SetMiscLocalization({
-	Ghoul			= "Гневный вурдалак",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
-	Abom			= "Неуклюжее поганище",--creature id 37069
-	WitchDoctor		= "Воскрешенный ведьмак",--creature id 36941
 	ACombatStart	= "Он слишком силен. Мы должны выбраться отсюда как можно скорее. Моя магия задержит его, но не надолго. Быстрее, герои!",
 	HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",
 	Wave1			= "^Бежать некуда.$",

@@ -12,9 +12,8 @@ mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_YELL"
 )
 
-local warningSplitSoon	= mod:NewAnnounce("WarningSplitSoon", 2)
-local warningSplitNow	= mod:NewAnnounce("WarningSplitNow", 3)
-local warningMerge		= mod:NewAnnounce("WarningMerge", 2)
+local warningSplitSoon	= mod:NewSoonAnnounce("ej7395", 2)
+local warningSplitNow	= mod:NewSpellAnnounce("ej7395", 3)
 
 local warnedSplit1		= false
 local warnedSplit2		= false
@@ -37,7 +36,5 @@ end
 function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if msg == L.SplitTrigger1 or msg == L.SplitTrigger2 then
 		warningSplitNow:Show()
-	elseif msg == L.MergeTrigger then
-		warningMerge:Show()
 	end
 end

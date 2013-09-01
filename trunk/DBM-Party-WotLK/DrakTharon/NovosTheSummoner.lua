@@ -1,9 +1,8 @@
-local mod	= DBM:NewMod("NovosTheSummoner", "DBM-Party-WotLK", 4)
+local mod	= DBM:NewMod(589, "DBM-Party-WotLK", 4, 273)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(26631)
-mod:SetModelID(26292)
 mod:SetZone()
 
 mod:RegisterCombat("yell", L.YellPull)

@@ -1,9 +1,8 @@
-local mod	= DBM:NewMod("SvalaSorrowgrave", "DBM-Party-WotLK", 11)
+local mod	= DBM:NewMod(641, "DBM-Party-WotLK", 11, 286)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(26668)
-mod:SetModelID(26096)
 mod:SetZone()
 
 mod:RegisterCombat("combat")

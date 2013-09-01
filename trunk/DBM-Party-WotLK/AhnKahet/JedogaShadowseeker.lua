@@ -1,9 +1,8 @@
-local mod	= DBM:NewMod("JedogaShadowseeker", "DBM-Party-WotLK", 1)
+local mod	= DBM:NewMod(582, "DBM-Party-WotLK", 1, 271)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(29310)
-mod:SetModelID(26777)
 mod:SetZone()
 
 mod:RegisterCombat("combat")

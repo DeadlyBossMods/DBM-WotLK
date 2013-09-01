@@ -1,9 +1,8 @@
-local mod	= DBM:NewMod("Ionar", "DBM-Party-WotLK", 6)
+local mod	= DBM:NewMod(599, "DBM-Party-WotLK", 6, 275)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(28546)
-mod:SetModelID(27484)
 mod:SetZone()
 mod:SetUsedIcons(8)
 

@@ -26,147 +26,47 @@ local optionTimerCast	= "显示%s施法时间"	-- translate
 ----------------------------------
 --  Prince Taldaram  --
 -----------------------
-L = DBM:GetModLocalization("Taldaram")
-
-L:SetGeneralLocalization({
-	name = "塔达拉姆王子"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(581)
 
 -------------------
 --  Elder Nadox  --
 -------------------
-L = DBM:GetModLocalization("Nadox")
-
-L:SetGeneralLocalization({
-	name = "纳多克斯长老"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(580)
 
 ---------------------------
 --  Jedoga Shadowseeker  --
 ---------------------------
-L = DBM:GetModLocalization("JedogaShadowseeker")
-
-L:SetGeneralLocalization({
-	name = "耶戈达·觅影者"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(582)
 
 ---------------------
 --  Herald Volazj  --
 ---------------------
-L = DBM:GetModLocalization("Volazj")
-
-L:SetGeneralLocalization({
-	name = "传令官沃拉兹"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(584)
 
 ----------------
 --  Amanitar  --
 ----------------
-L = DBM:GetModLocalization("Amanitar")
-
-L:SetGeneralLocalization({
-	name = "埃曼尼塔"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(583)
 
 -------------------
 --  Azjol-Nerub  --
 ---------------------------------
 --  Krik'thir the Gatewatcher  --
 ---------------------------------
-L = DBM:GetModLocalization("Krikthir")
-
-L:SetGeneralLocalization({
-	name = "看门者克里克希尔"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(585)
 
 ----------------
 --  Hadronox  --
 ----------------
-L = DBM:GetModLocalization("Hadronox")
-
-L:SetGeneralLocalization({
-	name = "哈多诺克斯"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(586)
 
 -------------------------
 --  Anub'arak (Party)  --
 -------------------------
-L = DBM:GetModLocalization("Anubarak")
+L = DBM:GetModLocalization(587)
 
 L:SetGeneralLocalization({
 	name = "阿努巴拉克(5人副本)"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
 })
 
 ---------------------------------------
@@ -174,74 +74,22 @@ L:SetOptionLocalization({
 ---------------------------------------
 --  Meathook  --
 ----------------
-L = DBM:GetModLocalization("Meathook")
-
-L:SetGeneralLocalization({
-	name = "肉钩"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(611)
 
 --------------------------------
 --  Salramm the Fleshcrafter  --
 --------------------------------
-L = DBM:GetModLocalization("SalrammTheFleshcrafter")
-
-L:SetGeneralLocalization({
-	name = "塑血者沙尔拉姆"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(612)
 
 -------------------------
 --  Chrono-Lord Epoch  --
 -------------------------
-L = DBM:GetModLocalization("ChronoLordEpoch")
-
-L:SetGeneralLocalization({
-	name = "时光领主埃博克"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(613)
 
 -----------------
 --  Mal'Ganis  --
 -----------------
-L = DBM:GetModLocalization("MalGanis")
-
-L:SetGeneralLocalization({
-	name = "玛尔加尼斯"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(614)
 
 L:SetMiscLocalization({
 	Outro	= "你的旅程才刚开始，年轻的王子。集合你的部队，到诺森德再次挑战我。在那里，我们将了结彼此之间的恩怨，你将了解到你真正的命运。"
@@ -296,29 +144,12 @@ L:SetMiscLocalization({
 ------------------------
 --  Trollgore  --
 -----------------
-L = DBM:GetModLocalization("Trollgore")
-
-L:SetGeneralLocalization({
-	name = "托尔戈"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(588)
 
 --------------------------
 --  Novos the Summoner  --
 --------------------------
-L = DBM:GetModLocalization("NovosTheSummoner")
-
-L:SetGeneralLocalization({
-	name = "召唤者诺沃斯"
-})
+L = DBM:GetModLocalization(589)
 
 L:SetWarningLocalization({
 	WarnCrystalHandler	= "水晶处理者出现了 (剩余%d)"
@@ -343,81 +174,29 @@ L:SetMiscLocalization({
 -----------------
 --  King Dred  --
 -----------------
-L = DBM:GetModLocalization("KingDred")
-
-L:SetGeneralLocalization({
-	name = "暴龙之王爵德"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(590)
 
 -----------------------------
 --  The Prophet Tharon'ja  --
 -----------------------------
-L = DBM:GetModLocalization("ProphetTharonja")
-
-L:SetGeneralLocalization({
-	name = "先知萨隆亚"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(591)
 
 ---------------
 --  Gundrak  --
 ----------------
 --  Slad'ran  --
 ----------------
-L = DBM:GetModLocalization("Sladran")
-
-L:SetGeneralLocalization({
-	name = "斯拉德兰"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(592)
 
 ---------------
 --  Moorabi  --
 ---------------
-L = DBM:GetModLocalization("Moorabi")
-
-L:SetGeneralLocalization({
-	name = "莫拉比"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(594)
 
 -------------------------
 --  Drakkari Colossus  --		
 -------------------------
-L = DBM:GetModLocalization("BloodstoneAnnihilator")
+L = DBM:GetModLocalization(593)
 
 L:SetGeneralLocalization({
 	name = "达卡莱巨像"
@@ -428,9 +207,6 @@ L:SetWarningLocalization({
 	WarningStone		= "巨像阶段"
 })
 
-L:SetTimerLocalization({
-})
-
 L:SetOptionLocalization({
 	WarningElemental	= "为元素阶段显示警报",
 	WarningStone		= "为巨像阶段显示警报"
@@ -439,73 +215,24 @@ L:SetOptionLocalization({
 -----------------
 --  Gal'darah  --
 -----------------
-L = DBM:GetModLocalization("Galdarah")
-
-L:SetGeneralLocalization({
-	name = "迦尔达拉"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(596)
 
 -------------------------
 --  Eck the Ferocious  --
 -------------------------
-L = DBM:GetModLocalization("Eck")
-
-L:SetGeneralLocalization({
-	name = "凶残的伊克"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(595)
 
 --------------------------
 --  Halls of Lightning  --
 --------------------------
 --  General Bjarngrim  --
 -------------------------
-L = DBM:GetModLocalization("Gjarngrin")
-
-L:SetGeneralLocalization({
-	name = "比亚格里将军"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(597)
 
 -------------
 --  Ionar  --
 -------------
-L = DBM:GetModLocalization("Ionar")
-
-L:SetGeneralLocalization({
-	name = "艾欧纳尔"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
+L = DBM:GetModLocalization(599)
 
 L:SetOptionLocalization({
 	SetIconOnOverloadTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(52658)
@@ -514,11 +241,7 @@ L:SetOptionLocalization({
 ---------------
 --  Volkhan  --
 ---------------
-L = DBM:GetModLocalization("Volkhan")
-
-L:SetGeneralLocalization({
-	name = "沃尔坎"
-})
+L = DBM:GetModLocalization(598)
 
 L:SetWarningLocalization({
 	WarningStomp	= spell
@@ -536,57 +259,19 @@ L:SetOptionLocalization({
 --------------
 --  Kronus  --
 --------------
-L = DBM:GetModLocalization("Kronus")
-
-L:SetGeneralLocalization({
-	name = "洛肯"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(600)
 
 ----------------------
 --  Halls of Stone  --
 -----------------------
 --  Maiden of Grief  --
 -----------------------
-L = DBM:GetModLocalization("MaidenOfGrief")
-
-L:SetGeneralLocalization({
-	name = "悲伤圣女"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(605)
 
 ------------------
 --  Krystallus  --
 ------------------
-L = DBM:GetModLocalization("Krystallus")
-
-L:SetGeneralLocalization({
-	name = "克莱斯塔卢斯"
-})
-
-L:SetWarningLocalization({
-	WarningShatter	= spell
-})
-
-L:SetTimerLocalization({
-	TimerShatterCD	= spellCD
-})
+L = DBM:GetModLocalization(604)
 
 L:SetOptionLocalization({
 	WarningShatter	= optionWarning:format(GetSpellInfo(50810)),
@@ -596,29 +281,12 @@ L:SetOptionLocalization({
 ------------------------------
 --  Sjonnir the Ironshaper  --
 ------------------------------
-L = DBM:GetModLocalization("SjonnirTheIronshaper")
-
-L:SetGeneralLocalization({
-	name = "塑铁者斯约尼尔"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(607)
 
 --------------------------------------
 --  Brann Bronzebeard Escort Event  --
 --------------------------------------
-L = DBM:GetModLocalization("BrannBronzebeard")
-
-L:SetGeneralLocalization({
-	name = "布莱恩护卫事件"
-})
+L = DBM:GetModLocalization(606)
 
 L:SetWarningLocalization({
 	WarningPhase	= "第%d阶段"
@@ -646,40 +314,17 @@ L:SetMiscLocalization({
 -----------------
 --  Anomalus  --
 ----------------
-L = DBM:GetModLocalization("Anomalus")
-
-L:SetGeneralLocalization({
-	name = "阿诺玛鲁斯"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(619)
 
 -------------------------------
 --  Ormorok the Tree-Shaper  --
 -------------------------------
-L = DBM:GetModLocalization("OrmorokTheTreeShaper")
-
-L:SetGeneralLocalization({
-	name = "塑树者奥莫洛克"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(620)
 
 ----------------------------
 --  Grand Magus Telestra  --
 ----------------------------
-L = DBM:GetModLocalization("GrandMagusTelestra")
+L = DBM:GetModLocalization(618)
 
 L:SetGeneralLocalization({
 	name = "大魔导师泰蕾丝塔"
@@ -689,9 +334,6 @@ L:SetWarningLocalization({
 	WarningSplitSoon	= "分裂 即将到来",
 	WarningSplitNow		= "分裂",
 	WarningMerge		= "融合"
-})
-
-L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
@@ -709,20 +351,7 @@ L:SetMiscLocalization({
 -------------------
 --  Keristrasza  --
 -------------------
-L = DBM:GetModLocalization("Keristrasza")
-
-L:SetGeneralLocalization({
-	name = "克莉斯塔萨"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(621)
 
 -----------------------------------
 --  Commander Kolurg/Stoutbeard  --
@@ -740,31 +369,12 @@ L:SetGeneralLocalization({
 	name = commander
 })
 
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
-
 ------------------
 --  The Oculus  --
 -------------------------------
 --  Drakos the Interrogator  --
 -------------------------------
-L = DBM:GetModLocalization("DrakosTheInterrogator")
-
-L:SetGeneralLocalization({
-	name = "审讯者达库斯"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
+L = DBM:GetModLocalization(622)
 
 L:SetOptionLocalization({
 	MakeitCountTimer	= "为成就：分秒必争显示计时条"
@@ -777,20 +387,7 @@ L:SetMiscLocalization({
 ----------------------
 --  Mage-Lord Urom  --
 ----------------------
-L = DBM:GetModLocalization("MageLordUrom")
-
-L:SetGeneralLocalization({
-	name = "法师领主伊洛姆"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(624)
 
 L:SetMiscLocalization({
 	CombatStart		= "可怜而无知的蠢货！"
@@ -799,25 +396,12 @@ L:SetMiscLocalization({
 --------------------------
 --  Varos Cloudstrider  --
 --------------------------
-L = DBM:GetModLocalization("VarosCloudstrider")
-
-L:SetGeneralLocalization({
-	name = "瓦尔洛斯·云击"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(623)
 
 ---------------------------
 --  Ley-Guardian Eregos  --
 ---------------------------
-L = DBM:GetModLocalization("LeyGuardianEregos")
+L = DBM:GetModLocalization(625)
 
 L:SetGeneralLocalization({
 	name = "魔网守护者埃雷苟斯"
@@ -825,9 +409,6 @@ L:SetGeneralLocalization({
 
 L:SetWarningLocalization({
 	WarningShiftEnd	= "位面转移结束"
-})
-
-L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
@@ -843,56 +424,21 @@ L:SetMiscLocalization({
 -----------------------
 --  Prince Keleseth  --
 -----------------------
-L = DBM:GetModLocalization("Keleseth")
-
-L:SetGeneralLocalization({
-	name = "凯雷塞斯王子"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(638)
 
 --------------------------------
 --  Skarvald the Constructor  --
 --  & Dalronn the Controller  --
 --------------------------------
-L = DBM:GetModLocalization("ConstructorAndController")
-
-L:SetGeneralLocalization({
-	name = "控制者达尔隆"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(639)
 
 ----------------------------
 --  Ingvar the Plunderer  --
 ----------------------------
-L = DBM:GetModLocalization("IngvarThePlunderer")
+L = DBM:GetModLocalization(640)
 
 L:SetGeneralLocalization({
 	name = "劫掠者因格瓦尔"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
@@ -904,20 +450,7 @@ L:SetMiscLocalization({
 --------------------------
 --  Skadi the Ruthless  --
 --------------------------
-L = DBM:GetModLocalization("SkadiTheRuthless")
-
-L:SetGeneralLocalization({
-	name = "残忍的斯卡迪"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(643)
 
 L:SetMiscLocalization({
 	CombatStart		= "什么样的狗杂种竟然胆敢入侵这里？快点，弟兄们！谁要是能把他们的头提来，就赏他吃肉！",
@@ -927,32 +460,12 @@ L:SetMiscLocalization({
 -------------------
 --  King Ymiron  --
 -------------------
-L = DBM:GetModLocalization("Ymiron")
-
-L:SetGeneralLocalization({
-	name = "伊米隆国王"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(644)
 
 -------------------------
 --  Svala Sorrowgrave  --
 -------------------------
-L = DBM:GetModLocalization("SvalaSorrowgrave")
-
-L:SetGeneralLocalization({
-	name = "席瓦拉·索格蕾"
-})
-
-L:SetWarningLocalization({
-})
+L = DBM:GetModLocalization(641)
 
 L:SetTimerLocalization({
 	timerRoleplay		= "席瓦拉·索格蕾 开始攻击"
@@ -969,34 +482,14 @@ L:SetMiscLocalization({
 -----------------------
 --  Gortok Palehoof  --
 -----------------------
-L = DBM:GetModLocalization("GortokPalehoof")
-
-L:SetGeneralLocalization({
-	name = "戈托克·苍蹄"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(642)
 
 -----------------------
 --  The Violet Hold  --
 -----------------------
 --  Cyanigosa  --
 -----------------
-L = DBM:GetModLocalization("Cyanigosa")
-
-L:SetGeneralLocalization({
-	name = "塞安妮苟萨"
-})
-
-L:SetWarningLocalization({
-})
+L = DBM:GetModLocalization(632)
 
 L:SetTimerLocalization({
 	TimerCombatStart		= "战斗开始"
@@ -1013,101 +506,32 @@ L:SetMiscLocalization({
 --------------
 --  Erekem  --
 --------------
-L = DBM:GetModLocalization("Erekem")
-
-L:SetGeneralLocalization({
-	name = "埃雷克姆"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(626)
 
 ---------------
 --  Ichoron  --
 ---------------
-L = DBM:GetModLocalization("Ichoron")
-
-L:SetGeneralLocalization({
-	name = "艾库隆"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(628)
 
 -----------------
 --  Lavanthor  --
 -----------------
-L = DBM:GetModLocalization("Lavanthor")
-
-L:SetGeneralLocalization({
-	name = "拉文索尔"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(630)
 
 --------------
 --  Moragg  --
 --------------
-L = DBM:GetModLocalization("Moragg")
-
-L:SetGeneralLocalization({
-	name = "摩拉格"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(627)
 
 --------------
 --  Xevozz  --
 --------------
-L = DBM:GetModLocalization("Xevoss")
-
-L:SetGeneralLocalization({
-	name = "谢沃兹"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(629)
 
 -------------------------------
 --  Zuramat the Obliterator  --
 -------------------------------
-L = DBM:GetModLocalization("Zuramat")
-
-L:SetGeneralLocalization({
-	name = "湮灭者祖拉玛特"
-})
+L = DBM:GetModLocalization(631)
 
 L:SetWarningLocalization({
 	SpecialWarningVoidShifted 	= spell:format(GetSpellInfo(54343)),
@@ -1159,11 +583,7 @@ L:SetMiscLocalization({
 -----------------------------
 --  The Black Knight  --
 ------------------------
-L = DBM:GetModLocalization("BlackKnight")
-
-L:SetGeneralLocalization({
-	name = "黑骑士"
-})
+L = DBM:GetModLocalization(637)
 
 L:SetWarningLocalization({
 	warnExplode			= "食尸鬼爆炸 - 快跑开"
@@ -1189,17 +609,7 @@ L:SetMiscLocalization({
 -----------------------
 --  Grand Champions  --
 -----------------------
-L = DBM:GetModLocalization("GrandChampions")
-
-L:SetGeneralLocalization({
-	name = "总冠军"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(634)
 
 L:SetMiscLocalization({
 	YellCombatEnd	= "干得漂亮！你的下一个挑战将来自于十字军的骑士们。他们将以强大的实力对你进行测试。"
@@ -1208,17 +618,7 @@ L:SetMiscLocalization({
 ----------------------------------
 --  Argent Confessor Paletress  --
 ----------------------------------
-L = DBM:GetModLocalization("Confessor")
-
-L:SetGeneralLocalization({
-	name = "银色神官帕尔崔丝"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetOptionLocalization({
-})
+L = DBM:GetModLocalization(636)
 
 L:SetMiscLocalization({
 	YellCombatEnd	= "真是精彩！"
@@ -1227,11 +627,7 @@ L:SetMiscLocalization({
 -----------------------
 --  Eadric the Pure  --
 -----------------------
-L = DBM:GetModLocalization("EadricthePure")
-
-L:SetGeneralLocalization({
-	name = "纯洁者耶德瑞克"
-})
+L = DBM:GetModLocalization(635)
 
 L:SetWarningLocalization({
 	specwarnRadiance		= "光芒耀眼 - 快转身背对"
@@ -1251,11 +647,7 @@ L:SetMiscLocalization({
 ---------------------
 --  Ick and Krick  --
 ---------------------
-L = DBM:GetModLocalization("Ick")
-
-L:SetGeneralLocalization({
-	name = "Ick and Krick"
-})
+L = DBM:GetModLocalization(609)
 
 L:SetWarningLocalization({
 	warnPursuit			= "Pursuit on >%s<",
@@ -1275,11 +667,7 @@ L:SetMiscLocalization({
 ----------------------------
 --  Forgemaster Garfrost  --
 ----------------------------
-L = DBM:GetModLocalization("ForgemasterGarfrost")
-
-L:SetGeneralLocalization({
-	name = "Forgemaster Garfrost"
-})
+L = DBM:GetModLocalization(608)
 
 L:SetWarningLocalization({
 	warnSaroniteRock			= "Saronite Rock on >%s<",
@@ -1306,11 +694,7 @@ L:SetMiscLocalization({
 ----------------------------
 --  Scourgelord Tyrannus  --
 ----------------------------
-L = DBM:GetModLocalization("ScourgelordTyrannus")
-
-L:SetGeneralLocalization({
-	name = "Scourgelord Tyrannus"
-})
+L = DBM:GetModLocalization(610)
 
 L:SetWarningLocalization({
 	specWarnHoarfrost		= "Hoarfrost on you",
@@ -1339,11 +723,7 @@ L:SetMiscLocalization({
 ----------------------
 --  Bronjahm  --
 ----------------
-L = DBM:GetModLocalization("Bronjahm")
-
-L:SetGeneralLocalization({
-	name = "Bronjahm"
-})
+L = DBM:GetModLocalization(615)
 
 L:SetWarningLocalization({
 	specwarnSoulstorm	= "Soulstorm - Move in"
@@ -1356,11 +736,7 @@ L:SetOptionLocalization({
 -------------------------
 --  Devourer of Souls  --
 -------------------------
-L = DBM:GetModLocalization("DevourerofSouls")
-
-L:SetGeneralLocalization({
-	name = "Devourer of Souls"
-})
+L = DBM:GetModLocalization(616)
 
 L:SetWarningLocalization({
 	specwarnMirroredSoul	= "Stop damage",
@@ -1410,49 +786,17 @@ L:SetMiscLocalization({
 --------------
 --  Falric  --
 --------------
-L = DBM:GetModLocalization("Falric")
-
-L:SetGeneralLocalization({
-	name = "Falric"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
-
-L:SetMiscLocalization({
-})
+L = DBM:GetModLocalization(601)
 
 --------------
 --  Marwyn  --
 --------------
-L = DBM:GetModLocalization("Marwyn")
-
-L:SetGeneralLocalization({
-	name = "Marwyn"
-})
-
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
-
-L:SetMiscLocalization({
-})
+L = DBM:GetModLocalization(602)
 
 -----------------------
 --  Lich King Event  --
 -----------------------
-L = DBM:GetModLocalization("LichKingEvent")
+L = DBM:GetModLocalization(603)
 
 L:SetGeneralLocalization({
 	name = "Lich King event"

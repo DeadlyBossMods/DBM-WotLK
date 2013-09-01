@@ -1,11 +1,9 @@
-local mod	= DBM:NewMod("ForgemasterGarfrost", "DBM-Party-WotLK", 15)
+local mod	= DBM:NewMod(608, "DBM-Party-WotLK", 15, 278)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(36494)
-mod:SetModelID(30843)
 mod:SetUsedIcons(8)
---mod:SetMinSyncRevision(4499)
 mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
 
 mod:RegisterCombat("combat")

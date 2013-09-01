@@ -63,7 +63,7 @@ L = DBM:GetModLocalization(586)
 -------------------------
 --  Anub'arak (Party)  --
 -------------------------
-L = DBM:GetModLocalization(587)
+L = DBM:GetModLocalization("Anubarak")
 
 L:SetGeneralLocalization({
 	name = "阿努巴拉克(5人副本)"

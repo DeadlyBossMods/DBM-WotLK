@@ -146,7 +146,7 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	timerCrystalHandler	= "Crystal Handler spawns"
+	timerCrystalHandler	= "Next Crystal Handler"
 })
 
 L:SetOptionLocalization({
@@ -326,9 +326,6 @@ L:SetWarningLocalization({
 	WarningMerge		= "Merge"		-- translate
 })
 
-L:SetTimerLocalization({
-})
-
 L:SetOptionLocalization({
 	WarningSplitSoon	= "Show warning for Split soon",	-- translate
 	WarningSplitNow		= "Show warning for Split",			-- translate
@@ -425,10 +422,6 @@ L = DBM:GetModLocalization(639)
 --  Ingvar the Plunderer  --
 ----------------------------
 L = DBM:GetModLocalization(640)
-
-L:SetGeneralLocalization({
-	name = "Ingvar the Plunderer"
-})
 
 L:SetMiscLocalization({
 	YellCombatEnd	= "No! I can do... better! I can..."
@@ -650,6 +643,7 @@ L:SetMiscLocalization({
 	IckPursuit	= "%s is chasing you!",
 	Barrage	= "%s begins rapidly conjuring explosive mines!"
 })
+
 ----------------------------
 --  Forgemaster Garfrost  --
 ----------------------------
@@ -734,7 +728,6 @@ L:SetOptionLocalization({
 	specwarnWailingSouls	= "Show special warning when $spell:68899 is cast",
 	SetIconOnMirroredTarget	= "Set icons on $spell:69051 targets"
 })
-
 
 ---------------------------
 --  Halls of Reflection  --

@@ -2,16 +2,8 @@
 
 local L
 
-local spell				= "%s"				
-local debuff			= "%s: >%s<"			
-local spellCD			= "%s cooldown"
-local spellSoon			= "%s bientôt"
 local optionWarning		= "Activer l'alerte : %s"
 local optionPreWarning	= "Activer la pré-alerte : %s"
-local optionSpecWarning	= "Activer l'alerte spéciale : %s"
-local optionTimerCD		= "Afficher le timer pour le cooldown pour : %s"
-local optionTimerDur	= "Afficher le timer de durée pour : %s"
-local optionTimerCast	= "Afficher le timer pour le cast de : %s"
 
 ----------------------------------
 --  Ahn'Kahet: The Old Kingdom  --
@@ -106,8 +98,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Meathook	= "Grancrochet",
-	Salramm		= "Salramm le Façonneur de chair",
 	Devouring	= "Goule dévorante",
 	Enraged		= "Goule enragée",
 	Necro		= "Nécromancien",
@@ -134,10 +124,6 @@ L = DBM:GetModLocalization(588)
 -- Novos the Summoner --
 ------------------------
 L = DBM:GetModLocalization(589)
-
-L:SetGeneralLocalization({
-	name = "Novos l'Invocateur"
-})
 
 -----------------
 --  King Dred  --
@@ -166,16 +152,6 @@ L = DBM:GetModLocalization(594)
 -------------------------
 L = DBM:GetModLocalization(593)
 
-L:SetWarningLocalization({
-	warningElemental	= "Phase Elémentaire",
-	WarningStone		= "Phase Colosse"
-})
-
-L:SetOptionLocalization({
-	WarningElemental	= "Activer l'annonce de la phase Elémentaire",
-	WarningStone		= "Activer l'annonce de la phase Colosse"
-})
-
 -----------------
 --  Gal'darah  --
 -----------------
@@ -203,19 +179,6 @@ L = DBM:GetModLocalization(599)
 ---------------
 L = DBM:GetModLocalization(598)
 
-L:SetWarningLocalization({
-	WarningStomp 	= spell
-})
-
-L:SetTimerLocalization({
-	TimerStompCD	= spellCD
-})
-
-L:SetOptionLocalization({
-	WarningStomp 	= optionWarning:format(GetSpellInfo(52237)),
-	TimerStompCD 	= optionTimerCD:format(GetSpellInfo(52237))
-})
-
 ------------
 -- Loken --
 ------------
@@ -232,19 +195,6 @@ L = DBM:GetModLocalization(605)
 --  Krystallus  --
 ------------------
 L = DBM:GetModLocalization(604)
-
-L:SetWarningLocalization({
-	WarningShatter	= spell
-})
-
-L:SetTimerLocalization({
-	TimerShatterCD	= spellCD
-})
-
-L:SetOptionLocalization({
-	WarningShatter	= optionWarning:format(GetSpellInfo(50810)),
-	TimerShatterCD	= optionTimerCD:format(GetSpellInfo(50810))
-})
 
 ----------------------------
 -- Sjonnir the Ironshaper --
@@ -294,22 +244,9 @@ L = DBM:GetModLocalization(620)
 ----------------------------
 L = DBM:GetModLocalization(618)
 
-L:SetWarningLocalization({
-	WarningSplitSoon	= "Séparation bientôt",
-	WarningSplitNow		= "Séparation",
-	WarningMerge		= "Rassemblement"
-})
-
-L:SetOptionLocalization({
-	WarningSplitSoon	= "Montre une alerte lorsque la Séparation est proche",
-	WarningSplitNow		= "Montre une alerte lors de la Séparation",
-	WarningMerge		= "Montre une alerte lors du Rassemblement"
-})
-
 L:SetMiscLocalization({
 	SplitTrigger1 	= "Il y en aura assez pour tout le monde.",
-	SplitTrigger2 	= "Vous allez être trop bien servis !",
-	MergeTrigger 	= "Et maintenant finissons le travail !"
+	SplitTrigger2 	= "Vous allez être trop bien servis !"
 })
 
 -----------------
@@ -362,18 +299,6 @@ L = DBM:GetModLocalization(623)
 --  Ley-Guardian Eregos  --
 ---------------------------
 L = DBM:GetModLocalization(625)
-
-L:SetGeneralLocalization({
-	name = "Gardien-tellurique Eregos"
-})
-
-L:SetWarningLocalization({
-	WarningShiftEnd	= "Changement de plan terminé"
-})
-
-L:SetOptionLocalization({
-	WarningShiftEnd	= optionWarning:format(GetSpellInfo(51162).." terminé")
-})
 
 L:SetMiscLocalization({
 	MakeitCountTimer	= "Comptez là-dessus"
@@ -460,16 +385,6 @@ L = DBM:GetModLocalization(629)
 -------------------------------
 L = DBM:GetModLocalization(631)
 
-L:SetWarningLocalization({
-	SpecialWarningVoidShifted 	= spell:format(GetSpellInfo(54343)),
-	SpecialShroudofDarkness 	= spell:format(GetSpellInfo(59745))
-})
-
-L:SetOptionLocalization({
-	SpecialWarningVoidShifted	= optionSpecWarning:format(GetSpellInfo(54343)),
-	SpecialShroudofDarkness		= optionSpecWarning:format(GetSpellInfo(59745))
-})
-
 -------------------
 -- Portal Timers --
 -------------------
@@ -508,17 +423,6 @@ L:SetMiscLocalization({
 --  The Black Knight  --
 ------------------------
 L = DBM:GetModLocalization(637)
-
-L:SetWarningLocalization({
-	specWarnDesecration		= "Violation ! Bougez !",
-	warnExplode				= "Séide goule incante explosion ! Bougez !"
-})
-
-L:SetOptionLocalization({
-	specWarnDesecration		= "Montre une alerte spéciale quand vous prenez des dégâts venant de la Violation",
-	warnExplode				= "Montre une alerte quand une Séide goule incante explosion sur elle-même",
-	SetIconOnMarkedTarget	= "Met une icône sur la cible de la mort"
-})
 
 L:SetMiscLocalization({
 	YellCombatEnd			= "Non ! Pas encore... un échec..."
@@ -566,16 +470,6 @@ L:SetMiscLocalization({
 -------------------
 L = DBM:GetModLocalization(609)
 
-L:SetWarningLocalization({
-	warnPursuit			= "Poursuite dans 5 secondes",
-	specWarnPursuit		= "Vous êtes poursuivi ! Courrez !"
-})
-
-L:SetOptionLocalization({
-	warnPursuit				= "Montre une alerte lorsque la Poursuite est pour bientôt",
-	specWarnPursuit			= "Montre une alerte spéciale lorsque vous êtes poursuivi"
-})
-
 L:SetMiscLocalization({
 	IckPursuit	= "%s vous poursuit !",
 	Barrage		= "%s commence à invoquer rapidement des mines explosives !"
@@ -586,20 +480,6 @@ L:SetMiscLocalization({
 ----------------------------
 L = DBM:GetModLocalization(608)
 
-L:SetWarningLocalization({
-	warnSaroniteRock			= "Rocher de Saronite ! Ligne de Vue maintenant !",
-	specWarnSaroniteRock		= "Lancer de Saronite sur vous ! Bougez !",
-	specWarnSaroniteRockNear	= "Lancer de Saronite près de vous - Bougez",
-	specWarnPermafrost			= "%s: %s"
-})
-
-L:SetOptionLocalization({
-	warnSaroniteRock			= "Montre une alerte pour le Rocher de Saronite (pour effacer Gel prolongé)",
-	specWarnSaroniteRock		= "Montre une alerte spéciale lorsque le Lancer de Saronite est sur vous",
-	specWarnSaroniteRockNear	= "Montre une alerte spéciale lorsque le Lancer de Saronite est près de vous",
-	specWarnPermafrost			= "Montre une alerte spéciale lorsque le nombre de charge de Gel prolongé est grand (valeur non fixée)"
-})
-
 L:SetMiscLocalization({
 	SaroniteRockThrow			= "%s hurls a massive saronite boulder at you!"
 })
@@ -608,21 +488,6 @@ L:SetMiscLocalization({
 --  Scourgelord Tyrannus  --
 ----------------------------
 L = DBM:GetModLocalization(610)
-
-L:SetWarningLocalization({
-	specWarnHoarfrost		= "Gelée blanche sur vous !",
-	specWarnHoarfrostNear	= "Gelée blanche proche de vous ! Bougez !"
-})
-
-L:SetTimerLocalization{
-	TimerCombatStart	= "Le combat commence"
-}
-
-L:SetOptionLocalization({
-	specWarnHoarfrost			= "Montre une alerte spéciale lorsque la Gelée blanche est sur vous",
-	specWarnHoarfrostNear		= "Montre une alerte spéciale lorsque la Gelée blanche est proche de vous",
-	TimerCombatStart			= "Affiche un timer pour le début du combat"
-})
 
 L:SetMiscLocalization({
 	CombatStart		= "Hélas, mes très, très braves aventuriers, votre intrusion touche à sa fin. Entendez-vous le claquement de l'acier sur les os qui monte du tunnel, derrière vous ? C'est le son de votre mort imminente.",
@@ -637,29 +502,10 @@ L:SetMiscLocalization({
 -------------------
 L = DBM:GetModLocalization(615)
 
-L:SetWarningLocalization({
-	specwarnSoulstorm	= "Tempête d'âme ! Allez au centre !"
-})
-
-L:SetOptionLocalization({
-	specwarnSoulstorm	= "Montre une alerte spéciale lorsque Tempête d'âme est lancée (pour aller au centre)"
-})
-
 -------------------
 -- Devourer of Souls --
 -------------------
 L = DBM:GetModLocalization(616)
-
-L:SetWarningLocalization({
-	specwarnMirroredSoul	= "Âme réfléchie ! Stop DPS !",
-	specwarnWailingSouls	= "Âmes gémissantes - Allez derrière"
-})
-
-L:SetOptionLocalization({
-	specwarnMirroredSoul	= "Montre une alerte spéciale pour arrêter le DPS lorsque vous êtes la cible d'Âme réfléchie",
-	specwarnWailingSouls	= "Montre une alerte spéciale lorsque le sort Âmes gémissantes est incanté"
-})
-
 
 ---------------------------
 --  Halls of Reflection  --
@@ -690,7 +536,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Falric		= "Falric",
 	WaveCheck	= "Vague d'esprit = (%d+)/10"
 })
 
@@ -709,8 +554,12 @@ L = DBM:GetModLocalization(602)
 -----------------------
 L = DBM:GetModLocalization(603)
 
-L:SetGeneralLocalization({
-	name = "Epreuve du Roi-Liche"
+L:SetWarningLocalization({
+	WarnWave		= "%s"
+})
+
+L:SetOptionLocalization({
+	WarnWave	= "Show warning for incoming waves"
 })
 
 L:SetMiscLocalization({

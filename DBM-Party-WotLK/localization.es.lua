@@ -1507,10 +1507,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarnWave1		= "6 Necrófagos enfurecidos, 1 Médico brujo resucitado vienen",--6 Ghoul, 1 WitchDocter
-	WarnWave2		= "6 Necrófagos enfurecidos, 2 Médicos brujos resucitados, 1 Abominación torpe vienen",--6 Ghoul, 2 WitchDocter, 1 Abom
-	WarnWave3		= "6 Necrófagos enfurecidos, 2 Médicos brujos resucitados, 2 Abominaciónes torpes vienen",--6 Ghoul, 2 WitchDocter, 2 Abom
-	WarnWave4		= "12 Necrófagos enfurecidos, 4 Médicos brujos resucitados, 3 Abominaciónes torpes"--12 Ghoul, 3 WitchDocter, 3 Abom
+	WarnWave		= "%s"
 })
 
 L:SetTimerLocalization({
@@ -1518,13 +1515,10 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	ShowWaves	= "Mostrar avisos para las oleadas que vienen"
+	WarnWave	= "Mostrar avisos para las oleadas que vienen"
 })
 
 L:SetMiscLocalization({
-	Ghoul			= "Necrófago enfurecido",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
-	Abom			= "Abominación torpe",--creature id 37069
-	WitchDoctor		= "Médico brujo resucitado",--creature id 36941
 	ACombatStart	= "Es demasiado poderoso. ¡Debemos abandonar este lugar ahora mismo! Mi magia podrá inmovilizarlo brevemente. ¡Vamos rápido, héroes!",
 	HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",
 	Wave1			= "¡No hay escapatoria!",

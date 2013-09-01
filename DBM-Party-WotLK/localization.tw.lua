@@ -1449,10 +1449,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarnWave1		= "狂怒食屍鬼(6)復活的巫醫(1) 即將到來",
-	WarnWave2		= "狂怒食屍鬼(6)復活的巫醫(2)笨拙憎惡體(1) 即將到來",
-	WarnWave3		= "狂怒食屍鬼(6)復活的巫醫(2)笨拙憎惡體(2) 即將到來",
-	WarnWave4		= "狂怒食屍鬼(12)復活的巫醫(4)笨拙憎惡體(3) 即將到來"
+	WarnWave		= "%s"
 })
 
 L:SetTimerLocalization({
@@ -1460,13 +1457,10 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	ShowWaves		= "為下一波 即將到來顯示警告"
+	WarnWave		= "為下一波 即將到來顯示警告"
 })
 
 L:SetMiscLocalization({
-	Ghoul			= "狂怒食屍鬼",
-	Abom			= "笨拙憎惡體",
-	WitchDoctor		= "復活的巫醫",
 	ACombatStart	= "他太強大了!我們必須立刻離開這裡!我的魔法只能困住他一小段時間。快來吧，英雄們!",
 	HCombatStart	= "他…太強大了。英雄們，快點…到我這裡來!我們要立刻離開這裡!我會盡可能地在我們逃走時把他困住。",
 	Wave1			= "無處可逃!",

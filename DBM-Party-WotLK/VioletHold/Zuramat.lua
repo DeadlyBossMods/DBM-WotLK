@@ -15,8 +15,8 @@ local warningVoidShift			= mod:NewTargetAnnounce(59743, 2)
 local warningVoidShifted		= mod:NewTargetAnnounce(54343, 3)
 local warningShroudOfDarkness	= mod:NewSpellAnnounce(59745, 4)
 
-local specWarnVoidShifted		= mod:NewSpecialWarning("SpecialWarningVoidShifted")
-local specShroudOfDarkness		= mod:NewSpecialWarning("SpecialShroudofDarkness")
+local specWarnVoidShifted		= mod:NewSpecialWarningYou(54343)
+local specShroudOfDarkness		= mod:NewSpecialWarningSpell(59745, mod:IsHealer())
 
 local timerVoidShift			= mod:NewTargetTimer(5, 59743)
 local timerVoidShifted			= mod:NewTargetTimer(15, 54343)

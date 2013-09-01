@@ -10,16 +10,8 @@ if GetLocale() ~= "zhCN" then return end
 
 local L
 
-local spell		= "%s"				
-local debuff		= "%s: >%s<"			
-local spellCD		= "%s - 冷却"			-- translate
-local spellSoon		= "%s - 即将施放"			-- translate
 local optionWarning	= "显示%s警报"		-- translate
 local optionPreWarning	= "显示%s预警"	-- translate
-local optionSpecWarning	= "显示%s特殊警报"	-- translate
-local optionTimerCD	= "显示%s冷却计时条"	-- translate
-local optionTimerDur	= "显示%s持续时间"	-- translate
-local optionTimerCast	= "显示%s施法时间"	-- translate
 
 ----------------------------------
 --  Ahn'Kahet: The Old Kingdom  --
@@ -120,8 +112,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Meathook	= "肉钩",
-	Salramm		= "塑血者沙尔拉姆",
 	Devouring	= "狼吞虎咽的食尸鬼",
 	Enraged		= "暴怒的食尸鬼",
 	Necro		= "通灵大师",
@@ -150,19 +140,6 @@ L = DBM:GetModLocalization(588)
 --  Novos the Summoner  --
 --------------------------
 L = DBM:GetModLocalization(589)
-
-L:SetWarningLocalization({
-	WarnCrystalHandler	= "水晶处理者出现了 (剩余%d)"
-})
-
-L:SetTimerLocalization({
-	timerCrystalHandler	= "水晶处理者 出现"
-})
-
-L:SetOptionLocalization({
-	WarnCrystalHandler	= "当水晶处理者出现时显示警报",
-	timerCrystalHandler	= "为下一次 水晶处理者出现显示计时条"
-})
 
 L:SetMiscLocalization({
 	YellPull		= "笼罩你的寒气就是厄运的先兆。",
@@ -198,20 +175,6 @@ L = DBM:GetModLocalization(594)
 -------------------------
 L = DBM:GetModLocalization(593)
 
-L:SetGeneralLocalization({
-	name = "达卡莱巨像"
-})
-
-L:SetWarningLocalization({
-	WarningElemental	= "元素阶段",
-	WarningStone		= "巨像阶段"
-})
-
-L:SetOptionLocalization({
-	WarningElemental	= "为元素阶段显示警报",
-	WarningStone		= "为巨像阶段显示警报"
-})
-
 -----------------
 --  Gal'darah  --
 -----------------
@@ -234,27 +197,10 @@ L = DBM:GetModLocalization(597)
 -------------
 L = DBM:GetModLocalization(599)
 
-L:SetOptionLocalization({
-	SetIconOnOverloadTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(52658)
-})
-
 ---------------
 --  Volkhan  --
 ---------------
 L = DBM:GetModLocalization(598)
-
-L:SetWarningLocalization({
-	WarningStomp	= spell
-})
-
-L:SetTimerLocalization({
-	TimerStompCD	= spellCD
-})
-
-L:SetOptionLocalization({
-	WarningStomp	= optionWarning:format(GetSpellInfo(52237)),
-	TimerStompCD	= optionTimerCD:format(GetSpellInfo(52237))
-})
 
 --------------
 --  Kronus  --
@@ -272,11 +218,6 @@ L = DBM:GetModLocalization(605)
 --  Krystallus  --
 ------------------
 L = DBM:GetModLocalization(604)
-
-L:SetOptionLocalization({
-	WarningShatter	= optionWarning:format(GetSpellInfo(50810)),
-	TimerShatterCD	= optionTimerCD:format(GetSpellInfo(50810))
-})
 
 ------------------------------
 --  Sjonnir the Ironshaper  --
@@ -326,26 +267,9 @@ L = DBM:GetModLocalization(620)
 ----------------------------
 L = DBM:GetModLocalization(618)
 
-L:SetGeneralLocalization({
-	name = "大魔导师泰蕾丝塔"
-})
-
-L:SetWarningLocalization({
-	WarningSplitSoon	= "分裂 即将到来",
-	WarningSplitNow		= "分裂",
-	WarningMerge		= "融合"
-})
-
-L:SetOptionLocalization({
-	WarningSplitSoon	= "为分裂显示提前警报",
-	WarningSplitNow		= "为分裂显示警报",
-	WarningMerge		= "为融合显示警报"
-})
-
 L:SetMiscLocalization({
 	SplitTrigger1		= "这里有我千万个分身。",
-	SplitTrigger2		= "我要让你们尝尝无所适从的滋味!",
-	MergeTrigger		= "现在，最后一步！"
+	SplitTrigger2		= "我要让你们尝尝无所适从的滋味!"
 })
 
 -------------------
@@ -403,18 +327,6 @@ L = DBM:GetModLocalization(623)
 ---------------------------
 L = DBM:GetModLocalization(625)
 
-L:SetGeneralLocalization({
-	name = "魔网守护者埃雷苟斯"
-})
-
-L:SetWarningLocalization({
-	WarningShiftEnd	= "位面转移结束"
-})
-
-L:SetOptionLocalization({
-	WarningShiftEnd	= optionWarning:format(GetSpellInfo(51162).."结束"),
-})
-
 L:SetMiscLocalization({
 	MakeitCountTimer	= "分秒必争"
 })
@@ -436,10 +348,6 @@ L = DBM:GetModLocalization(639)
 --  Ingvar the Plunderer  --
 ----------------------------
 L = DBM:GetModLocalization(640)
-
-L:SetGeneralLocalization({
-	name = "劫掠者因格瓦尔"
-})
 
 L:SetMiscLocalization({
 	YellCombatEnd	= "不！不！我还可以……做得更好。"
@@ -491,14 +399,6 @@ L = DBM:GetModLocalization(642)
 -----------------
 L = DBM:GetModLocalization(632)
 
-L:SetTimerLocalization({
-	TimerCombatStart		= "战斗开始"
-})
-
-L:SetOptionLocalization({
-	TimerCombatStart		= "为战斗开始显示计时条"
-})
-
 L:SetMiscLocalization({
 	CyanArrived	= "真是一群英勇的卫兵，但这座城市必须被夷平。我要亲自执行玛里苟斯大人的指令！"
 })
@@ -532,19 +432,6 @@ L = DBM:GetModLocalization(629)
 --  Zuramat the Obliterator  --
 -------------------------------
 L = DBM:GetModLocalization(631)
-
-L:SetWarningLocalization({
-	SpecialWarningVoidShifted 	= spell:format(GetSpellInfo(54343)),
-	SpecialShroudofDarkness 	= spell:format(GetSpellInfo(59745))
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-	SpecialWarningVoidShifted	= optionSpecWarning:format(GetSpellInfo(54343)),
-	SpecialShroudofDarkness		= optionSpecWarning:format(GetSpellInfo(59745))
-})
 
 ---------------------
 --  Portal Timers  --
@@ -585,19 +472,8 @@ L:SetMiscLocalization({
 ------------------------
 L = DBM:GetModLocalization(637)
 
-L:SetWarningLocalization({
-	warnExplode			= "食尸鬼爆炸 - 快跑开"
-})
-
-L:SetTimerLocalization{
-	TimerCombatStart	= "战斗开始"
-}
-
 L:SetOptionLocalization({
-	TimerCombatStart		= "为战斗开始显示计时条",
-	warnExplode				= "当食尸鬼即将自我爆炸时警报",
-	AchievementCheck		= "报告'这还不算惨'成就的失败信息给小队",
-	SetIconOnMarkedTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67823)
+	AchievementCheck		= "报告'这还不算惨'成就的失败信息给小队"
 })
 
 L:SetMiscLocalization({
@@ -634,8 +510,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	specwarnRadiance		= "为$spell:66935显示特别警报",
-	SetIconOnHammerTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66940)
+	specwarnRadiance		= "为$spell:66935显示特别警报"
 })
 
 L:SetMiscLocalization({
@@ -649,17 +524,6 @@ L:SetMiscLocalization({
 ---------------------
 L = DBM:GetModLocalization(609)
 
-L:SetWarningLocalization({
-	warnPursuit			= "Pursuit on >%s<",
-	specWarnPursuit		= "You are being pursued - Run away"
-})
-
-L:SetOptionLocalization({
-	warnPursuit				= "Announce Pursuit targets",
-	specWarnPursuit			= "Show special warning when you are being pursued",
-	SetIconOnPursuitTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68987)
-})
-
 L:SetMiscLocalization({
 	IckPursuit	= "%s is chasing you!",
 	Barrage	= "%s begins rapidly conjuring explosive mines!"
@@ -669,20 +533,8 @@ L:SetMiscLocalization({
 ----------------------------
 L = DBM:GetModLocalization(608)
 
-L:SetWarningLocalization({
-	warnSaroniteRock			= "Saronite Rock on >%s<",
-	specWarnSaroniteRock		= "Saronite Throw on you - Move",
-	specWarnSaroniteRockNear	= "Saronite Throw near you - Move",
-	specWarnPermafrost			= "%s: %s"
-})
-
 L:SetOptionLocalization({
-	warnSaroniteRock			= "Announce $spell:70851 targets",
-	specWarnSaroniteRock		= "Show special warning when you are targeted by <br/> $spell:70851",
-	specWarnSaroniteRockNear	= "Show special warning when you are near <br/> $spell:70851 target",
-	specWarnPermafrost			= "Show special warning when $spell:70336 stacks get too high",
-	AchievementCheck			= "Announce 'Doesn't Go to Eleven' achievement warnings to party",
-	SetIconOnSaroniteRockTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70851)
+	AchievementCheck			= "Announce 'Doesn't Go to Eleven' achievement warnings to party"
 })
 
 L:SetMiscLocalization({
@@ -696,22 +548,6 @@ L:SetMiscLocalization({
 ----------------------------
 L = DBM:GetModLocalization(610)
 
-L:SetWarningLocalization({
-	specWarnHoarfrost		= "Hoarfrost on you",
-	specWarnHoarfrostNear	= "Hoarfrost near you - Move"
-})
-
-L:SetTimerLocalization{
-	TimerCombatStart	= "Combat starts"
-}
-
-L:SetOptionLocalization({
-	specWarnHoarfrost			= "Show special warning when you are affected by $spell:69246",
-	specWarnHoarfrostNear		= "Show special warning for $spell:69246 near you",
-	TimerCombatStart			= "Show timer for start of combat",
-	SetIconOnHoarfrostTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69246)
-})
-
 L:SetMiscLocalization({
 	CombatStart	= "Alas, brave, brave adventurers, your meddling has reached its end. Do you hear the clatter of bone and steel coming up the tunnel behind you? That is the sound of your impending demise.",
 	HoarfrostTarget	= "The frostwyrm Rimefang gazes at (%S+) and readies an icy attack!",
@@ -724,14 +560,6 @@ L:SetMiscLocalization({
 --  Bronjahm  --
 ----------------
 L = DBM:GetModLocalization(615)
-
-L:SetWarningLocalization({
-	specwarnSoulstorm	= "Soulstorm - Move in"
-})
-
-L:SetOptionLocalization({
-	specwarnSoulstorm	= "Show special warning when $spell:68872 is cast (to move in)"
-})
 
 -------------------------
 --  Devourer of Souls  --
@@ -779,7 +607,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Falric		= "Falric",
 	WaveCheck	= "Spirit Wave = (%d+)/10"
 })
 
@@ -798,15 +625,8 @@ L = DBM:GetModLocalization(602)
 -----------------------
 L = DBM:GetModLocalization(603)
 
-L:SetGeneralLocalization({
-	name = "Lich King event"
-})
-
 L:SetWarningLocalization({
-	WarnWave1		= "6 Raging Ghoul, 1 Risen Witch Doctor incoming",--6 Ghoul, 1 WitchDocter
-	WarnWave2		= "6 Raging Ghoul, 2 Risen Witch Doctor, 1 Lumbering Abomination incoming",--6 Ghoul, 2 WitchDocter, 1 Abom
-	WarnWave3		= "6 Raging Ghoul, 2 Risen Witch Doctor, 2 Lumbering Abomination incoming",--6 Ghoul, 2 WitchDocter, 2 Abom
-	WarnWave4		= "12 Raging Ghoul, 4 Risen Witch Doctor, 3 Lumbering Abomination incoming"--12 Ghoul, 3 WitchDocter, 3 Abom
+	WarnWave		= "%s"
 })
 
 L:SetTimerLocalization({
@@ -814,13 +634,10 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	ShowWaves	= "Show warning for incoming waves"
+	WarnWave	= "Show warning for incoming waves"
 })
 
 L:SetMiscLocalization({
-	Ghoul			= "Raging Ghoul",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
-	Abom			= "Lumbering Abomination",--creature id 37069
-	WitchDoctor		= "Risen Witch Doctor",--creature id 36941
 	ACombatStart	= "He is too powerful. We must leave this place at once! My magic can hold him in place for only a short time. Come quickly, heroes!",
 	HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",
 	Wave1			= "There is no escape!",

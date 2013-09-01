@@ -19,11 +19,11 @@ mod:RegisterEvents(
 
 local warnPursuitCast			= mod:NewCastAnnounce(68987, 3)
 local warnPoisonNova			= mod:NewCastAnnounce(68989, 3)
-local warnPursuit				= mod:NewAnnounce("warnPursuit", 4, 68987)
+local warnPursuit				= mod:NewTargetAnnounce(68987, 4)--TODO, just switch to UNIT_AURA, syncing not reliable especially with older zones.
 
 local specWarnToxic				= mod:NewSpecialWarningMove(69024)
 local specWarnMines				= mod:NewSpecialWarningRun(69015)
-local specWarnPursuit			= mod:NewSpecialWarning("specWarnPursuit")
+local specWarnPursuit			= mod:NewSpecialWarningYou(68987)
 local specWarnPoisonNova		= mod:NewSpecialWarningRun(68989, mod:IsMelee())
 
 local timerPursuitCast			= mod:NewCastTimer(5, 68987)
@@ -32,6 +32,7 @@ local timerPoisonNova			= mod:NewCastTimer(5, 68989)
 
 local soundPoisonNova			= mod:NewSound(68989, nil, mod:IsMelee())
 local soundPursuit				= mod:NewSound(68987)
+
 mod:AddBoolOption("SetIconOnPursuitTarget", true)
 
 function mod:OnCombatStart(delay)

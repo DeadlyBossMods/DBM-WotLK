@@ -22,6 +22,7 @@ mod:RemoveOption("SpeedKillTimer")
 
 local lastWave = 0
 local FalricDead = false
+local falric = EJ_GetEncounterInfo(601)
 
 function mod:UPDATE_WORLD_STATES(args)
 	local text = select(4, GetWorldStateUIInfo(1))
@@ -60,7 +61,7 @@ function mod:UPDATE_WORLD_STATES(args)
 end
 
 function mod:UNIT_DIED(args)
-	if args.sourceName == L.Falric then
+	if args.sourceName == falric then
 		timerNextWave:Start(60)
 		warnNewWaveSoon:Schedule(50)
 		FalricDead = true

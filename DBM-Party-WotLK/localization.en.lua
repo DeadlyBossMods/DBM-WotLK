@@ -1,15 +1,7 @@
 local L
-
-local spell				= "%s"				
-local debuff			= "%s: >%s<"			
-local spellCD			= "%s cooldown"					-- translate
-local spellSoon			= "%s soon"						-- translate
+					
 local optionWarning		= "Show warning for %s"			-- translate
 local optionPreWarning	= "Show pre-warning for %s"		-- translate
-local optionSpecWarning	= "Show special warning for %s"	-- translate
-local optionTimerCD		= "Show timer for %s cooldown"	-- translate
-local optionTimerDur	= "Show timer for %s duration"	-- translate
-local optionTimerCast	= "Show timer for %s cast"		-- translate
 
 ----------------------------------
 --  Ahn'Kahet: The Old Kingdom  --
@@ -110,8 +102,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Meathook	= "Meathook",
-	Salramm		= "Salramm the Fleshcrafter",
 	Devouring	= "Devouring Ghoul",
 	Enraged		= "Enraging Ghoul",
 	Necro		= "Necromancer",
@@ -140,19 +130,6 @@ L = DBM:GetModLocalization(588)
 --  Novos the Summoner  --
 --------------------------
 L = DBM:GetModLocalization(589)
-
-L:SetWarningLocalization({
-	WarnCrystalHandler	= "Crystal Handler spawned (%d remaining)"
-})
-
-L:SetTimerLocalization({
-	timerCrystalHandler	= "Next Crystal Handler"
-})
-
-L:SetOptionLocalization({
-	WarnCrystalHandler	= "Show warning when Crystal Handler spawns",
-	timerCrystalHandler	= "Show timer for next Crystal Handler spawn"
-})
 
 L:SetMiscLocalization({
 	YellPull		= "The chill you feel is the herald of your doom!",
@@ -188,16 +165,6 @@ L = DBM:GetModLocalization(594)
 -------------------------
 L = DBM:GetModLocalization(593)
 
-L:SetWarningLocalization({
-	WarningElemental	= "Elemental phase",	-- translate
-	WarningStone		= "Colossus phase"		-- translate
-})
-
-L:SetOptionLocalization({
-	WarningElemental	= "Show warning for Elemental phase",	-- translate
-	WarningStone		= "Show warning for Colossus phase"		-- translate
-})
-
 -----------------
 --  Gal'darah  --
 -----------------
@@ -229,19 +196,6 @@ L:SetOptionLocalization({
 ---------------
 L = DBM:GetModLocalization(598)
 
-L:SetWarningLocalization({
-	WarningStomp	= spell
-})
-
-L:SetTimerLocalization({
-	TimerStompCD	= spellCD
-})
-
-L:SetOptionLocalization({
-	WarningStomp	= optionWarning:format(GetSpellInfo(52237)),
-	TimerStompCD	= optionTimerCD:format(GetSpellInfo(52237))
-})
-
 -------------
 --  Loken  --
 -------------
@@ -258,19 +212,6 @@ L = DBM:GetModLocalization(605)
 --  Krystallus  --
 ------------------
 L = DBM:GetModLocalization(604)
-
-L:SetWarningLocalization({
-	WarningShatter	= spell
-})
-
-L:SetTimerLocalization({
-	TimerShatterCD	= spellCD
-})
-
-L:SetOptionLocalization({
-	WarningShatter	= optionWarning:format(GetSpellInfo(50810)),
-	TimerShatterCD	= optionTimerCD:format(GetSpellInfo(50810))
-})
 
 ------------------------------
 --  Sjonnir the Ironshaper  --
@@ -320,22 +261,9 @@ L = DBM:GetModLocalization(620)
 ----------------------------
 L = DBM:GetModLocalization(618)
 
-L:SetWarningLocalization({
-	WarningSplitSoon	= "Split soon",	-- translate
-	WarningSplitNow		= "Split",		-- translate
-	WarningMerge		= "Merge"		-- translate
-})
-
-L:SetOptionLocalization({
-	WarningSplitSoon	= "Show warning for Split soon",	-- translate
-	WarningSplitNow		= "Show warning for Split",			-- translate
-	WarningMerge		= "Show warning for Merge"			-- translate
-})
-
 L:SetMiscLocalization({
 	SplitTrigger1		= "There's plenty of me to go around.",			-- translate
-	SplitTrigger2		= "I'll give you more than you can handle.",	-- translate
-	MergeTrigger		= "Now to finish the job!"						-- translate
+	SplitTrigger2		= "I'll give you more than you can handle."		-- translate
 })
 
 -------------------
@@ -392,14 +320,6 @@ L = DBM:GetModLocalization(623)
 --  Ley-Guardian Eregos  --
 ---------------------------
 L = DBM:GetModLocalization(625)
-
-L:SetWarningLocalization({
-	WarningShiftEnd	= "Planar Shift ending"		-- translate
-})
-
-L:SetOptionLocalization({
-	WarningShiftEnd	= optionWarning:format(GetSpellInfo(51162).." ending") 	-- translate the word 'ending'
-})
 
 L:SetMiscLocalization({
 	MakeitCountTimer	= "Make It Count"
@@ -473,14 +393,6 @@ L = DBM:GetModLocalization(642)
 -----------------
 L = DBM:GetModLocalization(632)
 
-L:SetTimerLocalization({
-	TimerCombatStart		= "Combat starts"
-})
-
-L:SetOptionLocalization({
-	TimerCombatStart		= "Show timer for start of combat"
-})
-
 L:SetMiscLocalization({
 	CyanArrived	= "A valiant defense, but this city must be razed. I will fulfill Malygos's wishes myself!"
 })
@@ -514,16 +426,6 @@ L = DBM:GetModLocalization(629)
 --  Zuramat the Obliterator  --
 -------------------------------
 L = DBM:GetModLocalization(631)
-
-L:SetWarningLocalization({
-	SpecialWarningVoidShifted 	= spell:format(GetSpellInfo(54343)),
-	SpecialShroudofDarkness 	= spell:format(GetSpellInfo(59745))
-})
-
-L:SetOptionLocalization({
-	SpecialWarningVoidShifted	= optionSpecWarning:format(GetSpellInfo(54343)),
-	SpecialShroudofDarkness		= optionSpecWarning:format(GetSpellInfo(59745))
-})
 
 ---------------------
 --  Portal Timers  --
@@ -564,17 +466,7 @@ L:SetMiscLocalization({
 ------------------------
 L = DBM:GetModLocalization(637)
 
-L:SetWarningLocalization({
-	warnExplode			= "Ghoul Explode - Run away"
-})
-
-L:SetTimerLocalization{
-	TimerCombatStart	= "Combat starts"
-}
-
 L:SetOptionLocalization({
-	TimerCombatStart		= "Show timer for start of combat",
-	warnExplode				= "Show warning when Ghoul Minion is about to explode",
 	AchievementCheck		= "Announce 'I've Had Worse' achievement failure to party",
 	SetIconOnMarkedTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67823)
 })
@@ -628,14 +520,7 @@ L:SetMiscLocalization({
 ---------------------
 L = DBM:GetModLocalization(609)
 
-L:SetWarningLocalization({
-	warnPursuit			= "Pursuit on >%s<",
-	specWarnPursuit		= "You are being pursued - Run away"
-})
-
 L:SetOptionLocalization({
-	warnPursuit				= "Announce Pursuit targets",
-	specWarnPursuit			= "Show special warning when you are being pursued",
 	SetIconOnPursuitTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68987)
 })
 
@@ -649,18 +534,7 @@ L:SetMiscLocalization({
 ----------------------------
 L = DBM:GetModLocalization(608)
 
-L:SetWarningLocalization({
-	warnSaroniteRock			= "Saronite Rock on >%s<",
-	specWarnSaroniteRock		= "Saronite Throw on you - Move",
-	specWarnSaroniteRockNear	= "Saronite Throw near you - Move",
-	specWarnPermafrost			= "%s: %s"
-})
-
 L:SetOptionLocalization({
-	warnSaroniteRock			= "Announce $spell:68789 targets",
-	specWarnSaroniteRock		= "Show special warning when you are targeted by <br/> $spell:68789",
-	specWarnSaroniteRockNear	= "Show special warning when you are near <br/> $spell:68789 target",
-	specWarnPermafrost			= "Show special warning when $spell:68786 stacks get too high",
 	AchievementCheck			= "Announce 'Doesn't Go to Eleven' achievement warnings to party",
 	SetIconOnSaroniteRockTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68789)
 })
@@ -676,19 +550,7 @@ L:SetMiscLocalization({
 ----------------------------
 L = DBM:GetModLocalization(610)
 
-L:SetWarningLocalization({
-	specWarnHoarfrost		= "Hoarfrost on you",
-	specWarnHoarfrostNear	= "Hoarfrost near you - Move"
-})
-
-L:SetTimerLocalization{
-	TimerCombatStart	= "Combat starts"
-}
-
 L:SetOptionLocalization({
-	specWarnHoarfrost			= "Show special warning when you are affected by $spell:69246",
-	specWarnHoarfrostNear		= "Show special warning for $spell:69246 near you",
-	TimerCombatStart			= "Show timer for start of combat",
 	SetIconOnHoarfrostTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69246)
 })
 
@@ -705,28 +567,13 @@ L:SetMiscLocalization({
 ----------------
 L = DBM:GetModLocalization(615)
 
-L:SetWarningLocalization({
-	specwarnSoulstorm	= "Soulstorm - Move in"
-})
-
-L:SetOptionLocalization({
-	specwarnSoulstorm	= "Show special warning when $spell:68872 is cast (to move in)"
-})
-
 -------------------------
 --  Devourer of Souls  --
 -------------------------
 L = DBM:GetModLocalization(616)
 
-L:SetWarningLocalization({
-	specwarnMirroredSoul	= "Stop damage",
-	specwarnWailingSouls	= "Wailing Souls - Get behind"
-})
-
 L:SetOptionLocalization({
-	specwarnMirroredSoul	= "Show special warning to stop damage on $spell:69051",
-	specwarnWailingSouls	= "Show special warning when $spell:68899 is cast",
-	SetIconOnMirroredTarget	= "Set icons on $spell:69051 targets"
+	SetIconOnMirroredTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69051)
 })
 
 ---------------------------
@@ -758,7 +605,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Falric		= "Falric",
 	WaveCheck	= "Spirit Wave = (%d+)/10"
 })
 
@@ -778,10 +624,7 @@ L = DBM:GetModLocalization(602)
 L = DBM:GetModLocalization(603)
 
 L:SetWarningLocalization({
-	WarnWave1		= "6 Raging Ghoul, 1 Risen Witch Doctor incoming",--6 Ghoul, 1 WitchDocter
-	WarnWave2		= "6 Raging Ghoul, 2 Risen Witch Doctor, 1 Lumbering Abomination incoming",--6 Ghoul, 2 WitchDocter, 1 Abom
-	WarnWave3		= "6 Raging Ghoul, 2 Risen Witch Doctor, 2 Lumbering Abomination incoming",--6 Ghoul, 2 WitchDocter, 2 Abom
-	WarnWave4		= "12 Raging Ghoul, 4 Risen Witch Doctor, 3 Lumbering Abomination incoming"--12 Ghoul, 3 WitchDocter, 3 Abom
+	WarnWave		= "%s"
 })
 
 L:SetTimerLocalization({
@@ -789,13 +632,10 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	ShowWaves	= "Show warning for incoming waves"
+	WarnWave	= "Show warning for incoming waves"
 })
 
 L:SetMiscLocalization({
-	Ghoul			= "Raging Ghoul",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
-	Abom			= "Lumbering Abomination",--creature id 37069
-	WitchDoctor		= "Risen Witch Doctor",--creature id 36941
 	ACombatStart	= "He is too powerful. We must leave this place at once! My magic can hold him in place for only a short time. Come quickly, heroes!",
 	HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",
 	Wave1			= "There is no escape!",

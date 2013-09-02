@@ -102,8 +102,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Meathook	= "肉鉤",
-	Salramm		= "『血肉工匠』塞歐朗姆",
 	Devouring	= "吞噬食屍鬼",
 	Enraged		= "狂怒食屍鬼",
 	Necro		= "死靈大法師",
@@ -625,7 +623,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarnWave		= "為下一波 即將到來顯示警告"
+	WarnWave		= "為下一波到來顯示警告"
 })
 
 L:SetMiscLocalization({

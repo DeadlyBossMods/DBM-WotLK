@@ -8,11 +8,11 @@ local L
 L = DBM:GetModLocalization("Onyxia")
 
 L:SetGeneralLocalization{
-	name 			= "奧妮克希亞"
+	name = "奧妮克希亞"
 }
 
 L:SetWarningLocalization{
-	WarnWhelpsSoon		= "奧妮克希亞幼龍 即將出現"
+	WarnWhelpsSoon		= "奧妮克希亞幼龍即將出現"
 }
 
 L:SetTimerLocalization{
@@ -21,11 +21,12 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	TimerWhelps		= "為奧妮克希亞幼龍顯示計時器",
-	WarnWhelpsSoon		= "為奧妮克希亞幼龍顯示預先警告",
+	WarnWhelpsSoon	= "為奧妮克希亞幼龍顯示預先警告",
 	SoundWTF		= "為經典傳奇式奧妮克希亞副本播放一些有趣的音效"
 }
 
 L:SetMiscLocalization{
-	YellP2 			= "這毫無意義的行動讓我很厭煩。我會從上空把你們都燒成灰!",
-	YellP3 			= "看起來需要再給你一次教訓，凡人!"
+	YellPull = "How fortuitous. Usually, I must leave my lair in order to feed.",
+	YellP2 	= "這毫無意義的行動讓我很厭煩。我會從上空把你們都燒成灰!",
+	YellP3 	= "看起來需要再給你一次教訓，凡人!"
 }

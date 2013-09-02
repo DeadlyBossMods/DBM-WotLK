@@ -307,7 +307,7 @@ L:SetMiscLocalization{
 	WaterSpirit        = "Ancient Water Spirit",
 	Snaplasher         = "Snaplasher",
 	StormLasher        = "Storm Lasher",
-	YellKill           = "His hold on me dissipates. I can see clearly once more. Thank you, heroes.",
+	YellKill           = "His hold on me dissipates. I can see clearly once more. Thank you, heroes."
 }
 
 L:SetWarningLocalization{

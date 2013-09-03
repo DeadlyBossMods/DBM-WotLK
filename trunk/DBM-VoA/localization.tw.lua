@@ -39,9 +39,6 @@ L:SetGeneralLocalization{
 	name = "『風暴看守者』艾瑪隆"
 }
 
-L:SetWarningLocalization{
-}
-
 L:SetTimerLocalization{
 	timerMobOvercharge	= "超載爆炸",
 	EmalonEnrage		= "艾瑪隆狂暴"
@@ -91,7 +88,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	Frostbite	= "霜寒刺骨: >%s< (%d)"
+	Frostbite	= "霜寒刺骨: >%s<(%d)"
 }
 
 L:SetTimerLocalization{

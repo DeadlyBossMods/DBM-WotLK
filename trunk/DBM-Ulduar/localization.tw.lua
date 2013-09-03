@@ -10,9 +10,6 @@ L = DBM:GetModLocalization("FlameLeviathan")
 L:SetGeneralLocalization{
 	name = "烈焰戰輪"
 }
-
-L:SetTimerLocalization{
-}
 	
 L:SetMiscLocalization{
 	YellPull	= "發現敵意實體。啟動威脅評估協定。首要目標接近中。30秒後將再度評估。",
@@ -40,15 +37,6 @@ L = DBM:GetModLocalization("Ignis")
 
 L:SetGeneralLocalization{
 	name = "『火爐之主』伊格尼司"
-}
-
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
 }
 
 ------------------
@@ -99,12 +87,6 @@ L:SetGeneralLocalization{
 	name = "XT-002拆解者"
 }
 
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
-}
-
 --------------------
 --  Iron Council  --
 --------------------
@@ -112,12 +94,6 @@ L = DBM:GetModLocalization("IronCouncil")
 
 L:SetGeneralLocalization{
 	name = "鐵之集會所"
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
@@ -175,9 +151,6 @@ L = DBM:GetModLocalization("Kologarn")
 
 L:SetGeneralLocalization{
 	name = "柯洛剛恩"
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
@@ -241,15 +214,6 @@ L:SetGeneralLocalization{
 	name = "霍迪爾"
 }
 
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
-}
-
-L:SetOptionLocalization{
-}
-
 L:SetMiscLocalization{
 	YellKill			= "我…我終於從他的掌控中…解脫了。",
 }
@@ -261,9 +225,6 @@ L = DBM:GetModLocalization("Thorim")
 
 L:SetGeneralLocalization{
 	name = "索林姆"
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
@@ -321,15 +282,6 @@ L = DBM:GetModLocalization("Freya_Elders")
 
 L:SetGeneralLocalization{
 	name = "芙蕾雅的長者們"
-}
-
-L:SetMiscLocalization{
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
 }
 
 ---------------
@@ -455,15 +407,11 @@ L:SetOptionLocalization{
 	SpecWarnGuardianLow				= "當守護者(第1階段)血量過低時顯示特別警告 (DD用)",
 	WarnBrainPortalSoon				= "為腦部傳送門顯示預先警告",
 	SpecWarnMadnessOutNow			= "為瘋狂誘陷結束前顯示特別警告",
-	SetIconOnFearTarget				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63881),
 	SpecWarnFervorCast				= "當薩拉的熱誠正在對你施放時顯示特別警告 (必須有最少一名團隊成員設置目標或專注目標)",
 	specWarnBrainPortalSoon			= "為下一次腦部傳送門顯示特別警告",
 	WarningSqueeze					= "當你中了壓榨 (觸手綁人)時大喊",
 	NextPortal						= "為下一次傳送門顯示計時器",
-	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138),
 	ShowSaraHealth					= "顯示薩拉在第1階段的血量 (必須有最少一名團隊成員設置目標或專注目標)",
 	SpecWarnMaladyNear				= "當你附近的人中了心靈缺陷時顯示特別警告",
-	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
 	MaladyArrow						= "當你附近的人中了$spell:63881時顯示DBM箭頭"
 }
-

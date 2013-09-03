@@ -173,8 +173,8 @@ L:SetOptionLocalization({
 	WarnPhase3Soon		= "為第三階段顯示預先警告(大約54%)",
 	TwilightCutterCast	= "當$spell:77844開始施放時顯示警告",
 	AnnounceAlternatePhase	= "不管你進不進下一階段一樣顯示警告/計時器",
-	SoundOnConsumption	= "為$spell:74562或$spell:74792播放音效",--We use localized text for these functions
-	SetIconOnConsumption	= "為$spell:74562或$spell:74792的目標設置標記",--So we can use single functions for both versions of spell.
+	SoundOnConsumption	= "為$spell:74562或$spell:74792播放音效",
+	SetIconOnConsumption	= "為$spell:74562或$spell:74792的目標設置標記",
 	WhisperOnConsumption	= "密語提示$spell:74562或$spell:74792的目標(需要團隊隊長)"
 })
 

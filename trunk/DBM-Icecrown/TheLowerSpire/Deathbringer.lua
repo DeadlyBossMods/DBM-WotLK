@@ -62,7 +62,7 @@ function mod:OnCombatStart(delay)
 		DBM.BossHealth:Clear()
 		DBM.BossHealth:Show(L.name)
 		DBM.BossHealth:AddBoss(37813, L.name)
-		self:ScheduleMethod(0.5, "CreateBossRPFrame")
+		self:ScheduleMethod(1, "CreateBossRPFrame")
 	end
 	if self:IsDifficulty("heroic10", "heroic25") then
 		enrageTimer:Start(360-delay)
@@ -99,7 +99,10 @@ do	-- add the additional Rune Power Bar
 		end
 	end
 	function mod:CreateBossRPFrame()
-		DBM.BossHealth:AddBoss(getRunePowerPercent, L.RunePower)
+		local percent = getShieldPercent()
+		if percent then
+			DBM.BossHealth:AddBoss(getRunePowerPercent, L.RunePower)
+		end
 	end
 end
 

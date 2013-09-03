@@ -112,12 +112,6 @@ L:SetGeneralLocalization{
 	name = "陣營勇士"
 }
 
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
-}
-
 L:SetMiscLocalization{
 	--Horde NPCS
 	Gorgrim				= "死騎 - 高葛林·影斬",		-- 34458

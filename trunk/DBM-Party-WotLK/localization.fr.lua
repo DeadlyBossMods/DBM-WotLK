@@ -449,7 +449,7 @@ L:SetMiscLocalization({
 -------------------
 -- Eadric the Pure --
 -------------------
-L = DBM:GetModLocalization(635
+L = DBM:GetModLocalization(635)
 
 L:SetWarningLocalization({
 	specwarnRadiance		= "Radiance. Retournez vous !"

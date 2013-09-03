@@ -64,7 +64,7 @@ function mod:OnCombatStart(delay)
 		DBM.BossHealth:Clear()
 		DBM.BossHealth:Show(L.name)
 		DBM.BossHealth:AddBoss(36855, L.name)
-		self:ScheduleMethod(0.75, "CreateShieldHPFrame")
+		self:ScheduleMethod(1, "CreateShieldHPFrame")
 	end
 	berserkTimer:Start(-delay)
 	timerAdds:Start(7)

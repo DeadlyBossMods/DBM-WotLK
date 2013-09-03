@@ -54,7 +54,6 @@ function mod:Adds()
 end
 
 function mod:OnCombatStart(delay)
-	DBM.BossHealth:Clear()
 	timerCombatStart:Show(-delay)
 	timerAdds:Start(60-delay)--First adds might come early or late so timer should be taken as a proximity only.
 	warnAddsSoon:Schedule(55)

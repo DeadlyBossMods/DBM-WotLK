@@ -249,7 +249,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningWaveNow = "Волна %d: призыв %s",
+	WarningWaveNow = "Волна %d: призыв %s"
 })
 
 L:SetTimerLocalization({
@@ -823,7 +823,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningShiftEnd	= optionWarning:format("окончания "..GetSpellInfo(51162)),
+	WarningShiftEnd	= optionWarning:format("окончания "..GetSpellInfo(51162))
 })
 
 L:SetMiscLocalization({

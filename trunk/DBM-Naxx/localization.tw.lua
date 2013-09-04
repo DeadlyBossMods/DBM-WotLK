@@ -146,7 +146,7 @@ L:SetGeneralLocalization({
 
 L:SetWarningLocalization({
 	WarningHealSoon	= "3秒後可以治療",
-	WarningHealNow	= "現在治療",
+	WarningHealNow	= "現在治療"
 })
 
 L:SetOptionLocalization({
@@ -225,7 +225,7 @@ L:SetOptionLocalization({
 	WarningChargeNotChanged	= "當你的極性沒有改變時顯示特別警告",
 	ArrowsEnabled			= "顯示箭頭 (正常 \"二邊\" 站位打法)",
 	ArrowsRightLeft			= "顯示左/右箭頭 給 \"四角\" 站位打法 (如果極性改變顯示左箭頭, 沒變顯示左箭頭)",
-	ArrowsInverse			= "顯示倒轉的 \"四角\" 站位打法 (如果極性改變顯示左箭頭, 沒變顯示右箭頭)",
+	ArrowsInverse			= "顯示倒轉的 \"四角\" 站位打法 (如果極性改變顯示左箭頭, 沒變顯示右箭頭)"
 })
 
 L:SetWarningLocalization({
@@ -350,7 +350,7 @@ L:SetOptionLocalization({
 	TimerLanding		= "為降落顯示計時器",
 	TimerIceBlast		= "為冰息術顯示計時器",
 	WarningDeepBreath	= "為冰息術顯示特別警告",
-	WarningIceblock		= "當你中了冰箱時大喊",
+	WarningIceblock		= "當你中了冰箱時大喊"
 })
 
 L:SetMiscLocalization({

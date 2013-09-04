@@ -95,7 +95,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningWaveNow		= "Oleada %d: %s empieza",
+	WarningWaveNow		= "Oleada %d: %s empieza"
 })
 
 L:SetTimerLocalization({
@@ -534,7 +534,7 @@ L = DBM:GetModLocalization(609)
 
 L:SetMiscLocalization({
 	IckPursuit				= "¡%s te atrapa!",
-	Barrage					= "¡%s comienza a invocar minas explosivas!",
+	Barrage					= "¡%s comienza a invocar minas explosivas!"
 })
 -------------------
 -- Forgemaster Garfrost --

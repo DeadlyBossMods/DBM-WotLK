@@ -230,7 +230,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	SpecWarnBlast	= "Sentinel Blast - Interrupt now",
 	WarnCatDied		= "Feral Defender down (%d lives remaining)",
-	WarnCatDiedOne	= "Feral Defender down (1 life remaining)",
+	WarnCatDiedOne	= "Feral Defender down (1 life remaining)"
 }
 
 L:SetOptionLocalization{

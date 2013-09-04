@@ -26,7 +26,7 @@ L:SetMiscLocalization({
 
 L:SetOptionLocalization({
 	WarningGrab 	= "분쇄의 도약 대상 알림 보기",
-	ArchavonEnrage	= "$spell:26662 바 표시"
+	ArchavonEnrage	= "$spell:26662 바 보기"
 })
 
 --------------
@@ -40,7 +40,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
---	specWarnNova 		= "번개 회오리 - 피하세요!",
+--	specWarnNova 		= "번개 회오리 - 피하세요!"
 }
 
 L:SetTimerLocalization{
@@ -49,8 +49,8 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	timerMobOvercharge	= "과충전 폭발 까지 남은시간 바 표시",
-	EmalonEnrage		= "$spell:26662 바 표시",
+	timerMobOvercharge	= "과충전 폭발까지 남은시간 바 보기",
+	EmalonEnrage		= "$spell:26662 바 보기",
 	RangeFrame			= "거리 창 보기(10m)"
 }
 
@@ -74,7 +74,7 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	BurningFury			= "$spell:66721 알림 보기",
-	KoralonEnrage		= "$spell:26662 바 표시"
+	KoralonEnrage		= "$spell:26662 바 보기"
 }
 
 L:SetMiscLocalization{
@@ -99,9 +99,9 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	Frostbite		= "$spell:72004 중첩 알림 보기",
+	Frostbite		= "$spell:72004 중첩 알림 보기"
 }
 
 L:SetMiscLocalization{
-	ToravonEnrage	= "$spell:26662 바 표시"
+	ToravonEnrage	= "$spell:26662 바 보기"
 }

@@ -93,7 +93,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	AchievementBoned		= "Mostrar tiempo para el logro Deshuesado",
+	AchievementBoned		= "Mostrar tiempo para el logro Deshuesado"
 }
 
 -------------------------
@@ -379,7 +379,7 @@ L:SetMiscLocalization{
 	YellPhase2Dem		= "Zar kiel xi romathIs zilthuras revos ruk toralar ",--translate
 	BeaconIconSet	= "Señal de Escarcha, icono {rt%d} en %s",
 	AchievementWarning	= "Aviso: %s tiene 5 marcas de Sacudida mística",
-	AchievementFailed	= ">> LOGRO FALLADO: %s tiene %d marcas de Sacudida mística <<",
+	AchievementFailed	= ">> LOGRO FALLADO: %s tiene %d marcas de Sacudida mística <<"
 }
 
 ---------------------

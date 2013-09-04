@@ -75,7 +75,7 @@ L:SetMiscLocalization{
 	YellAir				= "給我們一點時間來準備建造砲塔。",
 	YellAir2			= "火熄了!讓我們重建砲塔!",
 	YellGround			= "快!她可不會在地面上待太久!",
-	EmotePhase2			= "%%s再也飛不動了!",
+	EmotePhase2			= "%%s再也飛不動了!"
 }
 
 ----------------------------
@@ -171,7 +171,7 @@ L:SetMiscLocalization{
 	Health_Body				= "柯洛剛恩身體",
 	Health_Right_Arm		= "右臂",
 	Health_Left_Arm			= "左臂",
-	FocusedEyebeam			= "正在注視著你",
+	FocusedEyebeam			= "正在注視著你"
 }
 
 ---------------
@@ -215,7 +215,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellKill			= "我…我終於從他的掌控中…解脫了。",
+	YellKill			= "我…我終於從他的掌控中…解脫了。"
 }
 
 --------------
@@ -358,11 +358,11 @@ L:SetOptionLocalization{
 	SpecialWarningShadowCrashNear	= "當你附近的人中了$spell:62660時顯示特別警告",
 	SpecialWarningLLNear			= "當你附近的人中了$spell:63276時顯示特別警告",
 	hardmodeSpawn					= "為薩倫聚惡體出現顯示計時器 (困難模式)",
-	CrashArrow						= "當你附近的人中了$spell:62660時顯示DBM箭頭",
+	CrashArrow						= "當你附近的人中了$spell:62660時顯示DBM箭頭"
 }
 
 L:SetMiscLocalization{
-	EmoteSaroniteVapors	= "一片薩倫煙霧在附近聚合",
+	EmoteSaroniteVapors	= "一片薩倫煙霧在附近聚合"
 }
 
 ------------------

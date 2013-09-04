@@ -14,16 +14,13 @@ L:SetWarningLocalization{
 	PursueWarn				= "추적 : >%s<!",
 	warnNextPursueSoon		= "추적 전환 5 초전",
 	warnWardofLife			= "생명지기 덩굴손 등장!",
-	SpecialPursueWarnYou	= "거대 화염전차가 당신을 추적합니다!",	
+	SpecialPursueWarnYou	= "거대 화염전차가 당신을 추적합니다!"
 }
 
-L:SetTimerLocalization{
-}
-	
 L:SetOptionLocalization{
-	SpecialPursueWarnYou	= "$spell:62374 주문의 영향을 받은 경우 특수 경고 보기",
+	SpecialPursueWarnYou	= "$spell:62374 대상이 된 경우 특수 경고 보기",
 	PursueWarn				= "$spell:62374 대상 알림 보기",
-	warnNextPursueSoon		= "$spell:62374 사전 알림 보기",
+	warnNextPursueSoon		= "$spell:62374 이전에 알림 보기",
 	warnWardofLife			= "생명지기 덩굴손 등장시 특수 경고 보기"
 }
 
@@ -41,10 +38,6 @@ L:SetGeneralLocalization{
 	name = "용광로 군주 이그니스"
 }
 
-L:SetOptionLocalization{
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
-}
-
 ------------------
 --  Razorscale  --
 ------------------
@@ -54,7 +47,7 @@ L:SetGeneralLocalization{
 	name = "칼날비늘"
 }
 
-L:SetWarningLocalization{	
+L:SetWarningLocalization{
 	warnTurretsReadySoon		= "마지막 포탑 20초 전",
 	warnTurretsReady			= "마지막 포탑 준비"
 }
@@ -64,17 +57,17 @@ L:SetTimerLocalization{
 	timerTurret2			= "2 번째 포탑",
 	timerTurret3			= "3 번째 포탑",
 	timerTurret4			= "4 번째 포탑",
-	timerGrounded			= "지상 착지 종료",
+	timerGrounded			= "지상 착지 종료"
 }
 
 L:SetOptionLocalization{
-	warnTurretsReadySoon		= "포탑 사전 알림 보기",
-	warnTurretsReady			= "포탑 알림 보기",
-	timerTurret1				= "첫번째 포탑 바 표시",
-	timerTurret2				= "두번째 포탑 바 표시",
-	timerTurret3				= "세번째 포탑 바 표시(25인)",
-	timerTurret4				= "네번째 포탑 바 표시(25인)", 
-	timerGrounded				= "지상 착지 유지시간 바 표시"
+	warnTurretsReadySoon		= "마지막 포탑 이전에 알림 보기",
+	warnTurretsReady			= "마지막 포탑 알림 보기",
+	timerTurret1				= "첫번째 포탑 바 보기",
+	timerTurret2				= "두번째 포탑 바 보기",
+	timerTurret3				= "세번째 포탑 바 보기(25인)",
+	timerTurret4				= "네번째 포탑 바 보기(25인)",
+	timerGrounded				= "지상 착지 유지시간 바 보기"
 }
 
 L:SetMiscLocalization{
@@ -93,11 +86,6 @@ L:SetGeneralLocalization{
 	name = "XT-002 해체자"
 }
 
-L:SetOptionLocalization{
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
-}
-
 -------------------
 --  무쇠 평의회  --
 -------------------
@@ -108,15 +96,13 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
-	AlwaysWarnOnOverload		= "$spell:63481 특수 경고를 항상 보기(해제하면 브룬디르가 대상일때만 알림)",
+	AlwaysWarnOnOverload		= "$spell:63481 특수 경고를 항상 보기(해제하면 브룬디르가 대상일때만 알림)"
 }
 
 L:SetMiscLocalization{
 	Steelbreaker			= "강철파괴자",
 	RunemasterMolgeim 		= "룬술사 몰가임",
-	StormcallerBrundir 		= "폭풍소환사 브룬디르",
+	StormcallerBrundir 		= "폭풍소환사 브룬디르"
 }
 
 ---------------
@@ -142,9 +128,9 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningPhasePunch			= "위상의 주먹 대상 알림 보기",
-	NextCollapsingStar			= "다음 붕괴의 별 바 표시",
-	TimerCombatStart			= "전투 시작 바 표시",
-	WarnPhase2Soon				= "2 단계 사전 경고 보기(23% 이하)",
+	NextCollapsingStar			= "다음 붕괴의 별 바 보기",
+	TimerCombatStart			= "전투 시작 바 보기",
+	WarnPhase2Soon				= "2 단계 전에 알림 보기",
 	warnStarLow					= "붕괴의 별 체력이 낮을 경우 특수 경고 보기(25% 이하)"
 }
 
@@ -173,11 +159,9 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	timerLeftArm			= "왼쪽 팔 재생성 바 표시",
-	timerRightArm			= "오른쪽 팔 재생성 바 표시",
-	achievementDisarmed		= "무장해제 업적 바 표시",
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
+	timerLeftArm			= "왼쪽 팔 재생성 바 보기",
+	timerRightArm			= "오른쪽 팔 재생성 바 보기",
+	achievementDisarmed		= "무장해제 업적 바 보기"
 }
 
 L:SetMiscLocalization{
@@ -201,7 +185,7 @@ L:SetGeneralLocalization{
 L:SetWarningLocalization{
 	SpecWarnBlast 		= "수호 야수 폭발 - 차단!",
 	WarnCatDied 		= "수호 야수 죽음 (%d 번 남음)",
-	WarnCatDiedOne 		= "수호 야수 죽음 (1 번 남음)",
+	WarnCatDiedOne 		= "수호 야수 죽음 (1 번 남음)"
 }
 
 L:SetTimerLocalization{
@@ -210,9 +194,9 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	SpecWarnBlast 		= "수호 야수 폭발 특수 경고 보기",
-	WarnCatDied 		= "수호 야수의 남은 부활 횟수 알림 보기",
+	WarnCatDied 		= "수호 야수의 남은부활 횟수 알림 보기",
 	WarnCatDiedOne 		= "수호 야수 부활 횟수가 1번 남았을 때 알림 보기",
-	timerDefender       = "다음 수호 야수 활성 바 표시"
+	timerDefender       = "다음 수호 야수 활성 바 보기"
 }
 
 L:SetMiscLocalization{
@@ -229,10 +213,6 @@ L:SetGeneralLocalization{
 	name = "호디르"
 }
 
-L:SetOptionLocalization{
-	SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133)
-}
-
 L:SetMiscLocalization{
 	YellKill			= "드디어... 드디어 그의 손아귀를... 벗어나는구나."
 }
@@ -247,13 +227,13 @@ L:SetGeneralLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerHardmode			= "영웅 난이도 가능"
+	TimerHardmode			= "영웅 난이도 진입 가능"
 }
 
 L:SetOptionLocalization{
-	TimerHardmode			= "영웅 난이도 가능까지 남은시간 바 표시",
+	TimerHardmode			= "영웅 난이도 진입 가능 바 보기",
 	RangeFrame				= "거리 창 보기",
-	AnnounceFails			= "$spell:62017 주문에 피해를 입은 대상을 공격대 대화로 알림<br/>(승급 권한 필요)" 
+	AnnounceFails			= "$spell:62017 주문에 피해를 입은 대상을 공격대 대화로 알림(승급 권한 필요)"
 }
 
 L:SetMiscLocalization{
@@ -282,8 +262,8 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	WarnSimulKill			= "첫번째 소환수 죽음 알림 표시",
-	TimerSimulKill			= "소환수 부활 바 표시"
+	WarnSimulKill			= "첫번째 소환수 죽음 알림 보기",
+	TimerSimulKill			= "소환수 부활 바 보기"
 }
 
 L:SetMiscLocalization{
@@ -326,19 +306,17 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	TimeToPhase2			= "2 단계 전환 바 표시",
-	TimeToPhase3			= "3 단계 전환 바 표시",
-	TimeToPhase4			= "4 단계 전환 바 표시",
+	TimeToPhase2			= "2 단계 바 보기",
+	TimeToPhase3			= "3 단계 바 보기",
+	TimeToPhase4			= "4 단계 바 보기",
 	MagneticCore			= "자기 증폭기 획득자 알림 보기",
 	HealthFramePhase4		= "4 단계 에서 각 부분별 체력 바 보기",
 	AutoChangeLootToFFA		= "3 단계에서 전리품 획득 설정 자동으로 변경",
-	WarnBombSpawn			= "폭탄 로봇 생성 알림 표시",
-	TimerHardmode			= "영웅 난이도 광폭화 바 표시",
-	ShockBlastWarningInP1	= "$spell:63631 주문 시전시 특수 경고 보기(1 단계)",
-	ShockBlastWarningInP4	= "$spell:63631 주문 시전시 특수 경고 보기(4 단계)",
-	RangeFrame				= "1 단계에서 거리 창 보기(6m)",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	WarnBombSpawn			= "폭탄 로봇 생성 알림 보기",
+	TimerHardmode			= "영웅 난이도 광폭화 바 보기",
+	ShockBlastWarningInP1	= "$spell:63631 특수 경고 보기(1 단계)",
+	ShockBlastWarningInP4	= "$spell:63631 특수 경고 보기(4 단계)",
+	RangeFrame				= "1 단계에서 거리 창 보기(6m)"
 }
 
 L:SetMiscLocalization{
@@ -349,7 +327,7 @@ L:SetMiscLocalization{
 	YellHardPull	= "자폭 절차를 시작합니다.",
 	YellPhase2		= "멋지군! 참으로 경이적인 결과야! 차체 내구도 98.9 퍼센트라! 손상이라고 보기도 어렵지! 계속하자고.",
 	YellPhase3		= "고맙다, 친구들! 너희 덕분에 멋진 자료를 좀 얻었어! 자, 그걸 어디 뒀더라... 아, 여기 있군.",
-	YellPhase4		= "예비 시험은 이걸로 끝이다. 자 이제부터가 진짜라고!",	
+	YellPhase4		= "예비 시험은 이걸로 끝이다. 자 이제부터가 진짜라고!",
 	LootMsg			= "([^%s]+).*Hitem:(%d+)"
 }
 
@@ -364,8 +342,8 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{
 	SpecialWarningShadowCrash		= "당신에게 어둠 붕괴 - 이동하세요!",
-	SpecialWarningShadowCrashNear	= "당신 주변에 어둠 붕괴!",	
-	SpecialWarningLLNear			= "당신 주변에 생명력 흡수 시전! (%s)"
+	SpecialWarningShadowCrashNear	= "당신 주변에 어둠 붕괴!",
+	SpecialWarningLLNear			= "당신 주변에 생명력 흡수! (%s)"
 }
 
 L:SetTimerLocalization{
@@ -376,10 +354,10 @@ L:SetOptionLocalization{
 	SetIconOnShadowCrash			= "$spell:62660 대상에게 전술 목표 아이콘 설정(해골)",
 	SetIconOnLifeLeach				= "$spell:62660 대상에게 전술 목표 아이콘 설정(엑스)",
 	SpecialWarningShadowCrash		= "$spell:62660 특수 경고 보기",
-	SpecialWarningShadowCrashNear	= "$spell:62660 주문이 근처에 시전된 경우 특수 경고 보기",
-	SpecialWarningLLNear			= "$spell:63276 주문이 근처에 시전된 경우 특수 경고 보기",
-	hardmodeSpawn					= "사로나이드 원혼 생성 바 표시(영웅 난이도 진입용)",
-	CrashArrow						= "$spell:62660 주문이 근처에 시전된 경우 DBM 화살표 보기"
+	SpecialWarningShadowCrashNear	= "$spell:62660 대상이 가까이 있을 경우 특수 경고 보기",
+	SpecialWarningLLNear			= "$spell:63276 대상이 가까이 있을 경우 특수 경고 보기",
+	hardmodeSpawn					= "사로나이드 원혼 생성 바 보기(영웅 난이도 진입용)",
+	CrashArrow						= "$spell:62660 대상이 가까이 있을 경우 DBM 화살표 보기"
 }
 
 L:SetMiscLocalization{
@@ -410,10 +388,9 @@ L:SetWarningLocalization{
 	SpecWarnGuardianLow 			= "수호자 체력 낮음 - 주의!",
 	SpecWarnMadnessOutNow			= "광기 유발 종료 직전 - 이동!",
 	WarnBrainPortalSoon				= "3초 후 차원문",
-	SpecWarnFervor					= "당신에게 사라의 열정!",
 	SpecWarnFervorCast				= "당신에게 사라의 열정 시전 중!",
 	SpecWarnMaladyNear				= "당신 주변에 병든 정신 (%s)",
-	specWarnBrainPortalSoon			= "곧 차원문!",	
+	specWarnBrainPortalSoon			= "곧 차원문!"
 }
 
 L:SetTimerLocalization{
@@ -421,21 +398,18 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	WarningGuardianSpawned			= "요그사론의 수호자 소환 알림 표시",
-	WarningCrusherTentacleSpawned	= "분쇄의 촉수 생성 알림 표시",	
-	WarningSanity					= "$spell:63050이 낮은 경우 알림 표시",
+	WarningGuardianSpawned			= "요그사론의 수호자 소환 알림 보기",
+	WarningCrusherTentacleSpawned	= "분쇄의 촉수 생성 알림 보기",
+	WarningSanity					= "$spell:63050이 낮은 경우 알림 보기",
 	SpecWarnSanity					= "$spell:63050이 매우 낮은 경우 특수 경고 보기",
-	SpecWarnGuardianLow				= "수호자의 생명력이 낮을 때 특수 경고 보기(1 단계)",
-	WarnBrainPortalSoon				= "차원문 사전 알림 표시",
+	SpecWarnGuardianLow				= "수호자의 생명력이 낮을 때 특수 경고 보기(1 단계만)",
+	WarnBrainPortalSoon				= "차원문 이전에 알림 보기",
 	SpecWarnMadnessOutNow			= "$spell:64059이 끝나기 전 특수 경고 보기",
-	SetIconOnFearTarget				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63881),
-	SpecWarnFervorCast				= "$spell:63138을 당신에게 시전할 경우 특수 경고 보기<br/>(공격대원 중 최소 한명이 사라를 대상 또는 주시대상으로 설정해야 함)",
-	specWarnBrainPortalSoon			= "차원문 특수 경고 표시",
+	SpecWarnFervorCast				= "$spell:63138을 대상이 된 경우 특수 경고 보기<br/>(공격대원 중 최소 한명이 사라를 대상 또는 주시대상으로 설정해야 함)",
+	specWarnBrainPortalSoon			= "차원문 이전에 특수 경고 보기",
 	WarningSqueeze					= "압착의 촉수의 대상 되었을 경우 대화로 알리기",
-	NextPortal						= "다음 차원문 바 표시",
-	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138),
-	ShowSaraHealth					= "우두머리 체력 바 사용시 사라의 체력 바도 함께 보기<br/>(공격대원 중 최소 한명이 사라를 대상 또는 주시대상으로 설정해야 해야 작동함)",
-	SpecWarnMaladyNear				= "$spell:63881 주문이 근처에 시전된 경우 특수 경고 보기",
-	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
-	MaladyArrow						= "$spell:63881 대상이 근처에 있을 경우 DBM 화살표 보기"
+	NextPortal						= "다음 차원문 바 보기",
+	ShowSaraHealth					= "우두머리 체력 바 사용시 사라의 체력 바도 함께 보기<br/>(공격대원 중 최소 한명이 사라를 대상 또는 주시대상으로 설정해야 함)",
+	SpecWarnMaladyNear				= "$spell:63881 대상이 가까이 있을 경우 특수 경고 보기",
+	MaladyArrow						= "$spell:63881 대상이 가까이 있을 경우 DBM 화살표 보기"
 }

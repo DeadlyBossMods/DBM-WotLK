@@ -47,7 +47,7 @@ L:SetWarningLocalization({
 	WarningFireWall			= "火焰障壁",
 	WarningVesperonPortal	= "維斯佩朗的傳送門",
 	WarningTenebronPortal	= "坦納伯朗的傳送門",
-	WarningShadronPortal	= "夏德朗的傳送門",
+	WarningShadronPortal	= "夏德朗的傳送門"
 })
 
 L:SetTimerLocalization({
@@ -67,7 +67,7 @@ L:SetOptionLocalization({
 	WarningVesperon			= "提示維斯佩朗到來",
 	WarningTenebronPortal	= "為坦納伯朗的傳送門顯示特別警告",
 	WarningShadronPortal	= "為夏德朗的傳送門顯示特別警告",
-	WarningVesperonPortal	= "為維斯佩朗的傳送門顯示特別警告",
+	WarningVesperonPortal	= "為維斯佩朗的傳送門顯示特別警告"
 })
 
 L:SetMiscLocalization({
@@ -79,7 +79,7 @@ L:SetMiscLocalization({
 	FireWallOn		= "火焰障壁: %s",
 	VoidZoneOn		= "暗影裂縫: %s",
 	VoidZones		= "踩中暗影裂縫(這一次): %s",
-	FireWalls		= "撞上火焰障壁(這一次): %s",
+	FireWalls		= "撞上火焰障壁(這一次): %s"
 })
 
 ------------------------

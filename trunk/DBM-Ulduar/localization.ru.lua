@@ -237,7 +237,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	SpecWarnBlast	= "Удар часового - прерывание",
 	WarnCatDied		= "Дикий эащитник погибает (осталось %d жизней)",
-	WarnCatDiedOne	= "Дикий эащитник погибает (осталась 1 жизнь)",
+	WarnCatDiedOne	= "Дикий эащитник погибает (осталась 1 жизнь)"
 }
 
 L:SetOptionLocalization{
@@ -291,7 +291,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerHardmode	= "Отсчет времени для сложного режима",
 	RangeFrame		= "Показывать окно проверки дистанции",
-	AnnounceFails	= "Объявлять игроков, попавших под $spell:62017, в рейд-чат<br/>(требуются права лидера или помощника)",
+	AnnounceFails	= "Объявлять игроков, попавших под $spell:62017, в рейд-чат<br/>(требуются права лидера или помощника)"
 }
 
 L:SetMiscLocalization{

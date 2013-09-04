@@ -364,7 +364,6 @@ L = DBM:GetModLocalization(644)
 --  Svala Sorrowgrave  --
 -------------------------
 L = DBM:GetModLocalization(641)
-})
 
 L:SetWarningLocalization({
 	timerRoleplay		= "絲瓦拉·悲傷亡墓活動"
@@ -436,11 +435,11 @@ L:SetGeneralLocalization({
 L:SetWarningLocalization({
 	WarningPortalSoon	= "新傳送門即將到來",
 	WarningPortalNow	= "傳送門 #%d",
-	WarningBossNow		= "首領到來",
+	WarningBossNow		= "首領到來"
 })
 
 L:SetTimerLocalization({
-	TimerPortalIn	= "傳送門 #%d",
+	TimerPortalIn	= "傳送門 #%d"
 })
 
 L:SetOptionLocalization({

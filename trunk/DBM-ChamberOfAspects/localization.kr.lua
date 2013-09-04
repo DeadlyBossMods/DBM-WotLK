@@ -46,7 +46,7 @@ L:SetWarningLocalization({
 	WarningFireWall			= "화염의 벽!",
 	WarningVesperonPortal	= "베스페론의 차원문 생성!!",
 	WarningTenebronPortal	= "테네브론의 차원문 생성!!",
-	WarningShadronPortal	= "샤드론의 차원문 생성!!",
+	WarningShadronPortal	= "샤드론의 차원문 생성!!"
 })
 
 L:SetTimerLocalization({
@@ -56,17 +56,17 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	AnnounceFails			= "화염의 벽 및 어둠의 균열을 피하지 못한 공대원을 대화창에 알리기<br/>(승급 권한 필요)",
-	TimerTenebron			= "테네브론 진입 바 표시",
-	TimerShadron			= "샤드론 진입 바 표시",
-	TimerVesperon			= "베스페론 진입 바 표시",
+	AnnounceFails			= "화염의 벽 및 어둠의 균열을 피하지 못한 공대원을 대화창에 알리기(승급 권한 필요)",
+	TimerTenebron			= "테네브론 진입 바 보기",
+	TimerShadron			= "샤드론 진입 바 보기",
+	TimerVesperon			= "베스페론 진입 바 보기",
 	WarningFireWall			= "화염의 벽 특수 경고 보기",
 	WarningTenebron			= "테네브론 진입 알림",
 	WarningShadron			= "샤드론 진입 알림",
 	WarningVesperon			= "베스페론 진입 알림",
 	WarningTenebronPortal	= "테네브론의 차원문 특수 경고 보기",
 	WarningShadronPortal	= "샤드론의 차원문 특수 경고 보기",
-	WarningVesperonPortal	= "베스페론의 차원문 특수 경고 보기",
+	WarningVesperonPortal	= "베스페론의 차원문 특수 경고 보기"
 })
 
 L:SetMiscLocalization({
@@ -80,7 +80,7 @@ L:SetMiscLocalization({
 	FireWallOn		= "용암 파도 : %s",
 	VoidZoneOn		= "어둠의 균열 : %s",
 	VoidZones		= "어둠의 균열 실패(현재 시도): %s",
-	FireWalls		= "용암 파도 실패(현재 시도): %s",
+	FireWalls		= "용암 파도 실패(현재 시도): %s"
 	--[[ not in use; don't translate.
 	Vesperon	= "베스페론, 알이 위험하다! 날 도와라!",
 	Shadron		= "샤드론! 이리 와라! 위험한 상황이다!",
@@ -104,9 +104,8 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningSplitSoon	= "분리 사전 알림 보기",
-	RangeFrame			= "거리 창 보기(12m)",
-	SetIconOnBrand		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74505)
+	WarningSplitSoon	= "분리 이전에 알림 보기",
+	RangeFrame			= "거리 창 보기(12m)"
 })
 
 L:SetMiscLocalization({
@@ -126,9 +125,8 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	SpecialWarningTranq		= "$spell:78722 특수 경고 보기(마취)",
-	RangeFrame				= "거리 창 보기(10m)",
-	BeaconIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74453)
+	SpecialWarningTranq		= "$spell:78722 해제 특수 경고 보기",
+	RangeFrame				= "거리 창 보기(10m)"
 })
 
 L:SetMiscLocalization{
@@ -154,8 +152,7 @@ L:SetTimerLocalization({
 
 L:SetOptionLocalization({
 	WarnAdds		= "지원 병력 알림 보기",
-	TimerAdds		= "다음 지원 병력 바 표시",
-	warnCleaveArmor	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(74367)
+	TimerAdds		= "다음 지원 병력 바 보기"
 })
 
 L:SetMiscLocalization({
@@ -173,15 +170,15 @@ L:SetGeneralLocalization({
 L:SetWarningLocalization({
 	WarnPhase2Soon		= "곧 2 단계",
 	WarnPhase3Soon		= "곧 3 단계",
-	TwilightCutterCast	= "황혼 절단기 시전 : 5 초"
+	TwilightCutterCast	= "주문시전 황혼 절단기 : 5 초"
 })
 
 L:SetOptionLocalization({
-	WarnPhase2Soon			= "2 단계 사전 알림 보기(79% 전)",
-	WarnPhase3Soon			= "3 단계 사전 알림 보기(54% 전)",
+	WarnPhase2Soon			= "2 단계 이전에 알림 보기",
+	WarnPhase3Soon			= "3 단계 이전에 알림 보기",
 	TwilightCutterCast		= "$spell:74769 시전 알림 보기",
-	AnnounceAlternatePhase	= "다른 위상에 관련된 알림/바 보기",
-	SoundOnConsumption		= "$spell:74562 또는 $spell:74792 주문의 영향을 받은 경우 별도 경고음 듣기",
+	AnnounceAlternatePhase	= "다른 위상 우두머리 알림/바 보기",
+	SoundOnConsumption		= "$spell:74562 또는 $spell:74792 대상이 된 경우 별도 경고음 듣기",
 	SetIconOnConsumption	= "$spell:74562 또는 $spell:74792 대상에게 전술 목표 아이콘 설정",
 	WhisperOnConsumption	= "$spell:74562 또는 $spell:74792 대상에게 귓속말 보내기(승급 권한 필요)"
 })

@@ -22,7 +22,7 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	SpecialLocust		= "메뚜기 떼 특수 경고 보기",
 	WarningLocustFaded	= "메뚜기 떼 종료 알림 보기",
-	ArachnophobiaTimer	= "거미의 공포 업적 가능 바 표시"
+	ArachnophobiaTimer	= "거미의 공포 업적 가능 바 보기"
 })
 
 L:SetMiscLocalization({
@@ -42,12 +42,12 @@ L:SetGeneralLocalization({
 
 L:SetWarningLocalization({
 	WarningEmbraceExpire	= "귀부인의 은총 종료 5초 전",
-	WarningEmbraceExpired	= "귀부인의 은총 종료",
+	WarningEmbraceExpired	= "귀부인의 은총 종료"
 })
 
 L:SetOptionLocalization({
-	WarningEmbraceExpire	= "귀부인의 은총 종료 사전 알림 보기",
-	WarningEmbraceExpired	= "귀부인의 은총 종료 알림 보기",
+	WarningEmbraceExpire	= "귀부인의 은총 종료 이전에 알림 보기",
+	WarningEmbraceExpired	= "귀부인의 은총 종료 알림 보기"
 })
 
 L:SetMiscLocalization({
@@ -73,9 +73,9 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningSpidersSoon	= "거미의 입맞춤 사전 알림 보기",
+	WarningSpidersSoon	= "거미의 입맞춤 이전에 알림 보기",
 	WarningSpidersNow	= "거미의 입맞춤 알림 보기",
-	TimerSpider			= "다음 거미의 입맞춤 바 표시"
+	TimerSpider			= "다음 거미의 입맞춤 바 보기"
 })
 
 L:SetMiscLocalization({
@@ -97,7 +97,7 @@ L:SetGeneralLocalization({
 
 L:SetWarningLocalization({
 	WarningTeleportNow	= "순간이동",
-	WarningTeleportSoon	= "20초 후 순간이동",
+	WarningTeleportSoon	= "20초 후 순간이동"
 })
 
 L:SetTimerLocalization({
@@ -107,9 +107,9 @@ L:SetTimerLocalization({
 
 L:SetOptionLocalization({
 	WarningTeleportNow		= "순간이동 알림 보기",
-	WarningTeleportSoon		= "순간이동 사전 알림 보기",
-	TimerTeleport			= "다음 순간이동 바 표시",
-	TimerTeleportBack		= "방으로 복귀 바 표시"
+	WarningTeleportSoon		= "순간이동 이전에 알림 보기",
+	TimerTeleport			= "다음 순간이동 바 보기",
+	TimerTeleportBack		= "방으로 복귀 바 보기"
 })
 
 L:SetMiscLocalization({
@@ -127,17 +127,17 @@ L:SetGeneralLocalization({
 
 L:SetWarningLocalization({
 	WarningTeleportNow	= "순간이동",
-	WarningTeleportSoon	= "%d초 후 순간이동",
+	WarningTeleportSoon	= "%d초 후 순간이동"
 })
 
 L:SetTimerLocalization({
-	TimerTeleport		= "다음 순간이동",
+	TimerTeleport		= "다음 순간이동"
 })
 
 L:SetOptionLocalization({
 	WarningTeleportNow		= "순간이동 알림 보기",
-	WarningTeleportSoon		= "순간이동 사전 알림 보기",
-	TimerTeleport			= "다음 순간이동 바 표시",
+	WarningTeleportSoon		= "순간이동 이전에 알림 보기",
+	TimerTeleport			= "다음 순간이동 바 보기"
 })
 
 L:SetMiscLocalization({
@@ -159,7 +159,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningHealSoon		= "치유 가능 사전 알림 보기",
+	WarningHealSoon		= "치유 가능 이전에 알림 보기",
 	WarningHealNow		= "치유 가능 알림 보기"
 })
 
@@ -224,9 +224,9 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	WarningChargeChanged	= "전하가 바뀐 경우 알림 보기",
 	WarningChargeNotChanged	= "전하가 바뀌지 않을 경우 알림 보기",
-	ArrowsEnabled			= "극성변환 시전 후 화살표 보기(일반 \"2 지역\" 공략용)",
-	ArrowsRightLeft			= "극성변환 시전 후 오른쪽/왼쪽 화살표 보기(\"4 지역\" 공략용)",
-	ArrowsInverse			= "극성변환 시전 후 오른쪽/왼쪽 화살표를 반대로 보기(\"4 지역\" 공략용)"
+	ArrowsEnabled			= "극성변환 후 화살표 보기(일반 \"2 지역\" 공략용)",
+	ArrowsRightLeft			= "극성변환 후 오른쪽/왼쪽 화살표 보기(\"4 지역\" 공략용)",
+	ArrowsInverse			= "극성변환 후 오른쪽/왼쪽 화살표를 반대로 보기(\"4 지역\" 공략용)"
 })
 
 L:SetMiscLocalization({
@@ -277,10 +277,10 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningWaveSoon		= "지원군 %d: %s 등장 3초전",
-	WarningWaveSpawned	= "지원군 %d: %s 등장",
-	WarningRiderDown	= "무자비한 죽음의 기병 죽음",
-	WarningKnightDown	= "무자비한 죽음의 기사 죽음",
+	WarningWaveSoon		= "지원군 %d: %s 3초전",
+	WarningWaveSpawned	= "지원군 %d: %s",
+	WarningRiderDown	= "무자비한 죽음의 기병 처치",
+	WarningKnightDown	= "무자비한 죽음의 기사 처치",
 	WarningPhase2		= "2 단계"
 })
 
@@ -290,23 +290,23 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	TimerWave			= "다음 지원군 바 표시",
-	TimerPhase2			= "2 단계 바 표시",
-	WarningWaveSoon		= "지원군 사전 알림 보기",
-	WarningWaveSpawned	= "지원군 등장 알림 보기",
-	WarningRiderDown	= "죽음의 기병 처치시 알림 보기",
-	WarningKnightDown	= "죽음의 기사 처치시 알림 보기",
+	TimerWave			= "다음 지원군 바 보기",
+	TimerPhase2			= "2 단계 바 보기",
+	WarningWaveSoon		= "지원군 이전에 알림 보기",
+	WarningWaveSpawned	= "지원군 알림 보기",
+	WarningRiderDown	= "죽음의 기병 처치 알림 보기",
+	WarningKnightDown	= "죽음의 기사 처치 알림 보기",
 	WarningPhase2		= "2 단계 알림 보기"
 })
 
 L:SetMiscLocalization({
 	yell			= "어리석은 것들, 스스로 죽음을 자초하다니!",
 	WarningWave1	= "%d %s",
-	WarningWave2	= "%d %s 그리고 %d %s",
-	WarningWave3	= "%d %s, %d %s 그리고 %d %s",
+	WarningWave2	= "%d %s, %d %s",
+	WarningWave3	= "%d %s, %d %s, %d %s",
 	Trainee			= "|4수련생:수련생;",
 	Knight			= "|4죽음의 기사:죽음의 기사;",
-	Rider			= "|4죽음의 기병:죽음의 기병;",
+	Rider			= "|4죽음의 기병:죽음의 기병;"
 })
 
 --------------------
@@ -319,13 +319,13 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon				= "3초 후 징표 %d",
-	WarningMarkNow				= "징표 %d",
+	WarningMarkSoon				= "3초 후 징표 #%d",
+	WarningMarkNow				= "징표 #%d",
 	SpecialWarningMarkOnPlayer	= "%s: %s"
 })
 
 L:SetOptionLocalization({
-	WarningMarkSoon				= "징표 사전 알림 보기",
+	WarningMarkSoon				= "징표 이전에 알림 보기",
 	WarningMarkNow				= "징표 알림 보기",
 	SpecialWarningMarkOnPlayer	= "징표가 4 중첩 이상시 특수 경고 보기"
 })
@@ -334,7 +334,7 @@ L:SetMiscLocalization({
 	Korthazz	= "영주 코스아즈",
 	Rivendare	= "남작 리븐데어",
 	Blaumeux	= "여군주 블라미우스",
-	Zeliek		= "젤리에크 경",
+	Zeliek		= "젤리에크 경"
 })
 
 -------------------
@@ -353,7 +353,7 @@ L:SetWarningLocalization({
 	WarningAirPhaseSoon		= "비행 단계 10초 전",
 	WarningAirPhaseNow		= "비행 단계",
 	WarningLanded			= "착지",
-	WarningDeepBreath		= "냉기 숨결!",
+	WarningDeepBreath		= "냉기 숨결!"
 })
 
 L:SetTimerLocalization({
@@ -363,18 +363,17 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningAirPhaseSoon		= "비행 단계 사전 알림 보기",
+	WarningAirPhaseSoon		= "비행 단계 이전에 알림 보기",
 	WarningAirPhaseNow		= "비행 단계 알림 보기",
 	WarningLanded			= "지상 단계 알림 보기",
-	TimerAir				= "비행 단계 유지시간 바 표시",
-	TimerLanding			= "착지까지 남은시간 바 표시",
-	TimerIceBlast			= "냉기 숨결 시전 바 표시",
+	TimerAir				= "비행 단계 유지시간 바 보기",
+	TimerLanding			= "착지 중 바 보기",
+	TimerIceBlast			= "냉기 숨결 시전 바 보기",
 	WarningDeepBreath		= "냉기 숨결 특수 경고 보기",
-	WarningIceblock			= "얼음 방패 주문의 영향을 받은 경우 외치기"
+	WarningIceblock			= "얼음 방패 대상이 된 경우 대화로 알리기"
 })
 
 L:SetMiscLocalization({
---	EmoteBreath				= "%s이 숨을 깊게 들이마십니다.",
 	EmoteBreath				= "숨을 깊게 들이마십니다.",
 	WarningYellIceblock		= "저 얼음 방패! 제 뒤에 숨으세요!!"
 })
@@ -398,12 +397,9 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	TimerPhase2			= "2 단계 바 표시",
+	TimerPhase2			= "2 단계 바 보기",
 	specwarnP2Soon		= "2 단계 10초 전에 특수 경고 보기",
-	warnAddsSoon		= "얼음왕관의 수호자 등장 사전 알림 보기",
-	SetIconOnMC			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(28410),
-	SetIconOnManaBomb	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(27819),
-	SetIconOnFrostTomb	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(27808),
+	warnAddsSoon		= "얼음왕관의 수호자 이전에 알림 보기",
 	ShowRange			= "2 단계에서 거리 창 보기"
 })
 

@@ -1,7 +1,4 @@
 local L
-					
-local optionWarning		= "Show warning for %s"			-- translate
-local optionPreWarning	= "Show pre-warning for %s"		-- translate
 
 ----------------------------------
 --  Ahn'Kahet: The Old Kingdom  --
@@ -45,11 +42,7 @@ L = DBM:GetModLocalization(586)
 -------------------------
 --  Anub'arak (Party)  --
 -------------------------
-L = DBM:GetModLocalization("Anubarak")
-
-L:SetGeneralLocalization({
-	name = "Anub'arak (Party)"--Probably still needed
-})
+L = DBM:GetModLocalization(587)
 
 ---------------------------------------
 --  Caverns of Time: Old Stratholme  --
@@ -96,7 +89,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningWaveNow	= optionWarning:format("new wave"),
+	WarningWaveNow	= "Show warning for new wave",
 	TimerWaveIn		= "Show timer for next set of waves (after wave 5 boss)",
 	TimerRoleplay	= "Show timer for opening roleplay event."
 })
@@ -232,7 +225,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningPhase	= optionWarning:format("phase number"),
+	WarningPhase	= "Show warning for phase change",
 	timerEvent		= "Show timer for event duration"
 })
 
@@ -447,9 +440,9 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningPortalNow		= optionWarning:format("new portal"),
-	WarningPortalSoon		= optionPreWarning:format("new portal"),
-	WarningBossNow			= optionWarning:format("boss incoming"),
+	WarningPortalNow		= "Show warning for new portal",
+	WarningPortalSoon		= "Show pre-warning for new portal",
+	WarningBossNow			= "Show warning for boss incoming",
 	TimerPortalIn			= "Show timer for next portal (after Boss)",
 	ShowAllPortalTimers		= "Show timers for all portals (inaccurate)"
 })

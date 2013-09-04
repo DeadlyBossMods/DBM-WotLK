@@ -65,7 +65,7 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{	
 	warnTurretsReadySoon		= "La torreta estara lista en 20 segundos",
-	warnTurretsReady		    = "La torreta esta LISTA",
+	warnTurretsReady		    = "La torreta esta LISTA"
 }
 L:SetTimerLocalization{
 	timerTurret1			    = "Torreta 1",
@@ -137,7 +137,7 @@ L:SetOptionLocalization{
 L:SetMiscLocalization{
 	Steelbreaker		= "Rompeacero",
 	RunemasterMolgeim	= "Maestro de runas Molgeim",
-	StormcallerBrundir 	= "Clamatormentas Brundir",
+	StormcallerBrundir 	= "Clamatormentas Brundir"
 }
 
 
@@ -204,7 +204,7 @@ L:SetOptionLocalization{
 	achievementDisarmed		= "Mostrar tiempo para el logro Desarmar",
 	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
 	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
-	YellOnBeam				= "Gritar cuando tengas $spell:63346",
+	YellOnBeam				= "Gritar cuando tengas $spell:63346"
 }
 
 L:SetMiscLocalization{
@@ -327,7 +327,7 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerSimulKill		= "Resurrección",
+	TimerSimulKill		= "Resurrección"
 }
 
 L:SetOptionLocalization{

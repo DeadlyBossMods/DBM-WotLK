@@ -96,7 +96,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	Frostbite	= "為$spell:72098顯示警告",
+	Frostbite	= "為$spell:72098顯示警告"
 }
 
 L:SetMiscLocalization{

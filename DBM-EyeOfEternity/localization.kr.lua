@@ -11,15 +11,6 @@ L:SetGeneralLocalization({
 	name = "말리고스"
 })
 
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
-
 L:SetMiscLocalization({
 	YellPull		= "더는 참을 수가 없구나. 다 없애 버리겠다!",
 	EmoteSpark		= "마력의 불꽃이 근처에 있는 틈에서 올라옵니다!",

@@ -95,7 +95,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	Frostbite	= "Предупреждение для $spell:72098",
+	Frostbite	= "Предупреждение для $spell:72098"
 }
 
 L:SetMiscLocalization{

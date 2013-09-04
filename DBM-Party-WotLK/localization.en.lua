@@ -498,7 +498,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	specwarnRadiance		= "Show special warning for $spell:66935",
+	specwarnRadiance		= DBM_CORE_AUTO_SPEC_WARN_OPTIONS.spell:format(66935),
 	SetIconOnHammerTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66940)
 })
 

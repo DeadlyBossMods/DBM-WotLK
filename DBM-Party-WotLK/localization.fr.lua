@@ -85,7 +85,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningWaveNow	= "Vague %d: %s",
+	WarningWaveNow	= "Vague %d: %s"
 })
 
 L:SetTimerLocalization({
@@ -94,7 +94,7 @@ L:SetTimerLocalization({
 
 L:SetOptionLocalization({
 	WarningWaveNow	= optionWarning:format("New Wave"),
-	TimerWaveIn		= "Montre le timer \"Prochaine vague\" (vague 6 seulement)",
+	TimerWaveIn		= "Montre le timer \"Prochaine vague\" (vague 6 seulement)"
 })
 
 L:SetMiscLocalization({
@@ -401,7 +401,7 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerPortalIn	= "Portail #%d" ,
+	TimerPortalIn	= "Portail #%d" 
 })
 
 L:SetOptionLocalization({

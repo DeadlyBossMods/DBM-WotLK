@@ -407,7 +407,7 @@ L:SetOptionLocalization{
 	ValkyrIcon				= "Setze Zeichen auf Schattenwächterinnen der Val'kyr",
 	AnnounceValkGrabs		= "Verkünde Griffziele der Schattenwächterinnen der Val'kyr im SZ-Chat (benötigt aktivierte Mitteilungen und Leiter-/Assistentenstatus)",
 	SpecWarnValkyrLow		= "Spezialwarnung, wenn eine Schattenwächterin der Val'kyr unter 55% Lebenspunkte ist",
-	AnnouncePlagueStack		= "Verkünde $spell:70337 Stapel an den Schlachtzug (ab 10 Stapel, danach alle 5 Stapel) (nur als Leiter/Assistent)",
+	AnnouncePlagueStack		= "Verkünde $spell:70337 Stapel an den Schlachtzug (ab 10 Stapel, danach alle 5 Stapel) (nur als Leiter/Assistent)"
 }
 
 L:SetMiscLocalization{

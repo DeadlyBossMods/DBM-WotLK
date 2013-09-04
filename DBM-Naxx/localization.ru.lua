@@ -115,7 +115,7 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerTeleport	= "Телепортация",
+	TimerTeleport	= "Телепортация"
 })
 
 L:SetOptionLocalization({
@@ -288,7 +288,7 @@ L:SetMiscLocalization({
 	WarningWave3	= "%d %s, %d %s и %d %s",
 	Trainee			= "Ученика",
 	Knight			= "Рыцаря",
-	Rider			= "Всадника",
+	Rider			= "Всадника"
 })
 
 ---------------------

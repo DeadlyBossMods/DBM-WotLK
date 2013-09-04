@@ -13,7 +13,7 @@ L:SetGeneralLocalization{
 L:SetWarningLocalization{
 	WarningSnobold				= "스노볼트 부하 생성",
 	SpecialWarningImpale3		= "꿰뚫기 (%d)",
-	SpecialWarningAnger3		= "솟구치는 분노 (%d)",	
+	SpecialWarningAnger3		= "솟구치는 분노 (%d)",
 	SpecialWarningSilence		= "1.5 초이내 진동의 발구르기!!!",
 	SpecialWarningCharge		= "당신에게 사나운 돌진! 도망치세요!",
 	SpecialWarningChargeNear	= "당신 주변에 사나운 돌진! 도망치세요!",
@@ -29,22 +29,22 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningSnobold				= "스노볼트 부하 생성 알림 보기",
-	SpecialWarningImpale3		= "꿰뚫기 주문이 3 중첩 이상시 특수 경고 보기",
-	SpecialWarningAnger3		= "솟구치는 분노 주문이 3 중첩 이상시 특수 경고 보기",
+	SpecialWarningImpale3		= "꿰뚫기 3 중첩 이상시 특수 경고 보기",
+	SpecialWarningAnger3		= "솟구치는 분노 3 중첩 이상시 특수 경고 보기",
 	SpecialWarningSilence		= "진동의 발구르기 특수 경고 보기",
-	SpecialWarningCharge		= "얼음울음이 당신에게 사나운 돌진을 할 경우 특수 경고 보기",
-	SpecialWarningChargeNear	= "얼음울음이 당신 주변에 사나운 돌진을 할 경우 특수 경고 보기",
-	SpecialWarningTranq			= "얼음울음이 거품 이는 분노를 얻었을 경우 특수 경고 보기(해제 가능 클래스)",
+	SpecialWarningCharge		= "사나운 돌진 특수 경고 보기",
+	SpecialWarningChargeNear	= "사나운 돌진 대상이 가까이 있을 경우 특수 경고 보기",
+	SpecialWarningTranq			= "거품 이는 분노 해제 특수 경고 보기",
 	SetIconOnChargeTarget		= "사나운 돌진 대상에게 전술 목표 아이콘 설정(해골)",
 	SetIconOnBileTarget			= "타오르는 담즙 대상에게 전술 목표 아이콘 설정",
-	ClearIconsOnIceHowl			= "사나운 돌진 시전 전에 모든 전술 목표 아이콘 지움",
-	PingCharge					= "사나운 돌진 대상이 있는 위치를 미니맵에 표시",
-	TimerNextBoss				= "다음 우두머리 등장 바 표시",
-	TimerCombatStart			= "전투 시작 바 표시",
-	TimerEmerge					= "출현 바 표시",
-	TimerSubmerge				= "숨기 바 표시",
+	ClearIconsOnIceHowl			= "사나운 돌진 전에 모든 전술 목표 아이콘 지움",
+	PingCharge					= "사나운 돌진 대상이 있는 위치를 미니맵에 보기",
+	TimerNextBoss				= "다음 우두머리 등장 바 보기",
+	TimerCombatStart			= "전투 시작 바 보기",
+	TimerEmerge					= "출현 바 보기",
+	TimerSubmerge				= "숨기 바 보기",
 	RangeFrame					= "2 단계에서 거리 창 보기",
-	IcehowlArrow				= "얼음울음이 당신 주변으로 돌진할 경우 DBM 화살표 보기"
+	IcehowlArrow				= "사나운 돌진 대상이 가까이 있을 경우 DBM 화살표 보기"
 }
 
 L:SetMiscLocalization{
@@ -71,8 +71,8 @@ L:SetWarningLocalization{
 	WarnNetherPower				= "황천의 힘 : 군주 자락서스",
 	SpecWarnTouch				= "당신에게 자락서스의 손길!",
 	SpecWarnTouchNear			= "당신 주변에 자락서스의 손길 : >%s<",
-	SpecWarnNetherPower			= "지금 해제!",
-	SpecWarnFelFireball			= "지옥 화염구 - 차단!",
+	SpecWarnNetherPower			= "황천의 힘 - 지금 해제!",
+	SpecWarnFelFireball			= "지옥 화염구 - 차단!"
 }
 
 L:SetTimerLocalization{
@@ -80,12 +80,12 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart			= "전투 시작 바 표시",
-	WarnNetherPower				= "자락서스가 황천의 힘을 얻었을 경우 알림 보기",
-	SpecWarnFelFireball			= "지옥 화염구 시전시 특수 경고 보기(차단)",
-	SpecWarnTouch				= "자락서스의 손길 주문의 대상이 당신일 경우 특수 경고 보기",
-	SpecWarnTouchNear			= "자락서스의 손길 대상이 근처에 있을 경우 특수 경고 보기",
-	SpecWarnNetherPower			= "황천의 힘 특수 경고 보기(해제)",
+	TimerCombatStart			= "전투 시작 바 보기",
+	WarnNetherPower				= "황천의 힘 알림 보기",
+	SpecWarnFelFireball			= "지옥 화염구 차단 특수 경고 보기",
+	SpecWarnTouch				= "자락서스의 손길 대상이 된 경우 특수 경고 보기",
+	SpecWarnTouchNear			= "자락서스의 손길 대상이 가까이 있을 경우 특수 경고 보기",
+	SpecWarnNetherPower			= "황천의 힘 해제 특수 경고 보기",
 	TouchJaraxxusIcon			= "자락서스의 손길 대상에게 전술 목표 아이콘 설정",
 	IncinerateFleshIcon			= "살점 소각 대상에게 전술 목표 아이콘 설정",
 	LegionFlameIcon				= "군단 불꽃 대상에게 전술 목표 아이콘 설정",
@@ -108,14 +108,8 @@ L:SetGeneralLocalization{
 	name = "진영 대표 용사"
 }
 
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
-}
-
 L:SetOptionLocalization{
-	PlaySoundOnBladestorm	= "칼날폭풍 주문을 시전한 경우 별도 경고음 듣기"
+	PlaySoundOnBladestorm	= "칼날폭풍 별도 경고음 듣기"
 }
 
 L:SetMiscLocalization{
@@ -152,7 +146,7 @@ L:SetMiscLocalization{
 
 	AllianceVictory 	= "얼라이언스의 영광을 위하여!",--확인필요
 	HordeVictory		= "앞으로 일어날 일의 맛보기일 뿐이다. 호드를 위하여!",
-	YellKill			= "상처뿐인 승리로군. 오늘 받은 손해로 우리 전력은 약해졌네. 이런 어리석은 짓으로 리치 왕 말고 또 누가 이득을 보겠나? 위대한 용사들이 목숨을 잃었네. 무엇을 위해서였나? 진짜 위협은 저 앞에 있네. 리치 왕이 우리 모두를 죽음 안에서 기다린다네.",
+	YellKill			= "상처뿐인 승리로군. 오늘 받은 손해로 우리 전력은 약해졌네. 이런 어리석은 짓으로 리치 왕 말고 또 누가 이득을 보겠나? 위대한 용사들이 목숨을 잃었네. 무엇을 위해서였나? 진짜 위협은 저 앞에 있네. 리치 왕이 우리 모두를 죽음 안에서 기다린다네."
 }
 
 ------------------
@@ -166,7 +160,7 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{
 	WarnSpecialSpellSoon		= "곧 소용돌이 또는 서약",
-	SpecWarnSpecial				= "약화효과 속성(빛/어둠) 변경!",
+	SpecWarnSpecial				= "차원문 클릭하여 반대 속성으로 변경!",
 	SpecWarnSwitchTarget		= "대상 전환!",
 	SpecWarnKickNow				= "지금 차단!",
 	WarningTouchDebuff			= "손길 : >%s<",
@@ -179,12 +173,12 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerSpecialSpell			= "다음 속성의 소용돌이 또는 쌍둥이의 서약 바 표시",
-	WarnSpecialSpellSoon		= "속성의 소용돌이 또는 쌍둥이의 서약 사전 일림 보기",
+	TimerSpecialSpell			= "다음 속성의 소용돌이 또는 쌍둥이의 서약 바 보기",
+	WarnSpecialSpellSoon		= "속성의 소용돌이 또는 쌍둥이의 서약 이전에 일림 보기",
 	SpecWarnSpecial				= "속성(색) 변경을 해야할 때 특수 경고 보기",
-	SpecWarnSwitchTarget		= "쌍둥이의 서약 도중 대상 전환이 필요할 경우 특수 경고 보기",
-	SpecWarnKickNow				= "쌍둥이의 서약이 차단 가능할때 특수 경고 보기(차단)",
-	SpecialWarnOnDebuff			= "빛/어둠의 손길 영향을 받은 경우 특수 경고 보기",
+	SpecWarnSwitchTarget		= "쌍둥이의 서약 대상 전환 특수 경고 보기",
+	SpecWarnKickNow				= "쌍둥이의 서약 차단 특수 경고 보기",
+	SpecialWarnOnDebuff			= "빛/어둠의 손길 대상이 된 경우 특수 경고 보기",
 	SetIconOnDebuffTarget		= "빛/어둠의 손길 대상에게 전술 목표 아이콘 설정(영웅 난이도)",
 	WarningTouchDebuff			= "빛/어둠의 손길 대상 알림 보기",
 	WarningPoweroftheTwins		= "쌍둥이의 힘 대상 알림 보기",
@@ -225,21 +219,21 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarnEmerge					= "출현 알림 보기",
-	WarnEmergeSoon				= "출현 사전 알림 보기",
+	WarnEmergeSoon				= "출현 이전에 알림 보기",
 	WarnSubmerge				= "잠수 알림 보기",
-	WarnSubmergeSoon			= "잠수 사전 알림 보기",
+	WarnSubmergeSoon			= "잠수 이전에 알림 보기",
 	specWarnSubmergeSoon		= "잠수 10초 전 특수 경고 보기",
-	SpecWarnPursue				= "추격 대상이 당신일 경우 특수 경고 보기",
+	SpecWarnPursue				= "추격 대상이 된 경우 특수 경고 보기",
 	warnAdds					= "네루비안 땅무지 알림 보기",
-	timerAdds					= "다음 네루비안 땅무지 바 표시",
-	TimerEmerge					= "다음 출현 바 표시",
-	TimerSubmerge				= "다음 잠수 바 표시",
-	PlaySoundOnPursue			= "추격 주문의 영향을 받은 경우 별도 경고음 듣기",
+	timerAdds					= "다음 네루비안 땅무지 바 보기",
+	TimerEmerge					= "다음 출현 바 보기",
+	TimerSubmerge				= "다음 잠수 바 보기",
+	PlaySoundOnPursue			= "추격 대상이 당신일 경우 별도 경고음 듣기",
 	PursueIcon					= "추격 대상에게 전술 목표 아이콘 설정",
 	SetIconsOnPCold				= "$spell:66013 대상에게 전술 목표 아이콘 설정",
-	SpecWarnShadowStrike		= "$spell:66134 시전시 특수 경고 보기(차단)",
-	AnnouncePColdIcons			= "$spell:66013 전술 목표 아이콘 설정 내역을 공격대 대화로 알리기<br/>(공격대장 권한 필요)",
-	AnnouncePColdIconsRemoved	= "$spell:66013 전술 목표 아이콘이 제거될때 공격대 대화로 알리기<br/>(위 설정이 선택되어 있어야함)"
+	SpecWarnShadowStrike		= "$spell:66134 차단 특수 경고 보기",
+	AnnouncePColdIcons			= "$spell:66013 전술 목표 아이콘 설정시 공격대 대화로 알리기(공격대장 권한 필요)",
+	AnnouncePColdIconsRemoved	= "$spell:66013 전술 목표 아이콘 제거시 공격대 대화로 알리기(위 설정 필요)"
 }
 
 L:SetMiscLocalization{

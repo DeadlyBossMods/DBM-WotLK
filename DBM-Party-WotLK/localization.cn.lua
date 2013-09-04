@@ -449,7 +449,7 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerPortalIn	= "传送门 #%d",
+	TimerPortalIn	= "传送门 #%d"
 })
 
 L:SetOptionLocalization({

@@ -233,7 +233,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	SpecWarnBlast	= "Schildwachenschlag - Jetzt unterbrechen",
 	WarnCatDied		= "Wilder Verteidiger tot (%d Leben übrig)",
-	WarnCatDiedOne	= "Wilder Verteidiger tot (1 Leben übrig)",
+	WarnCatDiedOne	= "Wilder Verteidiger tot (1 Leben übrig)"
 }
 
 L:SetOptionLocalization{
@@ -310,20 +310,20 @@ L:SetMiscLocalization{
 	WaterSpirit        = "Uralter Wassergeist",
 	Snaplasher         = "Knallpeitscher",
 	StormLasher        = "Sturmpeitscher",
-	YellKill           = "Seine Macht über mich beginnt zu schwinden. Endlich kann ich wieder klar sehen. Ich danke Euch, Helden.",
+	YellKill           = "Seine Macht über mich beginnt zu schwinden. Endlich kann ich wieder klar sehen. Ich danke Euch, Helden."
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill	= "Erster Elementar tot - Wiederbelebung in ~12 Sekunden",
+	WarnSimulKill	= "Erster Elementar tot - Wiederbelebung in ~12 Sekunden"
 }
 
 L:SetTimerLocalization{
-	TimerSimulKill	= "Wiederbelebung",
+	TimerSimulKill	= "Wiederbelebung"
 }
 
 L:SetOptionLocalization{
 	WarnSimulKill	= "Verkünde Tod des ersten Elementars",
-	TimerSimulKill	= "Zeige Zeit bis zur Wiederbelebung der Elementare",
+	TimerSimulKill	= "Zeige Zeit bis zur Wiederbelebung der Elementare"
 }
 
 ----------------------

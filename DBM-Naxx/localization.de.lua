@@ -364,7 +364,7 @@ L:SetWarningLocalization({
 	WarningAirPhaseSoon	= "Luftphase in 10 Sek",
 	WarningAirPhaseNow	= "Luftphase",
 	WarningLanded		= "Bodenphase",
-	WarningDeepBreath	= "Frostatem",
+	WarningDeepBreath	= "Frostatem"
 })
 
 L:SetTimerLocalization({

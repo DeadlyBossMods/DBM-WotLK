@@ -96,7 +96,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningWaveNow	= optionWarning:format("新一波"),
+	WarningWaveNow	= "為新一進攻顯示警告",
 	TimerWaveIn		= "為下一波顯示計時器 (之後5隻小兵波數)",
 	TimerRoleplay	= "為角色扮演事件顯示計時器"
 })
@@ -135,7 +135,7 @@ L:SetMiscLocalization({
 	YellPull		= "籠罩你的寒氣就是厄運的先兆。",
 	HandlerYell		= "協助防禦!快點，廢物們!",
 	Phase2			= "你一定看得出來，這一切都只是徒勞無功罷了!",
-	YellKill		= "你的努力…全是白費。"
+	YellKill		= "你的努力...全是白費。"
 })
 
 -----------------
@@ -228,7 +228,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningPhase	= optionWarning:format("階段數"),
+	WarningPhase	= "為階段改變顯示警告",
 	timerEvent		= "為事件的持續時間顯示計時器"
 })
 
@@ -237,7 +237,7 @@ L:SetMiscLocalization({
 	Phase1	= "安全機制突破中，史實資料分析已調至低優先佇列，啟動反制程序。",
 	Phase2	= "已超出威脅指數標準。天界資料庫已中止。安全等級已提昇。",
 	Phase3	= "威脅指數過高。已轉移無效的分析。啟動清潔處理協定。",
-	Kill	= "警告:安全性系統自動修復裝置已被關閉。開始記憶體內容消除與…"
+	Kill	= "警告:安全性系統自動修復裝置已被關閉。開始記憶體內容消除與..."
 })
 
 -----------------
@@ -340,7 +340,7 @@ L = DBM:GetModLocalization(639)
 L = DBM:GetModLocalization(640)
 
 L:SetMiscLocalization({
-	YellCombatEnd	= "不!不!我還可以…做得更好……"
+	YellCombatEnd	= "不!不!我還可以...做得更好..."
 })
 
 ------------------------
@@ -443,10 +443,10 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningPortalNow		= optionWarning:format("新傳送門"),
-	WarningPortalSoon		= optionPreWarning:format("新傳送門"),
-	WarningBossNow			= optionWarning:format("首領到來"),
-	TimerPortalIn			= "為下一次 傳送門顯示計時器 (擊敗首領後)",
+	WarningPortalNow		= "為新傳送門顯示警告",
+	WarningPortalSoon		= "為新傳送門顯示預先警告",
+	WarningBossNow			= "為首領到來顯示警告",
+	TimerPortalIn			= "為下一次傳送門顯示計時器 (擊敗首領後)",
 	ShowAllPortalTimers		= "為所有傳送門顯示計時器 (不準確)"
 })
 
@@ -533,8 +533,8 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	SaroniteRockThrow	= "%s對你丟出一大塊薩鋼巨石!",
-	AchievementWarning	= "小心: %s 已擁有 %d 層極寒冰霜",
-	AchievementFailed	= ">> 成就失敗: %s 已超過 %d 層極寒冰霜 <<"
+	AchievementWarning	= "小心: %s已擁有%d層極寒冰霜",
+	AchievementFailed	= ">> 成就失敗: %s已超過%d層極寒冰霜 <<"
 })
 
 ----------------------------
@@ -548,7 +548,7 @@ L:SetOptionLocalization({
 L:SetMiscLocalization({
 	CombatStart		= "終於，勇敢、勇敢的冒險者，你的干擾終到盡頭。你聽見了身後隧道中的金屬與骨頭敲擊聲嗎?這就是你即將面對的死亡之聲。",
 	HoarfrostTarget	= "冰霜巨龍霜牙凝視著(%S+)，準備發動寒冰攻擊!",
-	YellCombatEnd	= "不可能…霜牙…警告……"
+	YellCombatEnd	= "不可能...霜牙...警告..."
 })
 
 ----------------------
@@ -627,7 +627,7 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	ACombatStart	= "他太強大了!我們必須立刻離開這裡!我的魔法只能困住他一小段時間。快來吧，英雄們!",
-	HCombatStart	= "他…太強大了。英雄們，快點…到我這裡來!我們要立刻離開這裡!我會盡可能地在我們逃走時把他困住。",
+	HCombatStart	= "他...太強大了。英雄們，快點...到我這裡來!我們要立刻離開這裡!我會盡可能地在我們逃走時把他困住。",
 	Wave1			= "無處可逃!",
 	Wave2			= "屈服於墓地的酷寒之下吧!",
 	Wave3			= "又是死路一條!",

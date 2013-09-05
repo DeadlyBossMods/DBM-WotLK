@@ -20,8 +20,8 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	WarderTrap1	= "誰…在那兒…?",
-	WarderTrap2	= "我…甦醒了!",
+	WarderTrap1	= "誰...在那兒...?",
+	WarderTrap2	= "我...甦醒了!",
 	WarderTrap3	= "主人的聖所受到了打擾!"
 }
 
@@ -71,7 +71,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnGosaEvent	= "為辛德拉苟莎夾道攻擊顯示特別提示"
+	SpecWarnGosaEvent	= "為辛德拉苟莎夾道攻擊顯示特別警告"
 }
 
 L:SetMiscLocalization{
@@ -263,7 +263,7 @@ L:SetOptionLocalization{
 	WarnTargetSwitch		= "為轉換目標顯示警告",
 	WarnTargetSwitchSoon	= "為轉換目標顯示預先警告",
 	TimerTargetSwitch		= "為轉換目標顯示冷卻計時器",
-	ActivePrinceIcon		= "設置標記在強力的親王身上(頭顱)",
+	ActivePrinceIcon		= "設置標記在強化的親王身上(頭顱)",
 	RangeFrame				= "顯示距離框(12碼)",
 	VortexArrow				= "當你附近的人中了$spell:72037時顯示DBM箭頭"
 }
@@ -323,7 +323,7 @@ L:SetOptionLocalization{
 L:SetMiscLocalization{
 	YellPull			= "入侵者已經突破了內部聖所。加快摧毀綠龍的速度!只要留下骨頭和肌腱來復活!",
 	YellKill			= "我重生了!伊瑟拉賦予我讓那些邪惡生物安眠的力量!",
-	YellPortals			= "我打開了一道傳送門通往夢境。你們的救贖就在其中，英雄們……"
+	YellPortals			= "我打開了一道傳送門通往夢境。你們的救贖就在其中，英雄們..."
 }
 
 ------------------

@@ -29,8 +29,6 @@ local timerNextFlameBreath	= mod:NewCDTimer(20, 18435)--Breath she does on groun
 local timerNextDeepBreath	= mod:NewCDTimer(35, 18584)--Range from 35-60seconds in between based on where she moves to.
 local timerBreath			= mod:NewCastTimer(8, 18584)
 local timerWhelps			= mod:NewTimer(105, "TimerWhelps", 10697)
-local timerAchieve			= mod:NewAchievementTimer(300, 4405) 
-local timerAchieveWhelps	= mod:NewAchievementTimer(10, 4406) 
 
 local soundBlastNova		= mod:NewSound(68958, nil, mod:IsMelee())
 local soundDeepBreath 		= mod:NewSound(18584)
@@ -44,18 +42,10 @@ function mod:OnCombatStart(delay)
 	phase = 1
     warned_preP2 = false
 	warned_preP3 = false
-	timerAchieve:Start(-delay)
 	sndFunny:Play("Interface\\AddOns\\DBM-Onyxia\\sounds\\dps-very-very-slowly.ogg")
 	sndFunny:Schedule(20, "Interface\\AddOns\\DBM-Onyxia\\sounds\\hit-it-like-you-mean-it.ogg")
 	sndFunny:Schedule(30, "Interface\\AddOns\\DBM-Onyxia\\sounds\\now-hit-it-very-hard-and-fast.ogg")
 	--Show correct achievement text
-	if self:IsDifficulty("normal25") then
-		timerAchieve		= mod:NewAchievementTimer(300, 4405) 
-		timerAchieveWhelps	= mod:NewAchievementTimer(10, 4406)
-	else
-		timerAchieve		= mod:NewAchievementTimer(300, 4402) 
-		timerAchieveWhelps	= mod:NewAchievementTimer(10, 4403) 
-	end
 end
 
 function mod:Whelps()--Not right, need to fix
@@ -76,7 +66,6 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		phase = 2
 		warnPhase2:Show()
 		timerNextDeepBreath:Start(77)
-		timerAchieveWhelps:Start()
 		timerNextFlameBreath:Cancel()
 		self:ScheduleMethod(5, "Whelps")
 		sndFunny:Schedule(10, "Interface\\AddOns\\DBM-Onyxia\\sounds\\throw-more-dots.ogg")

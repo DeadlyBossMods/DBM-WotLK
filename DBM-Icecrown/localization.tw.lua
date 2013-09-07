@@ -75,7 +75,7 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	SindragosaEvent		= "你們不能靠近冰霜之后。快，阻止他們!"
+	SindragosaEvent		= "你一定不能靠近冰霜之后。快，阻止他們!"
 }
 
 ----------------------
@@ -405,8 +405,8 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	LKPull					= "聖光所謂的正義終於來了嗎？我是否該把霜之哀傷放下，祈求你的寬恕呢，弗丁？",
-	LKRoleplay				= "你們的原動力真的是正義感嗎？我很懷疑……",
+	LKPull					= "聖光所謂的正義終於來了嗎?我是否該把霜之哀傷放下，祈求你的寬恕呢，弗丁?",
+	LKRoleplay				= "你們的原動力真的是正義感嗎?我很懷疑...",
 	ValkGrabbedIcon			= "華爾琪影衛{rt%d}抓住了%s",
 	ValkGrabbed				= "華爾琪影衛抓住了%s",
 	PlagueStackWarning		= "警告: %s中了%d層亡域瘟疫",

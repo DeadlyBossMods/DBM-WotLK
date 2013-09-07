@@ -1,7 +1,5 @@
 ﻿if GetLocale() ~= "zhTW" then return end
 local L
-local optionWarning		= "為%s顯示警告"
-local optionPreWarning	= "為%s顯示預先警告"
 
 ----------------------------------
 --  Ahn'Kahet: The Old Kingdom  --
@@ -91,7 +89,7 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerWaveIn		= "下一波(6)",
+	TimerWaveIn		= "下一波 (6)",
 	TimerRoleplay	= "角色扮演阿薩斯計時"
 })
 
@@ -434,12 +432,12 @@ L:SetGeneralLocalization({
 
 L:SetWarningLocalization({
 	WarningPortalSoon	= "新傳送門即將到來",
-	WarningPortalNow	= "傳送門 #%d",
+	WarningPortalNow	= "第%d個傳送門",
 	WarningBossNow		= "首領到來"
 })
 
 L:SetTimerLocalization({
-	TimerPortalIn	= "傳送門 #%d"
+	TimerPortalIn	= "第%d個傳送門"
 })
 
 L:SetOptionLocalization({
@@ -469,7 +467,7 @@ L:SetOptionLocalization({
 L:SetMiscLocalization({
 	Pull				= "幹得好。今天，你已證明了你自己-",
 	AchievementFailed	= ">> 成就失敗: %s 被食屍鬼爆炸炸到了 <<",
-	YellCombatEnd		= "恭喜你，勇士們。儘管試煉隱藏著許多不安的變數，但你們仍然通過了考驗。"	-- can also be "No! I must not fail... again ..."
+	YellCombatEnd		= "恭喜你，勇士們。儘管試煉隱藏著許多不安的變數，但你們仍然通過了考驗。"
 })
 
 -----------------------
@@ -496,11 +494,11 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization(635)
 
 L:SetWarningLocalization({
-	specwarnRadiance		= "烈光 - 背對王"
+	specwarnRadiance	= "烈光 - 背對王"
 })
 
 L:SetOptionLocalization({
-	specwarnRadiance		= "為$spell:66935顯示特別警告"
+	specwarnRadiance	= "為$spell:66935顯示特別警告"
 })
 
 L:SetMiscLocalization({
@@ -518,8 +516,8 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	IckPursuit		= "%s正在追擊著你!",
-	Barrage			= "%s開始迅速地召喚爆裂地雷!"
+	IckPursuit	= "%s正在追擊著你!",
+	Barrage		= "%s開始迅速地召喚爆裂地雷!"
 })
 
 ----------------------------
@@ -528,7 +526,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization(608)
 
 L:SetOptionLocalization({
-	AchievementCheck			= "提示 '別到十一' 的成就警告到隊伍頻道"
+	AchievementCheck	= "提示 '別到十一' 的成就警告到隊伍頻道"
 })
 
 L:SetMiscLocalization({

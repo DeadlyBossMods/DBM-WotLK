@@ -49,8 +49,8 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	warnTurretsReadySoon		= "20秒後 最後一座砲塔完成",
-	warnTurretsReady			= "最後一座砲塔已完成"
+	warnTurretsReadySoon	= "20秒後 最後一座砲塔完成",
+	warnTurretsReady		= "最後一座砲塔已完成"
 }
 
 L:SetTimerLocalization{
@@ -97,7 +97,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	AlwaysWarnOnOverload		= "總是對$spell:63481顯示警告(否則只有當目標是風暴召喚者的時候顯示)"
+	AlwaysWarnOnOverload	= "總是對$spell:63481顯示警告(否則只有當目標是風暴召喚者的時候顯示)"
 }
 
 L:SetMiscLocalization{
@@ -122,14 +122,14 @@ L:SetTimerLocalization{
 
 L:SetWarningLocalization{
 	WarningPhasePunch		= "相位拳擊: >%s< - 第%d層",
-	WarnPhase2Soon			= "第2階段 即將到來",
+	WarnPhase2Soon			= "第2階段即將到來",
 	warnStarLow				= "崩陷之星血量低",
 	FirstPullNotice			= "檢測為第一次戰鬥，自動校正定時器。"
 }
 
 L:SetOptionLocalization{
 	WarningPhasePunch		= "提示相位拳擊的目標",
-	NextCollapsingStar		= "為下一次 崩陷之星顯示計時器",
+	NextCollapsingStar		= "為下一次崩陷之星顯示計時器",
 	TimerCombatStart		= "為戰鬥開始顯示計時器",
 	WarnPhase2Soon			= "為第2階段顯示預先警告 (大約23%)",
 	warnStarLow				= "當崩陷之星血量低(大約25%)時顯示特別警告"
@@ -137,8 +137,8 @@ L:SetOptionLocalization{
 
 L:SetMiscLocalization{
 	YellPull			= "你的行為毫無意義。這場衝突的結果早已計算出來了。不論結局為何，萬神殿仍將收到觀察者的訊息。",
-	YellKill			= "我曾經看過塵世沉浸在造物者的烈焰之中，眾生連一聲悲泣都無法呼出，就此凋零。整個星系在彈指之間歷經了毀滅與重生。然而在這段歷程之中，我的心卻無法感受到絲毫的…惻隱之念。我‧感‧受‧不‧到。成千上萬的生命就這麼消逝。他們是否擁有與你同樣堅韌的生命?他們是否與你同樣熱愛生命?",
-	Emote_CollapsingStar		= "%s開始召喚崩陷之星!",
+	YellKill			= "我曾經看過塵世沉浸在造物者的烈焰之中，眾生連一聲悲泣都無法呼出，就此凋零。整個星系在彈指之間歷經了毀滅與重生。然而在這段歷程之中，我的心卻無法感受到絲毫的...惻隱之念。我‧感‧受‧不‧到。成千上萬的生命就這麼消逝。他們是否擁有與你同樣堅韌的生命?他們是否與你同樣熱愛生命?",
+	Emote_CollapsingStar	= "%s開始召喚崩陷之星!",
 	Phase2				= "瞧瞧泰坦造物的能耐吧!",
 	FirstPull			= "從我的雙眼觀看你的世界:一個無邊無際的宇宙--連你們之中最具智慧者都無法想像的廣闊無垠。",
 	PullCheck			= "艾爾加隆開始上傳滅世訊息的剩餘時間= (%d+)分鐘。"
@@ -215,7 +215,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellKill			= "我...我終於從他的掌控中...解脫了。"
+	YellKill	= "我...我終於從他的掌控中...解脫了。"
 }
 
 --------------
@@ -294,7 +294,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	MagneticCore		= ">%s< 拿到了磁能之核",
+	MagneticCore		= ">%s<拿到了磁能之核",
 	WarningShockBlast	= "震爆 - 快跑開",
 	WarnBombSpawn		= "炸彈機器人出現了"
 }
@@ -362,7 +362,7 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	EmoteSaroniteVapors	= "一片薩倫煙霧在附近聚合"
+	EmoteSaroniteVapors	= "一片薩倫煙霧在附近聚合!"
 }
 
 ------------------
@@ -382,13 +382,13 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningGuardianSpawned 			= "尤格薩倫守護者 %d 出現了",
+	WarningGuardianSpawned 			= "第%d個尤格薩倫守護者出現了",
 	WarningCrusherTentacleSpawned	= "粉碎觸手出現了",
-	WarningSanity 					= "剩下 %d 理智",
-	SpecWarnSanity 					= "剩下 %d 理智",
+	WarningSanity 					= "剩下%d理智",
+	SpecWarnSanity 					= "剩下%d理智",
 	SpecWarnGuardianLow				= "停止攻擊這隻守護者",
 	SpecWarnMadnessOutNow			= "瘋狂誘陷即將結束 - 快傳送出去",
-	WarnBrainPortalSoon				= "3秒後 腦部傳送門",
+	WarnBrainPortalSoon				= "3秒後腦部傳送門",
 	SpecWarnFervor					= "你中了薩拉的熱誠",
 	SpecWarnFervorCast				= "薩拉的熱誠正在對你施放",
 	SpecWarnMaladyNear				= "你附近的%s中了心靈缺陷",
@@ -404,14 +404,14 @@ L:SetOptionLocalization{
 	WarningCrusherTentacleSpawned	= "為粉碎觸手出現顯示警告",
 	WarningSanity					= "當理智剩下50時顯示警告",
 	SpecWarnSanity					= "當理智過低(25,15,5)時顯示特別警告",
-	SpecWarnGuardianLow				= "當守護者(第1階段)血量過低時顯示特別警告 (DD用)",
+	SpecWarnGuardianLow				= "當守護者(第1階段)血量過低時顯示特別警告(DD用)",
 	WarnBrainPortalSoon				= "為腦部傳送門顯示預先警告",
 	SpecWarnMadnessOutNow			= "為瘋狂誘陷結束前顯示特別警告",
-	SpecWarnFervorCast				= "當薩拉的熱誠正在對你施放時顯示特別警告 (必須有最少一名團隊成員設置目標或專注目標)",
+	SpecWarnFervorCast				= "當薩拉的熱誠正在對你施放時顯示特別警告(必須有最少一名團隊成員設置目標或專注目標)",
 	specWarnBrainPortalSoon			= "為下一次腦部傳送門顯示特別警告",
 	WarningSqueeze					= "當你中了壓榨 (觸手綁人)時大喊",
 	NextPortal						= "為下一次傳送門顯示計時器",
-	ShowSaraHealth					= "顯示薩拉在第1階段的血量 (必須有最少一名團隊成員設置目標或專注目標)",
+	ShowSaraHealth					= "顯示薩拉在第1階段的血量(必須有最少一名團隊成員設置目標或專注目標)",
 	SpecWarnMaladyNear				= "當你附近的人中了心靈缺陷時顯示特別警告",
 	MaladyArrow						= "當你附近的人中了$spell:63881時顯示DBM箭頭"
 }

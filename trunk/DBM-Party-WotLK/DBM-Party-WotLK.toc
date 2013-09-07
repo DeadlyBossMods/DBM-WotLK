@@ -28,7 +28,7 @@
 ## X-DBM-Mod-Name-frFR: Groupe-WotLK
 ## X-DBM-Mod-Name-deDE: Gruppe (WotLK)
 ## X-DBM-Mod-Name-ruRU: Групповые подземелья-WotLK
-## X-DBM-Mod-Name-zhTW: 隊伍首領-巫妖王之怒
+## X-DBM-Mod-Name-zhTW: 隊伍首領 (巫妖王之怒)
 ## X-DBM-Mod-Name-zhCN: 队伍首领-WotLK
 ## X-DBM-Mod-Name-esES: Mazmorras-WotLK
 ## X-DBM-Mod-Name-koKR: 5인 던전(리치왕의 분노)

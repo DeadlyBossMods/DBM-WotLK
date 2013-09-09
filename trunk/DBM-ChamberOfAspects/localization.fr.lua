@@ -97,8 +97,7 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	WarningSplitSoon	= "Show pre-warning for Split",
-	RangeFrame			= "Show range frame (12 yards)",
-	SetIconOnBrand		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74505)
+	RangeFrame			= "Show range frame (12 yards)"
 })
 
 L:SetMiscLocalization({
@@ -119,8 +118,7 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	SpecialWarningTranq		= "Show special warning for $spell:78722 (to tranq)",
-	RangeFrame				= "Show range frame (10 yards)",
-	BeaconIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74453)
+	RangeFrame				= "Show range frame (10 yards)"
 })
 
 L:SetMiscLocalization{
@@ -146,8 +144,7 @@ L:SetTimerLocalization({
 
 L:SetOptionLocalization({
 	WarnAdds		= "Announce new adds",
-	TimerAdds		= "Show timer for new adds",
-	warnCleaveArmor	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(74367)
+	TimerAdds		= "Show timer for new adds"
 })
 
 L:SetMiscLocalization({

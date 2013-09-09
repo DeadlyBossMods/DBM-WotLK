@@ -91,7 +91,6 @@ L:SetOptionLocalization{
 	SpecWarnTouchNear			= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:66209 betroffen ist", -- obsolete
 	SpecWarnNetherPower			= "Spezialwarnung für $spell:67009 (zum Reinigen/Rauben)",
 	SpecWarnFelFireball			= "Spezialwarnung für Teufelsfeuerball (zum Unterbrechen)",
-	TouchJaraxxusIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66209),
 	IncinerateFleshIcon			= "Setze Zeichen auf Ziele von Fleisch einäschern",
 	LegionFlameIcon				= "Setze Zeichen auf Ziele von Legionsflamme",
 	LegionFlameWhisper			= "Ziele von Legionsflamme anflüstern (benötigt Schlachtzugleitung)",
@@ -244,9 +243,7 @@ L:SetOptionLocalization{
 	timerAdds				= "Zeige Zeit bis neue Adds erscheinen",
 	TimerEmerge				= "Zeige Zeit bis Auftauchen",
 	TimerSubmerge			= "Zeige Zeit bis Abtauchen",
-	PursueIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67574),
 	SpecWarnShadowStrike	= "Spezialwarnung für $spell:66134 (zum Unterbrechen)",
-	SetIconsOnPCold         = DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66013),
 	AnnouncePColdIcons		= "Verkünde Zeichen für Ziele von $spell:66013 im Schlachtzugchat (nur als Leiter)",
 	AnnouncePColdIconsRemoved	= "Verkünde auch das Entfernen von Zeichen für $spell:66013 (benötigt obige Einstellung)"
 }

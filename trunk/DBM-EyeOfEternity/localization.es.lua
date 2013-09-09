@@ -11,15 +11,6 @@ L:SetGeneralLocalization({
 	name = "Malygos"
 })
 
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
-
 L:SetMiscLocalization({
 	YellPull		= "Habéis agotado mi paciencia. ¡Me desharé de vosotros!",
 	EmoteSpark		= "¡Un Chispazo toma forma a partir de una falla cercana!",

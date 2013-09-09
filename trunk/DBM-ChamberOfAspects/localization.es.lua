@@ -102,8 +102,7 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	WarningSplitSoon	= "Mostrar pre-aviso para Separación (54%)",
-	RangeFrame			= "Mostrar distancia (12 yardas)",
-	SetIconOnBrand		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74505)
+	RangeFrame			= "Mostrar distancia (12 yardas)"
 })
 
 L:SetMiscLocalization({
@@ -124,8 +123,7 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	SpecialWarningTranq		= "Mostrar aviso especial para $spell:78722 (para tranquilizar)",
-	RangeFrame				= "Mostrar distancia (10 yardas)",
-	BeaconIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74453)
+	RangeFrame				= "Mostrar distancia (10 yardas)"
 })
 
 L:SetMiscLocalization{
@@ -152,8 +150,7 @@ L:SetTimerLocalization({
 
 L:SetOptionLocalization({
 	WarnAdds		= "Anunciar nuevos adds",
-	TimerAdds		= "Mostrar tiempo para nuevos adds",
-	warnCleaveArmor	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(74367)
+	TimerAdds		= "Mostrar tiempo para nuevos adds"
 })
 
 L:SetMiscLocalization({

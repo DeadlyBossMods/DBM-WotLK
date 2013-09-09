@@ -41,9 +41,6 @@ L:SetGeneralLocalization{
 	name 				= "风暴看守者埃玛尔隆"
 }
 
-L:SetWarningLocalization{
-}
-
 L:SetTimerLocalization{
 	timerMobOvercharge		= "超载爆炸",
 	EmalonEnrage			= "埃玛尔隆狂暴"

@@ -16,7 +16,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrap		= "Спец-предупреждение для активации ловушки"
+	SpecWarnTrap		= "Спец-предупреждение для активации ловушки",
 }
 
 L:SetMiscLocalization{
@@ -35,7 +35,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnMortalWound	= "%s на |3-5(>%s<) (%d)",		-- Mortal Wound on >args.destName< (args.amount)
 	SpecWarnTrap	= "Ловушка активирована! - приближаются Мстительные свежеватели"--creatureid 37038
 }
 
@@ -71,7 +70,6 @@ L:SetWarningLocalization{
 	SpecWarnGosaEvent	= "Приближаются защитники Синдрагосы!"
 }
 
-
 L:SetOptionLocalization{
 	SpecWarnGosaEvent	= "Спец-предупреждение для активации защитников Синдрагосы"
 }
@@ -89,19 +87,6 @@ L:SetGeneralLocalization{
 	name = "Лорд Ребрад"
 }
 
-L:SetTimerLocalization{
-	AchievementBoned	= "Время до освобождения"
-}
-
-L:SetWarningLocalization{
-	WarnImpale			= "Прокалывание: >%s<"
-}
-
-L:SetOptionLocalization{
-	WarnImpale			= "Объявлять цели заклинания $spell:69062",
-	AchievementBoned	= "Отсчет времени для достижения Косточка попалась"
-}
-
 -------------------------
 --  Lady Deathwhisper  --
 -------------------------
@@ -117,13 +102,12 @@ L:SetTimerLocalization{
 
 L:SetWarningLocalization{
 	WarnReanimating				= "Помощник воскрешается",			-- Reanimating an adherent or fanatic
-	WarnTouchInsignificance		= "%s на |3-5(>%s<) (%d)",		-- Touch of Insignificance on >args.destName< (args.amount)
 	WarnAddsSoon				= "Скоро призыв помощников"
 }
 
 L:SetOptionLocalization{
 	WarnAddsSoon				= "Предупреждать заранее о призыве помощников",
-	WarnReanimating				= "Предупреждение при воскрешении помощников",											-- Reanimated Adherent/Fanatic spawning
+	WarnReanimating				= "Предупреждение при воскрешении помощников",	-- Reanimated Adherent/Fanatic spawning
 	TimerAdds					= "Отсчет времени до призыва помощников",
 	ShieldHealthFrame			= "Показывать здоровье босса с индикатором здоровья для <br/>$spell:70842"
 }
@@ -145,8 +129,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnBattleFury	= "%s (%d)",
-	WarnAddsSoon	= "Скоро призыв помощников"
+	WarnAddsSoon	= "Скоро новые помощники"
 }
 
 L:SetOptionLocalization{
@@ -180,17 +163,12 @@ L:SetGeneralLocalization{
 	name = "Саурфанг Смертоносный"
 }
 
-L:SetWarningLocalization{
-	WarnFrenzySoon	= "Скоро Бешенство"
-}
-
 L:SetTimerLocalization{
 	TimerCombatStart		= "Начало боя"
 }
 
 L:SetOptionLocalization{
 	TimerCombatStart		= "Отсчет времени до начала боя",
-	WarnFrenzySoon			= "Предупреждать о скором Бешенстве (на ~33%)",
 	RangeFrame				= "Показывать окно проверки дистанции (12 м)",
 	RunePowerFrame			= "Показывать здоровье босса + индикатор для $spell:72371",
 	BeastIcons				= "Устанавливать метки на Кровавые чудовища"
@@ -240,7 +218,7 @@ L:SetOptionLocalization{
 	WarnOozeSpawn				= "Предупреждение при появлении Малого слизнюка",
 	SpecWarnLittleOoze			= "Спец-предупреждение, когда вас атакует Малый слизнюк",--creatureid 36897
 	RangeFrame					= "Показывать окно проверки дистанции (8 м)",
-	TankArrow					= "Показывать стрелку для кайтера Большого слизнюка (экспериментально)"
+	TankArrow					= "Показывать стрелку для кайтера Большого слизнюка"
 }
 
 L:SetMiscLocalization{
@@ -344,8 +322,7 @@ L:SetOptionLocalization{
 L:SetMiscLocalization{
 	YellPull		= "Чужаки ворвались во внутренние покои. Уничтожьте зеленого дракона! Пусть останутся лишь кости и прах для воскрешения!",
 	YellKill		= "Я ИЗЛЕЧИЛАСЬ! Изера, даруй мне силу покончить с этими нечестивыми тварями.",
-	YellPortals		= "Я открыла портал в Изумрудный Сон. Там вы найдете спасение, герои...",
-	YellPhase2		= "Силы возвращаются ко мне. Герои, еще немного!"--Need to confirm this is when adds spawn faster (phase 2) before used in mod
+	YellPortals		= "Я открыла портал в Изумрудный Сон. Там вы найдете спасение, герои..."
 }
 
 ------------------
@@ -357,15 +334,15 @@ L:SetGeneralLocalization{
 	name = "Синдрагоса"
 }
 
+L:SetWarningLocalization{
+	WarnAirphase			= "Воздушная фаза",
+	WarnGroundphaseSoon		= "Синдрагоса скоро приземлится"
+}
+
 L:SetTimerLocalization{
 	TimerNextAirphase		= "След. воздушная фаза",
 	TimerNextGroundphase	= "След. наземная фаза",
 	AchievementMystic		= "Время для устранения Таинственной энергии"
-}
-
-L:SetWarningLocalization{
-	WarnAirphase			= "Воздушная фаза",
-	WarnGroundphaseSoon		= "Синдрагоса скоро приземлится"
 }
 
 L:SetOptionLocalization{

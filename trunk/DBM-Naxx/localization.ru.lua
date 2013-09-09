@@ -23,7 +23,9 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	ArachnophobiaTimer	= "Арахнофобия"
+	ArachnophobiaTimer	= "Арахнофобия",
+	Pull1				= "Yes, run! It makes the blood pump faster!",
+	Pull2				= "Just a little taste..."
 })
 
 ----------------------------
@@ -43,6 +45,10 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	WarningEmbraceExpire	= "Предупреждение, когда Объятие Вдовы исчезает",
 	WarningEmbraceExpired	= "Предупреждение, когда Объятие Вдовы закончится"
+})
+
+L:SetMiscLocalization({
+	Pull					= "Kneel before me, worm!"--Not actually pull trigger, but often said on pull
 })
 
 ---------------
@@ -100,6 +106,10 @@ L:SetOptionLocalization({
 	TimerTeleportBack	= "Отсчет времени до обратной телепортации"
 })
 
+L:SetMiscLocalization({
+	Pull				= "Die, trespasser!"
+})
+
 --------------------------
 --  Heigan the Unclean  --
 --------------------------
@@ -124,6 +134,10 @@ L:SetOptionLocalization({
 	TimerTeleport		= "Отсчет времени до телепортации"
 })
 
+L:SetMiscLocalization({
+	Pull				= "You are mine now."
+})
+
 ---------------
 --  Loatheb  --
 ---------------
@@ -134,13 +148,13 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningHealSoon	= "Исцеление через 3 секунды",
-	WarningHealNow	= "Исцеление"
+	WarningHealSoon	= "Можно исцелять через 3 секунды",
+	WarningHealNow	= "Исцеляйте сейчас"
 })
 
 L:SetOptionLocalization({
-	WarningHealSoon		= "Предупреждать перед следующим исцелением",
-	WarningHealNow		= "Предупреждение для исцеления"
+	WarningHealSoon		= "Предупреждать заранее перед 3-х секундным окном исцеления",
+	WarningHealNow		= "Предупреждение для 3-х секундного окна исцеления"
 })
 
 -----------------
@@ -374,9 +388,6 @@ L:SetOptionLocalization({
 	TimerPhase2			= "Отсчет времени до фазы 2",
 	specwarnP2Soon		= "Спец-предупреждение за 10 секунд до вступления Кел'Тузада в бой",
 	warnAddsSoon		= "Предупреждать заранее о Стражах Ледяной Короны",
-	SetIconOnMC			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(28410),
-	SetIconOnManaBomb	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(27819),
-	SetIconOnFrostTomb	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(27808),
 	ShowRange			= "Показывать окно проверки дистанции в фазе 2"
 })
 

@@ -8,9 +8,6 @@ L = DBM:GetModLocalization("FlameLeviathan")
 L:SetGeneralLocalization{
 	name = "Flame Leviathan"
 }
-
-L:SetTimerLocalization{
-}
 	
 L:SetMiscLocalization{
 	YellPull	= "Hostile entities detected. Threat assessment protocol active. Primary target engaged. Time minus 30 seconds to re-evaluation.",
@@ -38,12 +35,6 @@ L = DBM:GetModLocalization("Ignis")
 
 L:SetGeneralLocalization{
 	name = "Ignis the Furnace Master"
-}
-
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
@@ -98,12 +89,6 @@ L:SetGeneralLocalization{
 	name = "XT-002 Deconstructor"
 }
 
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
-}
-
 L:SetOptionLocalization{
 	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
 	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
@@ -116,12 +101,6 @@ L = DBM:GetModLocalization("IronCouncil")
 
 L:SetGeneralLocalization{
 	name = "Iron Council"
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
@@ -181,9 +160,6 @@ L = DBM:GetModLocalization("Kologarn")
 
 L:SetGeneralLocalization{
 	name = "Kologarn"
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
@@ -249,12 +225,6 @@ L:SetGeneralLocalization{
 	name = "Hodir"
 }
 
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
-}
-
 L:SetOptionLocalization{
 	SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133)
 }
@@ -270,9 +240,6 @@ L = DBM:GetModLocalization("Thorim")
 
 L:SetGeneralLocalization{
 	name = "Thorim"
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
@@ -330,15 +297,6 @@ L = DBM:GetModLocalization("Freya_Elders")
 
 L:SetGeneralLocalization{
 	name = "Freya's Elders"
-}
-
-L:SetMiscLocalization{
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
 }
 
 ---------------
@@ -477,4 +435,3 @@ L:SetOptionLocalization{
 	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
 	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you"
 }
-

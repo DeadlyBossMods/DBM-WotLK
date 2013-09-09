@@ -387,9 +387,6 @@ L:SetOptionLocalization({
 	TimerPhase2			= "Zeige Zeit bis Phase 2",
 	specwarnP2Soon		= "Spezialwarnung 10 Sekunden bevor Kel'Thuzad angreift",
 	warnAddsSoon		= "Zeige Vorwarnung für Wächter von Eiskrone",
-	SetIconOnMC			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(28410),
-	SetIconOnManaBomb	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(27819),
-	SetIconOnFrostTomb	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(27808),
 	ShowRange			= "Zeige Abstandsfenster, wenn Phase 2 startet"
 })
 

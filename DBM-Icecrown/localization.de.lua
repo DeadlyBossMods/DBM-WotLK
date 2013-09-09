@@ -11,7 +11,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecWarnTrap		= "Falle aktiviert! - Todesgeweihter Wächter freigesetzt" --creatureid 37007
+	SpecWarnTrap		= "Falle aktiviert! - Todesgeweihter Wächter freigesetzt"
 }
 
 L:SetOptionLocalization{
@@ -34,7 +34,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecWarnTrap	= "Falle aktiviert! - Rachsüchtige Fleischernter kommen" --creatureid 37038
+	SpecWarnTrap	= "Falle aktiviert! - Rachsüchtige Fleischernter kommen"
 }
 
 L:SetOptionLocalization{
@@ -86,14 +86,6 @@ L:SetGeneralLocalization{
 	name = "Lord Mark'gar"
 }
 
-L:SetTimerLocalization{
-	AchievementBoned	= "Zeit zum Befreien"
-}
-
-L:SetOptionLocalization{
-	AchievementBoned	= "Zeige Timer für Erfolg 'Entknöchert'"
-}
-
 -------------------------
 --  Lady Deathwhisper  --
 -------------------------
@@ -108,13 +100,13 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnReanimating				= "Add-Wiederbelebung",			-- Reanimating an adherent or fanatic
+	WarnReanimating				= "Add-Wiederbelebung",
 	WarnAddsSoon				= "Neue Adds bald"
 }
 
 L:SetOptionLocalization{
 	WarnAddsSoon				= "Zeige Vorwarnung für erscheinende Adds",
-	WarnReanimating				= "Zeige Warnung, wenn ein Add wiederbelebt wird",	-- Reanimated Adherent/Fanatic spawning
+	WarnReanimating				= "Zeige Warnung, wenn ein Add wiederbelebt wird",
 	TimerAdds					= "Zeige Zeit bis neue Adds erscheinen",
 	ShieldHealthFrame			= "Zeige Lebensanzeige mit einem Balken für $spell:70842"
 }
@@ -218,19 +210,19 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{
 	WarnOozeSpawn				= "Kleiner Schlamm erscheint",
-	SpecWarnLittleOoze			= "Kleiner Schlamm greift dich an - Lauf weg!"--creatureid 36897
+	SpecWarnLittleOoze			= "Kleiner Schlamm greift dich an - Lauf weg!"
 }
 
 L:SetOptionLocalization{
 	WarnOozeSpawn				= "Zeige Warnung für Erscheinen eines Kleinen Schlamm",
-	SpecWarnLittleOoze			= "Spezialwarnung, wenn du von einem Kleinen Schlamm angegriffen wirst",--creatureid 36897
+	SpecWarnLittleOoze			= "Spezialwarnung, wenn du von einem Kleinen Schlamm angegriffen wirst",
 	RangeFrame					= "Zeige Abstandsfenster (8m)",
 	TankArrow					= "Zeige DBM-Pfeil zum Kiter von 'Großer Schlamm'" 
 }
 
 L:SetMiscLocalization{
-	YellSlimePipes1	= "Gute Nachricht, Freunde! Die Giftschleim-Rohre sind repariert!",	-- Professor Putricide
-	YellSlimePipes2	= "Gute Nachricht, Freunde! Der Schleim fließt wieder!"	-- Professor Putricide
+	YellSlimePipes1	= "Gute Nachricht, Freunde! Die Giftschleim-Rohre sind repariert!",
+	YellSlimePipes2	= "Gute Nachricht, Freunde! Der Schleim fließt wieder!"
 }
 
 ---------------------------
@@ -266,8 +258,8 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	WarnTargetSwitch		= "Zeige Warnung für Zielwechsel",-- Warn when another Prince needs to be damaged
-	WarnTargetSwitchSoon	= "Zeige Vorwarnung für Zielwechsel",-- Every ~47 secs, you have to dps a different Prince
+	WarnTargetSwitch		= "Zeige Warnung für Zielwechsel",
+	WarnTargetSwitchSoon	= "Zeige Vorwarnung für Zielwechsel",
 	TimerTargetSwitch		= "Zeige Zeit bis Zielwechsel",
 	ActivePrinceIcon		= "Setze Zeichen auf den machterfüllten Prinzen (Totenkopf)",
 	RangeFrame				= "Zeige Abstandsfenster (12m)",
@@ -341,15 +333,15 @@ L:SetGeneralLocalization{
 	name = "Sindragosa"
 }
 
+L:SetWarningLocalization{
+	WarnAirphase			= "Luftphase",
+	WarnGroundphaseSoon		= "Sindragosa landet bald"
+}
+
 L:SetTimerLocalization{
 	TimerNextAirphase		= "Nächste Luftphase",
 	TimerNextGroundphase	= "Nächste Bodenphase",
 	AchievementMystic		= "Ablaufzeit für Mystischer Puffer"
-}
-
-L:SetWarningLocalization{
-	WarnAirphase			= "Luftphase",
-	WarnGroundphaseSoon		= "Sindragosa landet bald"
 }
 
 L:SetOptionLocalization{

@@ -98,8 +98,7 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	WarningSplitSoon	= "Zeige Vorwarnung für Aufspaltung",
-	RangeFrame			= "Zeige Abstandsfenster (12m)",
-	SetIconOnBrand		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74505)
+	RangeFrame			= "Zeige Abstandsfenster (12m)"
 })
 
 L:SetMiscLocalization({
@@ -120,8 +119,7 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	SpecialWarningTranq		= "Spezialwarnung für $spell:78722",
-	RangeFrame				= "Zeige Abstandsfenster (10m)",
-	BeaconIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(74453)
+	RangeFrame				= "Zeige Abstandsfenster (10m)"
 })
 
 L:SetMiscLocalization{
@@ -138,7 +136,7 @@ L:SetGeneralLocalization({
 
 L:SetWarningLocalization({
 	WarnAdds	= "Neue Adds",
-	warnCleaveArmor	= "%s auf >%s< (%s)"		-- Cleave Armor on >args.destName< (args.amount)
+	warnCleaveArmor	= "%s auf >%s< (%s)"
 })
 
 L:SetTimerLocalization({
@@ -147,8 +145,7 @@ L:SetTimerLocalization({
 
 L:SetOptionLocalization({
 	WarnAdds		= "Verkünde neue Adds",
-	TimerAdds		= "Zeige Zeit bis neue Adds erscheinen",
-	warnCleaveArmor	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(74367)
+	TimerAdds		= "Zeige Zeit bis neue Adds erscheinen"
 })
 
 L:SetMiscLocalization({

@@ -47,10 +47,6 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 }
 
-L:SetOptionLocalization{
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
-}
-
 ------------------
 --  Razorscale  --
 ------------------
@@ -105,11 +101,6 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 }
 
-L:SetOptionLocalization{
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
-}
-
 --------------------
 --  Iron Council  --
 --------------------
@@ -126,8 +117,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
 	AlwaysWarnOnOverload		= "Warne immer bei $spell:63481 (sonst nur wenn Sturmrufer Brundir im Ziel)"
 }
 
@@ -196,10 +185,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	timerLeftArm			= "Zeige Zeit bis der linke Arm nachwächst",
 	timerRightArm			= "Zeige Zeit bis der rechte Arm nachwächst",
-	achievementDisarmed		= "Zeige Timer für Erfolg 'Arm dran, weil Arm ab'",
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
-	YellOnBeam				= "Schreie bei $spell:63346 auf dir"
+	achievementDisarmed		= "Zeige Timer für Erfolg 'Arm dran, weil Arm ab'"
 }
 
 L:SetMiscLocalization{
@@ -208,8 +194,7 @@ L:SetMiscLocalization{
 	Health_Body				= "Kologarn",
 	Health_Right_Arm		= "Rechter Arm",
 	Health_Left_Arm			= "Linker Arm",
-	FocusedEyebeam			= "%s fokussiert seinen Blick auf Euch!",
-	YellBeam				= "Fokussierter Augenstrahl auf mir!"
+	FocusedEyebeam			= "%s fokussiert seinen Blick auf Euch!"
 }
 
 ---------------
@@ -256,10 +241,6 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-}
-
-L:SetOptionLocalization{
-	SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133)
 }
 
 L:SetMiscLocalization{
@@ -377,9 +358,7 @@ L:SetOptionLocalization{
 	TimerHardmode			= "Zeige Timer für Hard Mode",
 	ShockBlastWarningInP1	= "Spezialwarnung für $spell:63631 in Phase 1",
 	ShockBlastWarningInP4	= "Spezialwarnung für $spell:63631 in Phase 4",
-	RangeFrame				= "Zeige Abstandsfenster in Phase 1 (6m)",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	RangeFrame				= "Zeige Abstandsfenster in Phase 1 (6m)"
 }
 
 L:SetMiscLocalization{
@@ -469,15 +448,12 @@ L:SetOptionLocalization{
 	SpecWarnGuardianLow				= "Spezialwarnung, wenn ein Wächter des Yogg-Saron (Phase 1) fast tot ist (für DDs)",
 	WarnBrainPortalSoon				= "Zeige Vorwarnung für Gehirnportale",
 	SpecWarnMadnessOutNow			= "Spezialwarnung kurz bevor $spell:64059 zu Ende gewirkt wird",
-	SetIconOnFearTarget				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63881),
 	SpecWarnFervorCast				= "Spezialwarnung, wenn $spell:63138 auf dich gewirkt wird (muss anvisiert oder im Fokus mindestens eines Schlachtzugmitglieds sein)",
 	specWarnBrainPortalSoon			= "Spezialwarnung für nächste Gehirnportale",
 	WarningSqueeze					= "Schreie bei Quetschen auf dir",
 	NextPortal						= "Zeige Zeit bis nächste Gehirnportale",
-	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138),
 	ShowSaraHealth					= "Zeige Lebensanzeige für Sara in Phase 1 (muss anvisiert oder im Fokus mindestens eines Schlachtzugmitglieds sein)",
 	SpecWarnMaladyNear				= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:63881 betroffen ist",
-	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
 	MaladyArrow						= "Zeige DBM-Pfeil, wenn $spell:63881 in deiner Nähe ist"
 }
 

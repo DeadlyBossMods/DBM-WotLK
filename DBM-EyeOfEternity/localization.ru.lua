@@ -11,15 +11,6 @@ L:SetGeneralLocalization({
 	name = "Малигос"
 })
 
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
-
 L:SetMiscLocalization({
 	YellPull	= "Мое терпение лопнуло! Пора от вас избавиться!",
 	EmoteSpark	= "Искра мощи появляется из ближайшей расселины!",

@@ -35,9 +35,6 @@ L:SetGeneralLocalization{
 	name = "Emalon the Storm Watcher"
 }
 
-L:SetWarningLocalization{
-}
-
 L:SetTimerLocalization{
 	timerMobOvercharge	= "Overcharge explosion",
 	EmalonEnrage		= "Emalon berserk"

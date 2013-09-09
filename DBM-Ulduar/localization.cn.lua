@@ -55,8 +55,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
+	SoundWOP = "为重要技能播放额外的警报语音"
 }
 
 ------------------
@@ -120,9 +119,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	SoundWOP = "为重要技能播放额外的警报语音"
 }
 
 --------------------
@@ -142,8 +139,6 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
 	AlwaysWarnOnOverload		= "总是对$spell:63481显示警报(否则只有当目标是唤雷者的时候显示)"
 }
 
@@ -213,8 +208,6 @@ L:SetOptionLocalization{
 	timerLeftArm			= "为左臂重生显示计时条",
 	timerRightArm			= "为右臂重生显示计时条",
 	achievementDisarmed		= "为成就：断其臂膀显示计时条",
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
 	YellOnBeam			= "当你中了$spell:63346时大喊"
 }
 
@@ -407,9 +400,7 @@ L:SetOptionLocalization{
 	TimerHardmode			= "为困难模式显示计时条",
 	ShockBlastWarningInP1		= "为第1阶段的$spell:63631显示特别警报",
 	ShockBlastWarningInP4		= "为第4阶段的$spell:63631显示特别警报",
-	RangeFrame			= "在第1阶段显示距离框(6码)",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	RangeFrame			= "在第1阶段显示距离框(6码)"
 }
 
 L:SetMiscLocalization{

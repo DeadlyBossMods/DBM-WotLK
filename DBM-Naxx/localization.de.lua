@@ -183,8 +183,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetOptionLocalization({
-	SpecialWarningInjection		= "Spezialwarnung, wenn du von $spell:28169 betroffen bist",
-	SetIconOnInjectionTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(28169)
+	SpecialWarningInjection		= "Spezialwarnung, wenn du von $spell:28169 betroffen bist"
 })
 
 L:SetWarningLocalization({

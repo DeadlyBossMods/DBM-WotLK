@@ -478,8 +478,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization(637)
 
 L:SetOptionLocalization({
-	AchievementCheck		= "Anunciar fallo del logro 'Podría ser peor' al grupo",
-	SetIconOnMarkedTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67823)
+	AchievementCheck		= "Anunciar fallo del logro 'Podría ser peor' al grupo"
 })
 
 L:SetMiscLocalization({

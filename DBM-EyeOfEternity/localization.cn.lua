@@ -15,15 +15,6 @@ L:SetGeneralLocalization({
 	name 			= "玛里苟斯"
 })
 
-L:SetWarningLocalization({
-})
-
-L:SetTimerLocalization({
-})
-
-L:SetOptionLocalization({
-})
-
 L:SetMiscLocalization({
 	YellPull		= "我的耐心到此为止了。我要亲自消灭你们！",
 	EmoteSpark		= "附近的裂隙中冒出了一团能量火花！",

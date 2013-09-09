@@ -46,9 +46,9 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	timerMobOvercharge	= "Отсчет времени для Перегрузки (суммирующийся отрицательный эффект)",
+	timerMobOvercharge	= "Отсчет времени для моба с Перегрузкой (стакающего дебафф)",
 	EmalonEnrage		= "Отсчет времени до $spell:26662",
-	RangeFrame			= "Показывать окно проверки дистанции"
+	RangeFrame			= "Показывать окно проверки дистанции (10)"
 }
 
 ---------------------------------
@@ -95,9 +95,9 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	Frostbite	= "Предупреждение для $spell:72098"
+	Frostbite	= "Предупреждение для $spell:72004"
 }
 
 L:SetMiscLocalization{
-	ToravonEnrage	= "Отсчет времени до $spell:26662"
+	ToravonEnrage	= "Отсчет времени до Берсерка"
 }

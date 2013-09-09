@@ -10,9 +10,6 @@ L = DBM:GetModLocalization("FlameLeviathan")
 L:SetGeneralLocalization{
 	name = "Огненный Левиафан"
 }
-
-L:SetTimerLocalization{
-}
 	
 L:SetMiscLocalization{
 	YellPull	= "Обнаружены противники. Запуск протокола оценки угрозы. Главная цель выявлена. Повторный анализ через 30 секунд.",
@@ -22,7 +19,7 @@ L:SetMiscLocalization{
 L:SetWarningLocalization{
 	PursueWarn				= "Преследуется >%s<",
 	warnNextPursueSoon		= "Смена цели через 5 секунд",
-	SpecialPursueWarnYou	= "Преследует вас - бегите",
+	SpecialPursueWarnYou	= "Вас преследуют - бегите",
 	warnWardofLife			= "Призыв Защитника жизни"
 }
 
@@ -42,16 +39,6 @@ L:SetGeneralLocalization{
 	name = "Повелитель Горнов Игнис"
 }
 
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
-}
-
 ------------------
 --  Razorscale  --
 ------------------
@@ -63,9 +50,7 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{	
 	warnTurretsReadySoon		= "Гарпунные пушки будут собраны через 20 секунд",
-	warnTurretsReady			= "Гарпунные пушки собраны",
-	SpecWarnDevouringFlameCast	= "Лавовая бомба на вас",
-	WarnDevouringFlameCast		= "Лавовая бомба на |3-5(>%s<)" 
+	warnTurretsReady			= "Гарпунные пушки собраны"
 }
 
 L:SetTimerLocalization{
@@ -79,12 +64,10 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	warnTurretsReadySoon		= "Пред-предупреждение для пушек",
 	warnTurretsReady			= "Предупреждение для пушек",
-	SpecWarnDevouringFlameCast	= "Спец-предупреждение, когда $spell:64733 применяется на вас",
 	timerTurret1				= "Отсчет времени до пушки 1",
 	timerTurret2				= "Отсчет времени до пушки 2",
 	timerTurret3				= "Отсчет времени до пушки 3 (25 чел.)",
 	timerTurret4				= "Отсчет времени до пушки 4 (25 чел.)",
-	OptionDevouringFlame		= "Объявлять цели заклинания $spell:64733 (неточно)",
 	timerGrounded			    = "Отсчет времени для наземной фазы"
 }
 
@@ -92,8 +75,7 @@ L:SetMiscLocalization{
 	YellAir				= "Дайте время подготовить пушки.",
 	YellAir2			= "Огонь прекратился! Надо починить пушки!",
 	YellGround			= "Быстрее! Сейчас она снова взлетит!",
-	EmotePhase2			= "%%s обессилела и больше не может летать!",
-	FlamecastUnknown	= DBM_CORE_UNKNOWN
+	EmotePhase2			= "%%s обессилела и больше не может летать!"
 }
 
 ----------------------------
@@ -105,17 +87,6 @@ L:SetGeneralLocalization{
 	name = "Разрушитель XT-002"
 }
 
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
-}
-
 --------------------
 --  Iron Council  --
 --------------------
@@ -125,15 +96,7 @@ L:SetGeneralLocalization{
 	name = "Железное Собрание"
 }
 
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
-}
-
 L:SetOptionLocalization{
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
 	AlwaysWarnOnOverload		= "Всегда предупреждать при $spell:63481<br/>(иначе, только когда босс в цели)"
 }
 
@@ -160,7 +123,8 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	WarningPhasePunch		= "Фазовый удар на |3-5(>%s<) - cтак %d",
 	WarnPhase2Soon			= "Скоро фаза 2",
-	warnStarLow				= "У Вспыхивающей звезды мало здоровья"
+	warnStarLow				= "У Вспыхивающей звезды мало здоровья",
+	FirstPullNotice			= "Обнаружен первый пулл, автоматическая корректировка таймеров."
 }
 
 L:SetOptionLocalization{
@@ -176,6 +140,7 @@ L:SetMiscLocalization{
 	YellKill				= "Я видел миры, охваченные пламенем Творцов. Их жители гибли, не успев издать ни звука. Я был свидетелем того, как галактики рождались и умирали в мгновение ока. И все время я оставался холодным... и безразличным. Я. Не чувствовал. Ничего. Триллионы загубленных судеб. Неужели все они были подобны вам? Неужели все они так же любили жизнь?",
 	Emote_CollapsingStar	= "%s призывает вспыхивающие звезды!",
 	Phase2					= "Узрите чудо созидания!",
+	FirstPull				= "See your world through my eyes: A universe so vast as to be immeasurable - incomprehensible even to your greatest minds.",
 	PullCheck				= "Алгалон подаст сигнал бедствия через (%d+) мин."
 }
 
@@ -188,9 +153,6 @@ L:SetGeneralLocalization{
 	name = "Кологарн"
 }
 
-L:SetWarningLocalization{
-}
-
 L:SetTimerLocalization{
 	timerLeftArm		= "Возрождение левой руки",
 	timerRightArm		= "Возрождение правой руки",
@@ -200,10 +162,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	timerLeftArm			= "Отсчет времени до Возрождения левой руки",
 	timerRightArm			= "Отсчет времени до Возрождения правой руки",
-	achievementDisarmed		= "Отсчет времени для достижения Обезоружен",
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
-	YellOnBeam				= "Кричать, когда на вас $spell:63346"
+	achievementDisarmed		= "Отсчет времени для достижения Обезоружен"
 }
 
 L:SetMiscLocalization{
@@ -212,8 +171,7 @@ L:SetMiscLocalization{
 	Health_Body				= "Кологарн",
 	Health_Right_Arm		= "Правая рука",
 	Health_Left_Arm			= "Левая рука",
-	FocusedEyebeam			= "%s устремляет на вас свой взгляд!",
-	YellBeam				= "Сосредоточенный взгляд на мне!"
+	FocusedEyebeam			= "%s устремляет на вас свой взгляд!"
 }
 
 ---------------
@@ -256,20 +214,12 @@ L:SetGeneralLocalization{
 	name = "Ходир"
 }
 
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
-}
-
 L:SetOptionLocalization{
-	YellOnStormCloud		= "Кричать, когда на вас $spell:65133",
 	SetIconOnStormCloud		= "Устанавливать метки на цели заклинания $spell:65133"
 }
 
 L:SetMiscLocalization{
-	YellKill	= "Наконец-то я... свободен от его оков…",
-	YellCloud	= "На мне Грозовая Туча!"
+	YellKill	= "Наконец-то я... свободен от его оков…"
 }
 
 --------------
@@ -279,9 +229,6 @@ L = DBM:GetModLocalization("Thorim")
 
 L:SetGeneralLocalization{
 	name = "Торим"
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
@@ -316,8 +263,7 @@ L:SetMiscLocalization{
 	WaterSpirit        = "Древний дух воды",
 	Snaplasher         = "Хватоплет",
 	StormLasher        = "Грозовой плеточник",
-	YellKill           = "Он больше не властен надо мной. Мой взор снова ясен. Благодарю вас, герои.",
-	TrashRespawnTimer  = "Возрождение монстров"
+	YellKill           = "Он больше не властен надо мной. Мой взор снова ясен. Благодарю вас, герои."
 }
 
 L:SetWarningLocalization{
@@ -340,17 +286,6 @@ L = DBM:GetModLocalization("Freya_Elders")
 
 L:SetGeneralLocalization{
 	name = "Древни Фрейи"
-}
-
-L:SetMiscLocalization{
-	TrashRespawnTimer	= "Возрождение монстров"
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
-	TrashRespawnTimer		= "Отсчет времени до возрождения монстров"
 }
 
 ---------------
@@ -386,9 +321,7 @@ L:SetOptionLocalization{
 	TimerHardmode			= "Отсчет времени для сложного режима",
 	ShockBlastWarningInP1	= "Спец-предупреждение для $spell:63631 в фазе 1",
 	ShockBlastWarningInP4	= "Спец-предупреждение для $spell:63631 в фазе 4",
-	RangeFrame				= "Показывать окно проверки дистанции в фазе 1 (6 м)",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	RangeFrame				= "Показывать окно проверки дистанции в фазе 1 (6 м)"
 }
 
 L:SetMiscLocalization{
@@ -428,17 +361,12 @@ L:SetOptionLocalization{
 	SpecialWarningShadowCrash		= "Спец-предупреждение для $spell:62660<br/>(должен быть в цели или фокусе хотя бы у одного члена рейда)",
 	SpecialWarningShadowCrashNear	= "Спец-предупреждение о $spell:62660 около вас",
 	SpecialWarningLLNear			= "Спец-предупреждение о $spell:63276 около вас",
-	YellOnLifeLeech					= "Кричать, когда на вас $spell:63276",
-	YellOnShadowCrash				= "Кричать, когда на вас $spell:62660",
 	hardmodeSpawn					= "Отсчет времени до появления Саронитового врага (сложный режим)",
-	CrashArrow						= "Показывать стрелку, когда $spell:62660 около вас",
-	BypassLatencyCheck				= "Отключить синхр-цию для $spell:62660<br/>(используйте только в случае возникновения проблем)"
+	CrashArrow						= "Показывать стрелку, когда $spell:62660 около вас"
 }
 
 L:SetMiscLocalization{
-	EmoteSaroniteVapors	= "Облако саронитовых паров образовывается поблизости!",
-	YellLeech			= "Вытягивание жизни на мне!",
-	YellCrash			= "Темное сокрушение на мне!"
+	EmoteSaroniteVapors	= "Облако саронитовых паров образовывается поблизости!"
 }
 
 ------------------
@@ -494,4 +422,3 @@ L:SetOptionLocalization{
 	SetIconOnBrainLinkTarget		= "Устанавливать метки на цели заклинания $spell:63802",
 	MaladyArrow						= "Показывать стрелку, когда $spell:63881 около вас"
 }
-

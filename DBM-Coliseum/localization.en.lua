@@ -90,7 +90,7 @@ L:SetOptionLocalization{
 	SpecWarnTouchNear			= "Show special warning for Touch of Jaraxxus near you",
 	SpecWarnNetherPower			= "Show special warning for Nether Power (to dispel/steal)",
 	SpecWarnFelFireball			= "Show special warning for Fel Fireball (to interrupt)",
-	TouchJaraxxusIcon			= "Set icons on Touch of Jaraxxus targets",
+	TouchJaraxxusIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66209),
 	IncinerateFleshIcon			= "Set icons on Incinerate Flesh targets",
 	LegionFlameIcon				= "Set icons on Legion Flame targets",
 	LegionFlameWhisper			= "Send whisper to Legion Flame targets (requires Raid Leader)",
@@ -243,9 +243,9 @@ L:SetOptionLocalization{
 	timerAdds				= "Show timer for new adds",
 	TimerEmerge				= "Show timer for emerge",
 	TimerSubmerge			= "Show timer for submerge",
-	PursueIcon				= "Set icons on pursued targets",
+	PursueIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67574),
 	SpecWarnShadowStrike	= "Show special warning for $spell:66134 (to interrupt)",
-	SetIconsOnPCold         = "Set icons on $spell:66013 targets",
+	SetIconsOnPCold         = DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66013),
 	AnnouncePColdIcons		= "Announce icons for $spell:66013 targets to raid chat<br/>(requires raid leader)",
 	AnnouncePColdIconsRemoved	= "Also announce when icons are removed for $spell:66013<br/>(requires above option)"
 }

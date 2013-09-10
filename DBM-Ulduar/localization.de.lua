@@ -9,9 +9,6 @@ L = DBM:GetModLocalization("FlameLeviathan")
 L:SetGeneralLocalization{
 	name = "Flammenleviathan"
 }
-
-L:SetTimerLocalization{
-}
 	
 L:SetMiscLocalization{
 	YellPull	= "Feindeinheiten erkannt. Bedrohungsbewertung aktiv. Hauptziel erfasst. Neubewertung in T minus 30 Sekunden.",
@@ -39,12 +36,6 @@ L = DBM:GetModLocalization("Ignis")
 
 L:SetGeneralLocalization{
 	name = "Ignis, Meister des Eisenwerks"
-}
-
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
 }
 
 ------------------
@@ -95,12 +86,6 @@ L:SetGeneralLocalization{
 	name = "XT-002 Dekonstruktor"
 }
 
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
-}
-
 --------------------
 --  Iron Council  --
 --------------------
@@ -108,12 +93,6 @@ L = DBM:GetModLocalization("IronCouncil")
 
 L:SetGeneralLocalization{
 	name = "Die Versammlung des Eisens"
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
@@ -171,9 +150,6 @@ L = DBM:GetModLocalization("Kologarn")
 
 L:SetGeneralLocalization{
 	name = "Kologarn"
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
@@ -237,12 +213,6 @@ L:SetGeneralLocalization{
 	name = "Hodir"
 }
 
-L:SetWarningLocalization{
-}
-
-L:SetTimerLocalization{
-}
-
 L:SetMiscLocalization{
 	YellKill	= "Ich... bin von ihm befreit... endlich."
 }
@@ -254,9 +224,6 @@ L = DBM:GetModLocalization("Thorim")
 
 L:SetGeneralLocalization{
 	name = "Thorim"
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
@@ -314,15 +281,6 @@ L = DBM:GetModLocalization("Freya_Elders")
 
 L:SetGeneralLocalization{
 	name = "Freyas Älteste"
-}
-
-L:SetMiscLocalization{
-}
-
-L:SetWarningLocalization{
-}
-
-L:SetOptionLocalization{
 }
 
 ---------------
@@ -456,4 +414,3 @@ L:SetOptionLocalization{
 	SpecWarnMaladyNear				= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:63881 betroffen ist",
 	MaladyArrow						= "Zeige DBM-Pfeil, wenn $spell:63881 in deiner Nähe ist"
 }
-

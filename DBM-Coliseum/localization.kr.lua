@@ -86,7 +86,6 @@ L:SetOptionLocalization{
 	SpecWarnTouch				= "자락서스의 손길 대상이 된 경우 특수 경고 보기",
 	SpecWarnTouchNear			= "자락서스의 손길 대상이 가까이 있을 경우 특수 경고 보기",
 	SpecWarnNetherPower			= "황천의 힘 해제 특수 경고 보기",
-	TouchJaraxxusIcon			= "자락서스의 손길 대상에게 전술 목표 아이콘 설정",
 	IncinerateFleshIcon			= "살점 소각 대상에게 전술 목표 아이콘 설정",
 	LegionFlameIcon				= "군단 불꽃 대상에게 전술 목표 아이콘 설정",
 	LegionFlameWhisper			= "군단 불꽃 대상에게 귓속말 보내기",
@@ -228,9 +227,6 @@ L:SetOptionLocalization{
 	timerAdds					= "다음 네루비안 땅무지 바 보기",
 	TimerEmerge					= "다음 출현 바 보기",
 	TimerSubmerge				= "다음 잠수 바 보기",
-	PlaySoundOnPursue			= "추격 대상이 당신일 경우 별도 경고음 듣기",
-	PursueIcon					= "추격 대상에게 전술 목표 아이콘 설정",
-	SetIconsOnPCold				= "$spell:66013 대상에게 전술 목표 아이콘 설정",
 	SpecWarnShadowStrike		= "$spell:66134 차단 특수 경고 보기",
 	AnnouncePColdIcons			= "$spell:66013 전술 목표 아이콘 설정시 공격대 대화로 알리기(공격대장 권한 필요)",
 	AnnouncePColdIconsRemoved	= "$spell:66013 전술 목표 아이콘 제거시 공격대 대화로 알리기(위 설정 필요)"

@@ -194,8 +194,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	SpecialWarningInjection		= "돌연변이 유발 특수 경고 보기",
-	SetIconOnInjectionTarget	= "돌연변이 유발 대상에게 전술 목표 아이콘 설정"
+	SpecialWarningInjection		= "돌연변이 유발 특수 경고 보기"
 })
 
 -------------

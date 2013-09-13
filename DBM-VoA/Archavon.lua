@@ -57,6 +57,6 @@ end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 	if msg and msg:match(L.TankSwitch) or msg:find(L.TankSwitch) then
-		warnGrab:Show(DBM:GetFullNameByShortName(target))
+		warnGrab:Show(DBM:GetUnitFullName(target))
 	end
 end

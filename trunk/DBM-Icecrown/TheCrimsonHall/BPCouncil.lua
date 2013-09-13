@@ -196,7 +196,7 @@ end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 	if msg:match(L.EmpoweredFlames) then
-		local target = DBM:GetFullNameByShortName(target)
+		local target = DBM:GetUnitFullName(target)
 		warnEmpoweredFlames:Show(target)
 		if target == UnitName("player") then
 			specWarnEmpoweredFlames:Show()

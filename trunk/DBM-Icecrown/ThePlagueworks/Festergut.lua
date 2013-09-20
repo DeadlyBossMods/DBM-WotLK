@@ -48,7 +48,6 @@ local gasSporeTargets	= {}
 local gasSporeIconTargets	= {}
 local vileGasTargets	= {}
 local gasSporeCast 	= 0
-local gooCount = 0
 local warnedfailed = false
 
 local function ClearSporeTargets()
@@ -93,7 +92,6 @@ function mod:OnCombatStart(delay)
 	table.wipe(vileGasTargets)
 	table.wipe(gasSporeIconTargets)
 	gasSporeCast = 0
-	gooCount = 0
 	warnedfailed = false
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(8)
@@ -118,8 +116,7 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, spellName)
 	if spellName == GetSpellInfo(72299) and self:LatencyCheck() then -- Malleable Goo Summon Trigger (10 player normal) (the other 3 spell ids are not needed here since all spells have the same name)
-		gooCount = gooCount + 1
-		self:SendSync("Goo", gooCount)
+		self:SendSync("Goo")
 	end
 end
 

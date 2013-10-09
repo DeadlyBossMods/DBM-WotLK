@@ -132,13 +132,11 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart	= "Zeige Zeit bis Kampfbeginn",
 	WarnAddsSoon		= "Zeige Vorwarnung für erscheinende Adds",
 	TimerAdds			= "Zeige Zeit bis neue Adds erscheinen"
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Kampfbeginn",
 	TimerAdds			= "Neue Adds"
 }
 
@@ -162,12 +160,7 @@ L:SetGeneralLocalization{
 	name = "Todesbringer Saurfang"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "Kampfbeginn"
-}
-
 L:SetOptionLocalization{
-	TimerCombatStart		= "Zeige Zeit bis Kampfbeginn",
 	RangeFrame				= "Zeige Abstandsfenster (12m)",
 	RunePowerFrame			= "Zeige Lebensanzeige und einen Balken für $spell:72371",
 	BeastIcons				= "Setze Zeichen auf Blutbestien"
@@ -382,14 +375,12 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Kampfbeginn",
 	TimerRoleplay		= "Rollenspiel",
 	PhaseTransition		= "Phasenübergang",
 	TimerNecroticPlagueCleanse = "Nekrotische Seuche reinigen"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart		= "Zeige Zeit bis Kampfbeginn",
 	TimerRoleplay			= "Dauer des Rollenspiels (bei 10%) anzeigen",
 	WarnNecroticPlagueJump	= "Verkünde Sprungziele von $spell:70337",
 	TimerNecroticPlagueCleanse	= "Zeige Timer zum Reinigen von $spell:70337 vor dem ersten Tick",

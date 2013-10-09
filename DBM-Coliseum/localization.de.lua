@@ -34,7 +34,6 @@ L:SetOptionLocalization{
 	SetIconOnBileTarget			= "Setze Zeichen auf Ziele von $spell:66869",
 	ClearIconsOnIceHowl			= "Entferne alle Zeichen vor dem Trampeln",
 	TimerNextBoss				= "Zeige Zeit bis zum Erscheinen des nächsten Bosses",
-	TimerCombatStart			= "Zeige Zeit bis Kampfbeginn",
 	TimerEmerge					= "Zeige Zeit bis Auftauchen",
 	TimerSubmerge				= "Zeige Zeit bis Abtauchen",
 	RangeFrame                  = "Zeige Abstandsfenster (10m) in Phase 2",
@@ -43,7 +42,6 @@ L:SetOptionLocalization{
 
 L:SetTimerLocalization{
 	TimerNextBoss		= "Nächster Boss",
-	TimerCombatStart	= "Kampfbeginn",
 	TimerEmerge			= "Auftauchen",
 	TimerSubmerge		= "Abtauchen"
 }
@@ -75,17 +73,12 @@ L:SetWarningLocalization{
 	SpecWarnFelFireball			= "Teufelsfeuerball - Jetzt unterbrechen"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "Kampfbeginn"
-}
-
 L:SetMiscLocalization{
 	WhisperFlame		= "Legionsflamme auf dir!",
 	IncinerateTarget	= "Fleisch einäschern: %s"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart			= "Zeige Zeit bis Kampfbeginn",
 	WarnNetherPower				= "Zeige Warnung, wenn Lord Jaraxxus $spell:67009 erhält (zum Reinigen/Rauben)",
 	SpecWarnTouch				= "Spezialwarnung, wenn du von $spell:66209 betroffen bist", -- obsolete
 	SpecWarnTouchNear			= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:66209 betroffen ist", -- obsolete

@@ -68,7 +68,7 @@ local specWarnTrapNear		= mod:NewSpecialWarningClose(73539, nil, nil, nil, 3) --
 local specWarnHarvestSouls	= mod:NewSpecialWarningSpell(73654) --Heroic Ability
 local specWarnValkyrLow		= mod:NewSpecialWarning("SpecWarnValkyrLow")
 
-local timerCombatStart		= mod:NewTimer(53.5, "TimerCombatStart", 2457)
+local timerCombatStart		= mod:NewCombatTimer(53.5)
 local timerPhaseTransition	= mod:NewTimer(62.5, "PhaseTransition", 72262)
 local timerSoulreaper	 	= mod:NewTargetTimer(5.1, 69409, nil, mod:IsTank() or mod:IsHealer())
 local timerSoulreaperCD	 	= mod:NewNextTimer(30.5, 69409, nil, mod:IsTank() or mod:IsHealer())

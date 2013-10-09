@@ -33,7 +33,7 @@ local warnRuneofBlood		= mod:NewTargetAnnounce(72410, 3, nil, mod:IsTank() or mo
 local specwarnMark			= mod:NewSpecialWarningTarget(72293, false)
 local specwarnRuneofBlood	= mod:NewSpecialWarningTarget(72410, mod:IsTank())
 
-local timerCombatStart		= mod:NewTimer(48, "TimerCombatStart", 2457)
+local timerCombatStart		= mod:NewCombatTimer(48)
 local timerRuneofBlood		= mod:NewNextTimer(20, 72410, nil, mod:IsTank() or mod:IsHealer())
 local timerBoilingBlood		= mod:NewNextTimer(15.5, 72385)
 local timerBloodNova		= mod:NewNextTimer(20, 72378)

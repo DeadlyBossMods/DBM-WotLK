@@ -33,7 +33,6 @@ L:SetOptionLocalization{
 	SetIconOnBileTarget			= "Set icons on Burning Bile targets",
 	ClearIconsOnIceHowl			= "Clear all icons before charge",
 	TimerNextBoss				= "Show timer for next boss spawn",
-	TimerCombatStart			= "Show timer for start of combat",
 	TimerEmerge					= "Show timer for emerge",
 	TimerSubmerge				= "Show timer for submerge",
 	RangeFrame                  = "Show range frame in Phase 2",
@@ -42,7 +41,6 @@ L:SetOptionLocalization{
 
 L:SetTimerLocalization{
 	TimerNextBoss		= "Next boss",
-	TimerCombatStart	= "Combat starts",
 	TimerEmerge			= "Emerge",
 	TimerSubmerge		= "Submerge"
 }
@@ -74,17 +72,12 @@ L:SetWarningLocalization{
 	SpecWarnFelFireball			= "Fel Fireball - Interrupt now"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "Combat starts"
-}
-
 L:SetMiscLocalization{
 	WhisperFlame		= "Legion Flame on you",
 	IncinerateTarget	= "Incinerate Flesh: %s"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart			= "Show time for start of combat",
 	WarnNetherPower				= "Show warning when Lord Jaraxxus gains Nether Power (to dispel/steal)",
 	SpecWarnTouch				= "Show special warning when you are affected by Touch of Jaraxxus",
 	SpecWarnTouchNear			= "Show special warning for Touch of Jaraxxus near you",

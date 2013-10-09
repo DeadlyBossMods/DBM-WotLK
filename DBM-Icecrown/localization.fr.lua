@@ -127,14 +127,9 @@ L:SetWarningLocalization{
 	WarnFrenzySoon		= "Frénésie bientôt"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart	= "Début du combat"
-}
-
 L:SetOptionLocalization{
 	WarnFrenzySoon		= "Montre une pré-alerte pour la Frénésie (à ~33%)",
 	RangeFrame			= "Montre la fenêtre de proximité",
-	TimerCombatStart	= "Montre le timer pour le début du combat",
 	MarkCastIcon		= "Met des icones sur les cibles de $spell:72444 durant l'incantation (Experimental)",
 	RunePowerFrame		= "Montre la barre de vie du boss + la barre de $spell:72371"
 }
@@ -160,13 +155,11 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart	= "Montre le timer pour le début du combat",
 	WarnAddsSoon		= "Montre une alerte avant que les adds arrivent",
 	TimerAdds			= "Montre le timer pour les nouveaux adds"
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Le combat débute",
 	TimerAdds			= "Nouveaux Adds"
 }
 
@@ -409,14 +402,12 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart			= "Le combat débute",
 	TimerRoleplay				= "Jeux de role",
 	PhaseTransition				= "Phase de transition",
 	TimerNecroticPlagueCleanse 	= "Peste nécrotique Dispell"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart			= "Montre le timer pour le début du combat",
 	TimerRoleplay				= "Montre le timer pour l'event de role",
 	WarnNecroticPlagueJump		= "Annonce sur qui saute la $spell:73912",
 	TimerNecroticPlagueCleanse	= "Montre le timer pour dispell la Peste nécrotique avant le premier tic",

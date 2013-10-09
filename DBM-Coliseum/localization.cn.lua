@@ -41,7 +41,6 @@ L:SetOptionLocalization{
 	SetIconOnBileTarget		= "为麻痹毒素的目标设置标记",
 	ClearIconsOnIceHowl		= "冲锋前清除所有标记",
 	TimerNextBoss			= "显示下一场战斗倒计时",
-	TimerCombatStart		= "显示战斗开始倒计时",
 	TimerEmerge			= "显示钻地计时",
 	TimerSubmerge			= "显示钻地结束计时",
 	RangeFrame                  	= "在第2阶段显示距离框体",
@@ -50,7 +49,6 @@ L:SetOptionLocalization{
 
 L:SetTimerLocalization{
 	TimerNextBoss			= "下一场战斗",
-	TimerCombatStart		= "战斗开始",
 	TimerEmerge			= "钻地结束",
 	TimerSubmerge			= "钻地"
 }
@@ -82,10 +80,6 @@ L:SetWarningLocalization{
 	SpecWarnFelFireball		= "魔能火球 - 立刻打断"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "战斗开始"
-}
-
 L:SetMiscLocalization{
 	WhisperFlame			= "你中了军团烈焰 - 快跑开",
 	IncinerateTarget		= "血肉成灰 -> %s"
@@ -93,7 +87,6 @@ L:SetMiscLocalization{
 
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
-	TimerCombatStart		= "显示战斗开始倒计时",
 	WarnNetherPower			= "当加拉克苏斯大王拥有虚空之能时显示警报(供驱散/偷取使用)",
 	SpecWarnTouch			= "当你中了加拉克苏斯之触时显示特殊警报",
 	SpecWarnTouchNear		= "当你附近的人中了加拉克苏斯之触时显示特殊警报",

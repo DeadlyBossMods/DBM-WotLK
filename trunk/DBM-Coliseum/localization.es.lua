@@ -36,7 +36,6 @@ L:SetOptionLocalization{
 	SetIconOnBileTarget			= "Poner marca quien tiene Bilis ardiente",
 	ClearIconsOnIceHowl			= "Limpiar iconos despues de cargar",
 	TimerNextBoss				= "Mostrar tiempo para el proximo boss",
-	TimerCombatStart			= "Mostrar tiempo para el inicio del combate",
 	TimerEmerge					= "Mostrar tiempo para emerger",
 	TimerSubmerge				= "Mostrar tiempo para sumergir",
 	RangeFrame                  = "Mostrar distancia en fase 2",
@@ -45,7 +44,6 @@ L:SetOptionLocalization{
 
 L:SetTimerLocalization{
 	TimerNextBoss				= "Proximo boss en",
-	TimerCombatStart			= "Empieza el combate",
 	TimerEmerge					= "Emergen",
 	TimerSubmerge				= "Se sumergen"
 
@@ -78,17 +76,12 @@ L:SetWarningLocalization{
 	SpecWarnFelFireball		= "Bola de Fuego vil! Interrumpe!"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "Empieza el combate"
-}
-
 L:SetMiscLocalization{
 	WhisperFlame			= "Llama de la Legion en TI!",
 	IncinerateTarget		= "Incinerar carne en: %s"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart		= "Mostrar tiempo para inicio del combate",
 	WarnNetherPower			= "Avisar si Jaraxxus tiene Poder abisar (para dsipelear)",
 	SpecWarnTouch			= "Aviso especial si tienes Toque de Jaraxxus",
 	SpecWarnTouchNear		= "Aviso especial si tienes Toque de Jaraxxus cerca",

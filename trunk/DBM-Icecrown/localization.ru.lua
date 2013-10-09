@@ -133,13 +133,11 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart	= "Отсчет времени до начала боя",
 	WarnAddsSoon		= "Предупреждать заранее о призыве помощников",
 	TimerAdds			= "Отсчет времени до новых помощников"
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Начало боя",
 	TimerAdds			= "Призыв помощников"
 }
 
@@ -163,12 +161,7 @@ L:SetGeneralLocalization{
 	name = "Саурфанг Смертоносный"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "Начало боя"
-}
-
 L:SetOptionLocalization{
-	TimerCombatStart		= "Отсчет времени до начала боя",
 	RangeFrame				= "Показывать окно проверки дистанции (12 м)",
 	RunePowerFrame			= "Показывать здоровье босса + индикатор для $spell:72371",
 	BeastIcons				= "Устанавливать метки на Кровавые чудовища"
@@ -383,14 +376,12 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Начало боя",
 	TimerRoleplay		= "Представление",
 	PhaseTransition		= "Переходная фаза",
 	TimerNecroticPlagueCleanse = "Очищение Мертвящей чумы"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart		= "Отсчет времени до начала боя",
 	TimerRoleplay			= "Отсчет времени для представления",
 	WarnNecroticPlagueJump	= "Объявлять цели прыжков $spell:73912",
 	TimerNecroticPlagueCleanse	= "Отсчет времени для очищения Мертвящей чумы до первого тика",

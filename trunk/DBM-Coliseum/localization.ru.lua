@@ -35,7 +35,6 @@ L:SetOptionLocalization{
 	SetIconOnBileTarget			= "Установить метку на игроков под воздействием Горящей Желчи",
 	ClearIconsOnIceHowl			= "Снимать все иконки перед Топотом",
 	TimerNextBoss				= "Отсчет времени до появления следующего противника",
-	TimerCombatStart			= "Отсчет времени до начала битвы",
 	TimerEmerge					= "Отсчет времени до появления",
 	TimerSubmerge				= "Отсчет времени до зарывания",
 	RangeFrame                  = "Показывать окно проверки дистанции в фазе 2",
@@ -44,7 +43,6 @@ L:SetOptionLocalization{
 
 L:SetTimerLocalization{
 	TimerNextBoss		= "Прибытие следующего босса",
-	TimerCombatStart	= "Битва начнется через",
 	TimerEmerge			= "Появление",
 	TimerSubmerge		= "Зарывание"
 }
@@ -76,17 +74,12 @@ L:SetWarningLocalization{
 	SpecWarnFelFireball			= "Огненный шар Скверны - прерывание"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "Начало боя"
-}
-
 L:SetMiscLocalization{
 	WhisperFlame		= "Пламя Легиона на вас",
 	IncinerateTarget	= "Испепеление плоти: %s"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart			= "Отсчет времени до начала боя",
 	WarnNetherPower				= "Предупреждение, когда Джараксус получает Силу пустоты",
 	SpecWarnTouch				= "Спец-предупреждение, когда на вас Касание Джараксуса",
 	SpecWarnTouchNear			= "Спец-предупреждение, когда рядом с вами Касание Джараксуса",

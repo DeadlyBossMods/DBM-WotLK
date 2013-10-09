@@ -34,7 +34,6 @@ L:SetOptionLocalization{
 	SetIconOnBileTarget			= "為燃燒膽汁的目標設置標記",
 	ClearIconsOnIceHowl			= "衝鋒前消除所有標記",
 	TimerNextBoss				= "為下一隻王到來顯示計時器",
-	TimerCombatStart			= "為戰鬥開始顯示計時器",
 	TimerEmerge					= "為持續鑽地顯示計時器",
 	TimerSubmerge				= "為下一次 鑽地顯示計時器",
 	RangeFrame                 	= "在第2階段顯示距離框",
@@ -43,7 +42,6 @@ L:SetOptionLocalization{
 
 L:SetTimerLocalization{
 	TimerNextBoss		= "下一隻王到來",
-	TimerCombatStart	= "戰鬥開始",
 	TimerEmerge			= "持續鑽地",
 	TimerSubmerge		= "下一次鑽地"
 }
@@ -76,17 +74,12 @@ L:SetWarningLocalization{
 
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "戰鬥開始"
-}
-
 L:SetMiscLocalization{
 	WhisperFlame		= "你中了軍團烈焰 - 快跑開",
 	IncinerateTarget	= "焚化血肉: %s"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart		= "為戰鬥開始顯示計時器",
 	WarnNetherPower			= "當賈拉克瑟斯領主擁有虛空威能時顯示警告 (驅散/竊取用)",
 	SpecWarnTouch			= "當你中了賈拉克瑟斯之觸時顯示特別警告",
 	SpecWarnTouchNear		= "當你附近的人中了賈拉克瑟斯之觸時顯示特別警告",

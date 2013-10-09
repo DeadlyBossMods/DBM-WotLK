@@ -143,13 +143,11 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart	= "Mostrar tiempo para el inicio del combate",
 	WarnAddsSoon		= "Mostrar pre-aviso para la salida de nuevos adds",
 	TimerAdds			= "Mostrar tiempo para nuevos adds"
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Empieza el combate",
 	TimerAdds			= "Nuevos adds"
 }
 
@@ -173,12 +171,7 @@ L:SetGeneralLocalization{
 	name = "Libramorte Colmillosauro"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "Empieza el combate"
-}
-
 L:SetOptionLocalization{
-	TimerCombatStart		= "Mostrar tiempo para inicio del combate",
 	RangeFrame				= "Mostrar distancia (12 yardas)",
 	RunePowerFrame			= "Mostrar barra de vida + barra de $spell:72371",
 	BeastIcons				= "Poner iconos en las Bestias de Sangre"
@@ -399,14 +392,12 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Empieza el combate",
 	TimerRoleplay		= "Diálogo",
 	PhaseTransition		= "Transición de fase",
 	TimerNecroticPlagueCleanse = "Purgar Peste necrótica"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart		= "Mostrar tiempo para el inicio del combate",
 	TimerRoleplay			= "Mostrar tiempo para Diálogo",
 	WarnNecroticPlagueJump	= "Anunciar los objetivos donde $spell:73912 ha saltado",
 	TimerNecroticPlagueCleanse	= "Mostrar tiempo para purgar Peste necrótica<br/>antes de la primera acumulación",

@@ -39,7 +39,6 @@ L:SetOptionLocalization{
 	SetIconOnBileTarget			= "Met une icône sur la cible de la Bile brûlante",
 	ClearIconsOnIceHowl			= "Enlève toutes les icônes avant la prochaine charge",
 	TimerNextBoss				= "Montre le timer pour l'arrivée du prochain boss",
-	TimerCombatStart			= "Montre le timer avant le début du combat",
 	TimerEmerge					= "Montre le timer avant que les vers rentre dans le sol",
 	TimerSubmerge				= "Montre le timer avant que les vers sortent du sol",
 	RangeFrame                  = "Affiche la fenêtre de portée pour la Phase 2"
@@ -47,7 +46,6 @@ L:SetOptionLocalization{
 
 L:SetTimerLocalization{
 	TimerNextBoss				= "Prochain boss dans",
-	TimerCombatStart			= "Le combat débute dans",
 	TimerEmerge					= "Sort du sol",
 	TimerSubmerge				= "Rentre dans le sol"
 }

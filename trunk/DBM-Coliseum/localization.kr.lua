@@ -22,7 +22,6 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	TimerNextBoss				= "곧 다음 우두머리",
-	TimerCombatStart			= "곧 전투 시작",
 	TimerEmerge					= "출현",
 	TimerSubmerge				= "숨기"
 }
@@ -40,7 +39,6 @@ L:SetOptionLocalization{
 	ClearIconsOnIceHowl			= "사나운 돌진 전에 모든 전술 목표 아이콘 지움",
 	PingCharge					= "사나운 돌진 대상이 있는 위치를 미니맵에 보기",
 	TimerNextBoss				= "다음 우두머리 등장 바 보기",
-	TimerCombatStart			= "전투 시작 바 보기",
 	TimerEmerge					= "출현 바 보기",
 	TimerSubmerge				= "숨기 바 보기",
 	RangeFrame					= "2 단계에서 거리 창 보기",
@@ -75,12 +73,7 @@ L:SetWarningLocalization{
 	SpecWarnFelFireball			= "지옥 화염구 - 차단!"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart			= "전투 시작"
-}
-
 L:SetOptionLocalization{
-	TimerCombatStart			= "전투 시작 바 보기",
 	WarnNetherPower				= "황천의 힘 알림 보기",
 	SpecWarnFelFireball			= "지옥 화염구 차단 특수 경고 보기",
 	SpecWarnTouch				= "자락서스의 손길 대상이 된 경우 특수 경고 보기",

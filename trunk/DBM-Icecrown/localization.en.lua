@@ -144,13 +144,11 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart	= "Show time for start of combat",
 	WarnAddsSoon		= "Show pre-warning for adds spawning",
 	TimerAdds			= "Show timer for new adds"
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Combat starts",
 	TimerAdds			= "New adds"
 }
 
@@ -174,12 +172,7 @@ L:SetGeneralLocalization{
 	name = "Deathbringer Saurfang"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "Combat starts"
-}
-
 L:SetOptionLocalization{
-	TimerCombatStart		= "Show time for start of combat",
 	BoilingBloodIcons		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72385),
 	RangeFrame				= "Show range frame (12 yards)",
 	RunePowerFrame			= "Show Boss Health + $spell:72371 bar",
@@ -406,14 +399,12 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Combat starts",
 	TimerRoleplay		= "Roleplay",
 	PhaseTransition		= "Phase transition",
 	TimerNecroticPlagueCleanse = "Cleanse Necrotic Plague"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart		= "Show timer for start of combat",
 	TimerRoleplay			= "Show timer for roleplay event",
 	WarnNecroticPlagueJump	= "Announce $spell:70337 jump targets",
 	TimerNecroticPlagueCleanse	= "Show timer to cleanse Necrotic Plague before<br/>the first tick",

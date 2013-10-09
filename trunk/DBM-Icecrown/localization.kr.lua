@@ -133,12 +133,10 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "전투 시작",
 	TimerAdds			= "다음 추가 병력"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart	= "전투 시작 바 보기",
 	WarnAddsSoon		= "추가 병력 이전에 알림 보기",
 	TimerAdds			= "다음 추가 병력 바 보기"
 }
@@ -163,12 +161,7 @@ L:SetGeneralLocalization{
 	name = "죽음의 인도자 사울팽"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "전투 시작"
-}
-
 L:SetOptionLocalization{
-	TimerCombatStart		= "전투 시작 바 보기",
 	RangeFrame				= "거리 창 보기(12m)",
 	RunePowerFrame			= "우두머리 체력 바 사용시 $spell:72371 바 함께 보기",
 	BeastIcons				= "피의 괴물에 전술 목표 아이콘 설정"
@@ -391,14 +384,12 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart			= "전투 시작",
 	TimerRoleplay				= "이벤트 종료",
 	PhaseTransition				= "다음 단계",
 	TimerNecroticPlagueCleanse 	= "괴저 역병 사라짐"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart			= "전투 시작 바 보기",
 	TimerRoleplay				= "이벤트 종료 바 보기",
 	WarnNecroticPlagueJump		= "$spell:70337 전이 대상 알림",
 	TimerNecroticPlagueCleanse	= "$spell:70337 사라짐 바 보기",

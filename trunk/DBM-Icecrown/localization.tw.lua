@@ -133,13 +133,11 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart	= "為戰鬥開始顯示計時器",
 	WarnAddsSoon		= "為新的小怪出現顯示預先警告",
 	TimerAdds			= "為新的小怪顯示計時器"
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "戰鬥開始",
 	TimerAdds			= "新的小怪"
 }
 
@@ -163,12 +161,7 @@ L:SetGeneralLocalization{
 	name = "死亡使者薩魯法爾"
 }
 
-L:SetTimerLocalization{
-	TimerCombatStart		= "戰鬥開始"
-}
-
 L:SetOptionLocalization{
-	TimerCombatStart		= "為戰鬥開始顯示計時器",
 	RangeFrame				= "顯示距離框 (12碼)",
 	RunePowerFrame			= "顯示首領血量及$spell:72371條",
 	BeastIcons				= "為血獸設置標記"
@@ -384,14 +377,12 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "戰鬥開始",
 	TimerRoleplay		= "角色扮演",
 	PhaseTransition		= "轉換階段",
 	TimerNecroticPlagueCleanse 	= "淨化亡域瘟疫"
 }
 
 L:SetOptionLocalization{
-	TimerCombatStart		= "為戰鬥開始顯示計時器",
 	TimerRoleplay			= "為角色扮演事件顯示計時器",
 	WarnNecroticPlagueJump	= "提示$spell:73912跳躍後的目標",
 	TimerNecroticPlagueCleanse	= "為淨化第一次堆疊前的亡域瘟疫顯示計時器",

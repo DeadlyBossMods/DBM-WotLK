@@ -123,8 +123,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	WarningPhasePunch		= "Фазовый удар на |3-5(>%s<) - cтак %d",
 	WarnPhase2Soon			= "Скоро фаза 2",
-	warnStarLow				= "У Вспыхивающей звезды мало здоровья",
-	FirstPullNotice			= "Обнаружен первый пулл, автоматическая корректировка таймеров."
+	warnStarLow				= "У Вспыхивающей звезды мало здоровья"
 }
 
 L:SetOptionLocalization{

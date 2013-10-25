@@ -123,8 +123,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	WarningPhasePunch		= "相位拳擊: >%s< - 第%d層",
 	WarnPhase2Soon			= "第2階段即將到來",
-	warnStarLow				= "崩陷之星血量低",
-	FirstPullNotice			= "檢測為第一次戰鬥，自動校正定時器。"
+	warnStarLow				= "崩陷之星血量低"
 }
 
 L:SetOptionLocalization{

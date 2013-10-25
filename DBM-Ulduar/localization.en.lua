@@ -132,8 +132,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	WarningPhasePunch		= "Phase Punch on >%s< - Stack %d",
 	WarnPhase2Soon			= "Phase 2 soon",
-	warnStarLow				= "Collapsing Star is low",
-	FirstPullNotice			= "First pull detected, auto correcting timers."
+	warnStarLow				= "Collapsing Star is low"
 }
 
 L:SetOptionLocalization{

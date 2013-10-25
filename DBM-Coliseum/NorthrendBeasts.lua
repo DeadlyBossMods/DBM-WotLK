@@ -2,14 +2,19 @@ local mod	= DBM:NewMod("NorthrendBeasts", "DBM-Coliseum")
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
-mod:SetCreatureID(34797)
+mod:SetCreatureID(34796, 35144, 34799, 34797)
+mod:SetMinSyncRevision(104)
 mod:SetModelID(21601)
 mod:SetMinCombatTime(30)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 
-mod:RegisterCombat("yell", L.CombatStart)
+mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
+	"CHAT_MSG_MONSTER_YELL"
+)
+
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_CAST_START",
@@ -105,14 +110,13 @@ function mod:OnCombatStart(delay)
 	DreadscaleActive = true
 	DreadscaleDead = false
 	AcidmawDead = false
-	specWarnSilence:Schedule(37-delay)
+	specWarnSilence:Schedule(14-delay)
 	if self:IsDifficulty("heroic10", "heroic25") then
-		timerNextBoss:Start(175 - delay)
-		timerNextBoss:Schedule(170)
+		timerNextBoss:Start(152 - delay)
+		timerNextBoss:Schedule(147)
 	end
-	timerNextStomp:Start(38-delay)
-	timerRisingAnger:Start(48-delay)
-	timerCombatStart:Start(-delay)
+	timerNextStomp:Start(15-delay)
+	timerRisingAnger:Start(25-delay)
 	updateHealthFrame(1)
 end
 
@@ -305,7 +309,9 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg)
-	if msg == L.Phase2 or msg:find(L.Phase2) then
+	if msg == L.CombatStart or msg:find(L.CombatStart) then
+		timerCombatStart:Start()
+	elseif msg == L.Phase2 or msg:find(L.Phase2) then
 		self:ScheduleMethod(17, "WormsEmerge")
 		timerCombatStart:Show(15)
 		updateHealthFrame(2)
@@ -370,5 +376,7 @@ function mod:UNIT_DIED(args)
 				DBM.BossHealth:RemoveBoss(34799)
 			end
 		end
+	elseif cid == 34797 then
+		DBM:EndCombat(self)
 	end
 end

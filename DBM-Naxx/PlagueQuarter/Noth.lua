@@ -7,8 +7,11 @@ mod:SetModelID(16590)
 mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
-	"SPELL_CAST_SUCCESS",
 	"CHAT_MSG_MONSTER_YELL"
+)
+
+mod:RegisterEventsInCombat(
+	"SPELL_CAST_SUCCESS"
 )
 
 local warnTeleportNow	= mod:NewAnnounce("WarningTeleportNow", 3, 46573)

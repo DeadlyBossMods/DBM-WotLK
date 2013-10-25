@@ -8,7 +8,7 @@ mod:RegisterCombat("combat")--Maybe change to a yell later so pull detection wor
 
 mod:EnableModel()
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS",
 	"UNIT_DIED"
 )

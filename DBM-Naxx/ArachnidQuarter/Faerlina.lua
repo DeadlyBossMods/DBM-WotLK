@@ -7,9 +7,12 @@ mod:SetModelID(15940)
 mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
-	"SPELL_AURA_APPLIED",
-	"UNIT_DIED",
 	"CHAT_MSG_MONSTER_YELL"
+)
+
+mod:RegisterEventsInCombat(
+	"SPELL_AURA_APPLIED",
+	"UNIT_DIED"
 )
 
 local warnEmbraceActive		= mod:NewSpellAnnounce(28732, 1)

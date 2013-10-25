@@ -6,9 +6,7 @@ mod:SetCreatureID(15932)
 mod:SetModelID(16064)
 mod:RegisterCombat("combat")
 
-mod:EnableModel()
-
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_DAMAGE"
 )
 

@@ -9,10 +9,13 @@ mod:SetUsedIcons(8)
 mod:RegisterCombat("yell", L.YellAir)
 
 mod:RegisterEvents(
+	"CHAT_MSG_MONSTER_YELL"
+)
+
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_DAMAGE",
 	"SPELL_MISSED",
-	"CHAT_MSG_MONSTER_YELL",
 	"RAID_BOSS_EMOTE"
 )
 

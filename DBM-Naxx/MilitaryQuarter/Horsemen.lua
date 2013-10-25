@@ -8,7 +8,7 @@ mod:RegisterCombat("combat")
 
 mod:EnableModel()
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS",
 	"SPELL_AURA_APPLIED_DOSE"
 )

@@ -9,7 +9,7 @@ mod:SetZone()
 mod:RegisterCombat("combat")
 mod:RegisterKill("kill", 24201)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_REMOVED",
 	"SPELL_SUMMON"

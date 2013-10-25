@@ -7,7 +7,7 @@ mod:SetZone()
 
 mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"UNIT_HEALTH target focus mouseover boss1",
 	"CHAT_MSG_MONSTER_YELL"
 )

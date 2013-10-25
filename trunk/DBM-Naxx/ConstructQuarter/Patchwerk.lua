@@ -6,8 +6,6 @@ mod:SetCreatureID(16028)
 mod:SetModelID(16174)
 mod:RegisterCombat("combat")
 
-mod:EnableModel()
-
 mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_YELL"
 )

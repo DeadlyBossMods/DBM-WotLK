@@ -5,18 +5,20 @@ mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(27655)
 mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
 
-mod:RegisterCombat("yell", L.CombatStart)
+mod:RegisterCombat("yell", L.CombatStart)--Why using yell instead of "Combat". I do not remember.
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_CAST_START"
 )
 
 local warningTimeBomb		= mod:NewTargetAnnounce(51121, 2)
 local warningExplosion		= mod:NewCastAnnounce(51110, 3)
+
+local specWarnBombYou		= mod:NewSpecialWarningYou(51121)
+
 local timerTimeBomb			= mod:NewTargetTimer(6, 51121)
 local timerExplosion		= mod:NewTargetTimer(8, 51110)
-local specWarnBombYou		= mod:NewSpecialWarningYou(51121)
 
 function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(51110, 59377) then

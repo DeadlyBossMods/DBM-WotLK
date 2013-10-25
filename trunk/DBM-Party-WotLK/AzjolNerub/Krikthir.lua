@@ -10,7 +10,7 @@ mod:RegisterCombat("combat")
 local warningCurse	= mod:NewSpellAnnounce(52592, 2)
 local timerCurseCD	= mod:NewCDTimer(20, 52592)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED"
 )
 

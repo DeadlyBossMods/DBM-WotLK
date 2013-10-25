@@ -8,9 +8,12 @@ mod:SetMinSyncRevision(7)--Could break if someone is running out of date version
 mod:RegisterCombat("yell", L.Phase2)
 
 mod:RegisterEvents(
-	"SPELL_AURA_APPLIED",
-	"SPELL_AURA_REMOVED",
 	"CHAT_MSG_MONSTER_YELL"
+)
+
+mod:RegisterEventsInCombat(
+	"SPELL_AURA_APPLIED",
+	"SPELL_AURA_REMOVED"
 )
 
 local warnPhase2		= mod:NewPhaseAnnounce(2)

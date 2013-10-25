@@ -10,7 +10,7 @@ mod:RegisterCombat("combat")
 local warningCloud	= mod:NewSpellAnnounce(53400, 3)
 local warningLeech	= mod:NewSpellAnnounce(53030, 1)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START"
 )
 

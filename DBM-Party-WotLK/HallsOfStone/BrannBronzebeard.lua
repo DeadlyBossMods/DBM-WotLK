@@ -10,7 +10,7 @@ mod:RegisterKill("yell", L.Kill)
 mod:SetMinCombatTime(50)
 mod:SetWipeTime(25)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"CHAT_MSG_MONSTER_YELL"
 )
 

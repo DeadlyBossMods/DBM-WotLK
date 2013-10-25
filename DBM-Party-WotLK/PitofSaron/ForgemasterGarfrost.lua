@@ -8,7 +8,7 @@ mod:SetMinSyncRevision(7)--Could break if someone is running out of date version
 
 mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_APPLIED_DOSE",
 	"RAID_BOSS_WHISPER"

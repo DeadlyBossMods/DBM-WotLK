@@ -8,5 +8,5 @@ mod:SetModelID(27061)
 
 mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 )

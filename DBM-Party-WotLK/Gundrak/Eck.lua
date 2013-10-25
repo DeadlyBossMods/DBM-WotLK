@@ -7,7 +7,7 @@ mod:SetCreatureID(29932)
 
 mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 )
 
 local enrageTimer	= mod:NewBerserkTimer(120)

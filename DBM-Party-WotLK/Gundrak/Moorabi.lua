@@ -7,7 +7,7 @@ mod:SetCreatureID(29305)
 
 mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"UNIT_HEALTH boss1 target focus mouseover"
 )

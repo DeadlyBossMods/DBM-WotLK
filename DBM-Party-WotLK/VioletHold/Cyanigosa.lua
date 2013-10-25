@@ -8,10 +8,13 @@ mod:SetZone()
 mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
+	"CHAT_MSG_MONSTER_YELL"
+)
+
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS",
 	"SPELL_AURA_APPLIED",
-	"SPELL_AURA_REMOVED",
-	"CHAT_MSG_MONSTER_YELL"
+	"SPELL_AURA_REMOVED"
 )
 
 local warningVacuum		= mod:NewSpellAnnounce(58694, 1)

@@ -8,7 +8,7 @@ mod:SetCreatureID(34928)
 mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellCombatEnd)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
    "SPELL_AURA_APPLIED",
    "SPELL_AURA_REMOVED"
 )

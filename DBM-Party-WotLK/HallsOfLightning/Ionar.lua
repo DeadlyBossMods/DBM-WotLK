@@ -8,7 +8,7 @@ mod:SetUsedIcons(8)
 
 mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_CAST_START",
 	"UNIT_HEALTH target focus mouseover boss1"

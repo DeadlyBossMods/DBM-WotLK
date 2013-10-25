@@ -8,7 +8,7 @@ mod:SetZone()
 
 mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS",
 	"UNIT_HEALTH boss1 target focus mousover"
 )

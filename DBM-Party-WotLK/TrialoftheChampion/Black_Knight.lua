@@ -9,11 +9,14 @@ mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellCombatEnd)
 
 mod:RegisterEvents(
+	"CHAT_MSG_MONSTER_YELL"
+)
+
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_AURA_APPLIED",
 	"SPELL_DAMAGE",
-	"SPELL_MISSED",
-	"CHAT_MSG_MONSTER_YELL"
+	"SPELL_MISSED"
 )
 
 local warnExplode			= mod:NewSpellAnnounce(67729)

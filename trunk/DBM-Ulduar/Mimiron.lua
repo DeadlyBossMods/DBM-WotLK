@@ -10,10 +10,13 @@ mod:RegisterCombat("yell", L.YellPull)
 mod:RegisterCombat("yell", L.YellHardPull)
 
 mod:RegisterEvents(
+	"CHAT_MSG_MONSTER_YELL"
+)
+
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_AURA_APPLIED",
-	"CHAT_MSG_MONSTER_YELL",
 	"SPELL_AURA_REMOVED",
 	"UNIT_SPELLCAST_CHANNEL_STOP target focus",
 	"CHAT_MSG_LOOT",

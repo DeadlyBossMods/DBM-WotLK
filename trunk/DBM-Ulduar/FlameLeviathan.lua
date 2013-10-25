@@ -9,7 +9,7 @@ mod:RegisterCombat("yell", L.YellPull)
 --mod:SetMinSyncRevision(4182)
 mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_REMOVED",
 	"SPELL_AURA_APPLIED",
 	"SPELL_SUMMON"

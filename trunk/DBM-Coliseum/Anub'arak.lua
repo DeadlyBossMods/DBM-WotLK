@@ -7,7 +7,7 @@ mod:SetModelID(29268)
 
 mod:RegisterCombat("yell", L.YellPull)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_REFRESH",
 	"SPELL_AURA_REMOVED",

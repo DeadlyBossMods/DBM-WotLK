@@ -8,7 +8,7 @@ mod:RegisterCombat("combat")
 
 mod:EnableModel()
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"RAID_BOSS_EMOTE",
 	"SPELL_CAST_SUCCESS"

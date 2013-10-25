@@ -11,7 +11,7 @@ mod:SetMinSyncRevision(7)--Could break if someone is running out of date version
 mod:RegisterCombat("combat")
 --mod:RegisterKill("yell", L.Kill)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_AURA_APPLIED",
@@ -23,8 +23,8 @@ mod:RegisterEvents(
 	"UNIT_HEALTH target focus mouseover"
 )
 
-local warnPhase2Soon				= mod:NewAnnounce("WarnPhase2Soon", 2)
-local warnPhase3Soon				= mod:NewAnnounce("WarnPhase3Soon", 2)
+local warnPhase2Soon				= mod:NewPrePhaseAnnounce(2)
+local warnPhase3Soon				= mod:NewPrePhaseAnnounce(3)
 local warnPhase2					= mod:NewPhaseAnnounce(2)
 local warnPhase3					= mod:NewPhaseAnnounce(3)
 local warningShadowConsumption		= mod:NewTargetAnnounce(74792, 4)

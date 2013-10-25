@@ -30,5 +30,3 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		warningPhase:Show(3)
 	end
 end
-
-

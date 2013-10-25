@@ -9,7 +9,7 @@ mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellKill)
 mod:SetUsedIcons(6, 7, 8)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_AURA_APPLIED",

@@ -10,14 +10,17 @@ mod:SetUsedIcons(7, 8)
 mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
+	"CHAT_MSG_MONSTER_YELL"
+)
+
+mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_REMOVED",
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_DAMAGE",
 	"SPELL_HEAL",
-	"SPELL_PERIODIC_HEAL",
-	"CHAT_MSG_MONSTER_YELL"
+	"SPELL_PERIODIC_HEAL"
 )
 
 local isDispeller = select(2, UnitClass("player")) == "MAGE"

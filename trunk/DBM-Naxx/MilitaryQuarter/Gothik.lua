@@ -6,7 +6,7 @@ mod:SetCreatureID(16060)
 mod:SetModelID(16279)
 mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"UNIT_DIED"
 )
 

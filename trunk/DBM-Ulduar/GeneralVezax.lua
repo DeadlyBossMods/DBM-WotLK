@@ -8,7 +8,7 @@ mod:SetUsedIcons(7, 8)
 
 mod:RegisterCombat("combat")
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_INTERRUPT",
 	"SPELL_AURA_APPLIED",

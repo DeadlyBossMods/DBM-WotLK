@@ -9,7 +9,7 @@ mod:RegisterCombat("yell", L.Yell)
 
 mod:EnableModel()
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"RAID_BOSS_EMOTE",
 	"UNIT_AURA player"

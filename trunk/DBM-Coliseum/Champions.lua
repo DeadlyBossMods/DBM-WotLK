@@ -8,7 +8,7 @@ mod:RegisterCombat("combat")
 --mod:RegisterKill("yell", L.YellKill)
 
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS",
 	"SPELL_DAMAGE",
 	"SPELL_MISSED",

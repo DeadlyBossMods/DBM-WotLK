@@ -6,7 +6,7 @@ mod:SetCreatureID(33288)
 mod:SetModelID(28817)
 mod:RegisterCombat("yell", L.YellPull)
 
-mod:RegisterEvents(
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_SUMMON",

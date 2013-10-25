@@ -163,14 +163,10 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarnPhase2Soon		= "Скоро фаза 2",
-	WarnPhase3Soon		= "Скоро фаза 3",
 	TwilightCutterCast	= "Применение заклинания Лезвие сумерек: 5 сек"
 })
 
 L:SetOptionLocalization({
-	WarnPhase2Soon			= "Предупреждать заранее о фазе 2 (на ~79%)",
-	WarnPhase3Soon			= "Предупреждать заранее о фазе 3 (на ~54%)",
 	TwilightCutterCast		= "Предупреждать о применении заклинания $spell:77844",
 	AnnounceAlternatePhase	= "Показывать предупреждения и таймеры для обоих миров",
 	SoundOnConsumption		= "Звуковой сигнал при $spell:74562 или $spell:74792",--We use localized text for these functions

@@ -168,14 +168,10 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarnPhase2Soon		= "곧 2 단계",
-	WarnPhase3Soon		= "곧 3 단계",
 	TwilightCutterCast	= "주문시전 황혼 절단기 : 5 초"
 })
 
 L:SetOptionLocalization({
-	WarnPhase2Soon			= "2 단계 이전에 알림 보기",
-	WarnPhase3Soon			= "3 단계 이전에 알림 보기",
 	TwilightCutterCast		= "$spell:74769 시전 알림 보기",
 	AnnounceAlternatePhase	= "다른 위상 우두머리 알림/바 보기",
 	SoundOnConsumption		= "$spell:74562 또는 $spell:74792 대상이 된 경우 별도 경고음 듣기",

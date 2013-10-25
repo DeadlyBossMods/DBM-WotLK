@@ -117,8 +117,7 @@ L:SetGeneralLocalization{
 L:SetWarningLocalization{
 	WarningPhasePunch		= "위상의 주먹 : >%s< (%d)",
 	WarningBlackHole		= "블랙홀 폭발",
-	warnStarLow				= "붕괴의 별 체력 낮음",
-	FirstPullNotice			= "첫번째 전투 시작 감지됨. 전투 시작 바를 수정합니다."
+	warnStarLow				= "붕괴의 별 체력 낮음"
 }
 
 L:SetTimerLocalization{

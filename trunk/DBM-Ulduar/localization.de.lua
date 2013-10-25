@@ -122,8 +122,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	WarningPhasePunch		= "Phasenschlag auf >%s< - %d Stapel",
 	WarnPhase2Soon			= "Phase 2 bald",
-	warnStarLow				= "Kollabierender Stern stirbt bald",
-	FirstPullNotice			= "Erster Pull, automatische Timerkorrekturen durchgeführt."
+	warnStarLow				= "Kollabierender Stern stirbt bald"
 }
 
 L:SetOptionLocalization{

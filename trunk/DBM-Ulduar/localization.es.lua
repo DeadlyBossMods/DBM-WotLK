@@ -135,8 +135,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	WarningPhasePunch		= "Cambiar de fase en >%s< - Stack %d",
 	WarnPhase2Soon			= "Fase 2 pronto",
-	warnStarLow				= "Estrella en colapso a punto de morir",
-	FirstPullNotice			= "Primer pull detectado, corrigiendo tiempos."
+	warnStarLow				= "Estrella en colapso a punto de morir"
 }
 
 L:SetOptionLocalization{

@@ -19,7 +19,7 @@ local warningWarnEnrage		= mod:NewSpellAnnounce(78722, 3)
 local warningWarnBreath		= mod:NewSpellAnnounce(74403, 3)
 
 local specWarnBeacon		= mod:NewSpecialWarningYou(74453)--Target scanning may not even work since i haven't done encounter yet it's just a guess.
-local specWarnTranq			= mod:NewSpecialWarning("SpecialWarningTranq", mod:CanRemoveEnrage())
+local specWarnTranq			= mod:NewSpecialWarningDispel(78722, mod:CanRemoveEnrage())
 
 local timerBeacon			= mod:NewBuffActiveTimer(5, 74453)
 local timerConflag			= mod:NewBuffActiveTimer(5, 74456)

@@ -23,20 +23,11 @@ L:SetMiscLocalization{
 
 L:SetOptionLocalization{
 	WarningSnobold				= "Zeige Warnung, wenn ein Schneeboldvasall erscheint",
-	SpecialWarningImpale3		= "Spezialwarnung für Pfählen (>=3 Stapel)",
-	SpecialWarningAnger3		= "Spezialwarnung für $spell:66636 (>=3 Stapel)",
-	SpecialWarningSilence		= "Spezialwarnung für Erschütterndes Stampfen (Stille)",
-	SpecialWarningCharge		= "Spezialwarnung, wenn Eisheuler dich niedertrampeln will",
-	SpecialWarningTranq			= "Spezialwarnung, wenn Eisheuler Schäumende Wut erhält (zum Einlullen/Beruhigen)",
 	PingCharge					= "Pingt die Minimap, wenn Eisheuler dich niedertrampeln will",
-	SpecialWarningChargeNear	= "Spezialwarnung, wenn Eisheuler jemand in deiner Nähe niedertrampeln will",
-	SetIconOnChargeTarget		= "Setze Zeichen auf Ziele von Trampeln (Totenkopf)",
-	SetIconOnBileTarget			= "Setze Zeichen auf Ziele von $spell:66869",
 	ClearIconsOnIceHowl			= "Entferne alle Zeichen vor dem Trampeln",
 	TimerNextBoss				= "Zeige Zeit bis zum Erscheinen des nächsten Bosses",
 	TimerEmerge					= "Zeige Zeit bis Auftauchen",
 	TimerSubmerge				= "Zeige Zeit bis Abtauchen",
-	RangeFrame                  = "Zeige Abstandsfenster (10m) in Phase 2",
 	IcehowlArrow				= "Zeige DBM-Pfeil, wenn Eisheuler jemand in deiner Nähe niedertrampeln will"
 }
 
@@ -47,13 +38,7 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold				= "Schneeboldvasall erschienen",
-	SpecialWarningImpale3		= "Pfählen >%d< auf dir",
-	SpecialWarningAnger3		= "Aufkochende Wut >%d<",
-	SpecialWarningSilence		= "Stille in ~1,5 Sekunden",
-	SpecialWarningCharge		= "Stürmt dich an - Lauf weg!",
-	SpecialWarningChargeNear	= "Stürmt deine Nähe an - Lauf weg!",
-	SpecialWarningTranq			= "Schäumende Wut - Einlullen/Beruhigen!"
+	WarningSnobold				= "Schneeboldvasall erschienen"
 }
 
 ---------------------
@@ -65,32 +50,12 @@ L:SetGeneralLocalization{
 	name = "Lord Jaraxxus"
 }
 
-L:SetWarningLocalization{
-	WarnNetherPower				= "Macht des Nether auf Lord Jaraxxus - Jetzt reinigen!",
-	SpecWarnTouch				= "Jaraxxus' Berührung auf dir", -- obsolete
-	SpecWarnTouchNear			= "Jaraxxus' Berührung auf %s in deiner Nähe", -- obsolete
-	SpecWarnNetherPower			= "Jetzt reinigen!",
-	SpecWarnFelFireball			= "Teufelsfeuerball - Jetzt unterbrechen"
-}
-
-L:SetMiscLocalization{
-	WhisperFlame		= "Legionsflamme auf dir!",
-	IncinerateTarget	= "Fleisch einäschern: %s"
-}
-
 L:SetOptionLocalization{
-	WarnNetherPower				= "Zeige Warnung, wenn Lord Jaraxxus $spell:67009 erhält (zum Reinigen/Rauben)",
-	SpecWarnTouch				= "Spezialwarnung, wenn du von $spell:66209 betroffen bist", -- obsolete
-	SpecWarnTouchNear			= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:66209 betroffen ist", -- obsolete
-	SpecWarnNetherPower			= "Spezialwarnung für $spell:67009 (zum Reinigen/Rauben)",
-	SpecWarnFelFireball			= "Spezialwarnung für Teufelsfeuerball (zum Unterbrechen)",
-	IncinerateFleshIcon			= "Setze Zeichen auf Ziele von Fleisch einäschern",
-	LegionFlameIcon				= "Setze Zeichen auf Ziele von Legionsflamme",
-	LegionFlameWhisper			= "Ziele von Legionsflamme anflüstern (benötigt Schlachtzugleitung)",
 	IncinerateShieldFrame		= "Zeige Lebensanzeige mit einem Balken für Fleisch einäschern"
 }
 
 L:SetMiscLocalization{
+	IncinerateTarget	= "Fleisch einäschern: %s",
 	FirstPull	= "Großhexenmeister Wilfred Zischknall wird Eure nächste Herausforderung beschwören. Harrt seiner Ankunft."
 }
 
@@ -101,12 +66,6 @@ L = DBM:GetModLocalization("Champions")
 
 L:SetGeneralLocalization{
 	name = "Fraktionschampions"
-}
-
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
@@ -144,9 +103,6 @@ L:SetMiscLocalization{
 	AllianceVictory    = "EHRE DER ALLIANZ!",
 	HordeVictory       = "Das ist nur ein Vorgeschmack auf die Zukunft. FÜR DIE HORDE!",
 	YellKill           = "Ein tragischer Sieg. Wir wurden schwächer durch die heutigen Verluste. Wer außer dem Lichkönig profitiert von solchen Torheiten? Große Krieger gaben ihr Leben. Und wofür? Die wahre Bedrohung erwartet uns noch - der Lichkönig erwartet uns alle im Tod."
-} 
-
-L:SetOptionLocalization{
 }
 
 ---------------------
@@ -212,9 +168,7 @@ L:SetWarningLocalization{
 	WarnSubmerge			= "Abtauchen",
 	WarnSubmergeSoon		= "Abtauchen in 10 Sekunden",
 	specWarnSubmergeSoon	= "Abtauchen in 10 Sekunden!",
-	SpecWarnPursue			= "Du wirst verfolgt - Lauf weg!",
-	warnAdds				= "Neue Adds",
-	SpecWarnShadowStrike	= "Schattenhieb - Jetzt unterbrechen"
+	warnAdds				= "Neue Adds"
 }
 
 L:SetMiscLocalization{
@@ -231,12 +185,10 @@ L:SetOptionLocalization{
 	WarnSubmerge			= "Zeige Warnung für Abtauchen",
 	WarnSubmergeSoon		= "Zeige Vorwarnung für Abtauchen",
 	specWarnSubmergeSoon	= "Spezialwarnung für baldiges Abtauchen",
-	SpecWarnPursue			= "Spezialwarnung, wenn du verfolgt wirst",
 	warnAdds				= "Verkünde neue Adds",
 	timerAdds				= "Zeige Zeit bis neue Adds erscheinen",
 	TimerEmerge				= "Zeige Zeit bis Auftauchen",
 	TimerSubmerge			= "Zeige Zeit bis Abtauchen",
-	SpecWarnShadowStrike	= "Spezialwarnung für $spell:66134 (zum Unterbrechen)",
 	AnnouncePColdIcons		= "Verkünde Zeichen für Ziele von $spell:66013 im Schlachtzugchat (nur als Leiter)",
 	AnnouncePColdIconsRemoved	= "Verkünde auch das Entfernen von Zeichen für $spell:66013 (benötigt obige Einstellung)"
 }

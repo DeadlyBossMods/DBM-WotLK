@@ -28,22 +28,12 @@ L:SetMiscLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	WarningSnobold			= "为狗头人奴隶出现显示警报",
-	SpecialWarningImpale3		= "为穿刺(至少3层)显示特殊警报",
-	SpecialWarningAnger3		= "为渐怒(至少3层)显示特殊警报",
-	SpecialWarningSilence		= "为震地践踏显示特殊警报",
-	SpecialWarningCharge		= "当冰吼即将冲锋你时显示特殊警报",
-	SpecialWarningTranq		= "当冰吼获得寒冰狂怒时显示特殊警报(供驱散使用)",
 	PingCharge			= "当冰吼即将向你你冲锋时自动点击小地图",
-	SpecialWarningChargeNear	= "当冰吼即将向你你附近冲锋时显示特殊警报",
-	SetIconOnChargeTarget		= "为冲锋的目标设置标记“骷髅”",
-	SetIconOnBileTarget		= "为麻痹毒素的目标设置标记",
 	ClearIconsOnIceHowl		= "冲锋前清除所有标记",
 	TimerNextBoss			= "显示下一场战斗倒计时",
 	TimerEmerge			= "显示钻地计时",
 	TimerSubmerge			= "显示钻地结束计时",
-	RangeFrame                  	= "在第2阶段显示距离框体",
 	IcehowlArrow			= "当冰吼即将向你附近冲锋时显示DBM箭头"
 }
 
@@ -54,13 +44,7 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold			= "狗头人奴隶 出现了",
-	SpecialWarningImpale3		= "你中了穿刺>%d<",
-	SpecialWarningAnger3		= "渐怒 -> >%d<",
-	SpecialWarningSilence		= "1.5秒后 震地践踏",
-	SpecialWarningCharge		= "你是冲锋的目标 - 快躲开",
-	SpecialWarningChargeNear	= "你附近有人被冲锋 - 快躲开",
-	SpecialWarningTranq		= "寒冰狂怒 - 现在驱散"
+	WarningSnobold			= "狗头人奴隶 出现了"
 }
 
 ---------------------
@@ -72,34 +56,12 @@ L:SetGeneralLocalization{
 	name = "加拉克苏斯大王"
 }
 
-L:SetWarningLocalization{
-	WarnNetherPower			= "加拉克苏斯大王拥有虚空之能 - 立刻驱散",
-	SpecWarnTouch			= "你中了加拉克苏斯之触",
-	SpecWarnTouchNear		= "你附近的%s中了加拉克苏斯之触",
-	SpecWarnNetherPower		= "现在驱散",
-	SpecWarnFelFireball		= "魔能火球 - 立刻打断"
-}
-
-L:SetMiscLocalization{
-	WhisperFlame			= "你中了军团烈焰 - 快跑开",
-	IncinerateTarget		= "血肉成灰 -> %s"
-}
-
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
-	WarnNetherPower			= "当加拉克苏斯大王拥有虚空之能时显示警报(供驱散/偷取使用)",
-	SpecWarnTouch			= "当你中了加拉克苏斯之触时显示特殊警报",
-	SpecWarnTouchNear		= "当你附近的人中了加拉克苏斯之触时显示特殊警报",
-	SpecWarnNetherPower		= "为虚空之能显示特殊警报(供驱散/偷取使用)",
-	SpecWarnFelFireball		= "为魔能火球显示特殊警报(供打断使用)",
-	TouchJaraxxusIcon		= "为加拉克苏斯之触的目标设置标记(十字)",
-	IncinerateFleshIcon		= "为血肉成灰的目标设置标记(骷髅)",
-	LegionFlameIcon			= "为军团烈焰的目标设置标记(方形)",
-	LegionFlameWhisper		= "密语提示军团烈焰的目标",
 	IncinerateShieldFrame		= "在首领血量里显示血肉成灰目标的血量"
 }
 
 L:SetMiscLocalization{
+	IncinerateTarget		= "血肉成灰 -> %s",
 	FirstPull			= "大术士威尔弗雷德·菲斯巴恩将会召唤你们的下一个挑战者。等待他的登场吧。"
 }
 
@@ -110,12 +72,6 @@ L = DBM:GetModLocalization("Champions")
 
 L:SetGeneralLocalization{
 	name = "阵营冠军"
-}
-
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
@@ -155,10 +111,6 @@ L:SetMiscLocalization{
 	YellKill			= "肤浅而悲痛的胜利。今天痛失的生命反而令我们更加的颓弱。除了巫妖王之外，谁还能从中获利?伟大的战士失去了宝贵生命。为了什么?真正的威胁就在前方 - 巫妖王在死亡的领域中等着我们。"
 } 
 
-L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音"
-}
-
 ---------------------
 --  Val'kyr Twins  --
 ---------------------
@@ -189,7 +141,6 @@ L:SetMiscLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	TimerSpecialSpell		= "为下一次特殊技能显示计时器",
 	WarnSpecialSpellSoon		= "为下一次特殊技能显示提前警报",
 	SpecWarnSpecial			= "当你需要变换颜色时显示特殊警报",
@@ -223,9 +174,7 @@ L:SetWarningLocalization{
 	WarnSubmerge			= "阿努巴拉克钻进地里了",
 	WarnSubmergeSoon		= "10秒后 钻进地里",
 	specWarnSubmergeSoon		= "10秒后 钻进地里!",
-	SpecWarnPursue			= "你被追击了 - 快跑",
-	warnAdds			= "掘地者 出现了",
-	SpecWarnShadowStrike		= "暗影突击 - 现在打断"
+	warnAdds			= "掘地者 出现了"
 }
 
 L:SetMiscLocalization{
@@ -237,20 +186,15 @@ L:SetMiscLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	WarnEmerge			= "为钻出地面显示警报",
 	WarnEmergeSoon			= "为钻出地面显示提前警报",
 	WarnSubmerge			= "为钻进地里显示警报",
 	WarnSubmergeSoon		= "为钻进地里显示提前警报",
 	specWarnSubmergeSoon		= "为即将钻进地里显示特殊警报",
-	SpecWarnPursue			= "当你被追击时显示特殊警报",
 	warnAdds			= "提示掘地者出现",
 	timerAdds			= "为下一次掘地者出现显示计时器",
 	TimerEmerge			= "为首领钻地显示计时器",
 	TimerSubmerge			= "为下一次钻地显示计时器",
-	PursueIcon			= "为被追击的目标设置标记(骷髅)",
-	SpecWarnShadowStrike		= "为$spell:66134显示特殊警报(打断用)",
-	SetIconsOnPCold			= "为$spell:68510的目标设置标记",
 	AnnouncePColdIcons		= "公布$spell:68510目标设置的标记到团队频道<br/>(需要团长或助理权限)",
 	AnnouncePColdIconsRemoved	= "当移除$spell:68510的标记时也提示<br/>(需要上述选项)"
 }

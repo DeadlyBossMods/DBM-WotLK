@@ -102,9 +102,6 @@ L:SetOptionLocalization({
 	RangeFrame			= "Показывать окно проверки дистанции (12 м)"
 })
 
-L:SetMiscLocalization({
-})
-
 -------------------------
 --  Saviana Ragefire  --
 -------------------------
@@ -114,17 +111,9 @@ L:SetGeneralLocalization({
 	name = "Савиана Огненная Пропасть"
 })
 
-L:SetWarningLocalization({
-	SpecialWarningTranq		= "Исступление - усмирите сейчас"
-})
-
 L:SetOptionLocalization({
-	SpecialWarningTranq		= "Спец-предупреждение о $spell:78722 (для усмирения)",
 	RangeFrame				= "Показывать окно проверки дистанции (10 м)"
 })
-
-L:SetMiscLocalization{
-}
 
 --------------------------
 --  General Zarithrian  --

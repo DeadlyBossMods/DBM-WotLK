@@ -23,27 +23,20 @@ mod:RegisterEventsInCombat(
 	"SPELL_PERIODIC_HEAL"
 )
 
-local isDispeller = select(2, UnitClass("player")) == "MAGE"
-	    		 or select(2, UnitClass("player")) == "PRIEST"
-	    		 or select(2, UnitClass("player")) == "SHAMAN"
-
-local isMagicDispeller = select(2, UnitClass("player")) == "PALADIN"
-	    		 or select(2, UnitClass("player")) == "PRIEST"
-
 local warnFelFireball			= mod:NewCastAnnounce(66532, 2)
 local warnPortalSoon			= mod:NewSoonAnnounce(66269, 3)
 local warnVolcanoSoon			= mod:NewSoonAnnounce(66258, 3)
 local warnFlame					= mod:NewTargetAnnounce(66197, 4)
 local warnFlesh					= mod:NewTargetAnnounce(66237, 4, nil, mod:IsHealer())
-local warnNetherPower			= mod:NewAnnounce("WarnNetherPower", 4, 67009)
+local warnNetherPower			= mod:NewTargetAnnounce(67009, 4)
 
 local specWarnFlame				= mod:NewSpecialWarningRun(66877)
 local specWarnFlesh				= mod:NewSpecialWarningYou(66237)
 local specWarnKiss				= mod:NewSpecialWarningYou(66334, false)
-local specWarnNetherPower		= mod:NewSpecialWarning("SpecWarnNetherPower", isDispeller)
+local specWarnNetherPower		= mod:NewSpecialWarningDispel(67009, mod:IsMagicDispeller())
 local specWarnFelInferno		= mod:NewSpecialWarningMove(66496)
-local SpecWarnFelFireball		= mod:NewSpecialWarning("SpecWarnFelFireball", false)
-local SpecWarnFelFireballDispel	= mod:NewSpecialWarningDispel(66532, isMagicDispeller)
+local SpecWarnFelFireball		= mod:NewSpecialWarningInterrupt(66532, false)
+local SpecWarnFelFireballDispel	= mod:NewSpecialWarningDispel(66532, mod:IsHealer())
 
 local timerCombatStart			= mod:NewCombatTimer(84)--rollplay for first pull
 local enrageTimer				= mod:NewBerserkTimer(600)
@@ -57,10 +50,8 @@ local timerVolcanoCD			= mod:NewCDTimer(120, 66258)
 
 local soundLegionFlame			= mod:NewSound(66197)
 
-mod:AddBoolOption("LegionFlameWhisper", false, "announce")
-mod:AddBoolOption("LegionFlameIcon", true)
-mod:AddBoolOption("IncinerateFleshIcon", true)
-
+mod:AddSetIconOption("LegionFlameIcon", 66197)
+mod:AddSetIconOption("IncinerateFleshIcon", 66237)
 mod:AddBoolOption("IncinerateShieldFrame", true, "misc")
 
 function mod:OnCombatStart(delay)
@@ -147,9 +138,6 @@ function mod:SPELL_AURA_APPLIED(args)
 		end		
 		if self.Options.LegionFlameIcon then
 			self:SetIcon(args.destName, 7, 8)
-		end
-		if DBM:GetRaidRank() > 0 and self.Options.LegionFlameWhisper then
-			self:SendWhisper(L.WhisperFlame, targetname)
 		end
 	elseif args.spellId == 66334 and args:IsPlayer() then
 		specWarnKiss:Show()

@@ -102,9 +102,6 @@ L:SetOptionLocalization({
 	RangeFrame			= "顯示距離框(12碼)"
 })
 
-L:SetMiscLocalization({
-})
-
 -------------------------
 --  Saviana Ragefire  --
 -------------------------
@@ -114,17 +111,9 @@ L:SetGeneralLocalization({
 	name = "薩薇安娜‧怒焰"
 })
 
-L:SetWarningLocalization({
-	SpecialWarningTranq	= "狂怒 - 現在驅散!"
-})
-
 L:SetOptionLocalization({
-	SpecialWarningTranq	= "為狂怒顯示特別警告(驅散用)",
 	RangeFrame			= "顯示距離框(10碼)"
 })
-
-L:SetMiscLocalization{
-}
 
 --------------------------
 --  General Zarithrian  --

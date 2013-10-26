@@ -25,20 +25,11 @@ L:SetMiscLocalization{
 
 L:SetOptionLocalization{
 	WarningSnobold				= "Mostrar aviso cuando salen Vasallos snóbold",
-	SpecialWarningImpale3		= "Mostrar aviso especial para Emaplar(>=3 ticks)",
-	SpecialWarningAnger3		= "Mostrar aviso especial para Ira en aumento (>=3 ticks)",
-	SpecialWarningSilence		= "Mostrar aviso especial para Silencio (bloqueo de hechizos)",
-	SpecialWarningCharge		= "Mostrar aviso especial si Aullahielo te mira",
-	SpecialWarningTranq			= "Mostrar aviso especial si Aullahielo gana Espumarajo (para tranquilizarlo)",
 	PingCharge					= "Pulsar en el Minimapa si Aullahielo va a por Ti",
-	SpecialWarningChargeNear	= "Mostrar aviso especial si Aullahielo va a cargar a alguien cerca de ti",
-	SetIconOnChargeTarget		= "Poner marca a por quien va (calavera)",
-	SetIconOnBileTarget			= "Poner marca quien tiene Bilis ardiente",
 	ClearIconsOnIceHowl			= "Limpiar iconos despues de cargar",
 	TimerNextBoss				= "Mostrar tiempo para el proximo boss",
 	TimerEmerge					= "Mostrar tiempo para emerger",
 	TimerSubmerge				= "Mostrar tiempo para sumergir",
-	RangeFrame                  = "Mostrar distancia en fase 2",
 	IcehowlArrow				= "Mostrar flecha cuando Aullahielo está a punto de cargar cerca de ti"
 }
 
@@ -50,13 +41,7 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold				= "Sale Vasallo snóbold",
-	SpecialWarningImpale3		= "Empalar >%d< en ti",
-	SpecialWarningAnger3		= "Ira en aumento >%d<",
-	SpecialWarningSilence		= "Silenciar en ~1.5 segundos",
-	SpecialWarningCharge		= "Cargar en ti! Corre!",
-	SpecialWarningChargeNear	= "Cargar cerca de ti! Corre",
-	SpecialWarningTranq			= "Espumarajo! Tranquilizadlo!"
+	WarningSnobold				= "Sale Vasallo snóbold"
 }
 
 -------------------
@@ -68,33 +53,12 @@ L:SetGeneralLocalization{
 	name = "Lord Jaraxxus"
 }
 
-L:SetWarningLocalization{
-	WarnNetherPower			= "Poder abisal en Jaraxxus! Dispelead Ya!",
-	SpecWarnTouch			= "Toque de Jaraxxus en TI!",
-	SpecWarnTouchNear		= "Toque de Jaraxxus en >%s< cerca de ti",
-	SpecWarnNetherPower		= "Dispelead Ya!",
-	SpecWarnFelFireball		= "Bola de Fuego vil! Interrumpe!"
-}
-
-L:SetMiscLocalization{
-	WhisperFlame			= "Llama de la Legion en TI!",
-	IncinerateTarget		= "Incinerar carne en: %s"
-}
-
 L:SetOptionLocalization{
-	WarnNetherPower			= "Avisar si Jaraxxus tiene Poder abisar (para dsipelear)",
-	SpecWarnTouch			= "Aviso especial si tienes Toque de Jaraxxus",
-	SpecWarnTouchNear		= "Aviso especial si tienes Toque de Jaraxxus cerca",
-	SpecWarnNetherPower		= "Aviso especial para Poder abisal(para dispelear a jaraxxus)",
-	SpecWarnFelFireball		= "Aviso especial para Fuego Vil ( para interrumpir )",
-	TouchJaraxxusIcon		= "Poner icono quien tenga Toque de Jaraxxus",
-	IncinerateFleshIcon		= "Poner icono quien tenga Carne",
-	LegionFlameIcon			= "Poner icono quien tenga Llama de la Legion",
-	LegionFlameWhisper		= "Susurrar a quien tenga la Llama de la Legion",
 	IncinerateShieldFrame	= "Mostrar la vida del boss con la barra de incinerar carne"
 }
 
 L:SetMiscLocalization{
+	IncinerateTarget		= "Incinerar carne en: %s",
 	FirstPull	= "El gran brujo Wilfred Chispobang invocará al siguiente contrincante. Esperad a que aparezca."
 }
 
@@ -105,12 +69,6 @@ L = DBM:GetModLocalization("Champions")
 
 L:SetGeneralLocalization{
 	name = "Campeones de Facción"
-}
-
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
@@ -148,12 +106,7 @@ L:SetMiscLocalization{
 	AllianceVictory    = "¡GLORIA A LA ALIANZA!",
 	HordeVictory       = "That was just a taste of what the future brings. FOR THE HORDE!",--translate
 	YellKill	= "Una victoria trágica y fútil. Hoy somos menos por las pérdidas que hemos sufrido. ¿Quién podría beneficiarse de tal insensatez además del Rey Exánime? Grandes guerreros han perdido la vida. ¿Y para qué? La verdad"
-} 
-
-L:SetOptionLocalization{
-	PlaySoundOnBladestorm	= "Reproducir sonido en Filotormenta"
 }
-
 
 ------------------
 -- Valkyr Twins --
@@ -219,9 +172,7 @@ L:SetWarningLocalization{
 	WarnSubmerge			= "Anub'arak se sumerge",
 	WarnSubmergeSoon		= "Sumersion en 10 seg",
 	specWarnSubmergeSoon	= "Sumersion en 10 segundos!",
-	SpecWarnPursue			= "¡Te persigue a ti!",
-	warnAdds				= "Nuevos adds",
-	SpecWarnShadowStrike	= "¡Golpe de sombras! ¡Corta ahora!"
+	warnAdds				= "Nuevos adds"
 }
 
 L:SetMiscLocalization{
@@ -238,14 +189,10 @@ L:SetOptionLocalization{
 	WarnSubmerge			= "Mostrar aviso para Sumersion",
 	WarnSubmergeSoon		= "Mostrar pre-aviso para Sumersion",
 	specWarnSubmergeSoon	= "Mostrar pre-aviso especial Sumersion",
-	SpecWarnPursue			= "Mostrar aviso especial si te sigue a ti",
 	warnAdds				= "Mostrar aviso para nuevos adds",
 	timerAdds				= "Mostrar tiempo para nuevos adds",
 	TimerEmerge				= "Mostrar tiempo para Emerger",
 	TimerSubmerge			= "Mostrar tiempo para Sumerger",
-	PursueIcon				= "Poner icono en jugador",
-	SpecWarnShadowStrike	= "Mostrar aviso especial para Golpe de sombras ( para cortar )",
-	SetIconsOnPCold         = "Poner iconos en los objetivos de $spell:68510",
 	AnnouncePColdIcons		= "Anunciar iconos para los ojetivos de $spell:68510 en el chat de banda<br/>(Requiere líder de banda)",
 	AnnouncePColdIconsRemoved	= "También anunciar cuando se eliminen los iconos de los objetivos $spell:68510<br/>(Necesita la opción anterior)"
 }

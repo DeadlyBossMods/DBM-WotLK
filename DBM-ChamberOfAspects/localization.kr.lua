@@ -108,9 +108,6 @@ L:SetOptionLocalization({
 	RangeFrame			= "거리 창 보기(12m)"
 })
 
-L:SetMiscLocalization({
-})
-
 -------------------------
 --  Saviana Ragefire  --
 -------------------------
@@ -120,17 +117,9 @@ L:SetGeneralLocalization({
 	name = "사비아나 레이지파이어"
 })
 
-L:SetWarningLocalization({
-	SpecialWarningTranq		= "격노 - 지금 평정!"
-})
-
 L:SetOptionLocalization({
-	SpecialWarningTranq		= "$spell:78722 해제 특수 경고 보기",
 	RangeFrame				= "거리 창 보기(10m)"
 })
-
-L:SetMiscLocalization{
-}
 
 --------------------------
 --  General Zarithrian  --

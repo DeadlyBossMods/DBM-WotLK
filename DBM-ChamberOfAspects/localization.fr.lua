@@ -100,9 +100,6 @@ L:SetOptionLocalization({
 	RangeFrame			= "Show range frame (12 yards)"
 })
 
-L:SetMiscLocalization({
-})
-
 -------------------------
 --  Saviana Ragefire  --
 -------------------------
@@ -112,17 +109,9 @@ L:SetGeneralLocalization({
 	name = "Saviana Ragefire"
 })
 
-L:SetWarningLocalization({
-	SpecialWarningTranq		= "Enrage - Tranq now"
-})
-
 L:SetOptionLocalization({
-	SpecialWarningTranq		= "Show special warning for $spell:78722 (to tranq)",
 	RangeFrame				= "Show range frame (10 yards)"
 })
-
-L:SetMiscLocalization{
-}
 
 --------------------------
 --  General Zarithrian  --

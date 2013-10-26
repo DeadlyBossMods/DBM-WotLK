@@ -105,9 +105,6 @@ L:SetOptionLocalization({
 	RangeFrame			= "Mostrar distancia (12 yardas)"
 })
 
-L:SetMiscLocalization({
-})
-
 -------------------------
 --  Saviana Ragefire  --
 -------------------------
@@ -117,18 +114,9 @@ L:SetGeneralLocalization({
 	name = "Saviana Furia Ardiente"
 })
 
-L:SetWarningLocalization({
-	SpecialWarningTranq		= "Enrage ¡Tranquilizadlo!"
-})
-
 L:SetOptionLocalization({
-	SpecialWarningTranq		= "Mostrar aviso especial para $spell:78722 (para tranquilizar)",
 	RangeFrame				= "Mostrar distancia (10 yardas)"
 })
-
-L:SetMiscLocalization{
-}
-
 
 --------------------------
 --  General Zarithrian  --

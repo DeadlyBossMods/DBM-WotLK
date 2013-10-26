@@ -4,6 +4,7 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(34564)
 mod:SetModelID(29268) 
+mod:SetUsedIcons(3, 4, 5, 6, 7, 8)
 
 mod:RegisterCombat("yell", L.YellPull)
 
@@ -14,8 +15,6 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"RAID_BOSS_EMOTE"
 )
-
-mod:SetUsedIcons(3, 4, 5, 6, 7, 8)
 
 local warnAdds				= mod:NewAnnounce("warnAdds", 3, 45419)
 local preWarnShadowStrike	= mod:NewSoonAnnounce(66134, 3)
@@ -29,9 +28,9 @@ local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DB
 local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 local warnPhase3			= mod:NewPhaseAnnounce(3)
 
-local specWarnPursue		= mod:NewSpecialWarning("SpecWarnPursue")
-local specWarnSubmergeSoon	= mod:NewSpecialWarning("specWarnSubmergeSoon", mod:IsTank())
-local specWarnShadowStrike	= mod:NewSpecialWarning("SpecWarnShadowStrike", mod:IsTank())
+local specWarnPursue		= mod:NewSpecialWarningRun(67574)
+local specWarnSubmergeSoon	= mod:NewSpecialWarningSoon("specWarnSubmergeSoon", mod:IsTank())
+local specWarnShadowStrike	= mod:NewSpecialWarningInterrupt(66134, mod:IsTank())
 local specWarnPCold			= mod:NewSpecialWarningYou(66013, false)
 
 local timerAdds				= mod:NewTimer(45, "timerAdds", 45419)
@@ -46,8 +45,8 @@ local enrageTimer			= mod:NewBerserkTimer(570)	-- 9:30 ? hmpf (no enrage while s
 
 local soundPursue			= mod:NewSound(67574)
 
-mod:AddBoolOption("PursueIcon")
-mod:AddBoolOption("SetIconsOnPCold", true)
+mod:AddSetIconOption("PursueIcon", 67574, false)
+mod:AddSetIconOption("SetIconsOnPCold", 66013, false)
 mod:AddBoolOption("AnnouncePColdIcons", false)
 mod:AddBoolOption("AnnouncePColdIconsRemoved", false)
 

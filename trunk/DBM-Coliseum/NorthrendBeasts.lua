@@ -26,7 +26,7 @@ mod:RegisterEventsInCombat(
 	"UNIT_DIED"
 )
 
-local warnImpaleOn			= mod:NewTargetAnnounce(66331, 2, nil, mod:IsTank() or mod:IsHealer())
+local warnImpaleOn			= mod:NewStackAnnounce(66331, 2, nil, mod:IsTank() or mod:IsHealer())
 local warnFireBomb			= mod:NewSpellAnnounce(66317, 3, nil, false)
 local warnBreath			= mod:NewSpellAnnounce(66689, 2)
 local warnRage				= mod:NewSpellAnnounce(66759, 3)
@@ -37,16 +37,16 @@ local WarningSnobold		= mod:NewAnnounce("WarningSnobold", 4)
 local warnEnrageWorm		= mod:NewSpellAnnounce(68335, 3)
 local warnCharge			= mod:NewTargetAnnounce(52311, 4)
 
-local specWarnImpale3		= mod:NewSpecialWarning("SpecialWarningImpale3")
-local specWarnAnger3		= mod:NewSpecialWarning("SpecialWarningAnger3", mod:IsTank() or mod:IsHealer())
+local specWarnImpale3		= mod:NewSpecialWarningStack(66331, nil, 3)
+local specWarnAnger3		= mod:NewSpecialWarningStack(66636, mod:IsTank() or mod:IsHealer(), 3)
 local specWarnFireBomb		= mod:NewSpecialWarningMove(66317)
 local specWarnSlimePool		= mod:NewSpecialWarningMove(66883)
 local specWarnToxin			= mod:NewSpecialWarningMove(66823)
 local specWarnBile			= mod:NewSpecialWarningYou(66869)
-local specWarnSilence		= mod:NewSpecialWarning("SpecialWarningSilence")
-local specWarnCharge		= mod:NewSpecialWarning("SpecialWarningCharge")
-local specWarnChargeNear	= mod:NewSpecialWarning("SpecialWarningChargeNear")
-local specWarnTranq			= mod:NewSpecialWarning("SpecialWarningTranq", mod:CanRemoveEnrage())
+local specWarnSilence		= mod:NewSpecialWarningCast(66330)
+local specWarnCharge		= mod:NewSpecialWarningRun(66734)
+local specWarnChargeNear	= mod:NewSpecialWarningClose(66734)
+local specWarnTranq			= mod:NewSpecialWarningDispel(66759, mod:CanRemoveEnrage())
 
 local enrageTimer			= mod:NewBerserkTimer(223)
 local timerCombatStart		= mod:NewCombatTimer(23)
@@ -70,10 +70,11 @@ local timerParalyticBiteCD	= mod:NewCDTimer(25, 66824, nil, mod:IsTank())
 local timerBurningBiteCD	= mod:NewCDTimer(15, 66879, nil, mod:IsTank())
 
 mod:AddBoolOption("PingCharge")
-mod:AddBoolOption("SetIconOnChargeTarget", true)
-mod:AddBoolOption("SetIconOnBileTarget", true)
+mod:AddSetIconOption("SetIconOnChargeTarget", 66734)
+mod:AddSetIconOption("SetIconOnBileTarget", 66869, false)
 mod:AddBoolOption("ClearIconsOnIceHowl", true)
-mod:AddBoolOption("RangeFrame")
+mod:AddRangeFrameOption("10")
+
 mod:AddBoolOption("IcehowlArrow")
 
 local bileTargets			= {}
@@ -179,7 +180,7 @@ end
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 66331 then		-- Impale
 		timerNextImpale:Start()
-		warnImpaleOn:Show(args.destName)
+		warnImpaleOn:Show(args.destName, 1)
 	elseif args.spellId == 66759 then	-- Frothing Rage
 		warnRage:Show()
 		specWarnTranq:Show()
@@ -213,19 +214,21 @@ end
 
 function mod:SPELL_AURA_APPLIED_DOSE(args)
 	if args.spellId == 66331 then		-- Impale
+		local amount = args.amount or 1
 		timerNextImpale:Start()
-		warnImpaleOn:Show(args.destName)
-		if (args.amount >= 3 and not self:IsDifficulty("heroic10", "heroic25") ) or ( args.amount >= 2 and self:IsDifficulty("heroic10", "heroic25") ) then 
+		warnImpaleOn:Show(args.destName, amount)
+		if (amount >= 3) or (amount >= 2 and self:IsDifficulty("heroic10", "heroic25")) then 
 			if args:IsPlayer() then
-				specWarnImpale3:Show(args.amount)
+				specWarnImpale3:Show(amount)
 			end
 		end
-	elseif args.spellId == 66636 then						-- Rising Anger
+	elseif args.spellId == 66636 then		-- Rising Anger
+		local amount = args.amount or 1
 		WarningSnobold:Show()
-		if args.amount <= 3 then
+		if amount <= 3 then
 			timerRisingAnger:Show()
-		elseif args.amount >= 3 then
-			specWarnAnger3:Show(args.amount)
+		elseif amount >= 3 then
+			specWarnAnger3:Show(amount)
 		end
 	end
 end
@@ -234,16 +237,16 @@ function mod:SPELL_CAST_START(args)
 	if args.spellId == 66689 then			-- Arctic Breath
 		timerBreath:Start()
 		warnBreath:Show()
-	elseif args.spellId == 66313 then							-- FireBomb (Impaler)
+	elseif args.spellId == 66313 then		-- FireBomb (Impaler)
 		warnFireBomb:Show()
 	elseif args.spellId == 66330 then		-- Staggering Stomp
 		timerNextStomp:Start()
-		specWarnSilence:Schedule(19)							-- prewarn ~1,5 sec before next
+		specWarnSilence:Schedule(19)		-- prewarn ~1,5 sec before next
 	elseif args.spellId == 66794 then		-- Sweep stationary worm
 		timerSweepCD:Start()
-	elseif args.spellId == 66821 then							-- Molten spew
+	elseif args.spellId == 66821 then		-- Molten spew
 		timerMoltenSpewCD:Start()
-	elseif args.spellId == 66818 then							-- Acidic Spew
+	elseif args.spellId == 66818 then		-- Acidic Spew
 		timerAcidicSpewCD:Start()
 	elseif args.spellId == 66901 then		-- Paralytic Spray
 		timerParalyticSprayCD:Start()

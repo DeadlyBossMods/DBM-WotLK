@@ -37,6 +37,8 @@ local soundFlameWall		= mod:NewSound(43113)
 
 local lastvoids = {}
 local lastfire = {}
+local GetSpellInfo, UnitDebuff = GetSpellInfo, UnitDebuff
+local tsort, tinsert, twipe = table.sort, table.insert, table.wipe
 
 local function isunitdebuffed(spellID)
 	local name = GetSpellInfo(spellID)
@@ -66,14 +68,13 @@ function mod:OnSync(event)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-    if args:IsSpellID(57579, 59127) and self:IsInCombat() then
+    if args:IsSpellID(57579, 59127) then
         warnShadowFissure:Show()
         timerShadowFissure:Start()
     end
 end
 
 function mod:RAID_BOSS_EMOTE(msg, mob)
-	if not self:IsInCombat() then return end
 	if msg == L.Wall or msg:find(L.Wall) then
 		self:SendSync("FireWall")
 	elseif msg == L.Portal or msg:find(L.Portal) then
@@ -119,8 +120,8 @@ function mod:OnCombatStart(delay)
 	self:ScheduleMethod(5, "CheckDrakes", delay)
 	timerWall:Start(-delay)
 
-	table.wipe(lastvoids)
-	table.wipe(lastfire)
+	twipe(lastvoids)
+	twipe(lastfire)
 end
 
 
@@ -138,25 +139,25 @@ function mod:OnCombatEnd(wipe)
 
 	local voids = ""
 	for k, v in pairs(lastvoids) do
-		table.insert(sortedFails, k)
+		tinsert(sortedFails, k)
 	end
-	table.sort(sortedFails, sortFails1)
+	tsort(sortedFails, sortFails1)
 	for i, v in ipairs(sortedFails) do
 		voids = voids.." "..v.."("..(lastvoids[v] or "")..")"
 	end
 	SendChatMessage(L.VoidZones:format(voids), "RAID")
-	table.wipe(sortedFails)
+	twipe(sortedFails)
 	
 	local fire = ""
 	for k, v in pairs(lastfire) do
-		table.insert(sortedFails, k)
+		tinsert(sortedFails, k)
 	end
-	table.sort(sortedFails, sortFails2)
+	tsort(sortedFails, sortFails2)
 	for i, v in ipairs(sortedFails) do
 		fire = fire.." "..v.."("..(lastfire[v] or "")..")"
 	end
 	SendChatMessage(L.FireWalls:format(fire), "RAID")
-	table.wipe(sortedFails)
+	twipe(sortedFails)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
@@ -166,7 +167,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	end
 end
 
-function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
+function mod:SPELL_DAMAGE(_, _, _, _, _, destName, _, _, spellId)
 	if self.Options.AnnounceFails and self.Options.Announce and spellId == 59128 and DBM:GetRaidRank() >= 1 and DBM:GetRaidUnitId(destName) ~= "none" and destName then
 		lastvoids[destName] = (lastvoids[destName] or 0) + 1
 		SendChatMessage(L.VoidZoneOn:format(destName), "RAID")

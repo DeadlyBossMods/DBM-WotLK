@@ -17,7 +17,7 @@ local timerShadowFissure	= mod:NewCastTimer(5, 59128)--Cast timer until Void Bla
 
 
 function mod:SPELL_CAST_SUCCESS(args)
-    if args:IsSpellID(57579, 59127) and self:IsInCombat() then
+    if args:IsSpellID(57579, 59127) then
         warnShadowFissure:Show()
         timerShadowFissure:Start()
     end

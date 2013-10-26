@@ -9,6 +9,26 @@ L:SetGeneralLocalization{
 	name = "Northrend Beasts"
 }
 
+L:SetWarningLocalization{
+	WarningSnobold		= "Snobold Vassal spawned"
+}
+
+L:SetTimerLocalization{
+	TimerNextBoss		= "Next boss",
+	TimerEmerge			= "Emerge",
+	TimerSubmerge		= "Submerge"
+}
+
+L:SetOptionLocalization{
+	WarningSnobold		= "Show warning for Snobold Vassal spawns",
+	PingCharge			= "Ping the minimap when Icehowl is about to charge you",
+	ClearIconsOnIceHowl	= "Clear all icons before charge",
+	TimerNextBoss		= "Show timer for next boss spawn",
+	TimerEmerge			= "Show timer for emerge",
+	TimerSubmerge		= "Show timer for submerge",
+	IcehowlArrow		= "Show DBM arrow when Icehowl is about to charge near you"
+}
+
 L:SetMiscLocalization{
 	Charge		= "^%%s glares at (%S+) and lets out",
 	CombatStart	= "Hailing from the deepest, darkest caverns of the Storm Peaks, Gormok the Impaler! Battle on, heroes!",
@@ -20,41 +40,6 @@ L:SetMiscLocalization{
 	Icehowl		= "Icehowl"
 }
 
-L:SetOptionLocalization{
-	WarningSnobold				= "Show warning for Snobold Vassal spawns",
-	SpecialWarningImpale3		= "Show special warning for Impale (>=3 stacks)",
-	SpecialWarningAnger3		= "Show special warning for Rising Anger (>=3 stacks)",
-	SpecialWarningSilence		= "Show special warning for Staggering Stomp (silence)",
-	SpecialWarningCharge		= "Show special warning when Icehowl is about to charge you",
-	SpecialWarningTranq			= "Show special warning when Icehowl gains Frothing Rage (to tranq)",
-	PingCharge					= "Ping the minimap when Icehowl is about to charge you",
-	SpecialWarningChargeNear	= "Show special warning when Icehowl is about to charge near you",
-	SetIconOnChargeTarget		= "Set icons on charge targets (skull)",
-	SetIconOnBileTarget			= "Set icons on Burning Bile targets",
-	ClearIconsOnIceHowl			= "Clear all icons before charge",
-	TimerNextBoss				= "Show timer for next boss spawn",
-	TimerEmerge					= "Show timer for emerge",
-	TimerSubmerge				= "Show timer for submerge",
-	RangeFrame                  = "Show range frame in Phase 2",
-	IcehowlArrow				= "Show DBM arrow when Icehowl is about to charge near you"
-}
-
-L:SetTimerLocalization{
-	TimerNextBoss		= "Next boss",
-	TimerEmerge			= "Emerge",
-	TimerSubmerge		= "Submerge"
-}
-
-L:SetWarningLocalization{
-	WarningSnobold				= "Snobold Vassal spawned",
-	SpecialWarningImpale3		= "Impale >%d< on you",
-	SpecialWarningAnger3		= "Rising Anger >%d<",
-	SpecialWarningSilence		= "Silence in ~1.5 seconds",
-	SpecialWarningCharge		= "Charge on you - Run away",
-	SpecialWarningChargeNear	= "Charge near you - Run away",
-	SpecialWarningTranq			= "Frothing Rage - Tranq now"
-}
-
 ---------------------
 --  Lord Jaraxxus  --
 ---------------------
@@ -64,33 +49,12 @@ L:SetGeneralLocalization{
 	name = "Lord Jaraxxus"
 }
 
-L:SetWarningLocalization{
-	WarnNetherPower				= "Nether Power on Lord Jaraxxus - Dispel now",
-	SpecWarnTouch				= "Touch of Jaraxxus on you",
-	SpecWarnTouchNear			= "Touch of Jaraxxus on %s near you",
-	SpecWarnNetherPower			= "Dispel now",
-	SpecWarnFelFireball			= "Fel Fireball - Interrupt now"
-}
-
-L:SetMiscLocalization{
-	WhisperFlame		= "Legion Flame on you",
-	IncinerateTarget	= "Incinerate Flesh: %s"
-}
-
 L:SetOptionLocalization{
-	WarnNetherPower				= "Show warning when Lord Jaraxxus gains Nether Power (to dispel/steal)",
-	SpecWarnTouch				= "Show special warning when you are affected by Touch of Jaraxxus",
-	SpecWarnTouchNear			= "Show special warning for Touch of Jaraxxus near you",
-	SpecWarnNetherPower			= "Show special warning for Nether Power (to dispel/steal)",
-	SpecWarnFelFireball			= "Show special warning for Fel Fireball (to interrupt)",
-	TouchJaraxxusIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66209),
-	IncinerateFleshIcon			= "Set icons on Incinerate Flesh targets",
-	LegionFlameIcon				= "Set icons on Legion Flame targets",
-	LegionFlameWhisper			= "Send whisper to Legion Flame targets (requires Raid Leader)",
 	IncinerateShieldFrame		= "Show boss health with a health bar for Incinerate Flesh"
 }
 
 L:SetMiscLocalization{
+	IncinerateTarget	= "Incinerate Flesh: %s",
 	FirstPull	= "Grand Warlock Wilfred Fizzlebang will summon forth your next challenge. Stand by for his entry."
 }
 
@@ -101,12 +65,6 @@ L = DBM:GetModLocalization("Champions")
 
 L:SetGeneralLocalization{
 	name = "Faction Champions"
-}
-
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
@@ -144,9 +102,6 @@ L:SetMiscLocalization{
 	AllianceVictory    = "GLORY TO THE ALLIANCE!",
 	HordeVictory       = "That was just a taste of what the future brings. FOR THE HORDE!",
 	YellKill           = "A shallow and tragic victory. We are weaker as a whole from the losses suffered today. Who but the Lich King could benefit from such foolishness? Great warriors have lost their lives. And for what? The true threat looms ahead - the Lich King awaits us all in death."
-} 
-
-L:SetOptionLocalization{
 }
 
 ---------------------
@@ -212,9 +167,7 @@ L:SetWarningLocalization{
 	WarnSubmerge			= "Anub'arak submerges",
 	WarnSubmergeSoon		= "Submerge in 10 seconds",
 	specWarnSubmergeSoon	= "Submerge in 10 seconds!",
-	SpecWarnPursue			= "You are being pursued - Run away",
-	warnAdds				= "New adds",
-	SpecWarnShadowStrike	= "Shadow Strike - Interrupt now"
+	warnAdds				= "New adds"
 }
 
 L:SetMiscLocalization{
@@ -231,14 +184,10 @@ L:SetOptionLocalization{
 	WarnSubmerge			= "Show warning for submerge",
 	WarnSubmergeSoon		= "Show pre-warning for submerge",
 	specWarnSubmergeSoon	= "Show special warning for submerge soon",
-	SpecWarnPursue			= "Show special warning when you are being pursued",
 	warnAdds				= "Announce new adds",
 	timerAdds				= "Show timer for new adds",
 	TimerEmerge				= "Show timer for emerge",
 	TimerSubmerge			= "Show timer for submerge",
-	PursueIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67574),
-	SpecWarnShadowStrike	= "Show special warning for $spell:66134 (to interrupt)",
-	SetIconsOnPCold         = DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(66013),
 	AnnouncePColdIcons		= "Announce icons for $spell:66013 targets to raid chat<br/>(requires raid leader)",
 	AnnouncePColdIconsRemoved	= "Also announce when icons are removed for $spell:66013<br/>(requires above option)"
 }

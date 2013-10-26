@@ -15,6 +15,7 @@ mod:RegisterEventsInCombat(
 local warningChains		= mod:NewTargetAnnounce(50997, 4)
 local warningNova		= mod:NewSpellAnnounce(48179, 3)
 local warningEnrage		= mod:NewSpellAnnounce(8599, 3)
+
 local timerChains		= mod:NewTargetTimer(10, 50997)
 local timerChainsCD		= mod:NewCDTimer(25, 50997)
 local timerNova			= mod:NewBuffActiveTimer(10, 48179)

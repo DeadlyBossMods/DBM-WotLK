@@ -57,10 +57,6 @@ else
 	)
 end
 
-local isDispeller = select(2, UnitClass("player")) == "WARRIOR"
-				or select(2, UnitClass("player")) == "PRIEST"
-				or select(2, UnitClass("player")) == "SHAMAN"
-
 local warnHellfire			= mod:NewSpellAnnounce(65816, 4)
 local preWarnBladestorm 	= mod:NewSoonAnnounce(65947, 3)
 local warnBladestorm		= mod:NewSpellAnnounce(65947, 4)
@@ -81,9 +77,9 @@ local timerDeathgripCD		= mod:NewCDTimer(35, 66017)
 local timerBladestormCD		= mod:NewCDTimer(90, 65947)
 
 local specWarnHellfire		= mod:NewSpecialWarningMove(65816)
-local specWarnHandofProt	= mod:NewSpecialWarningDispel(66009, isDispeller)
-local specWarnDivineShield	= mod:NewSpecialWarningDispel(66010, isDispeller) 
-local specWarnIceBlock		= mod:NewSpecialWarningDispel(65802, isDispeller)
+local specWarnHandofProt	= mod:NewSpecialWarningDispel(66009, mod:IsMagicDispeller())
+local specWarnDivineShield	= mod:NewSpecialWarningDispel(66010, mod:IsMagicDispeller()) 
+local specWarnIceBlock		= mod:NewSpecialWarningDispel(65802, mod:IsMagicDispeller())
 
 local soundBladestorm		= mod:NewSound(65947, nil, mod:IsMelee())
 

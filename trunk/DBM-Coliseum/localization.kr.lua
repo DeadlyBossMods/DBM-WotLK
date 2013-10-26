@@ -11,13 +11,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold				= "스노볼트 부하 생성",
-	SpecialWarningImpale3		= "꿰뚫기 (%d)",
-	SpecialWarningAnger3		= "솟구치는 분노 (%d)",
-	SpecialWarningSilence		= "1.5 초이내 진동의 발구르기!!!",
-	SpecialWarningCharge		= "당신에게 사나운 돌진! 도망치세요!",
-	SpecialWarningChargeNear	= "당신 주변에 사나운 돌진! 도망치세요!",
-	SpecialWarningTranq			= "거품 이는 분노! - 지금 평정!"
+	WarningSnobold				= "스노볼트 부하 생성"
 }
 
 L:SetTimerLocalization{
@@ -28,20 +22,11 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningSnobold				= "스노볼트 부하 생성 알림 보기",
-	SpecialWarningImpale3		= "꿰뚫기 3 중첩 이상시 특수 경고 보기",
-	SpecialWarningAnger3		= "솟구치는 분노 3 중첩 이상시 특수 경고 보기",
-	SpecialWarningSilence		= "진동의 발구르기 특수 경고 보기",
-	SpecialWarningCharge		= "사나운 돌진 특수 경고 보기",
-	SpecialWarningChargeNear	= "사나운 돌진 대상이 가까이 있을 경우 특수 경고 보기",
-	SpecialWarningTranq			= "거품 이는 분노 해제 특수 경고 보기",
-	SetIconOnChargeTarget		= "사나운 돌진 대상에게 전술 목표 아이콘 설정(해골)",
-	SetIconOnBileTarget			= "타오르는 담즙 대상에게 전술 목표 아이콘 설정",
 	ClearIconsOnIceHowl			= "사나운 돌진 전에 모든 전술 목표 아이콘 지움",
 	PingCharge					= "사나운 돌진 대상이 있는 위치를 미니맵에 보기",
 	TimerNextBoss				= "다음 우두머리 등장 바 보기",
 	TimerEmerge					= "출현 바 보기",
 	TimerSubmerge				= "숨기 바 보기",
-	RangeFrame					= "2 단계에서 거리 창 보기",
 	IcehowlArrow				= "사나운 돌진 대상이 가까이 있을 경우 DBM 화살표 보기"
 }
 
@@ -65,28 +50,11 @@ L:SetGeneralLocalization{
 	name = "군주 자락서스"
 }
 
-L:SetWarningLocalization{
-	WarnNetherPower				= "황천의 힘 : 군주 자락서스",
-	SpecWarnTouch				= "당신에게 자락서스의 손길!",
-	SpecWarnTouchNear			= "당신 주변에 자락서스의 손길 : >%s<",
-	SpecWarnNetherPower			= "황천의 힘 - 지금 해제!",
-	SpecWarnFelFireball			= "지옥 화염구 - 차단!"
-}
-
 L:SetOptionLocalization{
-	WarnNetherPower				= "황천의 힘 알림 보기",
-	SpecWarnFelFireball			= "지옥 화염구 차단 특수 경고 보기",
-	SpecWarnTouch				= "자락서스의 손길 대상이 된 경우 특수 경고 보기",
-	SpecWarnTouchNear			= "자락서스의 손길 대상이 가까이 있을 경우 특수 경고 보기",
-	SpecWarnNetherPower			= "황천의 힘 해제 특수 경고 보기",
-	IncinerateFleshIcon			= "살점 소각 대상에게 전술 목표 아이콘 설정",
-	LegionFlameIcon				= "군단 불꽃 대상에게 전술 목표 아이콘 설정",
-	LegionFlameWhisper			= "군단 불꽃 대상에게 귓속말 보내기",
 	IncinerateShieldFrame		= "우두머리 체력 바 사용시 살점 소각 치유량 바 함께 보기"
 }
 
 L:SetMiscLocalization{
-	WhisperFlame				= "당신에게 군단 불꽃!",
 	IncinerateTarget			= "살점 소각: %s",
 	FirstPull					= "대흑마법사 윌프레드 피즐뱅이 다음 상대를 소환할 걸세. 기다리고 있게나."
 }
@@ -98,10 +66,6 @@ L = DBM:GetModLocalization("Champions")
 
 L:SetGeneralLocalization{
 	name = "진영 대표 용사"
-}
-
-L:SetOptionLocalization{
-	PlaySoundOnBladestorm	= "칼날폭풍 별도 경고음 듣기"
 }
 
 L:SetMiscLocalization{
@@ -198,9 +162,7 @@ L:SetWarningLocalization{
 	WarnSubmerge			= "아눕아락 잠수",
 	WarnSubmergeSoon		= "10초 이내 잠수",
 	specWarnSubmergeSoon	= "잠수 10초 전!",
-	SpecWarnPursue			= "당신을 추격 합니다!",
-	warnAdds				= "네루비안 땅무지",
-	SpecWarnShadowStrike	= "어둠의 일격! 지금 차단!"
+	warnAdds				= "네루비안 땅무지"
 }
 
 L:SetTimerLocalization{
@@ -215,12 +177,10 @@ L:SetOptionLocalization{
 	WarnSubmerge				= "잠수 알림 보기",
 	WarnSubmergeSoon			= "잠수 이전에 알림 보기",
 	specWarnSubmergeSoon		= "잠수 10초 전 특수 경고 보기",
-	SpecWarnPursue				= "추격 대상이 된 경우 특수 경고 보기",
 	warnAdds					= "네루비안 땅무지 알림 보기",
 	timerAdds					= "다음 네루비안 땅무지 바 보기",
 	TimerEmerge					= "다음 출현 바 보기",
 	TimerSubmerge				= "다음 잠수 바 보기",
-	SpecWarnShadowStrike		= "$spell:66134 차단 특수 경고 보기",
 	AnnouncePColdIcons			= "$spell:66013 전술 목표 아이콘 설정시 공격대 대화로 알리기(공격대장 권한 필요)",
 	AnnouncePColdIconsRemoved	= "$spell:66013 전술 목표 아이콘 제거시 공격대 대화로 알리기(위 설정 필요)"
 }

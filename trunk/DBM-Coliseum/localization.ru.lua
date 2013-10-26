@@ -24,20 +24,11 @@ L:SetMiscLocalization{
 
 L:SetOptionLocalization{
 	WarningSnobold				= "Предупреждение о призыве Снобольда-вассала",
-	SpecialWarningImpale3		= "Спец-предупреждение для Прокалывания (>= 3 стаков)",
-	SpecialWarningAnger3		= "Спец-предупреждение для Вскипающего гнева (>=3 стаков)",
-	SpecialWarningSilence		= "Спец-предупреждение для Сотрясающего топота (безмолвие)",
-	SpecialWarningCharge		= "Спец-предупреждение, если Ледяной Рев хочет вас Растоптать",
-	SpecialWarningTranq			= "Спец-предупреждение, когда Ледяной Рев получает Кипящую ярость (для усмирения)",
 	PingCharge					= "Показать на миникарте место, куда попадает Ледяной Рев, если он избрал вас целью",
-	SpecialWarningChargeNear	= "Спец-предупреждение, когда Ледяной Рев готовится сделать рывок на цель рядом с вами",
-	SetIconOnChargeTarget		= "Установить метку на цель Топота (череп)",
-	SetIconOnBileTarget			= "Установить метку на игроков под воздействием Горящей Желчи",
 	ClearIconsOnIceHowl			= "Снимать все иконки перед Топотом",
 	TimerNextBoss				= "Отсчет времени до появления следующего противника",
 	TimerEmerge					= "Отсчет времени до появления",
 	TimerSubmerge				= "Отсчет времени до зарывания",
-	RangeFrame                  = "Показывать окно проверки дистанции в фазе 2",
 	IcehowlArrow				= "Показывать стрелку, когда Ледяной Рев готовится сделать рывок на цель рядом с вами"
 }
 
@@ -48,13 +39,7 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold				= "Призыв снобольда-вассала",
-	SpecialWarningImpale3		= "Прокалывание >%d< на вас",
-	SpecialWarningAnger3		= "Вскипающий гнев >%d<",
-	SpecialWarningSilence		= "Безмолвие через ~1.5 секунды!",
-	SpecialWarningCharge		= "Рывок к вам - бегите",
-	SpecialWarningChargeNear	= "Рывок около вас - бегите",
-	SpecialWarningTranq			= "Кипящая ярость - усмирите"
+	WarningSnobold				= "Призыв снобольда-вассала"
 }
 
 ---------------------
@@ -66,33 +51,12 @@ L:SetGeneralLocalization{
 	name = "Лорд Джараксус"
 }
 
-L:SetWarningLocalization{
-	WarnNetherPower				= "Сила Пустоты на Лорде Джараксусе - рассейте заклинание",
-	SpecWarnTouch				= "Касание Джараксуса на вас",
-	SpecWarnTouchNear			= "Касание Джараксуса на |3-5(%s) около вас",
-	SpecWarnNetherPower			= "Рассейте заклинание",
-	SpecWarnFelFireball			= "Огненный шар Скверны - прерывание"
-}
-
-L:SetMiscLocalization{
-	WhisperFlame		= "Пламя Легиона на вас",
-	IncinerateTarget	= "Испепеление плоти: %s"
-}
-
 L:SetOptionLocalization{
-	WarnNetherPower				= "Предупреждение, когда Джараксус получает Силу пустоты",
-	SpecWarnTouch				= "Спец-предупреждение, когда на вас Касание Джараксуса",
-	SpecWarnTouchNear			= "Спец-предупреждение, когда рядом с вами Касание Джараксуса",
-	SpecWarnNetherPower			= "Спец-предупреждение (для рассеивания) о Силе пустоты",
-	SpecWarnFelFireball			= "Спец-предупреждение для Огненного шара Скверны (для прерывания)",
-	TouchJaraxxusIcon			= "Установить метку на цель с Касанием Джараксуса",
-	IncinerateFleshIcon			= "Установить метку на игрока с Испепелением плоти",
-	LegionFlameIcon				= "Установить метку на игрока с Пламенем легиона",
-	LegionFlameWhisper			= "Сообщить цели, под воздействием Пламени легиона",
 	IncinerateShieldFrame		= "Показать здоровье босса с индикатором здоровья для Испепеления плоти"
 }
 
 L:SetMiscLocalization{
+	IncinerateTarget	= "Испепеление плоти: %s",
 	FirstPull	= "Сейчас великий чернокнижник Вилфред Непопамс призовет вашего нового противника. Готовьтесь к бою!"
 }
 
@@ -103,12 +67,6 @@ L = DBM:GetModLocalization("Champions")
 
 L:SetGeneralLocalization{
 	name = "Чемпионы фракций"
-}
-
-L:SetTimerLocalization{
-}
-
-L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
@@ -146,10 +104,6 @@ L:SetMiscLocalization{
 	AllianceVictory		= "СЛАВА АЛЬЯНСУ!",
 	HordeVictory		= "That was just a taste of what the future brings. FOR THE HORDE!",
 	YellKill			= "Пустая и горькая победа. После сегодняшних потерь мы стали слабее как целое. Кто еще, кроме Короля-лича, выиграет от подобной глупости? Пали великие воины. И ради чего? Истинная опасность еще впереди – нас ждет битва с  Королем-личом."
-} 
-
-L:SetOptionLocalization{
-	PlaySoundOnBladestorm	= "Звуковой сигнал при Вихре клинков"
 }
 
 ---------------------
@@ -215,9 +169,7 @@ L:SetWarningLocalization{
 	WarnSubmerge			= "Ануб'арак зарывается",
 	WarnSubmergeSoon		= "Зарывание через 10 сек",
 	specWarnSubmergeSoon	= "Зарывание через 10 сек!",
-	SpecWarnPursue			= "Вас преследуют - бегите",
-	warnAdds				= "Новые помощники",
-	SpecWarnShadowStrike	= "Теневой удар - прерывание"
+	warnAdds				= "Новые помощники"
 }
 
 L:SetMiscLocalization{
@@ -234,14 +186,10 @@ L:SetOptionLocalization{
 	WarnSubmerge			= "Предупреждение о зарывании",
 	WarnSubmergeSoon		= "Предупреждать заранее о зарывании",
 	specWarnSubmergeSoon	= "Спец-предупреждение о скором зарывании",
-	SpecWarnPursue			= "Спец-предупреждение, когда вас преследуют",
 	warnAdds				= "Предупреждение о призыве помощников",
 	timerAdds				= "Отсчет времени до призыва помощников",
 	TimerEmerge				= "Отсчет времени до появления",
 	TimerSubmerge			= "Отсчет времени до зарывания",
-	PursueIcon				= "Устанавливать метки на преследуемых",
-	SpecWarnShadowStrike	= "Спец-предупреждение для $spell:66134 (для прерывания)",
-	SetIconsOnPCold         = "Устанавливать метки на цели заклинания $spell:68510",
 	AnnouncePColdIcons		= "Объявлять метки целей заклинания $spell:68510 в рейд-чат<br/>(требуются права лидера или помощника)",
 	AnnouncePColdIconsRemoved	= "Объявлять также о снятии меток с целей заклинания $spell:68510<br/>(требуется предыдущая опция)"
 }

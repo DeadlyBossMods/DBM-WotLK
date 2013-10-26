@@ -15,7 +15,7 @@ mod:RegisterEventsInCombat(
 )
 
 local warningAdds				= mod:NewAnnounce("WarnAdds", 3, 74398)
-local warnCleaveArmor			= mod:NewAnnounce("warnCleaveArmor", 2, 74367, mod:IsTank() or mod:IsHealer())
+local warnCleaveArmor			= mod:NewStackAnnounce(74367, 2, nil, mod:IsTank() or mod:IsHealer())
 local warningFear				= mod:NewSpellAnnounce(74384, 3)
 
 local specWarnCleaveArmor		= mod:NewSpecialWarningStack(74367, nil, 2)--ability lasts 30 seconds, has a 15 second cd, so tanks should trade at 2 stacks.
@@ -38,14 +38,14 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 74367 then
-		warnCleaveArmor:Show(args.spellName, args.destName, args.amount or 1)
+		local amount = args.amount or 1
+		warnCleaveArmor:Show(args.destName, amount)
 		timerCleaveArmor:Start(args.destName)
-		if args:IsPlayer() and (args.amount or 1) >= 2 then
-			specWarnCleaveArmor:Show(args.amount)
+		if args:IsPlayer() and amount >= 2 then
+			specWarnCleaveArmor:Show(amount)
 		end
 	end
 end
-
 mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 
 function mod:CHAT_MSG_MONSTER_YELL(msg)

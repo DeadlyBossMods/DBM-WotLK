@@ -23,20 +23,11 @@ L:SetMiscLocalization{
 
 L:SetOptionLocalization{
 	WarningSnobold				= "為極地狗頭人奴僕出現顯示警告",
-	SpecialWarningImpale3		= "為刺穿 (大於3層)顯示特別警告",
-	SpecialWarningAnger3		= "為怒氣高漲 (大於3層)顯示特別警告",
-	SpecialWarningSilence		= "為驚恐踐踏顯示特別警告",
-	SpecialWarningCharge		= "當冰嚎即將衝鋒你時顯示特別警告",
-	SpecialWarningTranq			= "當冰嚎獲得泡沫之怒時顯示特別警告 (消狂怒用)",
 	PingCharge					= "當冰嚎即將衝鋒你時自動點擊小地圖",
-	SpecialWarningChargeNear	= "當冰嚎即將衝鋒在你附近時顯示特別警告",
-	SetIconOnChargeTarget		= "為衝鋒的目標設置標記 (頭顱)",
-	SetIconOnBileTarget			= "為燃燒膽汁的目標設置標記",
 	ClearIconsOnIceHowl			= "衝鋒前消除所有標記",
 	TimerNextBoss				= "為下一隻王到來顯示計時器",
 	TimerEmerge					= "為持續鑽地顯示計時器",
 	TimerSubmerge				= "為下一次 鑽地顯示計時器",
-	RangeFrame                 	= "在第2階段顯示距離框",
 	IcehowlArrow				= "當冰嚎即將衝鋒在你附近時顯示DBM箭頭"
 }
 
@@ -47,13 +38,7 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold				= "極地狗頭人奴僕出現了",
-	SpecialWarningImpale3		= "你中了刺穿>%d<",
-	SpecialWarningAnger3		= "怒氣高漲: >%d<",
-	SpecialWarningSilence		= "1.5秒後 驚恐踐踏",
-	SpecialWarningCharge		= "你被衝鋒了 - 快跑開",
-	SpecialWarningChargeNear	= "你附近有人被衝鋒 - 快跑開",
-	SpecialWarningTranq			= "泡沫之怒 - 現在消除"
+	WarningSnobold				= "極地狗頭人奴僕出現了"
 }
 
 ---------------------
@@ -65,34 +50,12 @@ L:SetGeneralLocalization{
 	name = "賈拉克瑟斯領主"
 }
 
-L:SetWarningLocalization{
-	WarnNetherPower			= "賈拉克瑟斯領主擁有虛空威能 - 快驅散",
-	SpecWarnTouch			= "你中了賈拉克瑟斯之觸",
-	SpecWarnTouchNear		= "你附近的%s中了賈拉克瑟斯之觸",
-	SpecWarnNetherPower		= "現在驅散",
-	SpecWarnFelFireball		= "魔化火球 - 快斷法!"
-
-}
-
-L:SetMiscLocalization{
-	WhisperFlame		= "你中了軍團烈焰 - 快跑開",
-	IncinerateTarget	= "焚化血肉: %s"
-}
-
 L:SetOptionLocalization{
-	WarnNetherPower			= "當賈拉克瑟斯領主擁有虛空威能時顯示警告 (驅散/竊取用)",
-	SpecWarnTouch			= "當你中了賈拉克瑟斯之觸時顯示特別警告",
-	SpecWarnTouchNear		= "當你附近的人中了賈拉克瑟斯之觸時顯示特別警告",
-	SpecWarnNetherPower		= "為虛空威能顯示特別警告 (驅散/竊取用)",
-	SpecWarnFelFireball		= "為魔化火球顯示特別警告 (斷法用)",
-	TouchJaraxxusIcon		= "為賈拉克瑟斯之觸的目標設置標記",
-	IncinerateFleshIcon		= "為焚化血肉的目標設置標記",
-	LegionFlameIcon			= "為軍團烈焰的目標設置標記",
-	LegionFlameWhisper		= "密語提示軍團烈焰的目標 (需要團隊隊長)",
 	IncinerateShieldFrame	= "在首領血量裡顯示焚化血肉的血量"
 }
 
 L:SetMiscLocalization{
+	IncinerateTarget	= "焚化血肉: %s",
 	FirstPull	= "大術士威爾弗雷德·菲斯巴恩將會召喚你們的下一個挑戰者。等待他的登場吧。"
 }
 
@@ -139,9 +102,6 @@ L:SetMiscLocalization{
 	AllianceVictory		= "榮耀歸於聯盟!",
 	HordeVictory		= "那只是讓你們知道將來必須面對的命運。為了部落!",
 	YellKill			= "膚淺而悲痛的勝利。今天痛失的生命反而令我們更加的頹弱。除了巫妖王之外，誰還能從中獲利?偉大的戰士失去了寶貴生命。為了什麼?真正的威脅就在前方 - 巫妖王在死亡的領域中等著我們。"
-} 
-
-L:SetOptionLocalization{
 }
 
 ---------------------
@@ -207,9 +167,7 @@ L:SetWarningLocalization{
 	WarnSubmerge			= "阿努巴拉克鑽進地裡了",
 	WarnSubmergeSoon		= "10秒後鑽進地裡",
 	specWarnSubmergeSoon	= "10秒後鑽進地裡!",
-	SpecWarnPursue			= "你被追擊了 - 快跑",
-	warnAdds				= "奈幽掘洞者 出現了",
-	SpecWarnShadowStrike	= "暗影打擊 - 現在斷法"
+	warnAdds				= "奈幽掘洞者 出現了"
 }
 
 L:SetMiscLocalization{
@@ -226,15 +184,10 @@ L:SetOptionLocalization{
 	WarnSubmerge			= "為鑽進地裡顯示警告",
 	WarnSubmergeSoon		= "為鑽進地裡顯示預先警告",
 	specWarnSubmergeSoon	= "為即將鑽進地裡顯示特別警告",
-	SpecWarnPursue			= "當你被追擊時顯示特別警告",
 	warnAdds				= "提示奈幽掘洞者出現",
 	timerAdds				= "為下一次 奈幽掘洞者出現顯示計時器",
 	TimerEmerge				= "為持續鑽地顯示計時器",
 	TimerSubmerge			= "為下一次 鑽地顯示計時器",
-	PlaySoundOnPursue		= "當你開始被追擊時播放音效",
-	PursueIcon				= "為被追擊的目標設置標記 (頭顱)",
-	SpecWarnShadowStrike	= "為$spell:66134顯示特別警告 (斷法用)",
-	SetIconsOnPCold			= "為$spell:68510的目標設置標記",
 	AnnouncePColdIcons		= "公佈$spell:68510目標設置的標記到團隊頻道<br/>(需要團隊隊長或助理權限)",
 	AnnouncePColdIconsRemoved	= "當移除$spell:68510的標記時也提示<br/>(需要上述選項)"
 }

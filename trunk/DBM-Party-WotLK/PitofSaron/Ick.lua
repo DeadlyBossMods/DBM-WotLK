@@ -30,7 +30,7 @@ local timerPursuitCast			= mod:NewCastTimer(5, 68987)
 local timerPursuitConfusion		= mod:NewBuffActiveTimer(12, 69029)
 local timerPoisonNova			= mod:NewCastTimer(5, 68989)
 
-local soundPoisonNova			= mod:NewSound(68989, nil, mod:IsMelee())
+local soundPoisonNova			= mod:NewSound(68989, mod:IsMelee())
 local soundPursuit				= mod:NewSound(68987)
 
 mod:AddBoolOption("SetIconOnPursuitTarget", true)

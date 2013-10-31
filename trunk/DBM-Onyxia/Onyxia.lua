@@ -33,9 +33,9 @@ local timerNextDeepBreath	= mod:NewCDTimer(35, 18584)--Range from 35-60seconds i
 local timerBreath			= mod:NewCastTimer(8, 18584)
 local timerWhelps			= mod:NewTimer(105, "TimerWhelps", 10697)
 
-local soundBlastNova		= mod:NewSound(68958, nil, mod:IsMelee())
+local soundBlastNova		= mod:NewSound(68958, mod:IsMelee())
 local soundDeepBreath 		= mod:NewSound(18584)
-local sndFunny				= mod:NewSound(nil, "SoundWTF", false)
+local sndFunny				= mod:NewSound(nil, false, "SoundWTF")
 
 local warned_preP2 = false
 local warned_preP3 = false

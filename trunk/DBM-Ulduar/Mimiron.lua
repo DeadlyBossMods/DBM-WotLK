@@ -53,7 +53,7 @@ local timerNextFlames			= mod:NewNextTimer(27.5, 64566)
 local timerNextFrostBomb        = mod:NewNextTimer(30, 64623)
 local timerBombExplosion		= mod:NewCastTimer(15, 65333)
 
-local soundShockBlast			= mod:NewSound(63631, nil, mod:IsMelee())
+local soundShockBlast			= mod:NewSound(63631, mod:IsMelee())
 local soundDarkGlare			= mod:NewSound(63414)
 
 mod:AddBoolOption("HealthFramePhase4", true)

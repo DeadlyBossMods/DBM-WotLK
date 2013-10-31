@@ -10,6 +10,26 @@ L:SetGeneralLocalization{
 	name = "Bestien von Nordend"
 }
 
+L:SetWarningLocalization{
+	WarningSnobold		= "Schneeboldvasall erschienen"
+}
+
+L:SetTimerLocalization{
+	TimerNextBoss		= "Nächster Boss",
+	TimerEmerge			= "Auftauchen",
+	TimerSubmerge		= "Abtauchen"
+}
+
+L:SetOptionLocalization{
+	WarningSnobold		= "Zeige Warnung, wenn ein Schneeboldvasall erscheint",
+	PingCharge			= "Pingt die Minimap, wenn Eisheuler dich niedertrampeln will",
+	ClearIconsOnIceHowl	= "Entferne alle Zeichen vor dem Trampeln",
+	TimerNextBoss		= "Zeige Zeit bis zum Erscheinen des nächsten Bosses",
+	TimerEmerge			= "Zeige Zeit bis Auftauchen",
+	TimerSubmerge		= "Zeige Zeit bis Abtauchen",
+	IcehowlArrow		= "Zeige DBM-Pfeil, wenn Eisheuler jemand in deiner Nähe niedertrampeln will"
+}
+
 L:SetMiscLocalization{
 	Charge		= "^%%s sieht (%S+) zornig an und lässt einen gewaltigen Schrei ertönen!",
 	CombatStart	= "Er kommt aus den tiefsten, dunkelsten Höhlen der Sturmgipfel - Gormok der Pfähler! Voran, Helden!",
@@ -19,26 +39,6 @@ L:SetMiscLocalization{
 	Acidmaw		= "Ätzschlund",
 	Dreadscale	= "Schreckensmaul",
 	Icehowl		= "Eisheuler"
-}
-
-L:SetOptionLocalization{
-	WarningSnobold				= "Zeige Warnung, wenn ein Schneeboldvasall erscheint",
-	PingCharge					= "Pingt die Minimap, wenn Eisheuler dich niedertrampeln will",
-	ClearIconsOnIceHowl			= "Entferne alle Zeichen vor dem Trampeln",
-	TimerNextBoss				= "Zeige Zeit bis zum Erscheinen des nächsten Bosses",
-	TimerEmerge					= "Zeige Zeit bis Auftauchen",
-	TimerSubmerge				= "Zeige Zeit bis Abtauchen",
-	IcehowlArrow				= "Zeige DBM-Pfeil, wenn Eisheuler jemand in deiner Nähe niedertrampeln will"
-}
-
-L:SetTimerLocalization{
-	TimerNextBoss		= "Nächster Boss",
-	TimerEmerge			= "Auftauchen",
-	TimerSubmerge		= "Abtauchen"
-}
-
-L:SetWarningLocalization{
-	WarningSnobold				= "Schneeboldvasall erschienen"
 }
 
 ---------------------

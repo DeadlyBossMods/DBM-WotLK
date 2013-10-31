@@ -53,7 +53,7 @@ local timerFieryBreathCD			= mod:NewCDTimer(19, 74525, nil, mod:IsTank() or mod:
 
 local berserkTimer					= mod:NewBerserkTimer(480)
 
-local soundConsumption 				= mod:NewSound(74562, "SoundOnConsumption")
+local soundConsumption 				= mod:NewSound(74562, nil, "SoundOnConsumption")
 
 mod:AddBoolOption("AnnounceAlternatePhase", true, "announce")
 mod:AddBoolOption("WhisperOnConsumption", false, "announce")

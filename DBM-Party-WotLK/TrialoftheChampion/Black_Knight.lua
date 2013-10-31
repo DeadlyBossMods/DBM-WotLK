@@ -30,7 +30,7 @@ local timerCombatStart		= mod:NewCombatTimer(55.5)
 local timerMarked			= mod:NewTargetTimer(10, 67823)
 local timerExplode			= mod:NewCastTimer(4, 67729)
 
-local soundExplode	 		= mod:NewSound(67751, nil, mod:IsMelee())
+local soundExplode	 		= mod:NewSound(67751, mod:IsMelee())
 mod:AddBoolOption("SetIconOnMarkedTarget", true)
 mod:AddBoolOption("AchievementCheck", false, "announce")
 

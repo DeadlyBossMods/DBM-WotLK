@@ -3,6 +3,7 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(35119)
+--mod:SetEncounterID(338, 339)--DO NOT ENABLE. Confessor and Eadric are both flagged as same encounterid ("Argent Champion")
 mod:SetUsedIcons(8)
 --mod:SetZone()
 

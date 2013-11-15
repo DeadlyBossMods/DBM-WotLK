@@ -3,6 +3,7 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(36678)
+mod:SetEncounterID(1102)
 mod:SetModelID(30881)
 mod:SetUsedIcons(5, 6, 7, 8)
 --mod:SetMinSyncRevision(3860)

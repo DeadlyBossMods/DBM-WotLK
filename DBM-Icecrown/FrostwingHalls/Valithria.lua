@@ -3,6 +3,7 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(36789)
+mod:SetEncounterID(1098)
 mod:SetModelID(30318)
 mod:SetUsedIcons(8)
 mod:RegisterCombat("yell", L.YellPull)--TODO, see if she fires IEEU

@@ -40,7 +40,7 @@ local specWarnFelInferno		= mod:NewSpecialWarningMove(66496)
 local SpecWarnFelFireball		= mod:NewSpecialWarningInterrupt(66532, false)
 local SpecWarnFelFireballDispel	= mod:NewSpecialWarningDispel(66532, mod:IsHealer())
 
-local timerCombatStart			= mod:NewCombatTimer(84)--rollplay for first pull
+local timerCombatStart			= mod:NewCombatTimer(82)--rollplay for first pull
 local enrageTimer				= mod:NewBerserkTimer(600)
 local timerFlame 				= mod:NewTargetTimer(8, 66197)--There are 8 debuff Ids. Since we detect first to warn, use an 8sec timer to cover duration of trigger spell and damage debuff.
 local timerFlameCD				= mod:NewCDTimer(30, 66197)
@@ -145,7 +145,6 @@ function mod:SPELL_AURA_APPLIED(args)
 		specWarnKiss:Show()
 
 	elseif args.spellId == 66532 then		-- Fel Fireball (announce if tank gets debuff for dispel)
-		warnFelFireball:Show()
 		SpecWarnFelFireballDispel:Show(args.destName)
 	end
 end
@@ -162,7 +161,8 @@ end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 66532 and self:GetUnitCreatureId("target") == 34780 then	-- Fel Fireball (track cast for interrupt, only when targeted)
-		SpecWarnFelFireball:Show()
+		warnFelFireball:Show()
+		SpecWarnFelFireball:Show(args.sourceName)
 	end
 end
 

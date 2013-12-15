@@ -51,7 +51,7 @@ local specWarnChargeNear	= mod:NewSpecialWarningClose(66734)
 local specWarnTranq			= mod:NewSpecialWarningDispel(66759, mod:CanRemoveEnrage())
 
 local enrageTimer			= mod:NewBerserkTimer(223)
-local timerCombatStart		= mod:NewCombatTimer(23)
+local timerCombatStart		= mod:NewCombatTimer(21.5)
 local timerNextBoss			= mod:NewTimer(190, "TimerNextBoss", 2457)
 local timerSubmerge			= mod:NewTimer(45, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp") 
 local timerEmerge			= mod:NewTimer(10, "TimerEmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")

@@ -146,10 +146,12 @@ L:SetMiscLocalization{
 	KillAlliance		= "악당 놈들, 분명히 경고했다! 형제자매여, 전진!",
 	PullHorde			= "호드의 아들딸이여, 일어나라! 오늘 우리는 증오하던 적과 전투를 벌이리라! 록타르 오가르!",
 	KillHorde			= "얼라이언스는 기가 꺾였다. 리치 왕을 향해 전진하라!",
-	AddsAlliance		= "Reavers, Sergeants, attack",--확인필요
+	AddsAlliance		= "약탈자",--확인필요
 	AddsHorde			= "해병, 하사관, 공격하라!",
-	MageAlliance		= "We're taking hull damage, get a battle-mage out here to shut down those cannons!",--확인필요
-	MageHorde			= "선체가 공격받고 있다. 마술사를 불러 저 대포를 막아버려라!"
+	MageAlliance		= "마술사",--확인필요
+	MageHorde			= "선체가 공격받고 있다. 마술사를 불러 저 대포를 막아버려라!",
+	Hammer 				= "오그림의 망치호",
+	Skybreaker			= "하늘파괴자호"
 }
 
 -----------------------------
@@ -244,7 +246,7 @@ L:SetOptionLocalization{
 L = DBM:GetModLocalization("BPCouncil")
 
 L:SetGeneralLocalization{
-	name = "피의 공작 의회"
+	name = "피의 의회"
 }
 
 L:SetWarningLocalization{

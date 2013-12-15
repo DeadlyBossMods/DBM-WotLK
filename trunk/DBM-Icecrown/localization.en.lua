@@ -160,7 +160,9 @@ L:SetMiscLocalization{
 	AddsAlliance	= "Reavers, Sergeants, attack",
 	AddsHorde		= "Marines, Sergeants, attack",
 	MageAlliance	= "We're taking hull damage, get a battle-mage out here to shut down those cannons!",
-	MageHorde		= "We're taking hull damage, get a sorcerer out here to shut down those cannons!"
+	MageHorde		= "We're taking hull damage, get a sorcerer out here to shut down those cannons!",
+	Hammer 			= "Orgrim's Hammer",
+	Skybreaker		= "Skybreaker"
 }
 
 -----------------------------

@@ -43,8 +43,8 @@ local timerNextPactDarkfallen		= mod:NewNextTimer(30.5, 71340)
 local timerNextSwarmingShadows		= mod:NewNextTimer(30.5, 71266)
 local timerInciteTerror				= mod:NewBuffActiveTimer(4, 73070)
 local timerBloodBolt				= mod:NewBuffActiveTimer(6, 71772)
-local timerBloodThirst				= mod:NewBuffActiveTimer(10, 70877)
-local timerEssenceoftheBloodQueen	= mod:NewBuffActiveTimer(60, 70867)
+local timerBloodThirst				= mod:NewBuffFadesTimer(10, 70877)
+local timerEssenceoftheBloodQueen	= mod:NewBuffFadesTimer(60, 70867)
 
 local berserkTimer					= mod:NewBerserkTimer(320)
 

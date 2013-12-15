@@ -49,7 +49,7 @@ local timerConjureFlamesCD		= mod:NewCDTimer(20, 71718)				-- every 20-30 second
 local timerGlitteringSparksCD	= mod:NewCDTimer(20, 71807)				-- This is pretty nasty on heroic
 local timerShockVortex			= mod:NewCDTimer(16.5, 72037)			-- Seen a range from 16,8 - 21,6
 local timerKineticBombCD		= mod:NewCDTimer(18, 72053, nil, mod:IsRanged())				-- Might need tweaking
-local timerShadowPrison			= mod:NewBuffActiveTimer(10, 72999)		-- Hard mode debuff
+local timerShadowPrison			= mod:NewBuffFadesTimer(10, 72999)		-- Hard mode debuff
 
 local berserkTimer				= mod:NewBerserkTimer(600)
 

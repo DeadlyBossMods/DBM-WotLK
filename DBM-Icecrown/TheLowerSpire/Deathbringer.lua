@@ -4,7 +4,6 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(37813)
 mod:SetEncounterID(1096)
-mod:DisableESCombatDectection()
 mod:SetModelID(30790)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 
@@ -101,7 +100,7 @@ do	-- add the additional Rune Power Bar
 		end
 	end
 	function mod:CreateBossRPFrame()
-		local percent = getShieldPercent()
+		local percent = getRunePowerPercent()
 		if percent then
 			DBM.BossHealth:AddBoss(getRunePowerPercent, L.RunePower)
 		end

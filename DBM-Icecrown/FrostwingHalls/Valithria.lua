@@ -6,7 +6,7 @@ mod:SetCreatureID(36789)
 mod:SetEncounterID(1098)
 mod:SetModelID(30318)
 mod:SetUsedIcons(8)
-mod:RegisterCombat("yell", L.YellPull)--TODO, see if she fires IEEU
+mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellKill)
 
 mod:RegisterEventsInCombat(
@@ -34,7 +34,7 @@ local specWarnManaVoid		= mod:NewSpecialWarningMove(71179)
 local timerLayWaste			= mod:NewBuffActiveTimer(12, 69325)
 local timerNextPortal		= mod:NewCDTimer(46.5, 72483, nil)
 local timerPortalsOpen		= mod:NewTimer(10, "TimerPortalsOpen", 72483)
-local timerHealerBuff		= mod:NewBuffActiveTimer(40, 70873)
+local timerHealerBuff		= mod:NewBuffFadesTimer(40, 70873)
 local timerGutSpray			= mod:NewTargetTimer(12, 70633, nil, mod:IsTank() or mod:IsHealer())
 local timerCorrosion		= mod:NewTargetTimer(6, 70751, nil, false)
 local timerBlazingSkeleton	= mod:NewTimer(50, "TimerBlazingSkeleton", 17204)

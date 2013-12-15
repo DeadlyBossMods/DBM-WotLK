@@ -55,8 +55,8 @@ local timerSlimePuddleCD			= mod:NewCDTimer(35, 70341)				-- Approx
 local timerUnstableExperimentCD		= mod:NewNextTimer(38, 70351)			-- Used every 38 seconds exactly except after phase changes
 local timerChokingGasBombCD			= mod:NewNextTimer(35.5, 71255)
 local timerMalleableGooCD			= mod:NewCDTimer(25, 72295)
-local timerTearGas					= mod:NewBuffActiveTimer(16, 71615)
-local timerPotions					= mod:NewBuffActiveTimer(30, 73122)
+local timerTearGas					= mod:NewBuffFadesTimer(16, 71615)
+local timerPotions					= mod:NewBuffActiveTimer(30, 71621)
 local timerMutatedPlagueCD			= mod:NewCDTimer(10, 72451)				-- 10 to 11
 local timerUnboundPlagueCD			= mod:NewNextTimer(60, 70911)
 local timerUnboundPlague			= mod:NewBuffActiveTimer(12, 70911)		-- Heroic Ability: we can't keep the debuff 60 seconds, so we have to switch at 12-15 seconds. Otherwise the debuff does to much damage!
@@ -135,7 +135,7 @@ function mod:SPELL_CAST_START(args)
 		timerSlimePuddleCD:Cancel()
 		timerChokingGasBombCD:Cancel()
 		timerUnboundPlagueCD:Cancel()
-	elseif args.spellId == 72842 then		--Volatile Experiment (heroic phase change begin)
+	elseif args.spellId == 72840 then		--Volatile Experiment (heroic phase change begin)
 		warnVolatileExperiment:Show()
 		warnUnstableExperimentSoon:Cancel()
 		warnChokingGasBombSoon:Cancel()
@@ -144,12 +144,12 @@ function mod:SPELL_CAST_START(args)
 		timerSlimePuddleCD:Cancel()
 		timerChokingGasBombCD:Cancel()
 		timerUnboundPlagueCD:Cancel()
-	elseif args.spellId == 72851 then		--Create Concoction (Heroic phase change end)
+	elseif args.spellId == 71621 then		--Create Concoction (Heroic phase change end)
 		if self:IsDifficulty("heroic10", "heroic25") then
 			self:ScheduleMethod(40, "NextPhase")	--May need slight tweaking +- a second or two
 			timerPotions:Start()
 		end
-	elseif args.spellId == 73121 then		--Guzzle Potions (Heroic phase change end)
+	elseif args.spellId == 71893 then		--Guzzle Potions (Heroic phase change end)
 		if self:IsDifficulty("heroic10") then
 			self:ScheduleMethod(40, "NextPhase")	--May need slight tweaking +- a second or two
 			timerPotions:Start()

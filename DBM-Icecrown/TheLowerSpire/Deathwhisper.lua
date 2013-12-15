@@ -93,7 +93,7 @@ do	-- add the additional Shield Bar
 	function mod:CreateShieldHPFrame()
 		local percent = getShieldPercent()
 		if percent then
-			DBM.BossHealth:AddBoss(percent, shieldName)
+			DBM.BossHealth:AddBoss(getShieldPercent, shieldName)
 		end
 	end
 end

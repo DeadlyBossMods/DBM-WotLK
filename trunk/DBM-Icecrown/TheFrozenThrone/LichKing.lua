@@ -237,14 +237,8 @@ function mod:SPELL_CAST_START(args)
 		timerRestoreSoul:Start()
 	elseif args.spellId == 72350 then -- Fury of Frostmourne
 		self:SetWipeTime(190)--Change min wipe time mid battle to force dbm to keep module loaded for this long out of combat roleplay
+		self:Stop()
 		timerRoleplay:Start()
-		timerVileSpirit:Cancel()
-		timerSoulreaperCD:Cancel()
-		timerDefileCD:Cancel()
-		countdownDefile:Cancel()
-		timerHarvestSoulCD:Cancel()
-		berserkTimer:Cancel()
-		warnDefileSoon:Cancel()
 	end
 end
 

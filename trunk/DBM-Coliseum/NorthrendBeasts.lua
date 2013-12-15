@@ -318,7 +318,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		timerCombatStart:Start()
 	elseif msg == L.Phase2 or msg:find(L.Phase2) then
 		self:ScheduleMethod(17, "WormsEmerge")
-		timerCombatStart:Show(15)
+		timerCombatStart:Start(15)
 		updateHealthFrame(2)
 		if self.Options.RangeFrame then
 			DBM.RangeCheck:Show(10)

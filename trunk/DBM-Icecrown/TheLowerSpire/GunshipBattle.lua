@@ -3,18 +3,20 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 local addsIcon
-local isAlliance = UnitFactionGroup("player") == "Alliance"
+local bossID
 --mod:SetEncounterID(1099)--No ES fires this combat
 mod:RegisterCombat("combat")
 mod:SetCreatureID(37215, 37540) -- Orgrim's Hammer, The Skybreaker
-if isAlliance then
+if UnitFactionGroup("player") == "Alliance" then
 	mod:RegisterKill("yell", L.KillAlliance)
 	mod:SetModelID(30416)		-- High Overlord Saurfang
 	addsIcon = 23334
+	bossID = 36939
 else
 	mod:RegisterKill("yell", L.KillHorde)
 	mod:SetModelID(30508)		-- Muradin Bronzebeard
 	addsIcon = 23336
+	bossID = 36948
 end
 
 mod:RegisterEventsInCombat(
@@ -78,13 +80,13 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnBladestorm:Show()
 	elseif args.spellId == 69651 then
 		warnWoundingStrike:Show(args.destName)
-	elseif args.spellId == 69638 and (isAlliance and self:GetCIDFromGUID(args.destGUID) == 36939) or self:GetCIDFromGUID(args.destGUID) == 36948 then
+	elseif args.spellId == 69638 and self:GetCIDFromGUID(args.destGUID) == bossID then
 		timerBattleFuryActive:Start()		-- only a timer for 1st stack
 	end
 end
 
 function mod:SPELL_AURA_APPLIED_DOSE(args)
-	if args.spellId == 69638 and (isAlliance and self:GetCIDFromGUID(args.destGUID) == 36939) or self:GetCIDFromGUID(args.destGUID) == 36948 then
+	if args.spellId == 69638 and self:GetCIDFromGUID(args.destGUID) == bossID then
 		if args.amount % 5 == 0 then		-- warn every 5 stacks
 			warnBattleFury:Show(args.destName, args.amount or 1)
 		end

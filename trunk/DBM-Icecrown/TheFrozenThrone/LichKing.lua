@@ -23,7 +23,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_DISPEL",
 	"SPELL_AURA_APPLIED",
 	"SPELL_SUMMON",
-	"UNIT_HEALTH target focus",
+	"UNIT_HEALTH target focus mouseover",
 	"UNIT_AURA_UNFILTERED"
 )
 
@@ -40,13 +40,13 @@ local warnShamblingEnrage	= mod:NewTargetAnnounce(72143, 3, nil, mod:IsHealer() 
 local warnNecroticPlague	= mod:NewTargetAnnounce(70337, 3) --Phase 1+ Ability
 local warnNecroticPlagueJump= mod:NewAnnounce("WarnNecroticPlagueJump", 4, 70337) --Phase 1+ Ability
 local warnInfest			= mod:NewSpellAnnounce(70541, 3, nil, mod:IsHealer()) --Phase 1 & 2 Ability
-local warnPhase2Soon		= mod:NewPrePhaseAnnounce(2)
+local warnPhase2			= mod:NewPhaseAnnounce(2)
 local valkyrWarning			= mod:NewAnnounce("ValkyrWarning", 3, 71844)--Phase 2 Ability
 local warnDefileSoon		= mod:NewSoonAnnounce(72762, 3)	--Phase 2+ Ability
 local warnSoulreaper		= mod:NewSpellAnnounce(69409, 4, nil, mod:IsTank() or mod:IsHealer()) --Phase 2+ Ability
 local warnDefileCast		= mod:NewTargetAnnounce(72762, 4) --Phase 2+ Ability
 local warnSummonValkyr		= mod:NewSpellAnnounce(69037, 3, 71844) --Phase 2 Add
-local warnPhase3Soon		= mod:NewPrePhaseAnnounce(3)
+local warnPhase3			= mod:NewPhaseAnnounce(3)
 local warnSummonVileSpirit	= mod:NewSpellAnnounce(70498, 2) --Phase 3 Add
 local warnHarvestSoul		= mod:NewTargetAnnounce(68980, 3) --Phase 3 Ability
 local warnTrapCast			= mod:NewTargetAnnounce(73539, 4) --Phase 1 Heroic Ability
@@ -108,8 +108,6 @@ mod:AddBoolOption("HarvestSoulIcon", false)
 mod:AddBoolOption("AnnounceValkGrabs", false)
 
 local phase = 0
-local warned_preP2 = false
-local warned_preP3 = false
 local trapScansDone = 0
 local warnedValkyrGUIDs = {}
 local plagueHop = GetSpellInfo(70338)--Hop spellID only, not cast one.
@@ -118,8 +116,6 @@ local lastPlague
 
 function mod:OnCombatStart(delay)
 	phase = 0
-	warned_preP2 = false
-	warned_preP3 = false
 	trapScansDone = 0
 	self:NextPhase()
 	table.wipe(warnedValkyrGUIDs)
@@ -404,13 +400,6 @@ function mod:UNIT_HEALTH(uId)
 		warnedValkyrGUIDs[UnitGUID(uId)] = true
 		specWarnValkyrLow:Show()
 	end
-	if phase == 1 and not warned_preP2 and self:GetUnitCreatureId(uId) == 36597 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.73 then
-		warned_preP2 = true
-		warnPhase2Soon:Show()
-	elseif phase == 2 and not warned_preP3 and self:GetUnitCreatureId(uId) == 36597 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.43 then
-		warned_preP3 = true
-		warnPhase3Soon:Show()
-	end
 end
 
 function mod:NextPhase()
@@ -426,6 +415,7 @@ function mod:NextPhase()
 			countdownShadowTrap:Start()
 		end
 	elseif phase == 2 then
+		warnPhase2:Show()
 		timerSummonValkyr:Start(20)
 		timerSoulreaperCD:Start(40)
 		timerDefileCD:Start(38)
@@ -434,6 +424,7 @@ function mod:NextPhase()
 		countdownInfest:Start(14)
 		warnDefileSoon:Schedule(33)
 	elseif phase == 3 then
+		warnPhase3:Show()
 		timerVileSpirit:Start(20)
 		timerSoulreaperCD:Start(40)
 		timerDefileCD:Start(38)

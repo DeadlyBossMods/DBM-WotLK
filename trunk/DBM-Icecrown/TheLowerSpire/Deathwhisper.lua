@@ -29,8 +29,8 @@ local warnSummonSpirit				= mod:NewSpellAnnounce(71426, 2)
 local warnReanimating				= mod:NewAnnounce("WarnReanimating", 3)
 local warnDarkTransformation		= mod:NewSpellAnnounce(70900, 4)
 local warnDarkEmpowerment			= mod:NewSpellAnnounce(70901, 4)
-local warnPhase2					= mod:NewPhaseAnnounce(2, 1)	
-local warnFrostbolt					= mod:NewCastAnnounce(71420, 2)
+local warnPhase2					= mod:NewPhaseAnnounce(2, 1)
+local warnFrostbolt					= mod:NewCastAnnounce("OptionVersion2", 71420, 2, nil, nil, false)
 local warnTouchInsignificance		= mod:NewStackAnnounce(71204, 2, nil, mod:IsTank() or mod:IsHealer())
 local warnDarkMartyrdom				= mod:NewSpellAnnounce(71236, 4)
 
@@ -59,43 +59,18 @@ local dominateMindTargets = {}
 local dominateMindIcon = 6
 local deformedFanatic
 local empoweredAdherent
+local lastPower = 100
 
-function mod:OnCombatStart(delay)
-	if DBM.BossHealth:IsShown() and self.Options.ShieldHealthFrame then
-		DBM.BossHealth:Clear()
-		DBM.BossHealth:Show(L.name)
-		DBM.BossHealth:AddBoss(36855, L.name)
-		self:ScheduleMethod(1, "CreateShieldHPFrame")
-	end
-	berserkTimer:Start(-delay)
-	timerAdds:Start(7)
-	warnAddsSoon:Schedule(4)			-- 3sec pre-warning on start
-	self:ScheduleMethod(7, "addsTimer")
-	if not self:IsDifficulty("normal10") then
-		timerDominateMindCD:Start(30)		-- Sometimes 1 fails at the start, then the next will be applied 70 secs after start ?? :S
-	end
+local function showDominateMindWarning()
+	warnDominateMind:Show(table.concat(dominateMindTargets, "<, >"))
+	timerDominateMind:Start()
+	timerDominateMindCD:Start()
 	table.wipe(dominateMindTargets)
 	dominateMindIcon = 6
-	deformedFanatic = nil
-	empoweredAdherent = nil
 end
 
-do	-- add the additional Shield Bar
-	local last = 100
-	local shieldName = GetSpellInfo(70842)
-	local function getShieldPercent()
-		local guid = UnitGUID("boss1")
-		if guid and mod:GetCIDFromGUID(guid) == 36855 then 
-			last = math.floor(UnitMana("boss1")/UnitManaMax("boss1") * 100)
-			return last
-		end
-	end
-	function mod:CreateShieldHPFrame()
-		local percent = getShieldPercent()
-		if percent then
-			DBM.BossHealth:AddBoss(getShieldPercent, shieldName)
-		end
-	end
+local function getPower()
+	return lastPower
 end
 
 function mod:addsTimer()
@@ -129,52 +104,72 @@ function mod:TrySetTarget()
 	end
 end
 
-do
-	local function showDominateMindWarning()
-		warnDominateMind:Show(table.concat(dominateMindTargets, "<, >"))
-		timerDominateMind:Start()
-		timerDominateMindCD:Start()
-		table.wipe(dominateMindTargets)
-		dominateMindIcon = 6
+function mod:OnCombatStart(delay)
+	if DBM.BossHealth:IsShown() and self.Options.ShieldHealthFrame then
+		local name = GetSpellInfo(70842)
+		DBM.BossHealth:AddBoss(getPower, name)
 	end
-	
-	function mod:SPELL_AURA_APPLIED(args)
-		if args.spellId == 71289 then
-			dominateMindTargets[#dominateMindTargets + 1] = args.destName
-			if self.Options.SetIconOnDominateMind then
-				self:SetIcon(args.destName, dominateMindIcon, 12)
-				dominateMindIcon = dominateMindIcon - 1
-			end
-			self:Unschedule(showDominateMindWarning)
-			if self:IsDifficulty("heroic10", "normal25") or (self:IsDifficulty("heroic25") and #dominateMindTargets >= 3) then
-				showDominateMindWarning()
-			else
-				self:Schedule(0.9, showDominateMindWarning)
-			end
-		elseif args.spellId == 71001 then
-			if args:IsPlayer() then
-				specWarnDeathDecay:Show()
-			end
-		elseif args.spellId == 71237 and args:IsPlayer() then
-			specWarnCurseTorpor:Show()
-		elseif args.spellId == 70674 and not args:IsDestTypePlayer() and (UnitName("target") == L.Fanatic1 or UnitName("target") == L.Fanatic2 or UnitName("target") == L.Fanatic3) then
-			specWarnVampricMight:Show(args.destName)
-		elseif args.spellId == 71204 then
-			warnTouchInsignificance:Show(args.destName, args.amount or 1)
-			timerTouchInsignificance:Start(args.destName)
-			if args:IsPlayer() and (args.amount or 1) >= 3 and self:IsDifficulty("normal10", "normal25") then
-				specWarnTouchInsignificance:Show(args.amount)
-			elseif args:IsPlayer() and (args.amount or 1) >= 5 and self:IsDifficulty("heroic10", "heroic25") then
-				specWarnTouchInsignificance:Show(args.amount)
-			end
+	berserkTimer:Start(-delay)
+	timerAdds:Start(7)
+	warnAddsSoon:Schedule(4)			-- 3sec pre-warning on start
+	self:ScheduleMethod(7, "addsTimer")
+	if not self:IsDifficulty("normal10") then
+		timerDominateMindCD:Start(30)		-- Sometimes 1 fails at the start, then the next will be applied 70 secs after start ?? :S
+	end
+	table.wipe(dominateMindTargets)
+	dominateMindIcon = 6
+	deformedFanatic = nil
+	empoweredAdherent = nil
+	lastPower = 100
+	self:RegisterShortTermEvents(
+		"UNIT_POWER_FREQUENT target focus mouseover"
+	)
+end
+
+function mod:OnCombatEnd()
+	self:UnregisterShortTermEvents()
+end
+
+function mod:SPELL_AURA_APPLIED(args)
+	if args.spellId == 71289 then
+		dominateMindTargets[#dominateMindTargets + 1] = args.destName
+		if self.Options.SetIconOnDominateMind then
+			self:SetIcon(args.destName, dominateMindIcon, 12)
+			dominateMindIcon = dominateMindIcon - 1
+		end
+		self:Unschedule(showDominateMindWarning)
+		if self:IsDifficulty("heroic10", "normal25") or (self:IsDifficulty("heroic25") and #dominateMindTargets >= 3) then
+			showDominateMindWarning()
+		else
+			self:Schedule(0.9, showDominateMindWarning)
+		end
+	elseif args.spellId == 71001 then
+		if args:IsPlayer() then
+			specWarnDeathDecay:Show()
+		end
+	elseif args.spellId == 71237 and args:IsPlayer() then
+		specWarnCurseTorpor:Show()
+	elseif args.spellId == 70674 and not args:IsDestTypePlayer() and (UnitName("target") == L.Fanatic1 or UnitName("target") == L.Fanatic2 or UnitName("target") == L.Fanatic3) then
+		specWarnVampricMight:Show(args.destName)
+	elseif args.spellId == 71204 then
+		warnTouchInsignificance:Show(args.destName, args.amount or 1)
+		timerTouchInsignificance:Start(args.destName)
+		if args:IsPlayer() and (args.amount or 1) >= 3 and self:IsDifficulty("normal10", "normal25") then
+			specWarnTouchInsignificance:Show(args.amount)
+		elseif args:IsPlayer() and (args.amount or 1) >= 5 and self:IsDifficulty("heroic10", "heroic25") then
+			specWarnTouchInsignificance:Show(args.amount)
 		end
 	end
-	mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 end
+mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 70842 then
 		warnPhase2:Show()
+		self:UnregisterShortTermEvents()
+		if DBM.BossHealth:IsShown() and self.Options.ShieldHealthFrame then	
+			DBM.BossHealth:RemoveBoss(getPower)
+		end
 		if self:IsDifficulty("normal10", "normal25") then
 			timerAdds:Cancel()
 			warnAddsSoon:Cancel()
@@ -222,6 +217,13 @@ end
 function mod:UNIT_TARGET_UNFILTERED()
 	if empoweredAdherent or deformedFanatic then
 		self:TrySetTarget()
+	end
+end
+
+function mod:UNIT_POWER_FREQUENT(uId)
+	if self:GetUnitCreatureId(uId) == 36855 then
+		lastPower = math.floor(UnitPower(uId)/UnitPowerMax(uId) * 100)
+		print(lastPower)
 	end
 end
 

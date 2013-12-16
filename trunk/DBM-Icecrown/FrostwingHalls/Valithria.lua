@@ -7,17 +7,18 @@ mod:SetEncounterID(1098)
 mod:SetModelID(30318)
 mod:SetUsedIcons(8)
 mod:RegisterCombat("combat")
-mod:RegisterKill("yell", L.YellKill)
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_AURA_APPLIED",
+	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
 	"SPELL_DAMAGE",
 	"SPELL_MISSED",
 	"CHAT_MSG_MONSTER_YELL",
-	"UNIT_TARGET_UNFILTERED"
+	"UNIT_TARGET_UNFILTERED",
+	"UNIT_SPELLCAST_START boss1"
 )
 
 local warnCorrosion			= mod:NewStackAnnounce(70751, 2, nil, false)
@@ -33,7 +34,8 @@ local specWarnManaVoid		= mod:NewSpecialWarningMove(71179)
 
 local timerLayWaste			= mod:NewBuffActiveTimer(12, 69325)
 local timerNextPortal		= mod:NewCDTimer(46.5, 72483, nil)
-local timerPortalsOpen		= mod:NewTimer(10, "TimerPortalsOpen", 72483)
+local timerPortalsOpen		= mod:NewTimer(15, "TimerPortalsOpen", 72483)
+local timerPortalsClose		= mod:NewTimer(10, "TimerPortalsClose", 72483)
 local timerHealerBuff		= mod:NewBuffFadesTimer(40, 70873)
 local timerGutSpray			= mod:NewTargetTimer(12, 70633, nil, mod:IsTank() or mod:IsHealer())
 local timerCorrosion		= mod:NewTargetTimer(6, 70751, nil, false)
@@ -106,7 +108,8 @@ function mod:Portals()
 	timerPortalsOpen:Cancel()
 	warnPortalSoon:Cancel()
 	warnPortalOpen:Schedule(15)
-	timerPortalsOpen:Schedule(15)
+	timerPortalsOpen:Start()
+	timerPortalsClose:Schedule(15)
 	warnPortalSoon:Schedule(41)
 	timerNextPortal:Start()
 	self:UnscheduleMethod("Portals")
@@ -156,13 +159,10 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 69325 then--Lay Waste
 		specWarnLayWaste:Show()
 		timerLayWaste:Start()
-	elseif args:IsSpellID(70873, 71941) then	--Emerald Vigor/Twisted Nightmares (portal healers)
-		if args:IsPlayer() then
-			timerHealerBuff:Start()
-		end
+	elseif args:IsSpellID(70873, 71941) and args:IsPlayer() then	--Emerald Vigor/Twisted Nightmares (portal healers)
+		timerHealerBuff:Start()
 	end
 end
-
 mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_AURA_REMOVED(args)
@@ -186,6 +186,12 @@ function mod:UNIT_TARGET_UNFILTERED()
 	end
 end
 
+function mod:UNIT_SPELLCAST_START(uId, _, _, _, spellId)
+	if spellId == 71189 then
+		DBM:EndCombat(self)
+	end
+end
+
 function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if (msg == L.YellPortals or msg:find(L.YellPortals)) and self:LatencyCheck() then
 		self:SendSync("NightmarePortal")
@@ -194,6 +200,7 @@ end
 
 function mod:OnSync(msg, arg)
 	if msg == "NightmarePortal" and self:IsInCombat() then
+		self:UnscheduleMethod("Portals")
 		self:Portals()
 	end
 end

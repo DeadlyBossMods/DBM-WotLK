@@ -23,7 +23,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_DISPEL",
 	"SPELL_AURA_APPLIED",
 	"SPELL_SUMMON",
-	"UNIT_HEALTH target boss1",
+	"UNIT_HEALTH target focus",
 	"UNIT_AURA_UNFILTERED"
 )
 

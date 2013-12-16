@@ -8,8 +8,6 @@ mod.isTrashMod = true
 mod:RegisterEvents(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_REMOVED",
-	"SPELL_DAMAGE",
-	"SPELL_MISSED",
 	"CHAT_MSG_MONSTER_YELL"
 )
 
@@ -42,13 +40,6 @@ function mod:SPELL_AURA_REMOVED(args)
 		timerBanish:Cancel(args.destName)
 	end
 end
-
-function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
-	if spellId == 70305 and destGUID == UnitGUID("player") and self:AntiSpam() then
-		specWarnBlade:Show()
-	end
-end
-mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
 function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if msg == L.SindragosaEvent and self:LatencyCheck() then

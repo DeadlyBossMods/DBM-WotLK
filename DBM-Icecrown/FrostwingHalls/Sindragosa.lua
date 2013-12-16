@@ -16,7 +16,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
 	"SPELL_CAST_SUCCESS",
-	"UNIT_HEALTH boss1",
+	"UNIT_HEALTH target focus",
 	"CHAT_MSG_MONSTER_YELL"
 )
 
@@ -169,7 +169,7 @@ function mod:OnCombatEnd()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(69649, 71056, 71057, 71058) or args:IsSpellID(73061, 73062, 73063, 73064) then--Frost Breath
+	if args:IsSpellID(69649, 73061) then--Frost Breath
 		warnFrostBreath:Show()
 		timerNextFrostBreath:Start()
 	end
@@ -241,7 +241,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				specWarnInstability:Show(args.amount)
 			end
 		end
-	elseif args:IsSpellID(70127, 72528, 72529, 72530) then	--Mystic Buffet (phase 3 - everyone)
+	elseif args.spellId == 70127 then	--Mystic Buffet (phase 3 - everyone)
 		if args:IsPlayer() then
 			warnMysticBuffet:Show(args.amount or 1)
 			timerMysticBuffet:Start()

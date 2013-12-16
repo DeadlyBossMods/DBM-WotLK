@@ -22,7 +22,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_SUMMON",
 	"CHAT_MSG_RAID_BOSS_EMOTE",
 	"UNIT_TARGET_UNFILTERED",
-	"UNIT_SPELLCAST_SUCCEEDED boss1 boss2 boss3"
+	"UNIT_SPELLCAST_SUCCEEDED"
 )
 
 local warnTargetSwitch			= mod:NewAnnounce("WarnTargetSwitch", 3, 70952)

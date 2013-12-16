@@ -75,37 +75,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	--Horde NPCS
-	Gorgrim				= "死亡骑士 - 高葛林·影斩",		-- 34458
-	Birana 				= "德鲁伊 - 碧菈娜·风暴之蹄",	-- 34451
-	Erin				= "德鲁伊 - 艾琳·雾蹄",		-- 34459
-	Rujkah				= "猎人 - 茹卡",		-- 34448
-	Ginselle			= "法师 - 金赛儿·凋掷",		-- 34449
-	Liandra				= "圣骑士 - 黎安卓·唤日",		-- 34445
-	Malithas			= "圣骑士 - 玛力萨·亮刃",		-- 34456
-	Caiphus				= "牧师 - 严厉的凯普司",	-- 34447
-	Vivienne			= "牧师 - 薇薇安·黑语",		-- 34441
-	Mazdinah			= "潜行者 - 马兹迪娜",		-- 34454
-	Thrakgar			= "萨满 - 瑟瑞克加尔",		-- 34444
-	Broln				= "萨满 - 伯洛连·顽角",		-- 34455
-	Harkzog				= "术士 - 哈克佐格",		-- 34450
-	Narrhok				= "战士 - 纳霍克·破钢者",	-- 34453
-	--Alliance NPCS
-	Tyrius				= "死亡骑士 - 提瑞斯·暮刃",		-- 34461
- 	Kavina				= "德鲁伊 - 卡薇娜·林地之歌",	-- 34460
- 	Melador				= "德鲁伊 - 梅拉朵·谷行者",	-- 34469
- 	Alyssia 			= "猎人 - 爱莉希雅·月巡者",	-- 34467
- 	Noozle				= "法师 - 诺佐·啸棍",		-- 34468
- 	Baelnor 			= "圣骑士 - 贝尔诺·携光者",	-- 34471
- 	Velanaa				= "圣骑士 - 维兰娜", 		-- 34465
- 	Anthar				= "牧师 - 安萨·修炉匠",		-- 34466
- 	Brienna				= "牧师 - 布芮娜·夜坠",		-- 34473
- 	Irieth				= "潜行者 - 艾芮丝·影步",		-- 34472
- 	Saamul				= "萨满 - 萨缪尔", 		-- 34470
- 	Shaabad				= "萨满 - 夏巴德", 		-- 34463
- 	Serissa				= "术士 - 瑟芮莎·厉溅",		-- 34474
- 	Shocuul				= "战士 - 修库尔",		-- 34475
-
 	AllianceVictory			= "荣耀归于联盟！",
 	HordeVictory			= "那只是让你们知道将来必须面对的命运。为了部落！",
 	YellKill			= "肤浅而悲痛的胜利。今天痛失的生命反而令我们更加的颓弱。除了巫妖王之外，谁还能从中获利?伟大的战士失去了宝贵生命。为了什么?真正的威胁就在前方 - 巫妖王在死亡的领域中等着我们。"
@@ -135,7 +104,6 @@ L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 			= "以黑暗之主的名义。为了巫妖王。你必死无疑。",
 	Fjola 				= "光明邪使菲奥拉",
 	Eydis				= "黑暗邪使艾蒂丝"
 }
@@ -178,7 +146,6 @@ L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull			= "这里将是你的葬身之地！",
 	Emerge				= "钻入了地下！",
 	Burrow				= "从地面上升起来了！",
 	PcoldIconSet			= "刺骨之寒{rt%d} -> %s",

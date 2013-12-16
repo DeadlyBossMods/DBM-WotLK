@@ -11,7 +11,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold				= "스노볼트 부하 생성"
+	WarningSnobold				= "스노볼트 부하 생성 : >%s<"
 }
 
 L:SetTimerLocalization{
@@ -69,40 +69,8 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	--Horde NPCS
-	Gorgrim				= "죽기 - 고르그림 섀도클리브",			-- 34458
-	Birana 				= "조드 - 비라나 스톰후프",				-- 34451
-	Erin				= "회드 - 에린 미스트후프",				-- 34459
-	Rujkah				= "사냥꾼 - 루즈카",					-- 34448
-	Ginselle			= "마법사 - 진셀 블라이트슬링어",		-- 34449
-	Liandra				= "신성 - 리안드라 선콜러",				-- 34445
-	Malithas			= "징벌 - 말리타스 브라이트블레이드",	-- 34456
-	Caiphus				= "수양 - 준엄한 카이푸스",				-- 34447
-	Vivienne			= "암흑 - 비비안 블랙위스퍼",			-- 34441
-	Mazdinah			= "도적 - 마즈디나",					-- 34454
-	Thrakgar			= "정기 - 스락가르",					-- 34444
-	Broln				= "고양 - 브롤른 스타우트혼",			-- 34455
-	Harkzog				= "흑마법사 - 하크조그",				-- 34450
-	Narrhok				= "전사 - 나르호크 스틸브레이커",		-- 34453
-	--Alliance NPCS
-	Tyrius				= "죽기 - 티리우스 더스크블레이드",		-- 34461
-	Kavina				= "조드 - 카비나 그로브송",				-- 34460
-	Melador				= "회드 - 멜라도르 베일스트라이더",		-- 34469
-	Alyssia 			= "사냥꾼 - 알리시아 문스토커",			-- 34467
-	Noozle				= "마법사 - 누즐 위즐스틱",				-- 34468
-	Baelnor 			= "징벌 - 벨노르 라이트베이러",			-- 34471
-	Velanaa				= "신성 - 벨라나", 						-- 34465
-	Anthar				= "수양 - 안타르 포지멘더",				-- 34466
-	Brienna				= "암흑 - 브리에나 나이트펠",			-- 34473
-	Irieth				= "도적 - 이리에스 섀도스텝",			-- 34472
-	Saamul				= "정기 - 사아물", 						-- 34470
-	Shaabad				= "고양 - 샤베드", 						-- 34463
-	Serissa				= "흑마법사 - 세리사 그림대블러",		-- 34474
-	Shocuul				= "전사 - 쇼쿨",						-- 34475
-
 	AllianceVictory 	= "얼라이언스의 영광을 위하여!",--확인필요
-	HordeVictory		= "앞으로 일어날 일의 맛보기일 뿐이다. 호드를 위하여!",
-	YellKill			= "상처뿐인 승리로군. 오늘 받은 손해로 우리 전력은 약해졌네. 이런 어리석은 짓으로 리치 왕 말고 또 누가 이득을 보겠나? 위대한 용사들이 목숨을 잃었네. 무엇을 위해서였나? 진짜 위협은 저 앞에 있네. 리치 왕이 우리 모두를 죽음 안에서 기다린다네."
+	HordeVictory		= "앞으로 일어날 일의 맛보기일 뿐이다. 호드를 위하여!"
 }
 
 ------------------
@@ -142,7 +110,6 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 	= "어둠의 주인님을 받들어. 리치 왕을 위하여. 너희에게. 죽음을. 안기리라.",
 	Fjola 		= "피욜라 라이트베인",
 	Eydis		= "아이디스 다크베인"
 }
@@ -186,7 +153,6 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull				= "여기가 네 무덤이 되리라!",
 --	Swarm					= "착취의 무리가 너희를 덮치리라!",
 	Emerge					= "땅속에서 모습을 드러냅니다!",
 	Burrow					= "땅속으로 숨어버립니다!",

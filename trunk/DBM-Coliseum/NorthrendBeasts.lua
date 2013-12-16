@@ -78,13 +78,13 @@ mod:AddRangeFrameOption("10")
 
 mod:AddBoolOption("IcehowlArrow")
 
-local bileTargets			= {}
-local toxinTargets			= {}
-local burnIcon				= 8
-local phases				= {}
-local DreadscaleActive		= true  	-- Is dreadscale moving?
-local DreadscaleDead	= false
-local AcidmawDead	= false
+local bileTargets = {}
+local toxinTargets = {}
+local burnIcon = 8
+local phases = {}
+local DreadscaleActive = true
+local DreadscaleDead = false
+local AcidmawDead = false
 
 local function updateHealthFrame(phase)
 	if phases[phase] then
@@ -144,10 +144,10 @@ function mod:WormsEmerge()
 	if not AcidmawDead then
 		if DreadscaleActive then
 			timerSweepCD:Start(16)
-			timerParalyticSprayCD:Start(9)			
+			timerParalyticSprayCD:Start(9)
 		else
 			timerSlimePoolCD:Start(14)
-			timerParalyticBiteCD:Start(5)			
+			timerParalyticBiteCD:Start(5)
 			timerAcidicSpewCD:Start(10)
 		end
 	end
@@ -179,20 +179,20 @@ function mod:WormsSubmerge()
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args.spellId == 66331 then		-- Impale
+	if args.spellId == 66331 then
 		timerNextImpale:Start()
 		warnImpaleOn:Show(args.destName, 1)
-	elseif args.spellId == 66759 then	-- Frothing Rage
+	elseif args.spellId == 66759 then
 		warnRage:Show()
 		specWarnTranq:Show()
-	elseif args.spellId == 66823 then	-- Paralytic Toxin
+	elseif args.spellId == 66823 then
 		self:UnscheduleMethod("warnToxin")
 		toxinTargets[#toxinTargets + 1] = args.destName
 		if args:IsPlayer() then
 			specWarnToxin:Show()
 		end
 		self:ScheduleMethod(0.2, "warnToxin")
-	elseif args.spellId == 66869 then		-- Burning Bile
+	elseif args.spellId == 66869 then
 		self:UnscheduleMethod("warnBile")
 		bileTargets[#bileTargets + 1] = args.destName
 		if args:IsPlayer() then
@@ -205,8 +205,8 @@ function mod:SPELL_AURA_APPLIED(args)
 		self:ScheduleMethod(0.2, "warnBile")
 	elseif args.spellId == 66758 then
 		timerStaggeredDaze:Start()
-	elseif args.spellId == 66636 then						-- Rising Anger
-		WarningSnobold:Show()
+	elseif args.spellId == 66636 then
+		WarningSnobold:Show(args.destName)
 		timerRisingAnger:Show()
 	elseif args.spellId == 68335 then
 		warnEnrageWorm:Show()
@@ -214,7 +214,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_AURA_APPLIED_DOSE(args)
-	if args.spellId == 66331 then		-- Impale
+	if args.spellId == 66331 then
 		local amount = args.amount or 1
 		timerNextImpale:Start()
 		warnImpaleOn:Show(args.destName, amount)
@@ -223,7 +223,7 @@ function mod:SPELL_AURA_APPLIED_DOSE(args)
 				specWarnImpale3:Show(amount)
 			end
 		end
-	elseif args.spellId == 66636 then		-- Rising Anger
+	elseif args.spellId == 66636 then
 		local amount = args.amount or 1
 		WarningSnobold:Show()
 		if amount <= 3 then
@@ -235,34 +235,34 @@ function mod:SPELL_AURA_APPLIED_DOSE(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args.spellId == 66689 then			-- Arctic Breath
+	if args.spellId == 66689 then
 		timerBreath:Start()
 		warnBreath:Show()
-	elseif args.spellId == 66313 then		-- FireBomb (Impaler)
+	elseif args.spellId == 66313 then
 		warnFireBomb:Show()
-	elseif args.spellId == 66330 then		-- Staggering Stomp
+	elseif args.spellId == 66330 then
 		timerNextStomp:Start()
-		specWarnSilence:Schedule(19)		-- prewarn ~1,5 sec before next
-	elseif args.spellId == 66794 then		-- Sweep stationary worm
+		specWarnSilence:Schedule(19)
+	elseif args.spellId == 66794 then
 		timerSweepCD:Start()
-	elseif args.spellId == 66821 then		-- Molten spew
+	elseif args.spellId == 66821 then
 		timerMoltenSpewCD:Start()
-	elseif args.spellId == 66818 then		-- Acidic Spew
+	elseif args.spellId == 66818 then
 		timerAcidicSpewCD:Start()
-	elseif args.spellId == 66901 then		-- Paralytic Spray
+	elseif args.spellId == 66901 then
 		timerParalyticSprayCD:Start()
-	elseif args.spellId == 66902 then		-- Burning Spray
+	elseif args.spellId == 66902 then
 		timerBurningSprayCD:Start()
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args.spellId == 66883 then			-- Slime Pool Cloud Spawn
+	if args.spellId == 66883 then
 		warnSlimePool:Show()
 		timerSlimePoolCD:Show()
-	elseif args.spellId == 66824 then		-- Paralytic Bite
+	elseif args.spellId == 66824 then
 		timerParalyticBiteCD:Start()
-	elseif args.spellId == 66879 then		-- Burning Bite
+	elseif args.spellId == 66879 then
 		timerBurningBiteCD:Start()
 	end
 end
@@ -344,7 +344,7 @@ function mod:UNIT_DIED(args)
 		timerNextStomp:Stop()
 		timerNextImpale:Stop()
 		if DBM.BossHealth:IsShown() then
-			DBM.BossHealth:RemoveBoss(cid) -- remove Gormok from the health frame
+			DBM.BossHealth:RemoveBoss(cid)
 		end
 	elseif cid == 35144 then
 		AcidmawDead = true

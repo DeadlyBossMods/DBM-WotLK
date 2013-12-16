@@ -68,20 +68,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	Gorgrim					= "DK - Gorgrim Fend-les-ombres",		-- 34458
-	Birana 					= "Druide - Birana Sabot-tempête",		-- 34451
-	Erin					= "Druide - Erin Sabot-de-brume",		-- 34459
-	Rujkah					= "Chasseur - Ruj'kah",					-- 34448
-	Ginselle				= "Mage - Ginselle Jettechancre",		-- 34449
-	Liandra					= "Paladin - Liandra Mande-soleil",		-- 34445
-	Malithas				= "Paladin - Malithas Brillelame",		-- 34456
-	Caiphus					= "Prêtre - Caiphus le Sévère",			-- 34447
-	Vivienne				= "Prêtre - Vivienne Murmenoir",		-- 34441
-	Mazdinah				= "Voleur - Maz'dinah",					-- 34454
-	Thrakgar				= "Chaman - Thrakgar",					-- 34444
-	Broln					= "Chaman - Broln Corne-rude",			-- 34455
-	Harkzog					= "Démoniste - Harkzog",				-- 34450
-	Narrhok					= "Guerrier - Narrhok Brise-acier",		-- 34453
 	AllianceVictory    = "GLORY TO THE ALLIANCE!",
 	HordeVictory       = "That was just a taste of what the future brings. FOR THE HORDE!",
 	YellKill				= "Une victoire tragique et depourvue de sens. La perte subie aujourd'hui nous affaiblira tous, car qui d'autre que le roi-liche pourrait beneficier d'une telle folie?? De grands guerriers ont perdu la vie. Et pour quoi?? La vraie menace plane à l'horizon?: le roi-liche nous attend, tous, dans la mort."
@@ -113,7 +99,6 @@ L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 	= "Au nom de notre ténébreux maître. Pour le roi-liche. Vous. Allez. Mourir.",
 	Fjola 		= "Fjola Plaie-lumineuse",
 	Eydis		= "Eydis Plaie-sombre"
 }
@@ -157,7 +142,6 @@ L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull				= "Ce terreau sera votre tombeau !",
 	Emerge					= "surgit de la terre",
 	Burrow					= "enfonce dans le sol",
 	PcoldIconSet			= "Pcold Icon {rt%d} set on %s",

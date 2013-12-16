@@ -78,16 +78,16 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
-	if spellId == 66877 and destGUID == UnitGUID("player") and self:AntiSpam(3, 1) then		-- Legion Flame
+	if spellId == 66877 and destGUID == UnitGUID("player") and self:AntiSpam(3, 1) then
 		specWarnFlame:Show()
-	elseif spellId == 66496 and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then	-- Fel Inferno
+	elseif spellId == 66496 and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then
 		specWarnFelInferno:Show()
 	end
 end
 mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args.spellId == 66237 then			-- Incinerate Flesh
+	if args.spellId == 66237 then
 		warnFlesh:Show(args.destName)
 		timerFlesh:Start(args.destName)
 		timerFleshCD:Start()
@@ -101,7 +101,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			self:ShowAbsorbedHealHealthBar(args.destGUID, L.IncinerateTarget:format(args.destName), absorbHealth(DBM:GetCurrentInstanceDifficulty()))
 			self:ScheduleMethod(15, "RemoveAbsorbedHealHealthBar", args.destGUID)
 		end
-	elseif args.spellId == 66197 then		-- Legion Flame ids 66199 (second debuff) do the actual damage. First 2 seconds are trigger debuff only.
+	elseif args.spellId == 66197 then
 		local targetname = args.destName
 		timerFlame:Start(args.destName)
 		timerFlameCD:Start()
@@ -115,13 +115,13 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 66334 and args:IsPlayer() then
 		specWarnKiss:Show()
 
-	elseif args.spellId == 66532 then		-- Fel Fireball (announce if tank gets debuff for dispel)
+	elseif args.spellId == 66532 then
 		SpecWarnFelFireballDispel:Show(args.destName)
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args.spellId == 66237 then			-- Incinerate Flesh
+	if args.spellId == 66237 then
 		timerFlesh:Stop()
 		self:UnscheduleMethod(15, "RemoveAbsorbedHealHealthBar", args.destGUID)
 		if self.Options.IncinerateShieldFrame then
@@ -134,27 +134,24 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:SPELL_CAST_START(args)
-	if args.spellId == 66532 and self:GetUnitCreatureId("target") == 34780 then	-- Fel Fireball (track cast for interrupt, only when targeted)
+	if args.spellId == 66532 and self:GetUnitCreatureId("target") == 34780 then
 		warnFelFireball:Show()
 		SpecWarnFelFireball:Show(args.sourceName)
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args.spellId == 67009 then								-- Nether Power
+	if args.spellId == 67009 then
 		warnNetherPower:Show()
 		timerNetherPowerCD:Start()
-		specWarnNetherPower:Show()
-
-	elseif args.spellId == 66258 then		-- Infernal Volcano
+		specWarnNetherPower:Show(args.sourceName)
+	elseif args.spellId == 66258 then
 		timerVolcanoCD:Start()
 		warnVolcanoSoon:Schedule(110)
-
-	elseif args.spellId == 66269 then		-- Nether Portal
+	elseif args.spellId == 66269 then
 		timerPortalCD:Start()
 		warnPortalSoon:Schedule(110)
-	
-	elseif args.spellId == 66197 then		-- Legion Flame
+	elseif args.spellId == 66197 then
 		warnFlame:Show(args.destName)
 	end
 end

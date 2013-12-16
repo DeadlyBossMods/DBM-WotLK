@@ -69,37 +69,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	--Horde NPCS
-	Gorgrim				= "Tod - Gorgrim Schattenspalter",	-- 34458
-	Birana				= "Dru - Birana Sturmhuf",			-- 34451
-	Erin				= "Dru - Erin Nebelhuf",			-- 34459
-	Rujkah				= "Jäg - Ruj'kah",					-- 34448
-	Ginselle			= "Mag - Ginselle Seuchenwerfer",	-- 34449
-	Liandra				= "Pal - Liandra Sonnenrufer",		-- 34445
-	Malithas			= "Pal - Malithas Glanzklinge",		-- 34456
-	Caiphus				= "Pri - Caiphus der Ernste",		-- 34447
-	Vivienne			= "Pri - Vivienne Schwarzraunen",	-- 34441
-	Mazdinah			= "Schu - Maz'dinah",				-- 34454
-	Thrakgar			= "Scha - Thrakgar",				-- 34444
-	Broln				= "Scha - Broln Starkhorn",			-- 34455
-	Harkzog				= "Hex - Harkzog",					-- 34450
-	Narrhok				= "Kri - Narrhok Stahlbrecher",		-- 34453
-	--Alliance NPCS
-	Tyrius				= "Tod - Tyrius Dämmerklinge",		-- 34461
-	Kavina				= "Dru - Kavina Haineslied",		-- 34460
-	Melador				= "Dru - Melador Talwanderer",		-- 34469
-	Alyssia             = "Jäg - Alyssia Mondpirscher",		-- 34467
-	Noozle				= "Mag - Noozle Zischelstock",		-- 34468
-	Baelnor				= "Pal - Baelnor Lichtträger",		-- 34471
-	Velanaa				= "Pal - Velanaa",					-- 34465
-	Anthar				= "Pri - Anthar Schmiedenformer",	-- 34466
-	Brienna				= "Pri - Brienna Tiefnacht",		-- 34473
-	Irieth				= "Schu - Irieth Schattenschritt",	-- 34472
-	Saamul				= "Scha - Saamul",					-- 34470
-	Shaabad				= "Scha - Shaabad",					-- 34463
-	Serissa				= "Hex - Serissa Düsterhauch",		-- 34474
-	Shocuul				= "Kri - Shocuul",					-- 34475
-
 	AllianceVictory    = "EHRE DER ALLIANZ!",
 	HordeVictory       = "Das ist nur ein Vorgeschmack auf die Zukunft. FÜR DIE HORDE!",
 	YellKill           = "Ein tragischer Sieg. Wir wurden schwächer durch die heutigen Verluste. Wer außer dem Lichkönig profitiert von solchen Torheiten? Große Krieger gaben ihr Leben. Und wofür? Die wahre Bedrohung erwartet uns noch - der Lichkönig erwartet uns alle im Tod."
@@ -129,7 +98,6 @@ L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull	= "Im Namen unseres dunklen Meisters. Für den Lichkönig. Ihr. Werdet. Sterben.",
 	Fjola		= "Fjola Lichtbann",
 	Eydis		= "Eydis Nachtbann"
 }
@@ -172,7 +140,6 @@ L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull			= "Dieser Ort wird Euch als Grab dienen!",
 	Emerge				= "entsteigt dem Boden!",
 	Burrow				= "gräbt sich in den Boden!",
 	PcoldIconSet		= "DKälte-Zeichen {rt%d} auf %s gesetzt",

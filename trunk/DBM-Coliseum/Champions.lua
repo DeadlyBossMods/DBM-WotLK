@@ -6,8 +6,6 @@ mod:SetCreatureID(34458, 34451, 34459, 34448, 34449, 34445, 34456, 34447, 34441,
 --mod:SetEncounterID(1086)
 
 mod:RegisterCombat("combat")
---mod:RegisterKill("yell", L.YellKill)
-
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS",
@@ -17,45 +15,10 @@ mod:RegisterEventsInCombat(
 	"UNIT_DIED"
 )
 
-
 if UnitFactionGroup("player") == "Alliance" then
 	mod:RegisterKill("yell", L.AllianceVictory)
-	mod:SetBossHealthInfo(
-	-- Horde
-		34458, L.Gorgrim,
-		34451, L.Birana,
-		34459, L.Erin,
-		34448, L.Rujkah,
-		34449, L.Ginselle,
-		34445, L.Liandra,
-		34456, L.Malithas,
-		34447, L.Caiphus,
-		34441, L.Vivienne,
-		34454, L.Mazdinah,
-		34444, L.Thrakgar,
-		34455, L.Broln,
-		34450, L.Harkzog,
-		34453, L.Narrhok
-	)
 else
 	mod:RegisterKill("yell", L.HordeVictory)
-	mod:SetBossHealthInfo(
-	-- Alliance
-		34461, L.Tyrius,
-		34460, L.Kavina,
-		34469, L.Melador,
-		34467, L.Alyssia,
-		34468, L.Noozle,
-		34471, L.Baelnor,
-		34465, L.Velanaa,
-		34466, L.Anthar,
-		34473, L.Brienna,
-		34472, L.Irieth,
-		34470, L.Saamul,
-		34463, L.Shaabad,
-		34474, L.Serissa,
-		34475, L.Shocuul
-	)
 end
 
 local warnHellfire			= mod:NewSpellAnnounce(65816, 4)
@@ -85,33 +48,33 @@ local specWarnIceBlock		= mod:NewSpecialWarningDispel(65802, mod:IsMagicDispelle
 local soundBladestorm		= mod:NewSound(65947, mod:IsMelee())
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args.spellId == 65816 then		-- Warlock Hellfire
+	if args.spellId == 65816 then
 		warnHellfire:Show()
-	elseif args.spellId == 65947 then						-- Warrior Bladestorm
+	elseif args.spellId == 65947 then
 		warnBladestorm:Show()
 		timerBladestorm:Start()
 		timerBladestormCD:Start()
-		preWarnBladestorm:Schedule(85)                      -- Pre-Warn will only announce for 2nd and later bladestorm.
+		preWarnBladestorm:Schedule(85)
 		soundBladestorm:Play()
-	elseif args.spellId == 65983 then						-- Shamen Heroism
+	elseif args.spellId == 65983 then
 		warnHeroism:Show()
-	elseif args.spellId == 65980 then						-- Shamen Blood lust
+	elseif args.spellId == 65980 then
 		warnBloodlust:Show()
-	elseif args.spellId == 66115 and not args:IsDestTypePlayer() then	-- Paladin Hand of Freedom on <mobname>
+	elseif args.spellId == 66115 and not args:IsDestTypePlayer() then
 		warnHandofFreedom:Show(args.destName)
-	elseif args.spellId == 66009 then						-- Paladin Hand of Protection on <mobname>
+	elseif args.spellId == 66009 then
 		warnHandofProt:Show(args.destName)
 		specWarnHandofProt:Show(args.destName)
-	elseif args.spellId == 66178 then	-- Rogue Shadowstep
+	elseif args.spellId == 66178 then
 		warnShadowstep:Show()
-        if self:IsDifficulty("heroic25") then                -- 3 out of 4 difficulties have 30 second cooldown, but on 25 heroic, it's 20sec
+        if self:IsDifficulty("heroic25") then
 			timerShadowstepCD:Start(20)
 		else
 			timerShadowstepCD:Start()
 		end
-	elseif args.spellId == 66017 and args:IsDestTypePlayer() then	-- DeathKnight DeathGrip
+	elseif args.spellId == 66017 and args:IsDestTypePlayer() then
 		warnDeathgrip:Show(args.destName)
-		if self:IsDifficulty("heroic25") then                -- 3 out of 4 difficulties have 35 second cooldown, but on 25 heroic, it's 20sec
+		if self:IsDifficulty("heroic25") then
 			timerDeathgripCD:Start(20)
 		else
 			timerDeathgripCD:Start()
@@ -120,15 +83,15 @@ function mod:SPELL_CAST_SUCCESS(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args.spellId == 66010 then                                      -- Divine Shield on <mobname>
+	if args.spellId == 66010 then
 		warnDivineShield:Show(args.destName)
 		specWarnDivineShield:Show(args.destName)
-	elseif args.spellId == 65802 then                                  -- Iceblock on <mobname>
+	elseif args.spellId == 65802 then
 		warnIceBlock:Show(args.destName)
 		specWarnIceBlock:Show(args.destName)
-	elseif args.spellId == 65859 and args:IsDestTypePlayer() then      -- Cyclone on <playername>
+	elseif args.spellId == 65859 and args:IsDestTypePlayer() then
 		warnCyclone:Show(args.destName)
-	elseif args.spellId == 65801 and args:IsDestTypePlayer() then      -- Sheep on <playername>
+	elseif args.spellId == 65801 and args:IsDestTypePlayer() then
 		warnSheep:Show(args.destName)
 	end
 end

@@ -10,7 +10,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold		= "Snobold Vassal spawned"
+	WarningSnobold		= "Snobold Vassal spawned on >%s<"
 }
 
 L:SetTimerLocalization{
@@ -68,40 +68,8 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	--Horde NPCS
-	Gorgrim				= "DK - Gorgrim Shadowcleave",		-- 34458
-	Birana				= "D - Birana Stormhoof",			-- 34451
-	Erin				= "D - Erin Misthoof",				-- 34459
-	Rujkah				= "H - Ruj'kah",					-- 34448
-	Ginselle			= "M - Ginselle Blightslinger",		-- 34449
-	Liandra				= "PA - Liandra Suncaller",			-- 34445
-	Malithas			= "PA - Malithas Brightblade",		-- 34456
-	Caiphus				= "PR - Caiphus the Stern",			-- 34447
-	Vivienne			= "PR - Vivienne Blackwhisper",		-- 34441
-	Mazdinah			= "R - Maz'dinah",					-- 34454
-	Thrakgar			= "S - Thrakgar",					-- 34444
-	Broln				= "S - Broln Stouthorn",			-- 34455
-	Harkzog				= "WL - Harkzog",					-- 34450
-	Narrhok				= "WR - Narrhok Steelbreaker",		-- 34453
-	--Alliance NPCS
-	Tyrius				= "DK - Tyrius Duskblade",			-- 34461
-	Kavina				= "D - Kavina Grovesong",			-- 34460
-	Melador				= "D - Melador Valestrider",		-- 34469
-	Alyssia             = "H - Alyssia Moonstalker",		-- 34467
-	Noozle				= "M - Noozle Whizzlestick",		-- 34468
-	Baelnor				= "PA - Baelnor Lightbearer",		-- 34471
-	Velanaa				= "PA - Velanaa",					-- 34465
-	Anthar				= "PR - Anthar Forgemender",		-- 34466
-	Brienna				= "PR - Brienna Nightfell",			-- 34473
-	Irieth				= "R - Irieth Shadowstep",			-- 34472
-	Saamul				= "S - Saamul",						-- 34470
-	Shaabad				= "S - Shaabad",					-- 34463
-	Serissa				= "WL - Serissa Grimdabbler",		-- 34474
-	Shocuul				= "WR - Shocuul",					-- 34475
-
 	AllianceVictory    = "GLORY TO THE ALLIANCE!",
-	HordeVictory       = "That was just a taste of what the future brings. FOR THE HORDE!",
-	YellKill           = "A shallow and tragic victory. We are weaker as a whole from the losses suffered today. Who but the Lich King could benefit from such foolishness? Great warriors have lost their lives. And for what? The true threat looms ahead - the Lich King awaits us all in death."
+	HordeVictory       = "That was just a taste of what the future brings. FOR THE HORDE!"
 }
 
 ---------------------
@@ -128,7 +96,6 @@ L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull	= "In the name of our dark master. For the Lich King. You. Will. Die.",
 	Fjola		= "Fjola Lightbane",
 	Eydis		= "Eydis Darkbane"
 }
@@ -171,7 +138,6 @@ L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull			= "This place will serve as your tomb!",
 	Emerge				= "emerges from the ground!",
 	Burrow				= "burrows into the ground!",
 	PcoldIconSet		= "PCold icon {rt%d} set on %s",

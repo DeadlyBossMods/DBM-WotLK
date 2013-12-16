@@ -43,9 +43,15 @@ mod:AddBoolOption("SpecialWarnOnDebuff", false, "announce")
 mod:AddBoolOption("SetIconOnDebuffTarget", true)
 mod:AddBoolOption("HealthFrame", true)
 
-
 local debuffTargets					= {}
 local debuffIcon					= 8
+
+local shieldHealth = {
+	["heroic25"] = 1200000,
+	["heroic10"] = 300000,
+	["normal25"] = 700000,
+	["normal10"] = 175000
+}
 
 function mod:OnCombatStart(delay)
 	timerSpecial:Start(-delay)
@@ -111,47 +117,6 @@ local function showPowerWarning(self, cid)
 	end
 end
 
-local showShieldHealthBar, hideShieldHealthBar
-do
-	local frame = CreateFrame("Frame") -- using a separate frame avoids the overhead of the DBM event handlers which are not meant to be used with frequently occuring events like all damage events...
-	local shieldedMob
-	local absorbRemaining = 0
-	local maxAbsorb = 0
-	local function getShieldHP()
-		return math.max(1, math.floor(absorbRemaining / maxAbsorb * 100))
-	end
-	frame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-	frame:SetScript("OnEvent", function(self, event, timestamp, subEvent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, ...)
-		if shieldedMob == destGUID then
-			local absorbed
-			if subEvent == "SWING_MISSED" then 
-				absorbed = select( 3, ... ) 
-			elseif subEvent == "RANGE_MISSED" or subEvent == "SPELL_MISSED" or subEvent == "SPELL_PERIODIC_MISSED" then 
-				absorbed = select( 6, ... )
-			end
-			if absorbed then
-				absorbRemaining = absorbRemaining - absorbed
-			end
-		end
-	end)
-	
-	function showShieldHealthBar(self, mob, shieldName)
-		shieldedMob = mob
-		maxAbsorb = mod:IsDifficulty("heroic25") and 1200000 or
-					mod:IsDifficulty("heroic10") and 300000 or
-					mod:IsDifficulty("normal25") and 700000 or
-					mod:IsDifficulty("normal10") and 175000 or 0
-		absorbRemaining = maxAbsorb
-		DBM.BossHealth:RemoveBoss(getShieldHP)
-		DBM.BossHealth:AddBoss(getShieldHP, shieldName)
-		self:Schedule(15, hideShieldHealthBar)
-	end
-	
-	function hideShieldHealthBar()
-		DBM.BossHealth:RemoveBoss(getShieldHP)
-	end
-end
-
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsPlayer() and args.spellId == 65724 then 		-- Empowered Darkness
 		specWarnEmpoweredDarkness:Show()
@@ -184,7 +149,8 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(65879, 65916) then -- Power of the Twins 
 		self:Schedule(0.1, showPowerWarning, self, args:GetDestCreatureID())
 	elseif args:IsSpellID(65874, 65858) and DBM.BossHealth:IsShown() then -- Shield of Darkness/Lights
-		showShieldHealthBar(self, args.destGUID, args.spellName)
+		self:ShowShieldHealthBar(args.destGUID, args.spellName, shieldHealth(DBM:GetCurrentInstanceDifficulty()))
+		self:ScheduleMethod(15, "RemoveShieldHealthBar", args.destGUID)
 	end
 end
 
@@ -193,18 +159,12 @@ function mod:SPELL_AURA_REMOVED(args)
 		if UnitCastingInfo("target") and self:GetUnitCreatureId("target") == 34496 then
 			specWarnKickNow:Show()
 		end
-		self:Unschedule(hideShieldHealthBar)
-		if DBM.BossHealth:IsShown() then
-			hideShieldHealthBar()
-		end
+		self:RemoveShieldHealthBar(args.destGUID)
 	elseif args.spellId == 65858 then		-- Shield of Lights
 		if UnitCastingInfo("target") and self:GetUnitCreatureId("target") == 34497 then
 			specWarnKickNow:Show()
 		end
-		self:Unschedule(hideShieldHealthBar)
-		if DBM.BossHealth:IsShown() then
-			hideShieldHealthBar()
-		end
+		self:RemoveShieldHealthBar(args.destGUID)
 	elseif args.spellId == 65950 then	-- Touch of Light
 		timerLightTouch:Stop(args.destName)
 		if self.Options.SetIconOnDebuffTarget then

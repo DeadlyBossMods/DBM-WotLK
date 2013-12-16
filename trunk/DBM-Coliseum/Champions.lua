@@ -85,7 +85,7 @@ local specWarnIceBlock		= mod:NewSpecialWarningDispel(65802, mod:IsMagicDispelle
 local soundBladestorm		= mod:NewSound(65947, mod:IsMelee())
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(65816, 68145, 68146, 68147) then		-- Warlock Hellfire
+	if args.spellId == 65816 then		-- Warlock Hellfire
 		warnHellfire:Show()
 	elseif args.spellId == 65947 then						-- Warrior Bladestorm
 		warnBladestorm:Show()
@@ -97,19 +97,19 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnHeroism:Show()
 	elseif args.spellId == 65980 then						-- Shamen Blood lust
 		warnBloodlust:Show()
-	elseif args:IsSpellID(68758, 68757, 68756, 66115) and not args:IsDestTypePlayer() then	-- Paladin Hand of Freedom on <mobname>
+	elseif args.spellId == 66115 and not args:IsDestTypePlayer() then	-- Paladin Hand of Freedom on <mobname>
 		warnHandofFreedom:Show(args.destName)
 	elseif args.spellId == 66009 then						-- Paladin Hand of Protection on <mobname>
 		warnHandofProt:Show(args.destName)
 		specWarnHandofProt:Show(args.destName)
-	elseif args:IsSpellID(66178, 68759, 68760, 68761) then	-- Rogue Shadowstep
+	elseif args.spellId == 66178 then	-- Rogue Shadowstep
 		warnShadowstep:Show()
         if self:IsDifficulty("heroic25") then                -- 3 out of 4 difficulties have 30 second cooldown, but on 25 heroic, it's 20sec
 			timerShadowstepCD:Start(20)
 		else
 			timerShadowstepCD:Start()
 		end
-	elseif args:IsSpellID(66017, 68753, 68754, 68755) and args:IsDestTypePlayer() then	-- DeathKnight DeathGrip
+	elseif args.spellId == 66017 and args:IsDestTypePlayer() then	-- DeathKnight DeathGrip
 		warnDeathgrip:Show(args.destName)
 		if self:IsDifficulty("heroic25") then                -- 3 out of 4 difficulties have 35 second cooldown, but on 25 heroic, it's 20sec
 			timerDeathgripCD:Start(20)
@@ -133,8 +133,8 @@ function mod:SPELL_AURA_APPLIED(args)
 	end
 end
 
-function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
-	if (spellId == 65817 or spellId == 68142 or spellId == 68143 or spellId == 68144) and destGUID == UnitGUID("player") and self:AntiSpam() then
+function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
+	if spellId == 65817 and destGUID == UnitGUID("player") and self:AntiSpam() then
 		specWarnHellfire:Show()
 	end
 end

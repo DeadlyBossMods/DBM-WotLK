@@ -19,7 +19,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_SUMMON",
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_REMOVED",
-	"UNIT_HEALTH boss1"
+	"UNIT_HEALTH target focus"
 )
 
 local warnFrenzySoon		= mod:NewSoonAnnounce(72737, 2, nil, mod:IsTank() or mod:IsHealer())

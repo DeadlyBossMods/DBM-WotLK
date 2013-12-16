@@ -111,7 +111,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args:IsPlayer() and args.spellId == 71208 then
+	if args:IsPlayer() and args.spellId == 69774 then
 		specWarnStickyOoze:Show()
 	elseif args.spellId == 69760 then
 		warnRadiatingOoze:Show()

@@ -465,7 +465,7 @@ L:SetOptionLocalization({
 L:SetMiscLocalization({
 	Pull				= "잘했네. 오늘 자네의 가치를 잘 보여주었...",
 	AchievementFailed	= ">> 업적 실패 : 구울 폭발에 피해 입음 (%s) <<",
-	YellCombatEnd		= "축하하네, 용사들이여. 예정된 시험이든 뜻밖의 시험이든, 그대들은 모두 이겨냈군."
+	YellCombatEnd		= "안 돼! 또 무릎 꿇을 수는... 없는데..."
 })
 
 -----------------------

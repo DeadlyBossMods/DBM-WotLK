@@ -7,6 +7,7 @@ mod:SetEncounterID(334, 336)
 mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
 
 mod:RegisterCombat("combat")
+mod:SetWipeTime(60)--prevent wipe for no vehicle user
 mod:SetDetectCombatInVehicle(false)
 
 mod:RegisterKill("yell", L.YellCombatEnd)

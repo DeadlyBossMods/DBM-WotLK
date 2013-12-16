@@ -103,7 +103,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 	end
 end
 
-function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
+function mod:SPELL_DAMAGE(_, _, _, _, _, destName, destFlags, _, spellId)
 	if spellId == 62017 then -- Lightning Shock
 		if bit.band(destFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) ~= 0
 		and bit.band(destFlags, COMBATLOG_OBJECT_TYPE_PLAYER) ~= 0

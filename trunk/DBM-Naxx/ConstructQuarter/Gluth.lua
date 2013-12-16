@@ -24,7 +24,7 @@ function mod:OnCombatStart(delay)
 	warnDecimateSoon:Schedule(100 - delay)
 end
 
-function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId)
+function mod:SPELL_DAMAGE(_, _, _, _, _, _, _, _, spellId)
 	if spellId == 28375 and self:AntiSpam(20) then
 		warnDecimateNow:Show()
 		timerDecimate:Start()

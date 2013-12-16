@@ -53,7 +53,7 @@ end
 function mod:SPELL_DAMAGE(_, _, _, _, destGUID, destName, _, _, spellId)
 	if spellId == 67781 and destGUID == UnitGUID("player") and self:AntiSpam(3, 1) then
 		specWarnDesecration:Show()
-	elseif spellId == 67886 then
+	elseif spellId == 67729 then
 		if self.Options.AchievementCheck and not warnedfailed then
 			SendChatMessage(L.AchievementFailed:format(destName), "PARTY")
 			warnedfailed = true

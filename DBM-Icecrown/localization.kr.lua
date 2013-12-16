@@ -67,7 +67,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecWarnGosaEvent	= "신드라고사 수호병"
+	SpecWarnGosaEvent	= "신드라고사 수호병 등장!"
 }
 
 L:SetOptionLocalization{
@@ -98,17 +98,17 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{
 	WarnReanimating			= "이교도 부활",
-	WarnAddsSoon			= "곧 새로운 이교도 추가"
+	WarnAddsSoon			= "곧 새로운 이교도 등장"
 }
 
 L:SetTimerLocalization{
-	TimerAdds				= "이교도 추가"
+	TimerAdds				= "다음 이교도"
 }
 
 L:SetOptionLocalization{
-	WarnAddsSoon			= "이교도 추가 이전에 알림 보기",
+	WarnAddsSoon			= "이교도 등장 이전에 알림 보기",
 	WarnReanimating			= "이교도 부활 알림 보기",
-	TimerAdds				= "새로운 이교도 추가 바 보기",
+	TimerAdds				= "다음 이교도 바 보기",
 	ShieldHealthFrame		= "우두머리 체력 바 사용시 $spell:70842 바 함께 보기"
 }
 
@@ -143,9 +143,7 @@ L:SetOptionLocalization{
 
 L:SetMiscLocalization{
 	PullAlliance		= "속도를 올려라! 제군들, 곧 운명과 마주할 것이다!",
-	KillAlliance		= "악당 놈들, 분명히 경고했다! 형제자매여, 전진!",
 	PullHorde			= "호드의 아들딸이여, 일어나라! 오늘 우리는 증오하던 적과 전투를 벌이리라! 록타르 오가르!",
-	KillHorde			= "얼라이언스는 기가 꺾였다. 리치 왕을 향해 전진하라!",
 	AddsAlliance		= "약탈자",--확인필요
 	AddsHorde			= "해병, 하사관, 공격하라!",
 	MageAlliance		= "마술사",--확인필요
@@ -170,7 +168,6 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	RunePower				= "피 마력",
 	PullHorde				= "코르크론, 출발하라! 용사들이여, 뒤를 조심하게. 스컬지는...",
 	PullAlliance			= "그러면 이동하자! 이동..."
 }
@@ -309,6 +306,7 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	TimerPortalsOpen			= "차원문 열림",
+	TimerPortalsClose			= "차원문 닫힘",
 	TimerBlazingSkeleton		= "다음 타오르는 해골",
 	TimerAbom					= "다음 누더기골렘"
 }
@@ -316,14 +314,13 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	SetIconOnBlazingSkeleton	= "타오르는 해골에게 전술 목표 아이콘 설정(해골)",
 	WarnPortalOpen				= "$spell:72483 열림 알림 보기",
-	TimerPortalsOpen			= "악몽의 차원문 생성 바 보기",
+	TimerPortalsOpen			= "차원문 열림 바 보기",
+	TimerPortalsClose			= "차원문 닫힘 바 보기",
 	TimerBlazingSkeleton		= "다음 타오르는 해골 바 보기",
 	TimerAbom					= "다음 걸신들린 누더기골렘 바 보기(부정확할 수 있음)"
 }
 
 L:SetMiscLocalization{
-	YellPull		= "침입자들이 내부 성소로 들어왔다. 서둘러 녹색용을 파멸시켜라! 되살려 낼 때 쓸 뼈와 힘줄만 남겨라!",
-	YellKill		= "다시 힘을 얻었다! 이세라여, 더러운 생명들에 안식을 내릴 수 있도록 은혜를 베푸소서!",
 	YellPortals		= "에메랄드의 꿈으로 가는 차원문을 열어두었다. 너희의 구원은 그 안에 있다..."
 }
 
@@ -379,7 +376,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	ValkyrWarning				= "발키리 : >%s<",
+	ValkyrWarning				= "발키리 납치 : >%s<",
 	SpecWarnYouAreValkd			= "발키리가 납치 중!",
 	WarnNecroticPlagueJump		= "괴저 역병 전이 : >%s<",
 	SpecWarnValkyrLow			= "발키리 HP 55% 이하!!"

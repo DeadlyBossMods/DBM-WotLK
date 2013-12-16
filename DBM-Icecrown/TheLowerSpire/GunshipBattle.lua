@@ -7,13 +7,12 @@ local bossID
 --mod:SetEncounterID(1099)--No ES fires this combat
 mod:RegisterCombat("combat")
 mod:SetCreatureID(37215, 37540) -- Orgrim's Hammer, The Skybreaker
+mod:SetMinSyncRevision(119)
 if UnitFactionGroup("player") == "Alliance" then
-	mod:RegisterKill("yell", L.KillAlliance)
 	mod:SetModelID(30416)		-- High Overlord Saurfang
 	addsIcon = 23334
 	bossID = 36939
 else
-	mod:RegisterKill("yell", L.KillHorde)
 	mod:SetModelID(30508)		-- Muradin Bronzebeard
 	addsIcon = 23336
 	bossID = 36948
@@ -23,7 +22,8 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
-	"SPELL_CAST_START"
+	"SPELL_CAST_START",
+	"UNIT_SPELLCAST_SUCCEEDED boss1 boss2"
 )
 
 mod:RegisterEvents(
@@ -103,6 +103,12 @@ end
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 69705 then
 		warnBelowZero:Show()
+	end
+end
+
+function mod:UNIT_SPELLCAST_SUCCEEDED(uId, spellName)
+	if spellName == GetSpellInfo(72340) then
+		DBM:EndCombat(self)
 	end
 end
 

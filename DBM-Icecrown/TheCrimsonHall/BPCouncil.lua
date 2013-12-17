@@ -4,7 +4,7 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(37970, 37972, 37973)
 mod:SetEncounterID(1095)
-mod:DisableEEKillDectection()--IEEU fires for this boss.
+mod:DisableEEKillDetection()--IEEU fires for this boss.
 mod:SetModelID(30858)
 mod:SetUsedIcons(7, 8)
 

@@ -9,7 +9,7 @@ mod:SetZone()
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"UNIT_SPELLCAST_START"
+	"UNIT_SPELLCAST_START target focus"
 )
 
 local warningInsanity	= mod:NewCastAnnounce(57496, 3)--Not currently working, no CLEU for it

@@ -4,7 +4,7 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(36597)
 mod:SetEncounterID(1106)
-mod:DisableEEKillDectection()--EE fires on kill event start.
+mod:DisableEEKillDetection()--EE fires on kill event start.
 mod:SetModelID(30721)
 mod:SetZone()
 mod:SetUsedIcons(2, 3, 4, 5, 6, 7, 8)

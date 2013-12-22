@@ -223,7 +223,6 @@ end
 function mod:UNIT_POWER_FREQUENT(uId)
 	if self:GetUnitCreatureId(uId) == 36855 then
 		lastPower = math.floor(UnitPower(uId)/UnitPowerMax(uId) * 100)
-		print(lastPower)
 	end
 end
 

@@ -142,13 +142,13 @@ L:SetTimerLocalization{
 
 L:SetMiscLocalization{
 	PullAlliance	= "Alle Maschinen auf Volldampf! Unser Schicksal erwartet uns!",
-	KillAlliance	= "Sagt nicht, ich hätte Euch nicht gewarnt, Ihr Schurken! Vorwärts, Brüder und Schwestern!",
 	PullHorde		= "Erhebt Euch, Söhne und Töchter der Horde! Wir ziehen gegen einen verhassten Feind in die Schlacht! LOK'TAR OGAR!",
-	KillHorde		= "Die Allianz wankt. Vorwärts zum Lichkönig!",
 	AddsAlliance	= "Häscher, Unteroffiziere, Angriff!",
 	AddsHorde		= "Soldaten! Zum Angriff!",
 	MageAlliance	= "Der Rumpf ist beschädigt! Holt einen Kampfmagier, der die Kanonen ausschaltet!", --needs to be verified (video-captured alliance translation)
-	MageHorde		= "Die Außenhaut ist beschädigt! Holt einen Zauberer, der die Kanonen ausschaltet!"
+	MageHorde		= "Die Außenhaut ist beschädigt! Holt einen Zauberer, der die Kanonen ausschaltet!",
+	Hammer 			= "Orgrims Hammer",
+	Skybreaker		= "Die Himmelsbrecher"
 }
 
 -----------------------------
@@ -167,7 +167,6 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	RunePower			= "Blutmacht",
 	PullAlliance		= "Mit jedem Krieger der Horde, den Ihr getötet habt, mit jedem dieser Allianzhunde, der fiel, wuchsen die Armeen des Lichkönigs. Selbst in diesem Moment erwecken die Val'kyr Eure Gefallenen als Diener der Geißel.",
 	PullHorde			= "Kor'kron, Aufbruch! Champions, gebt Acht. Die Geißel ist..."
 }
@@ -299,6 +298,7 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	TimerPortalsOpen		= "Portale offen",
+	TimerPortalsClose		= "Portale geschlossen",
 	TimerBlazingSkeleton	= "Nächstes Loderndes Skelett",
 	TimerAbom				= "Nächste Monstrosität"
 }
@@ -307,13 +307,12 @@ L:SetOptionLocalization{
 	SetIconOnBlazingSkeleton	= "Setze Zeichen auf Loderndes Skelett (Totenkopf)",
 	WarnPortalOpen				= "Zeige Warnung, wenn Alptraumportale geöffnet sind",
 	TimerPortalsOpen			= "Zeige Zeit bis Alptraumportale geöffnet sind",
+	TimerPortalsClose			= "Zeige Zeit bis Alptraumportale geschlossen sind",
 	TimerBlazingSkeleton		= "Zeige Zeit bis nächstes Loderndes Skelett erscheint",
 	TimerAbom					= "Zeige Zeit bis nächste Gefräßige Monstrosität erscheint (experimentell)"
 }
 
 L:SetMiscLocalization{
-	YellPull		= "Eindringlinge im Inneren Sanktum! Beschleunigt die Vernichtung des grünen Drachen! Bewahrt nur Knochen und Sehnen für die Wiederbelebung auf!",
-	YellKill		= "ICH BIN GEHEILT! Ysera, erlaubt mir, diese üblen Kreaturen zu beseitigen",
 	YellPortals		= "Ich habe ein Portal in den Traum geöffnet. Darin liegt Eure Erlösung, Helden..."
 }
 

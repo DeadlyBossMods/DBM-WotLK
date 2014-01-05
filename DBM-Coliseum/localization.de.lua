@@ -11,7 +11,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold		= "Schneeboldvasall erschienen"
+	WarningSnobold		= "Schneeboldvasall erschienen auf >%s<"
 }
 
 L:SetTimerLocalization{
@@ -70,8 +70,7 @@ L:SetGeneralLocalization{
 
 L:SetMiscLocalization{
 	AllianceVictory    = "EHRE DER ALLIANZ!",
-	HordeVictory       = "Das ist nur ein Vorgeschmack auf die Zukunft. FÜR DIE HORDE!",
-	YellKill           = "Ein tragischer Sieg. Wir wurden schwächer durch die heutigen Verluste. Wer außer dem Lichkönig profitiert von solchen Torheiten? Große Krieger gaben ihr Leben. Und wofür? Die wahre Bedrohung erwartet uns noch - der Lichkönig erwartet uns alle im Tod."
+	HordeVictory       = "Das ist nur ein Vorgeschmack auf die Zukunft. FÜR DIE HORDE!"
 }
 
 ---------------------

@@ -4,7 +4,7 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(36597)
 mod:SetEncounterID(1106)
-mod:DisableEEKillDetection()--EE fires on kill event start.
+mod:DisableEEKillDetection()--EE fires at 10%
 mod:SetModelID(30721)
 mod:SetZone()
 mod:SetUsedIcons(2, 3, 4, 5, 6, 7, 8)
@@ -140,7 +140,7 @@ function mod:DefileTarget(targetname, uId)
 	if not targetname then return end
 	warnDefileCast:Show(targetname)
 	if self.Options.DefileIcon then
-		self:SetIcon(targetname, 8, 10)
+		self:SetIcon(targetname, 8, 4)
 	end
 	if targetname == UnitName("player") then
 		specWarnDefileCast:Show()
@@ -160,7 +160,7 @@ function mod:TrapTarget(targetname, uId)
 	if not targetname then return end
 	warnTrapCast:Show(targetname)
 	if self.Options.TrapIcon then
-		self:SetIcon(targetname, 8, 10)
+		self:SetIcon(targetname, 8, 4)
 	end
 	if targetname == UnitName("player") then
 		specWarnTrap:Show()
@@ -234,6 +234,7 @@ function mod:SPELL_CAST_START(args)
 	elseif args.spellId == 72350 then -- Fury of Frostmourne
 		self:SetWipeTime(190)--Change min wipe time mid battle to force dbm to keep module loaded for this long out of combat roleplay
 		self:Stop()
+		self:ClearIcons()
 		timerRoleplay:Start()
 	end
 end
@@ -279,7 +280,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 			specWarnHarvestSoul:Show()
 		end
 		if self.Options.HarvestSoulIcon then
-			self:SetIcon(args.destName, 6, 6)
+			self:SetIcon(args.destName, 6, 5)
 		end
 	elseif args.spellId == 73654 then -- Harvest Souls (Heroic)
 		specWarnHarvestSouls:Show()

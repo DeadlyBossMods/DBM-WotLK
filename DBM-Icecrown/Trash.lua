@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("ICCTrash", "DBM-Icecrown", 6)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 37 $"):sub(12, -3))
+mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetModelID(30459)
 mod:SetUsedIcons(1, 2, 8)
 mod.isTrashMod = true

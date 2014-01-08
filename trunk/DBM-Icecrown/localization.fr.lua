@@ -2,62 +2,6 @@
 
 local L
 
----------------------------
---  Trash - Lower Spire  --
----------------------------
-L = DBM:GetModLocalization("LowerSpireTrash")
-
-L:SetGeneralLocalization{
-	name = "Lower Spire trash"
-}
-
-L:SetWarningLocalization{
-	SpecWarnTrap		= "Trap Activated! - Deathbound Ward released"--creatureid 37007
-}
-
-L:SetOptionLocalization{
-	SpecWarnTrap		= "Show special warning for trap activation"
-}
-
-L:SetMiscLocalization{
-	WarderTrap1		= "Who... goes there...?",
-	WarderTrap2		= "I... awaken!",
-	WarderTrap3		= "The master's sanctum has been disturbed!"
-}
-
----------------------------
---  Trash - Plagueworks  --
----------------------------
-L = DBM:GetModLocalization("PlagueworksTrash")
-
-L:SetGeneralLocalization{
-	name = "Plagueworks Trash"
-}
-
-L:SetWarningLocalization{
-	WarnMortalWound	= "%s on >%s< (%s)",		-- Mortal Wound on >args.destName< (args.amount)
-	SpecWarnTrap	= "Trap Activated! - Vengeful Fleshreapers incoming"--creatureid 37038
-}
-
-L:SetOptionLocalization{
-	SpecWarnTrap	= "Show special warning for trap activation"
-}
-
-L:SetMiscLocalization{
-	FleshreaperTrap1		= "Quickly! We'll ambush them from behind!",
-	FleshreaperTrap2		= "You... cannot escape us!",
-	FleshreaperTrap3		= "The living... here?!"
-}
-
----------------------------
---  Trash - Crimson Hall  --
----------------------------
-L = DBM:GetModLocalization("CrimsonHallTrash")
-
-L:SetGeneralLocalization{
-	name = "Crimson Hall Trash"
-}
-
 ----------------------
 --  Lord Marrowgar  --
 ----------------------
@@ -431,3 +375,33 @@ L:SetMiscLocalization{
 	PlagueWhisper	= "Vous êtes infecter par"
 }
 
+-------------
+--  Trash  --
+-------------
+L = DBM:GetModLocalization("ICCTrash")
+
+L:SetGeneralLocalization{
+	name = "Icecrown Trash"
+}
+
+L:SetWarningLocalization{
+	SpecWarnTrapL		= "Trap Activated! - Deathbound Ward released",
+	SpecWarnTrapP		= "Trap Activated! - Vengeful Fleshreapers incoming",
+	SpecWarnGosaEvent	= "Sindragosa gauntlet started!"
+}
+
+L:SetOptionLocalization{
+	SpecWarnTrapL		= "Show special warning for Deathbound Ward trap activation",
+	SpecWarnTrapP		= "Show special warning for engeful Fleshreapers trap activation",
+	SpecWarnGosaEvent	= "Show special warning for Sindragosa gauntlet event"
+}
+
+L:SetMiscLocalization{
+	WarderTrap1			= "Who... goes there...?",
+	WarderTrap2			= "I... awaken!",
+	WarderTrap3			= "The master's sanctum has been disturbed!",
+	FleshreaperTrap1	= "Quickly! We'll ambush them from behind!",
+	FleshreaperTrap2	= "You... cannot escape us!",
+	FleshreaperTrap3	= "The living... here?!",
+	SindragosaEvent		= "You must not approach the Frost Queen. Quickly, stop them!"
+}

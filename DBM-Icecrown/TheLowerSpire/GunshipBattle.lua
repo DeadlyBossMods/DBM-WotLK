@@ -9,10 +9,12 @@ mod:RegisterCombat("combat")
 mod:SetCreatureID(37215, 37540) -- Orgrim's Hammer, The Skybreaker
 mod:SetMinSyncRevision(119)
 if UnitFactionGroup("player") == "Alliance" then
+	mod:SetMainBossID(37215)
 	mod:SetModelID(30416)		-- High Overlord Saurfang
 	addsIcon = 23334
 	bossID = 36939
 else
+	mod:SetMainBossID(37540)
 	mod:SetModelID(30508)		-- Muradin Bronzebeard
 	addsIcon = 23336
 	bossID = 36948

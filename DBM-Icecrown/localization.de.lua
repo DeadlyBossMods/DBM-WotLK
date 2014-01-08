@@ -1,82 +1,6 @@
 ﻿if GetLocale() ~= "deDE" then return end
 local L
 
----------------------------
---  Trash - Lower Spire  --
----------------------------
-L = DBM:GetModLocalization("LowerSpireTrash")
-
-L:SetGeneralLocalization{
-	name = "Trash der Unteren Spitze"
-}
-
-L:SetWarningLocalization{
-	SpecWarnTrap		= "Falle aktiviert! - Todesgeweihter Wächter freigesetzt"
-}
-
-L:SetOptionLocalization{
-	SpecWarnTrap		= "Spezialwarnung für Fallenaktivierung"
-}
-
-L:SetMiscLocalization{
-	WarderTrap1		= "Wer... ist da?",
-	WarderTrap2		= "Ich erwache...",
-	WarderTrap3		= "Das Sanktum des Meisters wurde entweiht!"
-}
-
----------------------------
---  Trash - Plagueworks  --
----------------------------
-L = DBM:GetModLocalization("PlagueworksTrash")
-
-L:SetGeneralLocalization{
-	name = "Trash der Seuchenwerke"
-}
-
-L:SetWarningLocalization{
-	SpecWarnTrap	= "Falle aktiviert! - Rachsüchtige Fleischernter kommen"
-}
-
-L:SetOptionLocalization{
-	SpecWarnTrap	= "Spezialwarnung für Fallenaktivierung"
-}
-
-L:SetMiscLocalization{
-	FleshreaperTrap1		= "Schnell, überfallen wir sie von hinten!",
-	FleshreaperTrap2		= "Ihr könnt uns nicht entkommen.",
-	FleshreaperTrap3		= "Die Lebenden? Hier?!"
-}
-
----------------------------
---  Trash - Crimson Hall  --
----------------------------
-L = DBM:GetModLocalization("CrimsonHallTrash")
-
-L:SetGeneralLocalization{
-	name = "Trash der Blutroten Halle"
-}
-
----------------------------
---  Trash - Frostwing Hall  --
----------------------------
-L = DBM:GetModLocalization("FrostwingHallTrash")
-
-L:SetGeneralLocalization{
-	name = "Trash der Frostschwingenhallen"
-}
-
-L:SetWarningLocalization{
-	SpecWarnGosaEvent	= "Sindragosa-Spießrutenlauf gestartet!"
-}
-
-L:SetOptionLocalization{
-	SpecWarnGosaEvent	= "Spezialwarnung für Sindragosa-Spießrutenlauf"
-}
-
-L:SetMiscLocalization{
-	SindragosaEvent		= "Ihr dürft Euch der Frostkönigin nicht nähern! Schnell, haltet sie auf!"
-}
-
 ----------------------
 --  Lord Marrowgar  --
 ----------------------
@@ -399,4 +323,35 @@ L:SetMiscLocalization{
 	ValkGrabbed				= "Schattenwächterin der Val'kyr hat %s gegriffen",
 	PlagueStackWarning		= "Warnung: %s hat %d Stapel von Nekrotischer Seuche",
 	AchievementCompleted	= ">> ERFOLG FERTIG: %s hat %d Stapel von Nekrotischer Seuche <<"
+}
+
+-------------
+--  Trash  --
+-------------
+L = DBM:GetModLocalization("ICCTrash")
+
+L:SetGeneralLocalization{
+	name = "Icecrown Trash"
+}
+
+L:SetWarningLocalization{
+	SpecWarnTrapL		= "Falle aktiviert! - Todesgeweihter Wächter freigesetzt",
+	SpecWarnTrapP		= "Falle aktiviert! - Rachsüchtige Fleischernter kommen",
+	SpecWarnGosaEvent	= "Sindragosa-Spießrutenlauf gestartet!"
+}
+
+L:SetOptionLocalization{
+	SpecWarnTrapL		= "Spezialwarnung für Fallenaktivierung",
+	SpecWarnTrapP		= "Spezialwarnung für Fallenaktivierung",
+	SpecWarnGosaEvent	= "Spezialwarnung für Sindragosa-Spießrutenlauf"
+}
+
+L:SetMiscLocalization{
+	WarderTrap1			= "Wer... ist da?",
+	WarderTrap2			= "Ich erwache...",
+	WarderTrap3			= "Das Sanktum des Meisters wurde entweiht!",
+	FleshreaperTrap1	= "Schnell, überfallen wir sie von hinten!",
+	FleshreaperTrap2	= "Ihr könnt uns nicht entkommen.",
+	FleshreaperTrap3	= "Die Lebenden? Hier?!",
+	SindragosaEvent		= "Ihr dürft Euch der Frostkönigin nicht nähern! Schnell, haltet sie auf!"
 }

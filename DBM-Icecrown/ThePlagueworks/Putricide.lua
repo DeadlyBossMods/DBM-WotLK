@@ -77,8 +77,7 @@ mod:AddBoolOption("GooArrow")
 
 local warned_preP2 = false
 local warned_preP3 = false
-local phase = 0
-local lastGoo = 0
+mod.vb.phase = 0
 
 function mod:OnCombatStart(delay)
 	berserkTimer:Start(-delay)
@@ -87,8 +86,7 @@ function mod:OnCombatStart(delay)
 	warnUnstableExperimentSoon:Schedule(25-delay)
 	warned_preP2 = false
 	warned_preP3 = false
-	phase = 1
-	lastGoo = 0
+	self.vb.phase = 1
 	if self:IsDifficulty("heroic10", "heroic25") then
 		timerUnboundPlagueCD:Start(10-delay)
 	end
@@ -161,8 +159,8 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:NextPhase()
-	phase = phase + 1
-	if phase == 2 then
+	self.vb.phase = self.vb.phase + 1
+	if self.vb.phase == 2 then
 		warnUnstableExperimentSoon:Schedule(15)
 		timerUnstableExperimentCD:Start(20)
 		timerSlimePuddleCD:Start(10)
@@ -172,7 +170,7 @@ function mod:NextPhase()
 		if self:IsDifficulty("heroic10", "heroic25") then
 			timerUnboundPlagueCD:Start(50)
 		end
-	elseif phase == 3 then
+	elseif self.vb.phase == 3 then
 		timerSlimePuddleCD:Start(15)
 		timerMalleableGooCD:Start(9)
 		timerChokingGasBombCD:Start(12)
@@ -186,7 +184,7 @@ end
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 70341 and self:AntiSpam(5, 1) then
 		warnSlimePuddle:Show()
-		if phase == 3 then
+		if self.vb.phase == 3 then
 			timerSlimePuddleCD:Start(20)--In phase 3 it's faster
 		else
 			timerSlimePuddleCD:Start()
@@ -304,10 +302,10 @@ end
 
 --values subject to tuning depending on dps and his health pool
 function mod:UNIT_HEALTH(uId)
-	if phase == 1 and not warned_preP2 and self:GetUnitCreatureId(uId) == 36678 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.83 then
+	if self.vb.phase == 1 and not warned_preP2 and self:GetUnitCreatureId(uId) == 36678 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.83 then
 		warned_preP2 = true
 		warnPhase2Soon:Show()	
-	elseif phase == 2 and not warned_preP3 and self:GetUnitCreatureId(uId) == 36678 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.38 then
+	elseif self.vb.phase == 2 and not warned_preP3 and self:GetUnitCreatureId(uId) == 36678 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.38 then
 		warned_preP3 = true
 		warnPhase3Soon:Show()	
 	end

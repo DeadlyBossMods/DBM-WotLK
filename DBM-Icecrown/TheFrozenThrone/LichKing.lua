@@ -107,16 +107,14 @@ mod:AddBoolOption("ValkyrIcon")
 mod:AddBoolOption("HarvestSoulIcon", false)
 mod:AddBoolOption("AnnounceValkGrabs", false)
 
-local phase = 0
-local trapScansDone = 0
+mod.vb.phase = 0
 local warnedValkyrGUIDs = {}
 local plagueHop = GetSpellInfo(70338)--Hop spellID only, not cast one.
 local plagueExpires = {}
 local lastPlague
 
 function mod:OnCombatStart(delay)
-	phase = 0
-	trapScansDone = 0
+	self.vb.phase = 0
 	self:NextPhase()
 	table.wipe(warnedValkyrGUIDs)
 	table.wipe(plagueExpires)
@@ -264,7 +262,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		if args:IsPlayer() then
 			specWarnRagingSpirit:Show()
 		end
-		if phase == 1 then
+		if self.vb.phase == 1 then
 			timerRagingSpiritCD:Start()
 		else
 			timerRagingSpiritCD:Start(17)
@@ -404,8 +402,8 @@ function mod:UNIT_HEALTH(uId)
 end
 
 function mod:NextPhase()
-	phase = phase + 1
-	if phase == 1 then
+	self.vb.phase = self.vb.phase + 1
+	if self.vb.phase == 1 then
 		berserkTimer:Start()
 		warnShamblingSoon:Schedule(15)
 		timerShamblingHorror:Start(20)
@@ -415,7 +413,7 @@ function mod:NextPhase()
 			timerTrapCD:Start()
 			countdownShadowTrap:Start()
 		end
-	elseif phase == 2 then
+	elseif self.vb.phase == 2 then
 		warnPhase2:Show()
 		timerSummonValkyr:Start(20)
 		timerSoulreaperCD:Start(40)
@@ -424,7 +422,7 @@ function mod:NextPhase()
 		timerInfestCD:Start(14)
 		countdownInfest:Start(14)
 		warnDefileSoon:Schedule(33)
-	elseif phase == 3 then
+	elseif self.vb.phase == 3 then
 		warnPhase3:Show()
 		timerVileSpirit:Start(20)
 		timerSoulreaperCD:Start(40)

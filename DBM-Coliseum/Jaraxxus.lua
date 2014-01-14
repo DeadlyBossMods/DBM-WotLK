@@ -32,11 +32,11 @@ local warnNetherPower			= mod:NewTargetAnnounce(67009, 4)
 
 local specWarnFlame				= mod:NewSpecialWarningRun(66877)
 local specWarnFlesh				= mod:NewSpecialWarningYou(66237)
-local specWarnKiss				= mod:NewSpecialWarningYou(66334, false)
+local specWarnKiss				= mod:NewSpecialWarningYou("OptionVersion2", 66334, mod:IsSpellCaster())
 local specWarnNetherPower		= mod:NewSpecialWarningDispel(67009, mod:IsMagicDispeller())
 local specWarnFelInferno		= mod:NewSpecialWarningMove(66496)
 local SpecWarnFelFireball		= mod:NewSpecialWarningInterrupt(66532, false)
-local SpecWarnFelFireballDispel	= mod:NewSpecialWarningDispel(66532, mod:IsHealer())
+local SpecWarnFelFireballDispel	= mod:NewSpecialWarningDispel("OptionVersion2", 66532, false)
 
 local timerCombatStart			= mod:NewCombatTimer(82)--rollplay for first pull
 local enrageTimer				= mod:NewBerserkTimer(600)
@@ -98,11 +98,10 @@ function mod:SPELL_AURA_APPLIED(args)
 			specWarnFlesh:Show()
 		end
 		if self.Options.IncinerateShieldFrame then
-			self:ShowAbsorbedHealHealthBar(args.destGUID, L.IncinerateTarget:format(args.destName), absorbHealth(DBM:GetCurrentInstanceDifficulty()))
+			self:ShowAbsorbedHealHealthBar(args.destGUID, L.IncinerateTarget:format(args.destName), absorbHealth[(DBM:GetCurrentInstanceDifficulty())])
 			self:ScheduleMethod(15, "RemoveAbsorbedHealHealthBar", args.destGUID)
 		end
 	elseif args.spellId == 66197 then
-		local targetname = args.destName
 		timerFlame:Start(args.destName)
 		timerFlameCD:Start()
 		if args:IsPlayer() then
@@ -114,7 +113,6 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 	elseif args.spellId == 66334 and args:IsPlayer() then
 		specWarnKiss:Show()
-
 	elseif args.spellId == 66532 then
 		SpecWarnFelFireballDispel:Show(args.destName)
 	end
@@ -123,8 +121,8 @@ end
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 66237 then
 		timerFlesh:Stop()
-		self:UnscheduleMethod(15, "RemoveAbsorbedHealHealthBar", args.destGUID)
-		if self.Options.IncinerateShieldFrame then
+		if self.Options.IncinerateShieldFrame and DBM.BossHealth:IsShown() then
+			self:UnscheduleMethod("RemoveAbsorbedHealHealthBar", args.destGUID)
 			self:RemoveAbsorbedHealHealthBar(args.destGUID)
 		end
 		if self.Options.IncinerateFleshIcon then
@@ -142,9 +140,9 @@ end
 
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 67009 then
-		warnNetherPower:Show()
-		timerNetherPowerCD:Start()
+		warnNetherPower:Show(args.sourceName)
 		specWarnNetherPower:Show(args.sourceName)
+		timerNetherPowerCD:Start()
 	elseif args.spellId == 66258 then
 		timerVolcanoCD:Start()
 		warnVolcanoSoon:Schedule(110)

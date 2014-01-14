@@ -149,7 +149,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(65879, 65916) then
 		self:Schedule(0.1, showPowerWarning, self, args:GetDestCreatureID())
 	elseif args:IsSpellID(65874, 65858) and DBM.BossHealth:IsShown() then
-		self:ShowShieldHealthBar(args.destGUID, args.spellName, shieldHealth(DBM:GetCurrentInstanceDifficulty()))
+		self:ShowShieldHealthBar(args.destGUID, args.spellName, shieldHealth[(DBM:GetCurrentInstanceDifficulty())])
 		self:ScheduleMethod(15, "RemoveShieldHealthBar", args.destGUID)
 	end
 end
@@ -159,11 +159,13 @@ function mod:SPELL_AURA_REMOVED(args)
 		if UnitCastingInfo("target") and self:GetUnitCreatureId("target") == 34496 then
 			specWarnKickNow:Show()
 		end
+		self:UnscheduleMethod("RemoveShieldHealthBar", args.destGUID)
 		self:RemoveShieldHealthBar(args.destGUID)
 	elseif args.spellId == 65858 then
 		if UnitCastingInfo("target") and self:GetUnitCreatureId("target") == 34497 then
 			specWarnKickNow:Show()
 		end
+		self:UnscheduleMethod("RemoveShieldHealthBar", args.destGUID)
 		self:RemoveShieldHealthBar(args.destGUID)
 	elseif args.spellId == 65950 then
 		timerLightTouch:Stop(args.destName)

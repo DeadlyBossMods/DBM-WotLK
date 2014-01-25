@@ -51,7 +51,6 @@ local timerPlasmaBlastCD		= mod:NewCDTimer(30, 64529)
 local timerShell				= mod:NewBuffActiveTimer(6, 63666)
 local timerFlameSuppressant		= mod:NewCastTimer(60, 64570)
 local timerNextFlameSuppressant	= mod:NewNextTimer(10, 65192)
-local timerNextFlames			= mod:NewNextTimer(27.5, 64566)
 local timerNextFrostBomb        = mod:NewNextTimer(30, 64623)
 local timerBombExplosion		= mod:NewCastTimer(15, 65333)
 
@@ -107,16 +106,6 @@ function mod:OnCombatEnd()
 		else
 			SetLootMethod(lootmethod)
 		end
-	end
-end
-
-function mod:Flames()
-	if phase == 4 then
-		timerNextFlames:Start(18)
-		self:ScheduleMethod(18, "Flames")
-	else
-		timerNextFlames:Start()
-		self:ScheduleMethod(27.5, "Flames")
 	end
 end
 
@@ -260,8 +249,6 @@ function mod:NextPhase()
 			DBM.BossHealth:AddBoss(33432, L.MobPhase1)
 		end
 		if hardmode then
-			self:UnscheduleMethod("Flames")
-			self:Flames()
             timerNextFrostBomb:Start(73)
         end
 	end
@@ -310,8 +297,6 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		timerFlameSuppressant:Start()
 		enrage:Stop()
 		hardmode = true
-		timerNextFlames:Start(6.5)
-		self:ScheduleMethod(6.5, "Flames")
 	end
 end
 

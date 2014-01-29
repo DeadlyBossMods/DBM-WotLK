@@ -4,24 +4,22 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(32871)
 mod:SetEncounterID(1130)
-mod:DisableESCombatDetection()
-mod:SetMinSyncRevision(104)
+mod:DisableESCombatDectection()
+mod:SetMinSyncRevision(135)
 mod:SetModelID(28641)
 mod:SetModelSound("Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Aggro01.wav", "Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Slay02.wav")
-mod:RegisterCombat("combat")
+mod:RegisterCombat("yell", L.YellPull)
 mod:RegisterKill("yell", L.YellKill)
 mod:SetWipeTime(20)
 
 mod:RegisterEvents(
-	"CHAT_MSG_MONSTER_YELL"
-)
-
-mod:RegisterEventsInCombat(
-	"SPELL_CAST_START",
-	"SPELL_CAST_SUCCESS",
-	"SPELL_AURA_APPLIED",
-	"SPELL_AURA_APPLIED_DOSE",
+	"SPELL_CAST_START 64584 64443",
+	"SPELL_CAST_SUCCESS 65108 64122 64598 62301",
+	"SPELL_AURA_APPLIED 64412",
+	"SPELL_AURA_APPLIED_DOSE 64412",
+	"SPELL_AURA_REMOVED 64412",
 	"RAID_BOSS_EMOTE",
+	"CHAT_MSG_MONSTER_YELL",
 	"UNIT_HEALTH target focus mouseover"
 )
 
@@ -45,7 +43,7 @@ local timerBigBangCast			= mod:NewCastTimer(8, 64584)
 local timerNextCollapsingStar	= mod:NewTimer(15, "NextCollapsingStar", 50288)
 local timerCDCosmicSmash		= mod:NewCDTimer(25, 64596)
 local timerCastCosmicSmash		= mod:NewCastTimer(4.5, 64596)
-local timerPhasePunch			= mod:NewBuffActiveTimer(45, 64412)
+local timerPhasePunch			= mod:NewTargetTimer(45, 64412)
 local timerNextPhasePunch		= mod:NewNextTimer(16, 64412)
 
 local sentLowHP = {}
@@ -56,11 +54,12 @@ local warned_star = false
 function mod:OnCombatStart(delay)
 	warned_preP2 = false
 	warned_star = false
-	enrageTimer:Start(-delay)--All timers +8 for combat start RP
-	timerNextBigBang:Start(-delay)
-	announcePreBigBang:Schedule(80-delay)
-	timerCDCosmicSmash:Start(-delay)
-	timerNextCollapsingStar:Start(-delay)
+	enrageTimer:Start(368-delay)--All timers +8 for combat start RP
+	timerNextBigBang:Start(98-delay)
+	announcePreBigBang:Schedule(88-delay)
+	timerCDCosmicSmash:Start(33-delay)
+	timerNextCollapsingStar:Start(23-delay)
+	timerCombatStart:Start(-delay)
 	table.wipe(sentLowHP)
 	table.wipe(warnedLowHP)
 end
@@ -100,6 +99,11 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 
+function mod:SPELL_AURA_REMOVED(args)
+	if args.spellId == 64412 then
+		timerPhasePunch:Cancel(args.destName)
+	end
+end
 
 function mod:RAID_BOSS_EMOTE(msg)
 	if msg == L.Emote_CollapsingStar or msg:find(L.Emote_CollapsingStar) then
@@ -108,9 +112,12 @@ function mod:RAID_BOSS_EMOTE(msg)
 end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg)
-	if msg == L.YellPull or msg:find(L.YellPull) then
-		timerCombatStart:Start()
-	elseif msg == L.FirstPull or msg:find(L.FirstPull) then--Additional pull yell on first pull 11 seconds before actual combat, all timers +11, auto correct timers.
+	if msg == L.FirstPull or msg:find(L.FirstPull) then--Additional pull yell on first pull 11 seconds before actual combat, all timers +11, auto correct timers.
+		enrageTimer:Start(371)
+		timerNextBigBang:Start(101)
+		announcePreBigBang:Schedule(91)
+		timerCDCosmicSmash:Start(36)
+		timerNextCollapsingStar:Start(26)
 		timerCombatStart:Start(11)
 	elseif msg == L.Phase2 or msg:find(L.Phase2) then
 		timerNextCollapsingStar:Cancel()

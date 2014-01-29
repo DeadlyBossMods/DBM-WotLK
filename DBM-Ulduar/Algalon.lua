@@ -13,13 +13,16 @@ mod:RegisterKill("yell", L.YellKill)
 mod:SetWipeTime(20)
 
 mod:RegisterEvents(
+	"CHAT_MSG_MONSTER_YELL"
+)
+
+mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 64584 64443",
 	"SPELL_CAST_SUCCESS 65108 64122 64598 62301",
 	"SPELL_AURA_APPLIED 64412",
 	"SPELL_AURA_APPLIED_DOSE 64412",
 	"SPELL_AURA_REMOVED 64412",
 	"RAID_BOSS_EMOTE",
-	"CHAT_MSG_MONSTER_YELL",
 	"UNIT_HEALTH target focus mouseover"
 )
 

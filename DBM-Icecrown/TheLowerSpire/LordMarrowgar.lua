@@ -37,17 +37,11 @@ mod:AddBoolOption("SetIconOnImpale", true)
 
 local impaleIcon	= 8
 
-local function showImpaleWarning()
-	warnImpale:Show(table.concat(impaleTargets, "<, >"))
-	table.wipe(impaleTargets)
-end
-
 function mod:OnCombatStart(delay)
 	preWarnWhirlwind:Schedule(40-delay)
 	timerWhirlwindCD:Start(45-delay)
 	timerBoneSpike:Start(15-delay)
 	berserkTimer:Start(-delay)
-	table.wipe(impaleTargets)
 end
 
 function mod:SPELL_AURA_APPLIED(args)

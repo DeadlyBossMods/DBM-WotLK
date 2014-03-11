@@ -73,7 +73,7 @@ local timerBurningBiteCD	= mod:NewCDTimer(15, 66879, nil, mod:IsTank())
 mod:AddBoolOption("PingCharge")
 mod:AddSetIconOption("SetIconOnChargeTarget", 52311)
 mod:AddSetIconOption("SetIconOnBileTarget", 66869, false)
-mod:AddBoolOption("ClearIconsOnIceHowl", true)
+mod:AddBoolOption("ClearIconsOnIceHowl", false)
 mod:AddRangeFrameOption("10")
 
 mod:AddBoolOption("IcehowlArrow")

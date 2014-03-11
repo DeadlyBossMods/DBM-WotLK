@@ -5,7 +5,6 @@ mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(33186)
 mod:SetEncounterID(1139)
 mod:SetModelID(28787)
-mod:SetUsedIcons(8)
 
 mod:RegisterCombat("yell", L.YellAir)
 

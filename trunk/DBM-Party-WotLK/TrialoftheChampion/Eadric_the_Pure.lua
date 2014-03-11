@@ -25,7 +25,7 @@ local timerVengeance			= mod:NewBuffActiveTimer(6, 66889)
 local specwarnRadiance			= mod:NewSpecialWarning("specwarnRadiance")
 local specwarnHammerofJustice	= mod:NewSpecialWarningDispel(66940, isDispeller)
 
-mod:AddBoolOption("SetIconOnHammerTarget", true)
+mod:AddBoolOption("SetIconOnHammerTarget", false)
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 66935 then					-- Radiance Look Away!

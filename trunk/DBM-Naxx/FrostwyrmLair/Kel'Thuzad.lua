@@ -31,7 +31,7 @@ local timerMCCD				= mod:NewCDTimer(90, 28410)--actually 60 second cdish but its
 local timerPhase2			= mod:NewTimer(225, "TimerPhase2", "Interface\\Icons\\Spell_Nature_WispSplode")
 
 mod:AddBoolOption("SetIconOnMC", true)
-mod:AddBoolOption("SetIconOnManaBomb", true)
+mod:AddBoolOption("SetIconOnManaBomb", false)
 mod:AddBoolOption("SetIconOnFrostTomb", true)
 mod:AddBoolOption("ShowRange", true)
 

@@ -24,7 +24,7 @@ local specwarnMirroredSoul		= mod:NewSpecialWarningReflect(69051)
 local specwarnWailingSouls		= mod:NewSpecialWarningSpell(68899, nil, nil, nil, 2)
 local specwarnPhantomBlast		= mod:NewSpecialWarningInterrupt(68982, false)
 
-mod:AddBoolOption("SetIconOnMirroredTarget", true)
+mod:AddBoolOption("SetIconOnMirroredTarget", false)
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 68982 then						-- Phantom Blast

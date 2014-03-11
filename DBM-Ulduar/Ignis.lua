@@ -26,7 +26,7 @@ local timerScorchCast			= mod:NewCastTimer(3, 63473)
 local timerSlagPot				= mod:NewTargetTimer(10, 63477)
 local timerAchieve				= mod:NewAchievementTimer(240, 2930, "TimerSpeedKill")
 
-mod:AddBoolOption("SlagPotIcon")
+mod:AddBoolOption("SlagPotIcon", false)
 
 function mod:OnCombatStart(delay)
 	timerAchieve:Start()

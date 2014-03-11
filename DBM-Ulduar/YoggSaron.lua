@@ -58,9 +58,9 @@ local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189)
 local timerAchieve					= mod:NewAchievementTimer(420, 3012, "TimerSpeedKill")
 
 mod:AddBoolOption("ShowSaraHealth")
-mod:AddBoolOption("SetIconOnFearTarget")
-mod:AddBoolOption("SetIconOnFervorTarget")
-mod:AddBoolOption("SetIconOnBrainLinkTarget")
+mod:AddBoolOption("SetIconOnFearTarget", true)
+mod:AddBoolOption("SetIconOnFervorTarget", false)
+mod:AddBoolOption("SetIconOnBrainLinkTarget", true)
 mod:AddBoolOption("MaladyArrow")
 
 local phase							= 1

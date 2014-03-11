@@ -50,8 +50,8 @@ local timerFusionPunchActive	= mod:NewTargetTimer(4, 61903)
 local warnOverwhelmingPower		= mod:NewTargetAnnounce(61888, 2)
 local timerOverwhelmingPower	= mod:NewTargetTimer(25, 61888)
 local warnStaticDisruption		= mod:NewTargetAnnounce(61912, 3) 
-mod:AddBoolOption("SetIconOnOverwhelmingPower")
-mod:AddBoolOption("SetIconOnStaticDisruption")
+mod:AddBoolOption("SetIconOnOverwhelmingPower", false)
+mod:AddBoolOption("SetIconOnStaticDisruption", false)
 
 -- Runemaster Molgeim
 -- Lightning Blast ... don't know, maybe 63491

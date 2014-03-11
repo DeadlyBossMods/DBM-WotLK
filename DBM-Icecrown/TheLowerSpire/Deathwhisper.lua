@@ -50,8 +50,8 @@ local timerTouchInsignificance		= mod:NewTargetTimer(30, 71204, nil, mod:IsTank(
 
 local berserkTimer					= mod:NewBerserkTimer(600)
 
-mod:AddBoolOption("SetIconOnDominateMind", true)
-mod:AddBoolOption("SetIconOnDeformedFanatic", true)
+mod:AddBoolOption("SetIconOnDominateMind", false)
+mod:AddBoolOption("SetIconOnDeformedFanatic", false)
 mod:AddBoolOption("SetIconOnEmpoweredAdherent", false)
 mod:AddBoolOption("ShieldHealthFrame", true)
 

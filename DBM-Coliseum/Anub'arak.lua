@@ -46,7 +46,7 @@ local enrageTimer			= mod:NewBerserkTimer(570)	-- 9:30 ? hmpf (no enrage while s
 
 local soundPursue			= mod:NewSound(67574)
 
-mod:AddSetIconOption("PursueIcon", 67574, false)
+mod:AddSetIconOption("PursueIcon", 67574, true)
 mod:AddSetIconOption("SetIconsOnPCold", 66013, false)
 mod:AddBoolOption("AnnouncePColdIcons", false)
 mod:AddBoolOption("AnnouncePColdIconsRemoved", false)

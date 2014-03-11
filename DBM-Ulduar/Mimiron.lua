@@ -59,8 +59,8 @@ local soundDarkGlare			= mod:NewSound(63414)
 
 mod:AddBoolOption("HealthFramePhase4", true)
 mod:AddBoolOption("AutoChangeLootToFFA", true)
-mod:AddBoolOption("SetIconOnNapalm", true)
-mod:AddBoolOption("SetIconOnPlasmaBlast", true)
+mod:AddBoolOption("SetIconOnNapalm", false)
+mod:AddBoolOption("SetIconOnPlasmaBlast", false)
 mod:AddBoolOption("RangeFrame")
 
 local hardmode = false

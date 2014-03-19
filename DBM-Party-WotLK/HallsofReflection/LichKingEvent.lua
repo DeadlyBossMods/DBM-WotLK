@@ -9,7 +9,7 @@ mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_YELL"
 )
 
-local WarnWave1	= mod:NewAnnounce("WarnWave", 2)
+local WarnWave	= mod:NewAnnounce("WarnWave", 2)
 
 local timerEscape	= mod:NewAchievementTimer(360, 4526, "achievementEscape")
 

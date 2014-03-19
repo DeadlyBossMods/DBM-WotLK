@@ -32,6 +32,7 @@ local timerEmalonEnrage		= mod:NewTimer(360, "EmalonEnrage", 26662)
 local soundNova				= mod:NewSound(65279, mod:IsMelee())
 
 mod:AddBoolOption("RangeFrame")
+mod:AddSetIconOption("SetIconOnOvercharge", 64218, false, true)
 
 local overchargedMob
 function mod:OnCombatStart(delay)
@@ -89,7 +90,9 @@ function mod:SPELL_HEAL(_, _, _, _, destGUID, _, _, _, spellId)
 	if spellId == 64218 then
 		warnOverCharge:Show()
 		timerOvercharge:Start()
-		self:TrySetTarget(destGUID)
+		if self.Options.SetIconOnOvercharge then
+			self:TrySetTarget(destGUID)
+		end
 	end
 end
 

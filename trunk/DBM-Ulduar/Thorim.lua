@@ -5,7 +5,7 @@ mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(32865)
 mod:SetEncounterID(1141)
 mod:SetModelID(28977)
-mod:SetUsedIcons(8)
+mod:SetUsedIcons(7)
 
 mod:RegisterCombat("yell", L.YellPhase1)
 mod:RegisterKill("yell", L.YellKill)
@@ -20,7 +20,7 @@ mod:RegisterEventsInCombat(
 local warnPhase2				= mod:NewPhaseAnnounce(2, 1)
 local warnStormhammer			= mod:NewTargetAnnounce(62470, 2)
 local warnLightningCharge		= mod:NewSpellAnnounce(62466, 2)
-local warnUnbalancingStrike		= mod:NewTargetAnnounce(62130, 4)	-- nice blizzard, very new stuff, hmm or not? ^^ aq40 4tw :)
+local warnUnbalancingStrike		= mod:NewTargetAnnounce(62130, 4)
 local warningBomb				= mod:NewTargetAnnounce(62526, 4)
 
 local specWarnOrb				= mod:NewSpecialWarningMove(62017)
@@ -34,6 +34,7 @@ local timerUnbalancingStrike	= mod:NewCastTimer(26, 62130)
 local timerHardmode				= mod:NewTimer(175, "TimerHardmode", 62042)
 
 mod:AddBoolOption("RangeFrame")
+mod:AddSetIconOption("SetIconOnRunic", 62527, false)
 
 local lastcharge				= {}
 local phase2 = false
@@ -75,13 +76,13 @@ end
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 62042 then 					-- Storm Hammer
 		warnStormhammer:Show(args.destName)
-
 	elseif args.spellId == 62130 then				-- Unbalancing Strike
 		warnUnbalancingStrike:Show(args.destName)
-		
 	elseif args:IsSpellID(62526, 62527) then	-- Runic Detonation
-		self:SetIcon(args.destName, 8, 5)
 		warningBomb:Show(args.destName)
+		if self.Options.SetIconOnRunic then
+			self:SetIcon(args.destName, 7, 5)
+		end
 	end
 end
 

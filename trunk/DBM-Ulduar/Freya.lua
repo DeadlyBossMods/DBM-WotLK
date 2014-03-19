@@ -8,7 +8,7 @@ mod:SetEncounterID(1133)
 mod:SetModelID(28777)
 mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellKill)
-mod:SetUsedIcons(6, 7, 8)
+mod:SetUsedIcons(4, 5, 6, 7, 8)
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
@@ -48,6 +48,8 @@ local timerLifebinderCD 	= mod:NewCDTimer(40, 62869)
 local soundFury				= mod:NewSound(63571)
 
 mod:AddBoolOption("HealthFrame", true)
+mod:AddSetIconOption("SetIconOnFury", 63571, false)
+mod:AddSetIconOption("SetIconOnRoots", 62438, false)
 
 local adds		= {}
 local rootedPlayers 	= {}
@@ -79,8 +81,10 @@ function mod:SPELL_CAST_SUCCESS(args)
 		specWarnLifebinder:Show()
 		timerLifebinderCD:Start()
 	elseif args:IsSpellID(63571, 62589) then -- Nature's Fury
-		altIcon = not altIcon	--Alternates between Skull and X
-		self:SetIcon(args.destName, altIcon and 7 or 8, 10)
+		if self.Options.SetIconOnFury then
+			altIcon = not altIcon	--Alternates between Skull and X
+			self:SetIcon(args.destName, altIcon and 7 or 8, 10)
+		end
 		warnFury:Show(args.destName)
 		if args:IsPlayer() then -- only cast on players; no need to check destFlags
 			soundFury:Play()
@@ -92,8 +96,10 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(62861, 62438) then
-		iconId = iconId - 1
-		self:SetIcon(args.destName, iconId, 15)
+		if self.Options.SetIconOnRoots then
+			iconId = iconId - 1
+			self:SetIcon(args.destName, iconId, 15)
+		end
 		table.insert(rootedPlayers, args.destName)
 		self:Unschedule(showRootWarning)
 		if #rootedPlayers >= 3 then
@@ -110,7 +116,7 @@ end
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 62519 then
 		warnPhase2:Show()
-	elseif args:IsSpellID(62861, 62438) then
+	elseif args:IsSpellID(62861, 62438) and self.Options.SetIconOnRoots then
 		self:RemoveIcon(args.destName)
 		iconId = iconId + 1
 	end

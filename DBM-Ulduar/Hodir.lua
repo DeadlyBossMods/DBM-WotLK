@@ -7,7 +7,7 @@ mod:SetEncounterID(1135)
 mod:SetModelID(28743)
 mod:SetUsedIcons(7, 8)
 
-mod:RegisterCombat("combat")
+mod:RegisterCombat("combat_yell", L.Pull)
 mod:RegisterKill("yell", L.YellKill)
 
 mod:RegisterEventsInCombat(

@@ -229,6 +229,7 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
+	Pull		= "You will suffer for this trespass!",
 	YellKill	= "I... I am released from his grasp... at last."
 }
 

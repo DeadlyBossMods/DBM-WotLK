@@ -307,7 +307,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 72754 and args:IsPlayer() and self:AntiSpam(2, 1) then		-- Defile Damage
 		specWarnDefile:Show()
 	elseif args.spellId == 73650 and self:AntiSpam(3, 2) then		-- Restore Soul (Heroic)
-		timerHarvestSoulCD:Start(59)
+		timerHarvestSoulCD:Start(58)
 		timerVileSpirit:Start(10)--May be wrong too but we'll see, didn't have enough log for this one.
 	end
 end

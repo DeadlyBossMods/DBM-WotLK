@@ -331,7 +331,7 @@ L:SetMiscLocalization{
 L = DBM:GetModLocalization("ICCTrash")
 
 L:SetGeneralLocalization{
-	name = "Icecrown Trash"
+	name = "Trash der Eiskronenzitadelle"
 }
 
 L:SetWarningLocalization{
@@ -341,8 +341,8 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrapL		= "Spezialwarnung für Fallenaktivierung",
-	SpecWarnTrapP		= "Spezialwarnung für Fallenaktivierung",
+	SpecWarnTrapL		= "Spezialwarnung für Fallenaktivierung (Todesgeweihter Wächter)",
+	SpecWarnTrapP		= "Spezialwarnung für Fallenaktivierung (Rachsüchtige Fleischernter)",
 	SpecWarnGosaEvent	= "Spezialwarnung für Sindragosa-Spießrutenlauf"
 }
 

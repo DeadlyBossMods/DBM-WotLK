@@ -9,6 +9,7 @@
 ## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0冰冠堡垒|r
 ## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Ciudadela de la Corona de Hielo|r
 ## Title-esMX:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Ciudadela de la Corona de Hielo|r
+## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0冰冠堡垒|r
 ## Author: MysticalOS
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
@@ -25,6 +26,7 @@
 ## X-DBM-Mod-SubCategories-ruRU: Шпиль, Чумодельня, Багровый зал, Зал Ледокрылых, Ледяной Трон, Trash
 ## X-DBM-Mod-SubCategories-esES: La Ciudadela Inferior, Los Talleres de la Peste, La Sala Carmesí, Las Cámaras de Alaescarcha, El Trono Helado, Trash
 ## X-DBM-Mod-SubCategories-esMX: La Ciudadela Inferior, Los Talleres de la Peste, La Sala Carmesí, Las Cámaras de Alaescarcha, El Trono Helado, Trash
+## X-DBM-Mod-SubCategories-zhCN: 尖塔下层, 瘟疫工厂, 血色大厅, 霜翼之厅, 冰封王座, Trash
 ## X-DBM-Mod-MapID: 631
 ## X-DBM-Mod-Sort: 200
 localization.en.lua
@@ -35,6 +37,7 @@ localization.tw.lua
 localization.cn.lua
 localization.fr.lua
 localization.es.lua
+localization.cn.lua
 Trash.lua
 TheLowerSpire\LordMarrowgar.lua
 TheLowerSpire\Deathwhisper.lua

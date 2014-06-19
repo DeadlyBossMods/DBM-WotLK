@@ -6,6 +6,7 @@ mod:SetCreatureID(33288)
 mod:SetEncounterID(1143)
 mod:SetModelID(28817)
 mod:RegisterCombat("yell", L.YellPull)
+mod:SetUsedIcons(6, 7, 8)
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
@@ -16,8 +17,6 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_REMOVED_DOSE",
 	"UNIT_HEALTH target focus mouseover"
 )
-
-mod:SetUsedIcons(6, 7, 8)
 
 local warnMadness 					= mod:NewCastAnnounce(64059, 2)
 local warnFervorCast 				= mod:NewCastAnnounce(63138, 3)
@@ -30,7 +29,7 @@ local warnP2 						= mod:NewPhaseAnnounce(2, 2)
 local warnP3 						= mod:NewPhaseAnnounce(3, 2)
 local warnSanity 					= mod:NewAnnounce("WarningSanity", 3, 63050)
 local warnBrainLink 				= mod:NewTargetAnnounce(63802, 3)
-local warnBrainPortalSoon			= mod:NewAnnounce("WarnBrainPortalSoon", 2)
+local warnBrainPortalSoon			= mod:NewAnnounce("WarnBrainPortalSoon", 2, 57687)
 local warnEmpowerSoon				= mod:NewSoonAnnounce(64486, 4)
 
 local specWarnGuardianLow 			= mod:NewSpecialWarning("SpecWarnGuardianLow", false)
@@ -46,8 +45,10 @@ local specWarnMaladyNear			= mod:NewSpecialWarning("SpecWarnMaladyNear", true)
 mod:AddBoolOption("WarningSqueeze", true, "announce")
 
 local enrageTimer					= mod:NewBerserkTimer(900)
-local timerFervor					= mod:NewTargetTimer(15, 63138)
-local brainportal					= mod:NewTimer(20, "NextPortal")
+local timerFervor					= mod:NewTargetTimer("OptionVersion2", 15, 63138, nil, false)
+local timerMaladyCD					= mod:NewCDTimer(20, 63830)--VERIFY ME
+local timerBrainLinkCD				= mod:NewCDTimer(32, 63802)--VERIFY ME
+local brainportal					= mod:NewTimer(20, "NextPortal", 57687)
 local timerLunaricGaze				= mod:NewCastTimer(4, 64163)
 local timerNextLunaricGaze			= mod:NewCDTimer(8.5, 64163)
 local timerEmpower					= mod:NewCDTimer(46, 64465)
@@ -57,7 +58,7 @@ local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189)
 local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189)
 local timerAchieve					= mod:NewAchievementTimer(420, 3012, "TimerSpeedKill")
 
-mod:AddBoolOption("ShowSaraHealth")
+mod:AddBoolOption("ShowSaraHealth", false)
 mod:AddBoolOption("SetIconOnFearTarget", true)
 mod:AddBoolOption("SetIconOnFervorTarget", false)
 mod:AddBoolOption("SetIconOnBrainLinkTarget", true)
@@ -94,6 +95,7 @@ end
 
 function mod:warnBrainLink()
 	warnBrainLink:Show(table.concat(brainLinkTargets, "<, >"))
+	timerBrainLinkCD:Start()--VERIFY ME
 	table.wipe(brainLinkTargets)
 	brainLinkIcon = 7
 end
@@ -111,7 +113,7 @@ function mod:SPELL_CAST_START(args)
 		warnDeafeningRoarSoon:Schedule(55)
 		timerCastDeafeningRoar:Start()
 		specWarnDeafeningRoar:Show()
-	elseif args.spellId == 63138 then		--Sara's Fervor
+	elseif args.spellId == 63138 and not self:IsTrivial(85) then		--Sara's Fervor
 		self:ScheduleMethod(0.2, "FervorTarget")
 		warnFervorCast:Show()
 	end
@@ -143,6 +145,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		self:ScheduleMethod(0.2, "warnBrainLink")
 	elseif args:IsSpellID(63830, 63881) then   -- Malady of the Mind (Death Coil) 
+		timerMaladyCD:Start()
 		if self.Options.SetIconOnFearTarget then
 			self:SetIcon(args.destName, 8, 30) 
 		end
@@ -177,6 +180,8 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 	elseif args.spellId == 63894 then	-- Shadowy Barrier of Yogg-Saron (this is happens when p2 starts)
 		phase = 2
+		timerMaladyCD:Start(13)--VERIFY ME
+		timerBrainLinkCD:Start(20)--VERIFY ME
 		brainportal:Start(60)
 		warnBrainPortalSoon:Schedule(57)
 		specWarnBrainPortalSoon:Schedule(57)
@@ -226,6 +231,8 @@ function mod:OnSync(msg)
 	if msg == "Phase3" then
 		brainportal:Cancel()
 		warnBrainPortalSoon:Cancel()
+		timerMaladyCD:Cancel()
+		timerBrainLinkCD:Cancel()
         timerEmpower:Start()
 		warnP3:Show()
         warnEmpowerSoon:Schedule(40)

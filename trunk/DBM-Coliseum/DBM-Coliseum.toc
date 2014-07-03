@@ -16,7 +16,7 @@
 ## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
 ## X-DBM-Mod-MapID: 649
-## X-DBM-Mod-Sort: 202
+## X-DBM-Mod-Sort: 402
 localization.en.lua
 localization.de.lua
 localization.fr.lua

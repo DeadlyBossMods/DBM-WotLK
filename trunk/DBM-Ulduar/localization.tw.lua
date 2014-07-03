@@ -390,7 +390,6 @@ L:SetWarningLocalization{
 	WarnBrainPortalSoon				= "3秒後腦部傳送門",
 	SpecWarnFervor					= "你中了薩拉的熱誠",
 	SpecWarnFervorCast				= "薩拉的熱誠正在對你施放",
-	SpecWarnMaladyNear				= "你附近的%s中了心靈缺陷",
 	specWarnBrainPortalSoon			= "腦部傳送門即將到來"
 }
 
@@ -411,6 +410,5 @@ L:SetOptionLocalization{
 	WarningSqueeze					= "當你中了壓榨 (觸手綁人)時大喊",
 	NextPortal						= "為下一次傳送門顯示計時器",
 	ShowSaraHealth					= "顯示薩拉在第1階段的血量(必須有最少一名團隊成員設置目標或專注目標)",
-	SpecWarnMaladyNear				= "當你附近的人中了心靈缺陷時顯示特別警告",
 	MaladyArrow						= "當你附近的人中了$spell:63881時顯示DBM箭頭"
 }

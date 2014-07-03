@@ -443,7 +443,6 @@ L:SetWarningLocalization{
 	WarnBrainPortalSoon				= "Portal cerebral en 3 segundos",
 	SpecWarnFervor					= "Fervor de Sara en ti",
 	SpecWarnFervorCast				= "Fervor de Sara esta siendo casteado en ti",
-	SpecWarnMaladyNear				= "Mal de la mente en %s cerca de ti",
 	specWarnBrainPortalSoon			= "Portal cerebral pronto"
 }
 
@@ -466,7 +465,6 @@ L:SetOptionLocalization{
 	NextPortal						= "Mostrar tiempo para siguiente Portal cerebral",
 	SetIconOnFervorTarget			= "Poner iconos en los objetivos de $spell:63138",
 	ShowSaraHealth					= "Mostrar barra de vida de Sara en Fase 1",
-	SpecWarnMaladyNear				= "Mostrar aviso especial para $spell:63881 cerca de ti",
 	SetIconOnBrainLinkTarget		= "Poner iconos en los objetivos de $spell:63802",
 	MaladyArrow						= "Mostrar flecha cuando $spell:63881 está cerca de ti"
 }

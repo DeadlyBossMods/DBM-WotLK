@@ -394,7 +394,6 @@ L:SetWarningLocalization{
 	WarnBrainPortalSoon				= "Провал Безумия через 3 секунды",	
 	SpecWarnFervor					= "Рвение Сары на вас",
 	SpecWarnFervorCast				= "Рвение Сары накладывается на вас",
-	SpecWarnMaladyNear				= "Душевная болезнь на |3-5(%s) около вас",
 	specWarnBrainPortalSoon			= "Скоро Провал Безумия"
 }
 
@@ -417,7 +416,6 @@ L:SetOptionLocalization{
 	NextPortal						= "Отсчет времени до следующего Провала Безумия",
 	SetIconOnFervorTarget			= "Устанавливать метки на цели заклинания $spell:63138",
 	ShowSaraHealth					= "Показывать здоровье Сары в фазе 1 (должна быть в цели или фокусе хотя бы у одного члена рейда)",
-	SpecWarnMaladyNear				= "Спец-предупреждение о $spell:63881 около вас",
 	SetIconOnBrainLinkTarget		= "Устанавливать метки на цели заклинания $spell:63802",
 	MaladyArrow						= "Показывать стрелку, когда $spell:63881 около вас"
 }

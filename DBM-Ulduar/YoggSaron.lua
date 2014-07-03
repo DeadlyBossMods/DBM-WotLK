@@ -40,13 +40,14 @@ local specWarnBrainPortalSoon		= mod:NewSpecialWarning("specWarnBrainPortalSoon"
 local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189)
 local specWarnFervor				= mod:NewSpecialWarningYou(63138)
 local specWarnFervorCast			= mod:NewSpecialWarning("SpecWarnFervorCast", mod:IsMelee())
-local specWarnMaladyNear			= mod:NewSpecialWarning("SpecWarnMaladyNear", true)
+local specWarnMalady				= mod:NewSpecialWarningYou(63830, true)
+local specWarnMaladyNear			= mod:NewSpecialWarningClose(63830, true)
 
 mod:AddBoolOption("WarningSqueeze", true, "announce")
 
 local enrageTimer					= mod:NewBerserkTimer(900)
 local timerFervor					= mod:NewTargetTimer("OptionVersion2", 15, 63138, nil, false)
-local timerMaladyCD					= mod:NewCDTimer(20, 63830)--VERIFY ME
+local timerMaladyCD					= mod:NewCDTimer(19, 63830)--VERIFY ME
 local timerBrainLinkCD				= mod:NewCDTimer(32, 63802)--VERIFY ME
 local brainportal					= mod:NewTimer(20, "NextPortal", 57687)
 local timerLunaricGaze				= mod:NewCastTimer(4, 64163)
@@ -149,20 +150,24 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.SetIconOnFearTarget then
 			self:SetIcon(args.destName, 8, 30) 
 		end
-		local uId = DBM:GetRaidUnitId(args.destName) 
-		if uId then 
-			local inRange = CheckInteractDistance(uId, 2)
-			local x, y = GetPlayerMapPosition(uId)
-			if x == 0 and y == 0 then
-				SetMapToCurrentZone()
-				x, y = GetPlayerMapPosition(uId)
-			end
-			if inRange then 
-				specWarnMaladyNear:Show(args.destName)
-				if self.Options.MaladyArrow then
-					DBM.Arrow:ShowRunAway(x, y, 12, 5)
+		if args:IsPlayer() then
+			specWarnMalady:Show()
+		else
+			local uId = DBM:GetRaidUnitId(args.destName) 
+			if uId then 
+				local inRange = CheckInteractDistance(uId, 2)
+				local x, y = GetPlayerMapPosition(uId)
+				if x == 0 and y == 0 then
+					SetMapToCurrentZone()
+					x, y = GetPlayerMapPosition(uId)
 				end
-			end 
+				if inRange then 
+					specWarnMaladyNear:Show(args.destName)
+					if self.Options.MaladyArrow then
+						DBM.Arrow:ShowRunAway(x, y, 12, 5)
+					end
+				end
+			end
 		end 
 	elseif args:IsSpellID(64126, 64125) then	-- Squeeze
 		warnSqueeze:Show(args.destName)
@@ -181,7 +186,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 63894 then	-- Shadowy Barrier of Yogg-Saron (this is happens when p2 starts)
 		phase = 2
 		timerMaladyCD:Start(13)--VERIFY ME
-		timerBrainLinkCD:Start(20)--VERIFY ME
+		timerBrainLinkCD:Start(19)--VERIFY ME
 		brainportal:Start(60)
 		warnBrainPortalSoon:Schedule(57)
 		specWarnBrainPortalSoon:Schedule(57)

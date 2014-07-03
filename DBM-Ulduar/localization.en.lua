@@ -408,7 +408,6 @@ L:SetWarningLocalization{
 	WarnBrainPortalSoon				= "Brain Portal in 3 seconds",	
 	SpecWarnFervor					= "Sara's Fervor on you",
 	SpecWarnFervorCast				= "Sara's Fervor is being cast on you",
-	SpecWarnMaladyNear				= "Malady of the Mind on %s near you",
 	specWarnBrainPortalSoon			= "Brain Portal soon"
 }
 
@@ -431,7 +430,6 @@ L:SetOptionLocalization{
 	NextPortal						= "Show timer for next Brain Portal",
 	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138),
 	ShowSaraHealth					= "Show health frame for Sara in Phase 1 (must be targeted or focused by at least one raid member)",
-	SpecWarnMaladyNear				= "Show special warning for $spell:63881 near you",
 	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
 	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you"
 }

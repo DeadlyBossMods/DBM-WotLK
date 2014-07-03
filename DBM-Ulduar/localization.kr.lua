@@ -388,7 +388,6 @@ L:SetWarningLocalization{
 	SpecWarnMadnessOutNow			= "광기 유발 종료 직전 - 이동!",
 	WarnBrainPortalSoon				= "3초 후 차원문",
 	SpecWarnFervorCast				= "당신에게 사라의 열정 시전 중!",
-	SpecWarnMaladyNear				= "당신 주변에 병든 정신 (%s)",
 	specWarnBrainPortalSoon			= "곧 차원문!"
 }
 
@@ -409,6 +408,5 @@ L:SetOptionLocalization{
 	WarningSqueeze					= "압착의 촉수의 대상 되었을 경우 대화로 알리기",
 	NextPortal						= "다음 차원문 바 보기",
 	ShowSaraHealth					= "우두머리 체력 바 사용시 사라의 체력 바도 함께 보기<br/>(공격대원 중 최소 한명이 사라를 대상 또는 주시대상으로 설정해야 함)",
-	SpecWarnMaladyNear				= "$spell:63881 대상이 가까이 있을 경우 특수 경고 보기",
 	MaladyArrow						= "$spell:63881 대상이 가까이 있을 경우 DBM 화살표 보기"
 }

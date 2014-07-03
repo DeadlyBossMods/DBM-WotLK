@@ -390,7 +390,6 @@ L:SetWarningLocalization{
 	WarnBrainPortalSoon				= "Gehirnportale in 3 Sek",	
 	SpecWarnFervor					= "Saras Eifer auf dir!",
 	SpecWarnFervorCast				= "Saras Eifer wird auf dich gewirkt",
-	SpecWarnMaladyNear				= "Geisteskrankheit auf %s in deiner Nähe",
 	specWarnBrainPortalSoon			= "Gehirnportale bald"
 }
 
@@ -411,6 +410,5 @@ L:SetOptionLocalization{
 	WarningSqueeze					= "Schreie bei Quetschen auf dir",
 	NextPortal						= "Zeige Zeit bis nächste Gehirnportale",
 	ShowSaraHealth					= "Zeige Lebensanzeige für Sara in Phase 1 (muss anvisiert oder im Fokus mindestens eines Schlachtzugmitglieds sein)",
-	SpecWarnMaladyNear				= "Spezialwarnung, wenn jemand in deiner Nähe von $spell:63881 betroffen ist",
 	MaladyArrow						= "Zeige DBM-Pfeil, wenn $spell:63881 in deiner Nähe ist"
 }

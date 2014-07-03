@@ -32,7 +32,7 @@
 ## X-DBM-Mod-Name-frFR : Chambre des aspects
 ## X-DBM-Mod-Name-esES: Cámara de los Aspectos
 ## X-DBM-Mod-Name-esMX: Cámara de los Aspectos
-## X-DBM-Mod-Sort: 201
+## X-DBM-Mod-Sort: 401
 ## X-DBM-Mod-MapID: 615,724
 localization.en.lua
 localization.de.lua

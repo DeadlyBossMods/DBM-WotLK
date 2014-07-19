@@ -1,5 +1,4 @@
 ﻿if GetLocale() ~= "zhTW" then return end
-
 local L
 
 -----------------------
@@ -75,7 +74,7 @@ L:SetMiscLocalization{
 	YellAir				= "給我們一點時間來準備建造砲塔。",
 	YellAir2			= "火熄了!讓我們重建砲塔!",
 	YellGround			= "快!她可不會在地面上待太久!",
-	EmotePhase2			= "%%s再也飛不動了!"
+	EmotePhase2			= "再也飛不動了!"
 }
 
 ----------------------------
@@ -214,6 +213,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
+	Pull		= "你將為擅闖付出代價!",
 	YellKill	= "我...我終於從他的掌控中...解脫了。"
 }
 

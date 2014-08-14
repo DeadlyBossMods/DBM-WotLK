@@ -44,7 +44,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 69051 and args:IsDestTypePlayer() then	-- Mirrored Soul
 		warnMirroredSoul:Show(args.destName)
 		timerMirroredSoul:Start(args.destName)
-		specwarnMirroredSoul:Show()
+		specwarnMirroredSoul:Show(args.sourceName)--if sourcename isn't good use L.name
 		if self.Options.SetIconOnMirroredTarget then 
 			self:SetIcon(args.destName, 8, 8) 
 		end 

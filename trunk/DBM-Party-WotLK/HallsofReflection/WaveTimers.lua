@@ -9,6 +9,7 @@ mod:RegisterEvents(
 	"UPDATE_WORLD_STATES",
 	"UNIT_DIED"
 )
+mod.noStatistics = true
 
 local warnNewWaveSoon	= mod:NewAnnounce("WarnNewWaveSoon", 2)
 local warnNewWave		= mod:NewAnnounce("WarnNewWave", 3)

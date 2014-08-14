@@ -10,6 +10,7 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 )
+mod.onlyHeroic = true
 
 local enrageTimer	= mod:NewBerserkTimer(120)
 

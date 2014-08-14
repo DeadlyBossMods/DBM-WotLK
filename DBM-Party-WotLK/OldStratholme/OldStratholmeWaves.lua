@@ -8,6 +8,7 @@ mod:RegisterEvents(
 	"UNIT_DIED",
 	"CHAT_MSG_MONSTER_SAY"
 )
+mod.noStatistics = true
 
 local warningWaveNow	= mod:NewAnnounce("WarningWaveNow", 3)
 local timerWaveIn		= mod:NewTimer(20, "TimerWaveIn")

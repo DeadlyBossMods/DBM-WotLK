@@ -15,6 +15,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_DAMAGE",
 	"RAID_BOSS_EMOTE"
 )
+mod.onlyNormal = true
 
 local warnShadowFissure	    = mod:NewSpellAnnounce(59127)
 local warnTenebron          = mod:NewAnnounce("WarningTenebron", 2, 61248, false)

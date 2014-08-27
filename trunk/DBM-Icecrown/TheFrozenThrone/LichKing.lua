@@ -8,7 +8,6 @@ mod:DisableEEKillDetection()--EE fires at 10%
 mod:SetModelID(30721)
 mod:SetZone()
 mod:SetUsedIcons(2, 3, 4, 5, 6, 7, 8)
---mod:SetMinSyncRevision(4694)
 mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
 
 mod:RegisterCombat("combat")
@@ -24,7 +23,8 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_SUMMON",
 	"UNIT_HEALTH target focus mouseover",
-	"UNIT_AURA_UNFILTERED"
+	"UNIT_AURA_UNFILTERED",
+	"UNIT_DIED"
 )
 
 local isPAL = select(2, UnitClass("player")) == "PALADIN"
@@ -303,7 +303,7 @@ end
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 72143 then -- Shambling Horror enrage effect.
 		warnShamblingEnrage:Show(args.destName)
-		timerEnrageCD:Start()
+		timerEnrageCD:Start(args.sourceGUID)
 	elseif args.spellId == 72754 and args:IsPlayer() and self:AntiSpam(2, 1) then		-- Defile Damage
 		specWarnDefile:Show()
 	elseif args.spellId == 73650 and self:AntiSpam(3, 2) then		-- Restore Soul (Heroic)
@@ -436,6 +436,13 @@ end
 function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if msg == L.LKPull or msg:find(L.LKPull) then
 		self:SendSync("CombatStart")
+	end
+end
+
+function mod:UNIT_DIED(args)
+	local cid = self:GetCIDFromGUID(args.destGUID)
+	if cid == 37698 then--Shambling Horror
+		timerEnrageCD:Cancel(args.sourceGUID)
 	end
 end
 

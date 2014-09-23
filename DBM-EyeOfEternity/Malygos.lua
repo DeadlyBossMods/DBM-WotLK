@@ -7,6 +7,7 @@ mod:SetEncounterID(1094)
 mod:SetModelID(26752)
 
 mod:RegisterCombat("combat")
+mod:SetWipeTime(45)
 
 mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_YELL"

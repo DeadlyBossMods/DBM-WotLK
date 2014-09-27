@@ -36,8 +36,10 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(59322, 50228) then
 		warningWhirlwind:Show()
 		timerWhirlwindCD:Start()
-		specWarnWhirlwind:Show()
-		soundWhirlwind:Play()
+		if not self:IsTrivial(90) then
+			specWarnWhirlwind:Show()
+			soundWhirlwind:Play()
+		end
 	end
 end
 

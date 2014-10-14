@@ -103,14 +103,10 @@ function mod:MalleableGooTarget(targetname, uId)
 	else
 		if uId then
 			local inRange = CheckInteractDistance(uId, 2)
-			local x, y = GetPlayerMapPosition(uId)
-			if x == 0 and y == 0 then
-				SetMapToCurrentZone()
-				x, y = GetPlayerMapPosition(uId)
-			end
 			if inRange then
 				specWarnMalleableGooNear:Show(targetname)
 				if self.Options.GooArrow then
+					local x, y = UnitPosition(uId)
 					DBM.Arrow:ShowRunAway(x, y, 10, 5)
 				end
 			end

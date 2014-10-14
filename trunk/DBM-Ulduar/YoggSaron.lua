@@ -156,14 +156,10 @@ function mod:SPELL_AURA_APPLIED(args)
 			local uId = DBM:GetRaidUnitId(args.destName) 
 			if uId then 
 				local inRange = CheckInteractDistance(uId, 2)
-				local x, y = GetPlayerMapPosition(uId)
-				if x == 0 and y == 0 then
-					SetMapToCurrentZone()
-					x, y = GetPlayerMapPosition(uId)
-				end
 				if inRange then 
 					specWarnMaladyNear:Show(args.destName)
 					if self.Options.MaladyArrow then
+						local x, y = UnitPosition(uId)
 						DBM.Arrow:ShowRunAway(x, y, 12, 5)
 					end
 				end

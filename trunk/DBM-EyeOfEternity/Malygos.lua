@@ -74,12 +74,7 @@ function mod:StaticFieldTarget()
 	else
 		local uId2 = DBM:GetRaidUnitId(announcetarget)
 		if uId2 then
-			local x, y = GetPlayerMapPosition(uId2)
-			if x == 0 and y == 0 then
-				SetMapToCurrentZone()
-				x, y = GetPlayerMapPosition(uId2)
-			end
-			local inRange = DBM.RangeCheck:GetDistance("player", x, y)
+			local inRange = DBM.RangeCheck:GetDistance("player", uId2)
 			if inRange and inRange < 13 then
 				specWarnStaticFieldNear:Show(announcetarget)
 			end

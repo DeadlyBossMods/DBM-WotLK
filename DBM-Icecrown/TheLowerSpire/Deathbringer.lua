@@ -83,7 +83,7 @@ function mod:OnCombatStart(delay)
 	warned_preFrenzy = false
 	boilingBloodIcon = 8
 	Mark = 0
-	last = 0
+	lastPower = 0
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(12)
 	end

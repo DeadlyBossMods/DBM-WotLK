@@ -244,7 +244,7 @@ function mod:OnSync(msg, target)
 		end
 	elseif msg == "FieryTarget" then
 		if self.Options.AnnounceAlternatePhase then
-			warningFieryConsumption:Show(target)
+			warningFieryCombustion:Show(target)
 			if DBM:GetRaidRank() > 0 and self.Options.WhisperOnConsumption then
 				self:SendWhisper(L.WhisperCombustion, target)
 			end

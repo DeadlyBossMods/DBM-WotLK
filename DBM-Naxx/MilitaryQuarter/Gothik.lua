@@ -104,13 +104,11 @@ function mod:NextWave()
 end
 
 function mod:UNIT_DIED(args)
-	if bit.band(args.destGUID:sub(0, 5), 0x00F) == 3 then
-		local cid = self:GetCIDFromGUID(args.destGUID)
-		if cid == 16126 then -- Unrelenting Rider
-			warnRiderDown:Show()
-		elseif cid == 16125 then -- Unrelenting Deathknight
-			warnKnightDown:Show()
-		end
+	local cid = self:GetCIDFromGUID(args.destGUID)
+	if cid == 16126 then -- Unrelenting Rider
+		warnRiderDown:Show()
+	elseif cid == 16125 then -- Unrelenting Deathknight
+		warnKnightDown:Show()
 	end
 end
 

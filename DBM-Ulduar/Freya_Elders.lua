@@ -9,8 +9,7 @@ mod:SetRevision(("$Revision$"):sub(12, -3))
 
 mod:RegisterEvents(
 	"SPELL_CAST_START",
-	"SPELL_AURA_APPLIED",
-	"UNIT_DIED"
+	"SPELL_AURA_APPLIED"
 )
 
 local warnImpale			= mod:NewSpellAnnounce(62928)

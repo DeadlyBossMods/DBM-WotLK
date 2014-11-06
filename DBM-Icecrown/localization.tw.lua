@@ -334,7 +334,7 @@ L:SetMiscLocalization{
 L = DBM:GetModLocalization("ICCTrash")
 
 L:SetGeneralLocalization{
-	name = "Icecrown Trash"
+	name = "冰冠城塞小怪"
 }
 
 L:SetWarningLocalization{
@@ -355,6 +355,6 @@ L:SetMiscLocalization{
 	WarderTrap3			= "主人的聖所受到了打擾!",
 	FleshreaperTrap1	= "快，我們要從後面奇襲他們!",
 	FleshreaperTrap2	= "你無法逃避我們!",
-	FleshreaperTrap3	= "The living? Here?!",
+	FleshreaperTrap3	= "生人...在此?",
 	SindragosaEvent		= "你一定不能靠近冰霜之后。快，阻止他們!"
 }

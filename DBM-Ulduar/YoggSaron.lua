@@ -148,7 +148,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(63830, 63881) then   -- Malady of the Mind (Death Coil) 
 		timerMaladyCD:Start()
 		if self.Options.SetIconOnFearTarget then
-			self:SetIcon(args.destName, 8, 30) 
+			self:SetIcon(args.destName, 8) 
 		end
 		if args:IsPlayer() then
 			specWarnMalady:Show()
@@ -207,6 +207,8 @@ function mod:SPELL_AURA_REMOVED(args)
 		self:SendSync("Phase3")			-- Sync this because you don't get it in your combat log if you are in brain room.
 	elseif args:IsSpellID(64167, 64163) then	-- Lunatic Gaze
 		timerNextLunaricGaze:Start()
+	elseif args:IsSpellID(63830, 63881) and self.Options.SetIconOnFearTarget then   -- Malady of the Mind (Death Coil) 
+		self:SetIcon(args.destName, 0) 
 	end
 end
 

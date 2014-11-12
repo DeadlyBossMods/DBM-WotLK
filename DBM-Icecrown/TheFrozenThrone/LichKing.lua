@@ -112,8 +112,10 @@ local warnedValkyrGUIDs = {}
 local plagueHop = GetSpellInfo(70338)--Hop spellID only, not cast one.
 local plagueExpires = {}
 local lastPlague
+local numberOfPlayers = 1
 
 function mod:OnCombatStart(delay)
+	numberOfPlayers = DBM:GetNumRealGroupMembers()
 	self.vb.phase = 0
 	self:NextPhase()
 	table.wipe(warnedValkyrGUIDs)
@@ -353,7 +355,9 @@ do
 		if args.spellId == 69037 then -- Summon Val'kyr
 			if time() - lastValk > 15 then -- show the warning and timer just once for all three summon events
 				warnSummonValkyr:Show()
-				timerSummonValkyr:Start()
+				if numberOfPlayers > 1 then--It's still cast in solo raid, and they do come, we just don't care since they don't grab main threat target, so supress timer anyways.
+					timerSummonValkyr:Start()
+				end
 				lastValk = time()
 				scanValkyrTargets()
 				if self.Options.ValkyrIcon then
@@ -403,14 +407,18 @@ function mod:NextPhase()
 		warnShamblingSoon:Schedule(15)
 		timerShamblingHorror:Start(20)
 		timerDrudgeGhouls:Start(10)
-		timerNecroticPlagueCD:Start(27)
+		if numberOfPlayers > 1 then
+			timerNecroticPlagueCD:Start(27)
+		end
 		if self:IsDifficulty("heroic10", "heroic25") then
 			timerTrapCD:Start()
 			countdownShadowTrap:Start()
 		end
 	elseif self.vb.phase == 2 then
 		warnPhase2:Show()
-		timerSummonValkyr:Start(20)
+		if numberOfPlayers > 1 then
+			timerSummonValkyr:Start(20)
+		end
 		timerSoulreaperCD:Start(40)
 		timerDefileCD:Start(38)
 		countdownDefile:Start(38)

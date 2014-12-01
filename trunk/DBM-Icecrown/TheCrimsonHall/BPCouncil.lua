@@ -7,6 +7,7 @@ mod:SetEncounterID(1095)
 mod:DisableEEKillDetection()--IEEU fires for this boss.
 mod:SetModelID(30858)
 mod:SetUsedIcons(7, 8)
+mod:SetBossHPInfoToHighest()
 
 mod:SetBossHealthInfo(
 	37972, L.Keleseth,

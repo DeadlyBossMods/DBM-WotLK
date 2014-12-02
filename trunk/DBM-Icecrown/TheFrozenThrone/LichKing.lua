@@ -115,7 +115,11 @@ local lastPlague
 local numberOfPlayers = 1
 
 function mod:OnCombatStart(delay)
+	local _, class = UnitClass("player")
 	numberOfPlayers = DBM:GetNumRealGroupMembers()
+	if class == "HUNTER" then
+		numberOfPlayers = numberOfPlayers + 1
+	end
 	self.vb.phase = 0
 	self:NextPhase()
 	table.wipe(warnedValkyrGUIDs)

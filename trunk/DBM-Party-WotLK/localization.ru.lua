@@ -503,10 +503,6 @@ L:SetWarningLocalization({
 	specwarnRadiance		= "Сияние - отвернитесь"
 })
 
-L:SetOptionLocalization({
-	specwarnRadiance		= "Спец-предупреждение для $spell:66935"
-})
-
 L:SetMiscLocalization({
 	YellCombatEnd	= "Я сдаюсь! Я побежден. Отличная работа. Можно теперь убегать?"
 })

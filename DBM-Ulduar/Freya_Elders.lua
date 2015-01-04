@@ -19,8 +19,6 @@ local timerImpale			= mod:NewTargetTimer(5, 62928)
 local specWarnFistofStone	= mod:NewSpecialWarningSpell(62344, mod:IsTank())
 local specWarnGroundTremor	= mod:NewSpecialWarningCast(62932, true)
 
-local soundFistofStone		= mod:NewSound(62344, false)
-
 --
 -- Trash: 33430 Guardian Lasher (flower)
 -- 33355 (nymph)
@@ -38,7 +36,6 @@ local soundFistofStone		= mod:NewSound(62344, false)
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 62344 then 					-- Fists of Stone
 		specWarnFistofStone:Show()
-		soundFistofStone:Play()
 	elseif args:IsSpellID(62325, 62932) then		-- Ground Tremor
 		specWarnGroundTremor:Show()
 	end

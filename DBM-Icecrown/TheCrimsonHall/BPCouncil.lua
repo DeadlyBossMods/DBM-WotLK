@@ -41,8 +41,8 @@ local warnDarkNucleus			= mod:NewSpellAnnounce(71943, 1, nil, false)	-- instant 
 local specWarnVortex			= mod:NewSpecialWarningYou(72037)
 local yellVortex				= mod:NewYell(72037)
 local specWarnVortexNear		= mod:NewSpecialWarningClose(72037)
-local specWarnEmpoweredShockV	= mod:NewSpecialWarningRun(72039)
-local specWarnEmpoweredFlames	= mod:NewSpecialWarningRun(72040)
+local specWarnEmpoweredShockV	= mod:NewSpecialWarningMoveAway(72039)
+local specWarnEmpoweredFlames	= mod:NewSpecialWarningRun(72040, nil, nil, nil, 4)
 local specWarnShadowPrison		= mod:NewSpecialWarningStack(72999, nil, 6)
 
 local timerTargetSwitch			= mod:NewTimer(47, "TimerTargetSwitch", 70952)	-- every 46-47seconds
@@ -54,8 +54,6 @@ local timerKineticBombCD		= mod:NewCDTimer(18, 72053, nil, mod:IsRanged())				--
 local timerShadowPrison			= mod:NewBuffFadesTimer(10, 72999)		-- Hard mode debuff
 
 local berserkTimer				= mod:NewBerserkTimer(600)
-
-local soundEmpoweredFlames		= mod:NewSound(72040)
 
 mod:AddBoolOption("EmpoweredFlameIcon", true)
 mod:AddBoolOption("ActivePrinceIcon", false)
@@ -199,7 +197,6 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 		warnEmpoweredFlames:Show(target)
 		if target == UnitName("player") then
 			specWarnEmpoweredFlames:Show()
-			soundEmpoweredFlames:Play()
 		end
 		if self.Options.EmpoweredFlameIcon then
 			self:SetIcon(target, 7, 10)

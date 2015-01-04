@@ -159,7 +159,6 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	TwilightCutterCast		= "Show warning when $spell:74769 is being cast",
 	AnnounceAlternatePhase	= "Show warnings/timers for phase you aren't in as well",
-	SoundOnConsumption		= "Play sound on $spell:74562 or $spell:74792",--We use localized text for these functions
 	SetIconOnConsumption	= "Set icons on $spell:74562 or $spell:74792 targets",--So we can use single functions for both versions of spell.
 	WhisperOnConsumption	= "Send whisper to $spell:74562 or $spell:74792<br/>targets (requires Raid Leader)"
 })

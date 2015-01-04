@@ -23,7 +23,7 @@ local warnBoneSpike			= mod:NewCastAnnounce(69057, 2)
 local warnImpale			= mod:NewTargetAnnounce(72669, 3)
 
 local specWarnColdflame		= mod:NewSpecialWarningMove(69146)
-local specWarnWhirlwind		= mod:NewSpecialWarningRun(69076)
+local specWarnWhirlwind		= mod:NewSpecialWarningRun(69076, nil, nil, nil, 4)
 
 local timerBoneSpike		= mod:NewCDTimer(18, 69057)
 local timerWhirlwindCD		= mod:NewCDTimer(90, 69076)
@@ -32,7 +32,6 @@ local timerBoned			= mod:NewAchievementTimer(8, 4610)
 
 local berserkTimer			= mod:NewBerserkTimer(600)
 
-local soundWhirlwind = mod:NewSound(69076)
 mod:AddBoolOption("SetIconOnImpale", true)
 
 local impaleIcon	= 8
@@ -55,7 +54,6 @@ function mod:SPELL_AURA_APPLIED(args)
 			timerWhirlwind:Show()						-- Approx 20seconds on normal.
 			timerBoneSpike:Cancel()						-- He doesn't do Bone Spike Graveyard during Bone Storm on normal
 		end
-		soundWhirlwind:Play()
 	end
 end
 

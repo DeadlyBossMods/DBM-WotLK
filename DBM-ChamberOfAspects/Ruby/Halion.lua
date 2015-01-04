@@ -35,9 +35,9 @@ local warningShadowBreath			= mod:NewSpellAnnounce(74806, 2, nil, mod:IsTank() o
 local warningFieryBreath			= mod:NewSpellAnnounce(74525, 2, nil, mod:IsTank() or mod:IsHealer())
 local warningTwilightCutter			= mod:NewAnnounce("TwilightCutterCast", 4, 74769)
 
-local specWarnShadowConsumption		= mod:NewSpecialWarningRun(74792)
+local specWarnShadowConsumption		= mod:NewSpecialWarningRun(74792, nil, nil, nil, 4)
 local yellShadowconsumption			= mod:NewYell(74792)
-local specWarnFieryCombustion		= mod:NewSpecialWarningRun(74562)
+local specWarnFieryCombustion		= mod:NewSpecialWarningRun(74562, nil, nil, nil, 4)
 local yellFieryCombustion			= mod:NewYell(74562)
 local specWarnMeteorStrike			= mod:NewSpecialWarningMove(74648)
 local specWarnTwilightCutter		= mod:NewSpecialWarningSpell(74769)
@@ -53,8 +53,6 @@ local timerShadowBreathCD			= mod:NewCDTimer(19, 74806, nil, mod:IsTank() or mod
 local timerFieryBreathCD			= mod:NewCDTimer(19, 74525, nil, mod:IsTank() or mod:IsHealer())--But unique icons are nice pertaining to phase you're in ;)
 
 local berserkTimer					= mod:NewBerserkTimer(480)
-
-local soundConsumption 				= mod:NewSound(74562, nil, "SoundOnConsumption")
 
 mod:AddBoolOption("AnnounceAlternatePhase", true, "announce")
 mod:AddBoolOption("WhisperOnConsumption", false, "announce")
@@ -119,7 +117,6 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		end
 		if args:IsPlayer() then
 			specWarnShadowConsumption:Show()
-			soundConsumption:Play()
 			yellShadowconsumption:Yell()
 		end
 		if not self.Options.AnnounceAlternatePhase then
@@ -137,7 +134,6 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		end
 		if args:IsPlayer() then
 			specWarnFieryCombustion:Show()
-			soundConsumption:Play()
 			yellFieryCombustion:Yell()
 		end
 		if not self.Options.AnnounceAlternatePhase then

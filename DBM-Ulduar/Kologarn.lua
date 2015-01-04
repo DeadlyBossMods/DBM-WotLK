@@ -32,7 +32,7 @@ local warnGrip					= mod:NewTargetAnnounce(64292, 2)
 local warnCrunchArmor			= mod:NewTargetAnnounce(64002, 2)
 
 local specWarnCrunchArmor2		= mod:NewSpecialWarningStack(64002, false, 2)
-local specWarnEyebeam			= mod:NewSpecialWarningYou(63346)
+local specWarnEyebeam			= mod:NewSpecialWarningRun(63346, nil, nil, nil, 4)
 local yellBeam					= mod:NewYell(63346)
 
 local timerCrunch10             = mod:NewTargetTimer(6, 63355)
@@ -42,8 +42,6 @@ local timerNextGrip				= mod:NewCDTimer(20, 64292)
 local timerRespawnLeftArm		= mod:NewTimer(48, "timerLeftArm")
 local timerRespawnRightArm		= mod:NewTimer(48, "timerRightArm")
 local timerTimeForDisarmed		= mod:NewTimer(10, "achievementDisarmed")	-- 10 HC / 12 nonHC
-
-local soundEyebeam				= mod:NewSound(63346)
 
 mod:AddBoolOption("HealthFrame", true)
 mod:AddBoolOption("SetIconOnGripTarget", true)
@@ -80,7 +78,6 @@ mod.SPELL_MISSED = mod.SPELL_DAMAGE
 function mod:RAID_BOSS_WHISPER(msg)
 	if msg:find(L.FocusedEyebeam) then
 		specWarnEyebeam:Show()
-		soundEyebeam:Play()
 		yellBeam:Yell()
 		self:SendSync("EyeBeamOn", UnitGUID("player"))
 	end

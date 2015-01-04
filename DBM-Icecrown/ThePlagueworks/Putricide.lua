@@ -37,7 +37,7 @@ local warnMutatedPlague				= mod:NewStackAnnounce(72451, 3, nil, mod:IsTank() or
 local warnUnboundPlague				= mod:NewTargetAnnounce(70911, 3)		-- Heroic Ability
 
 local specWarnVolatileOozeAdhesive	= mod:NewSpecialWarningYou(70447)
-local specWarnGaseousBloat			= mod:NewSpecialWarningYou(70672)
+local specWarnGaseousBloat			= mod:NewSpecialWarningRun(70672, nil, nil, nil, 4)
 local specWarnVolatileOozeOther		= mod:NewSpecialWarningTarget(70447, false)
 local specWarnGaseousBloatOther		= mod:NewSpecialWarningTarget(70672, false)
 local specWarnMalleableGoo			= mod:NewSpecialWarningYou(72295)
@@ -66,8 +66,6 @@ local timerMutatedSlash				= mod:NewTargetTimer(20, 70542)
 local timerRegurgitatedOoze			= mod:NewTargetTimer(20, 70539)
 
 local berserkTimer					= mod:NewBerserkTimer(600)
-
-local soundGaseousBloat 			= mod:NewSound(70672)
 
 mod:AddBoolOption("OozeAdhesiveIcon")
 mod:AddBoolOption("GaseousBloatIcon")
@@ -220,7 +218,6 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerGaseousBloat:Start(args.destName)
 		if args:IsPlayer() then
 			specWarnGaseousBloat:Show()
-			soundGaseousBloat:Play()
 		end
 		if self.Options.GaseousBloatIcon then
 			self:SetIcon(args.destName, 7, 20)

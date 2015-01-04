@@ -158,7 +158,6 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	TwilightCutterCast		= "Предупреждать о применении заклинания $spell:77844",
 	AnnounceAlternatePhase	= "Показывать предупреждения и таймеры для обоих миров",
-	SoundOnConsumption		= "Звуковой сигнал при $spell:74562 или $spell:74792",--We use localized text for these functions
 	SetIconOnConsumption	= "Устанавливать метки на цели заклинаний $spell:74562 или $spell:74792",--So we can use single functions for both versions of spell.
 	WhisperOnConsumption	= "Шепот целям заклинаний $spell:74562 или $spell:74792 (требуется лидер рейда)"
 })

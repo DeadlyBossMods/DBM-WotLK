@@ -21,14 +21,12 @@ local pursueTargetWarn		= mod:NewAnnounce("PursueWarn", 2, 62374)
 local warnNextPursueSoon	= mod:NewAnnounce("warnNextPursueSoon", 3, 62374)
 
 local warnSystemOverload	= mod:NewSpecialWarningSpell(62475)
-local pursueSpecWarn		= mod:NewSpecialWarning("SpecialPursueWarnYou")
+local pursueSpecWarn		= mod:NewSpecialWarning("OptionVersion2", "SpecialPursueWarnYou", nil, nil, nil, 4)
 local warnWardofLife		= mod:NewSpecialWarning("warnWardofLife")
 
 local timerSystemOverload	= mod:NewBuffActiveTimer(20, 62475)
 local timerFlameVents		= mod:NewCastTimer(10, 62396)
 local timerPursued			= mod:NewBuffFadesTimer(30, 62374)
-
-local soundPursued			= mod:NewSound(62374)
 
 local guids = {}
 local function buildGuidTable()
@@ -64,7 +62,6 @@ function mod:SPELL_AURA_APPLIED(args)
 			pursueTargetWarn:Show(target)
 			if target == UnitName("player") then
 				pursueSpecWarn:Show()
-				soundPursued:Play()
 			end
 		end
 	elseif args.spellId == 62297 then		-- Hodir's Fury (Person is frozen)

@@ -31,10 +31,10 @@ local lootannounce				= mod:NewAnnounce("MagneticCore", 1, 64444)
 local warnBombSpawn				= mod:NewAnnounce("WarnBombSpawn", 3, 63811)
 local warnFrostBomb				= mod:NewSpellAnnounce(64623, 3)
 
-local warnShockBlast			= mod:NewSpecialWarning("WarningShockBlast", nil, false)
+local warnShockBlast			= mod:NewSpecialWarning("WarningShockBlast", nil, mod:IsMelee())
 mod:AddBoolOption("ShockBlastWarningInP1", mod:IsMelee(), "announce")
 mod:AddBoolOption("ShockBlastWarningInP4", mod:IsMelee(), "announce")
-local warnDarkGlare				= mod:NewSpecialWarningSpell(63293)
+local warnDarkGlare				= mod:NewSpecialWarningSpell(63293, nil, nil, nil, 3)
 
 local enrage 					= mod:NewBerserkTimer(900)
 local timerHardmode				= mod:NewTimer(610, "TimerHardmode", 64582)
@@ -53,9 +53,6 @@ local timerFlameSuppressant		= mod:NewCastTimer(60, 64570)
 local timerNextFlameSuppressant	= mod:NewNextTimer(10, 65192)
 local timerNextFrostBomb        = mod:NewNextTimer(30, 64623)
 local timerBombExplosion		= mod:NewCastTimer(15, 65333)
-
-local soundShockBlast			= mod:NewSound(63631, mod:IsMelee())
-local soundDarkGlare			= mod:NewSound(63414)
 
 mod:AddBoolOption("HealthFramePhase4", true)
 mod:AddBoolOption("AutoChangeLootToFFA", true)
@@ -139,7 +136,6 @@ function mod:SPELL_CAST_START(args)
 		end
 		timerShockBlast:Start()
 		timerNextShockblast:Start()
-		soundShockBlast:Play()
 	end
 	if args:IsSpellID(64529, 62997) then -- plasma blast
 		timerPlasmaBlastCD:Start()
@@ -175,7 +171,6 @@ end
 local function show_warning_for_spinup()
 	if is_spinningUp then
 		warnDarkGlare:Show()
-		soundDarkGlare:Play()
 	end
 end
 

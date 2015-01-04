@@ -44,8 +44,6 @@ local timerMutatedInfection		= mod:NewTargetTimer(12, 69674)
 local timerOozeExplosion		= mod:NewCastTimer(4, 69839)
 local timerVileGasCD			= mod:NewNextTimer(30, 72272)
 
-local soundMutatedInfection		= mod:NewSound(69674)
-
 mod:AddBoolOption("RangeFrame", mod:IsRanged())
 mod:AddBoolOption("InfectionIcon", true)
 mod:AddBoolOption("TankArrow", true)
@@ -122,7 +120,6 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerMutatedInfection:Start(args.destName)
 		if args:IsPlayer() then
 			specWarnMutatedInfection:Show()
-			soundMutatedInfection:Play()
 		end
 		if self.Options.InfectionIcon then
 			self:SetIcon(args.destName, InfectionIcon, 12)

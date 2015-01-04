@@ -45,8 +45,6 @@ local specWarnHandofProt	= mod:NewSpecialWarningDispel(66009, mod:IsMagicDispell
 local specWarnDivineShield	= mod:NewSpecialWarningDispel(66010, mod:IsMagicDispeller()) 
 local specWarnIceBlock		= mod:NewSpecialWarningDispel(65802, mod:IsMagicDispeller())
 
-local soundBladestorm		= mod:NewSound(65947, mod:IsMelee())
-
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 65816 then
 		warnHellfire:Show()
@@ -55,7 +53,6 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerBladestorm:Start()
 		timerBladestormCD:Start()
 		preWarnBladestorm:Schedule(85)
-		soundBladestorm:Play()
 	elseif args.spellId == 65983 then
 		warnHeroism:Show()
 	elseif args.spellId == 65980 then

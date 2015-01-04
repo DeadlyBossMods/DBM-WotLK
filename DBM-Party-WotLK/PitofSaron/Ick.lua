@@ -23,22 +23,15 @@ local warnPoisonNova			= mod:NewCastAnnounce(68989, 3)
 local warnPursuit				= mod:NewTargetAnnounce(68987, 4)--TODO, just switch to UNIT_AURA, syncing not reliable especially with older zones.
 
 local specWarnToxic				= mod:NewSpecialWarningMove(69024)
-local specWarnMines				= mod:NewSpecialWarningRun(69015)
-local specWarnPursuit			= mod:NewSpecialWarningYou(68987)
-local specWarnPoisonNova		= mod:NewSpecialWarningRun(68989, mod:IsMelee())
+local specWarnMines				= mod:NewSpecialWarningSpell(69015, nil, nil, nil, 2)
+local specWarnPursuit			= mod:NewSpecialWarningRun(68987, nil, nil, nil, 4)
+local specWarnPoisonNova		= mod:NewSpecialWarningRun("OptionVersion2", 68989, mod:IsMelee(), nil, nil, 4)
 
 local timerPursuitCast			= mod:NewCastTimer(5, 68987)
 local timerPursuitConfusion		= mod:NewBuffActiveTimer(12, 69029)
 local timerPoisonNova			= mod:NewCastTimer(5, 68989)
 
-local soundPoisonNova			= mod:NewSound(68989, mod:IsMelee())
-local soundPursuit				= mod:NewSound(68987)
-
 mod:AddBoolOption("SetIconOnPursuitTarget", true)
-
-function mod:OnCombatStart(delay)
-
-end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 68987 then							-- Pursuit
@@ -48,7 +41,6 @@ function mod:SPELL_CAST_START(args)
 		warnPoisonNova:Show()
 		timerPoisonNova:Start()
 		specWarnPoisonNova:Show()
-		soundPoisonNova:Play()
 	end
 end
 
@@ -74,7 +66,6 @@ end
 function mod:RAID_BOSS_WHISPER(msg) 
 	if msg == L.IckPursuit or msg:find(L.IckPursuit) then 
 		specWarnPursuit:Show() 
-		soundPursuit:Play()
 		self:SendSync("Pursuit", UnitGUID("player"))
 	end 
 end 

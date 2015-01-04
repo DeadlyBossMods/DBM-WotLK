@@ -31,11 +31,10 @@ local timerFlashFrCD		= mod:NewCDTimer(50, 61968)
 local timerAchieve			= mod:NewAchievementTimer(179, 3182, "TimerSpeedKill")
 
 local yellStormCloud		= mod:NewYell(65133)
-local soundFlashFreeze		= mod:NewSound(61968)
 
 mod:AddBoolOption("SetIconOnStormCloud")
 
-local stormCloudIcon
+local stormCloudIcon = 8
 
 function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
@@ -49,7 +48,6 @@ function mod:SPELL_CAST_START(args)
 		timerFlashFreeze:Start()
 		warnFlashFreeze:Show()
 		timerFlashFrCD:Start()
-		soundFlashFreeze:Play()
 	end
 end
 

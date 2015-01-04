@@ -35,8 +35,6 @@ local timerTenebron         = mod:NewTimer(30, "TimerTenebron", 61248)
 local timerShadron          = mod:NewTimer(80, "TimerShadron", 58105)
 local timerVesperon         = mod:NewTimer(120, "TimerVesperon", 61251)
 
-local soundFlameWall		= mod:NewSound(43113)
-
 local lastvoids = {}
 local lastfire = {}
 local GetSpellInfo, UnitDebuff = GetSpellInfo, UnitDebuff
@@ -59,7 +57,6 @@ function mod:OnSync(event)
 	if event == "FireWall" then
 		timerWall:Start()
 		warnFireWall:Show()
-		soundFlameWall:Play()
 	elseif event == "VesperonPortal" then
 		warnVesperonPortal:Show()
 	elseif event == "TenebronPortal" then

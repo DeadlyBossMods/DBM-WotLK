@@ -29,7 +29,7 @@ local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DB
 local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 local warnPhase3			= mod:NewPhaseAnnounce(3)
 
-local specWarnPursue		= mod:NewSpecialWarningRun(67574)
+local specWarnPursue		= mod:NewSpecialWarningRun("OptionVersion2", 67574, nil, nil, nil, 4)
 local specWarnSubmergeSoon	= mod:NewSpecialWarningSoon("specWarnSubmergeSoon", mod:IsTank())
 local specWarnShadowStrike	= mod:NewSpecialWarningInterrupt(66134, mod:IsTank())
 local specWarnPCold			= mod:NewSpecialWarningYou(66013, false)
@@ -43,8 +43,6 @@ local timerShadowStrike		= mod:NewNextTimer(30.5, 66134)
 local timerHoP				= mod:NewBuffActiveTimer(10, 1022, nil, false)--So we will track bops to make this easier.
 
 local enrageTimer			= mod:NewBerserkTimer(570)	-- 9:30 ? hmpf (no enrage while submerged... this sucks)
-
-local soundPursue			= mod:NewSound(67574)
 
 mod:AddSetIconOption("PursueIcon", 67574, true)
 mod:AddSetIconOption("SetIconsOnPCold", 66013, false)
@@ -118,7 +116,6 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 67574 then
 		if args:IsPlayer() then
 			specWarnPursue:Show()
-			soundPursue:Play()
 		end
 		if self.Options.PursueIcon then
 			self:SetIcon(args.destName, 8, 15)

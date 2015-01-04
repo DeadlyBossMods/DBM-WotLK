@@ -162,7 +162,6 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	TwilightCutterCast		= "Mostrar aviso cuando $spell:77844 se esté casteando",
 	AnnounceAlternatePhase	= "Mostrar también avisos/tiempos de la fase en la que no estás",
-	SoundOnConsumption		= "Reproducir sonido en $spell:74562 y $spell:74792",
 	SetIconOnConsumption	= "Poner iconos en los objetivos de $spell:74562 y $spell:74792",
 	WhisperOnConsumption	= "Enviar susurro a los objetivos de $spell:74562 o $spell:74792"
 })

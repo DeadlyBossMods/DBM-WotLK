@@ -20,7 +20,7 @@ mod:RegisterEventsInCombat(
 local warnNova				= mod:NewSpellAnnounce(65279, 3)
 local warnOverCharge		= mod:NewSpellAnnounce(64218, 2)
 
-local specWarnNova			= mod:NewSpecialWarningRun(65279)
+local specWarnNova			= mod:NewSpecialWarningRun(65279, nil, nil, nil, 4)
 
 local timerNova				= mod:NewCastTimer(65279)
 local timerNovaCD			= mod:NewCDTimer(45, 65279)--Varies, 45-60seconds in between nova's
@@ -28,8 +28,6 @@ local timerOvercharge		= mod:NewNextTimer(45, 64218)
 local timerMobOvercharge	= mod:NewTimer(20, "timerMobOvercharge", 64217)
 
 local timerEmalonEnrage		= mod:NewTimer(360, "EmalonEnrage", 26662)
-
-local soundNova				= mod:NewSound(65279, mod:IsMelee())
 
 mod:AddBoolOption("RangeFrame")
 mod:AddSetIconOption("SetIconOnOvercharge", 64218, false, true)
@@ -57,7 +55,6 @@ function mod:SPELL_CAST_START(args)
 		timerNovaCD:Start()
 		warnNova:Show()
 		specWarnNova:Show()
-		soundNova:Play()
 	end
 end
 

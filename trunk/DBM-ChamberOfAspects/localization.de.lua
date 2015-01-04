@@ -157,7 +157,6 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	TwilightCutterCast		= "Zeige Warnung, wenn $spell:74769 gewirkt wird",
 	AnnounceAlternatePhase	= "Zeige auch Warnungen/Timer für Phasen, in denen du dich nicht befindest",
-	SoundOnConsumption		= "Spiele Sound, wenn du von $spell:74562 oder $spell:74792 betroffen bist",
 	SetIconOnConsumption	= "Setze Zeichen auf Ziele von $spell:74562 und $spell:74792",
 	WhisperOnConsumption	= "Ziele von $spell:74562 und $spell:74792 anflüstern (benötigt Schlachtzugleitung)"
 })

@@ -62,9 +62,6 @@ local timerChainsofShadow		= mod:NewTargetTimer(10, 70645)
 local timerConflag				= mod:NewTargetTimer(10, 71785)
 local timerBanish				= mod:NewTargetTimer(6, 71298)
 
---Lower Spire
-local soundDarkReckoning		= mod:NewSound(69483)
-
 mod:RemoveOption("HealthFrame")
 mod:RemoveOption("SpeedKillTimer")
 --Lower Spire
@@ -78,7 +75,6 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerDarkReckoning:Start(args.destName)
 		if args:IsPlayer() then
 			specWarnDarkReckoning:Show()
-			soundDarkReckoning:Play()
 		end
 		if self.Options.SetIconOnDarkReckoning then
 			self:SetIcon(args.destName, 8, 8)

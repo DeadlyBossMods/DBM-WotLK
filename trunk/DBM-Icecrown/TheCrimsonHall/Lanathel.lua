@@ -48,8 +48,6 @@ local timerEssenceoftheBloodQueen	= mod:NewBuffFadesTimer(60, 70867)
 
 local berserkTimer					= mod:NewBerserkTimer(320)
 
-local soundSwarmingShadows			= mod:NewSound(71266)
-
 mod:AddBoolOption("BloodMirrorIcon", false)
 mod:AddBoolOption("SwarmingShadowsIcon", true)
 mod:AddBoolOption("SetIconOnDarkFallen", true)
@@ -192,7 +190,6 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 		timerNextSwarmingShadows:Start()
 		if target == UnitName("player") then
 			specWarnSwarmingShadows:Show()
-			soundSwarmingShadows:Play()
 		end
 		if self.Options.SwarmingShadowsIcon then
 			self:SetIcon(target, 8, 6)

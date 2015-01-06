@@ -31,7 +31,7 @@ local lootannounce				= mod:NewAnnounce("MagneticCore", 1, 64444)
 local warnBombSpawn				= mod:NewAnnounce("WarnBombSpawn", 3, 63811)
 local warnFrostBomb				= mod:NewSpellAnnounce(64623, 3)
 
-local warnShockBlast			= mod:NewSpecialWarning("WarningShockBlast", nil, mod:IsMelee())
+local warnShockBlast			= mod:NewSpecialWarning("WarningShockBlast", mod:IsMelee())
 mod:AddBoolOption("ShockBlastWarningInP1", mod:IsMelee(), "announce")
 mod:AddBoolOption("ShockBlastWarningInP4", mod:IsMelee(), "announce")
 local warnDarkGlare				= mod:NewSpecialWarningSpell(63293, nil, nil, nil, 3)

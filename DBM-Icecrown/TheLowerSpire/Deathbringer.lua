@@ -43,7 +43,7 @@ local timerCallBloodBeast	= mod:NewNextTimer(40, 72173)
 
 local enrageTimer			= mod:NewBerserkTimer(480)
 
-mod:AddBoolOption("RangeFrame", "Range")
+mod:AddBoolOption("RangeFrame", "Ranged")
 mod:AddBoolOption("RunePowerFrame", true, "misc")
 mod:AddBoolOption("BeastIcons", true)
 mod:AddBoolOption("BoilingBloodIcons", false)

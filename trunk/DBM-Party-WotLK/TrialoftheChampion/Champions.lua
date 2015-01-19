@@ -18,16 +18,12 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED"
 )
 
-local isDispeller = select(2, UnitClass("player")) == "MAGE"
-				 or select(2, UnitClass("player")) == "PRIEST"
-				 or select(2, UnitClass("player")) == "SHAMAN"
-
 local warnHealingWave		= mod:NewSpellAnnounce(67528, 2)
 local warnHaste				= mod:NewTargetAnnounce(66045, 2)
 local warnPolymorph			= mod:NewTargetAnnounce(66043, 1)
 local warnHexOfMending		= mod:NewTargetAnnounce(67534, 1)
 local specWarnPoison		= mod:NewSpecialWarningMove(67594)
-local specWarnHaste			= mod:NewSpecialWarningDispel(66045, isDispeller)
+local specWarnHaste			= mod:NewSpecialWarningDispel(66045, "MagicDispeller")
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 67528 then								-- Healing Wave

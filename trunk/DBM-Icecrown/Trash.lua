@@ -23,10 +23,10 @@ local warnDisruptingShout		= mod:NewSpellAnnounce(71022, 2)
 local warnDarkReckoning			= mod:NewTargetAnnounce(69483, 3)
 --Plagueworks
 local warnZombies				= mod:NewSpellAnnounce(71159, 2)
-local warnMortalWound			= mod:NewStackAnnounce(71127, 2, nil, mod:IsTank() or mod:IsHealer())
+local warnMortalWound			= mod:NewStackAnnounce(71127, 2, nil, "Tank|Healer")
 local warnDecimateSoon			= mod:NewSoonAnnounce(71123, 3)
 --Crimson Hall
-local warnBloodMirror			= mod:NewTargetAnnounce(70451, 3, nil, mod:IsHealer())
+local warnBloodMirror			= mod:NewTargetAnnounce(70451, 3, nil, "Healer")
 local warnBloodSap				= mod:NewTargetAnnounce(70432, 4)
 local warnChainsofShadow		= mod:NewTargetAnnounce(70645, 3)
 --Frostwing Hall
@@ -39,7 +39,7 @@ local specWarnDarkReckoning		= mod:NewSpecialWarningMoveAway(69483)
 local specWarnTrapL				= mod:NewSpecialWarning("SpecWarnTrapL")
 --Plagueworks
 local specWarnDecimate			= mod:NewSpecialWarningSpell(71123)
-local specWarnMortalWound		= mod:NewSpecialWarningStack(71127, mod:IsTank() or mod:IsHealer(), 6)
+local specWarnMortalWound		= mod:NewSpecialWarningStack(71127, "Tank|Healer", 6)
 local specWarnTrapP				= mod:NewSpecialWarning("SpecWarnTrapP")
 local specWarnBlightBomb		= mod:NewSpecialWarningSpell(71088)
 --Frostwing Hall
@@ -55,7 +55,7 @@ local timerMortalWound			= mod:NewTargetTimer(15, 71127)
 local timerDecimate				= mod:NewNextTimer(33, 71123)
 local timerBlightBomb			= mod:NewCastTimer(5, 71088)
 --Crimson Hall
-local timerBloodMirror			= mod:NewTargetTimer(30, 70451, nil, mod:IsHealer())
+local timerBloodMirror			= mod:NewTargetTimer(30, 70451, nil, "Healer")
 local timerBloodSap				= mod:NewTargetTimer(8, 70432)
 local timerChainsofShadow		= mod:NewTargetTimer(10, 70645)
 --Frostwing Hall

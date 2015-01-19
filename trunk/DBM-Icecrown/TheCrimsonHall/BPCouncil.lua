@@ -35,7 +35,7 @@ local warnEmpoweredFlames		= mod:NewTargetAnnounce(72040, 4)
 local warnGliteringSparks		= mod:NewTargetAnnounce(71807, 2, nil, false)
 local warnShockVortex			= mod:NewTargetAnnounce(72037, 3)				-- 1,5sec cast
 local warnEmpoweredShockVortex	= mod:NewCastAnnounce(72039, 4)					-- 4,5sec cast
-local warnKineticBomb			= mod:NewSpellAnnounce(72053, 3, nil, mod:IsRanged())
+local warnKineticBomb			= mod:NewSpellAnnounce(72053, 3, nil, "Range")
 local warnDarkNucleus			= mod:NewSpellAnnounce(71943, 1, nil, false)	-- instant cast
 
 local specWarnVortex			= mod:NewSpecialWarningYou(72037)
@@ -50,7 +50,7 @@ local timerDarkNucleusCD		= mod:NewCDTimer(10, 71943, nil, false)	-- usually eve
 local timerConjureFlamesCD		= mod:NewCDTimer(20, 71718)				-- every 20-30 seconds but never more often than every 20sec
 local timerGlitteringSparksCD	= mod:NewCDTimer(20, 71807)				-- This is pretty nasty on heroic
 local timerShockVortex			= mod:NewCDTimer(16.5, 72037)			-- Seen a range from 16,8 - 21,6
-local timerKineticBombCD		= mod:NewCDTimer(18, 72053, nil, mod:IsRanged())				-- Might need tweaking
+local timerKineticBombCD		= mod:NewCDTimer(18, 72053, nil, "Range")				-- Might need tweaking
 local timerShadowPrison			= mod:NewBuffFadesTimer(10, 72999)		-- Hard mode debuff
 
 local berserkTimer				= mod:NewBerserkTimer(600)

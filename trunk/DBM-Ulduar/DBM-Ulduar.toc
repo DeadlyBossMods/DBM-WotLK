@@ -8,13 +8,15 @@
 ## Author: Nitram
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
-## SavedVariablesPerCharacter: DBMUlduar_SavedVars, DBMUlduar_SavedStats
+## SavedVariables: DBMUlduar_AllSavedVars
+## SavedVariablesPerCharacter: DBMUlduar_SavedStats
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
 ## X-DBM-Mod-No-Heroic: 1
 ## X-DBM-Mod-MapID: 603
 ## X-DBM-Mod-Sort: 404
+## X-DBM-Mod-MinCoreRevision: 12473
 localization.en.lua
 localization.de.lua
 localization.fr.lua

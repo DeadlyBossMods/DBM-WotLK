@@ -24,10 +24,6 @@ mod:SetBossHealthInfo(
 	32857, L.StormcallerBrundir
 )
 
-local isDispeller = select(2, UnitClass("player")) == "MAGE"
-	    		 or select(2, UnitClass("player")) == "PRIEST"
-	    		 or select(2, UnitClass("player")) == "SHAMAN"
-
 local warnSupercharge			= mod:NewSpellAnnounce(61920, 3)
 
 -- Stormcaller Brundir
@@ -59,7 +55,7 @@ local warnRuneofDeath			= mod:NewSpellAnnounce(63490, 2)
 local warnShieldofRunes			= mod:NewSpellAnnounce(63489, 2)
 local warnRuneofSummoning		= mod:NewSpellAnnounce(62273, 3)
 local specwarnRuneofDeath		= mod:NewSpecialWarningMove(63490)
-local specWarnRuneofShields		= mod:NewSpecialWarningDispel(63967, isDispeller)
+local specWarnRuneofShields		= mod:NewSpecialWarningDispel(63967, "MagicDispeller")
 local timerRuneofDeath			= mod:NewCDTimer(30, 63490)
 local timerRuneofPower			= mod:NewCDTimer(30, 61974)
 

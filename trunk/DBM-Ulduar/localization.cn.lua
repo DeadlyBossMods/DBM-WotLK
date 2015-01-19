@@ -240,14 +240,12 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecWarnBlast			= "警戒冲击 - 立刻打断",
 	WarnCatDied 			= "野性防御者倒下(剩余%d只)",
 	WarnCatDiedOne 			= "野性防御者倒下(剩下最后一只)"
 }
 
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
-	SpecWarnBlast			= "为警戒冲击显示特别警报(打断用)",
 	WarnCatDied			= "当野性防御者死亡时显示警报",
 	WarnCatDiedOne			= "当野性防御者剩下最后一只时显示警报",
 	timerDefender       		= "当野性防御者准备复活时显示计时条"

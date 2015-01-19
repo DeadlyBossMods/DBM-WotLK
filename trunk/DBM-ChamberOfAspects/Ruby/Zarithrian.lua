@@ -16,13 +16,13 @@ mod:RegisterEventsInCombat(
 )
 
 local warningAdds				= mod:NewAnnounce("WarnAdds", 3, 74398)
-local warnCleaveArmor			= mod:NewStackAnnounce(74367, 2, nil, mod:IsTank() or mod:IsHealer())
+local warnCleaveArmor			= mod:NewStackAnnounce(74367, 2, nil, "Tank|Healer")
 local warningFear				= mod:NewSpellAnnounce(74384, 3)
 
 local specWarnCleaveArmor		= mod:NewSpecialWarningStack(74367, nil, 2)--ability lasts 30 seconds, has a 15 second cd, so tanks should trade at 2 stacks.
 
 local timerAddsCD				= mod:NewTimer(45.5, "TimerAdds", 74398)
-local timerCleaveArmor			= mod:NewTargetTimer(30, 74367, nil, mod:IsTank() or mod:IsHealer())
+local timerCleaveArmor			= mod:NewTargetTimer(30, 74367, nil, "Tank|Healer")
 local timerFearCD				= mod:NewCDTimer(33, 74384)--anywhere from 33-40 seconds in between fears.
 
 function mod:OnCombatStart(delay)

@@ -182,7 +182,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecWarnBlast 		= "수호 야수 폭발 - 차단!",
 	WarnCatDied 		= "수호 야수 죽음 (%d 번 남음)",
 	WarnCatDiedOne 		= "수호 야수 죽음 (1 번 남음)"
 }
@@ -192,7 +191,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast 		= "수호 야수 폭발 특수 경고 보기",
 	WarnCatDied 		= "수호 야수의 남은부활 횟수 알림 보기",
 	WarnCatDiedOne 		= "수호 야수 부활 횟수가 1번 남았을 때 알림 보기",
 	timerDefender       = "다음 수호 야수 활성 바 보기"

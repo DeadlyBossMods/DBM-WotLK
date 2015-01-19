@@ -18,10 +18,10 @@ mod:RegisterEventsInCombat(
 local warnFreezingGround	= mod:NewSpellAnnounce(72090, 1)
 local warnWhiteout			= mod:NewSpellAnnounce(72034, 2)
 local warnOrb				= mod:NewSpellAnnounce(72091, 3)
-local WarnFrostbite			= mod:NewAnnounce("Frostbite", 2, 72004, mod:IsHealer() or mod:IsTank())
+local WarnFrostbite			= mod:NewAnnounce("Frostbite", 2, 72004, "Tank|Healer")
 
-local timerNextFrostbite	= mod:NewNextTimer(5, 72004, nil, mod:IsTank())
-local timerFrostbite		= mod:NewTargetTimer(20, 72004, nil, mod:IsHealer() or mod:IsTank())
+local timerNextFrostbite	= mod:NewNextTimer(5, 72004, nil, "Tank")
+local timerFrostbite		= mod:NewTargetTimer(20, 72004, nil, "Tank|Healer")
 local timerWhiteout			= mod:NewNextTimer(38, 72034)
 local timerNextOrb			= mod:NewNextTimer(32, 72091)
 

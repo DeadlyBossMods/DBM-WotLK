@@ -23,7 +23,7 @@ local warnLeechLife				= mod:NewTargetAnnounce(63276, 3)
 
 local specWarnShadowCrash		= mod:NewSpecialWarning("SpecialWarningShadowCrash")
 local specWarnShadowCrashNear	= mod:NewSpecialWarning("SpecialWarningShadowCrashNear")
-local specWarnSurgeDarkness		= mod:NewSpecialWarningSpell(62662, mod:IsTank() or mod:IsHealer())
+local specWarnSurgeDarkness		= mod:NewSpecialWarningSpell(62662, "Tank|Healer")
 local specWarnLifeLeechYou		= mod:NewSpecialWarningYou(63276)
 local specWarnLifeLeechNear 	= mod:NewSpecialWarning("SpecialWarningLLNear", false)
 

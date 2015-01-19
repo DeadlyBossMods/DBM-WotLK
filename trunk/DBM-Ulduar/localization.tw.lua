@@ -191,13 +191,11 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecWarnBlast	= "哨兵衝擊 - 現在斷法",
 	WarnCatDied 	= "野性防衛者倒下 (剩餘%d隻)",
 	WarnCatDiedOne 	= "野性防衛者倒下 (剩下最後一隻)"
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast	= "為哨兵衝擊顯示特別警告 (斷法用)",
 	WarnCatDied		= "當野性防衛者死亡時顯示警告",
 	WarnCatDiedOne	= "當野性防衛者剩下最後一隻時顯示警告",
 	timerDefender   = "當野性防衛者準備復活時顯示計時器"

@@ -32,8 +32,8 @@ local warnBombSpawn				= mod:NewAnnounce("WarnBombSpawn", 3, 63811)
 local warnFrostBomb				= mod:NewSpellAnnounce(64623, 3)
 
 local warnShockBlast			= mod:NewSpecialWarning("WarningShockBlast", nil, false, nil, 4)
-mod:AddBoolOption("ShockBlastWarningInP1", mod:IsMelee(), "announce")
-mod:AddBoolOption("ShockBlastWarningInP4", mod:IsMelee(), "announce")
+mod:AddBoolOption("ShockBlastWarningInP1", "Melee", "announce")
+mod:AddBoolOption("ShockBlastWarningInP4", "Melee", "announce")
 local warnDarkGlare				= mod:NewSpecialWarningSpell(63293, nil, nil, nil, 3)
 
 local enrage 					= mod:NewBerserkTimer(900)

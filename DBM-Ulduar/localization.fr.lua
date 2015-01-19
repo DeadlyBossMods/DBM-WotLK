@@ -266,7 +266,6 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecWarnBlast 		= "Déflagration du factionnaire - Interrompu!",
 	SpecWarnVoid		= "Zone de Vide - BOUGEZ!",
 	WarnCatDied 		= "Défenseur farouche mort (%d vies restantes)",
 	WarnCatDiedOne 		= "Défenseur farouche mort (1 vie en moins)",
@@ -274,7 +273,6 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast 		= "Activer l'avertissement spécial pour les Déflagration du factionnaire",
 	SpecWarnVoid		= "Montre une alerte spéciale quand vous êtes dans une Zone de Vide",
 	WarnFearSoon 		= "Activer l'avertissement pour le Hurlement terrifiant imminent",
 	WarnCatDied 		= "Activer l'avertissement quand un défenseur farouche meurt",

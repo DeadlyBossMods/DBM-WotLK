@@ -12,13 +12,15 @@
 ## Author: Tandanu/Nitram
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
-## SavedVariablesPerCharacter: DBMOnyxia_SavedVars, DBMOnyxia_SavedStats
+## SavedVariables: DBMOnyxia_AllSavedVars
+## SavedVariablesPerCharacter: DBMOnyxia_SavedStats
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
 ## X-DBM-Mod-No-Heroic: 1
 ## X-DBM-Mod-Sort: 403
 ## X-DBM-Mod-MapID: 249
+## X-DBM-Mod-MinCoreRevision: 12473
 localization.en.lua
 localization.de.lua
 localization.fr.lua

@@ -29,7 +29,7 @@ local warnBreath				= mod:NewSpellAnnounce(56505, 4)
 local warnSurge					= mod:NewTargetAnnounce(60936, 3)
 local warnStaticField			= mod:NewTargetAnnounce(57430, 3)
 
-local specWarnBreath			= mod:NewSpecialWarningSpell(56505, nil, nil, nil, true)
+local specWarnBreath			= mod:NewSpecialWarningSpell(56505, nil, nil, nil, 2)
 local specWarnSurge				= mod:NewSpecialWarningYou(60936)
 local specWarnStaticField		= mod:NewSpecialWarningYou(57430)
 local specWarnStaticFieldNear	= mod:NewSpecialWarningClose(57430)

@@ -16,7 +16,7 @@ local warnImpale			= mod:NewSpellAnnounce(62928)
 
 local timerImpale			= mod:NewTargetTimer(5, 62928)
 
-local specWarnFistofStone	= mod:NewSpecialWarningSpell(62344, mod:IsTank())
+local specWarnFistofStone	= mod:NewSpecialWarningSpell(62344, "Tank")
 local specWarnGroundTremor	= mod:NewSpecialWarningCast(62932, true)
 
 --

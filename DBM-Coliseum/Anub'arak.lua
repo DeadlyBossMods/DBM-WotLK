@@ -21,7 +21,7 @@ local warnAdds				= mod:NewAnnounce("warnAdds", 3, 45419)
 local preWarnShadowStrike	= mod:NewSoonAnnounce(66134, 3)
 local warnShadowStrike		= mod:NewSpellAnnounce(66134, 4)
 local warnPursue			= mod:NewTargetAnnounce(67574, 4)
-local warnFreezingSlash		= mod:NewTargetAnnounce(66012, 2, nil, mod:IsHealer() or mod:IsTank())
+local warnFreezingSlash		= mod:NewTargetAnnounce(66012, 2, nil, "Tank|Healer")
 local warnHoP				= mod:NewTargetAnnounce(1022, 2, nil, false)--Heroic strat revolves around kiting pursue and using Hand of Protection.
 local warnEmerge			= mod:NewAnnounce("WarnEmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
 local warnEmergeSoon		= mod:NewAnnounce("WarnEmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
@@ -30,14 +30,14 @@ local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 2, "Interface\\Add
 local warnPhase3			= mod:NewPhaseAnnounce(3)
 
 local specWarnPursue		= mod:NewSpecialWarningRun("OptionVersion2", 67574, nil, nil, nil, 4)
-local specWarnSubmergeSoon	= mod:NewSpecialWarningSoon("specWarnSubmergeSoon", mod:IsTank())
-local specWarnShadowStrike	= mod:NewSpecialWarningInterrupt(66134, mod:IsTank())
+local specWarnSubmergeSoon	= mod:NewSpecialWarningSoon("specWarnSubmergeSoon", "Tank")
+local specWarnShadowStrike	= mod:NewSpecialWarningInterrupt(66134, "Tank")
 local specWarnPCold			= mod:NewSpecialWarningYou(66013, false)
 
 local timerAdds				= mod:NewTimer(45, "timerAdds", 45419)
 local timerSubmerge			= mod:NewTimer(75, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 local timerEmerge			= mod:NewTimer(65, "TimerEmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
-local timerFreezingSlash	= mod:NewCDTimer(20, 66012, nil, mod:IsHealer() or mod:IsTank())
+local timerFreezingSlash	= mod:NewCDTimer(20, 66012, nil, "Tank|Healer")
 local timerPCold			= mod:NewBuffActiveTimer(15, 66013)
 local timerShadowStrike		= mod:NewNextTimer(30.5, 66134)
 local timerHoP				= mod:NewBuffActiveTimer(10, 1022, nil, false)--So we will track bops to make this easier.

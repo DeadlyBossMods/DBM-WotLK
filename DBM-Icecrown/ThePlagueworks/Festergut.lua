@@ -16,7 +16,7 @@ mod:RegisterEventsInCombat(
 )
 
 local warnInhaledBlight		= mod:NewStackAnnounce(69166, 3)
-local warnGastricBloat		= mod:NewStackAnnounce(72219, 2, nil, mod:IsTank() or mod:IsHealer())
+local warnGastricBloat		= mod:NewStackAnnounce(72219, 2, nil, "Tank|Healer")
 local warnGasSpore			= mod:NewTargetAnnounce(69279, 4)
 local warnVileGas			= mod:NewTargetAnnounce(69240, 3)
 local warnGoo				= mod:NewSpellAnnounce(72297, 4)
@@ -25,21 +25,21 @@ local specWarnPungentBlight	= mod:NewSpecialWarningSpell(69195)
 local specWarnGasSpore		= mod:NewSpecialWarningYou(69279)
 local specWarnVileGas		= mod:NewSpecialWarningYou(69240)
 local specWarnGastricBloat	= mod:NewSpecialWarningStack(72219, nil, 9)
-local specWarnInhaled3		= mod:NewSpecialWarningStack(69166, mod:IsTank(), 3)
-local specWarnGoo			= mod:NewSpecialWarningSpell(72297, mod:IsMelee())
+local specWarnInhaled3		= mod:NewSpecialWarningStack(69166, "Tank", 3)
+local specWarnGoo			= mod:NewSpecialWarningSpell(72297, "Melee")
 
 local timerGasSpore			= mod:NewBuffFadesTimer(12, 69279)
-local timerVileGas			= mod:NewBuffFadesTimer(6, 69240, nil, mod:IsRanged())
+local timerVileGas			= mod:NewBuffFadesTimer(6, 69240, nil, "Range")
 local timerGasSporeCD		= mod:NewNextTimer(40, 69279)		-- Every 40 seconds except after 3rd and 6th cast, then it's 50sec CD
 local timerPungentBlight	= mod:NewNextTimer(33, 69195)		-- 33 seconds after 3rd stack of inhaled
 local timerInhaledBlight	= mod:NewNextTimer(34, 69166)		-- 34 seconds'ish
-local timerGastricBloat		= mod:NewTargetTimer(100, 72219, nil, mod:IsTank() or mod:IsHealer())	-- 100 Seconds until expired
-local timerGastricBloatCD	= mod:NewCDTimer(11, 72219, nil, mod:IsTank() or mod:IsHealer()) 		-- 10 to 14 seconds
+local timerGastricBloat		= mod:NewTargetTimer(100, 72219, nil, "Tank|Healer")	-- 100 Seconds until expired
+local timerGastricBloatCD	= mod:NewCDTimer(11, 72219, nil, "Tank|Healer") 		-- 10 to 14 seconds
 local timerGooCD			= mod:NewCDTimer(10, 72297)
 
 local berserkTimer			= mod:NewBerserkTimer(300)
 
-mod:AddBoolOption("RangeFrame", mod:IsRanged())
+mod:AddBoolOption("RangeFrame", "Range")
 mod:AddBoolOption("SetIconOnGasSpore", true)
 mod:AddBoolOption("AnnounceSporeIcons", false)
 mod:AddBoolOption("AchievementCheck", false, "announce")

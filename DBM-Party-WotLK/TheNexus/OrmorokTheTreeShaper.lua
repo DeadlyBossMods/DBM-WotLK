@@ -15,15 +15,12 @@ mod:RegisterEventsInCombat(
 	"SPELL_SUMMON"
 )
 
-local isCaster = select(2, UnitClass("player")) == "MAGE"
-              or select(2, UnitClass("player")) == "WARLOCK"
-
 local warningSpikes			= mod:NewSpellAnnounce(47958, 2)
 local warningFrenzy			= mod:NewSpellAnnounce(48017, 3)
 local warningReflection		= mod:NewSpellAnnounce(47981, 4)
 local warningAdd			= mod:NewSpellAnnounce(61564, 1)
 
-local specWarnReflection	= mod:NewSpecialWarningSpell(47981, isCaster)
+local specWarnReflection	= mod:NewSpecialWarningSpell(47981, "SpellCaster")
 
 local timerReflection		= mod:NewBuffActiveTimer(15, 47981)
 local timerReflectionCD		= mod:NewCDTimer(30, 47981)

@@ -210,13 +210,11 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecWarnBlast		= "Explosión de centinela - Interrumpe!",
 	WarnCatDied 		= "Defensor feral muerto (Le quedan %d vidas)",
 	WarnCatDiedOne 		= "Defensor feral muerto (Le queda 1 vida)"
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast		= "Mostrar aviso especial para Explosión de centinela",
 	WarnCatDied			= "Mostrar aviso cuando Defensor Feral muere",
 	WarnCatDiedOne		= "Mostrar aviso cuando Defensor Feral muere",
 	timerDefender		= "Mostrar tiempo para activación de Defensor feral"

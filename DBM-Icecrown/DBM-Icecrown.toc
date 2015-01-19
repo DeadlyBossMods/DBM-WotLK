@@ -13,7 +13,8 @@
 ## Author: MysticalOS
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
-## SavedVariablesPerCharacter: DBMIcecrown_SavedVars, DBMIcecrown_SavedStats
+## SavedVariables: DBMIcecrown_AllSavedVars
+## SavedVariablesPerCharacter: DBMIcecrown_SavedStats
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
@@ -29,6 +30,7 @@
 ## X-DBM-Mod-SubCategories-zhCN: 尖塔下层, 瘟疫工厂, 血色大厅, 霜翼之厅, 冰封王座, Trash
 ## X-DBM-Mod-MapID: 631
 ## X-DBM-Mod-Sort: 400
+## X-DBM-Mod-MinCoreRevision: 12473
 localization.en.lua
 localization.de.lua
 localization.kr.lua

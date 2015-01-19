@@ -14,10 +14,6 @@ mod:RegisterEventsInCombat(
    "SPELL_AURA_REMOVED"
 )
 
-local isDispeller = select(2, UnitClass("player")) == "MAGE"
-             or select(2, UnitClass("player")) == "PRIEST"
-             or select(2, UnitClass("player")) == "SHAMAN"
-
 local warnReflectiveShield	= mod:NewTargetAnnounce(66515, 2)
 local warnRenew				= mod:NewTargetAnnounce(66537, 2)
 local warnOldWounds			= mod:NewTargetAnnounce(66620, 3)
@@ -26,7 +22,7 @@ local warnHolyFire			= mod:NewTargetAnnounce(66538, 3)
 local timerHolyFire			= mod:NewTargetTimer(8, 66538)
 local warnShadows			= mod:NewTargetAnnounce(66619, 2)
 local timerShadows          = mod:NewTargetTimer(5, 66619)
-local specwarnRenew			= mod:NewSpecialWarningDispel(66537, isDispeller)
+local specwarnRenew			= mod:NewSpecialWarningDispel(66537, "MagicDispeller")
 
 local shielded = false
 

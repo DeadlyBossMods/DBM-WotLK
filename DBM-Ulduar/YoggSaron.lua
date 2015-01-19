@@ -39,7 +39,7 @@ local specWarnMadnessOutNow			= mod:NewSpecialWarning("SpecWarnMadnessOutNow")
 local specWarnBrainPortalSoon		= mod:NewSpecialWarning("specWarnBrainPortalSoon", false)
 local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189)
 local specWarnFervor				= mod:NewSpecialWarningYou(63138)
-local specWarnFervorCast			= mod:NewSpecialWarning("SpecWarnFervorCast", mod:IsMelee())
+local specWarnFervorCast			= mod:NewSpecialWarning("SpecWarnFervorCast", "Melee")
 local specWarnMalady				= mod:NewSpecialWarningYou(63830, true)
 local specWarnMaladyNear			= mod:NewSpecialWarningClose(63830, true)
 
@@ -47,8 +47,8 @@ mod:AddBoolOption("WarningSqueeze", true, "announce")
 
 local enrageTimer					= mod:NewBerserkTimer(900)
 local timerFervor					= mod:NewTargetTimer("OptionVersion2", 15, 63138, nil, false)
-local timerMaladyCD					= mod:NewCDTimer(19, 63830)--VERIFY ME
-local timerBrainLinkCD				= mod:NewCDTimer(32, 63802)--VERIFY ME
+local timerMaladyCD					= mod:NewCDTimer(19, 63830)
+local timerBrainLinkCD				= mod:NewCDTimer(32, 63802)
 local brainportal					= mod:NewTimer(20, "NextPortal", 57687)
 local timerLunaricGaze				= mod:NewCastTimer(4, 64163)
 local timerNextLunaricGaze			= mod:NewCDTimer(8.5, 64163)

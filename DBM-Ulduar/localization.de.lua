@@ -191,13 +191,11 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecWarnBlast	= "Schildwachenschlag - Jetzt unterbrechen",
 	WarnCatDied		= "Wilder Verteidiger tot (%d Leben übrig)",
 	WarnCatDiedOne	= "Wilder Verteidiger tot (1 Leben übrig)"
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast	= "Spezialwarnung für Schildwachenschlag (zum Unterbrechen)",
 	WarnCatDied		= "Zeige Warnung, wenn der Wilde Verteidiger stirbt",
 	WarnCatDiedOne	= "Zeige Warnung, wenn der Wilde Verteidiger nur noch 1 Leben übrig hat",
 	timerDefender	= "Zeige Zeit bis zur Aktivierung des Wilden Verteidigers"

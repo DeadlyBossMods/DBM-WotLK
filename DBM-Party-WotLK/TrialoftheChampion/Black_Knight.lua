@@ -25,7 +25,7 @@ local warnGhoulExplode		= mod:NewTargetAnnounce(67751, 4)
 local warnMarked			= mod:NewTargetAnnounce(67823, 3)
 
 local specWarnDesecration	= mod:NewSpecialWarningMove(67781)
-local specWarnExplode		= mod:NewSpecialWarningRun("OptionVersion2", 67751, mod:IsMelee(), nil, nil, 4)
+local specWarnExplode		= mod:NewSpecialWarningRun("OptionVersion2", 67751, "Melee", nil, nil, 4)
 
 local timerCombatStart		= mod:NewCombatTimer(55.5)
 local timerMarked			= mod:NewTargetTimer(10, 67823)

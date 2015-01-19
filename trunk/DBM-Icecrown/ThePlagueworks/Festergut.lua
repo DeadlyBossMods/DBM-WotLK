@@ -29,7 +29,7 @@ local specWarnInhaled3		= mod:NewSpecialWarningStack(69166, "Tank", 3)
 local specWarnGoo			= mod:NewSpecialWarningSpell(72297, "Melee")
 
 local timerGasSpore			= mod:NewBuffFadesTimer(12, 69279)
-local timerVileGas			= mod:NewBuffFadesTimer(6, 69240, nil, "Range")
+local timerVileGas			= mod:NewBuffFadesTimer(6, 69240, nil, "Ranged")
 local timerGasSporeCD		= mod:NewNextTimer(40, 69279)		-- Every 40 seconds except after 3rd and 6th cast, then it's 50sec CD
 local timerPungentBlight	= mod:NewNextTimer(33, 69195)		-- 33 seconds after 3rd stack of inhaled
 local timerInhaledBlight	= mod:NewNextTimer(34, 69166)		-- 34 seconds'ish
@@ -39,7 +39,7 @@ local timerGooCD			= mod:NewCDTimer(10, 72297)
 
 local berserkTimer			= mod:NewBerserkTimer(300)
 
-mod:AddBoolOption("RangeFrame", "Range")
+mod:AddBoolOption("RangeFrame", "Ranged")
 mod:AddBoolOption("SetIconOnGasSpore", true)
 mod:AddBoolOption("AnnounceSporeIcons", false)
 mod:AddBoolOption("AchievementCheck", false, "announce")

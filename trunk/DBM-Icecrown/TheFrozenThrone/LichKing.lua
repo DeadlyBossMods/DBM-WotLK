@@ -39,7 +39,6 @@ local warnDrudgeGhouls		= mod:NewSpellAnnounce(70358, 2) --Phase 1 Add
 local warnShamblingEnrage	= mod:NewTargetAnnounce(72143, 3, nil, "Tank|Healer|RemoveEnrage") --Phase 1 Add Ability
 local warnNecroticPlague	= mod:NewTargetAnnounce(70337, 3) --Phase 1+ Ability
 local warnNecroticPlagueJump= mod:NewAnnounce("WarnNecroticPlagueJump", 4, 70337) --Phase 1+ Ability
-local warnInfest			= mod:NewSpellAnnounce(70541, 3, nil, "Healer") --Phase 1 & 2 Ability
 local warnPhase2			= mod:NewPhaseAnnounce(2)
 local valkyrWarning			= mod:NewAnnounce("ValkyrWarning", 3, 71844)--Phase 2 Ability
 local warnDefileSoon		= mod:NewSoonAnnounce(72762, 3)	--Phase 2+ Ability
@@ -207,7 +206,6 @@ function mod:SPELL_CAST_START(args)
 		warnSummonVileSpirit:Show()
 		timerVileSpirit:Start()
 	elseif args.spellId == 70541 then -- Infest
-		warnInfest:Show()
 		specWarnInfest:Show()
 		timerInfestCD:Start()
 		countdownInfest:Start()

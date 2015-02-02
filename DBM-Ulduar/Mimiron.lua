@@ -49,9 +49,9 @@ local timerNextDarkGlare		= mod:NewNextTimer(41, 63274)
 local timerNextShockblast		= mod:NewNextTimer(34, 63631)
 local timerPlasmaBlastCD		= mod:NewCDTimer(30, 64529)
 local timerShell				= mod:NewBuffActiveTimer(6, 63666)
-local timerFlameSuppressant		= mod:NewCastTimer(60, 64570)
-local timerNextFlameSuppressant	= mod:NewNextTimer(10, 65192)
-local timerNextFrostBomb        = mod:NewNextTimer(30, 64623)
+local timerNextFlameSuppressant	= mod:NewNextTimer(60, 64570)
+local timerFlameSuppressant		= mod:NewBuffActiveTimer(10, 65192)
+local timerNextFrostBomb		= mod:NewNextTimer(30, 64623)
 local timerBombExplosion		= mod:NewCastTimer(15, 65333)
 
 mod:AddBoolOption("HealthFramePhase4", true)
@@ -201,6 +201,7 @@ function mod:NextPhase()
 		timerNextShockblast:Stop()
 		timerProximityMines:Stop()
 		timerFlameSuppressant:Stop()
+		timerNextFlameSuppressant:Stop()
 		timerPlasmaBlastCD:Stop()
 		timerP1toP2:Start()
 		if DBM.BossHealth:IsShown() then
@@ -211,9 +212,8 @@ function mod:NextPhase()
 			DBM.RangeCheck:Hide()
 		end
 		if hardmode then
-            timerNextFrostBomb:Start(114)
-        end
-
+			timerNextFrostBomb:Start(51)
+		end
 	elseif phase == 3 then
 		if self.Options.AutoChangeLootToFFA and DBM:GetRaidRank() == 2 then
 			SetLootMethod("freeforall")
@@ -289,7 +289,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 
 	elseif msg == L.YellHardPull or msg:find(L.YellHardPull) then
 		timerHardmode:Start()
-		timerFlameSuppressant:Start()
+		timerNextFlameSuppressant:Start()
 		enrage:Stop()
 		hardmode = true
 	end

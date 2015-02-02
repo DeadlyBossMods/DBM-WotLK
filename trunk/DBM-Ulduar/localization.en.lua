@@ -130,7 +130,6 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningPhasePunch		= "Phase Punch on >%s< - Stack %d",
 	WarnPhase2Soon			= "Phase 2 soon",
 	warnStarLow				= "Collapsing Star is low"
 }
@@ -148,8 +147,7 @@ L:SetMiscLocalization{
 	YellKill				= "I have seen worlds bathed in the Makers' flames, their denizens fading without as much as a whimper. Entire planetary systems born and razed in the time that it takes your mortal hearts to beat once. Yet all throughout, my own heart devoid of emotion... of empathy. I. Have. Felt. Nothing. A million-million lives wasted. Had they all held within them your tenacity? Had they all loved life as you do?",
 	Emote_CollapsingStar	= "%s begins to Summon Collapsing Stars!",
 	Phase2					= "Behold the tools of creation",
-	FirstPull				= "See your world through my eyes: A universe so vast as to be immeasurable - incomprehensible even to your greatest minds.",
-	PullCheck				= "Time until Algalon transmits distress signal= (%d+) min."
+	FirstPull				= "See your world through my eyes: A universe so vast as to be immeasurable - incomprehensible even to your greatest minds."
 }
 
 ----------------
@@ -389,13 +387,6 @@ L:SetGeneralLocalization{
 	name = "Yogg-Saron"
 }
 
-L:SetMiscLocalization{
-	YellPull 			= "The time to strike at the head of the beast will soon be upon us! Focus your anger and hatred on his minions!",
-	YellPhase2	 		= "I am the lucid dream.",
-	Sara 				= "Sara",
-	WarningYellSqueeze	= "Squeeze on me! Help me!"
-}
-
 L:SetWarningLocalization{
 	WarningGuardianSpawned 			= "Guardian %d spawned",
 	WarningCrusherTentacleSpawned	= "Crusher Tentacle spawned",
@@ -430,4 +421,11 @@ L:SetOptionLocalization{
 	ShowSaraHealth					= "Show health frame for Sara in Phase 1 (must be targeted or focused by at least one raid member)",
 	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
 	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you"
+}
+
+L:SetMiscLocalization{
+	YellPull 			= "The time to strike at the head of the beast will soon be upon us! Focus your anger and hatred on his minions!",
+	YellPhase2	 		= "I am the lucid dream.",
+	Sara 				= "Sara",
+	WarningYellSqueeze	= "Squeeze on me! Help me!"
 }

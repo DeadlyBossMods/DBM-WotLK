@@ -10,7 +10,7 @@ mod:SetModelID(28641)
 mod:SetModelSound("Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Aggro01.wav", "Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Slay02.wav")
 mod:RegisterCombat("yell", L.YellPull)
 mod:RegisterKill("yell", L.YellKill)
-mod:SetWipeTime(20)
+mod:SetWipeTime(60)
 
 mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_YELL"
@@ -32,14 +32,14 @@ local warnPhase2Soon			= mod:NewAnnounce("WarnPhase2Soon", 2)
 local announcePreBigBang		= mod:NewPreWarnAnnounce(64584, 10, 3)
 local announceBlackHole			= mod:NewSpellAnnounce(65108, 2)
 local announceCosmicSmash		= mod:NewSpellAnnounce(64596, 4)
-local announcePhasePunch		= mod:NewAnnounce("WarningPhasePunch", 4, 65108, "Tank|Healer")
+local announcePhasePunch		= mod:NewStackAnnounce(65108, 4, nil, "Tank|Healer")
 
 local specwarnStarLow			= mod:NewSpecialWarning("warnStarLow", "Tank|Healer")
 local specWarnPhasePunch		= mod:NewSpecialWarningStack(64412, nil, 4)
 local specWarnBigBang			= mod:NewSpecialWarningSpell(64584)
 local specWarnCosmicSmash		= mod:NewSpecialWarningSpell(64596)
 
-local timerCombatStart		    = mod:NewTimer(7, "TimerCombatStart", 2457)
+local timerCombatStart			= mod:NewTimer(7, "TimerCombatStart", 2457)
 local enrageTimer				= mod:NewBerserkTimer(360)
 local timerNextBigBang			= mod:NewNextTimer(90.5, 64584)
 local timerBigBangCast			= mod:NewCastTimer(8, 64584)

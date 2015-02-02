@@ -70,8 +70,10 @@ local targetWarningsShown			= {}
 local brainLinkTargets = {}
 local brainLinkIcon = 7
 local Guardians = 0
+local numberOfPlayers = 1
 
 function mod:OnCombatStart(delay)
+	numberOfPlayers = DBM:GetNumRealGroupMembers()
 	Guardians = 0
 	phase = 1
 	enrageTimer:Start()
@@ -237,8 +239,10 @@ function mod:OnSync(msg)
 		timerMaladyCD:Cancel()
 		timerBrainLinkCD:Cancel()
 		timerEmpower:Start()
-		--timerMadness:Cancel()
-		--specWarnMadnessOutNow:Cancel()
+		if numberOfPlayers == 1 then
+			timerMadness:Cancel()
+			specWarnMadnessOutNow:Cancel()
+		end
 		warnP3:Show()
 		warnEmpowerSoon:Schedule(40)
 		timerNextDeafeningRoar:Start(30)

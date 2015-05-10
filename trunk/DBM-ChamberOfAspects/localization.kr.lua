@@ -163,8 +163,7 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	TwilightCutterCast		= "$spell:74769 시전 알림 보기",
 	AnnounceAlternatePhase	= "다른 위상 우두머리 알림/바 보기",
-	SetIconOnConsumption	= "$spell:74562 또는 $spell:74792 대상에게 전술 목표 아이콘 설정",
-	WhisperOnConsumption	= "$spell:74562 또는 $spell:74792 대상에게 귓속말 보내기(승급 권한 필요)"
+	SetIconOnConsumption	= "$spell:74562 또는 $spell:74792 대상에게 전술 목표 아이콘 설정"
 })
 
 L:SetMiscLocalization({

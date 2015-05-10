@@ -171,7 +171,5 @@ L:SetMiscLocalization({
 	Phase2					= "En el reino del crepúsculo solo encontraréis sufrimiento. ¡Entrad si os atrevéis!",
 	Phase3					= "¡Yo soy la luz y la oscuridad! ¡Temed, mortales, la llegada de Alamuerte!",
 	twilightcutter			= "¡Las esferas que orbitan emiten energía oscura!",
-	WhisperCombustion		= "¡Combustion en ti! ¡Corre a la pared!",
-	WhisperConsumption		= "¡Consumo en ti! ¡Corre a la pared!",
 	Kill					= "Disfrutad la victoria, mortales, porque será la última. ¡Este mundo arderá cuando vuelva el maestro!"
 })

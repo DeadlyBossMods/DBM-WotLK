@@ -166,7 +166,5 @@ L:SetMiscLocalization({
 	Phase2					= "Ihr werdet im Reich des Zwielichts nur Leid finden! Tretet ein, wenn ihr es wagt!",
 	Phase3					= "Ich bin das Licht und die Dunkelheit! Zittert, Sterbliche, vor dem Herold Todesschwinges!",
 	twilightcutter			= "Die kreisenden Sphären pulsieren vor dunkler Energie!",
-	WhisperCombustion		= "Feurige Einäscherung auf dir! Lauf zur Wand!",
-	WhisperConsumption		= "Seelenverzehrung auf dir! Lauf zur Wand!",
 	Kill					= "Genießt euren Sieg, Sterbliche, denn es war euer letzter. Bei der Rückkehr des Meisters wird diese Welt brennen!"
 })

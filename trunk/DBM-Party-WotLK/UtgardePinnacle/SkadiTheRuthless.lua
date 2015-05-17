@@ -23,7 +23,7 @@ local warningWhirlwind	= mod:NewSpellAnnounce(59322, 3)
 local timerPoison		= mod:NewTargetTimer(12, 59331)
 local timerWhirlwindCD	= mod:NewCDTimer(23, 59322)
 
-local specWarnWhirlwind	= mod:NewSpecialWarningRun("OptionVersion2", 59322, nil, nil, nil, 4)
+local specWarnWhirlwind	= mod:NewSpecialWarningRun(59322, nil, nil, 2, 4)
 
 local timerAchieve		= mod:NewAchievementTimer(180, 1873, "TimerSpeedKill")
 

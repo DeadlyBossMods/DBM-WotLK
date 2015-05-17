@@ -21,7 +21,7 @@ local pursueTargetWarn		= mod:NewAnnounce("PursueWarn", 2, 62374)
 local warnNextPursueSoon	= mod:NewAnnounce("warnNextPursueSoon", 3, 62374)
 
 local warnSystemOverload	= mod:NewSpecialWarningSpell(62475)
-local pursueSpecWarn		= mod:NewSpecialWarning("OptionVersion2", "SpecialPursueWarnYou", nil, nil, nil, 4)
+local pursueSpecWarn		= mod:NewSpecialWarning("SpecialPursueWarnYou", nil, nil, 2, 4)
 local warnWardofLife		= mod:NewSpecialWarning("warnWardofLife")
 
 local timerSystemOverload	= mod:NewBuffActiveTimer(20, 62475)

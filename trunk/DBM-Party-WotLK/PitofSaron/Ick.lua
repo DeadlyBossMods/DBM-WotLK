@@ -24,8 +24,8 @@ local warnPursuit				= mod:NewTargetAnnounce(68987, 4)--TODO, just switch to UNI
 
 local specWarnToxic				= mod:NewSpecialWarningMove(69024)
 local specWarnMines				= mod:NewSpecialWarningSpell(69015, nil, nil, nil, 2)
-local specWarnPursuit			= mod:NewSpecialWarningRun(68987, nil, nil, nil, 4)
-local specWarnPoisonNova		= mod:NewSpecialWarningRun("OptionVersion2", 68989, "Melee", nil, nil, 4)
+local specWarnPursuit			= mod:NewSpecialWarningRun(68987, nil, nil, 2, 4)
+local specWarnPoisonNova		= mod:NewSpecialWarningRun(68989, "Melee", nil, 2, 4)
 
 local timerPursuitCast			= mod:NewCastTimer(5, 68987)
 local timerPursuitConfusion		= mod:NewBuffActiveTimer(12, 69029)

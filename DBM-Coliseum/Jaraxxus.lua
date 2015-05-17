@@ -30,13 +30,13 @@ local warnFlame					= mod:NewTargetAnnounce(66197, 4)
 local warnFlesh					= mod:NewTargetAnnounce(66237, 4, nil, "Healer")
 local warnNetherPower			= mod:NewTargetAnnounce(67009, 4)
 
-local specWarnFlame				= mod:NewSpecialWarningRun("OptionVersion2", 66877, nil, nil, nil, 4)
+local specWarnFlame				= mod:NewSpecialWarningRun(66877, nil, nil, 2, 4)
 local specWarnFlesh				= mod:NewSpecialWarningYou(66237)
-local specWarnKiss				= mod:NewSpecialWarningYou("OptionVersion2", 66334, "SpellCaster")
+local specWarnKiss				= mod:NewSpecialWarningYou(66334, "SpellCaster", nil, 2)
 local specWarnNetherPower		= mod:NewSpecialWarningDispel(67009, "MagicDispeller")
 local specWarnFelInferno		= mod:NewSpecialWarningMove(66496)
 local SpecWarnFelFireball		= mod:NewSpecialWarningInterrupt(66532, false)
-local SpecWarnFelFireballDispel	= mod:NewSpecialWarningDispel("OptionVersion2", 66532, false)
+local SpecWarnFelFireballDispel	= mod:NewSpecialWarningDispel(66532, false, nil, 2)
 
 local timerCombatStart			= mod:NewCombatTimer(82)--rollplay for first pull
 local enrageTimer				= mod:NewBerserkTimer(600)

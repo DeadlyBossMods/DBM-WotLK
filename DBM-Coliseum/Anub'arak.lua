@@ -29,7 +29,7 @@ local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DB
 local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 local warnPhase3			= mod:NewPhaseAnnounce(3)
 
-local specWarnPursue		= mod:NewSpecialWarningRun("OptionVersion2", 67574, nil, nil, nil, 4)
+local specWarnPursue		= mod:NewSpecialWarningRun(67574, nil, nil, 2, 4)
 local specWarnSubmergeSoon	= mod:NewSpecialWarningSoon("specWarnSubmergeSoon", "Tank")
 local specWarnShadowStrike	= mod:NewSpecialWarningInterrupt(66134, "Tank")
 local specWarnPCold			= mod:NewSpecialWarningYou(66013, false)

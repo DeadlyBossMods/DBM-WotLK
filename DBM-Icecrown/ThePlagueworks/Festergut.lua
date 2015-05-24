@@ -19,7 +19,6 @@ local warnInhaledBlight		= mod:NewStackAnnounce(69166, 3)
 local warnGastricBloat		= mod:NewStackAnnounce(72219, 2, nil, "Tank|Healer")
 local warnGasSpore			= mod:NewTargetAnnounce(69279, 4)
 local warnVileGas			= mod:NewTargetAnnounce(69240, 3)
-local warnGoo				= mod:NewSpellAnnounce(72297, 4)
 
 local specWarnPungentBlight	= mod:NewSpecialWarningSpell(69195)
 local specWarnGasSpore		= mod:NewSpecialWarningYou(69279)
@@ -168,7 +167,9 @@ function mod:SPELL_AURA_APPLIED(args)
 		local amount = args.amount or 1
 		warnInhaledBlight:Show(args.destName, amount)
 		if amount >= 3 then
-			specWarnInhaled3:Show(amount)
+			if not self:IsTrivial(100) then
+				specWarnInhaled3:Show(amount)
+			end
 			timerPungentBlight:Start()
 		else	--Prevent timer from starting after 3rd stack since he won't cast it a 4th time, he does Pungent instead.
 			timerInhaledBlight:Start()

@@ -122,7 +122,6 @@ end
 function mod:OnSync(event, arg)
 	if event == "Goo" then
 		if self:AntiSpam(5, 2) then
-			warnGoo:Show()
 			specWarnGoo:Show()
 			if self:IsDifficulty("heroic25") then
 				timerGooCD:Start()

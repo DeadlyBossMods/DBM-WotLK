@@ -28,7 +28,6 @@ local warnInstability			= mod:NewCountAnnounce(69766, 2, nil, false)
 local warnChilledtotheBone		= mod:NewCountAnnounce(70106, 2, nil, false)
 local warnMysticBuffet			= mod:NewCountAnnounce(70128, 2, nil, false)
 local warnFrostBeacon			= mod:NewTargetAnnounce(70126, 4)
-local warnBlisteringCold		= mod:NewSpellAnnounce(70123, 3)
 local warnFrostBreath			= mod:NewSpellAnnounce(69649, 2, nil, "Tank|Healer")
 local warnUnchainedMagic		= mod:NewTargetAnnounce("OptionVersion2", 69762, 2, nil, "SpellCaster")
 
@@ -221,7 +220,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		else
 			self:Schedule(0.3, warnUnchainedTargets)
 		end
-	elseif args.spellId == 70106 then	--Chilled to the bone (melee)
+	elseif args.spellId == 70106 and not self:IsTrivial(100) then	--Chilled to the bone (melee)
 		if args:IsPlayer() then
 			warnChilledtotheBone:Show(args.amount or 1)
 			timerChilledtotheBone:Start()
@@ -229,7 +228,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				specWarnChilledtotheBone:Show(args.amount)
 			end
 		end
-	elseif args.spellId == 69766 then	--Instability (casters)
+	elseif args.spellId == 69766 and not self:IsTrivial(100) then	--Instability (casters)
 		if args:IsPlayer() then
 			warnInstability:Show(args.amount or 1)
 			timerInstability:Start()
@@ -266,8 +265,9 @@ mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 70117 then--Icy Grip Cast, not blistering cold, but adds an extra 1sec to the warning
-		warnBlisteringCold:Show()
-		specWarnBlisteringCold:Show()
+		if not self:IsTrivial(100) then
+			specWarnBlisteringCold:Show()
+		end
 		timerBlisteringCold:Start()
 		timerNextBlisteringCold:Start()
 	end

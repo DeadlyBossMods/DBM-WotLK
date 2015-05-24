@@ -168,7 +168,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.RangeFrame then
 			self:ScheduleMethod(4.5, "HideRange")--delay hiding range frame for a few seconds after change incase valanaar got a last second vortex cast off
 		end
-	elseif args.spellId == 72999 then	--Shadow Prison (hard mode)
+	elseif args.spellId == 72999 and not self:IsTrivial(100) then	--Shadow Prison (hard mode)
 		if args:IsPlayer() then
 			timerShadowPrison:Start()
 			if (args.amount or 1) >= 6 then	--Placeholder right now, might use a different value
@@ -195,6 +195,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 	if msg:match(L.EmpoweredFlames) then
 		local target = DBM:GetUnitFullName(target)
 		warnEmpoweredFlames:Show(target)
+		if self:IsTrivial(100) then return end
 		if target == UnitName("player") then
 			specWarnEmpoweredFlames:Show()
 		end

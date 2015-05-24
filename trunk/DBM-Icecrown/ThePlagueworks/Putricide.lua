@@ -206,7 +206,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 70447 then--Green Slime
 		warnVolatileOozeAdhesive:Show(args.destName)
 		specWarnVolatileOozeOther:Show(args.destName)
-		if args:IsPlayer() then
+		if args:IsPlayer() then--Still worth warning 100s because it does still do knockback
 			specWarnVolatileOozeAdhesive:Show()
 		end
 		if self.Options.OozeAdhesiveIcon then
@@ -216,7 +216,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnGaseousBloat:Show(args.destName)
 		specWarnGaseousBloatOther:Show(args.destName)
 		timerGaseousBloat:Start(args.destName)
-		if args:IsPlayer() then
+		if args:IsPlayer() and not self:IsTrivial(100) then
 			specWarnGaseousBloat:Show()
 		end
 		if self.Options.GaseousBloatIcon then
@@ -231,11 +231,11 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerMutatedSlash:Show(args.destName)
 	elseif args.spellId == 70539 then
 		timerRegurgitatedOoze:Show(args.destName)
-	elseif args.spellId == 70352 then	--Ooze Variable
+	elseif args.spellId == 70352 and not self:IsTrivial(100) then	--Ooze Variable
 		if args:IsPlayer() then
 			specWarnOozeVariable:Show()
 		end
-	elseif args.spellId == 70353 then	-- Gas Variable
+	elseif args.spellId == 70353 and not self:IsTrivial(100) then	-- Gas Variable
 		if args:IsPlayer() then
 			specWarnGasVariable:Show()
 		end
@@ -244,7 +244,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.UnboundPlagueIcon then
 			self:SetIcon(args.destName, 5, 20)
 		end
-		if args:IsPlayer() then
+		if args:IsPlayer() and not self:IsTrivial(100) then
 			specWarnUnboundPlague:Show()
 			timerUnboundPlague:Start()
 			yellUnboundPlague:Yell()

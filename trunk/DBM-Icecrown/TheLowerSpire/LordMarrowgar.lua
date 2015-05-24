@@ -13,8 +13,6 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 69076",
 	"SPELL_AURA_REMOVED 69065 69076",
 	"SPELL_CAST_START 69057",
-	"SPELL_PERIODIC_DAMAGE 69146",
-	"SPELL_PERIODIC_MISSED 69146",
 	"SPELL_SUMMON 69062 72669 72670"
 )
 
@@ -41,11 +39,23 @@ function mod:OnCombatStart(delay)
 	timerWhirlwindCD:Start(45-delay)
 	timerBoneSpike:Start(15-delay)
 	berserkTimer:Start(-delay)
+	if not self:IsTrivial(100) then
+		self:RegisterShortTermEvents(
+			"SPELL_PERIODIC_DAMAGE 69146",
+			"SPELL_PERIODIC_MISSED 69146"
+		)
+	end
+end
+
+function mod:OnCombatEnd()
+	self:UnregisterShortTermEvents()
 end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 69076 then						-- Bone Storm (Whirlwind)
-		specWarnWhirlwind:Show()
+		if not self:IsTrivial(100) then
+			specWarnWhirlwind:Show()
+		end
 		timerWhirlwindCD:Start()
 		preWarnWhirlwind:Schedule(85)
 		if self:IsDifficulty("heroic10", "heroic25") then

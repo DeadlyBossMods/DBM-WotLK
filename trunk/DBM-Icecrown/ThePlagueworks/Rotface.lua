@@ -31,7 +31,7 @@ local warnVileGas				= mod:NewTargetAnnounce(72272, 3)
 
 local specWarnMutatedInfection	= mod:NewSpecialWarningYou(69674)
 local specWarnStickyOoze		= mod:NewSpecialWarningMove(69774)
-local specWarnOozeExplosion		= mod:NewSpecialWarningRun(69839)
+local specWarnOozeExplosion		= mod:NewSpecialWarningDodge(69839)
 local specWarnSlimeSpray		= mod:NewSpecialWarningSpell(69508, false)--For people that need a bigger warning to move
 local specWarnRadiatingOoze		= mod:NewSpecialWarningSpell(69760, "-Tank")
 local specWarnLittleOoze		= mod:NewSpecialWarning("SpecWarnLittleOoze", false)
@@ -92,11 +92,13 @@ function mod:SPELL_CAST_START(args)
 	if args.spellId == 69508 then
 		timerSlimeSpray:Start()
 		warnSlimeSpray:Show()
-		specWarnSlimeSpray:Show()
+		if not self:IsTrivial(100) then
+			specWarnSlimeSpray:Show()
+		end
 	elseif args.spellId == 69774 then
 		timerStickyOoze:Start()
 		warnStickyOoze:Show()
-	elseif args.spellId == 69839 then --Unstable Ooze Explosion (Big Ooze)
+	elseif args.spellId == 69839 and not self:IsTrivial(100) then --Unstable Ooze Explosion (Big Ooze)
 		if GetTime() - spamOoze < 4 then --This will prevent spam but breaks if there are 2 oozes. GUID work is required
 			specWarnOozeExplosion:Cancel()
 		end
@@ -171,7 +173,7 @@ end
 mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
 function mod:SWING_DAMAGE(sourceGUID, sourceName, sourceFlags, _, destGUID)
-	if self:GetCIDFromGUID(sourceGUID) == 36897 and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then --Little ooze hitting you
+	if self:GetCIDFromGUID(sourceGUID) == 36897 and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) and not self:IsTrivial(100) then --Little ooze hitting you
 		specWarnLittleOoze:Show()
 	elseif self:GetCIDFromGUID(destGUID) == 36899 and bit.band(sourceFlags, COMBATLOG_OBJECT_TYPE_PLAYER) ~= 0 and self:IsInCombat() then
 		if sourceGUID ~= UnitGUID("player") then

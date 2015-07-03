@@ -16,7 +16,7 @@
 ## X-DBM-Mod-No-Heroic: 1
 ## X-DBM-Mod-MapID: 603
 ## X-DBM-Mod-Sort: 404
-## X-DBM-Mod-MinCoreRevision: 12473
+## X-DBM-Mod-MinCoreRevision: 14002
 localization.en.lua
 localization.de.lua
 localization.fr.lua

@@ -13,6 +13,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_START"
 )
 
+--TODO, GTFO for thundershock shit on ground
 local warningThundershock	= mod:NewSpellAnnounce(56926, 3)
 local warningCycloneStrike	= mod:NewSpellAnnounce(56855, 3)
 

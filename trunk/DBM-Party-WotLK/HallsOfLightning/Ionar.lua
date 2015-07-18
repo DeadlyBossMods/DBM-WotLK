@@ -10,8 +10,9 @@ mod:SetUsedIcons(8)
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"SPELL_AURA_APPLIED",
-	"SPELL_CAST_START",
+	"SPELL_AURA_APPLIED 52658 59795",
+	"SPELL_AURA_REMOVED 52658 59795",
+	"SPELL_CAST_START 52770",
 	"UNIT_HEALTH target focus mouseover boss1"
 )
 
@@ -22,7 +23,7 @@ local timerOverload			= mod:NewTargetTimer(10, 52658)
 
 mod:AddBoolOption("SetIconOnOverloadTarget", true)
 
-local warnedDisperse		= false
+local warnedDisperse = false
 
 function mod:OnCombatStart()
 	warnedDisperse = false
@@ -33,8 +34,14 @@ function mod:SPELL_AURA_APPLIED(args)
 		warningOverload:Show(args.destName)
 		timerOverload:Start(args.destName)
 		if self.Options.SetIconOnOverloadTarget then
-			self:SetIcon(args.destName, 8, 10)
+			self:SetIcon(args.destName, 8)
 		end
+	end
+end
+
+function mod:SPELL_AURA_REMOVED(args)
+	if args:IsSpellID(52658, 59795) and self.Options.SetIconOnOverloadTarget then
+		self:SetIcon(args.destName, 0)
 	end
 end
 

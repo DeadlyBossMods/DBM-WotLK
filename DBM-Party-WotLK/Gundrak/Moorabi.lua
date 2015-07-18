@@ -9,22 +9,29 @@ mod:SetEncounterID(387, 388)
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"SPELL_CAST_START",
+	"SPELL_CAST_START 55098",
 	"UNIT_HEALTH boss1 target focus mouseover"
 )
 
-local warningTransform	= mod:NewSpellAnnounce(55098, 3)
-local timerTransform	= mod:NewCDTimer(10, 55098)--experimental
+local specWarnTransform		= mod:NewSpecialWarningInterruptCount(55098, nil, nil, nil, 1, 2)
 
-local lowHealth
+local timerTransform		= mod:NewCDTimer(10, 55098)--experimental
+
+local voiceTransform		= mod:NewVoice(55098)--kickcast
+
+mod.vb.lowHealth = false
+mod.vb.kickCount = 0
 
 function mod:OnCombatStart()
-	lowHealth = nil
+	self.vb.lowHealth = false
+	self.vb.kickCount = 0
 end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 55098 then
-		warningTransform:Show()
+		self.vb.kickCount = self.vb.kickCount + 1
+		specWarnTransform:Show(args.sourceName, self.vb.kickCount)
+		voiceTransform:Play("kickcast")
 		if lowHealth then
 			timerTransform:Start(5) --cast every 5 seconds below 50% health
 		else
@@ -35,10 +42,13 @@ end
 
 function mod:UNIT_HEALTH(uId)
 	if self:GetUnitCreatureId(uId) == 29305 then
-		if UnitHealth(uId) / UnitHealthMax(uId) <= 0.50 then
-			lowHealth = true
-		else
-			lowHealth = nil -- just in case the combat detection doesn't work
+		if not self.vb.lowHealth and UnitHealth(uId) / UnitHealthMax(uId) <= 0.50 then
+			self.vb.lowHealth = true
+			local remaining = timerTransform:GetRemaining()
+			timerTransform:Cancel()
+			if remaining > 5 then--Update
+				timerTransform:Start(remaining-5)
+			end
 		end
 	end
 end

@@ -18,7 +18,7 @@ local warningEmbrace	= mod:NewTargetAnnounce(55959, 2)
 local warningFlame		= mod:NewSpellAnnounce(55931, 3)
 
 local timerEmbrace		= mod:NewTargetTimer(20, 55959)
-local timerFlameCD		= mod:NewCDTimer(17, 55959)
+local timerFlameCD		= mod:NewCDTimer(15, 55959)
 
 
 function mod:SPELL_CAST_START(args)

@@ -23,9 +23,9 @@ local warnImpale			= mod:NewTargetAnnounce(72669, 3)
 local specWarnColdflame		= mod:NewSpecialWarningMove(69146)
 local specWarnWhirlwind		= mod:NewSpecialWarningRun(69076, nil, nil, nil, 4)
 
-local timerBoneSpike		= mod:NewCDTimer(18, 69057)
-local timerWhirlwindCD		= mod:NewCDTimer(90, 69076)
-local timerWhirlwind		= mod:NewBuffActiveTimer(20, 69076)
+local timerBoneSpike		= mod:NewCDTimer(18, 69057, nil, nil, nil, 1)
+local timerWhirlwindCD		= mod:NewCDTimer(90, 69076, nil, nil, nil, 2)
+local timerWhirlwind		= mod:NewBuffActiveTimer(20, 69076, nil, nil, nil, 6)
 local timerBoned			= mod:NewAchievementTimer(8, 4610)
 
 local berserkTimer			= mod:NewBerserkTimer(600)

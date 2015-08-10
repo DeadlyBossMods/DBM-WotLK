@@ -35,12 +35,12 @@ local specWarnVampricMight			= mod:NewSpecialWarningDispel(70674, "MagicDispelle
 local specWarnDarkMartyrdom			= mod:NewSpecialWarningMove(71236, "Melee")
 local specWarnFrostbolt				= mod:NewSpecialWarningInterrupt(71420, false)
 
-local timerAdds						= mod:NewTimer(60, "TimerAdds", 61131)
+local timerAdds						= mod:NewTimer(60, "TimerAdds", 61131, nil, nil, 1)
 local timerDominateMind				= mod:NewBuffActiveTimer(12, 71289)
-local timerDominateMindCD			= mod:NewCDTimer(40, 71289)
+local timerDominateMindCD			= mod:NewCDTimer(40, 71289, nil, nil, nil, 3)
 local timerSummonSpiritCD			= mod:NewCDTimer(10, 71426, nil, false)
-local timerFrostboltCast			= mod:NewCastTimer(4, 71420)
-local timerTouchInsignificance		= mod:NewTargetTimer(30, 71204, nil, "Tank|Healer")
+local timerFrostboltCast			= mod:NewCastTimer(4, 71420, nil, false)
+local timerTouchInsignificance		= mod:NewTargetTimer(30, 71204, nil, "Tank|Healer", nil, 5)
 
 local berserkTimer					= mod:NewBerserkTimer(600)
 

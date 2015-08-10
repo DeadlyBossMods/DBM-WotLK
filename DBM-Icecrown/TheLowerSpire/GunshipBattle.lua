@@ -48,9 +48,9 @@ local warnWoundingStrike	= mod:NewTargetAnnounce(69651, 2)
 local warnAddsSoon			= mod:NewAnnounce("WarnAddsSoon", 2, addsIcon)
 
 local timerCombatStart		= mod:NewCombatTimer(45)
-local timerBelowZeroCD		= mod:NewNextTimer(33.5, 69705)
+local timerBelowZeroCD		= mod:NewNextTimer(33.5, 69705, nil, nil, nil, 5)
 local timerBattleFuryActive	= mod:NewBuffFadesTimer(17, 69638, nil, "Tank|Healer")
-local timerAdds				= mod:NewTimer(60, "TimerAdds", addsIcon)
+local timerAdds				= mod:NewTimer(60, "TimerAdds", addsIcon, nil, nil, 1)
 
 mod:RemoveOption("HealthFrame")
 

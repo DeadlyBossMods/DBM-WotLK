@@ -33,14 +33,14 @@ local specWarnLayWaste		= mod:NewSpecialWarningSpell(69325)
 local specWarnManaVoid		= mod:NewSpecialWarningMove(71179)
 
 local timerLayWaste			= mod:NewBuffActiveTimer(12, 69325)
-local timerNextPortal		= mod:NewCDTimer(46.5, 72483, nil)
+local timerNextPortal		= mod:NewCDTimer(46.5, 72483, nil, nil, nil, 5)
 local timerPortalsOpen		= mod:NewTimer(15, "TimerPortalsOpen", 72483)
 local timerPortalsClose		= mod:NewTimer(10, "TimerPortalsClose", 72483)
 local timerHealerBuff		= mod:NewBuffFadesTimer(40, 70873)
-local timerGutSpray			= mod:NewTargetTimer(12, 70633, nil, "Tank|Healer")
+local timerGutSpray			= mod:NewTargetTimer(12, 70633, nil, "Tank|Healer", nil, 5)
 local timerCorrosion		= mod:NewTargetTimer(6, 70751, nil, false)
-local timerBlazingSkeleton	= mod:NewTimer(50, "TimerBlazingSkeleton", 17204)
-local timerAbom				= mod:NewTimer(50, "TimerAbom", 43392)--Experimental
+local timerBlazingSkeleton	= mod:NewTimer(50, "TimerBlazingSkeleton", 17204, nil, nil, 1)
+local timerAbom				= mod:NewTimer(50, "TimerAbom", 43392, nil, nil, 1)--Experimental
 
 local berserkTimer		= mod:NewBerserkTimer(420)
 

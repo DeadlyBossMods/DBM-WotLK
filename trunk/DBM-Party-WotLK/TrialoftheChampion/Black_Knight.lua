@@ -29,7 +29,7 @@ local specWarnExplode		= mod:NewSpecialWarningRun(67751, "Melee", nil, 2, 4)
 
 local timerCombatStart		= mod:NewCombatTimer(55.5)
 local timerMarked			= mod:NewTargetTimer(10, 67823)
-local timerExplode			= mod:NewCastTimer(4, 67729)
+local timerExplode			= mod:NewCastTimer(4, 67729, nil, nil, nil, 2)
 
 mod:AddBoolOption("SetIconOnMarkedTarget", false)
 mod:AddBoolOption("AchievementCheck", false, "announce")

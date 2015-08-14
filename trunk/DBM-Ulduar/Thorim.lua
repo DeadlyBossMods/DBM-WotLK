@@ -28,9 +28,9 @@ local specWarnOrb				= mod:NewSpecialWarningMove(62017)
 mod:AddBoolOption("AnnounceFails", false, "announce")
 
 local enrageTimer				= mod:NewBerserkTimer(369)
-local timerStormhammer			= mod:NewCastTimer(16, 62042)
-local timerLightningCharge	 	= mod:NewCDTimer(16, 62466) 
-local timerUnbalancingStrike	= mod:NewCastTimer(26, 62130)
+local timerStormhammer			= mod:NewCastTimer(16, 62042)--Cast timer? Review if i ever do this boss again.
+local timerLightningCharge	 	= mod:NewCDTimer(16, 62466, nil, nil, nil, 2) 
+local timerUnbalancingStrike	= mod:NewCDTimer(26, 62130, nil, "Tank", nil, 5)
 local timerHardmode				= mod:NewTimer(175, "TimerHardmode", 62042)
 
 mod:AddBoolOption("RangeFrame")

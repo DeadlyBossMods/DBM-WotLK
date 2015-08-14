@@ -35,12 +35,12 @@ local specWarnStaticField		= mod:NewSpecialWarningYou(57430)
 local specWarnStaticFieldNear	= mod:NewSpecialWarningClose(57430)
 local yellStaticField			= mod:NewYell(57430)
 
-local timerSpark				= mod:NewNextTimer(30, 56140, nil, nil, nil, 59381)
-local timerVortex				= mod:NewCastTimer(11, 56105)
-local timerVortexCD				= mod:NewNextTimer(60, 56105)
+local timerSpark				= mod:NewNextTimer(30, 56140, nil, nil, nil, 1, 59381)
+local timerVortex				= mod:NewCastTimer(11, 56105, nil, nil, nil, 2)
+local timerVortexCD				= mod:NewNextTimer(60, 56105, nil, nil, nil, 2)
 local timerBreath				= mod:NewBuffActiveTimer(8, 56505)--lasts 5 seconds plus 3 sec cast.
-local timerBreathCD				= mod:NewCDTimer(59, 56505)
-local timerStaticFieldCD		= mod:NewCDTimer(15.5, 57430)--High 15-25 second variatoin
+local timerBreathCD				= mod:NewCDTimer(59, 56505, nil, nil, nil, 2)
+local timerStaticFieldCD		= mod:NewCDTimer(15.5, 57430, nil, nil, nil, 3)--High 15-25 second variatoin
 local timerAchieve      		= mod:NewAchievementTimer(360, 1875, "TimerSpeedKill")
 
 local enrageTimer				= mod:NewBerserkTimer(615)

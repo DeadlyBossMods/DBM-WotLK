@@ -37,11 +37,11 @@ local specWarnEyebeam			= mod:NewSpecialWarningRun(63346, nil, nil, nil, 4)
 local yellBeam					= mod:NewYell(63346)
 
 local timerCrunch10             = mod:NewTargetTimer(6, 63355)
-local timerNextShockwave		= mod:NewCDTimer(18, 63982)
-local timerNextEyebeam			= mod:NewCDTimer(17.5, 63346)--Experimental.
-local timerNextGrip				= mod:NewCDTimer(20, 64292)
-local timerRespawnLeftArm		= mod:NewTimer(48, "timerLeftArm")
-local timerRespawnRightArm		= mod:NewTimer(48, "timerRightArm")
+local timerNextShockwave		= mod:NewCDTimer(18, 63982, nil, nil, nil, 2)
+local timerNextEyebeam			= mod:NewCDTimer(17.5, 63346, nil, nil, nil, 3)--Experimental.
+local timerNextGrip				= mod:NewCDTimer(20, 64292, nil, nil, nil, 3)
+local timerRespawnLeftArm		= mod:NewTimer(48, "timerLeftArm", nil, nil, nil, 1)
+local timerRespawnRightArm		= mod:NewTimer(48, "timerRightArm", nil, nil, nil, 1)
 local timerTimeForDisarmed		= mod:NewTimer(10, "achievementDisarmed")	-- 10 HC / 12 nonHC
 
 mod:AddBoolOption("HealthFrame", true)
@@ -91,7 +91,7 @@ function mod:CHAT_MSG_ADDON(prefix, msg, channel, targetName)
 		if self:AntiSpam(5, targetName) then--Antispam sync by target name, since this doesn't use dbms built in onsync handler.
 			warnFocusedEyebeam:Show(targetName)
 			if self.Options.SetIconOnEyebeamTarget then
-				self:SetIcon(target, 5, 8) 
+				self:SetIcon(targetName, 5, 8) 
 			end
 		end
 	end

@@ -29,11 +29,11 @@ local warnShadronPortal		= mod:NewSpecialWarning("WarningShadronPortal", false)
 
 mod:AddBoolOption("AnnounceFails", false, "announce")
 
-local timerShadowFissure    = mod:NewCastTimer(5, 59128)--Cast timer until Void Blast. it's what happens when shadow fissure explodes.
-local timerWall             = mod:NewCDTimer(30, 43113)
-local timerTenebron         = mod:NewTimer(30, "TimerTenebron", 61248)
-local timerShadron          = mod:NewTimer(80, "TimerShadron", 58105)
-local timerVesperon         = mod:NewTimer(120, "TimerVesperon", 61251)
+local timerShadowFissure    = mod:NewCastTimer(5, 59128, nil, nil, nil, 3)--Cast timer until Void Blast. it's what happens when shadow fissure explodes.
+local timerWall             = mod:NewCDTimer(30, 43113, nil, nil, nil, 2)
+local timerTenebron         = mod:NewTimer(30, "TimerTenebron", 61248, nil, nil, 1)
+local timerShadron          = mod:NewTimer(80, "TimerShadron", 58105, nil, nil, 1)
+local timerVesperon         = mod:NewTimer(120, "TimerVesperon", 61251, nil, nil, 1)
 
 local lastvoids = {}
 local lastfire = {}

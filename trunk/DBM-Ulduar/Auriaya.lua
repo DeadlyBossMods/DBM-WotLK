@@ -29,12 +29,12 @@ local specWarnBlast		= mod:NewSpecialWarningInterrupt(64389)
 local specWarnVoid 		= mod:NewSpecialWarningMove(64675)
 
 local enrageTimer		= mod:NewBerserkTimer(600)
-local timerDefender 	= mod:NewTimer(35, "timerDefender", 64455)
-local timerFear			= mod:NewCastTimer(64386)
-local timerNextFear 	= mod:NewNextTimer(35.5, 64386)
-local timerNextSwarm 	= mod:NewNextTimer(36, 64396)
-local timerNextSonic 	= mod:NewNextTimer(27, 64688)
-local timerSonic		= mod:NewCastTimer(64688)
+local timerDefender 	= mod:NewTimer(35, "timerDefender", 64455, nil, nil, 1)
+local timerFear			= mod:NewCastTimer(64386, nil, nil, nil, 4)
+local timerNextFear 	= mod:NewNextTimer(35.5, 64386, nil, nil, nil, 4)
+local timerNextSwarm 	= mod:NewNextTimer(36, 64396, nil, nil, nil, 1)
+local timerNextSonic 	= mod:NewNextTimer(27, 64688, nil, nil, nil, 2)
+local timerSonic		= mod:NewCastTimer(64688, nil, nil, nil, 2)
 
 mod:AddBoolOption("HealthFrame", true)
 
@@ -54,7 +54,7 @@ function mod:SPELL_CAST_START(args)
 		specWarnBlast:Show()
 	elseif args.spellId == 64386 then -- Terrifying Screech
 		warnFear:Show()
-		timerFear:Start()
+--		timerFear:Start()
 		timerNextFear:Schedule(2)
 		warnFearSoon:Schedule(34)
 	elseif args:IsSpellID(64688, 64422) then --Sonic Screech

@@ -25,10 +25,9 @@ local specWarnGravityBomb			= mod:NewSpecialWarningYou(64234)
 local specWarnConsumption			= mod:NewSpecialWarningMove(64206)--Hard mode void zone dropped by Gravity Bomb
 
 local enrageTimer					= mod:NewBerserkTimer(600)
-local timerTympanicTantrumCast		= mod:NewCastTimer(62776)
-local timerTympanicTantrum			= mod:NewBuffActiveTimer(8, 62776)
-local timerTympanicTantrumCD		= mod:NewCDTimer(60, 62776)
-local timerHeart					= mod:NewCastTimer(30, 63849)
+local timerTympanicTantrum			= mod:NewBuffActiveTimer(8, 62776, nil, nil, nil, 2)
+local timerTympanicTantrumCD		= mod:NewCDTimer(60, 62776, nil, nil, nil, 2)
+local timerHeart					= mod:NewCastTimer(30, 63849, nil, nil, nil, 5)
 local timerLightBomb				= mod:NewTargetTimer(9, 65121)
 local timerGravityBomb				= mod:NewTargetTimer(9, 64234)
 local timerAchieve					= mod:NewAchievementTimer(205, 2937, "TimerSpeedKill")
@@ -48,7 +47,6 @@ end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 62776 then					-- Tympanic Tantrum (aoe damge + daze)
-		timerTympanicTantrumCast:Start()
 		timerTympanicTantrumCD:Stop()
 	end
 end

@@ -29,7 +29,7 @@ local specWarnPoisonNova		= mod:NewSpecialWarningRun(68989, "Melee", nil, 2, 4)
 
 local timerPursuitCast			= mod:NewCastTimer(5, 68987)
 local timerPursuitConfusion		= mod:NewBuffActiveTimer(12, 69029)
-local timerPoisonNova			= mod:NewCastTimer(5, 68989)
+local timerPoisonNova			= mod:NewCastTimer(5, 68989, nil, nil, nil, 2)
 
 mod:AddBoolOption("SetIconOnPursuitTarget", true)
 

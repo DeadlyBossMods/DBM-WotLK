@@ -39,11 +39,11 @@ local specWarnTremor		= mod:NewSpecialWarningCast(62859)	-- Hard mode
 local specWarnBeam			= mod:NewSpecialWarningMove(62865)	-- Hard mode
 
 local enrage 				= mod:NewBerserkTimer(600)
-local timerAlliesOfNature	= mod:NewCDTimer(25, 62678)--I seen 25-35 Variation
+local timerAlliesOfNature	= mod:NewCDTimer(25, 62678, nil, nil, nil, 1)--I seen 25-35 Variation
 local timerSimulKill		= mod:NewTimer(12, "TimerSimulKill")
 local timerFury				= mod:NewTargetTimer(10, 63571)
-local timerTremorCD 		= mod:NewCDTimer(28, 62859)
-local timerLifebinderCD 	= mod:NewCDTimer(40, 62869)
+local timerTremorCD 		= mod:NewCDTimer(28, 62859, nil, nil, nil, 2)
+local timerLifebinderCD 	= mod:NewCDTimer(40, 62869, nil, nil, nil, 1)
 
 mod:AddBoolOption("HealthFrame", true)
 mod:AddSetIconOption("SetIconOnFury", 63571, false)

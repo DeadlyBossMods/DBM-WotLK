@@ -22,8 +22,8 @@ local WarnFrostbite			= mod:NewAnnounce("Frostbite", 2, 72004, "Tank|Healer")
 
 local timerNextFrostbite	= mod:NewNextTimer(5, 72004, nil, "Tank")
 local timerFrostbite		= mod:NewTargetTimer(20, 72004, nil, "Tank|Healer")
-local timerWhiteout			= mod:NewNextTimer(38, 72034)
-local timerNextOrb			= mod:NewNextTimer(32, 72091)
+local timerWhiteout			= mod:NewNextTimer(38, 72034, nil, nil, nil, 2)
+local timerNextOrb			= mod:NewNextTimer(32, 72091, nil, nil, nil, 1)
 
 --local timerToravonEnrage	= mod:NewTimer(300, "ToravonEnrage", 26662)
 

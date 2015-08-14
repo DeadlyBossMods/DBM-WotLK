@@ -24,8 +24,8 @@ local specWarnTranq			= mod:NewSpecialWarningDispel(78722, "RemoveEnrage")
 
 local timerBeacon			= mod:NewBuffActiveTimer(5, 74453)
 local timerConflag			= mod:NewBuffActiveTimer(5, 74456)
-local timerConflagCD		= mod:NewNextTimer(50, 74452)
-local timerBreath			= mod:NewCDTimer(25, 74403, nil, "Tank|Healer")
+local timerConflagCD		= mod:NewNextTimer(50, 74452, nil, nil, nil, 3)
+local timerBreath			= mod:NewCDTimer(25, 74403, nil, "Tank|Healer", nil, 5)
 local timerEnrage			= mod:NewBuffActiveTimer(10, 78722)
 
 mod:AddBoolOption("RangeFrame", true)

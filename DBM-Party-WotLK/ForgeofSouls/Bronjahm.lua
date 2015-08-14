@@ -17,7 +17,8 @@ mod:RegisterEventsInCombat(
 local warnSoulstormSoon		= mod:NewSoonAnnounce(68872, 2)
 local warnCorruptSoul		= mod:NewTargetAnnounce(68839, 3)
 local specwarnSoulstorm		= mod:NewSpecialWarningSpell(68872, nil, nil, nil, 2)
-local timerSoulstormCast	= mod:NewCastTimer(4, 68872)
+
+local timerSoulstormCast	= mod:NewCastTimer(4, 68872, nil, nil, nil, 2)
 
 local warned_preStorm = false
 

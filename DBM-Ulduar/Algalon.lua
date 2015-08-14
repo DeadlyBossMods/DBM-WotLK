@@ -41,13 +41,13 @@ local specWarnCosmicSmash		= mod:NewSpecialWarningSpell(64596)
 
 local timerCombatStart			= mod:NewTimer(7, "TimerCombatStart", 2457)
 local enrageTimer				= mod:NewBerserkTimer(360)
-local timerNextBigBang			= mod:NewNextTimer(90.5, 64584)
-local timerBigBangCast			= mod:NewCastTimer(8, 64584)
+local timerNextBigBang			= mod:NewNextTimer(90.5, 64584, nil, nil, nil, 2)
+local timerBigBangCast			= mod:NewCastTimer(8, 64584, nil, nil, nil, 2)
 local timerNextCollapsingStar	= mod:NewTimer(15, "NextCollapsingStar", 50288)
-local timerCDCosmicSmash		= mod:NewCDTimer(25, 64596)
+local timerCDCosmicSmash		= mod:NewCDTimer(25, 64596, nil, nil, nil, 3)
 local timerCastCosmicSmash		= mod:NewCastTimer(4.5, 64596)
-local timerPhasePunch			= mod:NewTargetTimer(45, 64412)
-local timerNextPhasePunch		= mod:NewNextTimer(16, 64412)
+local timerPhasePunch			= mod:NewTargetTimer(45, 64412, nil, "Tank", 2, 5)
+local timerNextPhasePunch		= mod:NewNextTimer(16, 64412, nil, "Tank", 2, 5)
 
 local sentLowHP = {}
 local warnedLowHP = {}

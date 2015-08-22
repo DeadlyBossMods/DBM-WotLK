@@ -96,8 +96,7 @@ L:SetGeneralLocalization{
 
 L:SetOptionLocalization{
 	RangeFrame				= "Mostrar distancia (12 yardas)",
-	RunePowerFrame			= "Mostrar barra de vida + barra de $spell:72371",
-	BeastIcons				= "Poner iconos en las Bestias de Sangre"
+	RunePowerFrame			= "Mostrar barra de vida + barra de $spell:72371"
 }
 
 L:SetMiscLocalization{
@@ -327,7 +326,6 @@ L:SetOptionLocalization{
 	PhaseTransition			= "Mostrar tiempo para las transiciones de fase",
 	ValkyrWarning			= "Anunciar quien ha sido agarrado por las Valkyr",
 	SpecWarnYouAreValkd		= "Mostrar aviso especial cuando seas agarrado por una Valkyr",
-	ValkyrIcon				= "Poner iconos en las Valkyr",
 	AnnounceValkGrabs		= "Aunciar el objetivo de Guardia de las Sombras Val'kyr en el chat de banda<br/>(necesita 'anunciar' activado y líder/ayudante)",
 	SpecWarnValkyrLow		= "Mostrar aviso especial cuando la Valkyr está por debajo del 55%",
 	AnnouncePlagueStack		= "Anunciar las marcas de $spell:73912 a la banda (10 marcas, cada 5 después)<br/>(requiere líder/ayudante)"

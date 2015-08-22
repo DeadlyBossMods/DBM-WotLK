@@ -362,7 +362,6 @@ L:SetOptionLocalization{
 	SpecWarnDefileCast			= "Montre une alerte spéciale pour la $spell:72762 sur vous",
 	SpecWarnDefileNear			= "Montre une alerte spéciale pour la $spell:72762 à coter de vous",
 	SpecWarnTrapNear			= "Montre une alerte spéciale pour le $spell:73539 à coter de vous",
-	ValkyrIcon					= "Met des icones sur les Valkyrs",
 	DefileArrow					= "Montre les flèches de DBM quand $spell:72762 est à coter de vous",
 	TrapArrow					= "Montre les flèches de DBM quand $spell:73539 est à coter de vous",
 	SpecWarnValkyrLow		= "Show special warning when Valkyr is below 55% HP"

@@ -17,12 +17,12 @@ mod:RegisterEvents(
 )
 
 mod:RegisterEventsInCombat(
-	"SPELL_CAST_START",
-	"SPELL_CAST_SUCCESS",
-	"SPELL_DISPEL",
-	"SPELL_AURA_APPLIED",
-	"SPELL_SUMMON",
-	"UNIT_HEALTH target focus mouseover",
+	"SPELL_CAST_START 68981 72259 72262 70372 70358 70498 70541 72762 73539 73650 72350",
+	"SPELL_CAST_SUCCESS 70337 69409 69200 68980 73654",
+	"SPELL_DISPEL 70337 70338",
+	"SPELL_AURA_APPLIED 72143 72754 73650",
+	"SPELL_SUMMON 69037",
+	"UNIT_HEALTH target focus",
 	"UNIT_AURA_UNFILTERED",
 	"UNIT_DIED"
 )
@@ -110,13 +110,53 @@ local plagueExpires = {}
 local lastPlague
 local numberOfPlayers = 1
 
+local function NextPhase(self)
+	self.vb.phase = self.vb.phase + 1
+	if self.vb.phase == 1 then
+		berserkTimer:Start()
+		warnShamblingSoon:Schedule(15)
+		timerShamblingHorror:Start(20)
+		timerDrudgeGhouls:Start(10)
+		if numberOfPlayers > 1 then
+			timerNecroticPlagueCD:Start(27)
+		end
+		if self:IsDifficulty("heroic10", "heroic25") then
+			timerTrapCD:Start()
+			countdownShadowTrap:Start()
+		end
+	elseif self.vb.phase == 2 then
+		warnPhase2:Show()
+		if numberOfPlayers > 1 then
+			timerSummonValkyr:Start(20)
+		end
+		timerSoulreaperCD:Start(40)
+		timerDefileCD:Start(38)
+		countdownDefile:Start(38)
+		timerInfestCD:Start(14)
+		countdownInfest:Start(14)
+		warnDefileSoon:Schedule(33)
+	elseif self.vb.phase == 3 then
+		warnPhase3:Show()
+		timerVileSpirit:Start(20)
+		timerSoulreaperCD:Start(40)
+		timerDefileCD:Start(38)
+		countdownDefile:Start(38)
+		timerHarvestSoulCD:Start(14)
+		warnDefileSoon:Schedule(33)
+	end
+end
+
+local function RestoreWipeTime(self)
+	self:SetWipeTime(5)--Restore it after frostmourn room.
+end
+
 function mod:OnCombatStart(delay)
 	numberOfPlayers = DBM:GetNumRealGroupMembers()
 	if UnitExists("pet") then
 		numberOfPlayers = numberOfPlayers + 1
 	end
 	self.vb.phase = 0
-	self:NextPhase()
+	NextPhase(self)
 	table.wipe(warnedValkyrGUIDs)
 	table.wipe(plagueExpires)
 	if not self:IsTrivial(90) then--Only warning that uses these events is remorseless winter and that warning is completely useless spam for level 90s.
@@ -129,10 +169,6 @@ end
 
 function mod:OnCombatEnd()
 	self:UnregisterShortTermEvents()
-end
-
-function mod:RestoreWipeTime()
-	self:SetWipeTime(5)--Restore it after frostmourn room.
 end
 
 function mod:DefileTarget(targetname, uId)
@@ -193,7 +229,7 @@ function mod:SPELL_CAST_START(args)
 	elseif args.spellId == 72262 then -- Quake (phase transition end)
 		warnQuake:Show()
 		timerRagingSpiritCD:Cancel()
-		self:NextPhase()
+		NextPhase(self)
 	elseif args.spellId == 70372 then -- Shambling Horror
 		warnShamblingSoon:Cancel()
 		warnShamblingHorror:Show()
@@ -281,7 +317,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		countdownDefile:Cancel()
 		warnDefileSoon:Cancel()
 		self:SetWipeTime(50)--We set a 45 sec min wipe time to keep mod from ending combat if you die while rest of raid is in frostmourn
-		self:ScheduleMethod(50, "RestoreWipeTime")
+		self:Schedule(50, RestoreWipeTime, self)
 	end
 end
 
@@ -309,6 +345,7 @@ do
 	local valkyrTargets = {}
 	local grabIcon = 2
 	local lastValk = 0
+	local UnitIsUnit, UnitInVehicle, IsInRaid = UnitIsUnit, UnitInVehicle, IsInRaid
 	
 	local function scanValkyrTargets(self)
 		if (time() - lastValk) < 10 then    -- scan for like 10secs
@@ -319,7 +356,7 @@ do
 					if UnitIsUnit(uId, "player") then
 						specWarnYouAreValkd:Show()
 					end
-					if IsInGroup() and mod.Options.AnnounceValkGrabs and DBM:GetRaidRank() > 1 then
+					if IsInGroup() and self.Options.AnnounceValkGrabs and DBM:GetRaidRank() > 1 then
 						local channel = (IsInRaid() and "RAID") or "PARTY"
 						if self.Options.ValkyrIcon then
 							SendChatMessage(L.ValkGrabbedIcon:format(grabIcon, UnitName(uId)), channel)
@@ -366,45 +403,9 @@ end
 mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
 function mod:UNIT_HEALTH(uId)
-	if self:IsDifficulty("heroic10", "heroic25") and uId == "target" and self:GetUnitCreatureId(uId) == 36609 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.55 and not warnedValkyrGUIDs[UnitGUID(uId)] then
+	if self:IsDifficulty("heroic10", "heroic25") and self:GetUnitCreatureId(uId) == 36609 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.55 and not warnedValkyrGUIDs[UnitGUID(uId)] then
 		warnedValkyrGUIDs[UnitGUID(uId)] = true
 		specWarnValkyrLow:Show()
-	end
-end
-
-function mod:NextPhase()
-	self.vb.phase = self.vb.phase + 1
-	if self.vb.phase == 1 then
-		berserkTimer:Start()
-		warnShamblingSoon:Schedule(15)
-		timerShamblingHorror:Start(20)
-		timerDrudgeGhouls:Start(10)
-		if numberOfPlayers > 1 then
-			timerNecroticPlagueCD:Start(27)
-		end
-		if self:IsDifficulty("heroic10", "heroic25") then
-			timerTrapCD:Start()
-			countdownShadowTrap:Start()
-		end
-	elseif self.vb.phase == 2 then
-		warnPhase2:Show()
-		if numberOfPlayers > 1 then
-			timerSummonValkyr:Start(20)
-		end
-		timerSoulreaperCD:Start(40)
-		timerDefileCD:Start(38)
-		countdownDefile:Start(38)
-		timerInfestCD:Start(14)
-		countdownInfest:Start(14)
-		warnDefileSoon:Schedule(33)
-	elseif self.vb.phase == 3 then
-		warnPhase3:Show()
-		timerVileSpirit:Start(20)
-		timerSoulreaperCD:Start(40)
-		timerDefileCD:Start(38)
-		countdownDefile:Start(38)
-		timerHarvestSoulCD:Start(14)
-		warnDefileSoon:Schedule(33)
 	end
 end
 

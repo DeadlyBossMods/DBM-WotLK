@@ -87,8 +87,7 @@ L:SetGeneralLocalization{
 
 L:SetOptionLocalization{
 	RangeFrame				= "Показывать окно проверки дистанции (12 м)",
-	RunePowerFrame			= "Показывать здоровье босса + индикатор для $spell:72371",
-	BeastIcons				= "Устанавливать метки на Кровавые чудовища"
+	RunePowerFrame			= "Показывать здоровье босса + индикатор для $spell:72371"
 }
 
 L:SetMiscLocalization{
@@ -312,7 +311,6 @@ L:SetOptionLocalization{
 	PhaseTransition			= "Отсчет времени для переходной фазы",
 	ValkyrWarning			= "Объявлять, кого схватили Валь'киры",
 	SpecWarnYouAreValkd		= "Спец-предупреждение, когда вас схватила Валь'кира",
-	ValkyrIcon				= "Устанавливать метки на Валь'кир",
 	AnnounceValkGrabs		= "Объявлять игроков, схваченных Валь'кирами, в рейд-чат<br/>(требуются права помощника)",
 	SpecWarnValkyrLow		= "Спец-предупреждение, когда у Валь'киры меньше 55% HP",
 	AnnouncePlagueStack		= "Объявлять стаки заклинания $spell:73912 в рейд-чат (10<br/>стаков, далее каждые 5) (требуются права помощника)"

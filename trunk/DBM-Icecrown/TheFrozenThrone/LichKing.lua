@@ -99,7 +99,7 @@ mod:AddBoolOption("DefileIcon")
 mod:AddBoolOption("NecroticPlagueIcon")
 mod:AddBoolOption("RagingSpiritIcon", false)
 mod:AddBoolOption("TrapIcon")
-mod:AddBoolOption("ValkyrIcon")
+mod:AddSetIconOption("ValkyrIcon", 71844, true, true)
 mod:AddBoolOption("HarvestSoulIcon", false)
 mod:AddBoolOption("AnnounceValkGrabs", false)
 
@@ -306,20 +306,11 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 do
-	local valkIcons = {}
 	local valkyrTargets = {}
-	local currentIcon = 2
 	local grabIcon = 2
-	local iconsSet = 0
 	local lastValk = 0
 	
-	local function resetValkIconState()
-		table.wipe(valkIcons)
-		currentIcon = 2
-		iconsSet = 0
-	end
-	
-	local function scanValkyrTargets()
+	local function scanValkyrTargets(self)
 		if (time() - lastValk) < 10 then    -- scan for like 10secs
 			for uId in DBM:GetGroupMembers() do        -- for every raid member check ..
 				if UnitInVehicle(uId) and not valkyrTargets[uId] then      -- if person #i is in a vehicle and not already announced 
@@ -330,7 +321,7 @@ do
 					end
 					if IsInGroup() and mod.Options.AnnounceValkGrabs and DBM:GetRaidRank() > 1 then
 						local channel = (IsInRaid() and "RAID") or "PARTY"
-						if mod.Options.ValkyrIcon then
+						if self.Options.ValkyrIcon then
 							SendChatMessage(L.ValkGrabbedIcon:format(grabIcon, UnitName(uId)), channel)
 							grabIcon = grabIcon + 1
 						else
@@ -339,14 +330,13 @@ do
 					end
 				end
 			end
-			mod:Schedule(0.5, scanValkyrTargets)  -- check for more targets in a few
+			self:Schedule(0.5, scanValkyrTargets, self)  -- check for more targets in a few
 		else
 			table.wipe(valkyrTargets)       -- no more valkyrs this round, so lets clear the table
 			grabIcon = 2
 		end
 	end  
-	
-	
+
 	function mod:SPELL_SUMMON(args)
 		if args.spellId == 69037 then -- Summon Val'kyr
 			if time() - lastValk > 15 then -- show the warning and timer just once for all three summon events
@@ -355,31 +345,17 @@ do
 					timerSummonValkyr:Start()
 				end
 				lastValk = time()
-				scanValkyrTargets()
-				if self.Options.ValkyrIcon then
-					resetValkIconState()
-				end
+				scanValkyrTargets(self)
 			end
 			if self.Options.ValkyrIcon then
-				valkIcons[args.destGUID] = currentIcon
-				currentIcon = currentIcon + 1
+				if self:IsDifficulty("normal25", "heroic25") then
+					self:ScanForMobs(args.destGUID, 1, 2, 3, 0.1, 20, "ValkyrIcon")
+				else
+					self:ScanForMobs(args.destGUID, 1, 2, 1, 0.1, 20, "ValkyrIcon")
+				end
 			end
 		end
 	end
-	
-	mod:RegisterOnUpdateHandler(function(self)
-		if self.Options.ValkyrIcon and (DBM:GetRaidRank() > 0 and not (iconsSet == 3 and self:IsDifficulty("normal25", "heroic25") or iconsSet == 1 and self:IsDifficulty("normal10", "heroic10"))) then
-			for i = 1, DBM:GetNumGroupMembers() do
-				local uId = "raid"..i.."target"
-				local guid = UnitGUID(uId)
-				if valkIcons[guid] then
-					SetRaidTarget(uId, valkIcons[guid])
-					iconsSet = iconsSet + 1
-					valkIcons[guid] = nil
-				end
-			end
-		end
-	end, 1)
 end
 
 function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)

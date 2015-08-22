@@ -34,6 +34,11 @@ local berserkTimer		= mod:NewBerserkTimer(900)
 
 local noTargetTime = 0
 local isFlying = false
+local UnitAffectingCombat = UnitAffectingCombat
+
+local function resetIsFlying()
+	isFlying = false
+end
 
 function mod:OnCombatStart(delay)
 	noTargetTime = 0
@@ -41,6 +46,32 @@ function mod:OnCombatStart(delay)
 	warnAirPhaseSoon:Schedule(38.5 - delay)
 	timerAirPhase:Start(48.5 - delay)
 	berserkTimer:Start(-delay)
+	self:RegisterOnUpdateHandler(function(self, elapsed)
+		if not self:IsInCombat() then return end
+		local foundBoss, target
+		for uId in DBM:GetGroupMembers() do
+			local unitID = uId.."target"
+			if self:GetUnitCreatureId(unitID) == 15989 and UnitAffectingCombat(unitID) then
+				target = DBM:GetUnitFullName(unitID.."target")
+				foundBoss = true
+				break
+			end
+		end
+		if foundBoss and not target then
+			noTargetTime = noTargetTime + elapsed
+		elseif foundBoss then
+			noTargetTime = 0
+		end
+		if noTargetTime > 0.5 and not isFlying then
+			noTargetTime = 0
+			isFlying = true
+			self:Schedule(60, resetIsFlying)
+			timerDrainLife:Cancel()
+			timerAirPhase:Cancel()
+			warnAirPhaseNow:Show()
+			timerLanding:Start()
+		end
+	end, 0.2)
 end
 
 
@@ -78,34 +109,3 @@ function mod:Landing()
 	warnLanded:Show()
 	timerAirPhase:Start()
 end
-
-local function resetIsFlying()
-	isFlying = false
-end
-
-mod:RegisterOnUpdateHandler(function(self, elapsed)
-	if not self:IsInCombat() then return end
-		local foundBoss, target
-		for uId in DBM:GetGroupMembers() do
-			local unitID = uId.."target"
-			if self:GetUnitCreatureId(unitID) == 15989 and UnitAffectingCombat(unitID) then
-				target = DBM:GetUnitFullName(unitID.."target")
-				foundBoss = true
-				break
-			end
-		end
-		if foundBoss and not target then
-			noTargetTime = noTargetTime + elapsed
-		elseif foundBoss then
-			noTargetTime = 0
-		end
-		if noTargetTime > 0.5 and not isFlying then
-			noTargetTime = 0
-			isFlying = true
-			self:Schedule(60, resetIsFlying)
-			timerDrainLife:Cancel()
-			timerAirPhase:Cancel()
-			warnAirPhaseNow:Show()
-			timerLanding:Start()
-		end
-end, 0.2)

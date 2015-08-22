@@ -45,7 +45,7 @@ local enrageTimer			= mod:NewBerserkTimer(480)
 
 mod:AddBoolOption("RangeFrame", "Ranged")
 mod:AddBoolOption("RunePowerFrame", true, "misc")
-mod:AddBoolOption("BeastIcons", true)
+mod:AddSetIconOption("BeastIcons", 72173, false, true)
 mod:AddBoolOption("BoilingBloodIcons", false)
 
 local warned_preFrenzy = false
@@ -112,47 +112,21 @@ function mod:SPELL_CAST_SUCCESS(args)
 	end
 end
 
-do
-	local beastIcon = {}
-	local currentIcon = 1
-	local iconsSet = 0
-	local function resetBeastIconState()
-		table.wipe(beastIcon)
-		currentIcon = 1
-		iconsSet = 0
-	end
-	
-	local lastBeast = 0
-	function mod:SPELL_SUMMON(args)
-		if args:IsSpellID(72172, 72173, 72356, 72357, 72358) then
-			if self:AntiSpam(5) then
-				warnAdds:Show()
-				warnAddsSoon:Schedule(30)
-				timerCallBloodBeast:Start()
-				if self.Options.BeastIcons then
-					resetBeastIconState()
-				end
-			end
-			if self.Options.BeastIcons then
-				beastIcon[args.destGUID] = currentIcon
-				currentIcon = currentIcon + 1
+function mod:SPELL_SUMMON(args)
+	if args:IsSpellID(72172, 72173, 72356, 72357, 72358) then
+		if self:AntiSpam(5) then
+			warnAdds:Show()
+			warnAddsSoon:Schedule(30)
+			timerCallBloodBeast:Start()
+		end
+		if self.Options.BeastIcons then
+			if self:IsDifficulty("normal25", "heroic25") then
+				self:ScanForMobs(args.destGUID, 0, 8, 5, 0.1, 20, "BeastIcons")
+			else
+				self:ScanForMobs(args.destGUID, 0, 8, 2, 0.1, 20, "BeastIcons")
 			end
 		end
 	end
-	
-	mod:RegisterOnUpdateHandler(function(self)
-		if self.Options.BeastIcons and (DBM:GetRaidRank() > 0 and not (iconsSet == 5 and self:IsDifficulty("normal25", "heroic25") or iconsSet == 2 and self:IsDifficulty("normal10", "heroic10"))) then
-			for uId in DBM:GetGroupMembers() do
-				local unitId = uId.."target"
-				local guid = UnitGUID(unitId)
-				if beastIcon[guid] then
-					SetRaidTarget(unitId, beastIcon[guid])
-					iconsSet = iconsSet + 1
-					beastIcon[guid] = nil
-				end
-			end
-		end
-	end, 1)
 end
 
 function mod:SPELL_AURA_APPLIED(args)

@@ -87,8 +87,7 @@ L:SetGeneralLocalization{
 
 L:SetOptionLocalization{
 	RangeFrame				= "顯示距離框 (12碼)",
-	RunePowerFrame			= "顯示首領血量及$spell:72371條",
-	BeastIcons				= "為血獸設置標記"
+	RunePowerFrame			= "顯示首領血量及$spell:72371條"
 }
 
 L:SetMiscLocalization{
@@ -313,7 +312,6 @@ L:SetOptionLocalization{
 	PhaseTransition			= "為轉換階段顯示計時器",
 	ValkyrWarning			= "提示誰給華爾琪影衛抓住了",
 	SpecWarnYouAreValkd		= "當你給華爾琪影衛抓住時顯示特別警告",
-	ValkyrIcon				= "為華爾琪影衛設置標記",
 	AnnounceValkGrabs		= "提示誰被華爾琪影衛抓住到團隊頻道<br/>(需開啟團隊廣播及助理權限)",
 	SpecWarnValkyrLow		= "當華爾琪血量低於55%時顯示特別警告",
 	AnnouncePlagueStack		= "提示$spell:73912層數到團隊頻道 (10層, 10層後每5層提示一次)<br/>(需開啟助理權限)"

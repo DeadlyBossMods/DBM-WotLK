@@ -87,8 +87,7 @@ L:SetGeneralLocalization{
 
 L:SetOptionLocalization{
 	RangeFrame				= "거리 창 보기(12m)",
-	RunePowerFrame			= "우두머리 체력 바 사용시 $spell:72371 바 함께 보기",
-	BeastIcons				= "피의 괴물에 전술 목표 아이콘 설정"
+	RunePowerFrame			= "우두머리 체력 바 사용시 $spell:72371 바 함께 보기"
 }
 
 L:SetMiscLocalization{
@@ -319,7 +318,6 @@ L:SetOptionLocalization{
 	PhaseTransition				= "다음 단계 바 보기",
 	ValkyrWarning				= "발키리 대상 알림 보기",
 	SpecWarnYouAreValkd			= "발키리에게 붙잡혔을 때 특수 경고 보기",
-	ValkyrIcon					= "발키리에 전술 목표 아이콘 설정",
 	AnnounceValkGrabs			= "발키리 대상 및 전술 목표 아이콘 설정 내용을 공격대 대화로 알리기(공격대장 권한 필요)",
 	SpecWarnValkyrLow			= "발키리의 HP가 55%이하가 된 경우 특수 경고 보기",
 	AnnouncePlagueStack			= "$spell:70337 중첩 알림 보기(10중첩 이상일때, 5 중첩마다)(공격대장 권한 필요)"

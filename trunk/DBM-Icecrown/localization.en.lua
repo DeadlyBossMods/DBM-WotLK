@@ -93,8 +93,7 @@ L:SetGeneralLocalization{
 L:SetOptionLocalization{
 	BoilingBloodIcons		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72385),
 	RangeFrame				= "Show range frame (12 yards)",
-	RunePowerFrame			= "Show Boss Health + $spell:72371 bar",
-	BeastIcons				= "Set icons on Blood Beasts"
+	RunePowerFrame			= "Show Boss Health + $spell:72371 bar"
 }
 
 L:SetMiscLocalization{
@@ -333,7 +332,6 @@ L:SetOptionLocalization{
 	RagingSpiritIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69200),
 	TrapIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(73539),
 	HarvestSoulIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(68980),
-	ValkyrIcon				= "Set icons on Valkyrs",
 	AnnounceValkGrabs		= "Announce Val'kyr Shadowguard grab targets to raid chat<br/>(requires announce to be enabled and promoted status)",
 	SpecWarnValkyrLow		= "Show special warning when Valkyr is below 55% HP",
 	AnnouncePlagueStack		= "Announce $spell:70337 stacks to raid (10 stacks, every 5 after 10)<br/>(requires promoted status)"

@@ -9,11 +9,12 @@ mod:SetZone()
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"SPELL_CAST_SUCCESS",
-	"SPELL_CAST_START"
+	"SPELL_CAST_SUCCESS 56926 60029",
+	"SPELL_CAST_START 56855 60030"
 )
 
 --TODO, GTFO for thundershock shit on ground
+--TODO, switch warning for add
 local warningThundershock	= mod:NewSpellAnnounce(56926, 3)
 local warningCycloneStrike	= mod:NewSpellAnnounce(56855, 3)
 

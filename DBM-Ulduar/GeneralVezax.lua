@@ -21,8 +21,8 @@ mod:RegisterEventsInCombat(
 local warnShadowCrash			= mod:NewTargetAnnounce(62660, 4)
 local warnLeechLife				= mod:NewTargetAnnounce(63276, 3)
 
-local specWarnShadowCrash		= mod:NewSpecialWarning("SpecialWarningShadowCrash")
-local specWarnShadowCrashNear	= mod:NewSpecialWarning("SpecialWarningShadowCrashNear")
+local specWarnShadowCrash		= mod:NewSpecialWarningDodge(62660)
+local specWarnShadowCrashNear	= mod:NewSpecialWarningClose(62660)
 local specWarnSurgeDarkness		= mod:NewSpecialWarningSpell(62662, "Tank|Healer")
 local specWarnLifeLeechYou		= mod:NewSpecialWarningYou(63276)
 local specWarnLifeLeechNear 	= mod:NewSpecialWarning("SpecialWarningLLNear", false)
@@ -41,6 +41,28 @@ mod:AddBoolOption("SetIconOnShadowCrash", true)
 mod:AddBoolOption("SetIconOnLifeLeach", true)
 mod:AddBoolOption("CrashArrow")
 
+function mod:ShadowCrashTarget(targetname, uId)
+	if not targetname then return end
+	if self.Options.SetIconOnShadowCrash then
+		self:SetIcon(targetname, 8, 10)
+	end
+	warnShadowCrash:Show(targetname)
+	if targetname == UnitName("player") then
+		specWarnShadowCrash:Show()
+		yellShadowCrash:Yell()
+	elseif targetname then
+		if uId then
+			local inRange = CheckInteractDistance(uId, 2)
+			if inRange then
+				specWarnShadowCrashNear:Show(targetname)
+				if self.Options.CrashArrow then
+					local x, y = UnitPosition(uId)
+					DBM.Arrow:ShowRunAway(x, y, 15, 5)
+				end
+			end
+		end
+	end
+end
 
 function mod:OnCombatStart(delay)
 	timerEnrage:Start(-delay)
@@ -75,35 +97,9 @@ function mod:SPELL_AURA_REMOVED(args)
 	end
 end
 
-function mod:ShadowCrashTarget()
-	local targetname = self:GetBossTarget(33271)
-	if not targetname then return end
-	if self.Options.SetIconOnShadowCrash then
-		self:SetIcon(targetname, 8, 10)
-	end
-	warnShadowCrash:Show(targetname)
-	if targetname == UnitName("player") then
-		specWarnShadowCrash:Show(targetname)
-		yellShadowCrash:Yell()
-	elseif targetname then
-		local uId = DBM:GetRaidUnitId(targetname)
-		if uId then
-			local inRange = CheckInteractDistance(uId, 2)
-			if inRange then
-				specWarnShadowCrashNear:Show()
-				if self.Options.CrashArrow then
-					local x, y = UnitPosition(uId)
-					DBM.Arrow:ShowRunAway(x, y, 15, 5)
-				end
-			end
-		end
-	end
-end
-
-
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 62660 then		-- Shadow Crash
-		self:ScheduleMethod(0.2, "ShadowCrashTarget")
+		self:BossTargetScanner(33271, "ShadowCrashTarget", 0.05, 20)
 	elseif args.spellId == 63276 then	-- Mark of the Faceless
 		if self.Options.SetIconOnLifeLeach then
 			self:SetIcon(args.destName, 7, 10)

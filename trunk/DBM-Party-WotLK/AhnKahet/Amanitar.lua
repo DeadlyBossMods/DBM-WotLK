@@ -9,7 +9,7 @@ mod:SetZone()
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"SPELL_CAST_START"
+	"SPELL_CAST_START 57055"
 )
 mod.onlyHeroic = true
 

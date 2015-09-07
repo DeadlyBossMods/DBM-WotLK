@@ -9,9 +9,9 @@ mod:SetZone()
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"SPELL_CAST_START",
-	"SPELL_AURA_APPLIED",
-	"SPELL_AURA_REMOVED"
+	"SPELL_CAST_START 55931",
+	"SPELL_AURA_APPLIED 55959 59513",
+	"SPELL_AURA_REMOVED 55959 59513"
 )
 
 local warningEmbrace	= mod:NewTargetAnnounce(55959, 2)

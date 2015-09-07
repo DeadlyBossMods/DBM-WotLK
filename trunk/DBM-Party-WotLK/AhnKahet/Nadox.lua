@@ -8,13 +8,14 @@ mod:SetZone()
 
 mod:RegisterCombat("combat")
 
-local warningPlague	= mod:NewTargetAnnounce(56130, 2)
-local timerPlague	= mod:NewTargetTimer(30, 56130)
-
 mod:RegisterEventsInCombat(
-	"SPELL_AURA_APPLIED",
-	"SPELL_AURA_REMOVED"
+	"SPELL_AURA_APPLIED 56130 59467",
+	"SPELL_AURA_REMOVED 56130 59467"
 )
+
+local warningPlague	= mod:NewTargetAnnounce(56130, 2, nil, "Healer")
+
+local timerPlague	= mod:NewTargetTimer(30, 56130, nil, false)
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(56130, 59467) then

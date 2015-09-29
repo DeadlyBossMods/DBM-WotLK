@@ -30,7 +30,7 @@
 ## X-DBM-Mod-SubCategories-zhCN: 尖塔下层, 瘟疫工厂, 血色大厅, 霜翼之厅, 冰封王座, Trash
 ## X-DBM-Mod-MapID: 631
 ## X-DBM-Mod-Sort: 400
-## X-DBM-Mod-MinCoreRevision: 12473
+## X-DBM-Mod-MinCoreRevision: 14565
 localization.en.lua
 localization.de.lua
 localization.kr.lua

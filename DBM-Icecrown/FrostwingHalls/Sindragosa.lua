@@ -29,7 +29,7 @@ local warnChilledtotheBone		= mod:NewCountAnnounce(70106, 2, nil, false)
 local warnMysticBuffet			= mod:NewCountAnnounce(70128, 2, nil, false)
 local warnFrostBeacon			= mod:NewTargetAnnounce(70126, 4)
 local warnFrostBreath			= mod:NewSpellAnnounce(69649, 2, nil, "Tank|Healer")
-local warnUnchainedMagic		= mod:NewTargetAnnounce("OptionVersion2", 69762, 2, nil, "SpellCaster")
+local warnUnchainedMagic		= mod:NewTargetAnnounce(69762, 2, nil, "SpellCaster", 2)
 
 local specWarnUnchainedMagic	= mod:NewSpecialWarningYou(69762)
 local specWarnFrostBeacon		= mod:NewSpecialWarningMoveAway(70126, nil, nil, nil, 3)

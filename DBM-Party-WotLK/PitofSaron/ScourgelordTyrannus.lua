@@ -15,12 +15,12 @@ mod:RegisterEvents(
 )
 
 mod:RegisterEventsInCombat(
-	"SPELL_CAST_START",
-	"SPELL_CAST_SUCCESS",
-	"SPELL_AURA_APPLIED",
+	"SPELL_CAST_START 69167",
+	"SPELL_CAST_SUCCESS 69155",
+	"SPELL_AURA_APPLIED 69172",
+	"SPELL_PERIODIC_DAMAGE 69238",
+	"SPELL_PERIODIC_MISSED 69238",
 	"CHAT_MSG_RAID_BOSS_EMOTE",
-	"SPELL_PERIODIC_DAMAGE",
-	"SPELL_PERIODIC_MISSED",
 	"UNIT_DIED"
 )
 
@@ -30,6 +30,7 @@ local warnOverlordsBrand		= mod:NewTargetAnnounce(69172, 4)
 local warnHoarfrost				= mod:NewTargetAnnounce(69246, 2)
 
 local specWarnHoarfrost			= mod:NewSpecialWarningYou(69246)
+local yellHoarfrost				= mod:NewYell(69246)
 local specWarnHoarfrostNear		= mod:NewSpecialWarningClose(69246)
 local specWarnIcyBlast			= mod:NewSpecialWarningMove(69238)
 local specWarnOverlordsBrand	= mod:NewSpecialWarningYou(69172)
@@ -59,22 +60,23 @@ function mod:SPELL_CAST_SUCCESS(args)
 	end
 end
 
+function mod:SPELL_AURA_APPLIED(args)
+	if args.spellId == 69172 then							-- Overlord's Brand
+		timerOverlordsBrand:Start(args.destName)
+		if args:IsPlayer() then
+			specWarnOverlordsBrand:Show()
+		else
+			warnOverlordsBrand:Show(args.destName)
+		end
+	end
+end
+
 function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
 	if spellId == 69238 and destGUID == UnitGUID("player") and self:AntiSpam() then		-- Icy Blast, MOVE!
 		specWarnIcyBlast:Show()
 	end
 end
 mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
-
-function mod:SPELL_AURA_APPLIED(args)
-	if args.spellId == 69172 then							-- Overlord's Brand
-		warnOverlordsBrand:Show(args.destName)
-		timerOverlordsBrand:Start(args.destName)
-		if args:IsPlayer() then
-			specWarnOverlordsBrand:Show()
-		end
-	end
-end
 
 function mod:UNIT_DIED(args)
 	if self:GetCIDFromGUID(args.destGUID) == 36658 then
@@ -83,20 +85,22 @@ function mod:UNIT_DIED(args)
 end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
-	if msg == L.HoarfrostTarget or msg:find(L.HoarfrostTarget) then
+	if msg == L.HoarfrostTarget or msg:find(L.HoarfrostTarget) then--Probably don't need this, verify
 		if not target then return end
 		local target = DBM:GetUnitFullName(target)
-		warnHoarfrost:Show(target)
 		if target == UnitName("player") then
 			specWarnHoarfrost:Show()
+			yellHoarfrost:Yell()
 		elseif target then
 			local uId = DBM:GetRaidUnitId(target)
 			if uId then
 				local inRange = CheckInteractDistance(uId, 2)
 				if inRange then
-					specWarnHoarfrostNear:Show()
+					specWarnHoarfrostNear:Show(target)
 				end
 			end
+		else
+			warnHoarfrost:Show(target)
 		end
 		if self.Options.SetIconOnHoarfrostTarget then
 			self:SetIcon(target, 8, 5)

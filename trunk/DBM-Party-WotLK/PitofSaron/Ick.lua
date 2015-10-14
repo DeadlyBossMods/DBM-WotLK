@@ -10,16 +10,16 @@ mod:SetMinSyncRevision(7)--Could break if someone is running out of date version
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"SPELL_CAST_START",
-	"SPELL_AURA_APPLIED",
+	"SPELL_CAST_START 68987 68989",
+	"SPELL_AURA_APPLIED 69029",
+	"SPELL_PERIODIC_DAMAGE 69024",
+	"SPELL_PERIODIC_MISSED 69024",
 	"RAID_BOSS_EMOTE",
 	"RAID_BOSS_WHISPER",
-	"SPELL_PERIODIC_DAMAGE",
-	"SPELL_PERIODIC_MISSED"
+	"CHAT_MSG_ADDON"
 )
 
 local warnPursuitCast			= mod:NewCastAnnounce(68987, 3)
-local warnPoisonNova			= mod:NewCastAnnounce(68989, 3)
 local warnPursuit				= mod:NewTargetAnnounce(68987, 4)--TODO, just switch to UNIT_AURA, syncing not reliable especially with older zones.
 
 local specWarnToxic				= mod:NewSpecialWarningMove(69024)
@@ -29,16 +29,16 @@ local specWarnPoisonNova		= mod:NewSpecialWarningRun(68989, "Melee", nil, 2, 4)
 
 local timerPursuitCast			= mod:NewCastTimer(5, 68987)
 local timerPursuitConfusion		= mod:NewBuffActiveTimer(12, 69029)
-local timerPoisonNova			= mod:NewCastTimer(5, 68989, nil, nil, nil, 2)
+local timerPoisonNova			= mod:NewCastTimer(5, 68989, nil, "Melee", 2, 2)
 
 mod:AddBoolOption("SetIconOnPursuitTarget", true)
 
 function mod:SPELL_CAST_START(args)
-	if args.spellId == 68987 then							-- Pursuit
+	local spellId = args.spellId
+	if spellId == 68987 then							-- Pursuit
 		warnPursuitCast:Show()
 		timerPursuitCast:Start()
-	elseif args.spellId == 68989 then				-- Poison Nova
-		warnPoisonNova:Show()
+	elseif spellId == 68989 then				-- Poison Nova
 		timerPoisonNova:Start()
 		specWarnPoisonNova:Show()
 	end
@@ -64,23 +64,22 @@ function mod:RAID_BOSS_EMOTE(msg)
 end
 
 function mod:RAID_BOSS_WHISPER(msg) 
-	if msg == L.IckPursuit or msg:find(L.IckPursuit) then 
+--	if msg == L.IckPursuit or msg:find(L.IckPursuit) then 
 		specWarnPursuit:Show() 
-		self:SendSync("Pursuit", UnitGUID("player"))
-	end 
-end 
+--	end 
+end
 
-function mod:OnSync(msg, guid) 
-	local target
-	if guid then
-		target = DBM:GetFullPlayerNameByGUID(guid)
-	end
-	if msg == "Pursuit" and guid then 
-		if target then
-			warnPursuit:Show(target)
+--per usual, use transcriptor message to get messages from both bigwigs and DBM, all without adding comms to this mod at all
+function mod:CHAT_MSG_ADDON(prefix, msg, channel, targetName)
+	if prefix ~= "Transcriptor" then return end
+	--See if this can be done with an icon string or spellid string in sync message
+	if msg == L.IckPursuit or msg:find(L.IckPursuit) then
+		targetName = Ambiguate(targetName, "none")
+		if self:AntiSpam(5, targetName) then--Antispam sync by target name, since this doesn't use dbms built in onsync handler.
+			warnPursuit:Show(targetName)
 			if self.Options.SetIconOnPursuitTarget then 
 				self:SetIcon(target, 8, 12) 
 			end
 		end
-	end 
-end 
+	end
+end

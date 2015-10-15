@@ -83,7 +83,7 @@ function mod:CHAT_MSG_ADDON(prefix, msg, channel, targetName)
 			if uId then
 				local inRange = CheckInteractDistance(uId, 2)
 				if inRange then
-					specWarnSaroniteRockNear:Show()
+					specWarnSaroniteRockNear:Show(targetName)
 				end
 			end
 			if self.Options.SetIconOnSaroniteRockTarget then

@@ -104,7 +104,7 @@ function mod:CHAT_MSG_ADDON(prefix, msg, channel, targetName)
 				warnSaroniteRock:Show(targetName)
 			end
 			if self.Options.SetIconOnSaroniteRockTarget then
-				self:SetIcon(target, 8, 5)
+				self:SetIcon(targetName, 8, 5)
 			end
 		end
 	end

@@ -105,7 +105,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 			specWarnHoarfrost:Show()
 			yellHoarfrost:Yell()
 			if self.Options.RangeFrame then
-				DBM.RangeCheck:Show(8, nil, nil, nil, nil. 5)
+				DBM.RangeCheck:Show(8, nil, nil, nil, nil, 5)
 			end
 		elseif self:CheckNearby(8, target) then
 			specWarnHoarfrostNear:Show(target)

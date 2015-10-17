@@ -518,7 +518,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	IckPursuit	= "%s is chasing you!",
 	Barrage	= "%s begins rapidly conjuring explosive mines!"
 })
 

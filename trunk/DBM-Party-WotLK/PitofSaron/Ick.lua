@@ -12,11 +12,11 @@ mod:RegisterCombat("combat")
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 68987 68989",
 	"SPELL_AURA_APPLIED 69029",
+	"SPELL_AURA_REMOVED 69029",
 	"SPELL_PERIODIC_DAMAGE 69024",
 	"SPELL_PERIODIC_MISSED 69024",
 	"RAID_BOSS_EMOTE",
-	"RAID_BOSS_WHISPER",
-	"CHAT_MSG_ADDON"
+	"UNIT_AURA_UNFILTERED"
 )
 
 local warnPursuitCast			= mod:NewCastAnnounce(68987, 3)
@@ -27,26 +27,46 @@ local specWarnMines				= mod:NewSpecialWarningSpell(69015, nil, nil, nil, 2)
 local specWarnPursuit			= mod:NewSpecialWarningRun(68987, nil, nil, 2, 4)
 local specWarnPoisonNova		= mod:NewSpecialWarningRun(68989, "Melee", nil, 2, 4)
 
+local timerSpecialCD			= mod:NewCDSpecialTimer(20)--Every 20-22 seconds. In rare cases he skips a special though and goes 40 seconds. unsure of cause
 local timerPursuitCast			= mod:NewCastTimer(5, 68987)
 local timerPursuitConfusion		= mod:NewBuffActiveTimer(12, 69029)
 local timerPoisonNova			= mod:NewCastTimer(5, 68989, nil, "Melee", 2, 2)
 
 mod:AddBoolOption("SetIconOnPursuitTarget", true)
 
+local pursuit = GetSpellInfo(68987)
+local pursuitTable = {}
+
+function mod:OnCombatStart(delay)
+	table.wipe(pursuitTable)
+	timerSpecialCD:Start()
+end
+
 function mod:SPELL_CAST_START(args)
 	local spellId = args.spellId
 	if spellId == 68987 then							-- Pursuit
 		warnPursuitCast:Show()
 		timerPursuitCast:Start()
+		timerSpecialCD:Start()
 	elseif spellId == 68989 then				-- Poison Nova
 		timerPoisonNova:Start()
 		specWarnPoisonNova:Show()
+		timerSpecialCD:Start()
+	elseif spellId == 69012 then				--Explosive Barrage
+		specWarnMines:Show()
+		timerSpecialCD:Start(22)--Will be 2 seconds longer because of how long barrage lasts
 	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 69029 then							-- Pursuit Confusion
-		timerPursuitConfusion:Show(args.destName)
+		timerPursuitConfusion:Start()
+	end
+end
+
+function mod:SPELL_AURA_REMOVED(args)
+	if args.spellId == 69029 then							-- Pursuit Confusion
+		timerPursuitConfusion:Cancel()
 	end
 end
 
@@ -57,29 +77,29 @@ function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
 end
 mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
 
+--[[
 function mod:RAID_BOSS_EMOTE(msg)
-	if msg == L.Barrage or msg:find(L.IckPursuit) then
+	if msg == L.Barrage or msg:find(L.Barrage) then
 		specWarnMines:Show()
 	end
-end
+end--]]
 
-function mod:RAID_BOSS_WHISPER(msg) 
---	if msg == L.IckPursuit or msg:find(L.IckPursuit) then 
-		specWarnPursuit:Show() 
---	end 
-end
-
---per usual, use transcriptor message to get messages from both bigwigs and DBM, all without adding comms to this mod at all
-function mod:CHAT_MSG_ADDON(prefix, msg, channel, targetName)
-	if prefix ~= "Transcriptor" then return end
-	--See if this can be done with an icon string or spellid string in sync message
-	if msg == L.IckPursuit or msg:find(L.IckPursuit) then
-		targetName = Ambiguate(targetName, "none")
-		if self:AntiSpam(5, targetName) then--Antispam sync by target name, since this doesn't use dbms built in onsync handler.
-			warnPursuit:Show(targetName)
-			if self.Options.SetIconOnPursuitTarget then 
-				self:SetIcon(target, 8, 12) 
-			end
+function mod:UNIT_AURA_UNFILTERED(uId)
+	local isPursuitDebuff = UnitDebuff(uId, pursuit)
+	local name = DBM:GetUnitFullName(uId)
+	if not isPursuitDebuff and pursuitTable[name] then
+		pursuitTable[name] = nil
+		if self.Options.SetIconOnPursuitTarget then 
+			self:SetIcon(name, 0) 
+		end
+	elseif isPursuitDebuff and not pursuitTable[name] then
+		pursuitTable[name] = true
+		warnPursuit:Show(name)
+		if UnitIsUnit(uId, "player") then
+			specWarnPursuit:Show() 
+		end
+		if self.Options.SetIconOnPursuitTarget then 
+			self:SetIcon(name, 8) 
 		end
 	end
 end

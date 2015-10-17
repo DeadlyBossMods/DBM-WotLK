@@ -516,7 +516,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	IckPursuit	= "%s正在追擊著你!",
 	Barrage		= "%s開始迅速地召喚爆裂地雷!"
 })
 

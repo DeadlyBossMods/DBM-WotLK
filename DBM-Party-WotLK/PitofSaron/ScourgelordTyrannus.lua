@@ -24,31 +24,42 @@ mod:RegisterEventsInCombat(
 	"UNIT_DIED"
 )
 
-local warnUnholyPower			= mod:NewSpellAnnounce(69167, 3)
-local warnForcefulSmash			= mod:NewSpellAnnounce(69155, 2)
+local warnForcefulSmash			= mod:NewSpellAnnounce(69155, 2, nil, "Tank")
 local warnOverlordsBrand		= mod:NewTargetAnnounce(69172, 4)
 local warnHoarfrost				= mod:NewTargetAnnounce(69246, 2)
 
-local specWarnHoarfrost			= mod:NewSpecialWarningYou(69246)
+local specWarnHoarfrost			= mod:NewSpecialWarningMoveAway(69246)
 local yellHoarfrost				= mod:NewYell(69246)
 local specWarnHoarfrostNear		= mod:NewSpecialWarningClose(69246)
 local specWarnIcyBlast			= mod:NewSpecialWarningMove(69238)
-local specWarnOverlordsBrand	= mod:NewSpecialWarningYou(69172)
+local specWarnOverlordsBrand	= mod:NewSpecialWarningReflect(69172, nil, nil, nil, 3)
+local specWarnUnholyPower		= mod:NewSpecialWarningSpell(69167, "Tank")--Spell for now. may change to run away if damage is too high for defensive
 
 local timerCombatStart			= mod:NewCombatTimer(31)
-local timerOverlordsBrand		= mod:NewTargetTimer(8, 69172)
-local timerUnholyPower			= mod:NewBuffActiveTimer(10, 69167)
-local timerForcefulSmash		= mod:NewCDTimer(50, 69155) --hotfixed? new combat logs show it every 50 seconds'ish.
+local timerOverlordsBrandCD		= mod:NewCDTimer(12, 69172, nil, nil, nil, 3)
+local timerOverlordsBrand		= mod:NewBuffFadesTimer(8, 69172)
+local timerUnholyPower			= mod:NewBuffActiveTimer(10, 69167, nil, "Tank|Healer", 2, 5)
+local timerHoarfrostCD			= mod:NewCDTimer(25.5, 69246, nil, nil, nil, 3)
+local timerForcefulSmash		= mod:NewCDTimer(40, 69155, nil, "Tank", 2, 5)--Highly Variable. 40-50
 
 mod:AddBoolOption("SetIconOnHoarfrostTarget", true)
+mod:AddRangeFrameOption(8, 69246)
 
 function mod:OnCombatStart(delay)
-	timerForcefulSmash:Start(9-delay)
+	timerForcefulSmash:Start(9-delay)--Sems like a WTF
+	timerOverlordsBrandCD:Start(-delay)
+	timerHoarfrostCD:Start(31.5-delay)--Verify
+end
+
+function mod:OnCombatEnd()
+	if self.Options.RangeFrame then
+		DBM.RangeCheck:Hide()
+	end
 end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 69167 then					-- Unholy Power
-        warnUnholyPower:Show()
+        specWarnUnholyPower:Show()
 		timerUnholyPower:Start()
 	end
 end
@@ -62,9 +73,10 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 69172 then							-- Overlord's Brand
-		timerOverlordsBrand:Start(args.destName)
+		timerOverlordsBrandCD:Start()
 		if args:IsPlayer() then
 			specWarnOverlordsBrand:Show()
+			timerOverlordsBrand:Start()
 		else
 			warnOverlordsBrand:Show(args.destName)
 		end
@@ -87,18 +99,16 @@ end
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 	if msg == L.HoarfrostTarget or msg:find(L.HoarfrostTarget) then--Probably don't need this, verify
 		if not target then return end
+		timerHoarfrostCD:Start()
 		local target = DBM:GetUnitFullName(target)
 		if target == UnitName("player") then
 			specWarnHoarfrost:Show()
 			yellHoarfrost:Yell()
-		elseif target then
-			local uId = DBM:GetRaidUnitId(target)
-			if uId then
-				local inRange = CheckInteractDistance(uId, 2)
-				if inRange then
-					specWarnHoarfrostNear:Show(target)
-				end
+			if self.Options.RangeFrame then
+				DBM.RangeCheck:Show(8, nil, nil, nil, nil. 5)
 			end
+		elseif self:CheckNearby(8, target) then
+			specWarnHoarfrostNear:Show(target)
 		else
 			warnHoarfrost:Show(target)
 		end

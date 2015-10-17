@@ -532,7 +532,6 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization(609)
 
 L:SetMiscLocalization({
-	IckPursuit				= "¡%s te atrapa!",
 	Barrage					= "¡%s comienza a invocar minas explosivas!"
 })
 -------------------

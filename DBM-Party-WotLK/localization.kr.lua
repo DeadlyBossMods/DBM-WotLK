@@ -507,7 +507,6 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization(609)
 
 L:SetMiscLocalization({
-	IckPursuit	= "당신을 쫓습니다!",
 	Barrage		= "빠른 속도로 지뢰를 만들어냅니다!"
 })
 

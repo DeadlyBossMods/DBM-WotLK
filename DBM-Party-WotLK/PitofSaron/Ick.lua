@@ -94,9 +94,10 @@ function mod:UNIT_AURA_UNFILTERED(uId)
 		end
 	elseif isPursuitDebuff and not pursuitTable[name] then
 		pursuitTable[name] = true
-		warnPursuit:Show(name)
 		if UnitIsUnit(uId, "player") then
-			specWarnPursuit:Show() 
+			specWarnPursuit:Show()
+		else
+			warnPursuit:Show(name)
 		end
 		if self.Options.SetIconOnPursuitTarget then 
 			self:SetIcon(name, 8) 

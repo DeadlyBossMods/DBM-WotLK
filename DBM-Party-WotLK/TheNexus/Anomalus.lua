@@ -9,7 +9,7 @@ mod:SetZone()
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"SPELL_SUMMON",
+	"SPELL_SUMMON 47743",
 	"UNIT_HEALTH boss1 target focus mousover"
 )
 

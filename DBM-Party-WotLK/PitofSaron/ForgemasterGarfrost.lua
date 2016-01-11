@@ -63,7 +63,7 @@ function mod:SPELL_AURA_APPLIED_DOSE(args)
 	if args.spellId == 68786 then
 		local amount = args.amount or 1
 		if amount >= 9 and args:IsPlayer() and self:AntiSpam(5) then --11 stacks is what's needed for achievement, 9 to give you time to clear/dispel
-			specWarnPermafrost:Show(args.spellName, amount)
+			specWarnPermafrost:Show(amount)
 		end
 		if self.Options.AchievementCheck and not warnedfailed then
 			local channel = IsInGroup(2) and "INSTANCE_CHAT" or "PARTY"

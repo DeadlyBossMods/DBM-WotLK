@@ -8,7 +8,7 @@ mod:SetModelID(26349)
 mod:SetZone()
 
 mod:RegisterCombat("combat")
-mod:RegisterKill("kill", 24201)
+--mod:RegisterKill("kill")
 
 mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",

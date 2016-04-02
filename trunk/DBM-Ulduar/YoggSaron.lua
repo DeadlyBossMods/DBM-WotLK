@@ -42,8 +42,7 @@ local specWarnFervor				= mod:NewSpecialWarningYou(63138)
 local specWarnFervorCast			= mod:NewSpecialWarning("SpecWarnFervorCast", "Melee")
 local specWarnMalady				= mod:NewSpecialWarningYou(63830, true)
 local specWarnMaladyNear			= mod:NewSpecialWarningClose(63830, true)
-
-mod:AddBoolOption("WarningSqueeze", true, "announce")
+local yellSqueeze					= mod:NewYell(64125)
 
 local enrageTimer					= mod:NewBerserkTimer(900)
 local timerFervor					= mod:NewTargetTimer(15, 63138, nil, false, 2)
@@ -169,9 +168,9 @@ function mod:SPELL_AURA_APPLIED(args)
 		end 
 	elseif args:IsSpellID(64126, 64125) then	-- Squeeze
 		warnSqueeze:Show(args.destName)
-		if args:IsPlayer() and self.Options.WarningSqueeze then	
-			SendChatMessage(L.WarningYellSqueeze, "SAY")
-		end	
+		if args:IsPlayer() then
+			yellSqueeze:Yell()
+		end
 	elseif args.spellId == 63138 then	-- Sara's Fervor
 		warnFervor:Show(args.destName)
 		timerFervor:Start(args.destName)

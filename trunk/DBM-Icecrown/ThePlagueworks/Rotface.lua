@@ -37,7 +37,7 @@ local specWarnRadiatingOoze		= mod:NewSpecialWarningSpell(69760, "-Tank")
 local specWarnLittleOoze		= mod:NewSpecialWarning("SpecWarnLittleOoze", false)
 local specWarnVileGas			= mod:NewSpecialWarningYou(72272)
 
-local timerStickyOoze			= mod:NewNextTimer(16, 69774, nil, "Tank")
+local timerStickyOoze			= mod:NewNextTimer(16, 69774, nil, "Tank", nil, 5)
 local timerWallSlime			= mod:NewNextTimer(20, 69789)
 local timerSlimeSpray			= mod:NewNextTimer(21, 69508, nil, nil, nil, 3)
 local timerMutatedInfection		= mod:NewTargetTimer(12, 69674)

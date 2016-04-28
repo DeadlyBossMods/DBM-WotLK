@@ -33,7 +33,7 @@ local specWarnLayWaste		= mod:NewSpecialWarningSpell(69325)
 local specWarnManaVoid		= mod:NewSpecialWarningMove(71179)
 
 local timerLayWaste			= mod:NewBuffActiveTimer(12, 69325)
-local timerNextPortal		= mod:NewCDTimer(46.5, 72483, nil, nil, nil, 5)
+local timerNextPortal		= mod:NewCDTimer(46.5, 72483, nil, nil, nil, 5, nil, DBM_CORE_HEALER_ICON)
 local timerPortalsOpen		= mod:NewTimer(15, "TimerPortalsOpen", 72483)
 local timerPortalsClose		= mod:NewTimer(10, "TimerPortalsClose", 72483)
 local timerHealerBuff		= mod:NewBuffFadesTimer(40, 70873)

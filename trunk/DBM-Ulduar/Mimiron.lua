@@ -103,7 +103,7 @@ function mod:OnCombatEnd()
 --		else
 --			SetLootMethod(lootmethod)
 --		end
-	end
+--	end
 end
 
 function mod:SPELL_SUMMON(args)

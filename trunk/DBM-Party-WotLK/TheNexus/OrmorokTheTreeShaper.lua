@@ -21,9 +21,9 @@ local warningAdd			= mod:NewSpellAnnounce(61564, 2)
 local specWarnReflection	= mod:NewSpecialWarningReflect(47981, "SpellCaster", nil, nil, 1, 2)
 local specWarnSpikes		= mod:NewSpecialWarningDodge(47958, nil, nil, nil, 2, 2)
 
-local timerReflection		= mod:NewBuffActiveTimer(15, 47981, nil, "SpellCaster", 2, 5)
-local timerReflectionCD		= mod:NewCDTimer(30, 47981, nil, "SpellCaster", 2, 5)
-local timerSpikesCD			= mod:NewCDTimer(14, 47958, nil, nil, nil, 2)--Health based or CD?
+local timerReflection		= mod:NewBuffActiveTimer(15, 47981, nil, "SpellCaster", 2, 5, nil, DBM_CORE_DEADLY_ICON)
+local timerReflectionCD		= mod:NewCDTimer(30, 47981, nil, "SpellCaster", 2, 5, nil, DBM_CORE_DEADLY_ICON)
+local timerSpikesCD			= mod:NewCDTimer(14, 47958, nil, nil, nil, 3)--Health based or CD?
 
 local voiceSpikes			= mod:NewVoice(47958)
 local voiceReflection		= mod:NewVoice(47981, "SpellCaster")

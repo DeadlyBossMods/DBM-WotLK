@@ -13,6 +13,7 @@ mod:RegisterEventsInCombat(
 )
 
 local warningImpale		= mod:NewTargetAnnounce(48261, 2)
+
 local timerImpale		= mod:NewTargetTimer(9, 48261)
 
 function mod:SPELL_AURA_APPLIED(args)

@@ -17,7 +17,7 @@ mod:RegisterEventsInCombat(
 local WarnCrystalHandler 	= mod:NewCountAnnounce("ej6378", 2, 59910)
 local warnPhase2			= mod:NewPhaseAnnounce(2)
 
-local timerCrystalHandler 	= mod:NewNextTimer(15.5, "ej6378", nil, nil, nil, nil, 59910)
+local timerCrystalHandler 	= mod:NewNextTimer(15.5, "ej6378", nil, nil, nil, 1, 59910, DBM_CORE_DAMAGE_ICON)
 
 local CrystalHandlers = 4
 

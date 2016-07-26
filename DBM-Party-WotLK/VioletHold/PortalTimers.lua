@@ -25,7 +25,7 @@ mod:RemoveOption("HealthFrame")
 local lastWave = 0
 
 function mod:UPDATE_WORLD_STATES(args)
-	local text = select(4, GetWorldStateUIInfo(2))
+	local text = select(4, GetWorldStateUIInfo(1))
 	if not text then return end
 	local _, _, wave = string.find(text, L.WavePortal)
 	if not wave then

@@ -17,12 +17,14 @@ local warnPhantomBlast			= mod:NewSpellAnnounce(68982, 2)
 local warnUnleashedSouls		= mod:NewSpellAnnounce(68939, 3)
 local warnWailingSouls			= mod:NewSpellAnnounce(68899, 4)
 local warnWellofSouls			= mod:NewSpellAnnounce(68820, 3)
-local warnMirroredSoul			= mod:NewTargetAnnounce(69051, 4)
-local timerMirroredSoul			= mod:NewTargetTimer(8, 69051)
-local timerUnleashedSouls		= mod:NewBuffActiveTimer(5, 68939)
+
 local specwarnMirroredSoul		= mod:NewSpecialWarningReflect(69051)
 local specwarnWailingSouls		= mod:NewSpecialWarningSpell(68899, nil, nil, nil, 2)
 local specwarnPhantomBlast		= mod:NewSpecialWarningInterrupt(68982, false)
+
+local warnMirroredSoul			= mod:NewTargetAnnounce(69051, 4)
+local timerMirroredSoul			= mod:NewTargetTimer(8, 69051)
+local timerUnleashedSouls		= mod:NewBuffActiveTimer(5, 68939)
 
 mod:AddBoolOption("SetIconOnMirroredTarget", false)
 

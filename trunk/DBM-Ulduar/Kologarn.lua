@@ -48,21 +48,37 @@ mod:AddBoolOption("HealthFrame", true)
 mod:AddBoolOption("SetIconOnGripTarget", true)
 mod:AddBoolOption("SetIconOnEyebeamTarget", true)
 
+mod.vb.disarmActive = false
+
+local function armReset(self)
+	self.vb.disarmActive = false
+end
+
 function mod:UNIT_DIED(args)
 	if self:GetCIDFromGUID(args.destGUID) == 32934 then 		-- right arm
 		timerRespawnRightArm:Start()
 		timerNextGrip:Cancel()
-		if self:IsDifficulty("normal10") then
-			timerTimeForDisarmed:Start(12)
-		else
-			timerTimeForDisarmed:Start()
+		if not self.vb.disarmActive then
+			self.vb.disarmActive = true
+			if self:IsDifficulty("normal10") then
+				timerTimeForDisarmed:Start(12)
+				self:Schedule(12, armReset, self)
+			else
+				timerTimeForDisarmed:Start()
+				self:Schedule(10, armReset, self)
+			end
 		end
 	elseif self:GetCIDFromGUID(args.destGUID) == 32933 then		-- left arm
 		timerRespawnLeftArm:Start()
-		if self:IsDifficulty("heroic10") then
-			timerTimeForDisarmed:Start(12)
-		else
-			timerTimeForDisarmed:Start()
+		if not self.vb.disarmActive then
+			self.vb.disarmActive = true
+			if self:IsDifficulty("normal10") then
+				timerTimeForDisarmed:Start(12)
+				self:Schedule(12, armReset, self)
+			else
+				timerTimeForDisarmed:Start()
+				self:Schedule(10, armReset, self)
+			end
 		end
 	end
 end

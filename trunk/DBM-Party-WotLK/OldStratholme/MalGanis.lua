@@ -3,7 +3,7 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
 mod:SetCreatureID(26533)
-mod:SetEncounterID(296, 300)
+mod:SetEncounterID(296, 300, 2005)
 mod:SetZone()
 
 mod:RegisterCombat("combat")
@@ -15,6 +15,7 @@ mod:RegisterEventsInCombat(
 )
 
 local warningSleep	= mod:NewTargetAnnounce(52721, 2)
+
 local timerSleep	= mod:NewTargetTimer(10, 52721)
 local timerSleepCD	= mod:NewCDTimer(20, 52721)
 

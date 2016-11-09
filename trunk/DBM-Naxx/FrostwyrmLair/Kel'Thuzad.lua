@@ -13,7 +13,7 @@ mod:RegisterCombat("yell", L.Yell)
 mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED",
 	"SPELL_CAST_SUCCESS",
-	"UNIT_HEALTH target focus mouseover"
+	"UNIT_HEALTH boss1"
 )
 
 local warnAddsSoon			= mod:NewAnnounce("warnAddsSoon", 1, 45419)

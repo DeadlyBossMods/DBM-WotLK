@@ -11,7 +11,7 @@ mod:RegisterCombat("combat")
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START",
 	"SPELL_AURA_APPLIED",
-	"UNIT_HEALTH boss1 target focus mouseover"
+	"UNIT_HEALTH boss1"
 )
 
 local warnSoulstormSoon		= mod:NewSoonAnnounce(68872, 2)

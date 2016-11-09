@@ -10,7 +10,7 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 55098",
-	"UNIT_HEALTH boss1 target focus mouseover"
+	"UNIT_HEALTH boss1"
 )
 
 local specWarnTransform		= mod:NewSpecialWarningInterruptCount(55098, nil, nil, nil, 1, 2)

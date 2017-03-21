@@ -13,6 +13,7 @@ mod:RegisterEventsInCombat(
 )
 
 local warningChains		= mod:NewTargetAnnounce(52696, 4)
+
 local timerChains		= mod:NewTargetTimer(5, 52696)
 local timerChainsCD		= mod:NewCDTimer(15, 52696)
 

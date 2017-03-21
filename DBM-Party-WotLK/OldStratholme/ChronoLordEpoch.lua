@@ -16,6 +16,7 @@ mod:RegisterEventsInCombat(
 
 local warningTime 	= mod:NewSpellAnnounce(58848, 3)
 local warningCurse 	= mod:NewTargetAnnounce(52772, 2)
+
 local timerCurse	= mod:NewTargetTimer(10, 52772)
 local timerTimeCD	= mod:NewCDTimer(25, 58848)
 

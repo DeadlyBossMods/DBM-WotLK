@@ -14,6 +14,7 @@ mod:RegisterEventsInCombat(
 mod.onlyHeroic = true
 
 local warningMini	= mod:NewSpellAnnounce(57055, 3)
+
 local timerMiniCD	= mod:NewCDTimer(30, 57055)
 
 function mod:SPELL_CAST_START(args)

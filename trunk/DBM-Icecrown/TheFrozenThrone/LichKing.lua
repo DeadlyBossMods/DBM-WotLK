@@ -159,7 +159,7 @@ function mod:OnCombatStart(delay)
 	NextPhase(self)
 	table.wipe(warnedValkyrGUIDs)
 	table.wipe(plagueExpires)
-	if not self:IsTrivial(90) then--Only warning that uses these events is remorseless winter and that warning is completely useless spam for level 90s.
+	if not self:IsTrivial(90) then
 		self:RegisterShortTermEvents(
 			"SPELL_DAMAGE 68983",
 			"SPELL_MISSED 68983"

@@ -25,8 +25,8 @@ local timerReflection		= mod:NewBuffActiveTimer(15, 47981, nil, "SpellCaster", 2
 local timerReflectionCD		= mod:NewCDTimer(30, 47981, nil, "SpellCaster", 2, 5, nil, DBM_CORE_DEADLY_ICON)
 local timerSpikesCD			= mod:NewCDTimer(12.1, 47958, nil, nil, nil, 3)--Health based or CD?
 
-local voiceSpikes			= mod:NewVoice(47958)
 local voiceReflection		= mod:NewVoice(47981, "SpellCaster")
+local voiceSpikes			= mod:NewVoice(47958)
 
 function mod:OnCombatStart(delay)
 	timerSpikesCD:Start(10-delay)

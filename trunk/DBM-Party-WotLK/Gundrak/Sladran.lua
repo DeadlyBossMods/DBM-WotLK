@@ -13,6 +13,7 @@ mod:RegisterEventsInCombat(
 )
 
 local warningNova	= mod:NewSpellAnnounce(55081, 3)
+
 local timerNovaCD	= mod:NewCDTimer(24, 55081)
 
 function mod:SPELL_CAST_START(args)

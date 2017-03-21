@@ -11,6 +11,7 @@ mod:RegisterEvents(
 mod.noStatistics = true
 
 local warningWaveNow	= mod:NewAnnounce("WarningWaveNow", 3)
+
 local timerWaveIn		= mod:NewTimer(20, "TimerWaveIn")
 local timerRoleplay		= mod:NewTimer(162, "TimerRoleplay")
 

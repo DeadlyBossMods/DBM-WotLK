@@ -70,7 +70,6 @@ local timerBurningSprayCD	= mod:NewCDTimer(21, 66902)
 local timerParalyticBiteCD	= mod:NewCDTimer(25, 66824, nil, "Melee")
 local timerBurningBiteCD	= mod:NewCDTimer(15, 66879, nil, "Melee")
 
-mod:AddBoolOption("PingCharge")
 mod:AddSetIconOption("SetIconOnChargeTarget", 52311)
 mod:AddSetIconOption("SetIconOnBileTarget", 66869, false)
 mod:AddBoolOption("ClearIconsOnIceHowl", false)
@@ -286,9 +285,6 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 		end
 		if target == UnitName("player") then
 			specWarnCharge:Show()
-			if self.Options.PingCharge then
-				Minimap:PingLocation()
-			end
 		else
 			local uId = DBM:GetRaidUnitId(target)
 			if uId then

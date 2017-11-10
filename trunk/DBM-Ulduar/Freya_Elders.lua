@@ -8,16 +8,19 @@ mod:SetRevision(("$Revision$"):sub(12, -3))
 -- mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
-	"SPELL_CAST_START",
-	"SPELL_AURA_APPLIED"
+	"SPELL_CAST_START 62344 62325 62932",
+	"SPELL_AURA_APPLIED 62310 62928"
 )
 
-local warnImpale			= mod:NewSpellAnnounce(62928)
+local warnImpale				= mod:NewTargetAnnounce(62928)
 
-local timerImpale			= mod:NewTargetTimer(5, 62928)
+local timerImpale				= mod:NewTargetTimer(5, 62928)
 
-local specWarnFistofStone	= mod:NewSpecialWarningSpell(62344, "Tank")
-local specWarnGroundTremor	= mod:NewSpecialWarningCast(62932, true)
+local specWarnFistofStone		= mod:NewSpecialWarningRun(62344, "Tank", nil, nil, 4, 2)
+local specWarnGroundTremor		= mod:NewSpecialWarningCast(62932, "SpellCaster")
+
+local voiceFistofStone			= mod:NewVoice(62344, "Tank")--justrun
+local voiceGroundTremor			= mod:NewVoice(62932, "SpellCaster")--stopcast
 
 --
 -- Trash: 33430 Guardian Lasher (flower)
@@ -36,8 +39,10 @@ local specWarnGroundTremor	= mod:NewSpecialWarningCast(62932, true)
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 62344 then 					-- Fists of Stone
 		specWarnFistofStone:Show()
+		voiceFistofStone:Play("justrun")
 	elseif args:IsSpellID(62325, 62932) then		-- Ground Tremor
 		specWarnGroundTremor:Show()
+		voiceGroundTremor:Play("stopcast")
 	end
 end
 

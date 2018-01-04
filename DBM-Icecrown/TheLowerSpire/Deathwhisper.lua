@@ -54,6 +54,7 @@ local dominateMindIcon = 6
 local deformedFanatic
 local empoweredAdherent
 local lastPower = 100
+local shieldName = DBM:GetSpellInfo(70842)
 
 local function showDominateMindWarning()
 	warnDominateMind:Show(table.concat(dominateMindTargets, "<, >"))
@@ -100,8 +101,8 @@ end
 
 function mod:OnCombatStart(delay)
 	if DBM.BossHealth:IsShown() and self.Options.ShieldHealthFrame then
-		local name = GetSpellInfo(70842)
-		DBM.BossHealth:AddBoss(getPower, name)
+		shieldName = DBM:GetSpellInfo(70842)
+		DBM.BossHealth:AddBoss(getPower, shieldName)
 	end
 	berserkTimer:Start(-delay)
 	timerAdds:Start(7)

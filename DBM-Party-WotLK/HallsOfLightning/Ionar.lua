@@ -24,8 +24,6 @@ local specWarnOverload		= mod:NewSpecialWarningMoveAway(52658, nil, nil, nil, 1,
 
 local timerOverload			= mod:NewTargetTimer(10, 52658)
 
-local voiceOverload			= mod:NewVoice(52658)--runout
-
 mod:AddRangeFrameOption(10, 52658)
 mod:AddBoolOption("SetIconOnOverloadTarget", true)
 
@@ -45,7 +43,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(52658, 59795) then
 		if args:IsPlayer() then
 			specWarnOverload:Show()
-			voiceOverload:Play("runout")
+			specWarnOverload:Play("runout")
 			if self.Options.RangeFrame then
 				DBM.RangeCheck:Show(10)
 			end

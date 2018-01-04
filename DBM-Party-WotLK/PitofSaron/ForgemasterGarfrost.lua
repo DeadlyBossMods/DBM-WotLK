@@ -31,9 +31,6 @@ local timerSaroniteRockCD		= mod:NewCDTimer(15.5, 68789, nil, nil, nil, 3)--15.5
 local timerDeepFreezeCD			= mod:NewCDTimer(19, 70381, nil, "Healer", 2, 5, nil, DBM_CORE_HEALER_ICON)
 local timerDeepFreeze			= mod:NewTargetTimer(14, 70381, nil, false, 3, 5)
 
-local voiceSaroniteRock			= mod:NewVoice(68789)--watchstep
-local voicePermafrost			= mod:NewVoice(68786)--stackhigh
-
 mod:AddBoolOption("SetIconOnSaroniteRockTarget", true)
 mod:AddBoolOption("AchievementCheck", false, "announce")
 
@@ -67,7 +64,7 @@ function mod:SPELL_AURA_APPLIED_DOSE(args)
 		local amount = args.amount or 1
 		if amount >= 9 and args:IsPlayer() and self:AntiSpam(5) then --11 stacks is what's needed for achievement, 9 to give you time to clear/dispel
 			specWarnPermafrost:Show(amount)
-			voicePermafrost:Play("stackhigh")
+			specWarnPermafrost:Play("stackhigh")
 		end
 		if self.Options.AchievementCheck and not warnedfailed then
 			local channel = IsInGroup(2) and "INSTANCE_CHAT" or "PARTY"
@@ -90,7 +87,7 @@ function mod:RAID_BOSS_WHISPER(msg)
 	--Commented out string check for now, since it should be the only thing on fight sending RAID_BOSS_WHISPER
 --	if msg == L.SaroniteRockThrow or msg:match(L.SaroniteRockThrow) then
 		specWarnSaroniteRock:Show()
-		voiceSaroniteRock:Play("watchstep")
+		specWarnSaroniteRock:Play("watchstep")
 		yellRock:Yell()
 --	end 
 end
@@ -105,7 +102,7 @@ function mod:CHAT_MSG_ADDON(prefix, msg, channel, targetName)
 			local uId = DBM:GetRaidUnitId(targetName)
 			if uId and not UnitIsUnit(uId, "player") and self:CheckNearby(10, targetName) then
 				specWarnSaroniteRockNear:Show(targetName)
-				voiceSaroniteRock:Play("watchstep")
+				specWarnSaroniteRockNear:Play("watchstep")
 			else
 				warnSaroniteRock:Show(targetName)
 			end

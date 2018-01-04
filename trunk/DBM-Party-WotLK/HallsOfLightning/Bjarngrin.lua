@@ -16,13 +16,11 @@ local warningWhirlwind		= mod:NewSpellAnnounce(52027, 3)
 
 local specWarnWhirlwind		= mod:NewSpecialWarningRun(52027, "Melee", nil, nil, 4, 2)
 
-local voiceWhirlwind		= mod:NewVoice(52027, "Melee")--runout
-
 function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(52027, 52028) then
 		if self.Options.SpecWarn52024run then
 			specWarnWhirlwind:Show()
-			voiceWhirlwind:Play("runout")
+			specWarnWhirlwind:Play("runout")
 		else
 			warningWhirlwind:Show()
 		end

@@ -33,8 +33,6 @@ local timerLightningCharge	 	= mod:NewCDTimer(16, 62466, nil, nil, nil, 3)
 local timerUnbalancingStrike	= mod:NewCDTimer(26, 62130, nil, "Tank", nil, 5)
 local timerHardmode				= mod:NewTimer(175, "TimerHardmode", 62042)
 
-local voiceLightningShock		= mod:NewVoice(62017)--runaway
-
 mod:AddBoolOption("RangeFrame")
 mod:AddSetIconOption("SetIconOnRunic", 62527, false)
 
@@ -104,7 +102,7 @@ function mod:SPELL_DAMAGE(_, _, _, _, _, destName, destFlags, _, spellId)
 		and bit.band(destFlags, COMBATLOG_OBJECT_TYPE_PLAYER) ~= 0
 		and self:AntiSpam(5) then
 			specWarnLightningShock:Show()
-			voiceLightningShock:Play("runaway")
+			specWarnLightningShock:Play("runaway")
 		end
 	elseif self.Options.AnnounceFails and spellId == 62466 and DBM:GetRaidRank() >= 1 and DBM:GetRaidUnitId(destName) ~= "none" and destName then
 		lastcharge[destName] = (lastcharge[destName] or 0) + 1

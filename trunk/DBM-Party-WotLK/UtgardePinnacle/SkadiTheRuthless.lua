@@ -26,8 +26,6 @@ local timerPoison		= mod:NewTargetTimer(12, 59331)
 local timerWhirlwindCD	= mod:NewCDTimer(23, 59322)
 local timerAchieve		= mod:NewAchievementTimer(180, 1873, "TimerSpeedKill")
 
-local voiceWhirlwind		= mod:NewVoice(59322)--runout
-
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(59331, 50255) then
 		warningPoison:Show(args.destName)
@@ -36,7 +34,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerWhirlwindCD:Start()
 		if not self:IsTrivial(90) then
 			specWarnWhirlwind:Show()
-			voiceWhirlwind:Play("runout")
+			specWarnWhirlwind:Play("runout")
 		end
 	end
 end

@@ -17,9 +17,9 @@ mod:RemoveOption("HealthFrame")
 
 mod.vb.waveCount = 0
 
-local ragingGoul = EJ_GetSectionInfo(7276)
-local witchDoctor = EJ_GetSectionInfo(7278)
-local abomination = EJ_GetSectionInfo(7282)
+local ragingGoul = DBM:EJ_GetSectionInfo(7276)
+local witchDoctor = DBM:EJ_GetSectionInfo(7278)
+local abomination = DBM:EJ_GetSectionInfo(7282)
 
 local addWaves = {
 	[1] = { "6 "..ragingGoul, "1 "..witchDoctor },

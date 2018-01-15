@@ -40,6 +40,7 @@ mod:AddBoolOption("SetIconOnLightBombTarget", true)
 mod:AddBoolOption("SetIconOnGravityBombTarget", true)
 
 function mod:OnCombatStart(delay)
+	DBM:AddMsg("This fight had different timers/mechanics between 10 and 25 man and have to be re-evaluated in new flex difficulty to determine if player sizes still affect them")
 	enrageTimer:Start(-delay)
 	timerAchieve:Start()
 	if self:IsDifficulty("normal10") then

@@ -170,7 +170,7 @@ do
 				count = count + 1
 				if (self:IsDifficulty("normal10") and count > 4) or (self:IsDifficulty("normal25") and count > 9) then
 					lastPhaseChange = GetTime()
-					self:NextPhase()
+					self:NextPhase(true)
 				end
 			else
 				count = 1
@@ -207,8 +207,11 @@ function mod:CHAT_MSG_LOOT(msg)
 	end
 end
 
-function mod:NextPhase()
+function mod:NextPhase(early)
 	self.vb.phase = self.vb.phase + 1
+	if early then
+		DBM:Debug("NextPhase fired early using removed hack for stage: "..self.vb.phase)
+	end
 	if self.vb.phase == 1 then
 		if DBM.BossHealth:IsShown() then
 			DBM.BossHealth:Clear()

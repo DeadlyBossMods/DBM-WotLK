@@ -71,6 +71,7 @@ mod.vb.disruptIcon = 7
 local scansDone = 0
 
 function mod:OnCombatStart(delay)
+	DBM:AddMsg("This fight had different timers/mechanics between 10 and 25 man and have to be re-evaluated in new flex difficulty to determine if player sizes still affect them")
 	enrageTimer:Start(-delay)
 	table.wipe(disruptTargets)
 	self.vb.disruptIcon = 7

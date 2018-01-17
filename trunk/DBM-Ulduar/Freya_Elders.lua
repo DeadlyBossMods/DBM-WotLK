@@ -14,10 +14,10 @@ mod:RegisterEvents(
 
 local warnImpale				= mod:NewTargetAnnounce(62928)
 
-local timerImpale				= mod:NewTargetTimer(5, 62928)
-
 local specWarnFistofStone		= mod:NewSpecialWarningRun(62344, "Tank", nil, nil, 4, 2)
 local specWarnGroundTremor		= mod:NewSpecialWarningCast(62932, "SpellCaster")
+
+local timerImpale				= mod:NewTargetTimer(5, 62928)
 
 --
 -- Trash: 33430 Guardian Lasher (flower)

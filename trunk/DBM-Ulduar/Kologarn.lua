@@ -74,9 +74,6 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 	elseif args:IsSpellID(64002, 63355) then	-- Crunch Armor
         warnCrunchArmor:Show(args.destName)
-		if self:IsDifficulty("heroic10") then
-            timerCrunch10:Start(args.destName)  -- We track duration timer only in 10-man since it's only 6sec and tanks don't switch.
-		end
     end
 end
 
@@ -104,25 +101,15 @@ function mod:UNIT_DIED(args)
 		timerNextGrip:Cancel()
 		if not self.vb.disarmActive then
 			self.vb.disarmActive = true
-			if self:IsDifficulty("normal10") then
-				timerTimeForDisarmed:Start(12)
-				self:Schedule(12, armReset, self)
-			else
-				timerTimeForDisarmed:Start()
-				self:Schedule(10, armReset, self)
-			end
+			timerTimeForDisarmed:Start(12)
+			self:Schedule(12, armReset, self)
 		end
 	elseif self:GetCIDFromGUID(args.destGUID) == 32933 then		-- left arm
 		timerRespawnLeftArm:Start()
 		if not self.vb.disarmActive then
 			self.vb.disarmActive = true
-			if self:IsDifficulty("normal10") then
-				timerTimeForDisarmed:Start(12)
-				self:Schedule(12, armReset, self)
-			else
-				timerTimeForDisarmed:Start()
-				self:Schedule(10, armReset, self)
-			end
+			timerTimeForDisarmed:Start(12)
+			self:Schedule(12, armReset, self)
 		end
 	end
 end

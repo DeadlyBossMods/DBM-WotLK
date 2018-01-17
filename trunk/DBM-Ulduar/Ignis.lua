@@ -24,7 +24,7 @@ local timerFlameJetsCast		= mod:NewCastTimer(2.7, 63472)
 local timerFlameJetsCooldown	= mod:NewCDTimer(35, 63472, nil, nil, nil, 2)
 local timerScorchCooldown		= mod:NewNextTimer(25, 63473, nil, nil, nil, 5)
 local timerSlagPot				= mod:NewTargetTimer(10, 63477, nil, nil, nil, 3)
-local timerAchieve				= mod:NewAchievementTimer(240, 2930, "TimerSpeedKill")
+local timerAchieve				= mod:NewAchievementTimer(240, 2930)
 
 mod:AddBoolOption("SlagPotIcon", false)
 

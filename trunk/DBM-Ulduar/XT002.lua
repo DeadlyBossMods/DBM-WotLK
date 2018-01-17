@@ -11,7 +11,7 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 62776",
-	"SPELL_AURA_APPLIED 62775 63018 65121 63024 64234 63849",
+	"SPELL_AURA_APPLIED 62776 63018 65121 63024 64234 63849",
 	"SPELL_AURA_REMOVED 63018 65121 63024 64234",
 	"SPELL_DAMAGE 64208 64206",
 	"SPELL_MISSED 64208 64206"
@@ -30,35 +30,29 @@ local specWarnConsumption			= mod:NewSpecialWarningMove(64206, nil, nil, nil, 1,
 
 local enrageTimer					= mod:NewBerserkTimer(600)
 local timerTympanicTantrum			= mod:NewBuffActiveTimer(8, 62776, nil, nil, nil, 2)
-local timerTympanicTantrumCD		= mod:NewCDTimer(60, 62776, nil, nil, nil, 2)
+local timerTympanicTantrumCD		= mod:NewCDTimer(62, 62776, nil, nil, nil, 2)
 local timerHeart					= mod:NewCastTimer(30, 63849, nil, nil, nil, 5)
 local timerLightBomb				= mod:NewTargetTimer(9, 65121, nil, nil, nil, 3)
 local timerGravityBomb				= mod:NewTargetTimer(9, 64234, nil, nil, nil, 3)
-local timerAchieve					= mod:NewAchievementTimer(205, 2937, "TimerSpeedKill")
+local timerAchieve					= mod:NewAchievementTimer(205, 2937)
 
 mod:AddBoolOption("SetIconOnLightBombTarget", true)
 mod:AddBoolOption("SetIconOnGravityBombTarget", true)
 
 function mod:OnCombatStart(delay)
-	DBM:AddMsg("This fight had different timers/mechanics between 10 and 25 man and have to be re-evaluated in new flex difficulty to determine if player sizes still affect them")
 	enrageTimer:Start(-delay)
 	timerAchieve:Start()
-	if self:IsDifficulty("normal10") then
-		timerTympanicTantrumCD:Start(35-delay)
-	else
-		timerTympanicTantrumCD:Start(50-delay)
-	end
+	timerTympanicTantrumCD:Start(50-delay)
 end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 62776 then					-- Tympanic Tantrum (aoe damge + daze)
-		timerTympanicTantrumCD:Stop()
+		timerTympanicTantrumCD:Start()
 	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args.spellId == 62775 and args.auraType == "DEBUFF" then	-- Tympanic Tantrum
-		timerTympanicTantrumCD:Start()
+	if args.spellId == 62776 then	-- Tympanic Tantrum
 		timerTympanicTantrum:Start()
 	elseif args:IsSpellID(63018, 65121) then 	-- Light Bomb
 		if args:IsPlayer() then

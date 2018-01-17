@@ -19,8 +19,6 @@ mod:RegisterEventsInCombat(
 
 local specWarnMarkOnPlayer		= mod:NewSpecialWarning("SpecialWarningMarkOnPlayer")
 
-mod:AddBoolOption("HealthFrame", true)
-
 mod:SetBossHealthInfo(
 	16064, L.Korthazz,
 	30549, L.Rivendare,

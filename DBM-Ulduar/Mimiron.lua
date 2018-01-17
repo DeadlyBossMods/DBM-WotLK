@@ -168,7 +168,7 @@ do
 		if GetTime() - lastPhaseChange > 30 and (cid == 33432 or cid == 33651 or cid == 33670) then
 			if args.timestamp == last then	-- all events in the same tick to detect the phases earlier (than the yell) and localization-independent
 				count = count + 1
-				if (self:IsDifficulty("normal10") and count > 4) or (self:IsDifficulty("normal25") and count > 9) then
+				if count > 9 then
 					lastPhaseChange = GetTime()
 					self:NextPhase(true)
 				end
@@ -199,7 +199,6 @@ function mod:UNIT_SPELLCAST_CHANNEL_STOP(unit, spell)
 end
 
 function mod:CHAT_MSG_LOOT(msg)
-	-- DBM:AddMsg(msg) --> Meridium receives loot: [Magnetic Core]
 	local player, itemID = msg:match(L.LootMsg)
 	player = DBM:GetUnitFullName(player)
 	if player and itemID and tonumber(itemID) == 46029 and self:IsInCombat() then
@@ -262,17 +261,11 @@ end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if (msg == L.YellPhase2 or msg:find(L.YellPhase2)) then
-		--DBM:AddMsg("ALPHA: yell detect phase2, syncing to clients")
 		self:SendSync("Phase2")	-- untested alpha! (this will result in a wrong timer)
-
 	elseif (msg == L.YellPhase3 or msg:find(L.YellPhase3)) then
-		--DBM:AddMsg("ALPHA: yell detect phase3, syncing to clients")
 		self:SendSync("Phase3")	-- untested alpha! (this will result in a wrong timer)
-
 	elseif (msg == L.YellPhase4 or msg:find(L.YellPhase4)) then
-		--DBM:AddMsg("ALPHA: yell detect phase3, syncing to clients")
 		self:SendSync("Phase4") -- SPELL_AURA_REMOVED detection might fail in phase 3...there are simply not enough debuffs on him
-
 	elseif msg == L.YellHardPull or msg:find(L.YellHardPull) then
 		timerHardmode:Start()
 		timerNextFlameSuppressant:Start()

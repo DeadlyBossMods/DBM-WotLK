@@ -18,8 +18,6 @@ mod:RegisterEventsInCombat(
 	"UNIT_DIED"
 )
 
-mod:AddBoolOption("HealthFrame", true)
-
 mod:SetBossHealthInfo(
 	32867, L.Steelbreaker,
 	32927, L.RunemasterMolgeim,

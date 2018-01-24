@@ -19,8 +19,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_SUMMON",
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_REMOVED",
-	"UNIT_HEALTH boss1",
-	"UNIT_POWER boss1"
+	"UNIT_HEALTH boss1"
 )
 
 local warnFrenzySoon		= mod:NewSoonAnnounce(72737, 2, nil, "Tank|Healer")
@@ -44,7 +43,6 @@ local timerCallBloodBeast	= mod:NewNextTimer(40, 72173, nil, nil, nil, 1)
 local enrageTimer			= mod:NewBerserkTimer(480)
 
 mod:AddBoolOption("RangeFrame", "Ranged")
-mod:AddBoolOption("RunePowerFrame", true, "misc")
 mod:AddSetIconOption("BeastIcons", 72173, false, true)
 mod:AddBoolOption("BoilingBloodIcons", false)
 
@@ -52,7 +50,6 @@ local warned_preFrenzy = false
 local boilingBloodTargets = {}
 local boilingBloodIcon 	= 8
 local Mark = 0
-local lastPower = 0
 local spellName = DBM:GetSpellInfo(72370)
 
 local function warnBoilingBloodTargets()
@@ -61,15 +58,7 @@ local function warnBoilingBloodTargets()
 	boilingBloodIcon = 8
 end
 
-local function getPower()
-	return lastPower
-end
-
 function mod:OnCombatStart(delay)
-	if DBM.BossHealth:IsShown() and self.Options.RunePowerFrame then
-		spellName = DBM:GetSpellInfo(72370)
-		DBM.BossHealth:AddBoss(getPower, spellName)
-	end
 	if self:IsDifficulty("heroic10", "heroic25") then
 		enrageTimer:Start(360-delay)
 	else
@@ -84,15 +73,22 @@ function mod:OnCombatStart(delay)
 	warned_preFrenzy = false
 	boilingBloodIcon = 8
 	Mark = 0
-	lastPower = 0
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(12)
+	end
+	if self.Options.InfoFrame then
+		spellName = DBM:GetSpellInfo(72370)
+		DBM.InfoFrame:SetHeader(spellName)
+		DBM.InfoFrame:Show(1, "enemypower", 2)
 	end
 end
 
 function mod:OnCombatEnd()
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Hide()
+	end
+	if self.Options.InfoFrame then
+		DBM.InfoFrame:Hide()
 	end
 end
 
@@ -163,12 +159,6 @@ function mod:UNIT_HEALTH(uId)
 	if not warned_preFrenzy and self:GetUnitCreatureId(uId) == 37813 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.33 then
 		warned_preFrenzy = true
 		warnFrenzySoon:Show()
-	end
-end
-
-function mod:UNIT_POWER(uId)
-	if self:GetUnitCreatureId(uId) == 37813 then
-		lastPower = math.floor(UnitPower(uId)/UnitPowerMax(uId) * 100)
 	end
 end
 

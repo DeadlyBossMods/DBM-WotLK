@@ -47,13 +47,12 @@ local berserkTimer					= mod:NewBerserkTimer(600)
 mod:AddBoolOption("SetIconOnDominateMind", false)
 mod:AddBoolOption("SetIconOnDeformedFanatic", false)
 mod:AddBoolOption("SetIconOnEmpoweredAdherent", false)
-mod:AddBoolOption("ShieldHealthFrame", true)
+mod:AddInfoFrameOption(70842, true)
 
 local dominateMindTargets = {}
 local dominateMindIcon = 6
 local deformedFanatic
 local empoweredAdherent
-local lastPower = 100
 local shieldName = DBM:GetSpellInfo(70842)
 
 local function showDominateMindWarning()
@@ -62,10 +61,6 @@ local function showDominateMindWarning()
 	timerDominateMindCD:Start()
 	table.wipe(dominateMindTargets)
 	dominateMindIcon = 6
-end
-
-local function getPower()
-	return lastPower
 end
 
 function mod:addsTimer()
@@ -100,10 +95,7 @@ function mod:TrySetTarget()
 end
 
 function mod:OnCombatStart(delay)
-	if DBM.BossHealth:IsShown() and self.Options.ShieldHealthFrame then
-		shieldName = DBM:GetSpellInfo(70842)
-		DBM.BossHealth:AddBoss(getPower, shieldName)
-	end
+	shieldName = DBM:GetSpellInfo(70842)
 	berserkTimer:Start(-delay)
 	timerAdds:Start(7)
 	warnAddsSoon:Schedule(4)			-- 3sec pre-warning on start
@@ -115,14 +107,16 @@ function mod:OnCombatStart(delay)
 	dominateMindIcon = 6
 	deformedFanatic = nil
 	empoweredAdherent = nil
-	lastPower = 100
-	self:RegisterShortTermEvents(
-		"UNIT_POWER_FREQUENT target focus mouseover"
-	)
+	if self.Options.InfoFrame then
+		DBM.InfoFrame:SetHeader(shieldName)
+		DBM.InfoFrame:Show(2, "enemyabsorb", nil, UnitGetTotalAbsorbs("boss1"))
+	end
 end
 
 function mod:OnCombatEnd()
-	self:UnregisterShortTermEvents()
+	if self.Options.InfoFrame then
+		DBM.InfoFrame:Hide()
+	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
@@ -161,14 +155,13 @@ mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 70842 then
 		warnPhase2:Show()
-		self:UnregisterShortTermEvents()
-		if DBM.BossHealth:IsShown() and self.Options.ShieldHealthFrame then	
-			DBM.BossHealth:RemoveBoss(getPower)
-		end
 		if self:IsDifficulty("normal10", "normal25") then
 			timerAdds:Cancel()
 			warnAddsSoon:Cancel()
 			self:UnscheduleMethod("addsTimer")
+		end
+		if self.Options.InfoFrame then
+			DBM.InfoFrame:Hide()
 		end
 	end
 end
@@ -210,12 +203,6 @@ end
 function mod:UNIT_TARGET_UNFILTERED()
 	if empoweredAdherent or deformedFanatic then
 		self:TrySetTarget()
-	end
-end
-
-function mod:UNIT_POWER_FREQUENT(uId)
-	if self:GetUnitCreatureId(uId) == 36855 then
-		lastPower = math.floor(UnitPower(uId)/UnitPowerMax(uId) * 100)
 	end
 end
 

@@ -41,7 +41,7 @@ local timerAchieve					= mod:NewAchievementTimer(180, 3815, "TimerSpeedKill")
 
 mod:AddBoolOption("SpecialWarnOnDebuff", false, "announce")
 mod:AddBoolOption("SetIconOnDebuffTarget", false)
-mod:AddBoolOption("HealthFrame", true)
+mod:AddInfoFrameOption(235117, true)
 
 local lightEssence, darkEssence = DBM:GetSpellInfo(67223), DBM:GetSpellInfo(67176)
 local debuffTargets					= {}
@@ -65,6 +65,12 @@ function mod:OnCombatStart(delay)
 		enrageTimer:Start(480-delay)
 	end
 	debuffIcon = 8
+end
+
+function mod:OnCombatEnd()
+	if self.Options.InfoFrame then
+		DBM.InfoFrame:Hide()
+	end
 end
 
 function mod:SPELL_CAST_START(args)
@@ -147,25 +153,18 @@ function mod:SPELL_AURA_APPLIED(args)
 		self:ScheduleMethod(0.75, "warnDebuff")
 	elseif args:IsSpellID(65879, 65916) then
 		self:Schedule(0.1, showPowerWarning, self, args:GetDestCreatureID())
-	elseif args:IsSpellID(65874, 65858) and DBM.BossHealth:IsShown() then
-		self:ShowShieldHealthBar(args.destGUID, args.spellName, shieldHealth[(DBM:GetCurrentInstanceDifficulty())])
-		self:ScheduleMethod(15, "RemoveShieldHealthBar", args.destGUID)
+	elseif args:IsSpellID(65874, 65858) and self.Options.InfoFrame then
+		DBM.InfoFrame:SetHeader(args.spellName)
+		DBM.InfoFrame:Show(2, "enemyabsorb", nil, shieldHealth[(DBM:GetCurrentInstanceDifficulty())])--UnitGetTotalAbsorbs()
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args.spellId == 65874 then
-		if UnitCastingInfo("target") and self:GetUnitCreatureId("target") == 34496 then
-			specWarnKickNow:Show()
+	if args:IsSpellID(65874, 65858) then
+		specWarnKickNow:Show()
+		if self.Options.InfoFrame then
+			DBM.InfoFrame:Hide()
 		end
-		self:UnscheduleMethod("RemoveShieldHealthBar", args.destGUID)
-		self:RemoveShieldHealthBar(args.destGUID)
-	elseif args.spellId == 65858 then
-		if UnitCastingInfo("target") and self:GetUnitCreatureId("target") == 34497 then
-			specWarnKickNow:Show()
-		end
-		self:UnscheduleMethod("RemoveShieldHealthBar", args.destGUID)
-		self:RemoveShieldHealthBar(args.destGUID)
 	elseif args.spellId == 65950 then
 		timerLightTouch:Stop(args.destName)
 		if self.Options.SetIconOnDebuffTarget then

@@ -50,22 +50,12 @@ local timerVolcanoCD			= mod:NewCDTimer(120, 66258)
 
 mod:AddSetIconOption("LegionFlameIcon", 66197)
 mod:AddSetIconOption("IncinerateFleshIcon", 66237)
-mod:AddBoolOption("HealthFrame", true)
-mod:AddBoolOption("IncinerateShieldFrame", true, "misc")
+mod:AddInfoFrameOption(66237, true)
 
-local absorbHealth = {
-	["heroic25"] = 85000,
-	["heroic10"] = 40000,
-	["normal25"] = 60000,
-	["normal10"] = 30000
-}
+mod.vb.fleshCount = 0
 
 function mod:OnCombatStart(delay)
-	if self.Options.IncinerateShieldFrame and DBM.BossHealth:IsShown() then
-		DBM.BossHealth:Clear()
-		DBM.BossHealth:Show(L.name)
-		DBM.BossHealth:AddBoss(34780, L.name)
-	end
+	self.vb.fleshCount = 0
 	timerPortalCD:Start(20-delay)
 	warnPortalSoon:Schedule(15-delay)
 	timerVolcanoCD:Start(80-delay)
@@ -73,6 +63,12 @@ function mod:OnCombatStart(delay)
 	timerFleshCD:Start(14-delay)
 	timerFlameCD:Start(20-delay)
 	enrageTimer:Start(-delay)
+end
+
+function mod:OnCombatEnd()
+	if self.Options.InfoFrame then
+		DBM.InfoFrame:Hide()
+	end
 end
 
 function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
@@ -86,7 +82,7 @@ mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 66237 then
-		warnFlesh:Show(args.destName)
+		self.vb.fleshCount = self.vb.fleshCount + 1
 		timerFlesh:Start(args.destName)
 		timerFleshCD:Start()
 		if self.Options.IncinerateFleshIcon then
@@ -94,10 +90,12 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		if args:IsPlayer() then
 			specWarnFlesh:Show()
+		else
+			warnFlesh:Show(args.destName)
 		end
-		if self.Options.IncinerateShieldFrame then
-			self:ShowAbsorbedHealHealthBar(args.destGUID, L.IncinerateTarget:format(args.destName), absorbHealth[(DBM:GetCurrentInstanceDifficulty())])
-			self:ScheduleMethod(15, "RemoveAbsorbedHealHealthBar", args.destGUID)
+		if self.Options.InfoFrame and not DBM.InfoFrame:IsShown() then
+			DBM.InfoFrame:SetHeader(args.spellName)
+			DBM.InfoFrame:Show(6, "playerabsorb", args.spellName, select(17, UnitDebuff(args.destName, args.spellName)))
 		end
 	elseif args.spellId == 66197 then
 		timerFlame:Start(args.destName)
@@ -117,11 +115,11 @@ end
 
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 66237 then
-		timerFlesh:Stop()
-		if self.Options.IncinerateShieldFrame and DBM.BossHealth:IsShown() then
-			self:UnscheduleMethod("RemoveAbsorbedHealHealthBar", args.destGUID)
-			self:RemoveAbsorbedHealHealthBar(args.destGUID)
+		self.vb.fleshCount = self.vb.fleshCount - 1
+		if self.Options.InfoFrame and self.vb.fleshCount == 0 then
+			DBM.InfoFrame:Hide()
 		end
+		timerFlesh:Stop(args.destName)
 		if self.Options.IncinerateFleshIcon then
 			self:RemoveIcon(args.destName)
 		end

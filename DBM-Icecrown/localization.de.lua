@@ -31,8 +31,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnAddsSoon				= "Zeige Vorwarnung für erscheinende Adds",
 	WarnReanimating				= "Zeige Warnung, wenn ein Add wiederbelebt wird",
-	TimerAdds					= "Zeige Zeit bis neue Adds erscheinen",
-	ShieldHealthFrame			= "Zeige Lebensanzeige mit einem Balken für $spell:70842"
+	TimerAdds					= "Zeige Zeit bis neue Adds erscheinen"
 }
 
 L:SetMiscLocalization{

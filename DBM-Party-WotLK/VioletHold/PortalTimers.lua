@@ -20,8 +20,6 @@ local timerPortalIn	= mod:NewTimer(122, "TimerPortalIn", 57687)
 
 mod:AddBoolOption("ShowAllPortalTimers", false, "timer")--rate they spawn seems to accelerate slowly over time. thus making timers inaccurate by end of fight
 
-mod:RemoveOption("HealthFrame")
-
 local lastWave = 0
 
 function mod:UPDATE_WORLD_STATES(args)

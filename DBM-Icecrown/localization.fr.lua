@@ -47,8 +47,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnAddsSoon					= "Montre une pré-alerte avant que les adds arrivent",
 	WarnReanimating					= "Montre une alerte quand les adds vont revenir a la vie",
-	TimerAdds						= "Montre le timer pour les nouveaux adds",
-	ShieldHealthFrame				= "Montre la vie du boss avec une barre de vie pour la $spell:70842"
+	TimerAdds						= "Montre le timer pour les nouveaux adds"
 }
 
 L:SetMiscLocalization{

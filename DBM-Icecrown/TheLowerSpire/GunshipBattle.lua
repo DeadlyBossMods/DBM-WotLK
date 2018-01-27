@@ -32,11 +32,6 @@ mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_YELL"
 )
 
-mod:SetBossHealthInfo(
-	37215, L.Hammer,
-	37540, L.Skybreaker
-)
-
 --TODO, see if IEEU fires here and if we need yell triggers for engage
 local warnBelowZero			= mod:NewSpellAnnounce(69705, 4)
 local warnExperienced		= mod:NewTargetAnnounce(71188, 1, nil, false)		-- might be spammy
@@ -51,8 +46,6 @@ local timerCombatStart		= mod:NewCombatTimer(42)
 local timerBelowZeroCD		= mod:NewNextTimer(33.5, 69705, nil, nil, nil, 5)
 local timerBattleFuryActive	= mod:NewBuffFadesTimer(17, 69638, nil, "Tank|Healer")
 local timerAdds				= mod:NewTimer(60, "TimerAdds", addsIcon, nil, nil, 1)
-
-mod:RemoveOption("HealthFrame")
 
 local firstMage = false
 

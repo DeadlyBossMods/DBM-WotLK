@@ -32,8 +32,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnAddsSoon				= "Предупреждать заранее о призыве помощников",
 	WarnReanimating				= "Предупреждение при воскрешении помощников",	-- Reanimated Adherent/Fanatic spawning
-	TimerAdds					= "Отсчет времени до призыва помощников",
-	ShieldHealthFrame			= "Показывать здоровье босса с индикатором здоровья для <br/>$spell:70842"
+	TimerAdds					= "Отсчет времени до призыва помощников"
 }
 
 L:SetMiscLocalization{

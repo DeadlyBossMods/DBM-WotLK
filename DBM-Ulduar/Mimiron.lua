@@ -92,10 +92,6 @@ function mod:OnCombatStart(delay)
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(6)
 	end
-	if DBM.BossHealth:IsShown() then
-		DBM.BossHealth:Clear()
-		DBM.BossHealth:AddBoss(33432, L.MobPhase1)
-	end
 end
 
 function mod:OnCombatEnd()
@@ -211,10 +207,6 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, spellName, _, _, spellId)
 			timerNextFlameSuppressant:Stop()
 			timerPlasmaBlastCD:Stop()
 			timerP1toP2:Start()
-			if DBM.BossHealth:IsShown() then
-				DBM.BossHealth:Clear()
-				DBM.BossHealth:AddBoss(33651, L.MobPhase2)
-			end
 			if self.Options.RangeFrame then
 				DBM.RangeCheck:Hide()
 			end
@@ -226,19 +218,8 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, spellName, _, _, spellId)
 			timerNextDarkGlare:Cancel()
 			timerNextFrostBomb:Cancel()
 			timerP2toP3:Start()
-			if DBM.BossHealth:IsShown() then
-				DBM.BossHealth:Clear()
-				DBM.BossHealth:AddBoss(33670, L.MobPhase3)
-			end
 		elseif self.vb.phase == 4 then
 			timerP3toP4:Start()
-			if DBM.BossHealth:IsShown() then
-				DBM.BossHealth:Clear()
-				DBM.BossHealth:Show(L.name)
-				DBM.BossHealth:AddBoss(33670, L.MobPhase3)
-				DBM.BossHealth:AddBoss(33651, L.MobPhase2)
-				DBM.BossHealth:AddBoss(33432, L.MobPhase1)
-			end
 --			if self.vb.hardmode then
 --				timerNextFrostBomb:Start(73)
 --			end

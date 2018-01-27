@@ -54,30 +54,17 @@ local function isunitdebuffed(spellID)
 end
 
 local function CheckDrakes(delay)
-	if DBM.BossHealth:IsShown() then
-		DBM.BossHealth:Show(L.name)
-		DBM.BossHealth:AddBoss(28860, "Sartharion")
-	end
 	if isunitdebuffed(61248) then	-- Power of Tenebron
 		timerTenebron:Start(30 - delay)
 		warnTenebron:Schedule(25 - delay)
-		if DBM.BossHealth:IsShown() then
-			DBM.BossHealth:AddBoss(30452, "Tenebron")
-		end
 	end
 	if isunitdebuffed(58105) then	-- Power of Shadron
 		timerShadron:Start(75 - delay)
 		warnShadron:Schedule(70 - delay)
-		if DBM.BossHealth:IsShown() then
-			DBM.BossHealth:AddBoss(30451, "Shadron")
-		end
 	end
 	if isunitdebuffed(61251) then	-- Power of Vesperon
 		timerVesperon:Start(120 - delay)
 		warnVesperon:Schedule(115 - delay)
-		if DBM.BossHealth:IsShown() then
-			DBM.BossHealth:AddBoss(30449, "Vesperon")
-		end
 	end
 end
 

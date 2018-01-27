@@ -36,7 +36,6 @@ L:SetOptionLocalization{
 	WarnAddsSoon				= "Mostrar aviso previo para cuando aparezcan esbirros",
 	WarnReanimating				= "Mostrar aviso cuando se esté reanimando a un esbirro",	-- Reanimated Adherent/Fanatic spawning
 	TimerAdds					= "Mostrar temporizador para los siguientes esbirros",
-	ShieldHealthFrame			= "Mostrar salud del jefe en un marco de salud durante $spell:70842",
 	SetIconOnDominateMind		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(71289),
 	SetIconOnDeformedFanatic	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70900),
 	SetIconOnEmpoweredAdherent	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70901)

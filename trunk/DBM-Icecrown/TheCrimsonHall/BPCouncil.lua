@@ -9,12 +9,6 @@ mod:SetModelID(30858)
 mod:SetUsedIcons(7, 8)
 mod:SetBossHPInfoToHighest()
 
-mod:SetBossHealthInfo(
-	37972, L.Keleseth,
-	37970, L.Valanar,
-	37973, L.Taldaram
-)
-
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(

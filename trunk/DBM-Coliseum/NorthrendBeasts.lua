@@ -90,17 +90,6 @@ local function updateHealthFrame(phase)
 		return
 	end
 	phases[phase] = true
-	if DBM.BossHealth:IsShown() then
-		if phase == 1 then
-			DBM.BossHealth:Clear()
-			DBM.BossHealth:AddBoss(34796, L.Gormok)
-		elseif phase == 2 then
-			DBM.BossHealth:AddBoss(35144, L.Acidmaw)
-			DBM.BossHealth:AddBoss(34799, L.Dreadscale)
-		elseif phase == 3 then
-			DBM.BossHealth:AddBoss(34797, L.Icehowl)
-		end
-	end
 end
 
 function mod:OnCombatStart(delay)
@@ -335,9 +324,6 @@ function mod:UNIT_DIED(args)
 		specWarnSilence:Cancel()
 		timerNextStomp:Stop()
 		timerNextImpale:Stop()
-		if DBM.BossHealth:IsShown() then
-			DBM.BossHealth:RemoveBoss(cid)
-		end
 	elseif cid == 35144 then
 		AcidmawDead = true
 		timerParalyticSprayCD:Cancel()
@@ -350,10 +336,6 @@ function mod:UNIT_DIED(args)
 		end
 		if DreadscaleDead then
 			timerNextBoss:Cancel()
-			if DBM.BossHealth:IsShown() then
-				DBM.BossHealth:RemoveBoss(35144)
-				DBM.BossHealth:RemoveBoss(34799)
-			end
 		end
 	elseif cid == 34799 then
 		DreadscaleDead = true
@@ -367,10 +349,6 @@ function mod:UNIT_DIED(args)
 		end
 		if AcidmawDead then
 			timerNextBoss:Cancel()
-			if DBM.BossHealth:IsShown() then
-				DBM.BossHealth:RemoveBoss(35144)
-				DBM.BossHealth:RemoveBoss(34799)
-			end
 		end
 	elseif cid == 34797 then
 		DBM:EndCombat(self)

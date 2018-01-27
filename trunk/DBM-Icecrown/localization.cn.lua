@@ -32,8 +32,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnAddsSoon		= "为新的小怪出现显示预先警告",
 	WarnReanimating		= "当小怪再活化时显示警告",
-	TimerAdds			= "为新的小怪显示计时器",
-	ShieldHealthFrame	= "为$spell:70842显示首领血量框架"
+	TimerAdds			= "为新的小怪显示计时器"
 }
 
 L:SetMiscLocalization{

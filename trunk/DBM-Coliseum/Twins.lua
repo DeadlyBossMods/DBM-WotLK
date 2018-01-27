@@ -17,11 +17,6 @@ mod:RegisterEventsInCombat(
 	"SPELL_INTERRUPT"
 )
 
-mod:SetBossHealthInfo(
-	34497, L.Fjola,
-	34496, L.Eydis
-)
-
 local warnSpecial					= mod:NewAnnounce("WarnSpecialSpellSoon", 3)
 local warnTouchDebuff				= mod:NewAnnounce("WarningTouchDebuff", 2, 66823)
 local warnPoweroftheTwins			= mod:NewAnnounce("WarningPoweroftheTwins", 4)

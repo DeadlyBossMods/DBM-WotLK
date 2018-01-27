@@ -18,12 +18,6 @@ mod:RegisterEventsInCombat(
 	"UNIT_DIED"
 )
 
-mod:SetBossHealthInfo(
-	32867, L.Steelbreaker,
-	32927, L.RunemasterMolgeim,
-	32857, L.StormcallerBrundir
-)
-
 --TODO, needs some work to determing timers for timewalker mode, since don't know if TW based on 35 or 60 second fight design.
 --For now, will assume TW will always lean oward easier so using 60 for timewalking
 --TODO, see if EE is fixed for encounter

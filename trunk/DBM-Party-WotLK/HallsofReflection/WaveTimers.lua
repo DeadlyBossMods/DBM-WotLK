@@ -18,8 +18,6 @@ local timerNextWave		= mod:NewTimer(150, "TimerNextWave")
 mod:AddBoolOption("ShowAllWaveWarnings", true, "announce")
 mod:AddBoolOption("ShowAllWaveTimers", false, "timer")
 
-mod:RemoveOption("HealthFrame")
-
 local lastWave = 0
 local FalricDead = false
 local falric = EJ_GetEncounterInfo(601)

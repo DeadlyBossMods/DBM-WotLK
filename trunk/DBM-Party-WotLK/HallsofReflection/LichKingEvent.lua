@@ -13,8 +13,6 @@ local WarnWave		= mod:NewAnnounce("WarnWave", 2)
 
 local timerEscape	= mod:NewAchievementTimer(360, 4526, "achievementEscape")
 
-mod:RemoveOption("HealthFrame")
-
 mod.vb.waveCount = 0
 
 local ragingGoul = DBM:EJ_GetSectionInfo(7276)

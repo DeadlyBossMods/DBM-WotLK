@@ -32,8 +32,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	WarnAddsSoon			= "이교도 등장 이전에 알림 보기",
 	WarnReanimating			= "이교도 부활 알림 보기",
-	TimerAdds				= "다음 이교도 바 보기",
-	ShieldHealthFrame		= "우두머리 체력 바 사용시 $spell:70842 바 함께 보기"
+	TimerAdds				= "다음 이교도 바 보기"
 }
 
 L:SetMiscLocalization{

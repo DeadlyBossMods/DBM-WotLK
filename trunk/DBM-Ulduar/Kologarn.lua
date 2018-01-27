@@ -21,12 +21,6 @@ mod:RegisterEventsInCombat(
 	"UNIT_DIED"
 )
 
-mod:SetBossHealthInfo(
-	32930, L.Health_Body,
-	32934, L.Health_Right_Arm,
-	32933, L.Health_Left_Arm
-)
-
 local warnFocusedEyebeam		= mod:NewTargetAnnounce(63346, 3)
 local warnGrip					= mod:NewTargetAnnounce(64292, 2)
 local warnCrunchArmor			= mod:NewTargetAnnounce(64002, 2)

@@ -132,8 +132,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnOozeSpawn				= "Предупреждение при появлении Малого слизнюка",
 	SpecWarnLittleOoze			= "Спец-предупреждение, когда вас атакует Малый слизнюк",--creatureid 36897
-	RangeFrame					= "Показывать окно проверки дистанции (8 м)",
-	TankArrow					= "Показывать стрелку для кайтера Большого слизнюка"
+	RangeFrame					= "Показывать окно проверки дистанции (8 м)"
 }
 
 L:SetMiscLocalization{
@@ -151,8 +150,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	MalleableGooIcon			= "Устанавливать метку на первую цель заклинания $spell:72295",
-	GooArrow					= "Показывать стрелку, когда $spell:72295 около вас"
+	MalleableGooIcon			= "Устанавливать метку на первую цель заклинания $spell:72295"
 }
 
 ----------------------------
@@ -178,8 +176,7 @@ L:SetOptionLocalization{
 	WarnTargetSwitchSoon	= "Предупреждать заранее о смене цели",-- Every ~47 secs, you have to dps a different Prince
 	TimerTargetSwitch		= "Отсчет времени до смены цели",
 	ActivePrinceIcon		= "Устанавливать метку на наполненного силой Принца (череп)",
-	RangeFrame				= "Показывать окно проверки дистанции (12 м)",
-	VortexArrow				= "Показывать стрелку, когда $spell:72037 около вас"
+	RangeFrame				= "Показывать окно проверки дистанции (12 м)"
 }
 
 L:SetMiscLocalization{

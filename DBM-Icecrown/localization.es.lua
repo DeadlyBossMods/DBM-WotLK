@@ -140,8 +140,7 @@ L:SetOptionLocalization{
 	WarnOozeSpawn				= "Mostrar aviso cuando aparezca un Moco pequeño",
 	SpecWarnLittleOoze			= "Mostrar aviso especial cuando te ataque un Moco pequeño",--creatureid 36897
 	RangeFrame					= "Mostrar marco de distancia (8 m)",
-	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69674),
-	TankArrow					= "Mostrar flecha para el jugador asignado a torear el Moco grande"
+	InfectionIcon				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69674)
 }
 
 L:SetMiscLocalization{
@@ -162,8 +161,7 @@ L:SetOptionLocalization{
 	OozeAdhesiveIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70447),
 	GaseousBloatIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70672),
 	UnboundPlagueIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(70911),
-	MalleableGooIcon			= "Poner icono en el primer objetivo de $spell:72295",
-	GooArrow					= "Mostrar flecha cuando $spell:72295 ocurra cerca de ti"
+	MalleableGooIcon			= "Poner icono en el primer objetivo de $spell:72295"
 }
 
 ------------------------------------
@@ -190,8 +188,7 @@ L:SetOptionLocalization{
 	TimerTargetSwitch		= "Mostrar temporizador para el siguiente cambio de objetivo",
 	EmpoweredFlameIcon		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(72040),
 	ActivePrinceIcon		= "Poner icono (calavera) en el príncipe potenciado",
-	RangeFrame				= "Mostrar marco de distancia (12 m)",
-	VortexArrow				= "Mostrar flecha cuando $spell:72037 ocurra cerca de ti"
+	RangeFrame				= "Mostrar marco de distancia (12 m)"
 }
 
 L:SetMiscLocalization{

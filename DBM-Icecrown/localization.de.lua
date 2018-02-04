@@ -130,8 +130,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnOozeSpawn				= "Zeige Warnung für Erscheinen eines Kleinen Schlamm",
 	SpecWarnLittleOoze			= "Spezialwarnung, wenn du von einem Kleinen Schlamm angegriffen wirst",
-	RangeFrame					= "Zeige Abstandsfenster (8m)",
-	TankArrow					= "Zeige DBM-Pfeil zum Kiter von 'Großer Schlamm'" 
+	RangeFrame					= "Zeige Abstandsfenster (8m)" 
 }
 
 L:SetMiscLocalization{
@@ -149,8 +148,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	MalleableGooIcon			= "Setze Zeichen auf erstes Ziel von $spell:72295",
-	GooArrow					= "Zeige DBM-Pfeil, wenn $spell:72295 in deiner Nähe ist"
+	MalleableGooIcon			= "Setze Zeichen auf erstes Ziel von $spell:72295"
 }
 
 ----------------------------
@@ -176,8 +174,7 @@ L:SetOptionLocalization{
 	WarnTargetSwitchSoon	= "Zeige Vorwarnung für Zielwechsel",
 	TimerTargetSwitch		= "Zeige Zeit bis Zielwechsel",
 	ActivePrinceIcon		= "Setze Zeichen auf den machterfüllten Prinzen (Totenkopf)",
-	RangeFrame				= "Zeige Abstandsfenster (12m)",
-	VortexArrow				= "Zeige DBM-Pfeil, wenn $spell:72037 in deiner Nähe ist"
+	RangeFrame				= "Zeige Abstandsfenster (12m)"
 }
 
 L:SetMiscLocalization{

@@ -131,8 +131,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	WarnOozeSpawn				= "작은 수액괴물 생성 알림 보기",
 	SpecWarnLittleOoze			= "작은 수액괴물에게 공격을 받을 경우 특수 경고 보기",
-	RangeFrame					= "거리 창 보기(8m)",
-	TankArrow					= "큰 수액괴물 탱커 방향 으로 DBM 화살표 보기(부정확함)"
+	RangeFrame					= "거리 창 보기(8m)"
 }
 
 L:SetMiscLocalization{
@@ -155,8 +154,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	MalleableGooIcon			= "$spell:72295 대상에게 전술 목표 아이콘 설정",
-	GooArrow					= "$spell:72295 첫번째 대상이 가까이 있을 경우 DBM 화살표 보기"
+	MalleableGooIcon			= "$spell:72295 대상에게 전술 목표 아이콘 설정"
 }
 
 ----------------------------
@@ -182,8 +180,7 @@ L:SetOptionLocalization{
 	WarnTargetSwitchSoon		= "대상 전환 이전에 알림 보기",
 	TimerTargetSwitch			= "대상 전환 바 보기",
 	ActivePrinceIcon			= "활성화 된 공작에게 전술 목표 아이콘 설정(해골)",
-	RangeFrame					= "거리 창 보기(12m)",
-	VortexArrow					= "$spell:72037 대상이 가까이 있을 경우 DBM 화살표 보기"
+	RangeFrame					= "거리 창 보기(12m)"
 }
 
 

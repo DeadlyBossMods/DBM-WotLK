@@ -21,10 +21,10 @@ else
 end
 
 mod:RegisterEventsInCombat(
-	"SPELL_AURA_APPLIED",
-	"SPELL_AURA_APPLIED_DOSE",
-	"SPELL_AURA_REMOVED",
-	"SPELL_CAST_START",
+	"SPELL_AURA_APPLIED 71195 71193 71188 69652 69651 69638",
+	"SPELL_AURA_APPLIED_DOSE 69638",
+	"SPELL_AURA_REMOVED 69705",
+	"SPELL_CAST_START 69705",
 	"UNIT_SPELLCAST_SUCCEEDED boss1 boss2"
 )
 
@@ -44,24 +44,25 @@ local warnAddsSoon			= mod:NewAnnounce("WarnAddsSoon", 2, addsIcon)
 
 local timerCombatStart		= mod:NewCombatTimer(42)
 local timerBelowZeroCD		= mod:NewNextTimer(33.5, 69705, nil, nil, nil, 5)
-local timerBattleFuryActive	= mod:NewBuffFadesTimer(17, 69638, nil, "Tank|Healer")
+local timerBattleFuryActive	= mod:NewBuffFadesTimer(17, 69638, nil, "Tank|Healer", nil, 5, nil, DBM_CORE_TANK_ICON)
 local timerAdds				= mod:NewTimer(60, "TimerAdds", addsIcon, nil, nil, 1)
 
-local firstMage = false
+mod.vb.firstMage = false
 
-function mod:Adds()
+local function Adds(self)
+	timerAdds:Stop()
 	timerAdds:Start()
 	warnAddsSoon:Cancel()
 	warnAddsSoon:Schedule(55)
-	self:UnscheduleMethod("Adds")
-	self:ScheduleMethod(60, "Adds")
+	self:Unschedule(Adds)
+	self:Schedule(60, Adds, self)
 end
 
 function mod:OnCombatStart(delay)
 	timerAdds:Start(15-delay)--First adds might come early or late so timer should be taken as a proximity only.
 	warnAddsSoon:Schedule(10)
-	self:ScheduleMethod(15, "Adds")
-	firstMage = false
+	self:Schedule(15, Adds, self)
+	self.vb.firstMage = false
 end
 
 function mod:SPELL_AURA_APPLIED(args)
@@ -111,13 +112,12 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if msg:find(L.PullAlliance) or msg:find(L.PullHorde) then
 		timerCombatStart:Start()
 	elseif (msg:find(L.AddsAlliance) or msg:find(L.AddsHorde)) and self:IsInCombat() then
-		self:UnscheduleMethod("Adds")
-		timerAdds:Stop()
-		self:Adds()
+		self:Unschedule(Adds)
+		Adds(self)
 	elseif (msg:find(L.MageAlliance) or msg:find(L.MageHorde)) and self:IsInCombat() then
-		if not firstMage then
+		if not self.vb.firstMage then
 			timerBelowZeroCD:Start(3.2)
-			firstMage = true
+			self.vb.firstMage = true
 		else
 			timerBelowZeroCD:Update(30.3, 33.5)--Update the below zero timer to correct it with yells since it tends to be off depending on how bad your cannon operators are.
 		end

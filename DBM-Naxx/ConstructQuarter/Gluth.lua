@@ -8,7 +8,7 @@ mod:SetModelID(16064)
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"SPELL_DAMAGE"
+	"SPELL_DAMAGE 28375"
 )
 
 
@@ -16,7 +16,7 @@ local warnDecimateSoon	= mod:NewSoonAnnounce(54426, 2)
 local warnDecimateNow	= mod:NewSpellAnnounce(54426, 3)
 
 local enrageTimer		= mod:NewBerserkTimer(420)
-local timerDecimate		= mod:NewCDTimer(104, 54426)
+local timerDecimate		= mod:NewCDTimer(104, 54426, nil, nil, nil, 2)
 
 function mod:OnCombatStart(delay)
 	enrageTimer:Start(420 - delay)

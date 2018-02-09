@@ -14,7 +14,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 69649 73061",
 	"SPELL_AURA_APPLIED 70126 69762 70106 69766 70127",
 	"SPELL_AURA_APPLIED_DOSE 70106 69766 70127",
-	"SPELL_AURA_REMOVED 69762 70157 70126 70106 69766 70127 72528 72529 72530",
+	"SPELL_AURA_REMOVED 69762 70157 70126 70106 69766 70127",
 	"SPELL_CAST_SUCCESS 70117",
 	"UNIT_HEALTH boss1",
 	"CHAT_MSG_MONSTER_YELL"
@@ -302,7 +302,7 @@ function mod:SPELL_AURA_REMOVED(args)
 		if args:IsPlayer() then
 			timerInstability:Cancel()
 		end
-	elseif args:IsSpellID(70127, 72528, 72529, 72530) then
+	elseif args.spellId == 70127 then
 		if args:IsPlayer() then
 			timerMysticAchieve:Cancel()
 			timerMysticBuffet:Cancel()

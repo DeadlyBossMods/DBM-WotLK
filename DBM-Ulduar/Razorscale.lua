@@ -16,6 +16,7 @@ mod:RegisterEventsInCombat(
 	"RAID_BOSS_EMOTE"
 )
 
+--TODO, fuse armor taunt/swap warnings
 local warnTurretsReadySoon			= mod:NewAnnounce("warnTurretsReadySoon", 1, 48642)
 local warnTurretsReady				= mod:NewAnnounce("warnTurretsReady", 3, 48642)
 

@@ -86,7 +86,7 @@ function mod:FervorTarget(targetname, uId)
 	end
 end
 
-local function warnBrainLink(self)
+local function warnBrainLinkWarning(self)
 	warnBrainLink:Show(table.concat(brainLinkTargets, "<, >"))
 	timerBrainLinkCD:Start()--VERIFY ME
 	table.wipe(brainLinkTargets)
@@ -127,7 +127,7 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 63802 then		-- Brain Link
-		self:Unschedule(warnBrainLink)
+		self:Unschedule(warnBrainLinkWarning)
 		brainLinkTargets[#brainLinkTargets + 1] = args.destName
 		if self.Options.SetIconOnBrainLinkTarget then
 			self:SetIcon(args.destName, self.vb.brainLinkIcon)
@@ -138,9 +138,9 @@ function mod:SPELL_AURA_APPLIED(args)
 			specWarnBrainLink:Play("linegather")
 		end
 		if #brainLinkTargets == 2 then
-			warnBrainLink(self)
+			warnBrainLinkWarning(self)
 		else
-			self:Schedule(0.5, warnBrainLink, self)
+			self:Schedule(0.5, warnBrainLinkWarning, self)
 		end
 	elseif args:IsSpellID(63830, 63881) then   -- Malady of the Mind (Death Coil) 
 		timerMaladyCD:Start()

@@ -78,7 +78,7 @@ function mod:SPELL_CAST_START(args)
 		if self.vb.interruptCount == 4 then
 			self.vb.interruptCount = 1
 		end
-		local kickCount = self.vb.touchCosmosCast
+		local kickCount = self.vb.interruptCount
 		specWarnSearingFlames:Show(args.sourceName, kickCount)
 		specWarnSearingFlames:Play("kick"..kickCount.."r")
 		timerSearingFlamesCast:Start()

@@ -22,11 +22,14 @@ local warnPhase2			= mod:NewPhaseAnnounce(2, 3)
 local warnBlastTargets		= mod:NewTargetAnnounce(27808, 2)
 local warnFissure			= mod:NewSpellAnnounce(27810, 4, nil, nil, nil, nil, nil, 2)
 local warnMana				= mod:NewTargetAnnounce(27819, 2)
-local warnChainsTargets		= mod:NewTargetAnnounce(28410, 2)
+local warnChainsTargets		= mod:NewTargetNoFilterAnnounce(28410, 4)
 
 local specwarnP2Soon		= mod:NewSpecialWarning("specwarnP2Soon")
+local specWarnManaBomb		= mod:NewSpecialWarningMoveAway(27819, nil, nil, nil, 1, 2)
+local specWarnBlast			= mod:NewSpecialWarningTarget(27808, "Healer", nil, nil, 1, 2)
+local yellManaBomb			= mod:NewShortYell(27819)
 
-local blastTimer			= mod:NewBuffActiveTimer(4, 27808, nil, nil, nil, 3, nil, DBM_CORE_HEALER_ICON)
+local blastTimer			= mod:NewBuffActiveTimer(4, 27808, nil, nil, nil, 5, nil, DBM_CORE_HEALER_ICON)
 local timerMC				= mod:NewBuffActiveTimer(20, 28410, nil, nil, nil, 3)
 local timerMCCD				= mod:NewCDTimer(90, 28410, nil, nil, nil, 3)--actually 60 second cdish but its easier to do it this way for the first one.
 local timerPhase2			= mod:NewTimer(225, "TimerPhase2", "Interface\\Icons\\Spell_Nature_WispSplode", nil, nil, 6)
@@ -34,7 +37,7 @@ local timerPhase2			= mod:NewTimer(225, "TimerPhase2", "Interface\\Icons\\Spell_
 mod:AddBoolOption("SetIconOnMC", true)
 mod:AddBoolOption("SetIconOnManaBomb", false)
 mod:AddBoolOption("SetIconOnFrostTomb", true)
-mod:AddBoolOption("ShowRange", true)
+mod:AddRangeFrameOption(10, 27819)
 
 mod.vb.warnedAdds = false
 mod.vb.MCIcon = 1
@@ -48,7 +51,12 @@ local function AnnounceChainsTargets(self)
 end
 
 local function AnnounceBlastTargets(self)
-	warnBlastTargets:Show(table.concat(frostBlastTargets, "< >"))
+	if self.Options.SpecWarn27808target then
+		specWarnBlast:Show(table.concat(frostBlastTargets, "< >"))
+		specWarnBlast:Play("healall")
+	else
+		warnBlastTargets:Show(table.concat(frostBlastTargets, "< >"))
+	end
 	blastTimer:Start(3.5)
 	if self.Options.SetIconOnFrostTomb then
 		for i = #frostBlastTargets, 1, -1 do
@@ -94,9 +102,15 @@ function mod:SPELL_AURA_APPLIED(args)
 		self:Unschedule(AnnounceBlastTargets)
 		self:Schedule(0.5, AnnounceBlastTargets, self)
 	elseif args.spellId == 27819 then -- Mana Bomb
-		warnMana:Show(args.destName)
 		if self.Options.SetIconOnManaBomb then
 			self:SetIcon(args.destName, 8, 5.5)
+		end
+		if args:IsPlayer() then
+			specWarnManaBomb:Show()
+			specWarnManaBomb:Play("scatter")
+			yellManaBomb:Yell()
+		else
+			warnMana:Show(args.destName)
 		end
 	elseif args.spellId == 28410 then -- Chains of Kel'Thuzad
 		chainsTargets[#chainsTargets + 1] = args.destName

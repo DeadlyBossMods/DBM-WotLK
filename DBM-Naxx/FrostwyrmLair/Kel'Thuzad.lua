@@ -13,8 +13,9 @@ mod:RegisterCombat("combat_yell", L.Yell)
 mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 27808 27819 28410",
 	"SPELL_AURA_REMOVED 28410",
-	"SPELL_CAST_SUCCESS 27810",
-	"UNIT_HEALTH boss1"
+	"SPELL_CAST_SUCCESS 27810 27819 27808",
+	"UNIT_HEALTH boss1",
+	"UNIT_TARGETABLE_CHANGED"
 )
 
 local warnAddsSoon			= mod:NewAnnounce("warnAddsSoon", 1, 45419)
@@ -30,15 +31,18 @@ local specWarnBlast			= mod:NewSpecialWarningTarget(27808, "Healer", nil, nil, 1
 local yellManaBomb			= mod:NewShortYell(27819)
 
 local blastTimer			= mod:NewBuffActiveTimer(4, 27808, nil, nil, nil, 5, nil, DBM_CORE_HEALER_ICON)
+local timerManaBomb			= mod:NewCDTimer(20, 27819, nil, nil, nil, 3)--20-50
+local timerFrostBlast		= mod:NewCDTimer(40.1, 27808, nil, nil, nil, 3, nil, DBM_CORE_DEADLY_ICON)--40-46
 local timerMC				= mod:NewBuffActiveTimer(20, 28410, nil, nil, nil, 3)
-local timerMCCD				= mod:NewCDTimer(90, 28410, nil, nil, nil, 3)--actually 60 second cdish but its easier to do it this way for the first one.
-local timerPhase2			= mod:NewTimer(225, "TimerPhase2", "Interface\\Icons\\Spell_Nature_WispSplode", nil, nil, 6)
+--local timerMCCD			= mod:NewCDTimer(90, 28410, nil, nil, nil, 3)--actually 60 second cdish but its easier to do it this way for the first one.
+local timerPhase2			= mod:NewTimer(218, "TimerPhase2", "Interface\\Icons\\Spell_Nature_WispSplode", nil, nil, 6)
 
 mod:AddBoolOption("SetIconOnMC", true)
 mod:AddBoolOption("SetIconOnManaBomb", false)
 mod:AddBoolOption("SetIconOnFrostTomb", true)
 mod:AddRangeFrameOption(10, 27819)
 
+mod.vb.phase = 1
 mod.vb.warnedAdds = false
 mod.vb.MCIcon = 1
 local frostBlastTargets = {}
@@ -66,33 +70,30 @@ local function AnnounceBlastTargets(self)
 	end
 end
 
-function mod:RangeToggle(show)
-	if show then
-		DBM.RangeCheck:Show(10)
-	else
-		DBM.RangeCheck:Hide()
-	end
-end
-
 function mod:OnCombatStart(delay)
+	self.vb.phase = 1
 	table.wipe(chainsTargets)
 	table.wipe(frostBlastTargets)
 	self.vb.warnedAdds = false
 	self.vb.MCIcon = 1
-	specwarnP2Soon:Schedule(215-delay)
-	if self:IsDifficulty("normal25") then
-		timerMCCD:Schedule(225-delay)
-	end
+	specwarnP2Soon:Schedule(208.1-delay)
 	timerPhase2:Start()
-	warnPhase2:Schedule(225)
-	if self.Options.ShowRange then
-		self:ScheduleMethod(215-delay, "RangeToggle", true)
-	end
 end
 
 function mod:OnCombatEnd()
 	if self.Options.ShowRange then
 		DBM.RangeCheck:Hide()
+	end
+end
+
+function mod:SPELL_CAST_SUCCESS(args)
+	if args.spellId == 27810 then
+		warnFissure:Show()
+		warnFissure:Play("watchstep")
+	elseif spellId == 27819 then
+		timerManaBomb:Start()
+	elseif spellId == 27808 then
+		timerFrostBlast:Start()
 	end
 end
 
@@ -139,16 +140,20 @@ function mod:SPELL_AURA_REMOVED(args)
 	end
 end
 
-function mod:SPELL_CAST_SUCCESS(args)
-	if args.spellId == 27810 then
-		warnFissure:Show()
-		warnFissure:Play("watchstep")
-	end
-end
-
 function mod:UNIT_HEALTH(uId)
 	if not self.vb.warnedAdds and self:GetUnitCreatureId(uId) == 15990 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.48 then
 		self.vb.warnedAdds = true
 		warnAddsSoon:Show()
+	end
+end
+
+function mod:UNIT_TARGETABLE_CHANGED()
+	if self.vb.phase == 1 then
+		self.vb.phase = 2
+		warnPhase2:Show()
+		warnPhase2:Play("ptwo")
+		if self.Options.ShowRange then
+			DBM.RangeCheck:Show(10)
+		end
 	end
 end

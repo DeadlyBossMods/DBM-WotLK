@@ -9,7 +9,7 @@ mod:RegisterCombat("combat_yell", L.Pull1, L.Pull2)
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 28785 54021",
-	"SPELL_AURA_REMOVED 28785, 54021",
+	"SPELL_AURA_REMOVED 28785 54021",
 	"UNIT_DIED"
 )
 

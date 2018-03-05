@@ -44,6 +44,8 @@ local timerCastCosmicSmash		= mod:NewCastTimer(4.5, 64596)
 local timerPhasePunch			= mod:NewTargetTimer(45, 64412, nil, "Tank", 2, 5)
 local timerNextPhasePunch		= mod:NewNextTimer(16, 64412, nil, "Tank", 2, 5)
 
+mod:AddInfoFrameOption(64122, true)
+
 local sentLowHP = {}
 local warnedLowHP = {}
 mod.vb.warned_preP2 = false
@@ -52,6 +54,16 @@ function mod:OnCombatStart(delay)
 	self.vb.warned_preP2 = false
 	table.wipe(sentLowHP)
 	table.wipe(warnedLowHP)
+	if self.Options.InfoFrame and not self:IsTrivial(80) then
+		DBM.InfoFrame:SetHeader(L.HealthInfo)
+		DBM.InfoFrame:Show(5, "health", 18000)
+	end
+end
+
+function mod:OnCombatEnd()
+	if self.Options.InfoFrame then
+		DBM.InfoFrame:Hide()
+	end
 end
 
 function mod:SPELL_CAST_START(args)

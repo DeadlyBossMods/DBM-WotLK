@@ -6,14 +6,14 @@ mod:SetCreatureID(33288)
 mod:SetEncounterID(1143)
 mod:SetModelID(28817)
 mod:RegisterCombat("combat_yell", L.YellPull)
-mod:SetUsedIcons(6, 7, 8)
+mod:SetUsedIcons(8, 7, 6, 2, 1)
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 64059 64189 63138",
-	"SPELL_CAST_SUCCESS 64144",
+	"SPELL_CAST_SUCCESS 64144 64465",
 	"SPELL_SUMMON 62979",
-	"SPELL_AURA_APPLIED 63802 63830 63881 64126 64125 63138 63894 64167 64163",
-	"SPELL_AURA_REMOVED 63802 63894 64167 64163 63830 63138 63881",
+	"SPELL_AURA_APPLIED 63802 63830 63881 64126 64125 63138 63894 64167 64163 64465",
+	"SPELL_AURA_REMOVED 63802 63894 64167 64163 63830 63138 63881 64465",
 	"SPELL_AURA_REMOVED_DOSE 63050"
 )
 
@@ -58,21 +58,39 @@ local timerAchieve					= mod:NewAchievementTimer(420, 3012)
 mod:AddBoolOption("SetIconOnFearTarget", true)
 mod:AddBoolOption("SetIconOnFervorTarget", false)
 mod:AddBoolOption("SetIconOnBrainLinkTarget", true)
+mod:AddSetIconOption("SetIconOnBeacon", 64465, true, true)
+mod:AddInfoFrameOption(212647)
 
 mod.vb.phase = 1
 local brainLinkTargets = {}
-mod.vb.brainLinkIcon = 7
+local SanityBuff = DBM:GetSpellInfo(63050)
+mod.vb.brainLinkIcon = 2
+mod.vb.beaconIcon = 8
 mod.vb.Guardians = 0
 mod.vb.numberOfPlayers = 1
 
 function mod:OnCombatStart(delay)
+	SanityBuff = DBM:GetSpellInfo(63050)
 	self.vb.numberOfPlayers = DBM:GetNumRealGroupMembers()
+	self.vb.brainLinkIcon = 2
+	self.vb.beaconIcon = 8
 	self.vb.Guardians = 0
 	self.vb.phase = 1
 	enrageTimer:Start()
 	timerAchieve:Start()
 	table.wipe(brainLinkTargets)
+	if self.Options.InfoFrame then
+		DBM.InfoFrame:SetHeader(SanityBuff)
+		DBM.InfoFrame:Show(6, "playerdebuffstacks", SanityBuff, 2)--Sorted lowest first (highest first is defualt of arg not given)
+	end
 end
+
+function mod:OnCombatEnd()
+	if self.Options.InfoFrame then
+		DBM.InfoFrame:Hide()
+	end
+end
+
 
 function mod:OnTimerRecovery()
 	self.vb.numberOfPlayers = DBM:GetNumRealGroupMembers()
@@ -90,7 +108,7 @@ local function warnBrainLinkWarning(self)
 	warnBrainLink:Show(table.concat(brainLinkTargets, "<, >"))
 	timerBrainLinkCD:Start()--VERIFY ME
 	table.wipe(brainLinkTargets)
-	self.vb.brainLinkIcon = 7
+	self.vb.brainLinkIcon = 2
 end
 
 function mod:SPELL_CAST_START(args)
@@ -115,6 +133,10 @@ end
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 64144 and self:GetUnitCreatureId(args.sourceGUID) == 33966 then 
 		warnCrusherTentacleSpawned:Show()
+	elseif args.spellId == 64465 then
+		timerEmpower:Start()
+		timerEmpowerDuration:Start()
+		warnEmpowerSoon:Schedule(40)
 	end
 end
 
@@ -145,7 +167,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(63830, 63881) then   -- Malady of the Mind (Death Coil) 
 		timerMaladyCD:Start()
 		if self.Options.SetIconOnFearTarget then
-			self:SetIcon(args.destName, 8) 
+			self:SetIcon(args.destName, 6) 
 		end
 		if args:IsPlayer() then
 			specWarnMalady:Show()
@@ -186,9 +208,10 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(64167, 64163) then	-- Lunatic Gaze (reduces sanity)
 		timerLunaricGaze:Start()
 	elseif args.spellId == 64465 then
-		timerEmpower:Start()
-		timerEmpowerDuration:Start()
-		warnEmpowerSoon:Schedule(40)
+		if self.Options.SetIconOnBeacon then
+			self:ScanForMobs(args.sourceGUID, 2, self.vb.beaconIcon, 1, 0.2, 10, "SetIconOnBeacon")
+		end
+		self.vb.beaconIcon = self.vb.beaconIcon - 1
 	end
 end
 
@@ -203,6 +226,10 @@ function mod:SPELL_AURA_REMOVED(args)
 		timerNextLunaricGaze:Start()
 	elseif args:IsSpellID(63830, 63881) and self.Options.SetIconOnFearTarget then   -- Malady of the Mind (Death Coil) 
 		self:SetIcon(args.destName, 0) 
+	elseif args.spellId == 64465 then
+		if self.Options.SetIconOnBeacon then
+			self:ScanForMobs(args.sourceGUID, 2, 0, 1, 0.2, 10, "SetIconOnBeacon")
+		end
 	end
 end
 
@@ -211,7 +238,6 @@ function mod:SPELL_AURA_REMOVED_DOSE(args)
 		if args.amount == 50 then
 			warnSanity:Show(args.amount)
 		elseif args.amount == 25 or args.amount == 15 or args.amount == 5 then
-			warnSanity:Show(args.amount)
 			specWarnSanity:Show(args.amount)
 		end
 	end

@@ -104,7 +104,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerRuneofPower:Start()
 	elseif args:IsSpellID(61869, 63481) then	-- Overload
 		timerOverload:Start()
-		if self.Options.AlwaysWarnOnOverload or UnitGUID("target") == args.sourceGUID then
+		if self.Options.AlwaysWarnOnOverload or UnitGUID("target") == args.sourceGUID or self:CheckTankDistance(args.sourceGUID, 15) then
 			specwarnOverload:Show()
 			specwarnOverload:Play("justrun")
 		end

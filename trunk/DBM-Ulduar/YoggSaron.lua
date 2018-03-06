@@ -29,7 +29,7 @@ local warnP3 						= mod:NewPhaseAnnounce(3, 2)
 local warnSanity 					= mod:NewAnnounce("WarningSanity", 3, 63050)
 local warnBrainLink 				= mod:NewTargetAnnounce(63802, 3)
 local warnBrainPortalSoon			= mod:NewAnnounce("WarnBrainPortalSoon", 2, 57687)
-local warnEmpowerSoon				= mod:NewSoonAnnounce(64486, 4)
+local warnEmpowerSoon				= mod:NewSoonAnnounce(64465, 4)
 
 local specWarnBrainLink 			= mod:NewSpecialWarningYou(63802)
 local specWarnSanity 				= mod:NewSpecialWarning("SpecWarnSanity")
@@ -43,7 +43,7 @@ local yellSqueeze					= mod:NewYell(64125)
 
 local enrageTimer					= mod:NewBerserkTimer(900)
 local timerFervor					= mod:NewTargetTimer(15, 63138, nil, false, 2)
-local timerMaladyCD					= mod:NewCDTimer(19, 63830, nil, nil, nil, 3)
+local timerMaladyCD					= mod:NewCDTimer(18.1, 63830, nil, nil, nil, 3)
 local timerBrainLinkCD				= mod:NewCDTimer(32, 63802, nil, nil, nil, 3)
 local brainportal					= mod:NewTimer(20, "NextPortal", 57687, nil, nil, 5)
 local timerLunaricGaze				= mod:NewCastTimer(4, 64163, nil, nil, nil, 2)
@@ -228,7 +228,7 @@ function mod:SPELL_AURA_REMOVED(args)
 		self:SetIcon(args.destName, 0) 
 	elseif args.spellId == 64465 then
 		if self.Options.SetIconOnBeacon then
-			self:ScanForMobs(args.sourceGUID, 2, 0, 1, 0.2, 10, "SetIconOnBeacon")
+			self:ScanForMobs(args.sourceGUID, 2, 0, 1, 0.2, 12, "SetIconOnBeacon")
 		end
 	end
 end

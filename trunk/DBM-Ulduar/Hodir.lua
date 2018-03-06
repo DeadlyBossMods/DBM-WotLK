@@ -23,7 +23,7 @@ local warnStormCloud		= mod:NewTargetAnnounce(65123)
 local warnFlashFreeze		= mod:NewSpecialWarningSpell(61968, nil, nil, nil, 3, 2)
 local specWarnStormCloud	= mod:NewSpecialWarningYou(65123, nil, nil, nil, 1, 2)
 local yellStormCloud		= mod:NewYell(65133)
-local specWarnBitingCold	= mod:NewSpecialWarningMove(62188, false, nil, nil, 1, 2)
+local specWarnBitingCold	= mod:NewSpecialWarningMove(62188, nil, nil, nil, 1, 2)
 
 local enrageTimer			= mod:NewBerserkTimer(475)
 local timerFlashFreeze		= mod:NewCastTimer(9, 61968, nil, nil, nil, 2)

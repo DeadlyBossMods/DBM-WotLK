@@ -12,7 +12,7 @@ mod:RegisterCombat("combat")
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 62776",
 	"SPELL_AURA_APPLIED 62776 63018 65121 63024 64234 63849",
-	"SPELL_AURA_REMOVED 63018 65121 63024 64234",
+	"SPELL_AURA_REMOVED 63018 65121 63024 64234 63849",
 	"SPELL_DAMAGE 64208 64206",
 	"SPELL_MISSED 64208 64206"
 )
@@ -42,7 +42,7 @@ mod:AddBoolOption("SetIconOnGravityBombTarget", true)
 function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
 	timerAchieve:Start()
-	timerTympanicTantrumCD:Start(50-delay)
+	timerTympanicTantrumCD:Start(30-delay)
 end
 
 function mod:SPELL_CAST_START(args)
@@ -90,6 +90,8 @@ function mod:SPELL_AURA_REMOVED(args)
 		if self.Options.SetIconOnGravityBombTarget then
 			self:SetIcon(args.destName, 0)
 		end
+	elseif args.spellId == 63849 then
+		timerHeart:Stop()
 	end
 end
 

@@ -68,7 +68,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.SlagPotIcon then
 			self:SetIcon(args.destName, 8, 10)
 		end
-	elseif spellId == 62382 and self:AntiSpam(5, 1) then
+	elseif args.spellId == 62382 and self:AntiSpam(5, 1) then
 		warnFlameBrittle:Show()
 		warnFlameBrittle:Play("killmob")
 	end

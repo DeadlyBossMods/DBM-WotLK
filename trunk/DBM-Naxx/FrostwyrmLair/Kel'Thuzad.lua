@@ -90,9 +90,9 @@ function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 27810 then
 		warnFissure:Show()
 		warnFissure:Play("watchstep")
-	elseif spellId == 27819 then
+	elseif args.spellId == 27819 then
 		timerManaBomb:Start()
-	elseif spellId == 27808 then
+	elseif args.spellId == 27808 then
 		timerFrostBlast:Start()
 	end
 end
@@ -117,7 +117,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		chainsTargets[#chainsTargets + 1] = args.destName
 		if self:AntiSpam() then
 			timerMC:Start()
-			timerMCCD:Start(60)--60 seconds?
+			--timerMCCD:Start(60)--60 seconds?
 		end
 		if self.Options.SetIconOnMC then
 			self:SetIcon(args.destName, self.vb.MCIcon)

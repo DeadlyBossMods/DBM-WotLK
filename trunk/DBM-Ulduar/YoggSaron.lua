@@ -53,7 +53,7 @@ local timerEmpowerDuration			= mod:NewBuffActiveTimer(10, 64465, nil, nil, nil, 
 local timerMadness 					= mod:NewCastTimer(60, 64059, nil, nil, nil, 5)
 local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189, nil, nil, nil, 2)
 local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189, nil, nil, nil, 2)
-local timerAchieve					= mod:NewAchievementTimer(420, 3012)
+local timerAchieve					= mod:NewAchievementTimer(420, 12396)--3012
 
 mod:AddBoolOption("SetIconOnFearTarget", true)
 mod:AddBoolOption("SetIconOnFervorTarget", false)

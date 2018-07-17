@@ -138,7 +138,7 @@ function mod:UNIT_HEALTH(uId)
 	end
 end
 
-function mod:UNIT_SPELLCAST_SUCCEEDED(uId, spellName, _, _, spellId)
+function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 	if spellId == 65311 then--Supermassive Fail (fires when he becomes actually active)
 		timerNextCollapsingStar:Start(16)
 		timerCDCosmicSmash:Start(26)

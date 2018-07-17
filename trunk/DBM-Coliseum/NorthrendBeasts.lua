@@ -83,7 +83,6 @@ mod.vb.AcidmawDead = false
 mod.vb.phase = 1
 
 function mod:OnCombatStart(delay)
-	bileName = DBM:GetSpellInfo(66869)
 	table.wipe(bileTargets)
 	table.wipe(toxinTargets)
 	self.vb.burnIcon = 8

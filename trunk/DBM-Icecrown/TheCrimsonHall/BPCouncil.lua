@@ -204,7 +204,7 @@ function mod:UNIT_TARGET_UNFILTERED()
 	end
 end
 
-function mod:UNIT_SPELLCAST_SUCCEEDED(uId, spellName, _, _, spellId)
+function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 	if spellId == 72080 then--Verify spellIDs
 		warnKineticBomb:Show()
 		if self:IsDifficulty("normal10") or self:IsDifficulty("heroic10") then

@@ -149,7 +149,7 @@ function mod:OnTranscriptorSync(msg, targetName)
 	end
 end
 
-function mod:UNIT_SPELLCAST_SUCCEEDED(uId, spellName, _, _, spellId)
+function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 	if spellId == 63983 then--Arm Sweep
 		timerNextShockwave:Start()
 	elseif spellId == 63342 then--Focused Eyebeam Summon Trigger

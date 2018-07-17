@@ -78,7 +78,6 @@ function mod:OnCombatStart(delay)
 		DBM.RangeCheck:Show(12)
 	end
 	if self.Options.InfoFrame then
-		spellName = DBM:GetSpellInfo(72370)
 		DBM.InfoFrame:SetHeader(spellName)
 		DBM.InfoFrame:Show(1, "enemypower", 2)
 	end

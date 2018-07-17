@@ -45,7 +45,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnWebWrap:CombinedShow(0.5, args.destName)
 		if args.destName == UnitName("player") then
 			yellWebWrap:Yell()
-		elseif not UnitDebuff("player", args.spellName) and self:AntiSpam(3, 1) then
+		elseif not DBM:UnitDebuff("player", args.spellName) and self:AntiSpam(3, 1) then
 			specWarnWebWrap:Show()
 			specWarnWebWrap:Play("targetchange")
 		end

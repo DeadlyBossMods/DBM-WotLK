@@ -59,7 +59,7 @@ function mod:SPELL_CAST_START(args)
 	end
 end
 
-function mod:UNIT_SPELLCAST_START(uId, _, _, _, spellId)
+function mod:UNIT_SPELLCAST_START(uId, _, spellId)
    if spellId == 57496 then -- Insanity
 		warningInsanity:Show()
 		timerInsanity:Start()

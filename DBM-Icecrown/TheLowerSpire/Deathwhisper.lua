@@ -93,7 +93,6 @@ local function TrySetTarget(self)
 end
 
 function mod:OnCombatStart(delay)
-	shieldName = DBM:GetSpellInfo(70842)
 	berserkTimer:Start(-delay)
 	timerAdds:Start(7)
 	warnAddsSoon:Schedule(4)			-- 3sec pre-warning on start

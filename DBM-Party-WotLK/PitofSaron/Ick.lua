@@ -37,7 +37,6 @@ local pursuit = DBM:GetSpellInfo(68987)
 local pursuitTable = {}
 
 function mod:OnCombatStart(delay)
-	pursuit = DBM:GetSpellInfo(68987)
 	table.wipe(pursuitTable)
 	timerSpecialCD:Start()
 end
@@ -81,7 +80,7 @@ end
 mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
 
 function mod:UNIT_AURA_UNFILTERED(uId)
-	local isPursuitDebuff = UnitDebuff(uId, pursuit)
+	local isPursuitDebuff = DBM:UnitDebuff(uId, pursuit)
 	local name = DBM:GetUnitFullName(uId)
 	if not isPursuitDebuff and pursuitTable[name] then
 		pursuitTable[name] = nil

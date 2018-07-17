@@ -187,7 +187,7 @@ function mod:UNIT_TARGET_UNFILTERED()
 	end
 end
 
-function mod:UNIT_SPELLCAST_START(uId, _, _, _, spellId)
+function mod:UNIT_SPELLCAST_START(uId, _, spellId)
 	if spellId == 71189 then
 		DBM:EndCombat(self)
 	end

@@ -166,7 +166,7 @@ end
 
 --local free triggers but not reliable in instances that didn't impliment bossN args so backup emote/yell triggers still in place.
 --Anti spam will be handled by sync handler
-function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, _, _, spellId)
+function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 --	"<39.8> [UNIT_SPELLCAST_SUCCEEDED] Malygos:Possible Target<Omegal>:target:Summon Power Spark::0:56140", -- [998]
 	if spellId == 56140 then
 		warnSpark:Show()

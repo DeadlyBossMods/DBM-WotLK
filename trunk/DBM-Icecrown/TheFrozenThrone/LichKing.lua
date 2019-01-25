@@ -396,12 +396,13 @@ do
 				end
 				lastValk = time()
 				scanValkyrTargets(self)
-			end
-			if self.Options.ValkyrIcon then
-				if self:IsDifficulty("normal25", "heroic25") then
-					self:ScanForMobs(args.destGUID, 1, 2, 3, 0.1, 20, "ValkyrIcon")
-				else
-					self:ScanForMobs(args.destGUID, 1, 2, 1, 0.1, 20, "ValkyrIcon")
+				if self.Options.ValkyrIcon then
+					local cid = self:GetCIDFromGUID(args.destGUID)
+					if self:IsDifficulty("normal25", "heroic25") then
+						self:ScanForMobs(cid, 1, 2, 3, 0.1, 20, "ValkyrIcon")
+					else
+						self:ScanForMobs(cid, 1, 2, 1, 0.1, 20, "ValkyrIcon")
+					end
 				end
 			end
 		end

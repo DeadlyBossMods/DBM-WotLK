@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("Patchwerk", "DBM-Naxx", 2)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(string.sub("@file-date-integer@", 1, -5))
+mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(16028)
 mod:SetEncounterID(1118)
 mod:SetModelID(16174)

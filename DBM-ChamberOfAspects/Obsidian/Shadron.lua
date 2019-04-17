@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("Shadron", "DBM-ChamberOfAspects", 1)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(string.sub("@file-date-integer@", 1, -5))
+mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(30451)
 mod:SetEncounterID(1091)
 mod:SetModelID(27421)

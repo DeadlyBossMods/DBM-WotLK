@@ -14,9 +14,9 @@ mod:RegisterEventsInCombat(
 )
 
 local warningLocustSoon		= mod:NewSoonAnnounce(28785, 2)
-local warningLocustFaded	= mod:NewFadesAnnounce(54021, 1)
+local warningLocustFaded	= mod:NewFadesAnnounce(28785, 1)
 
-local specialWarningLocust	= mod:NewSpecialWarningSpell(54021, nil, nil, nil, 2, 2)
+local specialWarningLocust	= mod:NewSpecialWarningSpell(28785, nil, nil, nil, 2, 2)
 
 local timerLocustIn			= mod:NewCDTimer(80, 28785, nil, nil, nil, 6)
 local timerLocustFade 		= mod:NewBuffActiveTimer(26, 28785, nil, nil, nil, 6)

@@ -57,6 +57,7 @@ function mod:SPELL_CAST_START(args)
 	end
 end
 
+--SHIT SHOW, FIXME
 function mod:UNIT_AURA()
 	if self.vb.phase ~=2 or (GetTime() - lastShift) > 5 or (GetTime() - lastShift) < 3 then return end
 	local charge

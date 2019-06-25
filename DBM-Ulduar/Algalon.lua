@@ -7,7 +7,7 @@ mod:SetEncounterID(1130)
 mod:DisableEEKillDetection()--EE always fires wipe
 mod:SetMinSyncRevision(234)
 mod:SetModelID(28641)
-mod:SetModelSound("Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Aggro01.ogg", "Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Slay02.ogg")
+--mod:SetModelSound("Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Aggro01.ogg", "Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Slay02.ogg")
 mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellKill)
 mod:SetWipeTime(60)

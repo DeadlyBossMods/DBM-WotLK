@@ -16,8 +16,8 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_REMOVED 62717 63477"
 )
 
-local announceSlagPot			= mod:NewTargetAnnounce(63477, 3)
-local announceConstruct			= mod:NewCountAnnounce(63477, 2)
+local announceSlagPot			= mod:NewTargetNoFilterAnnounce(63477, 3)
+local announceConstruct			= mod:NewCountAnnounce(62488, 2)
 
 local warnFlameJetsCast			= mod:NewSpecialWarningCast(62488, "SpellCaster")
 local warnFlameBrittle			= mod:NewSpecialWarningSwitch(62382, "Dps")

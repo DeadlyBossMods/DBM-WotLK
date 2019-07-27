@@ -2,12 +2,12 @@ package-as: DBM-WotLK
 enable-nolib-creation: no
 
 move-folders:
-    DBM-Icecrown/DBM-ChamberOfAspects: DBM-ChamberOfAspects
-    DBM-Icecrown/DBM-Coliseum: DBM-Coliseum
-    DBM-Icecrown/DBM-EyeOfEternity: DBM-EyeOfEternity
-    DBM-Icecrown/DBM-Icecrown: DBM-Icecrown
-    DBM-Icecrown/DBM-Naxx: DBM-Naxx
-    DBM-Icecrown/DBM-Onyxia: DBM-Onyxia
-    DBM-Icecrown/DBM-Ulduar: DBM-Ulduar
-    DBM-Icecrown/DBM-VoA: DBM-VoA
+    DBM-WotLK/DBM-ChamberOfAspects: DBM-ChamberOfAspects
+    DBM-WotLK/DBM-Coliseum: DBM-Coliseum
+    DBM-WotLK/DBM-EyeOfEternity: DBM-EyeOfEternity
+    DBM-WotLK/DBM-Icecrown: DBM-Icecrown
+    DBM-WotLK/DBM-Naxx: DBM-Naxx
+    DBM-WotLK/DBM-Onyxia: DBM-Onyxia
+    DBM-WotLK/DBM-Ulduar: DBM-Ulduar
+    DBM-WotLK/DBM-VoA: DBM-VoA
    

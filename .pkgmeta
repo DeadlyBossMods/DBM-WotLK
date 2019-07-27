@@ -1,4 +1,4 @@
-package-as: DBM-Icecrown
+package-as: DBM-WotLK
 enable-nolib-creation: no
 
 move-folders:

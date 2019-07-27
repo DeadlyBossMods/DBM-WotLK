@@ -36,7 +36,7 @@
 ## X-DBM-Mod-Sort: 906
 ## X-DBM-Mod-MapID: 615,724
 ## X-DBM-Mod-MinCoreRevision: 12473
-## X-DBM-Mod-Curse-Project-ID: 43970
+## X-Curse-Project-ID: 43970
 ## X-WoWI-ID: 21522
 
 localization.en.lua

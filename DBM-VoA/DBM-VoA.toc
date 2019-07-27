@@ -19,7 +19,9 @@
 ## X-DBM-Mod-No-Heroic: 1
 ## X-DBM-Mod-MapID: 624
 ## X-DBM-Mod-Sort: 908
-## X-DBM-Mod-MinCoreRevision: 12473
+## X-DBM-Mod-Curse-Project-ID: 43970
+## X-WoWI-ID: 21522
+
 localization.en.lua
 localization.de.lua
 localization.tw.lua

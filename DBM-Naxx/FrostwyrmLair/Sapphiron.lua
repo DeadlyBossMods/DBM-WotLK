@@ -38,7 +38,7 @@ local function resetIsFlying(self)
 	self.vb.isFlying = false
 end
 
-function mod:Landing()
+local function Landing()
 	warnAirPhaseSoon:Schedule(56)
 	warnLanded:Show()
 	timerAirPhase:Start()
@@ -105,7 +105,7 @@ function mod:OnSync(event)
 	if event == "DeepBreath" then
 		timerIceBlast:Start()
 		timerLanding:Update(14)
-		self:ScheduleMethod(14.5, "Landing")
+		self:Schedule(14.5, Landing, self)
 		warnDeepBreath:Show()
 		warnDeepBreath:Play("findshelter")
 	end

@@ -64,10 +64,10 @@ function mod:UNIT_AURA()
 	local i = 1
 	while DBM:UnitDebuff("player", i) do
 		local _, icon, count = DBM:UnitDebuff("player", i)
-		if icon == "Interface\\Icons\\Spell_ChargeNegative" then
+		if icon == 135768 then--Interface\\Icons\\Spell_ChargeNegative
 			if count > 1 then return end
 			charge = L.Charge1
-		elseif icon == "Interface\\Icons\\Spell_ChargePositive" then
+		elseif icon == 135769 then--Interface\\Icons\\Spell_ChargePositive
 			if count > 1 then return end
 			charge = L.Charge2
 		end

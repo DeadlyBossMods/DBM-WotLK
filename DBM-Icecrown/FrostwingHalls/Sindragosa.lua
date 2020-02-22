@@ -170,7 +170,7 @@ function mod:SPELL_CAST_START(args)
 		warnFrostBreath:Show()
 		timerNextFrostBreath:Start()
 	end
-end	
+end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 70126 then
@@ -280,7 +280,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerBlisteringCold:Start()
 		timerNextBlisteringCold:Start()
 	end
-end	
+end
 
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 69762 then
@@ -312,7 +312,7 @@ end
 function mod:UNIT_HEALTH(uId)
 	if not self.vb.warned_P2 and self:GetUnitCreatureId(uId) == 36853 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.38 then
 		self.vb.warned_P2 = true
-		warnPhase2soon:Show()	
+		warnPhase2soon:Show()
 	end
 end
 

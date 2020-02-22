@@ -4,7 +4,7 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(34564)
 mod:SetEncounterID(1085)
-mod:SetModelID(29268) 
+mod:SetModelID(29268)
 mod:SetUsedIcons(3, 4, 5, 6, 7, 8)
 
 mod:RegisterCombat("combat")
@@ -49,12 +49,12 @@ mod:AddBoolOption("AnnouncePColdIcons", false)
 mod:AddBoolOption("AnnouncePColdIconsRemoved", false)
 
 local PColdTargets = {}
-mod.vb.Burrowed = false 
+mod.vb.Burrowed = false
 
 function mod:OnCombatStart(delay)
-	self.vb.Burrowed = false 
-	timerAdds:Start(10-delay) 
-	warnAdds:Schedule(10-delay) 
+	self.vb.Burrowed = false
+	timerAdds:Start(10-delay)
+	warnAdds:Schedule(10-delay)
 	self:ScheduleMethod(10-delay, "Adds")
 	warnSubmergeSoon:Schedule(70-delay)
 	timerSubmerge:Start(80-delay)
@@ -68,14 +68,14 @@ function mod:OnCombatStart(delay)
 	end
 end
 
-function mod:Adds() 
-	if self:IsInCombat() then 
-		if not self.vb.Burrowed then 
-			timerAdds:Start() 
-			warnAdds:Schedule(45) 
-			self:ScheduleMethod(45, "Adds") 
-		end 
-	end 
+function mod:Adds()
+	if self:IsInCombat() then
+		if not self.vb.Burrowed then
+			timerAdds:Start()
+			warnAdds:Schedule(45)
+			self:ScheduleMethod(45, "Adds")
+		end
+	end
 end
 
 function mod:ShadowStrike()
@@ -170,8 +170,8 @@ function mod:SPELL_CAST_START(args)
 		timerEmerge:Stop()
 		timerSubmerge:Stop()
 		if self:IsDifficulty("normal10", "normal25") then
-			timerAdds:Cancel() 
-			warnAdds:Cancel() 
+			timerAdds:Cancel()
+			warnAdds:Cancel()
 			self:UnscheduleMethod("Adds")
 		end
 	elseif args.spellId == 66134 then

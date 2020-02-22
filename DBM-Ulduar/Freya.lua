@@ -76,7 +76,7 @@ function mod:SPELL_CAST_START(args)
 		specWarnTremor:Play("stopcast")
 		timerTremorCD:Start()
 	end
-end 
+end
 
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 62678 then -- Summon Allies of Nature
@@ -120,7 +120,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(62451, 62865) and args:IsPlayer() then
 		specWarnBeam:Show()
 		specWarnBeam:Play("runaway")
-	end 
+	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)

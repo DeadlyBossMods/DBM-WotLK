@@ -90,7 +90,7 @@ function mod:SPELL_CAST_START(args)
 		local kickCount = self.vb.interruptCount
 		specWarnSearingFlames:Show(args.sourceName, kickCount)
 		specWarnSearingFlames:Play("kick"..kickCount.."r")
-	elseif args.spellId == 62662 then 
+	elseif args.spellId == 62662 then
 		local tanking, status = UnitDetailedThreatSituation("player", "boss1")
 		if tanking or (status == 3) then--Player is current target
 			specWarnSurgeDarkness:Show()
@@ -107,7 +107,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args.spellId == 62662 then	
+	if args.spellId == 62662 then
 		timerSurgeofDarkness:Stop()
 	end
 end

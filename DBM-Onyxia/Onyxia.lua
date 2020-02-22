@@ -117,7 +117,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	local spellName = args.spellId
+	local spellId = args.spellId
 	if spellId == 19633 then
 		warnKnockAway:Show(args.destName)
 	end

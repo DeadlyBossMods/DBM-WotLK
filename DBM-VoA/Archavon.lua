@@ -44,7 +44,7 @@ end
 
 function mod:SPELL_CAST_SUCCESS(args)
   if args:IsSpellID(58963, 60895) then
-    	warnLeap:Show()
+		warnLeap:Show()
 	end
 end
 

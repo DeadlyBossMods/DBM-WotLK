@@ -87,7 +87,7 @@ function mod:UNIT_DIED(args)
 			else
 				warnCatDied:Show(self.vb.catLives)
 				timerDefender:Start()
-         	end
+			end
 		end
 	end
 end

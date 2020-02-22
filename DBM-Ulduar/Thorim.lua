@@ -32,7 +32,7 @@ mod:AddBoolOption("AnnounceFails", false, "announce")
 
 local enrageTimer					= mod:NewBerserkTimer(369)
 local timerStormhammer				= mod:NewBuffActiveTimer(16, 62042, nil, nil, nil, 3)--Cast timer? Review if i ever do this boss again.
-local timerLightningCharge	 		= mod:NewCDTimer(16, 62466, nil, nil, nil, 3) 
+local timerLightningCharge	 		= mod:NewCDTimer(16, 62466, nil, nil, nil, 3)
 local timerUnbalancingStrike		= mod:NewCDTimer(25.6, 62130, nil, "Tank", nil, 5, nil, DBM_CORE_TANK_ICON)
 local timerHardmode					= mod:NewTimer(175, "TimerHardmode", 62042)
 
@@ -106,7 +106,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerStormhammer:Schedule(2)
 	elseif args.spellId == 62466 then   	-- Lightning Charge
 		warnLightningCharge:Show()
-		timerLightningCharge:Start()	
+		timerLightningCharge:Start()
 	elseif args.spellId == 62130 then	-- Unbalancing Strike
 		timerUnbalancingStrike:Start()
 	end

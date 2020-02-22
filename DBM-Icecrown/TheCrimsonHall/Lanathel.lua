@@ -189,8 +189,8 @@ end
 mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
-	if msg:match(L.SwarmingShadows) then
-		local target = DBM:GetUnitFullName(target)
+	if msg:match(L.SwarmingShadows) and target then
+		target = DBM:GetUnitFullName(target)
 		timerNextSwarmingShadows:Start()
 		if target == UnitName("player") then
 			specWarnSwarmingShadows:Show()

@@ -87,7 +87,7 @@ end
 function mod:SPELL_AURA_APPLIED_DOSE(args)
 	if args.spellId == 64002 then		        -- Crunch Armor (25-man only)
 		warnCrunchArmor:Show(args.destName)
-        if args.amount >= 2 then 
+        if args.amount >= 2 then
             if args:IsPlayer() then
                 specWarnCrunchArmor2:Show(args.amount)
                 specWarnCrunchArmor2:Play("stackhigh")
@@ -143,7 +143,7 @@ function mod:OnTranscriptorSync(msg, targetName)
 		if self:AntiSpam(5, targetName) then--Antispam sync by target name, since this doesn't use dbms built in onsync handler.
 			warnFocusedEyebeam:Show(targetName)
 			if self.Options.SetIconOnEyebeamTarget then
-				self:SetIcon(targetName, 5, 8) 
+				self:SetIcon(targetName, 5, 8)
 			end
 		end
 	end

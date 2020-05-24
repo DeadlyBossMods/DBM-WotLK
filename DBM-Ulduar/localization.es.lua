@@ -39,7 +39,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
+	SlagPotIcon			= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(63477)
 }
 
 ----------------
@@ -91,8 +91,8 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	SetIconOnLightBombTarget	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(65121),
+	SetIconOnGravityBombTarget	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(64234)
 }
 
 ---------------------------
@@ -105,8 +105,8 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
+	SetIconOnOverwhelmingPower	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(61888),
+	SetIconOnStaticDisruption	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(61912),
 	AlwaysWarnOnOverload		= "Mostrar siempre aviso para $spell:63481 (de lo contrario, solo se muestra cuando eres el objetivo)"
 }
 
@@ -170,8 +170,8 @@ L:SetOptionLocalization{
 	timerLeftArm			= "Mostrar temporizador para la regeneración del Brazo izquierdo",
 	timerRightArm			= "Mostrar temporizador para la regeneración del Brazo derecho",
 	achievementDisarmed		= "Mostrar temporizador para el logro 'Desarmado'",
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346)
+	SetIconOnGripTarget		= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(64292),
+	SetIconOnEyebeamTarget	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(63346)
 }
 
 L:SetMiscLocalization{
@@ -223,7 +223,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133)
+	SetIconOnStormCloud		= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(65133)
 }
 
 L:SetMiscLocalization{
@@ -329,8 +329,8 @@ L:SetOptionLocalization{
 	ShockBlastWarningInP1	= "Mostrar aviso especial para $spell:63631 en Fase 1",
 	ShockBlastWarningInP4	= "Mostrar aviso especial para $spell:63631 en Fase 4",
 	RangeFrame				= "Mostrar marco de distancia (6 m) en Fase 1",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	SetIconOnNapalm			= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(65026),
+	SetIconOnPlasmaBlast	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(62997)
 }
 
 L:SetMiscLocalization{
@@ -411,12 +411,12 @@ L:SetOptionLocalization{
 	SpecWarnGuardianLow				= "Mostrar aviso especial cuando a un Guardián de Yogg-Saron le quede poca vida (solo para DPS)",
 	WarnBrainPortalSoon				= "Mostrar aviso previo para los siguientes portales",
 	SpecWarnMadnessOutNow			= "Mostrar aviso especial cuando $spell:64059 esté a punto de lanzarse",
-	SetIconOnFearTarget				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63881),
+	SetIconOnFearTarget				= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(63881),
 	SpecWarnFervorCast				= "Mostrar aviso especial cuando te estén lanzando $spell:63138",
 	specWarnBrainPortalSoon			= "Mostrar aviso especial para los siguientes portales",
 	NextPortal						= "Mostrar temporizador para los siguientes portales",
-	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138),
-	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
+	SetIconOnFervorTarget			= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(63138),
+	SetIconOnBrainLinkTarget		= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(63802),
 	MaladyArrow						= "Mostrar flecha cuando $spell:63881 ocurra cerca de ti"
 }
 

@@ -38,7 +38,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
+	SlagPotIcon			= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(63477)
 }
 
 ------------------
@@ -90,8 +90,8 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	SetIconOnLightBombTarget	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(65121),
+	SetIconOnGravityBombTarget	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(64234)
 }
 
 --------------------
@@ -104,8 +104,8 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
+	SetIconOnOverwhelmingPower	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(61888),
+	SetIconOnStaticDisruption	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(61912),
 	AlwaysWarnOnOverload		= "Always warn on $spell:63481 (otherwise, only when targeted)"
 }
 
@@ -170,8 +170,8 @@ L:SetOptionLocalization{
 	timerLeftArm			= "Show timer for Left Arm respawn",
 	timerRightArm			= "Show timer for Right Arm respawn",
 	achievementDisarmed		= "Show timer for Disarm achievement",
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346)
+	SetIconOnGripTarget		= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(64292),
+	SetIconOnEyebeamTarget	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(63346)
 }
 
 L:SetMiscLocalization{
@@ -222,7 +222,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133)
+	SetIconOnStormCloud		= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(65133)
 }
 
 L:SetMiscLocalization{
@@ -325,8 +325,8 @@ L:SetOptionLocalization{
 	WarnBombSpawn			= "Show warning for Bomb Bots",
 	TimerHardmode			= "Show timer for hard mode",
 	RangeFrame				= "Show range frame in Phase 1 (6 yards)",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	SetIconOnNapalm			= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(65026),
+	SetIconOnPlasmaBlast	= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(62997)
 }
 
 L:SetMiscLocalization{
@@ -391,11 +391,11 @@ L:SetOptionLocalization{
 	SpecWarnSanity					= "Show special warning when $spell:63050 is very low",
 	WarnBrainPortalSoon				= "Show pre-warning for Brain Portal",
 	SpecWarnMadnessOutNow			= "Show special warning shortly before $spell:64059 ends",
-	SetIconOnFearTarget				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63881),
+	SetIconOnFearTarget				= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(63881),
 	specWarnBrainPortalSoon			= "Show special warning for next Brain Portal",
 	NextPortal						= "Show timer for next Brain Portal",
-	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138),
-	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802)
+	SetIconOnFervorTarget			= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(63138),
+	SetIconOnBrainLinkTarget		= DBM_CORE_L.AUTO_ICONS_OPTION_TEXT:format(63802)
 }
 
 L:SetMiscLocalization{

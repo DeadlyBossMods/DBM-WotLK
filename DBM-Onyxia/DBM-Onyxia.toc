@@ -20,7 +20,7 @@
 ## X-DBM-Mod-No-Heroic: 1
 ## X-DBM-Mod-Sort: 904
 ## X-DBM-Mod-MapID: 249
-## X-DBM-Mod-MinCoreRevision: 12473
+## X-DBM-Mod-MinCoreRevision: 20200524142133
 ## X-Curse-Project-ID: 43970
 ## X-WoWI-ID: 21522
 ## Version: @project-version@

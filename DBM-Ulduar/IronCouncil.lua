@@ -14,7 +14,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 61920 63479 61879 61903 63493 62274 63489 62273",
 	"SPELL_CAST_SUCCESS 63490 62269 64321 61974 61869 63481",
 	"SPELL_AURA_APPLIED 61903 63493 62269 63490 62277 63967 64637 61888 63486 61887 61912 63494 63483 61915",
-	"SPELL_AURA_REMOVED 64637 61888 63483 61915",
+	"SPELL_AURA_REMOVED 64637 61888 63483 61915 61912 63494",
 	"UNIT_DIED"
 )
 
@@ -42,13 +42,13 @@ local timerFusionPunchActive	= mod:NewTargetTimer(4, 61903, nil, nil, nil, 5, ni
 local warnOverwhelmingPower		= mod:NewTargetAnnounce(61888, 2)
 local timerOverwhelmingPower	= mod:NewTargetTimer(25, 61888, nil, nil, nil, 5, nil, DBM_CORE_L.TANK_ICON)
 local warnStaticDisruption		= mod:NewTargetAnnounce(61912, 3)
-mod:AddBoolOption("SetIconOnOverwhelmingPower", false)
-mod:AddBoolOption("SetIconOnStaticDisruption", false)
+mod:AddSetIconOption("SetIconOnOverwhelmingPower", 61888, false, false, {8})
+mod:AddSetIconOption("SetIconOnStaticDisruption", 63494, false, false, {1, 2, 3, 4, 5, 6, 7})
 
 -- Runemaster Molgeim
 -- Lightning Blast ... don't know, maybe 63491
 local timerRuneofShields		= mod:NewBuffActiveTimer(15, 63967)
-local warnRuneofPower			= mod:NewTargetAnnounce(64320, 2)
+local warnRuneofPower			= mod:NewTargetNoFilterAnnounce(64320, 2)
 local warnRuneofDeath			= mod:NewSpellAnnounce(63490, 2)
 local warnShieldofRunes			= mod:NewSpellAnnounce(63489, 2)
 local warnRuneofSummoning		= mod:NewSpellAnnounce(62273, 3)
@@ -136,7 +136,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		specwarnLightningTendrils:Play("justrun")
 	elseif args:IsSpellID(61912, 63494) then	-- Static Disruption (Hard Mode)
 		disruptTargets[#disruptTargets + 1] = args.destName
-		if self.Options.SetIconOnStaticDisruption then
+		if self.Options.SetIconOnStaticDisruption and self.vb.disruptIcon > 0 then
 			self:SetIcon(args.destName, self.vb.disruptIcon, 20)
 		end
 		self.vb.disruptIcon = self.vb.disruptIcon - 1
@@ -158,6 +158,10 @@ function mod:SPELL_AURA_REMOVED(args)
 		end
 	elseif args:IsSpellID(63483, 61915) then	-- LightningWhirl
 		timerLightningWhirl:Stop()
+	elseif args:IsSpellID(61912, 63494) then	-- Static Disruption (Hard Mode)
+		if self.Options.SetIconOnStaticDisruption then
+			self:SetIcon(args.destName, 0)
+		end
 	end
 end
 

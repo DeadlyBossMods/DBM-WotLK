@@ -36,8 +36,8 @@ local timerLightningCharge	 		= mod:NewCDTimer(16, 62466, nil, nil, nil, 3)
 local timerUnbalancingStrike		= mod:NewCDTimer(25.6, 62130, nil, "Tank", nil, 5, nil, DBM_CORE_L.TANK_ICON)
 local timerHardmode					= mod:NewTimer(175, "TimerHardmode", 62042)
 
-mod:AddBoolOption("RangeFrame")
-mod:AddSetIconOption("SetIconOnRunic", 62527, false)
+mod:AddRangeFrameOption("10")
+mod:AddSetIconOption("SetIconOnRunic", 62527, false, false, {7})
 
 local lastcharge = {}
 mod.vb.phase = 1

@@ -57,9 +57,9 @@ local timerFlameSuppressant		= mod:NewBuffActiveTimer(10, 65192, nil, nil, nil, 
 local timerNextFrostBomb		= mod:NewNextTimer(80, 64623, nil, nil, nil, 3, nil, DBM_CORE_L.HEROIC_ICON)
 local timerBombExplosion		= mod:NewCastTimer(15, 65333, nil, nil, nil, 3)
 
-mod:AddBoolOption("SetIconOnNapalm", false)
-mod:AddBoolOption("SetIconOnPlasmaBlast", false)
-mod:AddBoolOption("RangeFrame")
+mod:AddSetIconOption("SetIconOnNapalm", 65026, false, false, {1, 2, 3, 4, 5, 6, 7})
+mod:AddSetIconOption("SetIconOnPlasmaBlast", 64529, false, false, {8})
+mod:AddRangeFrameOption("6")
 
 mod.vb.hardmode = false
 mod.vb.phase = 0
@@ -147,7 +147,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(63666, 65026) and args:IsDestTypePlayer() then -- Napalm Shell
 		napalmShellTargets[#napalmShellTargets + 1] = args.destName
 		timerShell:Start()
-		if self.Options.SetIconOnNapalm then
+		if self.Options.SetIconOnNapalm and self.vb.napalmShellIcon > 0 then
 			self:SetIcon(args.destName, self.vb.napalmShellIcon, 6)
 		end
 		self.vb.napalmShellIcon = self.vb.napalmShellIcon - 1

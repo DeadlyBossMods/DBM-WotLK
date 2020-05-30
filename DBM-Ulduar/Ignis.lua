@@ -31,7 +31,7 @@ local timerAchieve				= mod:NewAchievementTimer(240, 12325)--2930
 
 mod.vb.ConstructCount = 0
 
-mod:AddBoolOption("SlagPotIcon", false)
+mod:AddSetIconOption("SlagPotIcon", 63477, false, false, {8})
 
 function mod:OnCombatStart(delay)
 	self.vb.ConstructCount = 0

@@ -37,7 +37,7 @@ local timerSonic		= mod:NewCastTimer(64688, nil, nil, nil, 2)
 mod.vb.catLives = 9
 
 function mod:OnCombatStart(delay)
-	mod.vb.catLives = 9
+	self.vb.catLives = 9
 	enrageTimer:Start(-delay)
 	timerNextFear:Start(40-delay)
 	timerNextSonic:Start(60-delay)

@@ -6,8 +6,7 @@ mod:SetCreatureID(32930)--, 32933, 32934
 mod:SetEncounterID(1137)
 mod:SetModelID(28638)
 mod:SetUsedIcons(5, 6, 7, 8)
---mod:SetMinSyncRevision(4623)
-mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
+mod:SetMinSyncRevision(20191109000000)
 
 mod:RegisterCombat("combat")
 
@@ -23,7 +22,7 @@ mod:RegisterEventsInCombat(
 	"UNIT_SPELLCAST_SUCCEEDED boss1"
 )
 
-local warnFocusedEyebeam		= mod:NewTargetAnnounce(63346, 3)
+local warnFocusedEyebeam		= mod:NewTargetNoFilterAnnounce(63346, 4)
 local warnGrip					= mod:NewTargetAnnounce(64292, 2)
 local warnCrunchArmor			= mod:NewTargetAnnounce(64002, 2)
 
@@ -40,8 +39,8 @@ local timerRespawnLeftArm		= mod:NewTimer(48, "timerLeftArm", nil, nil, nil, 1)
 local timerRespawnRightArm		= mod:NewTimer(48, "timerRightArm", nil, nil, nil, 1)
 local timerTimeForDisarmed		= mod:NewTimer(10, "achievementDisarmed")	-- 10 HC / 12 nonHC
 
-mod:AddBoolOption("SetIconOnGripTarget", true)
-mod:AddBoolOption("SetIconOnEyebeamTarget", true)
+mod:AddSetIconOption("SetIconOnGripTarget", 64292, true, false, {7, 6, 5})
+mod:AddSetIconOption("SetIconOnEyebeamTarget", 63346, true, false, {8})
 
 mod.vb.disarmActive = false
 local gripTargets = {}

@@ -23,6 +23,7 @@ mod:RegisterEventsInCombat(
 	"UNIT_SPELLCAST_SUCCEEDED boss1",
 	"UNIT_HEALTH boss1"
 )
+mod.onlyNormal = true
 
 --TODO, when wrath servers come out, FirstPull might be needed again, if boss unit Ids aren't enabled on WoTLK servers
 local warnPhase2				= mod:NewPhaseAnnounce(2, 2)

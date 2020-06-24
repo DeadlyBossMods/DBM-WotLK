@@ -8,8 +8,6 @@ mod:SetEncounterID(1120)
 mod:SetModelID(16137)
 mod:RegisterCombat("combat_yell", L.Yell)
 
-mod:EnableModel()
-
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 28089",
 	"RAID_BOSS_EMOTE",

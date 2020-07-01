@@ -82,17 +82,17 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnGrip:Show(args.destName)
 	elseif args:IsSpellID(64002, 63355) then	-- Crunch Armor
 		local amount = args.amount or 1
-        if amount >= 2 then
-            if args:IsPlayer() then
-                specWarnCrunchArmor2:Show(amount)
-                specWarnCrunchArmor2:Play("stackhigh")
-            else
-            	warnCrunchArmor:Show(args.destName, amount)
-            end
-        else
-        	warnCrunchArmor:Show(args.destName, amount)
+		if amount >= 2 then
+			if args:IsPlayer() then
+				specWarnCrunchArmor2:Show(amount)
+				specWarnCrunchArmor2:Play("stackhigh")
+			else
+				warnCrunchArmor:Show(args.destName, amount)
+			end
+		else
+			warnCrunchArmor:Show(args.destName, amount)
 		end
-    end
+	end
 end
 mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 

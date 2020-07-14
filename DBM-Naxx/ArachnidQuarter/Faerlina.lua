@@ -19,7 +19,7 @@ local warnEnrageSoon		= mod:NewSoonAnnounce(28131, 3)
 local warnEnrageNow			= mod:NewSpellAnnounce(28131, 4)
 
 local specWarnEnrage		= mod:NewSpecialWarningDefensive(28131, nil, nil, nil, 3, 2)
-local specWarnGTFO			= mod:NewSpecialWarningGTFO(28794, nil, nil, nil, 1, 2)
+local specWarnGTFO			= mod:NewSpecialWarningGTFO(28794, nil, nil, nil, 1, 8)
 
 local timerEmbrace			= mod:NewBuffActiveTimer(30, 28732, nil, nil, nil, 6)
 local timerEnrage			= mod:NewCDTimer(60, 28131, nil, nil, nil, 6)
@@ -58,7 +58,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		self.vb.enraged = false
 	elseif args:IsSpellID(28794, 54099) and args:IsPlayer() then
 		specWarnGTFO:Show(args.spellName)
-		specWarnGTFO:Play("runaway")
+		specWarnGTFO:Play("watchfeet")
 	end
 end
 

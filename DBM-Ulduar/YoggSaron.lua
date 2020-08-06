@@ -79,7 +79,7 @@ function mod:OnCombatStart(delay)
 	table.wipe(brainLinkTargets)
 	if self.Options.InfoFrame then
 		DBM.InfoFrame:SetHeader(SanityBuff)
-		DBM.InfoFrame:Show(6, "playerdebuffstacks", 63050, 2)--Sorted lowest first (highest first is default of arg not given)
+		DBM.InfoFrame:Show(30, "playerdebuffstacks", 63050, 2)--Sorted lowest first (highest first is default of arg not given)
 	end
 end
 

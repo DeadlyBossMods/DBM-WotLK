@@ -13,7 +13,7 @@
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: WotLK
-## X-DBM-StatTypes: normal,normal25,timewalker
+## X-DBM-StatTypes: normal,timewalker
 ## X-DBM-Mod-MapID: 603
 ## X-DBM-Mod-Sort: 903
 ## X-DBM-Mod-MinCoreRevision: 20200524142133

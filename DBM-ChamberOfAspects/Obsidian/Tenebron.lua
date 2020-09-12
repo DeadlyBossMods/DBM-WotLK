@@ -1,6 +1,8 @@
 local mod	= DBM:NewMod("Tenebron", "DBM-ChamberOfAspects", 1)
 local L		= mod:GetLocalizedStrings()
 
+mod.statTypes = "normal,normal25"
+
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(30452)
 mod:SetEncounterID(1092)

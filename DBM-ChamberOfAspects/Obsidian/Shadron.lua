@@ -13,7 +13,6 @@ mod:RegisterCombat("combat")
 mod:RegisterEventsInCombat(
     "SPELL_CAST_SUCCESS 57579 59127"
 )
-mod.onlyNormal = true
 
 local warnShadowFissure		= mod:NewSpellAnnounce(59127, nil, nil, nil, nil, nil, 2)
 local timerShadowFissure	= mod:NewCastTimer(5, 59128, nil, nil, nil, 3)--Cast timer until Void Blast. it's what happens when shadow fissure explodes.

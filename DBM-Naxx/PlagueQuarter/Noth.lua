@@ -50,27 +50,6 @@ function mod:Balcony()
 	timerTeleportBack:Start(timer)
 	warnTeleportSoon:Schedule(timer - 20)
 	warnTeleportNow:Show()
-
-	self.vb.teleCount = self.vb.teleCount + 1
-	self.vb.addsCount = 0
-	timerCurseCD:Stop()
-	timerAddsCD:Stop()
-	local timer
-	if self.vb.teleCount == 1 then
-		timer = 75--70-75 in classic, can't confirm because numpty was looking in bumfuck in vdieo, it's 70 in wrath
-		timerAddsCD:Start(5)--Always 5
-	elseif self.vb.teleCount == 2 then
-		timer = 97--Unknown in Classic
-		timerAddsCD:Start(5)--Always 5
-	elseif self.vb.teleCount == 3 then
-		timer = 126--Unknown in Classic
-		timerAddsCD:Start(5)--Always 5
-	else
-		timer = 55--Unknown in Classic
-	end
-	timerTeleportBack:Start(timer)
-	warnTeleportSoon:Schedule(timer - 20)
-	warnTeleportNow:Show()
 --	self:ScheduleMethod(timer, "BackInRoom")
 end
 

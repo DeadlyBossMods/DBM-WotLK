@@ -15,13 +15,14 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS 28240"
 )
 
-local warnInjection		= mod:NewTargetAnnounce(28169, 2)
+local warnInjection		= mod:NewTargetNoFilterAnnounce(28169, 2)
 local warnCloud			= mod:NewSpellAnnounce(28240, 2)
 
 local specWarnInjection	= mod:NewSpecialWarningYou(28169, nil, nil, nil, 1, 2)
+local yellInjection		= mod:NewYell(28169, nil, false)
 
 local timerInjection	= mod:NewTargetTimer(10, 28169, nil, nil, nil, 3)
-local timerCloud		= mod:NewNextTimer(15, 28240, nil, nil, nil, 3)
+local timerCloud		= mod:NewNextTimer(15, 28240, nil, nil, nil, 5, nil, DBM_CORE_L.TANK_ICON)
 local enrageTimer		= mod:NewBerserkTimer(720)
 
 mod:AddSetIconOption("SetIconOnInjectionTarget", 28169, false, false, {1, 2, 3, 4})
@@ -63,6 +64,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then
 			specWarnInjection:Show()
 			specWarnInjection:Play("runout")
+			yellInjection:Yell()
 		end
 		if self.Options.SetIconOnInjectionTarget then
 			table.insert(mutateIcons, args.destName)

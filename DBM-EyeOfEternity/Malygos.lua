@@ -95,7 +95,7 @@ end
 function mod:OnCombatStart(delay)
 	tableBuild = false
 	self.vb.phase = 1
-	timerVortexCD:Start(48-delay)--Will verify with more logs next week.
+	timerVortexCD:Start(44.6-delay)--Will verify with more logs next week.
 	enrageTimer:Start(-delay)
 	timerAchieve:Start(-delay)
 	table.wipe(guids)

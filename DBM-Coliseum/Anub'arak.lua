@@ -79,11 +79,12 @@ function mod:Adds()
 end
 
 function mod:ShadowStrike()
+	self:UnscheduleMethod("ShadowStrike")
 	if self:IsInCombat() then
+		timerShadowStrike:Stop()
 		timerShadowStrike:Start()
 		preWarnShadowStrike:Cancel()
 		preWarnShadowStrike:Schedule(25.5)
-		self:UnscheduleMethod("ShadowStrike")
 		self:ScheduleMethod(30.5, "ShadowStrike")
 	end
 end
@@ -175,6 +176,7 @@ function mod:SPELL_CAST_START(args)
 			self:UnscheduleMethod("Adds")
 		end
 	elseif args.spellId == 66134 then
+		self:UnscheduleMethod("ShadowStrike")
 		self:ShadowStrike()
 		if self.Options.SpecWarn66134spell then
 			specWarnShadowStrike:Show()

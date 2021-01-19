@@ -120,7 +120,7 @@ function mod:SPELL_CAST_START(args)
 		timerCastDeafeningRoar:Start()
 		specWarnDeafeningRoar:Show()
 		specWarnDeafeningRoar:Play("silencesoon")
-	elseif args.spellId == 63138 and not self:IsTrivial(85) then		--Sara's Fervor
+	elseif args.spellId == 63138 and not self:IsTrivial() then		--Sara's Fervor
 		self:BossTargetScanner(args.sourceGUID, "FervorTarget", 0.1, 12, true, nil, nil, nil, true)
 	end
 end

@@ -217,7 +217,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 	elseif args.spellId == 70672 then	--Red Slime
 		timerGaseousBloat:Start(args.destName)
-		if args:IsPlayer() and not self:IsTrivial(100) then
+		if args:IsPlayer() and not self:IsTrivial() then
 			specWarnGaseousBloat:Show()
 			specWarnGaseousBloat:Play("justrun")
 			specWarnGaseousBloat:ScheduleVoice(1.5, "keepmove")
@@ -236,11 +236,11 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerMutatedSlash:Show(args.destName)
 	elseif args.spellId == 70539 then
 		timerRegurgitatedOoze:Show(args.destName)
-	elseif args.spellId == 70352 and not self:IsTrivial(100) then	--Ooze Variable
+	elseif args.spellId == 70352 and not self:IsTrivial() then	--Ooze Variable
 		if args:IsPlayer() then
 			specWarnOozeVariable:Show()
 		end
-	elseif args.spellId == 70353 and not self:IsTrivial(100) then	-- Gas Variable
+	elseif args.spellId == 70353 and not self:IsTrivial() then	-- Gas Variable
 		if args:IsPlayer() then
 			specWarnGasVariable:Show()
 		end
@@ -248,7 +248,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.UnboundPlagueIcon then
 			self:SetIcon(args.destName, 5)
 		end
-		if args:IsPlayer() and not self:IsTrivial(100) then
+		if args:IsPlayer() and not self:IsTrivial() then
 			specWarnUnboundPlague:Show()
 			specWarnUnboundPlague:Play("targetyou")
 			timerUnboundPlague:Start()

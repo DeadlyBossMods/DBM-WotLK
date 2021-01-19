@@ -154,7 +154,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		local amount = args.amount or 1
 		warnInhaledBlight:Show(args.destName, amount)
 		if amount >= 3 then
-			if not self:IsTrivial(100) then
+			if not self:IsTrivial() then
 				specWarnInhaled3:Show(amount)
 				specWarnInhaled3:Play("defensive")
 			end

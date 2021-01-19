@@ -47,7 +47,7 @@ local timerPhasePunch			= mod:NewTargetTimer(45, 64412, nil, "Tank", 2, 5, nil, 
 local timerNextPhasePunch		= mod:NewNextTimer(15.5, 64412, nil, "Tank", 2, 5, nil, DBM_CORE_L.TANK_ICON)
 local enrageTimer				= mod:NewBerserkTimer(360)
 
-mod:AddInfoFrameOption(64122, true)
+--mod:AddInfoFrameOption(64122, true)--Disabled until post squish health is known. Wowhead is not parsing data correctly
 
 local sentLowHP = {}
 local warnedLowHP = {}
@@ -57,17 +57,17 @@ function mod:OnCombatStart(delay)
 	self.vb.warned_preP2 = false
 	table.wipe(sentLowHP)
 	table.wipe(warnedLowHP)
-	if self.Options.InfoFrame and not self:IsTrivial(80) then
-		DBM.InfoFrame:SetHeader(L.HealthInfo)
-		DBM.InfoFrame:Show(5, "health", 18000)
-	end
+--	if self.Options.InfoFrame and not self:IsTrivial() then
+--		DBM.InfoFrame:SetHeader(L.HealthInfo)
+--		DBM.InfoFrame:Show(5, "health", 18000)
+--	end
 end
 
-function mod:OnCombatEnd()
-	if self.Options.InfoFrame then
-		DBM.InfoFrame:Hide()
-	end
-end
+--function mod:OnCombatEnd()
+--	if self.Options.InfoFrame then
+--		DBM.InfoFrame:Hide()
+--	end
+--end
 
 function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(64584, 64443) then 	-- Big Bang

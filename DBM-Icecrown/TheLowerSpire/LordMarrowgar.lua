@@ -39,7 +39,7 @@ function mod:OnCombatStart(delay)
 	timerWhirlwindCD:Start(45-delay)
 	timerBoneSpike:Start(15-delay)
 	berserkTimer:Start(-delay)
-	if not self:IsTrivial(100) then
+	if not self:IsTrivial() then
 		self:RegisterShortTermEvents(
 			"SPELL_PERIODIC_DAMAGE 69146",
 			"SPELL_PERIODIC_MISSED 69146"
@@ -53,7 +53,7 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 69076 then						-- Bone Storm (Whirlwind)
-		if not self:IsTrivial(100) then
+		if not self:IsTrivial() then
 			specWarnWhirlwind:Show()
 			specWarnWhirlwind:Play("justrun")
 		end

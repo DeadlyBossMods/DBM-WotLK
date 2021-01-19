@@ -140,7 +140,7 @@ end
 function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
 	if cid == 33202 or cid == 32916 or cid == 32919 then
-		if self:AntiSpam(17, 1) and not self:IsTrivial(85) then
+		if self:AntiSpam(17, 1) and not self:IsTrivial() then
 			timerSimulKill:Start()
 			warnSimulKill:Show()
 		end

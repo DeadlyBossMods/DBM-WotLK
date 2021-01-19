@@ -149,7 +149,7 @@ function mod:OnCombatStart(delay)
 	NextPhase(self)
 	table.wipe(warnedValkyrGUIDs)
 	table.wipe(plagueExpires)
-	if not self:IsTrivial(90) then
+	if not self:IsTrivial() then
 		self:RegisterShortTermEvents(
 			"SPELL_DAMAGE 68983",
 			"SPELL_MISSED 68983"

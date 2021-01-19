@@ -72,7 +72,7 @@ function mod:OnCombatStart(delay)
 			DBM.RangeCheck:Show(8)
 		end
 	end
-	if not self:IsTrivial(100) then
+	if not self:IsTrivial() then
 		self:RegisterShortTermEvents(
 			"SPELL_DAMAGE 69761",
 			"SPELL_MISSED 69761",
@@ -92,7 +92,7 @@ end
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 69508 then
 		timerSlimeSpray:Start()
-		if not self:IsTrivial(100) and self.Options.SpecWarn69508spell then
+		if not self:IsTrivial() and self.Options.SpecWarn69508spell then
 			specWarnSlimeSpray:Show()
 		else
 			warnSlimeSpray:Show()
@@ -100,7 +100,7 @@ function mod:SPELL_CAST_START(args)
 	elseif args.spellId == 69774 then
 		timerStickyOoze:Start()
 		warnStickyOoze:Show()
-	elseif args.spellId == 69839 and not self:IsTrivial(100) then --Unstable Ooze Explosion (Big Ooze)
+	elseif args.spellId == 69839 and not self:IsTrivial() then --Unstable Ooze Explosion (Big Ooze)
 		if GetTime() - spamOoze < 4 then --This will prevent spam but breaks if there are 2 oozes. GUID work is required
 			specWarnOozeExplosion:Cancel()
 			specWarnOozeExplosion:CancelVoice()

@@ -91,7 +91,7 @@ function mod:OnCombatStart(delay)
 	self.vb.napalmShellIcon = 7
 	table.wipe(napalmShellTargets)
 	timerPlasmaBlastCD:Start(18-delay)
-	timerShockBlastCD:Start(30-delay)
+	timerShockBlastCD:Start(20.7-delay)
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(6)
 	end

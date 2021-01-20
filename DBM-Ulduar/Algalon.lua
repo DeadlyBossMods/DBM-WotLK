@@ -149,6 +149,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 		timerNextBigBang:Start(90)
 		enrageTimer:Start(360)
 	elseif spellId == 65256 then--Self Stun (phase 2)
+		self.vb.warned_preP2 = true
 		timerNextCollapsingStar:Stop()
 		warnPhase2:Show()
 	end

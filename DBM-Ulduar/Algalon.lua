@@ -54,6 +54,7 @@ local warnedLowHP = {}
 mod.vb.warned_preP2 = false
 
 function mod:OnCombatStart(delay)
+	self:SetStage(1)
 	self.vb.warned_preP2 = false
 	table.wipe(sentLowHP)
 	table.wipe(warnedLowHP)
@@ -149,6 +150,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 		timerNextBigBang:Start(90)
 		enrageTimer:Start(360)
 	elseif spellId == 65256 then--Self Stun (phase 2)
+		self:SetStage(2)
 		self.vb.warned_preP2 = true
 		timerNextCollapsingStar:Stop()
 		warnPhase2:Show()

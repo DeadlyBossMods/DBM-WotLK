@@ -40,16 +40,15 @@ mod:AddRangeFrameOption("10")
 mod:AddSetIconOption("SetIconOnRunic", 62527, false, false, {7})
 
 local lastcharge = {}
-mod.vb.phase = 1
 
 function mod:OnCombatStart(delay)
+	self:SetStage(1)
 	enrageTimer:Start()
 	timerHardmode:Start()
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(10)
 	end
 	table.wipe(lastcharge)
-	self.vb.phase = 1
 end
 
 local sortedFailsC = {}
@@ -134,7 +133,7 @@ end
 
 function mod:OnSync(event, arg)
 	if event == "Phase2" and self.vb.phase < 2 then
-		self.vb.phase = 2
+		self:SetStage(2)
 		warnPhase2:Show()
 		enrageTimer:Stop()
 		timerHardmode:Stop()

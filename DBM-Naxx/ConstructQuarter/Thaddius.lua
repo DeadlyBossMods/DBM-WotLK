@@ -43,7 +43,7 @@ end
 local lastShift = 0
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 28089 then
-		self:SetStage(1)
+		self:SetStage(2)
 		timerNextShift:Start()
 		timerShiftCast:Start()
 		warnShiftCasting:Show()

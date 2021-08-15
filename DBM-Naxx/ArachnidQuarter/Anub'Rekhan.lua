@@ -35,7 +35,7 @@ end
 
 function mod:OnCombatEnd(wipe)
 	if not wipe and self.Options.ArachnophobiaTimer then
-		DBM.Bars:CreateBar(1200, L.ArachnophobiaTimer)
+		DBT:CreateBar(1200, L.ArachnophobiaTimer)
 	end
 end
 

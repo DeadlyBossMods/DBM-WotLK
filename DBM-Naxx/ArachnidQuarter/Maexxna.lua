@@ -34,8 +34,8 @@ end
 
 function mod:OnCombatEnd(wipe)
 	if not wipe then
-		if DBM.Bars:GetBar(L.ArachnophobiaTimer) then
-			DBM.Bars:CancelBar(L.ArachnophobiaTimer)
+		if DBT:GetBar(L.ArachnophobiaTimer) then
+			DBT:CancelBar(L.ArachnophobiaTimer)
 		end
 	end
 end

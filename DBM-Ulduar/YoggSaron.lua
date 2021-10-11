@@ -206,7 +206,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerLunaricGaze:Start()
 	elseif args.spellId == 64465 then
 		if self.Options.SetIconOnBeacon then
-			self:ScanForMobs(args.destGUID, 2, self.vb.beaconIcon, 1, 0.2, 10, "SetIconOnBeacon")
+			self:ScanForMobs(args.destGUID, 2, self.vb.beaconIcon, 1, nil, 10, "SetIconOnBeacon")
 		end
 		self.vb.beaconIcon = self.vb.beaconIcon - 1
 		if self.vb.beaconIcon == 0 then
@@ -228,7 +228,7 @@ function mod:SPELL_AURA_REMOVED(args)
 		self:SetIcon(args.destName, 0)
 	elseif args.spellId == 64465 then
 		if self.Options.SetIconOnBeacon then
-			self:ScanForMobs(args.destGUID, 2, 0, 1, 0.2, 12, "SetIconOnBeacon")
+			self:ScanForMobs(args.destGUID, 2, 0, 1, nil, 12, "SetIconOnBeacon")
 		end
 	end
 end

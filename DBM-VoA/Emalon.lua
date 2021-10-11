@@ -59,7 +59,7 @@ function mod:SPELL_HEAL(_, _, _, _, destGUID, _, _, _, spellId)
 		warnOverCharge:Show()
 		timerOvercharge:Start()
 		if self.Options.SetIconOnOvercharge then
-			self:ScanForMobs(destGUID, 2, 8, 1, 0.2, 10, "SetIconOnOvercharge")
+			self:ScanForMobs(destGUID, 2, 8, 1, nil, 10, "SetIconOnOvercharge")
 		end
 	end
 end

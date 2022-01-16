@@ -19,9 +19,9 @@ local warnDoomNow	= mod:NewSpellAnnounce(29204, 3)
 local warnHealSoon	= mod:NewAnnounce("WarningHealSoon", 4, 55593)
 local warnHealNow	= mod:NewAnnounce("WarningHealNow", 1, 55593, false)
 
-local timerSpore	= mod:NewNextTimer(36, 29234, nil, nil, nil, 5, "134530", DBM_CORE_L.DAMAGE_ICON)
+local timerSpore	= mod:NewNextTimer(36, 29234, nil, nil, nil, 5, "134530", DBM_COMMON_L.DAMAGE_ICON)
 local timerDoom		= mod:NewNextTimer(180, 29204, nil, nil, nil, 2)
-local timerAura		= mod:NewBuffActiveTimer(17, 55593, nil, nil, nil, 5, nil, DBM_CORE_L.HEALER_ICON)
+local timerAura		= mod:NewBuffActiveTimer(17, 55593, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 
 mod.vb.doomCounter	= 0
 mod.vb.sporeTimer	= 36

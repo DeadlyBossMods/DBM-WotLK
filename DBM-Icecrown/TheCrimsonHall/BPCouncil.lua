@@ -106,7 +106,7 @@ function mod:TrySetTarget()
 		for uId in DBM:GetGroupMembers() do
 			if UnitGUID(uId.."target") == activePrince then
 				activePrince = nil
-				SetRaidTarget(uId.."target", 8)
+				self:SetIcon(uId.."target", 8)
 			end
 			if not (activePrince) then
 				break

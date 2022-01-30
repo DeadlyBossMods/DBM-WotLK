@@ -38,7 +38,7 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold				= "Призыв снобольда-вассала"
+	WarningSnobold				= "Призыв Снобольда-вассала"
 }
 
 ---------------------
@@ -70,7 +70,7 @@ L:SetGeneralLocalization{
 
 L:SetMiscLocalization{
 	AllianceVictory		= "СЛАВА АЛЬЯНСУ!",
-	HordeVictory		= "That was just a taste of what the future brings. FOR THE HORDE!",
+	HordeVictory		= "Это был просто вкус того, что принесет будущее. ЗА ОРДУ!",
 	YellKill			= "Пустая и горькая победа. После сегодняшних потерь мы стали слабее как целое. Кто еще, кроме Короля-лича, выиграет от подобной глупости? Пали великие воины. И ради чего? Истинная опасность еще впереди – нас ждет битва с  Королем-личом."
 }
 
@@ -84,11 +84,11 @@ L:SetGeneralLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerSpecialSpell	= "Следующая спец-способность"
+	TimerSpecialSpell	= "Следующая спецспособность"
 }
 
 L:SetWarningLocalization{
-	WarnSpecialSpellSoon		= "Скоро спец-способность",
+	WarnSpecialSpellSoon		= "Скоро спецспособность",
 	SpecWarnSpecial				= "Смена цвета",
 	SpecWarnSwitchTarget		= "Смена цели",
 	SpecWarnKickNow				= "Прерывание",
@@ -103,16 +103,16 @@ L:SetMiscLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerSpecialSpell			= "Отсчет времени до перезарядки спец-способности",
-	WarnSpecialSpellSoon		= "Предупреждение о следующуюей спец-способность",
-	SpecWarnSpecial				= "Спец-предупреждение для смены цветов",
-	SpecWarnSwitchTarget		= "Спец-предупреждение для других, когда босс читает заклинание",
-	SpecWarnKickNow				= "Спец-предупреждение, когда вы должы прервать заклинание",
-	SpecialWarnOnDebuff			= "Спец-предупреждение, когда отрицательный эффект",
+	TimerSpecialSpell			= "Отсчет времени до перезарядки спецспособности",
+	WarnSpecialSpellSoon		= "Предупреждение о следующуюей спецспособность",
+	SpecWarnSpecial				= "Спецпредупреждение для смены цветов",
+	SpecWarnSwitchTarget		= "Спецпредупреждение для других, когда босс читает заклинание",
+	SpecWarnKickNow				= "Спецпредупреждение, когда Вы должы прервать заклинание",
+	SpecialWarnOnDebuff			= "Спецпредупреждение, когда отрицательный эффект",
 	SetIconOnDebuffTarget		= "Установить метку на получившего отрицательный эффект (героический режим)",
 	WarningTouchDebuff			= "Объявлять цели, получившие отрицательный эффект",
 	WarningPoweroftheTwins2		= "Объявлять цель под воздействем Силы близнецов",
-	SpecWarnPoweroftheTwins		= "Спец-предупреждение, когда на вас Сила близнецов"
+	SpecWarnPoweroftheTwins		= "Спецпредупреждение, когда на Вас Сила близнецов"
 }
 
 -----------------
@@ -151,7 +151,7 @@ L:SetOptionLocalization{
 	WarnEmergeSoon			= "Предупреждать заранее о появлении",
 	WarnSubmerge			= "Предупреждение о зарывании",
 	WarnSubmergeSoon		= "Предупреждать заранее о зарывании",
-	specWarnSubmergeSoon	= "Спец-предупреждение о скором зарывании",
+	specWarnSubmergeSoon	= "Спецпредупреждение о скором зарывании",
 	warnAdds				= "Предупреждение о призыве помощников",
 	timerAdds				= "Отсчет времени до призыва помощников",
 	TimerEmerge				= "Отсчет времени до появления",
@@ -159,4 +159,3 @@ L:SetOptionLocalization{
 	AnnouncePColdIcons		= "Объявлять метки целей заклинания $spell:68510 в рейд-чат<br/>(требуются права лидера или помощника)",
 	AnnouncePColdIconsRemoved	= "Объявлять также о снятии меток с целей заклинания $spell:68510<br/>(требуется предыдущая опция)"
 }
-

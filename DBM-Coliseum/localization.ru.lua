@@ -70,7 +70,7 @@ L:SetGeneralLocalization{
 
 L:SetMiscLocalization{
 	AllianceVictory		= "СЛАВА АЛЬЯНСУ!",
-	HordeVictory		= "Это был просто вкус того, что принесет будущее. ЗА ОРДУ!",
+	HordeVictory		= "Не щадите никого, герои Орды! ЛОК'ТАР ОГАР!",
 	YellKill			= "Пустая и горькая победа. После сегодняшних потерь мы стали слабее как целое. Кто еще, кроме Короля-лича, выиграет от подобной глупости? Пали великие воины. И ради чего? Истинная опасность еще впереди – нас ждет битва с  Королем-личом."
 }
 
@@ -133,7 +133,7 @@ L:SetTimerLocalization{
 L:SetWarningLocalization{
 	WarnEmerge				= "Ануб'арак появляется",
 	WarnEmergeSoon			= "Появление через 10 сек",
-	WarnSubmerge			= "Ануб'арак зарывается",
+	WarnSubmerge			= "Ануб'арак закапывается",
 	WarnSubmergeSoon		= "Зарывание через 10 сек",
 	specWarnSubmergeSoon	= "Зарывание через 10 сек!",
 	warnAdds				= "Новые помощники"
@@ -149,13 +149,13 @@ L:SetMiscLocalization{
 L:SetOptionLocalization{
 	WarnEmerge				= "Предупреждение о появлении",
 	WarnEmergeSoon			= "Предупреждать заранее о появлении",
-	WarnSubmerge			= "Предупреждение о зарывании",
-	WarnSubmergeSoon		= "Предупреждать заранее о зарывании",
-	specWarnSubmergeSoon	= "Спецпредупреждение о скором зарывании",
+	WarnSubmerge			= "Предупреждение о закапывании",
+	WarnSubmergeSoon		= "Предупреждать заранее о закапывании",
+	specWarnSubmergeSoon	= "Спецпредупреждение о скором закапывании",
 	warnAdds				= "Предупреждение о призыве помощников",
 	timerAdds				= "Отсчет времени до призыва помощников",
 	TimerEmerge				= "Отсчет времени до появления",
-	TimerSubmerge			= "Отсчет времени до зарывания",
+	TimerSubmerge			= "Отсчет времени до закапывания",
 	AnnouncePColdIcons		= "Объявлять метки целей заклинания $spell:68510 в рейд-чат<br/>(требуются права лидера или помощника)",
 	AnnouncePColdIconsRemoved	= "Объявлять также о снятии меток с целей заклинания $spell:68510<br/>(требуется предыдущая опция)"
 }

@@ -234,11 +234,11 @@ L:SetMiscLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningShieldWallSoon	= "Show pre-warning for Shield Wall ending"
+	WarningShieldWallSoon	= "Show pre-warning for Bone Barrier ending"
 })
 
 L:SetWarningLocalization({
-	WarningShieldWallSoon	= "Shield Wall ends in 5 seconds"
+	WarningShieldWallSoon	= "Bone Barrier ends in 5 seconds"
 })
 
 ----------------------------
@@ -327,9 +327,7 @@ L:SetOptionLocalization({
 	WarningAirPhaseNow	= "Announce air phase",
 	WarningLanded		= "Announce ground phase",
 	TimerAir			= "Show timer for air phase",
-	TimerLanding		= "Show timer for landing",
-	TimerIceBlast		= "Show timer for Frost Breath",
-	WarningDeepBreath	= "Show special warning for Frost Breath"
+	TimerLanding		= "Show timer for landing"
 })
 
 L:SetMiscLocalization({
@@ -339,14 +337,12 @@ L:SetMiscLocalization({
 L:SetWarningLocalization({
 	WarningAirPhaseSoon	= "Air phase in 10 seconds",
 	WarningAirPhaseNow	= "Air phase",
-	WarningLanded		= "Sapphiron landed",
-	WarningDeepBreath	= "Frost Breath"
+	WarningLanded		= "Sapphiron landed"
 })
 
 L:SetTimerLocalization({
 	TimerAir		= "Air phase",
-	TimerLanding	= "Landing",
-	TimerIceBlast	= "Frost Breath"
+	TimerLanding	= "Landing"
 })
 
 ------------------

@@ -13,7 +13,7 @@ mod:RegisterEventsInCombat(
 
 local warnShoutNow		= mod:NewSpellAnnounce(29107, 1)
 local warnShoutSoon		= mod:NewSoonAnnounce(29107, 3)
-local warnShieldWall	= mod:NewAnnounce("WarningShieldWallSoon", 3, 29061)
+local warnShieldWall	= mod:NewAnnounce("WarningShieldWallSoon", 3, 29061, nil, nil, nil, 29061)
 
 local timerShout		= mod:NewNextTimer(16, 29107, nil, nil, nil, 2)
 local timerTaunt		= mod:NewCDTimer(20, 29060, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)

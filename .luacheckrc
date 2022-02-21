@@ -56,4 +56,5 @@ globals = {
 	"UnitIsUnit",
 	"UnitInVehicle",
 	"UnitName",
+	"UnitPosition",
 }

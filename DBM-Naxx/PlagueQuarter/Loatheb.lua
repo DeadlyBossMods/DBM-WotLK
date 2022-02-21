@@ -72,7 +72,7 @@ end
 function mod:OnCombatStart(delay)
 	self.vb.doomCounter = 0
 	self.vb.sporeCounter = 0
-	timerRemoveCurseCD:Start(3 - delay)
+--	timerRemoveCurseCD:Start(3 - delay)
 	if self:IsDifficulty("normal25") then
 		self.vb.sporeTimer = 18
 	else
@@ -121,7 +121,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerDoom:Start(timer, self.vb.doomCounter + 1)
 	elseif args.spellId == 30281 then
 		warnRemoveCurse:Show()
-		timerRemoveCurseCD:Start()
+--		timerRemoveCurseCD:Start()
 --	elseif args.spellId == 55593 then
 --		timerAura:Start()
 --		warnHealSoon:Schedule(14)

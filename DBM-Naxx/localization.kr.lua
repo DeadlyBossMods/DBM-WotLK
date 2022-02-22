@@ -214,7 +214,7 @@ L:SetWarningLocalization({
 L:SetOptionLocalization({
 	WarningChargeChanged	= "전하가 바뀐 경우 알림 보기",
 	WarningChargeNotChanged	= "전하가 바뀌지 않을 경우 알림 보기",
-	ArrowsEnabled			= "극성변환 후 화살표 보기(일반 \"2 지역\" 공략용)",
+	AirowEnabled			= "극성변환 후 화살표 보기(일반 \"2 지역\" 공략용)",
 	ArrowsRightLeft			= "극성변환 후 오른쪽/왼쪽 화살표 보기(\"4 지역\" 공략용)",
 	ArrowsInverse			= "극성변환 후 오른쪽/왼쪽 화살표를 반대로 보기(\"4 지역\" 공략용)"
 })

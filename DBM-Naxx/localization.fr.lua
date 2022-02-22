@@ -200,7 +200,7 @@ L:SetOptionLocalization({
 	WarningChargeChanged	= "Activer l'avertissement spécial quand votre polarité a changé",
 	WarningChargeNotChanged	= "Activer l'avertissement spécial quand votre polarité n'a pas changé",
 	TimerShiftCast			= "Afficher le timer pour le cast du changement de polarité",
-	ArrowsEnabled			= "Afficher les flèches (stratégie normale : \"2 camps\")",
+	AirowEnabled			= "Afficher les flèches (stratégie normale : \"2 camps\")",
 	ArrowsRightLeft			= "Afficher les flèches droite/gauche pour la stratégie \"4 camps\" (flèche gauche si la polarité a changé et droite sinon)",
 	ArrowsInverse			= "Inverser la statégie \"4 camps\" (afficher la flèche droite si la polarité a changé et la gauche sinon)"
 })

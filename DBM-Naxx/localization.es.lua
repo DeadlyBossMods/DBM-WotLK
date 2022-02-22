@@ -212,7 +212,7 @@ L:SetMiscLocalization({
 L:SetOptionLocalization({
 	WarningChargeChanged	= "Mostrar aviso especial cuando tu polaridad cambie",
 	WarningChargeNotChanged	= "Mostrar aviso especial cuando tu polaridad no cambie",
-	ArrowsEnabled			= "Mostrar flechas (estrategia típica de dos grupos)",
+	AirowEnabled			= "Mostrar flechas (estrategia típica de dos grupos)",
 	ArrowsRightLeft			= "Mostrar flechas de izquierda y derecha (estrategia de cuatro grupos; muestra la flecha izquierda si cambia la polaridad, y la derecha si no cambia)",
 	ArrowsInverse			= "Mostrar flechas de izquierda y derecha inversas (estrategia de cuatro grupos; muestra la flecha derecha si cambia la polaridad, y la izquierda si no cambia)"
 })

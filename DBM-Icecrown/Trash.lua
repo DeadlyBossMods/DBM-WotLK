@@ -90,7 +90,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnBloodMirror:CombinedShow(0.3, args.destName)
 		timerBloodMirror:Start(args.destName)
 		if self.Options.BloodMirrorIcon then
-			self:SetSortedIcon(0.3, args.destName, 2, 2, true)
+			self:SetSortedIcon("roster", 0.3, args.destName, 2, 2, true)
 		end
 	elseif args.spellId == 70432 then
 		warnBloodSap:Show(args.destName)

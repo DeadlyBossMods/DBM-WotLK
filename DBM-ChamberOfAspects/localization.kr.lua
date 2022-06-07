@@ -104,8 +104,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningSplitSoon	= "분리 이전에 알림 보기",
-	RangeFrame			= "거리 창 보기(12m)"
+	WarningSplitSoon	= "분리 이전에 알림 보기"
 })
 
 -------------------------
@@ -115,10 +114,6 @@ L = DBM:GetModLocalization("Saviana")
 
 L:SetGeneralLocalization({
 	name = "사비아나 레이지파이어"
-})
-
-L:SetOptionLocalization({
-	RangeFrame				= "거리 창 보기(10m)"
 })
 
 --------------------------
@@ -162,8 +157,7 @@ L:SetWarningLocalization({
 
 L:SetOptionLocalization({
 	TwilightCutterCast		= "$spell:74769 시전 알림 보기",
-	AnnounceAlternatePhase	= "다른 위상 우두머리 알림/바 보기",
-	SetIconOnConsumption	= "$spell:74562 또는 $spell:74792 대상에게 전술 목표 아이콘 설정"
+	AnnounceAlternatePhase	= "다른 위상 우두머리 알림/바 보기"
 })
 
 L:SetMiscLocalization({

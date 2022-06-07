@@ -29,11 +29,13 @@ local warnShadronPortal		= mod:NewSpecialWarning("WarningShadronPortal", false, 
 
 mod:AddBoolOption("AnnounceFails", false, "announce")
 
-local timerShadowFissure    = mod:NewCastTimer(5, 59128, nil, nil, nil, 3)--Cast timer until Void Blast. it's what happens when shadow fissure explodes.
+local timerShadowFissure    = mod:NewCastTimer(5, 59128, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--Cast timer until Void Blast. it's what happens when shadow fissure explodes.
 local timerWall             = mod:NewCDTimer(30, 43113, nil, nil, nil, 2)
 local timerTenebron         = mod:NewTimer(30, "TimerTenebron", 61248, nil, nil, 1)
 local timerShadron          = mod:NewTimer(80, "TimerShadron", 58105, nil, nil, 1)
 local timerVesperon         = mod:NewTimer(120, "TimerVesperon", 61251, nil, nil, 1)
+
+mod:GroupSpells(59127, 59128)--Shadow fissure with void blast
 
 local lastvoids = {}
 local lastfire = {}
@@ -86,8 +88,8 @@ end
 
 function mod:OnCombatEnd(wipe)
 	if not self.Options.AnnounceFails then return end
-	if DBM:GetRaidRank() < 1 or not self.Options.Announce then return end
-
+	if DBM:GetRaidRank() < 1 or not self.Options.Announce or not IsInGroup() then return end
+	local channel = IsInRaid() and "RAID" or "PARTY"
 	local voids = ""
 	for k, v in pairs(lastvoids) do
 		tinsert(sortedFails, k)
@@ -96,7 +98,7 @@ function mod:OnCombatEnd(wipe)
 	for i, v in ipairs(sortedFails) do
 		voids = voids.." "..v.."("..(lastvoids[v] or "")..")"
 	end
-	SendChatMessage(L.VoidZones:format(voids), "RAID")
+	SendChatMessage(L.VoidZones:format(voids), channel)
 	twipe(sortedFails)
 	local fire = ""
 	for k, v in pairs(lastfire) do
@@ -106,7 +108,7 @@ function mod:OnCombatEnd(wipe)
 	for i, v in ipairs(sortedFails) do
 		fire = fire.." "..v.."("..(lastfire[v] or "")..")"
 	end
-	SendChatMessage(L.FireWalls:format(fire), "RAID")
+	SendChatMessage(L.FireWalls:format(fire), channel)
 	twipe(sortedFails)
 end
 

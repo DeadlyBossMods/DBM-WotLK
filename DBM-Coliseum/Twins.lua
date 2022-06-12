@@ -36,7 +36,7 @@ local timerDarkTouch				= mod:NewTargetTimer(20, 66001, nil, false, 2, 3)
 local timerAchieve					= mod:NewAchievementTimer(180, 3815)
 
 mod:AddBoolOption("SpecialWarnOnDebuff", false, "announce")
-mod:AddBoolOption("SetIconOnDebuffTarget", false, true, 0, {1, 2, 3, 4})
+mod:AddSetIconOption("SetIconOnDebuffTarget", false, true, 0, {1, 2, 3, 4})
 mod:AddInfoFrameOption(235117, true)
 
 local lightEssence, darkEssence = DBM:GetSpellInfo(65686), DBM:GetSpellInfo(65684)

@@ -117,7 +117,6 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 70952 then
-		activePrince = args.destGUID
 		if self:IsInCombat() then
 			warnTargetSwitch:Show(L.Valanar)
 			warnTargetSwitchSoon:Schedule(42)

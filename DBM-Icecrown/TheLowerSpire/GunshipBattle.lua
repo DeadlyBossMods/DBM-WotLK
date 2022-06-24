@@ -34,12 +34,12 @@ mod:RegisterEvents(
 
 --TODO, see if IEEU fires here and if we need yell triggers for engage
 local warnBelowZero			= mod:NewSpellAnnounce(69705, 4)
-local warnExperienced		= mod:NewTargetAnnounce(71188, 1, nil, false)		-- might be spammy
-local warnVeteran			= mod:NewTargetAnnounce(71193, 2, nil, false)		-- might be spammy
-local warnElite				= mod:NewTargetAnnounce(71195, 3, nil, false)		-- might be spammy
+local warnExperienced		= mod:NewTargetNoFilterAnnounce(71188, 1, nil, false)		-- might be spammy
+local warnVeteran			= mod:NewTargetNoFilterAnnounce(71193, 2, nil, false)		-- might be spammy
+local warnElite				= mod:NewTargetNoFilterAnnounce(71195, 3, nil, false)		-- might be spammy
 local warnBattleFury		= mod:NewStackAnnounce(69638, 2, nil, "Tank|Healer", 2)
 local warnBladestorm		= mod:NewSpellAnnounce(69652, 3, nil, "Melee")
-local warnWoundingStrike	= mod:NewTargetAnnounce(69651, 2)
+local warnWoundingStrike	= mod:NewTargetNoFilterAnnounce(69651, 2)
 local warnAddsSoon			= mod:NewAnnounce("WarnAddsSoon", 2, addsIcon)
 
 local timerCombatStart		= mod:NewCombatTimer(42)

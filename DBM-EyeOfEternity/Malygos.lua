@@ -71,11 +71,12 @@ function mod:StaticFieldTarget()
 		buildGuidTable()
 	end
 	local announcetarget = guids[targetGuid]
+	if not announcetarget then return end
 	if announcetarget == UnitName("player") then
 		specWarnStaticField:Show()
 		specWarnStaticField:Play("runaway")
 		yellStaticField:Yell()
-	elseif announcetarget and self:CheckNearby(13, announcetarget) then
+	elseif self:CheckNearby(13, announcetarget) then
 		specWarnStaticFieldNear:Show(announcetarget)
 		specWarnStaticFieldNear:Play("runaway")
 	else

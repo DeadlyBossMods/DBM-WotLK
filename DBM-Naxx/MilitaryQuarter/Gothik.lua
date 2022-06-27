@@ -22,45 +22,45 @@ local timerWave			= mod:NewTimer(20, "TimerWave", "135974", nil, nil, 1)
 
 mod.vb.wave = 0
 local wavesNormal = {
-	{2, L.Trainee, next = 20},
-	{2, L.Trainee, next = 20},
-	{2, L.Trainee, next = 10},
-	{1, L.Knight, next = 10},
-	{2, L.Trainee, next = 15},
-	{1, L.Knight, next = 5},
-	{2, L.Trainee, next = 20},
-	{1, L.Knight, 2, L.Trainee, next = 10},
-	{1, L.Rider, next = 10},
-	{2, L.Trainee, next = 5},
-	{1, L.Knight, next = 15},
-	{2, L.Trainee, 1, L.Rider, next = 10},
-	{2, L.Knight, next = 10},
-	{2, L.Trainee, next = 10},
-	{1, L.Rider, next = 5},
-	{1, L.Knight, next = 5},
-	{2, L.Trainee, next = 20},
-	{1, L.Rider, 1, L.Knight, 2, L.Trainee, next = 15},
+	{2, L.Trainee, timer = 20},
+	{2, L.Trainee, timer = 20},
+	{2, L.Trainee, timer = 10},
+	{1, L.Knight, timer = 10},
+	{2, L.Trainee, timer = 15},
+	{1, L.Knight, timer = 5},
+	{2, L.Trainee, timer = 20},
+	{1, L.Knight, 2, L.Trainee, timer = 10},
+	{1, L.Rider, timer = 10},
+	{2, L.Trainee, timer = 5},
+	{1, L.Knight, timer = 15},
+	{2, L.Trainee, 1, L.Rider, timer = 10},
+	{2, L.Knight, timer = 10},
+	{2, L.Trainee, timer = 10},
+	{1, L.Rider, timer = 5},
+	{1, L.Knight, timer = 5},
+	{2, L.Trainee, timer = 20},
+	{1, L.Rider, 1, L.Knight, 2, L.Trainee, timer = 15},
 	{2, L.Trainee},
 }
 
 local wavesHeroic = {
-	{3, L.Trainee, next = 20},
-	{3, L.Trainee, next = 20},
-	{3, L.Trainee, next = 10},
-	{2, L.Knight, next = 10},
-	{3, L.Trainee, next = 15},
-	{2, L.Knight, next = 5},
-	{3, L.Trainee, next = 20},
-	{3, L.Trainee, 2, L.Knight, next = 10},
-	{3, L.Trainee, next = 10},
-	{1, L.Rider, next = 5},
-	{3, L.Trainee, next = 15},
-	{1, L.Rider, next = 10},
-	{2, L.Knight, next = 10},
-	{1, L.Rider, next = 10},
-	{1, L.Rider, 3, L.Trainee, next = 5},
-	{1, L.Knight, 3, L.Trainee, next = 5},
-	{1, L.Rider, 3, L.Trainee, next = 20},
+	{3, L.Trainee, timer = 20},
+	{3, L.Trainee, timer = 20},
+	{3, L.Trainee, timer = 10},
+	{2, L.Knight, timer = 10},
+	{3, L.Trainee, timer = 15},
+	{2, L.Knight, timer = 5},
+	{3, L.Trainee, timer = 20},
+	{3, L.Trainee, 2, L.Knight, timer = 10},
+	{3, L.Trainee, timer = 10},
+	{1, L.Rider, timer = 5},
+	{3, L.Trainee, timer = 15},
+	{1, L.Rider, timer = 10},
+	{2, L.Knight, timer = 10},
+	{1, L.Rider, timer = 10},
+	{1, L.Rider, 3, L.Trainee, timer = 5},
+	{1, L.Knight, 3, L.Trainee, timer = 5},
+	{1, L.Rider, 3, L.Trainee, timer = 20},
 	{1, L.Rider, 2, L.Knight, 3, L.Trainee},
 }
 
@@ -78,14 +78,14 @@ local function getWaveString(wave)
 	end
 end
 
-function mod:NextWave()
+local function NextWave(self)
 	self.vb.wave = self.vb.wave + 1
 	warnWaveNow:Show(self.vb.wave, getWaveString(self.vb.wave))
-	local next = waves[self.vb.wave].next
-	if next then
-		timerWave:Start(next, self.vb.wave + 1)
-		warnWaveSoon:Schedule(next - 3, self.vb.wave + 1, getWaveString(self.vb.wave + 1))
-		self:ScheduleMethod(next, "NextWave")
+	local timer = waves[self.vb.wave].timer
+	if timer then
+		timerWave:Start(timer, self.vb.wave + 1)
+		warnWaveSoon:Schedule(timer - 3, self.vb.wave + 1, getWaveString(self.vb.wave + 1))
+		self:Schedule(timer, NextWave, self)
 	end
 end
 
@@ -100,7 +100,7 @@ function mod:OnCombatStart(delay)
 	warnPhase2:Schedule(270)
 	timerWave:Start(25, self.vb.wave + 1)
 	warnWaveSoon:Schedule(22, self.vb.wave + 1, getWaveString(self.vb.wave + 1))
-	self:ScheduleMethod(25, "NextWave")
+	self:Schedule(25, NextWave, self)
 end
 
 function mod:OnTimerRecovery()

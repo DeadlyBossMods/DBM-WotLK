@@ -13,7 +13,7 @@ mod:RegisterEventsInCombat(
 )
 
 --TODO, verify nax40 web wrap timer
-local warnWebWrap		= mod:NewTargetAnnounce(28622, 2)
+local warnWebWrap		= mod:NewTargetNoFilterAnnounce(28622, 2)
 local warnWebSpraySoon	= mod:NewSoonAnnounce(29484, 1)
 local warnWebSprayNow	= mod:NewSpellAnnounce(29484, 3)
 local warnSpidersSoon	= mod:NewAnnounce("WarningSpidersSoon", 2, 17332)

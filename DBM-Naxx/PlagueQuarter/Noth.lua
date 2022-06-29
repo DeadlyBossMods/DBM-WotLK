@@ -13,6 +13,7 @@ mod:RegisterEventsInCombat(
 	"UNIT_SPELLCAST_SUCCEEDED boss1"
 )
 
+--TODO, if boss unit Ids are missing from wrath (at this point I wouldn't put it past blizzard since it was a 3.3 feature not 3.0), port the classic vanilla mod
 local warnTeleportNow	= mod:NewAnnounce("WarningTeleportNow", 3, "135736")
 local warnTeleportSoon	= mod:NewAnnounce("WarningTeleportSoon", 1, "135736")
 local warnCurse			= mod:NewSpellAnnounce(29213, 2)

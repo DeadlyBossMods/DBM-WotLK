@@ -27,13 +27,17 @@ local specWarnMarkOnPlayer		= mod:NewSpecialWarning("SpecialWarningMarkOnPlayer"
 local specWarnVoidZone			= mod:NewSpecialWarningYou(28863, nil, nil, nil, 1, 2)
 local yellVoidZone				= mod:NewYell(28863)
 
-local timerMarkCD				= mod:NewCDTimer(12, 28835, nil, nil, nil, 3)
+local timerMarkCD				= mod:NewTimer(12.9, "timerMark", 28835, nil, nil, 3)
+--local timerMarkCD				= mod:NewCDTimer(12, 28835, nil, nil, nil, 3)
 --local timerMeteorCD			= mod:NewCDTimer(12.9, 28884, nil, nil, nil, 3)-- 12.9-14.6
 --local timerVoidZoneCD			= mod:NewCDTimer(12.9, 28863, nil, nil, nil, 3)-- 12.9-16
 --local timerHolyWrathCD		= mod:NewCDTimer(11.3, 28883, nil, nil, nil, 3)-- 11.3-14.5
 local timerBoneBarrier			= mod:NewTargetTimer(20, 29061, nil, nil, nil, 5)
 
+mod.vb.markCount = 0
+
 function mod:OnCombatStart(delay)
+	self.vb.markCount = 0
 	--timerMarkCD:Start()
 	--warnMarkSoon:Schedule(7)
 end
@@ -47,7 +51,8 @@ end
 
 function mod:SPELL_CAST_SUCCESS(args)
 	if args:IsSpellID(28832, 28833, 28834, 28835) and self:AntiSpam(5) then
-		timerMarkCD:Start()
+		self.vb.markCount = self.vb.markCount + 1
+		timerMarkCD:Start(nil, self.vb.markCount+1)
 		warnMarkSoon:Schedule(7)
 	elseif args.spellId == 28863 then
 --		timerVoidZoneCD:Start()

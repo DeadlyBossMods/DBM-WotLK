@@ -311,7 +311,12 @@ L:SetGeneralLocalization({
 L:SetWarningLocalization({
 	WarningMarkSoon				= "3초 후 징표 #%d",
 	WarningMarkNow				= "징표 #%d",
-	SpecialWarningMarkOnPlayer	= "%s: %s"
+	SpecialWarningMarkOnPlayer	= "%s: %s",
+	timerMark					= "다음 기사의 징표 타이머 바 보기 (횟수 포함)"
+})
+
+L:SetTimerLocalization({
+	timerMark	= "%d번 징표"
 })
 
 L:SetOptionLocalization({

@@ -18,6 +18,7 @@ mod:RegisterEventsInCombat(
 	"UNIT_TARGETABLE_CHANGED"
 )
 
+--Check if UNIT_TARGETABLE_CHANGED exists in classic wrath. It was a tech they didn't really use until WoD
 local warnAddsSoon			= mod:NewAnnounce("warnAddsSoon", 1, "134321")
 local warnPhase2			= mod:NewPhaseAnnounce(2, 3)
 local warnBlastTargets		= mod:NewTargetAnnounce(27808, 2)
@@ -49,6 +50,7 @@ mod.vb.warnedAdds = false
 mod.vb.MCIcon = 1
 local frostBlastTargets = {}
 local chainsTargets = {}
+local isRetail = WOW_PROJECT_ID == (WOW_PROJECT_MAINLINE or 1)
 
 local function AnnounceChainsTargets(self)
 	warnChainsTargets:Show(table.concat(chainsTargets, "< >"))
@@ -72,6 +74,14 @@ local function AnnounceBlastTargets(self)
 	end
 end
 
+local function RangeToggle(show)
+	if show then
+		DBM.RangeCheck:Show(10)
+	else
+		DBM.RangeCheck:Hide()
+	end
+end
+
 function mod:OnCombatStart(delay)
 	self:SetStage(1)
 	table.wipe(chainsTargets)
@@ -80,6 +90,13 @@ function mod:OnCombatStart(delay)
 	self.vb.MCIcon = 1
 	specwarnP2Soon:Schedule(208.1-delay)
 	timerPhase2:Start()
+	--Redundancy below here isn't needed on retail but may be on wrath classic
+	if not isRetail then
+		warnPhase2:Schedule(218.1)
+		if self.Options.RangeFrame then
+			self:Schedule(218.1-delay, RangeToggle, true)
+		end
+	end
 end
 
 function mod:OnCombatEnd()
@@ -159,6 +176,8 @@ end
 
 function mod:UNIT_TARGETABLE_CHANGED()
 	if self.vb.phase == 1 then
+		self:Unschedule(RangeToggle)
+		warnPhase2:Cancel()
 		self:SetStage(2)
 		warnPhase2:Show()
 		warnPhase2:Play("ptwo")

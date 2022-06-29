@@ -12,6 +12,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_REMOVED 28785 54021"
 )
 
+--TODO, recheck timers in wrath classic
 local warningLocustSoon		= mod:NewSoonAnnounce(28785, 2)
 local warningLocustFaded	= mod:NewFadesAnnounce(28785, 1)
 local warnImpale			= mod:NewTargetNoFilterAnnounce(28783, 3)

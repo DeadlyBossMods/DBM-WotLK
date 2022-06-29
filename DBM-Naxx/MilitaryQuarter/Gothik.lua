@@ -11,6 +11,8 @@ mod:RegisterEventsInCombat(
 	"UNIT_DIED"
 )
 
+--TODO, sync infoframe from classic era version?
+--(source.type = "NPC" and source.firstSeen = timestamp) or (target.type = "NPC" and target.firstSeen = timestamp)
 local warnWaveNow		= mod:NewAnnounce("WarningWaveSpawned", 3, nil, false)
 local warnWaveSoon		= mod:NewAnnounce("WarningWaveSoon", 2)
 local warnRiderDown		= mod:NewAnnounce("WarningRiderDown", 4)

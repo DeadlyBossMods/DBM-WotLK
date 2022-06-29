@@ -15,6 +15,7 @@ mod:RegisterEventsInCombat(
 )
 
 --TODO, verify infoframe and spellIds ported from Classic as accurate, they didn't have to be accurate in classic since it just matched name, but here it does
+--Also, 55593 is used instead of classic ID since classic ID has no tooltip
 local warnSporeNow			= mod:NewSpellAnnounce(29234, 2, "134530")
 local warnSporeSoon			= mod:NewSoonAnnounce(29234, 1, "134530")
 local warnDoomNow			= mod:NewSpellAnnounce(29204, 3)
@@ -27,8 +28,8 @@ local timerDoom				= mod:NewNextTimer(180, 29204, nil, nil, nil, 2)
 --local timerRemoveCurseCD	= mod:NewNextTimer(30.8, 30281, nil, nil, nil, 5)
 --local timerAura				= mod:NewBuffActiveTimer(17, 55593, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 
-mod:AddInfoFrameOption(29184, "Tank|Healer")
-mod:AddDropdownOption("CorruptedSorting", {"Alphabetical", "Duration"}, "Alphabetical", "misc", nil, 29184)
+mod:AddInfoFrameOption(55593, "Tank|Healer")
+mod:AddDropdownOption("CorruptedSorting", {"Alphabetical", "Duration"}, "Alphabetical", "misc", nil, 55593)
 
 mod.vb.doomCounter	= 0
 mod.vb.sporeTimer	= 36
@@ -92,7 +93,7 @@ function mod:OnCombatStart(delay)
 		end
 	end
 	if self.Options.InfoFrame and not DBM.InfoFrame:IsShown() then
-		DBM.InfoFrame:SetHeader(DBM:GetSpellInfo(29184))
+		DBM.InfoFrame:SetHeader(DBM:GetSpellInfo(55593))
 		DBM.InfoFrame:Show(25, "function", updateInfoFrame, false, false)
 		DBM.InfoFrame:SetColumns(2)
 	end

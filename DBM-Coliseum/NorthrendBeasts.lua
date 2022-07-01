@@ -29,6 +29,7 @@ mod:RegisterEventsInCombat(
 )
 
 --TODO: Is Encounter start still buggy?
+--TODO, maybe resort abilities by stage. Abilities aren't cleanly separated though so it'd be PITA
 local warnImpaleOn			= mod:NewStackAnnounce(66331, 2, nil, "Tank|Healer")
 local warnFireBomb			= mod:NewSpellAnnounce(66317, 3, nil, false)
 local warnBreath			= mod:NewSpellAnnounce(66689, 2)
@@ -77,6 +78,7 @@ mod:AddRangeFrameOption("10")
 
 mod:GroupSpells(66902, 66869)--Burning Spray with Burning Bile
 mod:GroupSpells(66901, 66823)--Paralytic Spray with Toxic Bile
+mod:GroupSpells(52311, 66758, 66759)--Furious Charge, Staggering Daze, and frothing rage
 
 local bileName = DBM:GetSpellInfo(66869)
 mod.vb.burnIcon = 1

@@ -140,10 +140,10 @@ end
 function mod:CHAT_MSG_MONSTER_YELL(msg, mob)
 	if (msg == L.YellAir or msg == L.YellAir2) and GetTime() - combattime > 30 then
 		if self:IsClassic() and self:IsDifficulty("normal10") then
-		 	warnTurretsReadySoon:Schedule(53)
- 			warnTurretsReady:Schedule(73)
- 			timerTurret1:Start(53)
- 			timerTurret2:Start(73)
+			warnTurretsReadySoon:Schedule(53)
+			warnTurretsReady:Schedule(73)
+			timerTurret1:Start(53)
+			timerTurret2:Start(73)
 		else
 			warnTurretsReadySoon:Schedule(93)
 			warnTurretsReady:Schedule(113)

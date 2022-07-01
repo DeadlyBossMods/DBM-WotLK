@@ -51,10 +51,10 @@ function mod:OnCombatStart(delay)
 	timerTympanicTantrumCD:Start(30-delay)
 
 	--if self:IsClassic() and self:IsDifficulty("normal10") then
- 	--	timerTympanicTantrumCD:Start(35-delay)
- 	--else
- 	--	timerTympanicTantrumCD:Start(50-delay)
- 	--end
+	--	timerTympanicTantrumCD:Start(35-delay)
+	--else
+	--	timerTympanicTantrumCD:Start(50-delay)
+	--end
 end
 
 function mod:SPELL_CAST_START(args)

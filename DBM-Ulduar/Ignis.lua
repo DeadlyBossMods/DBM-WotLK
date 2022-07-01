@@ -27,7 +27,12 @@ local timerActivateConstruct	= mod:NewCDCountTimer(30, 62488, nil, nil, nil, 1)
 local timerFlameJetsCooldown	= mod:NewCDTimer(23.5, 63472, nil, nil, nil, 2)--23.5-31
 local timerScorchCooldown		= mod:NewCDTimer(20.5, 63473, nil, nil, nil, 5)
 local timerSlagPot				= mod:NewTargetTimer(10, 63477, nil, nil, nil, 3)
-local timerAchieve				= mod:NewAchievementTimer(240, 12325)--2930
+local timerAchieve
+if WOW_PROJECT_ID == (WOW_PROJECT_MAINLINE or 1) then
+	timerAchieve				= mod:NewAchievementTimer(240, 12325)
+else
+	timerAchieve				= mod:NewAchievementTimer(240, 2930)
+end
 
 mod.vb.ConstructCount = 0
 

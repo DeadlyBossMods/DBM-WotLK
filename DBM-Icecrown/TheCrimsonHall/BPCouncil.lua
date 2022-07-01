@@ -26,9 +26,9 @@ local warnConjureFlames			= mod:NewCastAnnounce(71718, 2)
 local warnEmpoweredFlamesCast	= mod:NewCastAnnounce(72040, 3)
 local warnEmpoweredFlames		= mod:NewTargetNoFilterAnnounce(72040, 4)
 local warnGliteringSparks		= mod:NewTargetAnnounce(71807, 2, nil, false)
-local warnShockVortex			= mod:NewTargetAnnounce(72037, 3)				-- 1,5sec cast
 local warnKineticBomb			= mod:NewSpellAnnounce(72053, 3, nil, "Ranged")
 local warnDarkNucleus			= mod:NewSpellAnnounce(71943, 1, nil, false)	-- instant cast
+local warnShockVortex			= mod:NewTargetAnnounce(72037, 3)				-- 1,5sec cast
 
 local specWarnVortex			= mod:NewSpecialWarningYou(72037, nil, nil, nil, 1, 2)
 local yellVortex				= mod:NewYell(72037)

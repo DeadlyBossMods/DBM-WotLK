@@ -28,7 +28,7 @@ local warnPhase2					= mod:NewPhaseAnnounce(2, 1)
 local warnTouchInsignificance		= mod:NewStackAnnounce(71204, 2, nil, "Tank|Healer")
 
 local specWarnCurseTorpor			= mod:NewSpecialWarningYou(71237, nil, nil, nil, 1, 2)
-local specWarnDeathDecay			= mod:NewSpecialWarningMove(71001, nil, nil, nil, 1, 2)
+local specWarnDeathDecay			= mod:NewSpecialWarningGTFO(71001, nil, nil, nil, 1, 8)
 local specWarnTouchInsignificance	= mod:NewSpecialWarningStack(71204, nil, 3, nil, nil, 1, 6)
 local specWarnVampricMight			= mod:NewSpecialWarningDispel(70674, "MagicDispeller", nil, nil, 1, 2)
 local specWarnDarkMartyrdom			= mod:NewSpecialWarningRun(71236, "Melee", nil, nil, 4, 2)
@@ -43,8 +43,8 @@ local timerTouchInsignificance		= mod:NewTargetTimer(30, 71204, nil, "Tank|Heale
 local berserkTimer					= mod:NewBerserkTimer(600)
 
 mod:AddSetIconOption("SetIconOnDominateMind", 71289, true, 0, {1, 2, 3})
-mod:AddSetIconOption("SetIconOnDeformedFanatic", nil, true, 5, {8})
-mod:AddSetIconOption("SetIconOnEmpoweredAdherent", nil, true, 5, {7})
+mod:AddSetIconOption("SetIconOnDeformedFanatic", 70900, true, 5, {8})
+mod:AddSetIconOption("SetIconOnEmpoweredAdherent", 70901, true, 5, {7})
 mod:AddInfoFrameOption(70842, true)
 
 local dominateMindTargets = {}
@@ -111,7 +111,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 71001 and not self:IsTrivial() then
 		if args:IsPlayer() then
 			specWarnDeathDecay:Show()
-			specWarnDeathDecay:Play("runaway")
+			specWarnDeathDecay:Play("watchfeet")
 		end
 	elseif args.spellId == 71237 and args:IsPlayer() and not self:IsTrivial() then
 		specWarnCurseTorpor:Show()

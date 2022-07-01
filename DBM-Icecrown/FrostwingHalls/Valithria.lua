@@ -27,7 +27,7 @@ local warnManaVoid			= mod:NewSpellAnnounce(71179, 2, nil, "ManaUser")
 local warnSupression		= mod:NewSpellAnnounce(70588, 3)
 local warnPortalSoon		= mod:NewSoonAnnounce(72483, 2, nil)
 local warnPortal			= mod:NewSpellAnnounce(72483, 3, nil)
-local warnPortalOpen		= mod:NewAnnounce("WarnPortalOpen", 4, 72483)
+local warnPortalOpen		= mod:NewAnnounce("WarnPortalOpen", 4, 72483, nil, nil, nil, 72483)
 
 local specWarnGutSpray		= mod:NewSpecialWarningDefensive(70633, nil, nil, nil, 1, 2)
 local specWarnLayWaste		= mod:NewSpecialWarningSpell(69325, nil, nil, nil, 2, 2)

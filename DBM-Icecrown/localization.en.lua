@@ -286,9 +286,9 @@ L:SetOptionLocalization{
 	WarnNecroticPlagueJump	= "Announce $spell:70337 jump targets",
 	TimerNecroticPlagueCleanse	= "Show timer to cleanse Necrotic Plague before<br/>the first tick",
 	PhaseTransition			= "Show time for phase transitions",
-	ValkyrWarning			= "Announce who has been grabbed by Val'kyr Shadowguards",
+	ValkyrWarning			= "Announce Val'kyr Shadowguards grab targets",
 	SpecWarnYouAreValkd		= "Show special warning when you have been grabbed by a Val'kyr Shadowguard",--npc36609
-	AnnounceValkGrabs		= "Announce Val'kyr Shadowguard grab targets to raid chat<br/>(requires announce to be enabled and promoted status)",
+	AnnounceValkGrabs		= "Announce Val'kyr Shadowguard grab targets in raid chat<br/>(requires announce to be enabled and promoted status)",
 	SpecWarnValkyrLow		= "Show special warning when Valkyr is below 55% HP",
 	AnnouncePlagueStack		= "Announce $spell:70337 stacks to raid (10 stacks, every 5 after 10)<br/>(requires promoted status)"
 }

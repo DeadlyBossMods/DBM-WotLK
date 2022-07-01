@@ -38,12 +38,12 @@ local warnShamblingHorror			= mod:NewSpellAnnounce(70372, 3) --Phase 1 Add
 local warnDrudgeGhouls				= mod:NewSpellAnnounce(70358, 2) --Phase 1 Add
 local warnShamblingEnrage			= mod:NewTargetNoFilterAnnounce(72143, 3, nil, "Tank|Healer|RemoveEnrage") --Phase 1 Add Ability
 local warnNecroticPlague			= mod:NewTargetNoFilterAnnounce(70337, 3) --Phase 1+ Ability
-local warnNecroticPlagueJump		= mod:NewAnnounce("WarnNecroticPlagueJump", 4, 70337) --Phase 1+ Ability
+local warnNecroticPlagueJump		= mod:NewAnnounce("WarnNecroticPlagueJump", 4, 70337, nil, nil, nil, 70337) --Phase 1+ Ability
 local warnPhase2					= mod:NewPhaseAnnounce(2)
-local valkyrWarning					= mod:NewAnnounce("ValkyrWarning", 3, 71844)--Phase 2 Ability
+local valkyrWarning					= mod:NewAnnounce("ValkyrWarning", 3, 71844, nil, nil, nil, 71844)--Phase 2 Ability
 local warnDefileSoon				= mod:NewSoonAnnounce(72762, 3)	--Phase 2+ Ability
 local warnDefileCast				= mod:NewTargetNoFilterAnnounce(72762, 4) --Phase 2+ Ability
-local warnSummonValkyr				= mod:NewSpellAnnounce(69037, 3, 71844) --Phase 2 Add
+local warnSummonValkyr				= mod:NewSpellAnnounce(71844, 3) --Phase 2 Add
 local warnPhase3					= mod:NewPhaseAnnounce(3)
 local warnSummonVileSpirit			= mod:NewSpellAnnounce(70498, 2) --Phase 3 Add
 local warnHarvestSoul				= mod:NewTargetNoFilterAnnounce(68980, 3) --Phase 3 Ability
@@ -53,7 +53,7 @@ local warnRestoreSoul				= mod:NewCastAnnounce(73650, 2) --Phase 3 Heroic
 local specWarnSoulreaper			= mod:NewSpecialWarningDefensive(69409, nil, nil, nil, 1, 2) --Phase 1+ Ability
 local specWarnNecroticPlague		= mod:NewSpecialWarningMoveAway(70337, nil, nil, nil, 1, 2) --Phase 1+ Ability
 local specWarnRagingSpirit			= mod:NewSpecialWarningYou(69200, nil, nil, nil, 1, 2) --Transition Add
-local specWarnYouAreValkd			= mod:NewSpecialWarning("SpecWarnYouAreValkd", nil, nil, nil, 1, 2) --Phase 2+ Ability
+local specWarnYouAreValkd			= mod:NewSpecialWarning("SpecWarnYouAreValkd", nil, nil, nil, 1, 2, nil, nil, 71844) --Phase 2+ Ability
 local specWarnDefileCast			= mod:NewSpecialWarningMoveAway(72762, nil, nil, nil, 3, 2) --Phase 2+ Ability
 local yellDefile					= mod:NewYell(72762)
 local specWarnDefileNear			= mod:NewSpecialWarningClose(72762, nil, nil, nil, 1, 2) --Phase 2+ Ability
@@ -64,7 +64,7 @@ local specWarnTrap					= mod:NewSpecialWarningYou(73539, nil, nil, nil, 3, 2) --
 local yellTrap						= mod:NewYell(73539)
 local specWarnTrapNear				= mod:NewSpecialWarningClose(73539, nil, nil, nil, 3, 2) --Heroic Ability
 local specWarnHarvestSouls			= mod:NewSpecialWarningSpell(73654, nil, nil, nil, 1, 2) --Heroic Ability
-local specWarnValkyrLow				= mod:NewSpecialWarning("SpecWarnValkyrLow", nil, nil, nil, 1, 2)
+local specWarnValkyrLow				= mod:NewSpecialWarning("SpecWarnValkyrLow", nil, nil, nil, 1, 2, nil, nil, 71844)
 local specWarnGTFO					= mod:NewSpecialWarningGTFO(68983, nil, nil, nil, 1, 8)
 
 local timerCombatStart				= mod:NewCombatTimer(53.5)
@@ -74,7 +74,7 @@ local timerSoulreaperCD	 			= mod:NewNextTimer(30.5, 69409, nil, "Tank|Healer", 
 local timerHarvestSoul	 			= mod:NewTargetTimer(6, 68980)
 local timerHarvestSoulCD			= mod:NewNextTimer(75, 68980, nil, nil, nil, 6)
 local timerInfestCD					= mod:NewNextTimer(22.5, 70541, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
-local timerNecroticPlagueCleanse 	= mod:NewTimer(5, "TimerNecroticPlagueCleanse", 70337, "Healer", nil, 5, DBM_COMMON_L.HEALER_ICON)
+local timerNecroticPlagueCleanse 	= mod:NewTimer(5, "TimerNecroticPlagueCleanse", 70337, "Healer", nil, 5, DBM_COMMON_L.HEALER_ICON, nil, nil, nil, nil, nil, nil, 70541)
 local timerNecroticPlagueCD			= mod:NewNextTimer(30, 70337, nil, nil, nil, 3)
 local timerDefileCD					= mod:NewNextTimer(32.5, 72762, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON, nil, 1, 4)
 local timerEnrageCD					= mod:NewCDTimer(20, 72143, nil, "Tank|RemoveEnrage", nil, 5, nil, DBM_COMMON_L.ENRAGE_ICON)
@@ -95,7 +95,7 @@ mod:AddSetIconOption("RagingSpiritIcon", 69200, false, 0, {6})
 mod:AddSetIconOption("TrapIcon", 73539, true, 0, {7})
 mod:AddSetIconOption("ValkyrIcon", 71844, true, 5, {1, 2, 3})
 mod:AddSetIconOption("HarvestSoulIcon", 68980, false, 0, {5})
-mod:AddBoolOption("AnnounceValkGrabs", false)
+mod:AddBoolOption("AnnounceValkGrabs", false, nil, nil, nil, nil, 71844)
 
 local warnedValkyrGUIDs = {}
 local plagueHop = DBM:GetSpellInfo(70338)--Hop spellID only, not cast one.

@@ -29,7 +29,7 @@ local timerDoom				= mod:NewNextTimer(180, 29204, nil, nil, nil, 2)
 --local timerAura				= mod:NewBuffActiveTimer(17, 55593, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 
 mod:AddInfoFrameOption(55593, "Tank|Healer")
-mod:AddDropdownOption("CorruptedSorting", {"Alphabetical", "Duration"}, "Alphabetical", "misc", nil, 55593)
+mod:AddDropdownOption("CorruptedSorting", {"Alphabetical", "Duration"}, "Alphabetical", "misc", nil, 55593)--CorruptedSorting was never localized
 
 mod.vb.doomCounter	= 0
 mod.vb.sporeTimer	= 36

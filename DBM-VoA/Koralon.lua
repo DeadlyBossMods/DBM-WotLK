@@ -17,7 +17,7 @@ mod:RegisterEventsInCombat(
 local warnBreath			= mod:NewSpellAnnounce(66665, 3)
 local warnMeteor			= mod:NewSpellAnnounce(66725, 3)
 local warnMeteorSoon		= mod:NewPreWarnAnnounce(66725, 5, 2)
-local WarnBurningFury		= mod:NewAnnounce("BurningFury", 2, 66721)
+local WarnBurningFury		= mod:NewStackAnnounce(66721, 2)
 
 local specWarnCinder		= mod:NewSpecialWarningMove(66684, nil, nil, nil, 1, 2)
 
@@ -53,7 +53,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		specWarnCinder:Show()
 		specWarnCinder:Play("runaway")
 	elseif args.spellId == 66721 then
-		WarnBurningFury:Show(args.amount or 1)
+		WarnBurningFury:Show(args.destName, args.amount or 1)
 		timerNextBurningFury:Start()
 	end
 end

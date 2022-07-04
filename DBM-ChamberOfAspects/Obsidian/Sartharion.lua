@@ -18,9 +18,9 @@ mod:RegisterEventsInCombat(
 )
 
 local warnShadowFissure	    = mod:NewSpellAnnounce(59127, 4, nil, nil, nil, nil, nil, 2)
-local warnTenebron          = mod:NewAnnounce("WarningTenebron", 2, 61248, false)
-local warnShadron           = mod:NewAnnounce("WarningShadron", 2, 58105, false)
-local warnVesperon          = mod:NewAnnounce("WarningVesperon", 2, 61251, false)
+local warnTenebron          = mod:NewAnnounce("WarningTenebron", 2, 61248)
+local warnShadron           = mod:NewAnnounce("WarningShadron", 2, 58105)
+local warnVesperon          = mod:NewAnnounce("WarningVesperon", 2, 61251)
 
 local warnFireWall			= mod:NewSpecialWarning("WarningFireWall", nil, nil, nil, 2, 2)
 local warnVesperonPortal	= mod:NewSpecialWarning("WarningVesperonPortal", false, nil, nil, 1, 7)

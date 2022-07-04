@@ -33,7 +33,7 @@ local warningFieryCombustion		= mod:NewTargetNoFilterAnnounce(74562, 4)
 local warningMeteor					= mod:NewSpellAnnounce(74648, 3)
 local warningShadowBreath			= mod:NewSpellAnnounce(74806, 2, nil, "Tank|Healer")
 local warningFieryBreath			= mod:NewSpellAnnounce(74525, 2, nil, "Tank|Healer")
-local warningTwilightCutter			= mod:NewAnnounce("TwilightCutterCast", 4, 74769)
+local warningTwilightCutter			= mod:NewAnnounce("TwilightCutterCast", 4, 74769, nil, nil, nil, 74769)
 
 local specWarnShadowConsumption		= mod:NewSpecialWarningRun(74792, nil, nil, nil, 4, 2)
 local yellShadowconsumption			= mod:NewYell(74792)

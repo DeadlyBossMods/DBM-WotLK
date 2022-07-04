@@ -50,8 +50,7 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	timerMobOvercharge	= "과충전 폭발까지 남은시간 바 보기",
-	EmalonEnrage		= "$spell:26662 바 보기",
-	RangeFrame			= "거리 창 보기(10m)"
+	EmalonEnrage		= "$spell:26662 바 보기"
 }
 
 ---------------
@@ -64,16 +63,11 @@ L:SetGeneralLocalization{
 	name = "화염 감시자 코랄론"
 }
 
-L:SetWarningLocalization{
-	BurningFury			= "불타는 격노 (%d)"
-}
-
 L:SetTimerLocalization{
 	KoralonEnrage		= "코랄론 광폭화"
 }
 
 L:SetOptionLocalization{
-	BurningFury			= "$spell:66721 알림 보기",
 	KoralonEnrage		= "$spell:26662 바 보기"
 }
 
@@ -90,16 +84,8 @@ L:SetGeneralLocalization{
 	name = "얼음 감시자 토라본"
 }
 
-L:SetWarningLocalization{
-	Frostbite		= "냉증 : >%s< (%d)"
-}
-
 L:SetTimerLocalization{
 	ToravonEnrage	= "토라본 광폭화"
-}
-
-L:SetOptionLocalization{
-	Frostbite		= "$spell:72004 중첩 알림 보기"
 }
 
 L:SetMiscLocalization{

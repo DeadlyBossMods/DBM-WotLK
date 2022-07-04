@@ -37,7 +37,7 @@ local timerAchieve					= mod:NewAchievementTimer(180, 3815)
 
 mod:AddBoolOption("SpecialWarnOnDebuff", false, "announce")
 mod:AddSetIconOption("SetIconOnDebuffTarget", 66001, false, 0, {1, 2, 3, 4})
-mod:AddInfoFrameOption(235117, true)
+mod:AddInfoFrameOption(65874, true)
 
 local lightEssence, darkEssence = DBM:GetSpellInfo(65686), DBM:GetSpellInfo(65684)
 local debuffTargets = {}

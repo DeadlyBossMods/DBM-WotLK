@@ -1,7 +1,7 @@
 ## Interface: 90205
-## Interface-WOTLKC: 30400
+## Interface-Wrath: 30400
 ## X-Min-Interface: 80000
-## X-Min-Interface-WOTLKC: 30400
+## X-Min-Interface-Wrath: 30400
 ## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Ulduar|r
 ## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Ульдуар|r
 ## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0울두아르|r

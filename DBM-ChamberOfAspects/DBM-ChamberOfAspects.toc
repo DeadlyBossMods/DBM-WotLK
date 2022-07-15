@@ -1,7 +1,7 @@
 ## Interface: 90205
-## Interface-WOTLKC: 30400
+## Interface-Wrath: 30400
 ## X-Min-Interface: 80000
-## X-Min-Interface-WOTLKC: 30400
+## X-Min-Interface-Wrath: 30400
 ## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Chamber of Aspects|r
 ## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Kammer der Aspekte|r
 ## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Палата Аспектов|r

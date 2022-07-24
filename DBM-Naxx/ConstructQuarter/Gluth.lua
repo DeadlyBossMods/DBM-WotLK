@@ -19,7 +19,7 @@ mod:RegisterEventsInCombat(
 --TODO, verify decimate timer is actually accurate for wrath (it certainly wasn't for naxx 40)
 local warnEnrage		= mod:NewTargetNoFilterAnnounce(19451, 3, nil , "Healer|Tank|RemoveEnrage", 2)
 local warnRoar			= mod:NewSpellAnnounce(29685, 2)
-local warnDecimateSoon= mod:NewSoonAnnounce(28374, 2)
+local warnDecimateSoon	= mod:NewSoonAnnounce(28374, 2)
 local warnDecimateNow	= mod:NewSpellAnnounce(28374, 3)
 
 local specWarnEnrage	= mod:NewSpecialWarningDispel(19451, "RemoveEnrage", nil, nil, 1, 6)

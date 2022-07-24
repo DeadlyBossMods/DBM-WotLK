@@ -87,8 +87,7 @@ function mod:OnCombatStart(delay)
 	table.wipe(hadCorrupted)
 	for unit in DBM:GetGroupMembers() do
 		local _, cls = UnitClass(unit)
-		local _, _, _, mapId = UnitPosition(unit)
-		if not UnitIsDeadOrGhost(unit) and mapId == 533 and (cls == "DRUID" or cls == "PALADIN" or cls == "PRIEST" or cls == "SHAMAN") then
+		if not UnitIsDeadOrGhost(unit) and (cls == "DRUID" or cls == "PALADIN" or cls == "PRIEST" or cls == "SHAMAN") then
 			hadCorrupted[UnitName(unit)] = startTime
 		end
 	end

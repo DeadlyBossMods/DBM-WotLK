@@ -16,9 +16,7 @@ mod:RegisterEvents(
 mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 60936 57407",
 	"SPELL_CAST_START 56505",
-	"SPELL_CAST_SUCCESS 56105 57430",
-	"RAID_BOSS_EMOTE",
-	"UNIT_SPELLCAST_SUCCEEDED boss1"
+	"SPELL_CAST_SUCCESS 56105 57430"
 )
 
 local warnSpark					= mod:NewSpellAnnounce(56140, 2, 59381)
@@ -91,6 +89,15 @@ function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
 	timerAchieve:Start(-delay)
 	table.wipe(guids)
+	if not self:IsClassic() then--Use better more accurate method on retail where boss UnitIds are available
+		self:RegisterShortTermEvents(
+			"UNIT_SPELLCAST_SUCCEEDED boss1"
+		)
+	else--Use legacy localized trigger and syncs
+		self:RegisterShortTermEvents(
+			"RAID_BOSS_EMOTE"
+		)
+	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
@@ -150,14 +157,14 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 	end
 end
 
+--Localized trigger for Wrath Classic
 function mod:RAID_BOSS_EMOTE(msg)
 	if msg == L.EmoteSpark or msg:find(L.EmoteSpark) then
 		self:SendSync("Spark")
 	end
 end
 
---local free triggers but not reliable in instances that didn't impliment bossN args so backup emote/yell triggers still in place.
---Anti spam will be handled by sync handler
+--localization free triggers that's better but can only be used on retail where boss1 UnitId available
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 --	"<39.8> [UNIT_SPELLCAST_SUCCEEDED] Malygos:Possible Target<Omegal>:target:Summon Power Spark::0:56140", -- [998]
 	if spellId == 56140 then
@@ -167,6 +174,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 end
 
 function mod:OnSync(event, arg)
+	if not self:IsInCombat() then return end
 	if event == "Phase2" then
 		self:SetStage(2)
 		timerSpark:Cancel()
@@ -180,5 +188,8 @@ function mod:OnSync(event, arg)
 		self:Schedule(6, buildGuidTable)
 		timerBreathCD:Cancel()
 --		timerStaticFieldCD:Start(49.5)--Consistent?
+	elseif event == "Spark" then
+		warnSpark:Show()
+		timerSpark:Start()
 	end
 end

@@ -34,15 +34,14 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(28798, 54100) then			-- Frenzy
-		warnEnrageNow:Show()
 		self.vb.enraged = true
-		if self:IsTanking("player", "boss1", nil, true) then
+		if self:IsClassic() and self:IsTanking("player", nil, nil, nil, args.destGUID) or self:IsTanking("player", "boss1", nil, true) then
 			specWarnEnrage:Show()
 			specWarnEnrage:Play("defensive")
 		else
 			warnEnrageNow:Show()
 		end
-	elseif args:IsSpellID(28732, 54097)	and args:GetDestCreatureID() == 15953 and self:AntiSpam(5) then
+	elseif args:IsSpellID(28732, 54097)	and args:GetDestCreatureID() == 15953 and self:AntiSpam(5, 2) then
 		warnEmbraceExpire:Cancel()
 		warnEmbraceExpired:Cancel()
 		warnEnrageSoon:Cancel()

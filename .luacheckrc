@@ -49,6 +49,7 @@ globals = {
 	"SetRaidTarget",
 	"UnitAffectingCombat",
 	"UnitClass",
+	"UnitDebuff",
 	"UnitDetailedThreatSituation",
 	"UnitExists",
 	"UnitFactionGroup",

@@ -70,8 +70,9 @@ do
 	function mod:UNIT_AURA()
 		if self.vb.phase ~=2 or (GetTime() - lastShift) > 5 or (GetTime() - lastShift) < 3 then return end
 		local charge
-		for i = 1, 40 do
-			local _, icon, count = DBM:UnitDebuff("player", i)
+		local i = 1
+		while UnitDebuff("player", i) do
+			local _, icon, count = UnitDebuff("player", i)
 			if icon == 135768 then--Interface\\Icons\\Spell_ChargeNegative
 				if count > 1 then return end
 				charge = L.Charge1

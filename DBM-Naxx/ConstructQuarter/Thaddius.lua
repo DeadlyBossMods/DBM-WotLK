@@ -72,12 +72,12 @@ do
 		local charge
 		local i = 1
 		while UnitDebuff("player", i) do
-			local _, icon, count = UnitDebuff("player", i)
+			local _, icon, count, _, _, _, _, _, _, _, _, _, _, _, _, count2 = UnitDebuff("player", i)--Classic uses count2, retail uses count, because reasons
 			if icon == 135768 then--Interface\\Icons\\Spell_ChargeNegative
-				if count > 1 then return end
+				if (count2 or count) > 1 then return end
 				charge = L.Charge1
 			elseif icon == 135769 then--Interface\\Icons\\Spell_ChargePositive
-				if count > 1 then return end
+				if (count2 or count) > 1 then return end
 				charge = L.Charge2
 			end
 			i = i + 1

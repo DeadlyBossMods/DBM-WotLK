@@ -27,7 +27,7 @@ local timerAura				= mod:NewBuffActiveTimer(17, 55593, nil, nil, nil, 5, nil, DB
 mod:AddDropdownOption("CorruptedSorting", {"Alphabetical", "Duration"}, "Alphabetical", "misc", nil, 55593)--CorruptedSorting was never localized
 
 mod.vb.doomCounter	= 0
-mod.vb.sporeTimer	= 36
+mod.vb.sporeTimer	= 35.5
 mod.vb.sporeCounter = 0
 
 function mod:OnCombatStart(delay)
@@ -35,9 +35,9 @@ function mod:OnCombatStart(delay)
 	self.vb.sporeCounter = 0
 --	timerRemoveCurseCD:Start(3 - delay)
 	if self:IsDifficulty("normal25") then
-		self.vb.sporeTimer = 18
+		self.vb.sporeTimer = 16
 	else
-		self.vb.sporeTimer = 36
+		self.vb.sporeTimer = 35.5
 	end
 	timerSpore:Start(self.vb.sporeTimer - delay, 1)
 	warnSporeSoon:Schedule(self.vb.sporeTimer - 5 - delay)

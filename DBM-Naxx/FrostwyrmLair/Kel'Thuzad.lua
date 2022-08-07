@@ -39,7 +39,7 @@ local timerManaBomb			= mod:NewCDTimer(20, 27819, nil, nil, nil, 3)--20-50
 local timerFrostBlast		= mod:NewCDTimer(40.1, 27808, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--40-46 (might be 33-46)
 local timerMC				= mod:NewBuffActiveTimer(20, 28410, nil, nil, nil, 3)
 --local timerMCCD			= mod:NewCDTimer(90, 28410, nil, nil, nil, 3)--actually 60 second cdish but its easier to do it this way for the first one.
-local timerPhase2			= mod:NewTimer(218, "TimerPhase2", "136116", nil, nil, 6)
+local timerPhase2			= mod:NewTimer(225, "TimerPhase2", "136116", nil, nil, 6)
 
 mod:AddSetIconOption("SetIconOnMC", 28410, true, false, {1, 2, 3})
 mod:AddSetIconOption("SetIconOnManaBomb", 27819, false, false, {8})
@@ -88,13 +88,13 @@ function mod:OnCombatStart(delay)
 	table.wipe(frostBlastTargets)
 	self.vb.warnedAdds = false
 	self.vb.MCIcon = 1
-	specwarnP2Soon:Schedule(208.1-delay)
+	specwarnP2Soon:Schedule(215-delay)
 	timerPhase2:Start()
 	--Redundancy below here isn't needed on retail but may be on wrath classic
 	if not isRetail then
-		warnPhase2:Schedule(218.1)
+		warnPhase2:Schedule(225)
 		if self.Options.RangeFrame then
-			self:Schedule(218.1-delay, RangeToggle, true)
+			self:Schedule(225-delay, RangeToggle, true)
 		end
 	end
 end

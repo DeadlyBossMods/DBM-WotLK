@@ -336,7 +336,7 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	specWarnAnimus 	= "사로나이트 원혼에 대상 변경 특수 알림 보기",
-	hardmodeSpawn	= "사로나이트 원혼 등장 타이머 바 보기 (하드 모드)" 
+	hardmodeSpawn	= "사로나이트 원혼 등장 타이머 바 보기 (하드 모드)"
 }
 
 L:SetMiscLocalization{

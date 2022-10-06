@@ -20,7 +20,7 @@ local warnHealSoon			= mod:NewAnnounce("WarningHealSoon", 4, 55593, nil, nil, ni
 local warnHealNow			= mod:NewAnnounce("WarningHealNow", 1, 55593, false, nil, nil, 55593)
 
 local timerSpore			= mod:NewNextCountTimer(36, 29234, nil, nil, nil, 5, "134530", DBM_COMMON_L.DAMAGE_ICON)
-local timerDoom				= mod:NewNextTimer(180, 29204, nil, nil, nil, 2)
+local timerDoom				= mod:NewNextCountTimer(180, 29204, nil, nil, nil, 2)
 --local timerRemoveCurseCD	= mod:NewNextTimer(30.8, 30281, nil, nil, nil, 5)
 local timerAura				= mod:NewBuffActiveTimer(17, 55593, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 
@@ -52,10 +52,13 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnSporeSoon:Schedule(self.vb.sporeTimer - 5)
 	elseif args:IsSpellID(29204, 55052) then
 		self.vb.doomCounter = self.vb.doomCounter + 1
-		local timer = 30
+		local timer = 29
 		if self.vb.doomCounter >= 7 then
-			if self.vb.doomCounter % 2 == 0 then timer = 17
-			else timer = 12 end
+			if self.vb.doomCounter % 2 == 0 then
+				timer = 17
+			else
+				timer = 12
+			end
 		end
 		warnDoomNow:Show(self.vb.doomCounter)
 		timerDoom:Start(timer, self.vb.doomCounter + 1)

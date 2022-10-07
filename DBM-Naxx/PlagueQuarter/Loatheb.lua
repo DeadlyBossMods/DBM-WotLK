@@ -36,12 +36,13 @@ function mod:OnCombatStart(delay)
 --	timerRemoveCurseCD:Start(3 - delay)
 	if self:IsDifficulty("normal25") then
 		self.vb.sporeTimer = 16
+		timerDoom:Start(90 - delay, 1)
 	else
 		self.vb.sporeTimer = 35.5
+		timerDoom:Start(120 - delay, 1)
 	end
 	timerSpore:Start(self.vb.sporeTimer - delay, 1)
 	warnSporeSoon:Schedule(self.vb.sporeTimer - 5 - delay)
-	timerDoom:Start(120 - delay, self.vb.doomCounter + 1)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)

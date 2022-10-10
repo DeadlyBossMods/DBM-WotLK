@@ -7,6 +7,7 @@ mod:SetEncounterID(1140)
 mod:DisableEEKillDetection()--Fires for first one dying not last
 mod:SetModelID(28344)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
+mod:SetBossHPInfoToHighest()
 
 mod:RegisterCombat("combat")
 

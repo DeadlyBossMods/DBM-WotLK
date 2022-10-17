@@ -30,12 +30,12 @@ local specWarnFissureYou
 local specWarnFissureClose
 local yellFissure
 if isRetail then
-	warnFissure				= mod:NewTargetNoFilterAnnounce(27810, 4, nil, nil, nil, nil, nil, 2)
+	warnFissure				= mod:NewTargetNoFilterAnnounce(27810, 4)
 	specWarnFissureYou		= mod:NewSpecialWarningYou(27810, nil, nil, nil, 3, 2)
 	specWarnFissureClose	= mod:NewSpecialWarningClose(27810, nil, nil, nil, 2, 2)
 	yellFissure				= mod:NewYell(27810)
 else
-	warnFissure				= mod:NewSpellAnnounce(27810, 4)
+	warnFissure				= mod:NewSpellAnnounce(27810, 4, nil, nil, nil, nil, nil, 2)
 end
 local warnMana				= mod:NewTargetAnnounce(27819, 2)
 local warnChainsTargets		= mod:NewTargetNoFilterAnnounce(28410, 4)
@@ -127,6 +127,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 				specWarnFissureClose:Play("watchfeet")
 			else
 				warnFissure:Show(args.destName)
+				warnFissure:Play("watchstep")
 			end
 		else
 			warnFissure:Show()

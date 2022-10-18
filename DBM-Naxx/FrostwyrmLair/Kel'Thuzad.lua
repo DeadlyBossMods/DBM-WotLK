@@ -47,7 +47,7 @@ local specWarnBlast			= mod:NewSpecialWarningTarget(27808, "Healer", nil, nil, 1
 
 local blastTimer			= mod:NewBuffActiveTimer(4, 27808, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 local timerManaBomb			= mod:NewCDTimer(20, 27819, nil, nil, nil, 3)--20-50
-local timerFrostBlast		= mod:NewCDTimer(40.1, 27808, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--40-46 (might be 33-46)
+local timerFrostBlast		= mod:NewCDTimer(35, 27808, nil, false, 2, 3, nil, DBM_COMMON_L.DEADLY_ICON)--35-77.7
 local timerMC				= mod:NewBuffActiveTimer(20, 28410, nil, nil, nil, 3)
 --local timerMCCD			= mod:NewCDTimer(90, 28410, nil, nil, nil, 3)--actually 60 second cdish but its easier to do it this way for the first one.
 local timerPhase2			= mod:NewTimer(225, "TimerPhase2", "136116", nil, nil, 6)

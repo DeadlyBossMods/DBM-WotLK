@@ -32,7 +32,7 @@ local yellFissure
 if isRetail then
 	warnFissure				= mod:NewTargetNoFilterAnnounce(27810, 4)
 	specWarnFissureYou		= mod:NewSpecialWarningYou(27810, nil, nil, nil, 3, 2)
-	specWarnFissureClose	= mod:NewSpecialWarningClose(27810, nil, nil, nil, 2, 2)
+	specWarnFissureClose	= mod:NewSpecialWarningClose(27810, nil, nil, nil, 2, 8)
 	yellFissure				= mod:NewYell(27810)
 else
 	warnFissure				= mod:NewSpellAnnounce(27810, 4, nil, nil, nil, nil, nil, 2)
@@ -131,6 +131,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 			end
 		else
 			warnFissure:Show()
+			warnFissure:Play("watchstep")
 		end
 	elseif args.spellId == 27819 then
 		timerManaBomb:Start()

@@ -333,7 +333,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	specWarnAnimus 	= "Саронитовый анимус - сменить цель"
+	specWarnAnimus 	= "Саронитовый анимус - смените цель"
 }
 
 L:SetTimerLocalization{

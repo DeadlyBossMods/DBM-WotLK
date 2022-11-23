@@ -69,6 +69,12 @@ function mod:OnCombatStart(delay)
 	warnThrowSoon:Schedule(17.6 - delay)
 end
 
+function mod:OnCombatEnd()
+	if self.Options.RangeFrame then
+		DBM.RangeCheck:Hide()
+	end
+end
+
 do
 	local lastShift
 	function mod:SPELL_CAST_START(args)

@@ -37,18 +37,17 @@ local currentCharge
 local raidCharges = {}
 local down = 0
 
-local function debuffFilter(uId)
-	local name = UnitName(uid)
-	if not name then return false end
-	return (raidCharges[name] ~= currentCharge)
+local function DebuffFilter(uId)
+	local name = UnitName(uId)
+	return name and raidCharges[name] ~= currentCharge
 end
 
 local enableOneTime = false
-local function enableRangeFrame()
+local function EnableRangeFrame()
 	if enableOneTime then return end
 	enableOneTime = true
-	if not self.Options.RangeFrame then return end
-	DBM.RangeCheck:Show(13, debuffFilter) -- Only show players affected with opposite charge
+	if not mod.Options.RangeFrame then return end
+	DBM.RangeCheck:Show(13, DebuffFilter) -- Only show players affected with opposite charge
 end
 
 local function TankThrow(self)
@@ -75,7 +74,7 @@ do
 	function mod:SPELL_CAST_START(args)
 		if args.spellId == 28089 then
 			self:SetStage(2)
-			enableRangeFrame()
+			EnableRangeFrame()
 			timerNextShift:Start()
 			timerShiftCast:Start()
 			warnShiftCasting:Show()
@@ -99,7 +98,7 @@ do
 		end
 	end
 
-	function HandlePlayerCharge()
+	function HandlePlayerCharge(self)
 		local charge = raidCharges[UnitName("player")]
 		if charge == L.Charge1 then
 			yellShift:Yell(7, "- -")
@@ -133,11 +132,10 @@ do
 	end
 
 	function HandleRaidCharges()
-		for i=1,MAX_RAID_MEMBERS do
-			local unit = "raid" .. i
-			local name = UnitName(unit)
+		for uId in DBM:GetGroupMembers() do
+			local name = UnitName(uId)
 			if name then
-				raidCharges[name] = GetCharge(unit)
+				raidCharges[name] = GetCharge(uId)
 			end
 		end
 	end
@@ -145,7 +143,7 @@ do
 	function mod:UNIT_AURA()
 		if self.vb.phase ~= 2 or not lastShift or (GetTime() - lastShift) < 3 then return end
 		HandleRaidCharges()
-		HandlePlayerCharge() -- depends on the raid charges
+		HandlePlayerCharge(self) -- depends on the raid charges
 	end
 end
 

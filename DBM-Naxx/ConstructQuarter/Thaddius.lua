@@ -37,19 +37,6 @@ local currentCharge
 local raidCharges = {}
 local down = 0
 
-local function DebuffFilter(uId)
-	local name = UnitName(uId)
-	return name and raidCharges[name] ~= currentCharge
-end
-
-local enableOneTime = false
-local function EnableRangeFrame()
-	if enableOneTime then return end
-	enableOneTime = true
-	if not mod.Options.RangeFrame then return end
-	DBM.RangeCheck:Show(13, DebuffFilter) -- Only show players affected with opposite charge
-end
-
 local function TankThrow(self)
 	if not self:IsInCombat() or self.vb.phase == 2 then
 		return
@@ -76,11 +63,24 @@ function mod:OnCombatEnd()
 end
 
 do
+	local function DebuffFilter(uId)
+		local name = UnitName(uId)
+		return name and raidCharges[name] ~= currentCharge
+	end
+	
+	local enableOneTime = false
+	local function EnableRangeFrame(self)
+		if enableOneTime then return end
+		enableOneTime = true
+		if not self.Options.RangeFrame then return end
+		DBM.RangeCheck:Show(13, DebuffFilter) -- Only show players affected with opposite charge
+	end
+
 	local lastShift
 	function mod:SPELL_CAST_START(args)
 		if args.spellId == 28089 then
 			self:SetStage(2)
-			EnableRangeFrame()
+			EnableRangeFrame(self)
 			timerNextShift:Start()
 			timerShiftCast:Start()
 			warnShiftCasting:Show()
@@ -104,8 +104,7 @@ do
 		end
 	end
 
-	local function HandlePlayerCharge(self)
-		local charge = raidCharges[UnitName("player")]
+	local function HandlePlayerCharge(self, charge)
 		if charge == L.Charge1 then
 			yellShift:Yell(7, "- -")
 		elseif charge == L.Charge2 then
@@ -137,19 +136,21 @@ do
 		end
 	end
 
-	local function HandleRaidCharges()
+	local function HandleRaidCharges(self)
 		for uId in DBM:GetGroupMembers() do
 			local name = UnitName(uId)
 			if name then
 				raidCharges[name] = GetCharge(uId)
+				if UnitIsUnit("player", uId) then
+					HandlePlayerCharge(self, raidCharges[name]) -- depends on the raid charges
+				end
 			end
 		end
 	end
 
 	function mod:UNIT_AURA()
 		if self.vb.phase ~= 2 or not lastShift or (GetTime() - lastShift) < 3 then return end
-		HandleRaidCharges()
-		HandlePlayerCharge(self) -- depends on the raid charges
+		HandleRaidCharges(self)
 	end
 end
 

@@ -89,7 +89,7 @@ do
 		end
 	end
 
-	function GetCharge(unit)
+	local function GetCharge(unit)
 		local i = 1
 		while UnitDebuff(unit, i) do
 			local _, icon, count, _, _, _, _, _, _, _, _, _, _, _, _, count2 = UnitDebuff(unit, i)
@@ -104,7 +104,7 @@ do
 		end
 	end
 
-	function HandlePlayerCharge(self)
+	local function HandlePlayerCharge(self)
 		local charge = raidCharges[UnitName("player")]
 		if charge == L.Charge1 then
 			yellShift:Yell(7, "- -")
@@ -137,7 +137,7 @@ do
 		end
 	end
 
-	function HandleRaidCharges()
+	local function HandleRaidCharges()
 		for uId in DBM:GetGroupMembers() do
 			local name = UnitName(uId)
 			if name then

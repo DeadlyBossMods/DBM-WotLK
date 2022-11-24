@@ -67,7 +67,7 @@ do
 		local name = UnitName(uId)
 		return name and raidCharges[name] ~= currentCharge
 	end
-	
+
 	local enableOneTime = false
 	local function EnableRangeFrame(self)
 		if enableOneTime then return end

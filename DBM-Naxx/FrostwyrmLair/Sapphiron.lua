@@ -122,7 +122,7 @@ end
 function mod:OnSync(event)
 	if event == "DeepBreath" then
 		timerIceBlast:Start()
-		timerLanding:Update(14)
+		timerLanding:Update(14.5, 28.5)
 		self:Schedule(14.5, Landing, self)
 		warnDeepBreath:Show()
 		warnDeepBreath:Play("findshelter")

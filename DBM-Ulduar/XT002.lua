@@ -46,7 +46,7 @@ mod:AddSetIconOption("SetIconOnLightBombTarget", 65121, true, true, {1})
 mod:AddSetIconOption("SetIconOnGravityBombTarget", 64234, true, true, {2})
 
 function mod:OnCombatStart(delay)
-	enrageTimer:Start(-delay)
+	enrageTimer:Start(self:IsClassic() and 360 or 600-delay)
 	timerAchieve:Start()
 	timerTympanicTantrumCD:Start(30-delay)
 
@@ -65,7 +65,7 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 62776 then	-- Tympanic Tantrum
-		timerTympanicTantrum:Start()
+		timerTympanicTantrum:Start(self:IsClassic() and 12 or 8)
 	elseif args:IsSpellID(63018, 65121) then 	-- Light Bomb
 		if args:IsPlayer() then
 			specWarnLightBomb:Show()

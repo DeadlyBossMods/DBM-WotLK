@@ -131,7 +131,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self:IsClassic() and self:IsDifficulty("normal10") then
 			timerOverwhelmingPower:Start(60, args.destName)
 		else
-			timerOverwhelmingPower:Start(35, args.destName)
+			timerOverwhelmingPower:Start(self:IsClassic() and 25 or 35, args.destName)
 		end
 		if self.Options.SetIconOnOverwhelmingPower then
 			self:SetIcon(args.destName, 8)

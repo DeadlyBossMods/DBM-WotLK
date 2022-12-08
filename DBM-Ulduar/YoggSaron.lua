@@ -17,6 +17,9 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_REMOVED_DOSE 63050"
 )
 
+--TODO, add Dominate Mind casts by guardians to classic wrath
+--TODO, add drain life timer to wrath classic
+--The cast frequency of Drain Life cast by Immortal Guardians and Marked Immortal guardians has been reduced from 20-30 seconds to 10 seconds
 local warnMadness 					= mod:NewCastAnnounce(64059, 2)
 local warnSqueeze					= mod:NewTargetNoFilterAnnounce(64125, 3)
 local warnFervor					= mod:NewTargetAnnounce(63138, 4)

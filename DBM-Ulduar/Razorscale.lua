@@ -64,7 +64,7 @@ function mod:FlameTarget(targetname, uId)
 end
 
 function mod:OnCombatStart(delay)
-	enrageTimer:Start(-delay)
+	enrageTimer:Start(self:IsClassic() and 600 or 900-delay)
 	combattime = GetTime()
 	if self:IsClassic() and self:IsDifficulty("normal10") then
 		warnTurretsReadySoon:Schedule(53-delay)

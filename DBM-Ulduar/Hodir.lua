@@ -33,7 +33,7 @@ local timerAchieve
 if WOW_PROJECT_ID == (WOW_PROJECT_MAINLINE or 1) then
 	timerAchieve = mod:NewAchievementTimer(179, 12347)
 else
-	timerAchieve = mod:NewAchievementTimer(179, 3182)
+	timerAchieve = mod:NewAchievementTimer(120, 3182)
 end
 
 mod:AddSetIconOption("SetIconOnStormCloud", 65123, true, false, {8, 7})

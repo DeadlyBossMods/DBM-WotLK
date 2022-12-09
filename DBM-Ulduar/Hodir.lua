@@ -5,7 +5,7 @@ mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(32845,32926)
 mod:SetEncounterID(1135)
 mod:SetModelID(28743)
-mod:SetUsedIcons(7, 8)
+mod:SetUsedIcons(1, 2)
 
 mod:RegisterCombat("combat_yell", L.Pull)
 mod:RegisterKill("yell", L.YellKill)
@@ -23,7 +23,7 @@ local warnStormCloud		= mod:NewTargetNoFilterAnnounce(65123)
 local warnFlashFreeze		= mod:NewSpecialWarningSpell(61968, nil, nil, nil, 3, 2)
 local specWarnStormCloud	= mod:NewSpecialWarningYou(65123, nil, nil, nil, 1, 2)
 local yellStormCloud		= mod:NewYell(65123)
-local specWarnBitingCold	= mod:NewSpecialWarningMove(62188, nil, nil, nil, 1, 2)
+local specWarnBitingCold	= mod:NewSpecialWarningKeepMove(62188, nil, nil, nil, 1, 2)
 
 local enrageTimer			= mod:NewBerserkTimer(475)
 local timerFlashFreeze		= mod:NewCastTimer(9, 61968, nil, nil, nil, 2)
@@ -36,15 +36,15 @@ else
 	timerAchieve = mod:NewAchievementTimer(120, 3182)
 end
 
-mod:AddSetIconOption("SetIconOnStormCloud", 65123, true, false, {8, 7})
+mod:AddSetIconOption("SetIconOnStormCloud", 65123, true, false, {1, 2})
 
-mod.vb.stormCloudIcon = 8
+mod.vb.stormCloudIcon = 1
 
 function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
 	timerAchieve:Start()
 	timerFlashFrCD:Start(-delay)
-	self.vb.stormCloudIcon = 8
+	self.vb.stormCloudIcon = 1
 end
 
 function mod:SPELL_CAST_START(args)
@@ -70,10 +70,10 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.SetIconOnStormCloud then
 			self:SetIcon(args.destName, self.vb.stormCloudIcon)
 		end
-		if self.vb.stormCloudIcon == 8 then	-- There is a chance 2 ppl will have the buff on 25 player, so we are alternating between 2 icons
-			self.vb.stormCloudIcon = 7
+		if self.vb.stormCloudIcon == 1 then	-- There is a chance 2 ppl will have the buff on 25 player, so we are alternating between 2 icons
+			self.vb.stormCloudIcon = 2
 		else
-			self.vb.stormCloudIcon = 8
+			self.vb.stormCloudIcon = 1
 		end
 	end
 end

@@ -18,7 +18,7 @@ mod:RegisterEventsInCombat(
 )
 
 --TODO, log, detect, and cancel hardmode timer when any vapors get broken
-local warnShadowCrash			= mod:NewTargetAnnounce(62660, 4)
+local warnShadowCrash			= mod:NewTargetNoFilterAnnounce(62660, 4)
 local warnLeechLife				= mod:NewTargetNoFilterAnnounce(63276, 3)
 local warnSaroniteVapor			= mod:NewCountAnnounce(63337, 2)
 
@@ -62,14 +62,9 @@ function mod:ShadowCrashTarget(targetname, uId)
 		specWarnShadowCrash:Show()
 		specWarnShadowCrash:Play("runaway")
 		yellShadowCrash:Yell()
-	elseif targetname then
-		if uId then
-			local inRange = CheckInteractDistance(uId, 2)
-			if inRange then
-				specWarnShadowCrashNear:Show(targetname)
-				specWarnShadowCrashNear:Play("runaway")
-			end
-		end
+	elseif self:CheckNearby(10, targetname) then
+		specWarnShadowCrashNear:Show(targetname)
+		specWarnShadowCrashNear:Play("runaway")
 	else
 		warnShadowCrash:Show(targetname)
 	end
@@ -135,17 +130,11 @@ function mod:SPELL_CAST_SUCCESS(args)
 			specWarnLifeLeechYou:Show()
 			specWarnLifeLeechYou:Play("runout")
 			yellLifeLeech:Yell()
+		elseif self:CheckNearby(13, args.destName) then--Can't use 15, only 13 or 18
+			specWarnLifeLeechNear:Show(args.destName)
+			specWarnLifeLeechNear:Play("runaway")
 		else
-			local uId = DBM:GetRaidUnitId(args.destName)
-			if uId then
-				local inRange = CheckInteractDistance(uId, 2)
-				if inRange then
-					specWarnLifeLeechNear:Show(args.destName)
-					specWarnLifeLeechNear:Play("runaway")
-				else
-					warnLeechLife:Show(args.destName)
-				end
-			end
+			warnLeechLife:Show(args.destName)
 		end
 	elseif args.spellId == 63364 then
 		specWarnAnimus:Show()

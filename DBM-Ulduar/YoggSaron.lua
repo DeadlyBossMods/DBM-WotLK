@@ -227,7 +227,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			self.vb.beaconIcon = 8
 		end
 		if self.Options.NPAuraOnBeacon then
-			DBM.Nameplate:Show(true, args.destGUID, spellId, nil, 10)
+			DBM.Nameplate:Show(true, args.destGUID, args.spellId, nil, 10)
 		end
 	end
 end
@@ -248,7 +248,7 @@ function mod:SPELL_AURA_REMOVED(args)
 			self:ScanForMobs(args.destGUID, 2, 0, 1, nil, 12, "SetIconOnBeacon", true)
 		end
 		if self.Options.NPAuraOnBeacon then
-			DBM.Nameplate:Hide(true, args.destGUID, spellId)
+			DBM.Nameplate:Hide(true, args.destGUID, args.spellId)
 		end
 	end
 end

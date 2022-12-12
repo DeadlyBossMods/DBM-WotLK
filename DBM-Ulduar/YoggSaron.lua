@@ -66,6 +66,7 @@ mod:AddSetIconOption("SetIconOnFervorTarget", 63802, false, false, {7})
 mod:AddSetIconOption("SetIconOnBrainLinkTarget", 63802, true, false, {1, 2})
 mod:AddSetIconOption("SetIconOnBeacon", 64465, true, true, {1, 2, 3, 4, 5, 6, 7, 8})
 mod:AddInfoFrameOption(63050)
+mod:AddNamePlateOption("NPAuraOnBeacon", 64465, true)
 
 local brainLinkTargets = {}
 local SanityBuff = DBM:GetSpellInfo(63050)
@@ -87,11 +88,17 @@ function mod:OnCombatStart(delay)
 		DBM.InfoFrame:SetHeader(SanityBuff)
 		DBM.InfoFrame:Show(30, "playerdebuffstacks", 63050, 2)--Sorted lowest first (highest first is default of arg not given)
 	end
+	if self.Options.NPAuraOnBeacon then
+		DBM:FireEvent("BossMod_EnableHostileNameplates")
+	end
 end
 
 function mod:OnCombatEnd()
 	if self.Options.InfoFrame then
 		DBM.InfoFrame:Hide()
+	end
+	if self.Options.NPAuraOnBeacon then
+		DBM.Nameplate:Hide(true, nil, nil, nil, true, true)
 	end
 end
 
@@ -213,11 +220,14 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerLunaricGaze:Start()
 	elseif args.spellId == 64465 then
 		if self.Options.SetIconOnBeacon then
-			self:ScanForMobs(args.destGUID, 2, self.vb.beaconIcon, 1, nil, 10, "SetIconOnBeacon")
+			self:ScanForMobs(args.destGUID, 2, self.vb.beaconIcon, 1, nil, 12, "SetIconOnBeacon", true)
 		end
 		self.vb.beaconIcon = self.vb.beaconIcon - 1
 		if self.vb.beaconIcon == 0 then
 			self.vb.beaconIcon = 8
+		end
+		if self.Options.NPAuraOnBeacon then
+			DBM.Nameplate:Show(true, args.destGUID, spellId, nil, 10)
 		end
 	end
 end
@@ -235,7 +245,10 @@ function mod:SPELL_AURA_REMOVED(args)
 		self:SetIcon(args.destName, 0)
 	elseif args.spellId == 64465 then
 		if self.Options.SetIconOnBeacon then
-			self:ScanForMobs(args.destGUID, 2, 0, 1, nil, 12, "SetIconOnBeacon")
+			self:ScanForMobs(args.destGUID, 2, 0, 1, nil, 12, "SetIconOnBeacon", true)
+		end
+		if self.Options.NPAuraOnBeacon then
+			DBM.Nameplate:Hide(true, args.destGUID, spellId)
 		end
 	end
 end

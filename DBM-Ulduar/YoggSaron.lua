@@ -10,9 +10,9 @@ mod:SetUsedIcons(8, 7, 6, 2, 1)
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 64059 64189 63138",
-	"SPELL_CAST_SUCCESS 64144 64465",
+	"SPELL_CAST_SUCCESS 64144 64465 64167 64163",
 	"SPELL_SUMMON 62979",
-	"SPELL_AURA_APPLIED 63802 63830 63881 64126 64125 63138 63894 64167 64163 64465",
+	"SPELL_AURA_APPLIED 63802 63830 63881 64126 64125 63138 63894 64465",
 	"SPELL_AURA_REMOVED 63802 63894 64167 64163 63830 63138 63881 64465",
 	"SPELL_AURA_REMOVED_DOSE 63050"
 )
@@ -147,8 +147,13 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnEmpowerSoon:Schedule(40)
 	elseif args:IsSpellID(64167, 64163) and self:AntiSpam(3, 3) then	-- Lunatic Gaze
 		timerLunaricGaze:Start()
-		brainportal:Start(60)
-		warnBrainPortalSoon:Schedule(55)
+		if self:IsClassic() then
+			brainportal:Start(90)
+			warnBrainPortalSoon:Schedule(85)
+		else
+			brainportal:Start(60)
+			warnBrainPortalSoon:Schedule(55)
+		end
 	end
 end
 
@@ -213,11 +218,14 @@ function mod:SPELL_AURA_APPLIED(args)
 		self:SetStage(2)
 		--timerMaladyCD:Start(13)--VERIFY ME
 		--timerBrainLinkCD:Start(19)--VERIFY ME
-		brainportal:Start(25)
-		warnBrainPortalSoon:Schedule(20)
+		if self:IsClassic() then
+			brainportal:Start(60)
+			warnBrainPortalSoon:Schedule(55)
+		else
+			brainportal:Start(25)
+			warnBrainPortalSoon:Schedule(20)
+		end
 		warnP2:Show()
-	elseif args:IsSpellID(64167, 64163) then	-- Lunatic Gaze (reduces sanity)
-		timerLunaricGaze:Start()
 	elseif args.spellId == 64465 then
 		if self.Options.SetIconOnBeacon then
 			self:ScanForMobs(args.destGUID, 2, self.vb.beaconIcon, 1, nil, 12, "SetIconOnBeacon", true)

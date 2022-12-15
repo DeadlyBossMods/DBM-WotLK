@@ -101,7 +101,7 @@ end
 function mod:SPELL_CAST_SUCCESS(args)
 	if args:IsSpellID(63490, 62269) then		-- Rune of Death
 		warnRuneofDeath:Show()
-		timerRuneofDeath:Start(self:IsClassic() and 32 or 47)
+		timerRuneofDeath:Start(self:IsClassic() and 30 or 47)
 	elseif args:IsSpellID(64321, 61974) then	-- Rune of Power
 		self:BossTargetScanner(32927, "RuneTarget", 0.1, 16, true, true)--Scan only boss unitIDs, scan only hostile targets
 		timerRuneofPower:Start()

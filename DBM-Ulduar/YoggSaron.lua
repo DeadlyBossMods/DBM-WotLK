@@ -279,10 +279,10 @@ function mod:OnSync(msg)
 		--timerMaladyCD:Cancel()
 		--timerBrainLinkCD:Cancel()
 		timerEmpower:Start()
-		if self.vb.numberOfPlayers == 1 then
+--		if self.vb.numberOfPlayers == 1 then
 			timerMadness:Cancel()
 			specWarnMadnessOutNow:Cancel()
-		end
+--		end
 		warnP3:Show()
 		warnEmpowerSoon:Schedule(40)
 		timerNextDeafeningRoar:Start(30)

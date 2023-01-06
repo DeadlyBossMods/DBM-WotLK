@@ -109,7 +109,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnLightningCharge:Show()
 		timerLightningCharge:Start()
 	elseif args.spellId == 62130 then
-		timerUnbalancingStrike:Start(self:IsClassic() and 20 or 25)
+		timerUnbalancingStrike:Start(self:IsClassic() and 15 or 25)
 	end
 end
 

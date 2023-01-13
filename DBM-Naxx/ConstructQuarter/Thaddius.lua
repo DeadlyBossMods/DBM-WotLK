@@ -34,6 +34,7 @@ end
 mod:AddDropdownOption("AirowEnabled", {"Never", "TwoCamp", "ArrowsRightLeft", "ArrowsInverse"}, "Never", "misc", nil, 28089)
 
 local currentCharge
+local raidCharges = {}
 local down = 0
 
 local function TankThrow(self)
@@ -48,17 +49,38 @@ end
 function mod:OnCombatStart(delay)
 	self:SetStage(1)
 	currentCharge = nil
+	raidCharges = {}
 	down = 0
 	self:Schedule(20.6 - delay, TankThrow, self)
 	timerThrow:Start(-delay)
 	warnThrowSoon:Schedule(17.6 - delay)
 end
 
+function mod:OnCombatEnd()
+	if self.Options.RangeFrame then
+		DBM.RangeCheck:Hide()
+	end
+end
+
 do
+	local function DebuffFilter(uId)
+		local name = UnitName(uId)
+		return name and raidCharges[name] ~= currentCharge
+	end
+
+	local enableOneTime = false
+	local function EnableRangeFrame(self)
+		if enableOneTime then return end
+		enableOneTime = true
+		if not self.Options.RangeFrame then return end
+		DBM.RangeCheck:Show(13, DebuffFilter) -- Only show players affected with opposite charge
+	end
+
 	local lastShift
 	function mod:SPELL_CAST_START(args)
 		if args.spellId == 28089 then
 			self:SetStage(2)
+			EnableRangeFrame(self)
 			timerNextShift:Start()
 			timerShiftCast:Start()
 			warnShiftCasting:Show()
@@ -67,24 +89,28 @@ do
 		end
 	end
 
-	--SHIT SHOW, FIXME
-	function mod:UNIT_AURA()
-		if self.vb.phase ~= 2 or not lastShift or (GetTime() - lastShift) < 3 then return end
-		local charge
+	local function GetCharge(unit)
 		local i = 1
-		while UnitDebuff("player", i) do
-			local _, icon, count, _, _, _, _, _, _, _, _, _, _, _, _, count2 = UnitDebuff("player", i)
-			if icon == "Interface\\Icons\\Spell_ChargeNegative" or icon == 135768 then--Not sure if classic will return data ID or path, so include both
+		while UnitDebuff(unit, i) do
+			local _, icon, count, _, _, _, _, _, _, _, _, _, _, _, _, count2 = UnitDebuff(unit, i)
+			if icon == 135768 or icon == "Interface\\Icons\\Spell_ChargeNegative" then--Not sure if classic will return data ID or path, so include both
 				if (count2 or count) > 1 then return end--Incorrect aura, it's stacking damage one
-				charge = L.Charge1
-				yellShift:Yell(7, "- -")
-			elseif icon == "Interface\\Icons\\Spell_ChargePositive" or icon == 135769 then--Not sure if classic will return data ID or path, so include both
+				return L.Charge1
+			elseif icon == 135769 or icon == "Interface\\Icons\\Spell_ChargePositive" then--Not sure if classic will return data ID or path, so include both
 				if (count2 or count) > 1 then return end--Incorrect aura, it's stacking damage one
-				charge = L.Charge2
-				yellShift:Yell(6, "+ +")
+				return L.Charge2
 			end
 			i = i + 1
 		end
+	end
+
+	local function HandlePlayerCharge(self, charge)
+		if charge == L.Charge1 then
+			yellShift:Yell(7, "- -")
+		elseif charge == L.Charge2 then
+			yellShift:Yell(6, "+ +")
+		end
+
 		if charge then
 			lastShift = nil
 			if charge == currentCharge then
@@ -108,6 +134,23 @@ do
 			end
 			currentCharge = charge
 		end
+	end
+
+	local function HandleRaidCharges(self)
+		for uId in DBM:GetGroupMembers() do
+			local name = UnitName(uId)
+			if name then
+				raidCharges[name] = GetCharge(uId)
+				if UnitIsUnit("player", uId) then
+					HandlePlayerCharge(self, raidCharges[name]) -- depends on the raid charges
+				end
+			end
+		end
+	end
+
+	function mod:UNIT_AURA()
+		if self.vb.phase ~= 2 or not lastShift or (GetTime() - lastShift) < 3 then return end
+		HandleRaidCharges(self)
 	end
 end
 

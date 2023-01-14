@@ -267,7 +267,7 @@ function mod:OnSync(event, args)
 		timerNextShockblast:Stop()
 		timerProximityMines:Stop()
 		timerFlameSuppressant:Stop()
-		timerNextFlameSuppressant:Stop()
+		--timerNextFlameSuppressant:Stop()
 		timerPlasmaBlastCD:Stop()
 		timerP1toP2:Start(41.5)--Old data from ages ago, needs rechecking
 		if self.Options.RangeFrame then
@@ -279,9 +279,10 @@ function mod:OnSync(event, args)
 			timerNextFrostBomb:Start(42)--Old data from ages ago, needs rechecking
 		end
 	elseif event == "Phase3" and self.vb.phase == 2 then
-		timerDarkGlareCast:Cancel()
-		timerNextDarkGlare:Cancel()
-		timerNextFrostBomb:Cancel()
+		timerP3Wx2LaserBarrageCast:Stop()
+		timerNextP3Wx2LaserBarrage:Stop()
+		timerNextFrostBomb:Stop()
+		timerRocketStrikeCD:Stop()
 		timerP2toP3:Start(25)
 	elseif event == "Phase4" and self.vb.phase == 3 then
 		--All these timers might be wrong because they are mashed between retail and legacy using math guesses

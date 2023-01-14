@@ -7,6 +7,8 @@ mod:SetEncounterID(1138)
 mod:DisableESCombatDetection()
 mod:SetModelID(28578)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
+mod:SetHotfixNoticeRev(20230113000000)
+mod:SetMinSyncRevision(20230113000000)
 
 mod:RegisterCombat("combat_yell", L.YellPull)
 
@@ -21,7 +23,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_REMOVED 64529 62997",
 	"SPELL_SUMMON 63811",
 	"UNIT_SPELLCAST_CHANNEL_STOP",
-	"UNIT_SPELLCAST_SUCCEEDED",
+	"UNIT_SPELLCAST_SUCCEEDED",--BOSS ids still left out because classic is still using it for rocket strike
 	"CHAT_MSG_LOOT"
 )
 
@@ -45,9 +47,9 @@ local timerProximityMines			= mod:NewCDTimer(30.2, 63027, nil, nil, nil, 3)
 local timerShockBlast				= mod:NewCastTimer(4, 63631, nil, nil, nil, 2)
 local timerShockBlastCD				= mod:NewCDTimer(35, 63631, nil, nil, nil, 2)
 local timerRocketStrikeCD			= mod:NewCDTimer(20, 64402, nil, nil, nil, 3)--20-25
-local timerSpinUp					= mod:NewCastTimer(4, 63414, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
-local timerP3Wx2LaserBarrageCast	= mod:NewCastTimer(10, 63274, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
-local timerNextP3Wx2LaserBarrage	= mod:NewNextTimer(48, 63414, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
+local timerSpinUp					= mod:NewCastTimer(4, 63414, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--precast
+local timerP3Wx2LaserBarrageCast	= mod:NewCastTimer(10, 63274, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--channel
+local timerNextP3Wx2LaserBarrage	= mod:NewNextTimer(48, 63414, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--next cast
 local timerNextShockblast			= mod:NewNextTimer(34, 63631, nil, nil, nil, 2)
 local timerPlasmaBlastCD			= mod:NewCDTimer(30, 64529, nil, "Tank", 2, 5)
 local timerShell					= mod:NewBuffActiveTimer(6, 63666, nil, "Healer", 2, 5, nil, DBM_COMMON_L.HEALER_ICON)
@@ -95,6 +97,7 @@ function mod:OnCombatStart(delay)
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(6)
 	end
+	DBM:AddMsg("All the staging on this mod had to be rolled back to legacy code that's less reliable, most stage change timers will be incorret or missing for a while until code is downgraded or until blizzard enables boss frames")
 end
 
 function mod:OnCombatEnd()
@@ -183,11 +186,10 @@ function mod:UNIT_SPELLCAST_CHANNEL_STOP(unit, _, spellId)
 	end
 end
 
-function mod:CHAT_MSG_LOOT(msg)
-	local player, itemID = msg:match(L.LootMsg)
-	if player and itemID and tonumber(itemID) == 46029 and self:IsInCombat() then
-		player = DBM:GetUnitFullName(player)
-		self:SendSync("LootMsg", player)
+function mod:CHAT_MSG_LOOT(msg, _, _, _, player)
+	if msg:find("Hitem:46029") and player then
+		player = DBM:GetUnitFullName(player) or player
+		lootannounce:Show(player)
 	end
 end
 
@@ -197,11 +199,23 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		--timerNextFlameSuppressant:Start()
 		enrage:Stop()
 		self.vb.hardmode = true
+	elseif self:IsClassic() then--Legacy code
+		if (msg == L.YellPhase2 or msg:find(L.YellPhase2)) then
+ 			self:SendSync("Phase2")
+ 		elseif (msg == L.YellPhase3 or msg:find(L.YellPhase3)) then
+ 			self:SendSync("Phase3")
+ 		elseif (msg == L.YellPhase4 or msg:find(L.YellPhase4)) then
+ 			self:SendSync("Phase4")
+ 		end
 	end
 end
 
+--Classic can't use this for phase changes because boss isn't an active unit ID on stage changes without boss frames
+--Classic can use it for rocket strike since that's cast while boss is actually active
+--Filter exists in case boss unit Ids do get added at some point, wouldn't want double stage changes and would need time to review it before removing yells again
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
-	if spellId == 34098 and self:AntiSpam(5, 1) then--ClearAllDebuffs
+	--Modern phasing path, where boss unit Ids exist.
+	if spellId == 34098 and self:AntiSpam(5, 1) and not self:IsClassic() then--ClearAllDebuffs
 		self:SetStage(0)
 		if self.vb.phase == 2 then
 			timerNextShockblast:Stop()
@@ -225,7 +239,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 			timerRocketStrikeCD:Stop()
 			timerP2toP3:Start()
 		elseif self.vb.phase == 4 then
-			timerP3toP4:Start()
+			timerP3toP4:Start()--29
 			if self.vb.hardmode then
 				timerNextFrostBomb:Start(32)
 			end
@@ -233,7 +247,6 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 			timerNextP3Wx2LaserBarrage:Start(59.8)
 			timerNextShockblast:Start(81)
 		end
-		self:SendSync("StageChange")
 	elseif (spellId == 64402 or spellId == 65034) and self:AntiSpam(5, 2) then--P2, P4 Rocket Strike
 		warnRocketStrike:Show()
 		warnRocketStrike:Play("watchstep")
@@ -250,43 +263,38 @@ function mod:OnSync(event, args)
 		timerP3Wx2LaserBarrageCast:Cancel()
 		timerNextP3Wx2LaserBarrage:Cancel()
 		warnP3Wx2LaserBarrage:Cancel()
-	elseif event == "StageChange" and self:AntiSpam(5, 1) then
-		self:SetStage(0)
-		if self.vb.phase == 2 then
-			timerNextShockblast:Stop()
-			timerProximityMines:Stop()
-			timerFlameSuppressant:Stop()
-			--timerNextFlameSuppressant:Stop()
-			timerPlasmaBlastCD:Stop()
-			timerP1toP2:Start()
-			if self.Options.RangeFrame then
-				DBM.RangeCheck:Hide()
-			end
-			timerRocketStrikeCD:Start(63)
-			timerNextP3Wx2LaserBarrage:Start(78)
-			if self.vb.hardmode then
-				timerNextFrostBomb:Start(94)
-			end
-		elseif self.vb.phase == 3 then
-			timerP3Wx2LaserBarrageCast:Stop()
-			timerNextP3Wx2LaserBarrage:Stop()
-			timerNextFrostBomb:Stop()
-			timerRocketStrikeCD:Stop()
-			timerP2toP3:Start()
-		elseif self.vb.phase == 4 then
-			timerP3toP4:Start()
-			if self.vb.hardmode then
-				timerNextFrostBomb:Start(32)
-			end
-			timerRocketStrikeCD:Start(50)
-			timerNextP3Wx2LaserBarrage:Start(59.8)
-			timerNextShockblast:Start(81)
+	elseif event == "Phase2" and self.vb.phase == 1 then -- alternate localized-dependent detection
+		timerNextShockblast:Stop()
+		timerProximityMines:Stop()
+		timerFlameSuppressant:Stop()
+		timerNextFlameSuppressant:Stop()
+		timerPlasmaBlastCD:Stop()
+		timerP1toP2:Start(41.5)--Old data from ages ago, needs rechecking
+		if self.Options.RangeFrame then
+			DBM.RangeCheck:Hide()
 		end
+		timerRocketStrikeCD:Start(11)--Guessed by math
+		timerNextP3Wx2LaserBarrage:Start(26)--Guessed by math
+		if self.vb.hardmode then
+			timerNextFrostBomb:Start(42)--Old data from ages ago, needs rechecking
+		end
+ 	elseif event == "Phase3" and self.vb.phase == 2 then
+		timerDarkGlareCast:Cancel()
+		timerNextDarkGlare:Cancel()
+		timerNextFrostBomb:Cancel()
+		timerP2toP3:Start(25)
+ 	elseif event == "Phase4" and self.vb.phase == 3 then
+ 		--All these timers might be wrong because they are mashed between retail and legacy using math guesses
+		timerP3toP4:Start(26.5)
+--		if self.vb.hardmode then
+--			timerNextFrostBomb:Start(28.5)
+--		end
+--		timerRocketStrikeCD:Start(46.5)
+--		timerNextP3Wx2LaserBarrage:Start(56.3)
+--		timerNextShockblast:Start(77.5)
 	elseif event == "RocketStrike" and self:AntiSpam(5, 2) then
 		warnRocketStrike:Show()
 		warnRocketStrike:Play("watchstep")
 		timerRocketStrikeCD:Start()
-	elseif event == "LootMsg" and args and self:AntiSpam(2, 3) then
-		lootannounce:Show(args)
 	end
 end

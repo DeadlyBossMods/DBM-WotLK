@@ -1,7 +1,9 @@
 local mod	= DBM:NewMod("Algalon", "DBM-Ulduar")
 local L		= mod:GetLocalizedStrings()
 
-mod.statTypes = "normal"
+if not mod:IsClassic() then--on classic, it's normal10,normal25, defined in toc, only retail overrides to remove timewalking
+	mod.statTypes = "normal"
+end
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(32871)

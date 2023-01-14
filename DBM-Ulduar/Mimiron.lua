@@ -97,7 +97,9 @@ function mod:OnCombatStart(delay)
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(6)
 	end
-	DBM:AddMsg("All the staging on this mod had to be rolled back to legacy code that's less reliable, most stage change timers will be incorret or missing for a while until code is downgraded or until blizzard enables boss frames")
+	if self:IsClassic() then
+		DBM:AddMsg("All the staging on this mod had to be rolled back to legacy code that's less reliable, most stage change timers will be incorret or missing for a while until code is downgraded or until blizzard enables boss frames")
+	end
 end
 
 function mod:OnCombatEnd()

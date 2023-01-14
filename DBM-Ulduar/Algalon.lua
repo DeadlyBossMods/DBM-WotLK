@@ -61,6 +61,9 @@ function mod:OnCombatStart(delay)
 	self.vb.warned_preP2 = false
 	table.wipe(sentLowHP)
 	table.wipe(warnedLowHP)
+	if self:IsClassic() then
+		DBM:AddMsg("Initial timers may be wrong or missing if DBMs newer more modern code is not compatible with classics legacy code, until this mod can be re-reviewed")
+	end
 --	if self.Options.InfoFrame and not self:IsTrivial() then
 --		DBM.InfoFrame:SetHeader(L.HealthInfo)
 --		DBM.InfoFrame:Show(5, "health", 18000)

@@ -201,12 +201,12 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		self.vb.hardmode = true
 	elseif self:IsClassic() then--Legacy code
 		if (msg == L.YellPhase2 or msg:find(L.YellPhase2)) then
- 			self:SendSync("Phase2")
- 		elseif (msg == L.YellPhase3 or msg:find(L.YellPhase3)) then
- 			self:SendSync("Phase3")
- 		elseif (msg == L.YellPhase4 or msg:find(L.YellPhase4)) then
- 			self:SendSync("Phase4")
- 		end
+			self:SendSync("Phase2")
+		elseif (msg == L.YellPhase3 or msg:find(L.YellPhase3)) then
+			self:SendSync("Phase3")
+		elseif (msg == L.YellPhase4 or msg:find(L.YellPhase4)) then
+			self:SendSync("Phase4")
+		end
 	end
 end
 
@@ -278,13 +278,13 @@ function mod:OnSync(event, args)
 		if self.vb.hardmode then
 			timerNextFrostBomb:Start(42)--Old data from ages ago, needs rechecking
 		end
- 	elseif event == "Phase3" and self.vb.phase == 2 then
+	elseif event == "Phase3" and self.vb.phase == 2 then
 		timerDarkGlareCast:Cancel()
 		timerNextDarkGlare:Cancel()
 		timerNextFrostBomb:Cancel()
 		timerP2toP3:Start(25)
- 	elseif event == "Phase4" and self.vb.phase == 3 then
- 		--All these timers might be wrong because they are mashed between retail and legacy using math guesses
+	elseif event == "Phase4" and self.vb.phase == 3 then
+		--All these timers might be wrong because they are mashed between retail and legacy using math guesses
 		timerP3toP4:Start(26.5)
 --		if self.vb.hardmode then
 --			timerNextFrostBomb:Start(28.5)

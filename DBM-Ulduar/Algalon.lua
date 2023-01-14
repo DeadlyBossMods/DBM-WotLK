@@ -129,7 +129,7 @@ function mod:RAID_BOSS_EMOTE(msg)
 end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg)
-	if (msg == L.Phase2 or msg:find(L.Phase2)) and self:AntiSpam(5, 2) then
+	if (msg == L.Phase2 or msg:find(L.Phase2)) then
 		self:SendSync("Phase2")
 	end
 end
@@ -147,18 +147,9 @@ function mod:UNIT_HEALTH(uId)
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
-	if spellId == 65311 and self:AntiSpam(5, 1) then--Supermassive Fail (fires when he becomes actually active)
-		timerNextCollapsingStar:Start(16)
-		timerCDCosmicSmash:Start(26)
-		announcePreBigBang:Schedule(85)
-		timerNextBigBang:Start(90)
-		enrageTimer:Start(360)
+	if spellId == 65311 then--Supermassive Fail (fires when he becomes actually active)
 		self:SendSync("Supermassive")
-	elseif spellId == 65256 and self:AntiSpam(5, 2) then--Self Stun (phase 2)
-		self:SetStage(2)
-		self.vb.warned_preP2 = true
-		timerNextCollapsingStar:Stop()
-		warnPhase2:Show()
+	elseif spellId == 65256 then--Self Stun (phase 2)
 		self:SendSync("Phase2")
 	end
 end
@@ -171,7 +162,7 @@ function mod:OnSync(msg, guid)
 			specwarnStarLow:Show()
 			specwarnStarLow:Play("aesoon")
 		end
-	elseif msg == "Supermassive" and self:AntiSpam(5, 1) then
+	elseif msg == "Supermassive" then
 		timerNextCollapsingStar:Start(16)
 		timerCDCosmicSmash:Start(26)
 		announcePreBigBang:Schedule(85)

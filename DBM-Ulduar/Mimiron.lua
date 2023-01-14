@@ -249,10 +249,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 			timerNextP3Wx2LaserBarrage:Start(59.8)
 			timerNextShockblast:Start(81)
 		end
-	elseif (spellId == 64402 or spellId == 65034) and self:AntiSpam(5, 2) then--P2, P4 Rocket Strike
-		warnRocketStrike:Show()
-		warnRocketStrike:Play("watchstep")
-		timerRocketStrikeCD:Start()
+	elseif (spellId == 64402 or spellId == 65034) then--P2, P4 Rocket Strike
 		self:SendSync("RocketStrike")
 	end
 end
@@ -295,7 +292,7 @@ function mod:OnSync(event, args)
 --		timerRocketStrikeCD:Start(46.5)
 --		timerNextP3Wx2LaserBarrage:Start(56.3)
 --		timerNextShockblast:Start(77.5)
-	elseif event == "RocketStrike" and self:AntiSpam(5, 2) then
+	elseif event == "RocketStrike" then
 		warnRocketStrike:Show()
 		warnRocketStrike:Play("watchstep")
 		timerRocketStrikeCD:Start()

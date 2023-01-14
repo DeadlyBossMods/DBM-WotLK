@@ -272,7 +272,7 @@ function mod:SPELL_AURA_REMOVED_DOSE(args)
 end
 
 function mod:OnSync(msg)
-	if msg == "Phase3" then
+	if msg == "Phase3" and self.vb.phase < 3 then
 		self:SetStage(3)
 		brainportal:Cancel()
 		warnBrainPortalSoon:Cancel()

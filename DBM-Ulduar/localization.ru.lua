@@ -214,6 +214,14 @@ L:SetGeneralLocalization{
 	name = "Ходир"
 }
 
+L:SetTimerLocalization{
+	TimerHardmode	= "Разрушение тайника"
+}
+
+L:SetOptionLocalization{
+	TimerHardmode	= "Показывать таймер для сложного режима"
+}
+
 L:SetMiscLocalization{
 	Pull		= "Вы будете наказаны за это вторжение!",
 	YellKill	= "Наконец-то я... свободен от его оков..."

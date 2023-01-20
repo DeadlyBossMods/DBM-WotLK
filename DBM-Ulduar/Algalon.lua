@@ -64,7 +64,8 @@ local enrageTimer				= mod:NewBerserkTimer(360)
 local sentLowHP = {}
 local warnedLowHP = {}
 mod.vb.warned_preP2 = false
-mod.vb.firstPull = true
+mod.vb.firstPull10 = true
+mod.vb.firstPull25 = true
 
 function mod:OnCombatStart(delay)
 	self:SetStage(1)
@@ -72,21 +73,40 @@ function mod:OnCombatStart(delay)
 	table.wipe(sentLowHP)
 	table.wipe(warnedLowHP)
 	if self:IsClassic() then
-		if self.vb.firstPull then--First pull, ENCOUNTER_START fires at end of extended first pull RP
-			self.vb.firstPull = false
-			timerNextCollapsingStar:Start(16)
-			timerCDCosmicSmash:Start(25.9)
-			announcePreBigBang:Schedule(85)
-			timerNextBigBang:Start(90)
-			enrageTimer:Start(360)
-			DBM:AddMsg("First Pull, using non adjusted timers with +0. Report if this doesn't work correctly")
-		else--Not first pull, ENCOUNTER_START fires at start of 8 second rp
-			timerNextCollapsingStar:Start(24)
-			timerCDCosmicSmash:Start(33.9)
-			announcePreBigBang:Schedule(93)
-			timerNextBigBang:Start(98)
-			enrageTimer:Start(368)
-			DBM:AddMsg("Not first Pull, using  adjusted timers with +8. Report if this doesn't work correctly")
+		if self:IsDifficulty("normal10") then
+			if self.vb.firstPull10 then--First pull, ENCOUNTER_START fires at end of extended first pull RP
+				self.vb.firstPull10 = false
+				timerNextCollapsingStar:Start(16)
+				timerCDCosmicSmash:Start(25.9)
+				announcePreBigBang:Schedule(85)
+				timerNextBigBang:Start(90)
+				enrageTimer:Start(360)
+				DBM:AddMsg("First Pull, using non adjusted timers with +0. Report if this doesn't work correctly")
+			else--Not first pull, ENCOUNTER_START fires at start of 8 second rp
+				timerNextCollapsingStar:Start(24)
+				timerCDCosmicSmash:Start(33.9)
+				announcePreBigBang:Schedule(93)
+				timerNextBigBang:Start(98)
+				enrageTimer:Start(368)
+				DBM:AddMsg("Not first Pull, using  adjusted timers with +8. Report if this doesn't work correctly")
+			end
+		else
+			if self.vb.firstPull25 then--First pull, ENCOUNTER_START fires at end of extended first pull RP
+				self.vb.firstPull25 = false
+				timerNextCollapsingStar:Start(16)
+				timerCDCosmicSmash:Start(25.9)
+				announcePreBigBang:Schedule(85)
+				timerNextBigBang:Start(90)
+				enrageTimer:Start(360)
+				DBM:AddMsg("First Pull, using non adjusted timers with +0. Report if this doesn't work correctly")
+			else--Not first pull, ENCOUNTER_START fires at start of 8 second rp
+				timerNextCollapsingStar:Start(24)
+				timerCDCosmicSmash:Start(33.9)
+				announcePreBigBang:Schedule(93)
+				timerNextBigBang:Start(98)
+				enrageTimer:Start(368)
+				DBM:AddMsg("Not first Pull, using  adjusted timers with +8. Report if this doesn't work correctly")
+			end
 		end
 	end
 --	if self.Options.InfoFrame and not self:IsTrivial() then

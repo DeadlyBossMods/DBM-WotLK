@@ -32,6 +32,11 @@ mod:RegisterEventsInCombat(
 
 --TODO, when wrath servers come out, FirstPull might be needed again, if boss unit Ids aren't enabled on WoTLK servers
 --TODO, see if supermassive fail fires late enough to be picked up without boss unitIds, if not, have to rework initial timers again for classic
+--[[
+(ability.id = 64584 or ability.id = 64443) and type = "begincast"
+ or (ability.id = 65108 or ability.id = 64122 or ability.id = 64598 or ability.id = 62301 or ability.id = 64412) and type = "cast"
+ or (source.type = "NPC" and source.firstSeen = timestamp) or (target.type = "NPC" and target.firstSeen = timestamp)
+--]]
 local warnPhase2				= mod:NewPhaseAnnounce(2, 2)
 local warnPhase2Soon			= mod:NewAnnounce("WarnPhase2Soon", 2)
 local announcePreBigBang		= mod:NewPreWarnAnnounce(64584, 5, 3)
@@ -63,12 +68,13 @@ function mod:OnCombatStart(delay)
 	self.vb.warned_preP2 = false
 	table.wipe(sentLowHP)
 	table.wipe(warnedLowHP)
-	if self:IsClassic() then--Assumed that encounter start was at least fixed for classic
+	if self:IsClassic() then
 		timerNextCollapsingStar:Start(16)
-		timerCDCosmicSmash:Start(26)
+		timerCDCosmicSmash:Start(25.9)
 		announcePreBigBang:Schedule(85)
 		timerNextBigBang:Start(90)
 		enrageTimer:Start(360)
+		DBM:AddMsg("all timers will either be dead on or 8 seconds fast, when starting timers in less accurate way for classic. If blizzard improves/fixes this, I'll fix this")
 	end
 --	if self.Options.InfoFrame and not self:IsTrivial() then
 --		DBM.InfoFrame:SetHeader(L.HealthInfo)

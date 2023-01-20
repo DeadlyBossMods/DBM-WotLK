@@ -49,7 +49,7 @@ end
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 62396 then		-- Flame Vents
 		timerFlameVents:Start()
-	elseif args.spellId == 62475 then	-- Systems Shutdown / Overload
+	elseif args.spellId == 62475 and self:AntiSpam(3, 1) then	-- Systems Shutdown / Overload
 		timerSystemOverload:Start()
 		warnSystemOverload:Show()
 		warnSystemOverload:Play("attacktank")
@@ -82,7 +82,7 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:SPELL_SUMMON(args)
-	if args.spellId == 62907 and self:AntiSpam(3, 1) then		-- Ward of Life spawned (Creature id: 34275)
+	if args.spellId == 62907 and self:AntiSpam(3, 2) then		-- Ward of Life spawned (Creature id: 34275)
 		warnWardofLife:Show()
 		warnWardofLife:Play("bigmob")
 	end

@@ -212,6 +212,14 @@ L:SetGeneralLocalization{
 	name = "Hodir"
 }
 
+L:SetTimerLocalization{
+	TimerHardmode	= "Shatter Cache"
+}
+
+L:SetOptionLocalization{
+	TimerHardmode	= "Show timer for hard mode"
+}
+
 L:SetMiscLocalization{
 	Pull		= "You will suffer for this trespass!",
 	YellKill	= "I... I am released from his grasp... at last."

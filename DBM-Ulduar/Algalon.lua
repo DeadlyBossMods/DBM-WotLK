@@ -8,7 +8,9 @@ end
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(32871)
 mod:SetEncounterID(1130)
-mod:DisableEEKillDetection()--EE always fires wipe
+if not mod:IsClassic() then--Assumed fixed in classic
+	mod:DisableEEKillDetection()--EE always fires wipe
+end
 mod:SetMinSyncRevision(234)
 mod:SetModelID(28641)
 --mod:SetModelSound("Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Aggro01.ogg", "Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Slay02.ogg")
@@ -61,8 +63,12 @@ function mod:OnCombatStart(delay)
 	self.vb.warned_preP2 = false
 	table.wipe(sentLowHP)
 	table.wipe(warnedLowHP)
-	if self:IsClassic() then
-		DBM:AddMsg("Initial timers may be wrong or missing if DBMs newer more modern code is not compatible with classics legacy code, until this mod can be re-reviewed")
+	if self:IsClassic() then--Assumed that encounter start was at least fixed for classic
+		timerNextCollapsingStar:Start(16)
+		timerCDCosmicSmash:Start(26)
+		announcePreBigBang:Schedule(85)
+		timerNextBigBang:Start(90)
+		enrageTimer:Start(360)
 	end
 --	if self.Options.InfoFrame and not self:IsTrivial() then
 --		DBM.InfoFrame:SetHeader(L.HealthInfo)
@@ -147,7 +153,7 @@ function mod:UNIT_HEALTH(uId)
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
-	if spellId == 65311 then--Supermassive Fail (fires when he becomes actually active)
+	if spellId == 65311 and not self:IsClassic() then--Supermassive Fail (fires when he becomes actually active)
 		self:SendSync("Supermassive")
 	elseif spellId == 65256 then--Self Stun (phase 2)
 		self:SendSync("Phase2")
@@ -162,7 +168,7 @@ function mod:OnSync(msg, guid)
 			specwarnStarLow:Show()
 			specwarnStarLow:Play("aesoon")
 		end
-	elseif msg == "Supermassive" then
+	elseif msg == "Supermassive" and not self:IsClassic() then
 		timerNextCollapsingStar:Start(16)
 		timerCDCosmicSmash:Start(26)
 		announcePreBigBang:Schedule(85)

@@ -7,9 +7,11 @@ end
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(32871)
-mod:SetEncounterID(1130)
 if not mod:IsClassic() then--Assumed fixed in classic
+	mod:SetEncounterID(1130)
 	mod:DisableEEKillDetection()--EE always fires wipe
+else
+	mod:SetEncounterID(757)
 end
 mod:SetMinSyncRevision(234)
 mod:SetModelID(28641)
@@ -62,6 +64,7 @@ local enrageTimer				= mod:NewBerserkTimer(360)
 local sentLowHP = {}
 local warnedLowHP = {}
 mod.vb.warned_preP2 = false
+mod.vb.firstPull = true
 
 function mod:OnCombatStart(delay)
 	self:SetStage(1)
@@ -69,12 +72,22 @@ function mod:OnCombatStart(delay)
 	table.wipe(sentLowHP)
 	table.wipe(warnedLowHP)
 	if self:IsClassic() then
-		timerNextCollapsingStar:Start(16)
-		timerCDCosmicSmash:Start(25.9)
-		announcePreBigBang:Schedule(85)
-		timerNextBigBang:Start(90)
-		enrageTimer:Start(360)
-		DBM:AddMsg("all timers will either be dead on or 8 seconds fast, when starting timers in less accurate way for classic. If blizzard improves/fixes this, I'll fix this")
+		if self.vb.firstPull then--First pull, ENCOUNTER_START fires at end of extended first pull RP
+			self.vb.firstPull = false
+			timerNextCollapsingStar:Start(16)
+			timerCDCosmicSmash:Start(25.9)
+			announcePreBigBang:Schedule(85)
+			timerNextBigBang:Start(90)
+			enrageTimer:Start(360)
+			DBM:AddMsg("First Pull, using non adjusted timers with +0. Report if this doesn't work correctly")
+		else--Not first pull, ENCOUNTER_START fires at start of 8 second rp
+			timerNextCollapsingStar:Start(24)
+			timerCDCosmicSmash:Start(33.9)
+			announcePreBigBang:Schedule(93)
+			timerNextBigBang:Start(98)
+			enrageTimer:Start(368)
+			DBM:AddMsg("Not first Pull, using  adjusted timers with +8. Report if this doesn't work correctly")
+		end
 	end
 --	if self.Options.InfoFrame and not self:IsTrivial() then
 --		DBM.InfoFrame:SetHeader(L.HealthInfo)

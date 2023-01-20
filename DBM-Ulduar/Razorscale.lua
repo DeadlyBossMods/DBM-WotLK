@@ -3,7 +3,11 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(33186)
-mod:SetEncounterID(1139)
+if not mod:IsClassic() then
+	mod:SetEncounterID(1139)
+else
+	mod:SetEncounterID(746)
+end
 mod:SetModelID(28787)
 
 mod:RegisterCombat("combat_yell", L.YellAir)

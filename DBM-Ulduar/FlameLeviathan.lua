@@ -4,7 +4,11 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision("@file-date-integer@")
 
 mod:SetCreatureID(33113)
-mod:SetEncounterID(1132)
+if not mod:IsClassic() then
+	mod:SetEncounterID(1132)
+else
+	mod:SetEncounterID(744)
+end
 mod:SetModelID(28875)
 mod:RegisterCombat("yell", L.YellPull)
 --mod:SetMinSyncRevision(4182)
@@ -32,9 +36,8 @@ local guids = {}
 local function buildGuidTable(self)
 	table.wipe(guids)
 	for uId in DBM:GetGroupMembers() do
-		local name, server = GetUnitName(uId, true)
-		local fullName = name .. (server and server ~= "" and ("-" .. server) or "")
-		guids[UnitGUID(uId.."pet") or "none"] = fullName
+		local name = DBM:GetUnitFullName(uId)
+		guids[UnitGUID(uId.."pet") or "none"] = name
 	end
 end
 

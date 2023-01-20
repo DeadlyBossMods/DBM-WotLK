@@ -3,8 +3,12 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(33432)
-mod:SetEncounterID(1138)
-mod:DisableESCombatDetection()
+if not mod:IsClassic() then
+	mod:SetEncounterID(1138)
+else
+	mod:SetEncounterID(754)
+end
+mod:DisableESCombatDetection()--fires for RP, and we need yells to identify hard mode anyways
 mod:SetModelID(28578)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 mod:SetHotfixNoticeRev(20230113000000)

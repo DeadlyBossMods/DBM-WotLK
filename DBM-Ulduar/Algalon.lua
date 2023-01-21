@@ -13,9 +13,11 @@ if not mod:IsClassic() then--Assumed fixed in classic
 else
 	mod:SetEncounterID(757)
 end
-mod:SetMinSyncRevision(234)
+mod:SetHotfixNoticeRev(20230120000000)
+mod:SetMinSyncRevision(20230120000000)
 mod:SetModelID(28641)
 --mod:SetModelSound("Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Aggro01.ogg", "Sound\\Creature\\AlgalonTheObserver\\UR_Algalon_Slay02.ogg")
+
 mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellKill)
 mod:SetWipeTime(60)
@@ -43,7 +45,7 @@ local warnPhase2				= mod:NewPhaseAnnounce(2, 2)
 local warnPhase2Soon			= mod:NewAnnounce("WarnPhase2Soon", 2)
 local announcePreBigBang		= mod:NewPreWarnAnnounce(64584, 5, 3)
 local announceBlackHole			= mod:NewSpellAnnounce(65108, 2)
-local announcePhasePunch		= mod:NewStackAnnounce(65108, 4, nil, "Tank|Healer")
+local announcePhasePunch		= mod:NewStackAnnounce(64412, 4, nil, "Tank|Healer")
 
 local specwarnStarLow			= mod:NewSpecialWarning("warnStarLow", "Tank|Healer", nil, nil, 1, 2)
 local specWarnPhasePunch		= mod:NewSpecialWarningStack(64412, nil, 4, nil, nil, 1, 6)
@@ -52,7 +54,7 @@ local specWarnCosmicSmash		= mod:NewSpecialWarningDodge(64596, nil, nil, nil, 2,
 
 local timerNextBigBang			= mod:NewNextTimer(90.5, 64584, nil, nil, nil, 2)
 local timerBigBangCast			= mod:NewCastTimer(8, 64584, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
-local timerNextCollapsingStar	= mod:NewTimer(15, "NextCollapsingStar", 227161)
+local timerNextCollapsingStar	= mod:NewTimer(15, "NextCollapsingStar", "237016")
 local timerCDCosmicSmash		= mod:NewCDTimer(24.6, 64596, nil, nil, nil, 3)
 local timerCastCosmicSmash		= mod:NewCastTimer(4.5, 64596)
 local timerPhasePunch			= mod:NewTargetTimer(45, 64412, nil, "Tank", 2, 5, nil, DBM_COMMON_L.TANK_ICON)
@@ -76,36 +78,32 @@ function mod:OnCombatStart(delay)
 		if self:IsDifficulty("normal10") then
 			if self.vb.firstPull10 then--First pull, ENCOUNTER_START fires at end of extended first pull RP
 				self.vb.firstPull10 = false
-				timerNextCollapsingStar:Start(16)
-				timerCDCosmicSmash:Start(25.9)
-				announcePreBigBang:Schedule(85)
-				timerNextBigBang:Start(90)
-				enrageTimer:Start(360)
-				DBM:AddMsg("First Pull, using non adjusted timers with +0. Report if this doesn't work correctly")
+				timerNextCollapsingStar:Start(42)
+				timerCDCosmicSmash:Start(51.9)
+				announcePreBigBang:Schedule(111)
+				timerNextBigBang:Start(116)
+				enrageTimer:Start(386)
 			else--Not first pull, ENCOUNTER_START fires at start of 8 second rp
 				timerNextCollapsingStar:Start(24)
 				timerCDCosmicSmash:Start(33.9)
 				announcePreBigBang:Schedule(93)
 				timerNextBigBang:Start(98)
 				enrageTimer:Start(368)
-				DBM:AddMsg("Not first Pull, using  adjusted timers with +8. Report if this doesn't work correctly")
 			end
 		else
 			if self.vb.firstPull25 then--First pull, ENCOUNTER_START fires at end of extended first pull RP
 				self.vb.firstPull25 = false
-				timerNextCollapsingStar:Start(16)
-				timerCDCosmicSmash:Start(25.9)
-				announcePreBigBang:Schedule(85)
-				timerNextBigBang:Start(90)
-				enrageTimer:Start(360)
-				DBM:AddMsg("First Pull, using non adjusted timers with +0. Report if this doesn't work correctly")
+				timerNextCollapsingStar:Start(42)
+				timerCDCosmicSmash:Start(51.9)
+				announcePreBigBang:Schedule(111)
+				timerNextBigBang:Start(116)
+				enrageTimer:Start(386)
 			else--Not first pull, ENCOUNTER_START fires at start of 8 second rp
 				timerNextCollapsingStar:Start(24)
 				timerCDCosmicSmash:Start(33.9)
 				announcePreBigBang:Schedule(93)
 				timerNextBigBang:Start(98)
 				enrageTimer:Start(368)
-				DBM:AddMsg("Not first Pull, using  adjusted timers with +8. Report if this doesn't work correctly")
 			end
 		end
 	end
@@ -191,6 +189,13 @@ function mod:UNIT_HEALTH(uId)
 	end
 end
 
+--Retail timeline (First Pull)
+--"<4.84 22:24:43> [DBM_Debug] ENCOUNTER_START event fired: 1130 Algalon the Observer 14 10#nil", -- [3]
+--"<4.90 22:24:43> [DBM_Debug] UNIT_TARGETABLE_CHANGED event fired for Algalon the Observer. Active: false#nil", -- [12]
+--"<5.06 22:24:44> [CHAT_MSG_MONSTER_YELL] Your actions are illogical. All possible results for this encounter have been calculated.
+--"<20.31 22:24:59> [CHAT_MSG_MONSTER_YELL] See your world through my eyes: A universe so vast as to be immeasurable - incomprehensible even to your greatest minds
+--"<31.23 22:25:10> [UNIT_SPELLCAST_SUCCEEDED] Algalon the Observer(100.0%-0.0%){Target:??} -Supermassive Fail- [[boss1:Cast-3-4219-603-30708-65311-00024B5B16:65311]]", -- [19]
+--"<31.24 22:25:10> [DBM_Debug] UNIT_TARGETABLE_CHANGED event fired for Algalon the Observer. Active: true#nil", -- [25]
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 	if spellId == 65311 and not self:IsClassic() then--Supermassive Fail (fires when he becomes actually active)
 		self:SendSync("Supermassive")

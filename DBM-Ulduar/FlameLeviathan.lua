@@ -11,8 +11,8 @@ else
 end
 mod:SetModelID(28875)
 mod:RegisterCombat("yell", L.YellPull)
---mod:SetMinSyncRevision(4182)
-mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
+mod:SetHotfixNoticeRev(20230120000000)
+mod:SetMinSyncRevision(20220120000000)
 
 mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 62396 62475 62374 62297",

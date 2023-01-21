@@ -10,6 +10,7 @@ else
 end
 mod:SetModelID(29185)
 mod:SetUsedIcons(8)
+mod:SetHotfixNoticeRev(20230120000000)
 
 mod:RegisterCombat("combat")
 

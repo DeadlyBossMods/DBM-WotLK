@@ -56,6 +56,7 @@ mod:AddSetIconOption("SetIconOnLifeLeach", 63276, true, false, {7})
 
 mod.vb.interruptCount = 0
 mod.vb.vaporsCount = 0
+mod.vb.lastMarkTarget = nil
 local animusName = DBM:EJ_GetSectionInfo(17651)
 
 function mod:ShadowCrashTarget(targetname, uId)
@@ -78,6 +79,7 @@ end
 function mod:OnCombatStart(delay)
 	self.vb.interruptCount = 0
 	self.vb.vaporsCount = 0
+	self.vb.lastMarkTarget = nil
 	timerShadowCrashCD:Start(10.9-delay)
 	timerLifeLeechCD:Start(16.9-delay)
 	timerSaroniteVapors:Start(30-delay, 1)
@@ -117,15 +119,20 @@ function mod:SPELL_AURA_REMOVED(args)
 	end
 end
 
+local function resetMarkTarget(self)
+	self.vb.lastMarkTarget = nil
+end
+
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 62660 then		-- Shadow Crash
-		self:BossTargetScanner(args.sourceGUID, "ShadowCrashTarget", 0.05, 20)
+		self:BossTargetScanner(args.sourceGUID, "ShadowCrashTarget", 0.05, 20, nil, nil, nil, self.vb.lastMarkTarget)
 		local timer = 10--Blizzard confirmed it's a 10-15 second variable timer on final version of fight (ie retail)
 		if self:IsClassic() then
 			timer = self:IsDifficulty("normal25") and 7 or 10
 		end
 		timerShadowCrashCD:Start(timer)
 	elseif args.spellId == 63276 then	-- Mark of the Faceless
+		self.vb.lastMarkTarget = args.destName
 		if self.Options.SetIconOnLifeLeach then
 			self:SetIcon(args.destName, 7, 10)
 		end
@@ -141,6 +148,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		else
 			warnLeechLife:Show(args.destName)
 		end
+		self:Schedule(10, resetMarkTarget, self)
 	elseif args.spellId == 63364 then
 		specWarnAnimus:Show()
 		specWarnAnimus:Play("bigmob")

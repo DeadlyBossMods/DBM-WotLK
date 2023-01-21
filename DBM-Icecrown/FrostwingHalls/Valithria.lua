@@ -3,7 +3,7 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(36789)
-mod:SetEncounterID(1098)
+mod:SetEncounterID(mod:IsClassic() and 854 or 1098)
 mod:SetModelID(30318)
 mod:SetUsedIcons(8)
 mod.onlyHighest = true--Instructs DBM health tracking to literally only store highest value seen during fight, even if it drops below that

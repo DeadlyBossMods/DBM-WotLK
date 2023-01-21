@@ -3,7 +3,7 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(36597)
-mod:SetEncounterID(1106)
+mod:SetEncounterID(mod:IsClassic() and 856 or 1106)
 mod:DisableEEKillDetection()--EE fires at 10%
 mod:SetModelID(30721)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7)

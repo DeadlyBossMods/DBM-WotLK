@@ -229,7 +229,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 			timerFlameSuppressant:Stop()
 			--timerNextFlameSuppressant:Stop()
 			timerPlasmaBlastCD:Stop()
-			timerP1toP2:Start()
+			timerP1toP2:Start()--41.5
 			if self.Options.RangeFrame then
 				DBM.RangeCheck:Hide()
 			end
@@ -276,10 +276,10 @@ function mod:OnSync(event, args)
 		if self.Options.RangeFrame then
 			DBM.RangeCheck:Hide()
 		end
-		timerRocketStrikeCD:Start(11)--Guessed by math
-		timerNextP3Wx2LaserBarrage:Start(26)--Guessed by math
+		timerRocketStrikeCD:Start(63)
+		timerNextP3Wx2LaserBarrage:Start(78)
 		if self.vb.hardmode then
-			timerNextFrostBomb:Start(42)--Old data from ages ago, needs rechecking
+			timerNextFrostBomb:Start(94)
 		end
 	elseif event == "Phase3" and self.vb.phase == 2 then
 		timerP3Wx2LaserBarrageCast:Stop()
@@ -290,12 +290,12 @@ function mod:OnSync(event, args)
 	elseif event == "Phase4" and self.vb.phase == 3 then
 		--All these timers might be wrong because they are mashed between retail and legacy using math guesses
 		timerP3toP4:Start(26.5)
---		if self.vb.hardmode then
---			timerNextFrostBomb:Start(28.5)
---		end
---		timerRocketStrikeCD:Start(46.5)
---		timerNextP3Wx2LaserBarrage:Start(56.3)
---		timerNextShockblast:Start(77.5)
+		if self.vb.hardmode then
+			timerNextFrostBomb:Start(28.5)
+		end
+		timerRocketStrikeCD:Start(46.5)
+		timerNextP3Wx2LaserBarrage:Start(56.3)
+		timerNextShockblast:Start(77.5)
 	elseif event == "RocketStrike" then
 		warnRocketStrike:Show()
 		warnRocketStrike:Play("watchstep")

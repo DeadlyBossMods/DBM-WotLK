@@ -133,7 +133,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerLifeLeechCD:Start()
 		if args:IsPlayer() then
 			specWarnLifeLeechYou:Show()
-			specWarnLifeLeechYou:Play("scatter")
+			specWarnLifeLeechYou:Play("runout")
 			yellLifeLeech:Yell()
 		elseif self:CheckNearby(13, args.destName) then--Can't use 15, only 13 or 18
 			specWarnLifeLeechNear:Show(args.destName)

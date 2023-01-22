@@ -151,12 +151,14 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnEmpowerSoon:Schedule(40)
 	elseif args:IsSpellID(64167, 64163) and self:AntiSpam(3, 3) then	-- Lunatic Gaze
 		timerLunaricGaze:Start()
-		if self:IsClassic() then
-			brainportal:Start(90)
-			warnBrainPortalSoon:Schedule(85)
-		else
-			brainportal:Start(60)
-			warnBrainPortalSoon:Schedule(55)
+		if self.vb.phase < 3 then
+			if self:IsClassic() then
+				brainportal:Start(90)
+				warnBrainPortalSoon:Schedule(85)
+			else
+				brainportal:Start(60)
+				warnBrainPortalSoon:Schedule(55)
+			end
 		end
 	end
 end

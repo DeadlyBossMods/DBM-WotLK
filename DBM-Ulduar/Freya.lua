@@ -4,7 +4,11 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision("@file-date-integer@")
 
 mod:SetCreatureID(32906)
-mod:SetEncounterID(1133)
+if not mod:IsClassic() then
+	mod:SetEncounterID(1133)
+else
+	mod:SetEncounterID(753)
+end
 mod:SetModelID(28777)
 mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellKill)

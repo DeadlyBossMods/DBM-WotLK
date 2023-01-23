@@ -8,8 +8,8 @@ mod:SetModelID(16064)
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"SPELL_AURA_APPLIED 28371",
-	"SPELL_AURA_REMOVED 28371",
+	"SPELL_AURA_APPLIED 28371 54427",
+	"SPELL_AURA_REMOVED 28371 54427",
 	"SPELL_DAMAGE 28375"
 )
 
@@ -33,7 +33,7 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args.spellId == 28371 then
+	if args.spellId == 28371 or args.spellId == 54427 then
 		if self.Options.SpecWarn19451dispel then
 			specWarnEnrage:Show(args.destName)
 			specWarnEnrage:Play("enrage")
@@ -45,7 +45,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args.spellId == 28371 then
+	if args.spellId == 28371 or args.spellId == 54427 then
 		timerEnrage:Stop()
 	end
 end

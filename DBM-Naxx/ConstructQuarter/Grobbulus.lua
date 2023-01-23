@@ -68,7 +68,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		if self.Options.SetIconOnInjectionTarget then
 			table.insert(mutateIcons, args.destName)
-			addIcon()
+			addIcon(self)
 		end
 	end
 end

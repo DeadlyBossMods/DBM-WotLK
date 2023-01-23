@@ -3,7 +3,7 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(39863)--40142 (twilight form)
-mod:SetEncounterID(1150)
+mod:SetEncounterID(mod:IsClassic() and 887 or 1150)
 mod:SetModelID(31952)
 mod:SetUsedIcons(7, 3)
 --mod:SetMinSyncRevision(4358)

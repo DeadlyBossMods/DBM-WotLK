@@ -12,7 +12,7 @@ mod:RegisterEventsInCombat(
 	"UNIT_DIED"
 )
 
-local warnSporeNow			= mod:NewSpellAnnounce(29234, 2, "134530")
+local warnSporeNow			= mod:NewCountAnnounce(29234, 2, "134530")
 local warnSporeSoon			= mod:NewSoonAnnounce(29234, 1, "134530")
 local warnDoomNow			= mod:NewSpellAnnounce(29204, 3)
 local warnRemoveCurse		= mod:NewSpellAnnounce(30281, 3)
@@ -20,7 +20,7 @@ local warnHealSoon			= mod:NewAnnounce("WarningHealSoon", 4, 55593, nil, nil, ni
 local warnHealNow			= mod:NewAnnounce("WarningHealNow", 1, 55593, false, nil, nil, 55593)
 
 local timerSpore			= mod:NewNextCountTimer(36, 29234, nil, nil, nil, 5, "134530", DBM_COMMON_L.DAMAGE_ICON)
-local timerDoom				= mod:NewNextTimer(180, 29204, nil, nil, nil, 2)
+local timerDoom				= mod:NewNextCountTimer(180, 29204, nil, nil, nil, 2)
 --local timerRemoveCurseCD	= mod:NewNextTimer(30.8, 30281, nil, nil, nil, 5)
 local timerAura				= mod:NewBuffActiveTimer(17, 55593, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 
@@ -36,26 +36,30 @@ function mod:OnCombatStart(delay)
 --	timerRemoveCurseCD:Start(3 - delay)
 	if self:IsDifficulty("normal25") then
 		self.vb.sporeTimer = 16
+		timerDoom:Start(90 - delay, 1)
 	else
 		self.vb.sporeTimer = 35.5
+		timerDoom:Start(120 - delay, 1)
 	end
 	timerSpore:Start(self.vb.sporeTimer - delay, 1)
 	warnSporeSoon:Schedule(self.vb.sporeTimer - 5 - delay)
-	timerDoom:Start(120 - delay, self.vb.doomCounter + 1)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 29234 then
 		self.vb.sporeCounter = self.vb.sporeCounter + 1
 		timerSpore:Start(self.vb.sporeTimer, self.vb.sporeCounter+1)
-		warnSporeNow:Show()
+		warnSporeNow:Show(self.vb.sporeCounter)
 		warnSporeSoon:Schedule(self.vb.sporeTimer - 5)
 	elseif args:IsSpellID(29204, 55052) then
 		self.vb.doomCounter = self.vb.doomCounter + 1
-		local timer = 30
+		local timer = 29
 		if self.vb.doomCounter >= 7 then
-			if self.vb.doomCounter % 2 == 0 then timer = 17
-			else timer = 12 end
+			if self.vb.doomCounter % 2 == 0 then
+				timer = 17
+			else
+				timer = 12
+			end
 		end
 		warnDoomNow:Show(self.vb.doomCounter)
 		timerDoom:Start(timer, self.vb.doomCounter + 1)

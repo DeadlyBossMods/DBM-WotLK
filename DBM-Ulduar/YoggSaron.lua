@@ -235,7 +235,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnP2:Show()
 	elseif args.spellId == 64465 then
 		if self.Options.SetIconOnBeacon then
-			self:ScanForMobs(args.destGUID, 2, self.vb.beaconIcon, 1, nil, 12, "SetIconOnBeacon", true)
+			self:ScanForMobs(args.destGUID, 2, self.vb.beaconIcon, 1, nil, 6, "SetIconOnBeacon", true, nil, nil, true)
 		end
 		self.vb.beaconIcon = self.vb.beaconIcon - 1
 		if self.vb.beaconIcon == 0 then
@@ -260,7 +260,7 @@ function mod:SPELL_AURA_REMOVED(args)
 		self:SetIcon(args.destName, 0)
 	elseif args.spellId == 64465 then
 		if self.Options.SetIconOnBeacon then
-			self:ScanForMobs(args.destGUID, 2, 0, 1, nil, 12, "SetIconOnBeacon", true)
+			self:ScanForMobs(args.destGUID, 2, 0, 1, nil, 6, "SetIconOnBeacon", true, nil, nil, true)
 		end
 		if self.Options.NPAuraOnBeacon then
 			DBM.Nameplate:Hide(true, args.destGUID, args.spellId)

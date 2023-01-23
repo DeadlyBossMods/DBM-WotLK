@@ -195,6 +195,7 @@ function mod:SPELL_AURA_REMOVED(args)
 		if self.Options.SetIconOnOverwhelmingPower then
 			self:SetIcon(args.destName, 0)
 		end
+		timerOverwhelmingPower:Stop(args.destName)
 	elseif args:IsSpellID(63483, 61915) then	-- LightningWhirl
 		timerLightningWhirl:Stop()
 	elseif args:IsSpellID(61912, 63494) then	-- Static Disruption (Hard Mode)

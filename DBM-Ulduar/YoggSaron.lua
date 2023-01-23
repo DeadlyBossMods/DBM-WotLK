@@ -17,7 +17,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 64059 64189 63138",
 	"SPELL_CAST_SUCCESS 64144 64465 64167 64163",
 	"SPELL_SUMMON 62979",
-	"SPELL_AURA_APPLIED 63802 63830 63881 64126 64125 63138 63894 64465",
+	"SPELL_AURA_APPLIED 63802 63830 63881 64126 64125 63138 63894 64465 63042",
 	"SPELL_AURA_REMOVED 63802 63894 64167 64163 63830 63138 63881 64465",
 	"SPELL_AURA_REMOVED_DOSE 63050"
 )
@@ -37,6 +37,7 @@ local warnSanity 					= mod:NewAnnounce("WarningSanity", 3, 63050, nil, nil, nil
 local warnBrainLink 				= mod:NewTargetAnnounce(63802, 3)
 local warnBrainPortalSoon			= mod:NewAnnounce("WarnBrainPortalSoon", 2, 57687)
 local warnEmpowerSoon				= mod:NewSoonAnnounce(64465, 4)
+local warnDominateMind				= mod:NewTargetNoFilterAnnounce(63042, 3)--Pre nerf mind control
 
 local specWarnBrainLink 			= mod:NewSpecialWarningYou(63802, nil, nil, nil, 1, 2)
 local specWarnSanity 				= mod:NewSpecialWarning("SpecWarnSanity", nil, nil, nil, 1, nil, nil, nil, 63050)--Warning, no voice pack support
@@ -244,6 +245,8 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.NPAuraOnBeacon then
 			DBM.Nameplate:Show(true, args.destGUID, args.spellId, nil, 10)
 		end
+	elseif spellId == 63042 then
+		warnDominateMind:CombinedShow(1, args.destName)
 	end
 end
 

@@ -11,6 +11,7 @@ end
 mod:SetModelID(28817)
 mod:RegisterCombat("combat_yell", L.YellPull)
 mod:SetUsedIcons(8, 7, 6, 2, 1)
+mod:SetHotfixNoticeRev(20230122000000)
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 64059 64189 63138",

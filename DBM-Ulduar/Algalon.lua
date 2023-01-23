@@ -52,6 +52,7 @@ local specWarnPhasePunch		= mod:NewSpecialWarningStack(64412, nil, 4, nil, nil, 
 local specWarnBigBang			= mod:NewSpecialWarningSpell(64584, nil, nil, nil, 3, 2)
 local specWarnCosmicSmash		= mod:NewSpecialWarningDodge(64596, nil, nil, nil, 2, 2)
 
+local timerCombatStart			= mod:NewCombatTimer(42)
 local timerNextBigBang			= mod:NewNextTimer(90.5, 64584, nil, nil, nil, 2)
 local timerBigBangCast			= mod:NewCastTimer(8, 64584, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerNextCollapsingStar	= mod:NewTimer(15, "NextCollapsingStar", "237016")
@@ -78,12 +79,14 @@ function mod:OnCombatStart(delay)
 		if self:IsDifficulty("normal10") then
 			if self.vb.firstPull10 then--First pull, ENCOUNTER_START fires at end of extended first pull RP
 				self.vb.firstPull10 = false
+				timerCombatStart:Start(26)
 				timerNextCollapsingStar:Start(42)
 				timerCDCosmicSmash:Start(51.9)
 				announcePreBigBang:Schedule(111)
 				timerNextBigBang:Start(116)
 				enrageTimer:Start(386)
 			else--Not first pull, ENCOUNTER_START fires at start of 8 second rp
+				timerCombatStart:Start(8)
 				timerNextCollapsingStar:Start(24)
 				timerCDCosmicSmash:Start(33.9)
 				announcePreBigBang:Schedule(93)
@@ -93,12 +96,14 @@ function mod:OnCombatStart(delay)
 		else
 			if self.vb.firstPull25 then--First pull, ENCOUNTER_START fires at end of extended first pull RP
 				self.vb.firstPull25 = false
+				timerCombatStart:Start(26)
 				timerNextCollapsingStar:Start(42)
 				timerCDCosmicSmash:Start(51.9)
 				announcePreBigBang:Schedule(111)
 				timerNextBigBang:Start(116)
 				enrageTimer:Start(386)
 			else--Not first pull, ENCOUNTER_START fires at start of 8 second rp
+				timerCombatStart:Start(8)
 				timerNextCollapsingStar:Start(24)
 				timerCDCosmicSmash:Start(33.9)
 				announcePreBigBang:Schedule(93)

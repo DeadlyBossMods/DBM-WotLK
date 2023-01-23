@@ -245,7 +245,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.NPAuraOnBeacon then
 			DBM.Nameplate:Show(true, args.destGUID, args.spellId, nil, 10)
 		end
-	elseif spellId == 63042 then
+	elseif args.spellId == 63042 then
 		warnDominateMind:CombinedShow(1, args.destName)
 	end
 end

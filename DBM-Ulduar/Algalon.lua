@@ -28,7 +28,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 64412",
 	"SPELL_AURA_APPLIED_DOSE 64412",
 	"SPELL_AURA_REMOVED 64412",
-	"RAID_BOSS_EMOTE",
+	"CHAT_MSG_RAID_BOSS_EMOTE",
 	"CHAT_MSG_MONSTER_YELL",
 	"UNIT_SPELLCAST_SUCCEEDED",
 	"UNIT_HEALTH"
@@ -177,12 +177,14 @@ function mod:SPELL_AURA_REMOVED(args)
 	end
 end
 
-function mod:RAID_BOSS_EMOTE(msg)
+function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg)
 	if msg == L.Emote_CollapsingStar or msg:find(L.Emote_CollapsingStar) then
 		timerNextCollapsingStar:Start()
 	end
 end
 
+--"<47.18 22:25:26> [CHAT_MSG_MONSTER_YELL] The stars come to my aid!#Algalon the Observer#####0#0##0#139#nil#0#false#false#false#false", -- [59]
+--"<47.18 22:25:26> [CHAT_MSG_RAID_BOSS_EMOTE] %s begins to Summon Collapsing Stars!#Algalon the Observer#####0#0##0#140#nil#0#false#false#false#false", -- [60]
 function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if (msg == L.Phase2 or msg:find(L.Phase2)) then
 		self:SendSync("Phase2")

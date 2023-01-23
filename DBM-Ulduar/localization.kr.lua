@@ -214,6 +214,14 @@ L:SetMiscLocalization{
 	YellKill		= "드디어... 드디어 그의 손아귀를... 벗어나는구나."
 }
 
+L:SetTimerLocalization{
+	TimerHardmode	= "보관함 부서짐"
+}
+
+L:SetOptionLocalization{
+	TimerHardmode	= "하드 모드 타이머 바 보기"
+}
+
 --------------
 --  Thorim  --
 --------------

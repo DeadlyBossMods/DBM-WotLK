@@ -111,6 +111,13 @@ function mod:OnCombatStart(delay)
 				enrageTimer:Start(368)
 			end
 		end
+	else
+		if self.vb.firstPull10 then--First pull, ENCOUNTER_START fires at end of extended first pull RP
+			self.vb.firstPull10 = false
+			timerCombatStart:Start(26)
+		else--Not first pull, ENCOUNTER_START fires at start of 8 second rp
+			timerCombatStart:Start(8)
+		end
 	end
 --	if self.Options.InfoFrame and not self:IsTrivial() then
 --		DBM.InfoFrame:SetHeader(L.HealthInfo)

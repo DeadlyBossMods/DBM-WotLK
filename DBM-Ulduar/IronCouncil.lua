@@ -98,8 +98,8 @@ function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
 	table.wipe(disruptTargets)
 	self.vb.disruptIcon = 7
---	timerRuneofPowerCD:Start(17.4-delay)--17-29.2, too variable to include
-	timerOverloadCD:Start(32.3-delay)--probably 30-35, needs more data
+	timerRuneofPowerCD:Start(17.4-delay)--17-29.2, extremely variable
+	timerOverloadCD:Start(25.4-delay)--probably 25-35, extremely variable
 end
 
 function mod:RuneTarget(targetname, uId)
@@ -132,7 +132,7 @@ end
 function mod:SPELL_CAST_SUCCESS(args)
 	if args:IsSpellID(63490, 62269) then		-- Rune of Death
 		warnRuneofDeath:Show()
-		timerRuneofDeathCD:Start(self:IsClassic() and 30 or 47)
+		timerRuneofDeathCD:Start(self:IsClassic() and 30 or 45)
 	elseif args:IsSpellID(64321, 61974) then	-- Rune of Power
 		self:BossTargetScanner(32927, "RuneTarget", 0.1, 16, true, true)--Scan only boss unitIDs, scan only hostile targets
 		timerRuneofPowerCD:Start()
@@ -227,7 +227,7 @@ function mod:UNIT_DIED(args)
 				--
 				--end
 				if not self.vb.molgeimDead then
-					timerRuneofDeathCD:Start(31.9)
+					timerRuneofDeathCD:Start(30.4)
 					timerRuneofShieldsCD:Start(42.5)
 				end
 				--if not self.vb.brundirDead then

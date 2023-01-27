@@ -59,12 +59,13 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 62374 then	-- Pursued
 		local target = guids[args.destGUID]
 		warnNextPursueSoon:Schedule(25)
-		timerPursued:Start(target)
 		if target then
-			pursueTargetWarn:Show(target)
-			if target == UnitName("player") then
+			timerPursued:Start(target)
+			if args.destGUID == UnitGUID("pet") then
 				pursueSpecWarn:Show()
 				pursueSpecWarn:Play("justrun")
+			else
+				pursueTargetWarn:Show(target)
 			end
 		end
 	elseif args.spellId == 62297 then		-- Hodir's Fury (Person is frozen)

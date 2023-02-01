@@ -141,7 +141,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 			timerOverloadCD:Start()
 		end
 		timerOverload:Start()
-		if self.Options.AlwaysWarnOnOverload or UnitGUID("target") == args.sourceGUID or self:CheckTankDistance(args.sourceGUID, 15) then
+		if self.Options.AlwaysWarnOnOverload or self:CheckBossDistance(args.sourceGUID, self:IsClassic() and false or true, 21519, 23) then
 			specwarnOverload:Show()
 			specwarnOverload:Play("justrun")
 		end

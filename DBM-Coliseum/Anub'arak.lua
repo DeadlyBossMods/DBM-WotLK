@@ -118,12 +118,11 @@ function mod:SPELL_AURA_APPLIED(args)
 					self:SetIcon(name, i)
 				end
 				if self.Options.AnnouncePColdIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
-					SendChatMessage(L.PcoldIconSet:format(i, DBM:GetUnitFullName(uId)), IsInRaid() and "RAID" or "PARTY")
+					SendChatMessage(L.PcoldIconSet:format(i, name), IsInRaid() and "RAID" or "PARTY")
 				end
 				if name == DBM:GetMyPlayerInfo() then
 					specWarnPCold:Show(self:IconNumToTexture(i))
 					specWarnPCold:Play("targetyou")
-					yellAbsoluteZero:Yell(i, i)
 				end
 				warnPCold:Show(table.concat(pcoldIcons, "<, >"))
 			end

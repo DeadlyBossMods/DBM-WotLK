@@ -101,7 +101,7 @@ end
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 72037 then		-- Shock Vortex
 		timerShockVortex:Start()
-		self:BossTargetScanner(37970, "ShockVortexTarget", 0.05, 6)
+		self:BossTargetScanner(args.sourceGUID, "ShockVortexTarget", 0.05, 6)
 	elseif args.spellId == 72039 then
 		specWarnEmpoweredShockV:Show()
 		specWarnEmpoweredShockV:Play("scatter")

@@ -189,7 +189,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		else
 			timerMalleableGooCD:Start()
 		end
-		self:BossTargetScanner(36678, "MalleableGooTarget", 0.05, 6)
+		self:BossTargetScanner(args.sourceGUID, "MalleableGooTarget", 0.05, 6)
 	end
 end
 

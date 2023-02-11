@@ -67,8 +67,8 @@ else
 	timerAchieve					= mod:NewAchievementTimer(420, 3012)
 end
 
-mod:AddSetIconOption("SetIconOnFearTarget", 63802, true, false, {6})
-mod:AddSetIconOption("SetIconOnFervorTarget", 63802, false, false, {7})
+mod:AddSetIconOption("SetIconOnFearTarget", 63830, true, false, {6})
+mod:AddSetIconOption("SetIconOnFervorTarget", 63138, false, false, {7})
 mod:AddSetIconOption("SetIconOnBrainLinkTarget", 63802, true, false, {1, 2})
 mod:AddSetIconOption("SetIconOnBeacon", 64465, true, true, {1, 2, 3, 4, 5, 6, 7, 8})
 mod:AddInfoFrameOption(63050)
@@ -152,7 +152,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerShadowBeacon:Start()
 		warnEmpowerSoon:Schedule(40)
 	elseif args:IsSpellID(64167, 64163) and self:AntiSpam(3, 3) then	-- Lunatic Gaze
-		timerLunaricGaze:Start()
+		--In stages less than 3, it can be used to detect brain portals withoute emote because skulls in brain room cast this on spawn
 		if self.vb.phase < 3 then
 			if self:IsClassic() then
 				brainportal:Start(90)
@@ -161,6 +161,8 @@ function mod:SPELL_CAST_SUCCESS(args)
 				brainportal:Start(60)
 				warnBrainPortalSoon:Schedule(55)
 			end
+		else--P3 yogg casts
+			timerLunaricGaze:Start()
 		end
 	end
 end
@@ -235,13 +237,13 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		warnP2:Show()
 	elseif args.spellId == 64465 then
-		if self.Options.SetIconOnBeacon then
-			self:ScanForMobs(args.destGUID, 2, self.vb.beaconIcon, 1, nil, 6, "SetIconOnBeacon", true, nil, nil, true)
-		end
-		self.vb.beaconIcon = self.vb.beaconIcon - 1
-		if self.vb.beaconIcon == 0 then
+		if self:AntiSpam(5, 5) then
 			self.vb.beaconIcon = 8
 		end
+		if self.Options.SetIconOnBeacon then
+			self:ScanForMobs(args.destGUID, 2, self.vb.beaconIcon, 1, nil, 8, "SetIconOnBeacon", true, nil, nil, true)
+		end
+		self.vb.beaconIcon = self.vb.beaconIcon - 1
 		if self.Options.NPAuraOnBeacon then
 			DBM.Nameplate:Show(true, args.destGUID, args.spellId, nil, 10)
 		end
@@ -257,13 +259,13 @@ function mod:SPELL_AURA_REMOVED(args)
 		self:SetIcon(args.destName, 0)
 	elseif args.spellId == 63894 then		-- Shadowy Barrier removed from Yogg-Saron (start p3)
 		self:SendSync("Phase3")			-- Sync this because you don't get it in your combat log if you are in brain room.
-	elseif args:IsSpellID(64167, 64163) and self:AntiSpam(3, 2) then	-- Lunatic Gaze
+	elseif args:IsSpellID(64167, 64163) and self:AntiSpam(3, 2) and self.vb.phase == 3 then	-- Lunatic Gaze
 		timerNextLunaricGaze:Start()
 	elseif args:IsSpellID(63830, 63881) and self.Options.SetIconOnFearTarget then   -- Malady of the Mind (Death Coil)
 		self:SetIcon(args.destName, 0)
 	elseif args.spellId == 64465 then
 		if self.Options.SetIconOnBeacon then
-			self:ScanForMobs(args.destGUID, 2, 0, 1, nil, 6, "SetIconOnBeacon", true, nil, nil, true)
+			self:ScanForMobs(args.destGUID, 2, 0, 1, nil, 8, "SetIconOnBeacon", true, nil, nil, true)
 		end
 		if self.Options.NPAuraOnBeacon then
 			DBM.Nameplate:Hide(true, args.destGUID, args.spellId)

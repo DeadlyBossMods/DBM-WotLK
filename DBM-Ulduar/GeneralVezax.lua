@@ -19,6 +19,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 62662",
 	"SPELL_AURA_REMOVED 62662",
 	"SPELL_CAST_SUCCESS 62660 63276 63364",
+	"UNIT_DIED",
 	"RAID_BOSS_EMOTE"
 )
 
@@ -152,6 +153,13 @@ function mod:SPELL_CAST_SUCCESS(args)
 	elseif args.spellId == 63364 then
 		specWarnAnimus:Show()
 		specWarnAnimus:Play("bigmob")
+	end
+end
+
+function mod:UNIT_DIED(args)
+	local cid = self:GetCIDFromGUID(args.destGUID)
+	if cid == 33488 then--Saronite Vapor
+		timerHardmode:Stop()
 	end
 end
 

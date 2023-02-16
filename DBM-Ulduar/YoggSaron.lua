@@ -156,10 +156,10 @@ function mod:SPELL_CAST_SUCCESS(args)
 		if self.vb.phase < 3 then
 			if self:IsClassic() then
 				brainportal:Start(90)
-				warnBrainPortalSoon:Schedule(85)
+				warnBrainPortalSoon:Schedule(80)
 			else
 				brainportal:Start(60)
-				warnBrainPortalSoon:Schedule(55)
+				warnBrainPortalSoon:Schedule(50)
 			end
 		else--P3 yogg casts
 			timerLunaricGaze:Start()
@@ -230,10 +230,10 @@ function mod:SPELL_AURA_APPLIED(args)
 		--timerBrainLinkCD:Start(19)--VERIFY ME
 		if self:IsClassic() then
 			brainportal:Start(60)
-			warnBrainPortalSoon:Schedule(55)
+			warnBrainPortalSoon:Schedule(50)
 		else
 			brainportal:Start(10.5)
-			warnBrainPortalSoon:Schedule(5.5)
+			warnBrainPortalSoon:Schedule(0.5)
 		end
 		warnP2:Show()
 	elseif args.spellId == 64465 then

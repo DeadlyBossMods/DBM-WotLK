@@ -46,6 +46,7 @@ local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189, nil, nil, nil,
 local specWarnFervor				= mod:NewSpecialWarningYou(63138, nil, nil, nil, 1, 2)
 local specWarnMalady				= mod:NewSpecialWarningYou(63830, nil, nil, nil, 1, 2)
 local specWarnMaladyNear			= mod:NewSpecialWarningClose(63830, nil, nil, nil, 1, 2)
+local yellMalady					= mod:NewYell(63830)
 local yellSqueeze					= mod:NewYell(64125)
 
 local enrageTimer					= mod:NewBerserkTimer(900)
@@ -199,6 +200,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then
 			specWarnMalady:Show()
 			specWarnMalady:Play("targetyou")
+			yellMalady:Yell()
 		else
 			local uId = DBM:GetRaidUnitId(args.destName)
 			if uId then

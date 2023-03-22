@@ -19,6 +19,7 @@ mod:RegisterEventsInCombat(
 local warnOverCharge		= mod:NewSpellAnnounce(64218, 4)
 
 local specWarnNova			= mod:NewSpecialWarningRun(65279, nil, nil, nil, 4, 2)
+local specWarnOverCharge	= mod:NewSpecialWarningSwitch(64218, "Dps", nil, nil, 1, 2)
 
 local timerNova				= mod:NewCastTimer(65279, nil, nil, nil, 2)
 local timerNovaCD			= mod:NewCDTimer(45, 65279, nil, nil, nil, 2)--Varies, 45-60seconds in between nova's
@@ -56,7 +57,12 @@ end
 
 function mod:SPELL_HEAL(_, _, _, _, destGUID, _, _, _, spellId)
 	if spellId == 64218 then
-		warnOverCharge:Show()
+		if self.Options.SpecWarn64218switch then
+			specWarnOverCharge:Show()
+			specWarnOverCharge:Play("killmob")
+		else
+			warnOverCharge:Show()
+		end
 		timerOvercharge:Start()
 		if self.Options.SetIconOnOvercharge then
 			self:ScanForMobs(destGUID, 2, 8, 1, nil, 10, "SetIconOnOvercharge")

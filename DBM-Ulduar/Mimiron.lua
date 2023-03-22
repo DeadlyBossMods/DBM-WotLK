@@ -61,6 +61,8 @@ local timerShell					= mod:NewBuffActiveTimer(6, 63666, nil, "Healer", 2, 5, nil
 local timerFlameSuppressant			= mod:NewBuffActiveTimer(10, 65192, nil, nil, nil, 3)
 --local timerNextFrostBomb			= mod:NewNextTimer(80, 64623, nil, nil, nil, 3, nil, DBM_COMMON_L.HEROIC_ICON)
 local timerBombExplosion			= mod:NewCastTimer(15, 65333, nil, nil, nil, 3)
+local timerNextFlames				= mod:NewNextTimer(29.2, 64566, nil, nil, nil, 2)
+local timerNextFlamesP4				= mod:NewNextTimer(19.5, 64566, nil, nil, nil, 2)
 
 mod:AddSetIconOption("SetIconOnNapalm", 63666, false, false, {1, 2, 3, 4, 5, 6, 7})
 mod:AddSetIconOption("SetIconOnPlasmaBlast", 64529, false, false, {8})
@@ -107,6 +109,20 @@ function mod:OnCombatEnd()
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Hide()
 	end
+	timerNextFlames:Stop()
+	self:UnscheduleMethod("Flames")
+	timerNextFlamesP4:Stop()
+	self:UnscheduleMethod("FlamesP4")
+end
+
+function mod:Flames()	-- Flames 
+	timerNextFlames:Start()
+	self:ScheduleMethod(29.2, "Flames")
+end
+
+function mod:FlamesP4()	-- Flames P4
+	timerNextFlamesP4:Start()
+	self:ScheduleMethod(19.5, "FlamesP4")
 end
 
 function mod:SPELL_CAST_START(args)
@@ -200,6 +216,8 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if msg == L.YellHardPull or msg:find(L.YellHardPull) then
 		timerHardmode:Start()
 		--timerNextFlameSuppressant:Start()
+		timerNextFlames:Start(2.5)
+		self:ScheduleMethod(2.5, "Flames")
 		enrage:Stop()
 		self.vb.hardmode = true
 	elseif self:IsClassic() then--Legacy code
@@ -209,6 +227,10 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 			self:SendSync("Phase3")
 		elseif (msg == L.YellPhase4 or msg:find(L.YellPhase4)) then
 			self:SendSync("Phase4")
+			--timerNextFlames:Stop()
+			self:UnscheduleMethod("Flames")
+			timerNextFlamesP4:Start(24.5)
+			self:ScheduleMethod(24.5, "FlamesP4")
 		end
 	end
 end
@@ -309,6 +331,7 @@ function mod:OnSync(event, args)
 		timerNextP3Wx2LaserBarrage:Cancel()
 		warnP3Wx2LaserBarrage:Cancel()
 	elseif event == "Phase2" and self.vb.phase == 1 then -- alternate localized-dependent detection
+		self:SetStage(2)
 		timerNextShockblast:Stop()
 		timerProximityMines:Stop()
 		timerFlameSuppressant:Stop()
@@ -325,12 +348,14 @@ function mod:OnSync(event, args)
 			DBM.RangeCheck:Hide()
 		end
 	elseif event == "Phase3" and self.vb.phase == 2 then
+		self:SetStage(3)
 		timerP3Wx2LaserBarrageCast:Stop()
 		timerNextP3Wx2LaserBarrage:Stop()
 --		timerNextFrostBomb:Stop()
 		timerRocketStrikeCD:Stop()
 		timerP2toP3:Start(16.8)--16.8-25, using yells is swell
 	elseif event == "Phase4" and self.vb.phase == 3 then
+		self:SetStage(4)
 		--All these timers might be wrong because they are mashed between retail and legacy using math guesses
 		timerP3toP4:Start(24)
 		--Adjusted to live, but live timers might be wrong, plus need to be classic vetted anyways

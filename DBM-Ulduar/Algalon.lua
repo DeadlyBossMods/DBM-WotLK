@@ -232,7 +232,7 @@ function mod:OnSync(msg, guid)
 		announcePreBigBang:Schedule(85)
 		timerNextBigBang:Start(90)
 		enrageTimer:Start(360)
-	elseif msg == "Phase2" and self.vb.phase < 2 then
+	elseif msg == "Phase2" and self:GetStage(2, 1) then
 		self:SetStage(2)
 		self.vb.warned_preP2 = true
 		timerNextCollapsingStar:Stop()

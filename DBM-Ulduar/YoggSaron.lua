@@ -154,7 +154,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnEmpowerSoon:Schedule(40)
 	elseif args:IsSpellID(64167, 64163) and self:AntiSpam(3, 3) then	-- Lunatic Gaze
 		--In stages less than 3, it can be used to detect brain portals withoute emote because skulls in brain room cast this on spawn
-		if self:GetStage(3) then
+		if self:GetStage(3, 1) then
 			if self:IsClassic() then
 				brainportal:Start(90)
 				warnBrainPortalSoon:Schedule(80)

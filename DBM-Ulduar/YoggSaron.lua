@@ -46,6 +46,7 @@ local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189, nil, nil, nil,
 local specWarnFervor				= mod:NewSpecialWarningYou(63138, nil, nil, nil, 1, 2)
 local specWarnMalady				= mod:NewSpecialWarningYou(63830, nil, nil, nil, 1, 2)
 local specWarnMaladyNear			= mod:NewSpecialWarningClose(63830, nil, nil, nil, 1, 2)
+local yellMalady					= mod:NewYell(63830)
 local yellSqueeze					= mod:NewYell(64125)
 
 local enrageTimer					= mod:NewBerserkTimer(900)
@@ -153,13 +154,13 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnEmpowerSoon:Schedule(40)
 	elseif args:IsSpellID(64167, 64163) and self:AntiSpam(3, 3) then	-- Lunatic Gaze
 		--In stages less than 3, it can be used to detect brain portals withoute emote because skulls in brain room cast this on spawn
-		if self.vb.phase < 3 then
+		if self:GetStage(3, 1) then
 			if self:IsClassic() then
 				brainportal:Start(90)
-				warnBrainPortalSoon:Schedule(85)
+				warnBrainPortalSoon:Schedule(80)
 			else
 				brainportal:Start(60)
-				warnBrainPortalSoon:Schedule(55)
+				warnBrainPortalSoon:Schedule(50)
 			end
 		else--P3 yogg casts
 			timerLunaricGaze:Start()
@@ -199,6 +200,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then
 			specWarnMalady:Show()
 			specWarnMalady:Play("targetyou")
+			yellMalady:Yell()
 		else
 			local uId = DBM:GetRaidUnitId(args.destName)
 			if uId then
@@ -224,16 +226,16 @@ function mod:SPELL_AURA_APPLIED(args)
 			specWarnFervor:Show()
 			specWarnFervor:Play("targetyou")
 		end
-	elseif args.spellId == 63894 and self.vb.phase < 2 then	-- Shadowy Barrier of Yogg-Saron (this is happens when p2 starts)
+	elseif args.spellId == 63894 and self:GetStage(2, 1) then	-- Shadowy Barrier of Yogg-Saron (this is happens when p2 starts)
 		self:SetStage(2)
 		--timerMaladyCD:Start(13)--VERIFY ME
 		--timerBrainLinkCD:Start(19)--VERIFY ME
 		if self:IsClassic() then
 			brainportal:Start(60)
-			warnBrainPortalSoon:Schedule(55)
+			warnBrainPortalSoon:Schedule(50)
 		else
 			brainportal:Start(10.5)
-			warnBrainPortalSoon:Schedule(5.5)
+			warnBrainPortalSoon:Schedule(0.5)
 		end
 		warnP2:Show()
 	elseif args.spellId == 64465 then
@@ -259,7 +261,7 @@ function mod:SPELL_AURA_REMOVED(args)
 		self:SetIcon(args.destName, 0)
 	elseif args.spellId == 63894 then		-- Shadowy Barrier removed from Yogg-Saron (start p3)
 		self:SendSync("Phase3")			-- Sync this because you don't get it in your combat log if you are in brain room.
-	elseif args:IsSpellID(64167, 64163) and self:AntiSpam(3, 2) and self.vb.phase == 3 then	-- Lunatic Gaze
+	elseif args:IsSpellID(64167, 64163) and self:AntiSpam(3, 2) and self:GetStage(3) then	-- Lunatic Gaze
 		timerNextLunaricGaze:Start()
 	elseif args:IsSpellID(63830, 63881) and self.Options.SetIconOnFearTarget then   -- Malady of the Mind (Death Coil)
 		self:SetIcon(args.destName, 0)
@@ -284,7 +286,7 @@ function mod:SPELL_AURA_REMOVED_DOSE(args)
 end
 
 function mod:OnSync(msg)
-	if msg == "Phase3" and self.vb.phase < 3 then
+	if msg == "Phase3" and self:GetStage(3, 1) then
 		self:SetStage(3)
 		brainportal:Cancel()
 		warnBrainPortalSoon:Cancel()

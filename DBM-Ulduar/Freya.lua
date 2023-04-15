@@ -104,7 +104,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 			warnFury:Show(args.destName)
 		end
 	elseif args.spellId == 63601 then
-		--if self.vb.phase == 2 then
+		--if self:GetStage(2) then
 			timerRootsCD:Start()
 		--end
 	end

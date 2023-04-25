@@ -309,6 +309,7 @@ function mod:OnSync(event, args)
 		timerNextP3Wx2LaserBarrage:Cancel()
 		warnP3Wx2LaserBarrage:Cancel()
 	elseif event == "Phase2" and self:GetStage(1) then -- alternate localized-dependent detection
+		self:SetStage(2)
 		timerNextShockblast:Stop()
 		timerProximityMines:Stop()
 		timerFlameSuppressant:Stop()
@@ -325,12 +326,14 @@ function mod:OnSync(event, args)
 			DBM.RangeCheck:Hide()
 		end
 	elseif event == "Phase3" and self:GetStage(2) then
+		self:SetStage(3)
 		timerP3Wx2LaserBarrageCast:Stop()
 		timerNextP3Wx2LaserBarrage:Stop()
 --		timerNextFrostBomb:Stop()
 		timerRocketStrikeCD:Stop()
 		timerP2toP3:Start(16.8)--16.8-25, using yells is swell
 	elseif event == "Phase4" and self:GetStage(3) then
+		self:SetStage(4)
 		--All these timers might be wrong because they are mashed between retail and legacy using math guesses
 		timerP3toP4:Start(24)
 		--Adjusted to live, but live timers might be wrong, plus need to be classic vetted anyways

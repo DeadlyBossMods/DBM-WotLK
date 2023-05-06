@@ -86,9 +86,9 @@ function mod:SPELL_AURA_APPLIED(args)
 	end
 end
 
-function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
+function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId, spellName)
 	if spellId == 65817 and destGUID == UnitGUID("player") and self:AntiSpam() then
-		specWarnHellfire:Show()
+		specWarnHellfire:Show(spellName)
 		specWarnHellfire:Play("watchfeet")
 	end
 end

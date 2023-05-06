@@ -43,8 +43,8 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnHellfire:Show()
 	elseif args.spellId == 65947 then
 		warnBladestorm:Show()
-		timerBladestorm:Start()
-		timerBladestormCD:Start()
+		timerBladestorm:Start(nil, args.sourceGUID)
+		timerBladestormCD:Start(nil, args.sourceGUID)
 		preWarnBladestorm:Schedule(85)
 	elseif args.spellId == 65983 then
 		warnHeroism:Show()
@@ -58,16 +58,16 @@ function mod:SPELL_CAST_SUCCESS(args)
 	elseif args.spellId == 66178 then
 		warnShadowstep:Show()
         if self:IsDifficulty("heroic25") then
-			timerShadowstepCD:Start(20)
+			timerShadowstepCD:Start(20, args.sourceGUID)
 		else
-			timerShadowstepCD:Start()
+			timerShadowstepCD:Start(nil, args.sourceGUID)
 		end
 	elseif args.spellId == 66017 and args:IsDestTypePlayer() then
 		warnDeathgrip:Show(args.destName)
 		if self:IsDifficulty("heroic25") then
-			timerDeathgripCD:Start(20)
+			timerDeathgripCD:Start(20, args.sourceGUID)
 		else
-			timerDeathgripCD:Start()
+			timerDeathgripCD:Start(nil, args.sourceGUID)
 		end
 	end
 end
@@ -97,11 +97,12 @@ mod.SPELL_MISSED = mod.SPELL_DAMAGE
 function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
 	if cid == 34472 or cid == 34454 then
-		timerShadowstepCD:Cancel()
+		timerShadowstepCD:Cancel(args.destGUID)
 	elseif cid == 34458 or cid == 34461 then
-		timerDeathgripCD:Cancel()
+		timerDeathgripCD:Cancel(args.destGUID)
 	elseif cid == 34475 or cid == 34453 then
-		timerBladestormCD:Cancel()
+		timerBladestormCD:Cancel(args.destGUID)
+		timerBladestorm:Cancel(args.destGUID)
 		preWarnBladestorm:Cancel()
 	end
 end

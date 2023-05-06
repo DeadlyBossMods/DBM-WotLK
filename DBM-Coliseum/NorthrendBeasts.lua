@@ -87,11 +87,11 @@ mod.vb.DreadscaleDead = false
 mod.vb.AcidmawDead = false
 
 function mod:OnCombatStart(delay)
+	self:SetStage(1)
 	self.vb.burnIcon = 1
 	self.vb.DreadscaleActive = true
 	self.vb.DreadscaleDead = false
 	self.vb.AcidmawDead = false
-	self:SetStage(1)
 	specWarnSilence:Schedule(14-delay)
 	specWarnSilence:ScheduleVoice(14-delay, "silencesoon")
 	if self:IsDifficulty("heroic10", "heroic25") then
@@ -258,8 +258,7 @@ mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 	if (msg:match(L.Charge) or msg:find(L.Charge)) and target then
-		target = DBM:GetUnitFullName(target)
-		warnCharge:Show(target)
+		target = DBM:GetUnitFullName(target) or target
 		timerNextCrash:Start()
 		if self.Options.ClearIconsOnIceHowl then
 			self:ClearIcons()
@@ -267,15 +266,11 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 		if target == UnitName("player") then
 			specWarnCharge:Show()
 			specWarnCharge:Play("justrun")
+		elseif self:CheckNearby(10, target) then
+			specWarnChargeNear:Show()
+			specWarnChargeNear:Play("runaway")
 		else
-			local uId = DBM:GetRaidUnitId(target)
-			if uId then
-				local inRange = CheckInteractDistance(uId, 2)
-				if inRange then
-					specWarnChargeNear:Show()
-					specWarnChargeNear:Play("runaway")
-				end
-			end
+			warnCharge:Show(target)
 		end
 		if self.Options.SetIconOnChargeTarget then
 			self:SetIcon(target, 8, 5)

@@ -91,6 +91,24 @@ function mod:OnCombatStart(delay)
 	end
 end
 
+--[[
+local lastTarget
+local function checkLastPursue(self)
+	if lastTarget then
+		local uId = DBM:GetRaidUnitId(lastTarget)
+		if uId and DBM:UnitDebuff(uId, 67574) then
+			if UnitIsUnit("player", uId) then
+				specWarnPursue:Show()
+				specWarnPursue:Play("justrun")
+				specWarnPursue:ScheduleVoice(1.5, "keepmove")
+			else
+				warnPursue:Show(lastTarget)
+			end
+		end
+	end
+end
+--]]
+
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 67574 then
 		if args:IsPlayer() then
@@ -103,6 +121,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.PursueIcon then
 			self:SetIcon(args.destName, 8)
 		end
+--		lastTarget = args.destName
 	elseif args.spellId == 66013 then
 		if self:AntiSpam(5, 1) then
 			table.wipe(pcoldIcons)

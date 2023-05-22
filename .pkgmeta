@@ -2,4 +2,4 @@ package-as: DBM-Raids-WoTLK
 enable-nolib-creation: no
 
 move-folders:
-    DBM-Raids-WOTLK/DBM-Raids-WoTLK: DBM-Raids-WoTLK
+    DBM-Raids-WoTLK/DBM-Raids-WoTLK: DBM-Raids-WoTLK

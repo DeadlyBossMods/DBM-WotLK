@@ -1,13 +1,5 @@
-package-as: DBM-Icecrown
+package-as: DBM-Raids-WOTLK
 enable-nolib-creation: no
 
 move-folders:
-    DBM-Icecrown/DBM-ChamberOfAspects: DBM-ChamberOfAspects
-    DBM-Icecrown/DBM-Coliseum: DBM-Coliseum
-    DBM-Icecrown/DBM-EyeOfEternity: DBM-EyeOfEternity
-    DBM-Icecrown/DBM-Icecrown: DBM-Icecrown
-    DBM-Icecrown/DBM-Naxx: DBM-Naxx
-    DBM-Icecrown/DBM-Onyxia: DBM-Onyxia
-    DBM-Icecrown/DBM-Ulduar: DBM-Ulduar
-    DBM-Icecrown/DBM-VoA: DBM-VoA
-   
+    DBM-Raids-WOTLK/DBM-Raids-WOTLK: DBM-Raids-WOTLK

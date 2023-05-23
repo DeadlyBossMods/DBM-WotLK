@@ -32,7 +32,7 @@ local warnVolcanoSoon			= mod:NewSoonAnnounce(66258, 3)
 local warnFlame					= mod:NewTargetAnnounce(66197, 4)
 local warnFlesh					= mod:NewTargetNoFilterAnnounce(66237, 4, nil, "Healer")
 
-local specWarnFlame				= mod:NewSpecialWarningRun(66877, nil, nil, 2, 4, 2)
+local specWarnFlame				= mod:NewSpecialWarningRun(66197, nil, nil, 2, 4, 2)
 local specWarnGTFO				= mod:NewSpecialWarningGTFO(66877, nil, nil, 2, 1, 8)
 local specWarnFlesh				= mod:NewSpecialWarningYou(66237, nil, nil, nil, 1, 2)
 local specWarnKiss				= mod:NewSpecialWarningCast(66334, "SpellCaster", nil, 2, 1, 2)

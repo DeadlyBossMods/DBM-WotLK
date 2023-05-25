@@ -29,6 +29,12 @@ mod:RegisterEventsInCombat(
 --TODO, add Dominate Mind casts by guardians to classic wrath
 --TODO, add drain life timer to wrath classic
 --The cast frequency of Drain Life cast by Immortal Guardians and Marked Immortal guardians has been reduced from 20-30 seconds to 10 seconds
+--[[
+(64059 64189 63138) and type = "begincast"
+ or (64144 64465 64167 64163) and type = "cast"
+ or ability.id = 62979 and type = "summon"
+ or ability.id = 63894
+--]]
 local warnMadness 					= mod:NewCastAnnounce(64059, 2)
 local warnSqueeze					= mod:NewTargetNoFilterAnnounce(64125, 3)
 local warnFervor					= mod:NewTargetAnnounce(63138, 4)
@@ -64,7 +70,7 @@ local timerShadowBeaconCD			= mod:NewCDTimer(46, 64465, nil, nil, nil, 3)
 local timerShadowBeacon				= mod:NewBuffActiveTimer(10, 64465, nil, nil, nil, 3)
 local timerMadness 					= mod:NewCastTimer(60, 64059, nil, nil, nil, 5)
 local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189, nil, nil, 2, 5)
-local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189, nil, nil, nil, 2)
+local timerNextDeafeningRoar		= mod:NewNextTimer(60, 64189, nil, nil, nil, 2)
 local timerAchieve
 if WOW_PROJECT_ID == (WOW_PROJECT_MAINLINE or 1) then
 	timerAchieve					= mod:NewAchievementTimer(420, 12396)

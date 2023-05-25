@@ -163,7 +163,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.SetIconsOnPCold then
 			self:SetIcon(args.destName, icon)
 			if self.Options.AnnouncePColdIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
-				SendChatMessage(L.PcoldIconSet:format(icon, name), IsInRaid() and "RAID" or "PARTY")
+				SendChatMessage(L.PcoldIconSet:format(icon, args.destName), IsInRaid() and "RAID" or "PARTY")
 			end
 		end
 		if args:IsPlayer() then

@@ -37,9 +37,6 @@ L:SetGeneralLocalization{
 	name = "Эмалон Страж Бури"
 }
 
-L:SetWarningLocalization{
-}
-
 L:SetTimerLocalization{
 	timerMobOvercharge	= "Взрыв в результате перегрузки",
 	EmalonEnrage		= "Берсерк Эмалона"
@@ -387,12 +384,12 @@ L:SetOptionLocalization({
 })
 
 L:SetTimerLocalization({
-	timerMark	= "Знак %d",
+	timerMark	= "Метка %d",
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon				= "Знак %d через 3 секунды",
-	WarningMarkNow				= "Знак %d",
+	WarningMarkSoon				= "Метка %d через 3 секунды",
+	WarningMarkNow				= "Метка %d",
 	SpecialWarningMarkOnPlayer	= "%s: %s"
 })
 
@@ -1094,8 +1091,7 @@ L:SetOptionLocalization{
 	SpecialWarnOnDebuff			= "Спецпредупреждение, когда отрицательный эффект",
 	SetIconOnDebuffTarget		= "Установить метку на получившего отрицательный эффект (героический режим)",
 	WarningTouchDebuff			= "Объявлять цели, получившие отрицательный эффект",
-	WarningPoweroftheTwins2		= "Объявлять цель под воздействем Силы близнецов",
-	SpecWarnPoweroftheTwins		= "Спецпредупреждение, когда на Вас Сила близнецов"
+	WarningPoweroftheTwins2		= "Объявлять цель под воздействем Силы близнецов"
 }
 
 -----------------
@@ -1515,7 +1511,7 @@ L:SetGeneralLocalization({
 
 L:SetWarningLocalization({
 	WarnAdds	= "Новые помощники",
-	warnCleaveArmor	= "%s on >%s< (%s)"
+	warnCleaveArmor	= "%s на >%s< (%s)"
 })
 
 L:SetTimerLocalization({

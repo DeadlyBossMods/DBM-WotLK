@@ -120,7 +120,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then
 			specWarnFlame:Show()
 			specWarnFlame:Play("runout")
-			specWarnFlame:SheduleVoice(1.5, "keepmove")
+			specWarnFlame:ScheduleVoice(1.5, "keepmove")
 		else
 			warnFlame:Show(args.destName)
 		end

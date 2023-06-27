@@ -1066,8 +1066,8 @@ L:SetWarningLocalization{
 	WarnSpecialSpellSoon		= "곧 특수 기술",
 	SpecWarnSpecial				= "색깔 변경",
 	SpecWarnSwitchTarget		= "대상 변경",
-	SpecWarnKickNow				= "지금 차단",
-	WarningTouchDebuff			= "디버프: >%s<",
+	SpecWarnKickNow				= "차단",
+	WarningTouchDebuff			= ">%s<에게 디버프",
 	WarningPoweroftheTwins2		= "쌍둥이의 힘 - >%s< 폭힐",
 }
 
@@ -1080,9 +1080,9 @@ L:SetOptionLocalization{
 	TimerSpecialSpell			= "다음 특수 기술 타이머 바 보기",
 	WarnSpecialSpellSoon		= "특수 기술 사전 경고 보기",
 	SpecWarnSpecial				= "색깔 변경을 해야할 때 특수 알림 보기",
-	SpecWarnSwitchTarget		= "다른 쌍둥이가 힐을 시전하면 대상 변경 특수 알림 보기",
-	SpecWarnKickNow				= "차단 스킬이 있다면 힐 차단 특수 알림 보기",
-	SpecialWarnOnDebuff			= "손길 디버프에 걸리면 색깔 변경 특수 알림 보기 (디버프 속성 변경)",
+	SpecWarnSwitchTarget		= "다른 쌍둥이가 치유를 시전하면 대상 변경 특수 알림 보기",
+	SpecWarnKickNow				= "치유 차단이 가능하다면 차단 특수 알림 보기",
+	SpecialWarnOnDebuff			= "손길 디버프에 걸리면 색깔 변경 특수 알림 보기 (디버프 속성 바꾸기)",
 	SetIconOnDebuffTarget		= "빛/어둠의 손길 디버프 대상에 공격대 징표 설정 (영웅)",
 	WarningTouchDebuff			= "빛/어둠의 손길 대상 알림",
 	WarningPoweroftheTwins2		= "쌍둥이의 힘 대상 알림"

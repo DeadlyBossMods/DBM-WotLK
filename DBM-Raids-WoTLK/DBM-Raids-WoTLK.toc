@@ -3,6 +3,7 @@
 ## X-Min-Interface: 80000
 ## X-Min-Interface-Wrath: 30400
 ## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Raids (WoTLK)|r
+## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0공격대 (리분)|r
 ## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Рейды (Король-лич)|r
 ## Author: MysticalOS
 ## LoadOnDemand: 1
@@ -16,6 +17,7 @@
 ## X-DBM-StatTypes: normal,normal25
 ## X-DBM-Mod-SubCategoriesID: 724, 631, 649, 249, 603, 616, 615, 533, 624
 ## X-DBM-Mod-Name: Raids (WoTLK)
+## X-DBM-Mod-Name-koKR: 공격대 (리분)
 ## X-DBM-Mod-Name-ruRU: Рейды (Король-лич)
 ## X-DBM-Mod-Sort: 901
 ## X-DBM-Mod-MapID: 724, 631, 649, 249, 603, 616, 615, 533, 624

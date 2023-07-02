@@ -6,8 +6,7 @@ mod.statTypes = "normal,normal25,heroic,heroic25"
 mod:SetRevision("@file-date-integer@")
 local addsIcon
 local bossID
---mod:SetEncounterID(mod:IsClassic() and 847 or 1099)--No ES fires this combat
-mod:RegisterCombat("combat")
+mod:SetEncounterID(mod:IsClassic() and 847 or 1099)--No ES fires this combat
 mod:SetCreatureID(37215, 37540) -- Orgrim's Hammer, The Skybreaker
 mod:SetMinSyncRevision(119)
 if UnitFactionGroup("player") == "Alliance" then
@@ -21,6 +20,8 @@ else
 	addsIcon = 23336
 	bossID = 36948
 end
+
+mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 71195 71193 71188 69652 69651 69638",

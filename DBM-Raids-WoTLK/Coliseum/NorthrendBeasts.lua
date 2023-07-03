@@ -53,7 +53,7 @@ local specWarnChargeNear	= mod:NewSpecialWarningClose(52311, nil, nil, nil, 3, 2
 local specWarnFrothingRage	= mod:NewSpecialWarningDispel(66759, "RemoveEnrage", nil, nil, 1, 2)
 
 local enrageTimer			= mod:NewBerserkTimer(223)
-local timerCombatStart		= mod:NewCombatTimer(21.5)
+local timerCombatStart      = mod:NewCombatTimer(24)
 local timerNextBoss			= mod:NewTimer(190, "TimerNextBoss", 2457, nil, nil, 1)
 local timerSubmerge			= mod:NewTimer(45, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, 6)
 local timerEmerge			= mod:NewTimer(10, "TimerEmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, 6)

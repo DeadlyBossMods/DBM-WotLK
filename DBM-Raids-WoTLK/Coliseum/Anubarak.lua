@@ -21,26 +21,26 @@ mod:RegisterEventsInCombat(
 	"RAID_BOSS_EMOTE"
 )
 
-local warnAdds				= mod:NewAnnounce("warnAdds", 3, 45419)
+local warnAdds				= mod:NewAnnounce("warnAdds", 3, 45419, nil, nil, nil, 66333)
 local preWarnShadowStrike	= mod:NewSoonAnnounce(66134, 3)
 local warnShadowStrike		= mod:NewSpellAnnounce(66134, 4)
 local warnPCold				= mod:NewTargetNoFilterAnnounce(66013, 3, nil, "Healer")
 local warnPursue			= mod:NewTargetNoFilterAnnounce(67574, 4)
 local warnFreezingSlash		= mod:NewTargetNoFilterAnnounce(66012, 2, nil, "Tank|Healer")
 local warnHoP				= mod:NewTargetNoFilterAnnounce(1022, 2, nil, false)--Heroic strat revolves around kiting pursue and using Hand of Protection.
-local warnEmerge			= mod:NewAnnounce("WarnEmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
-local warnEmergeSoon		= mod:NewAnnounce("WarnEmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
-local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
-local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
+local warnEmerge			= mod:NewAnnounce("WarnEmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, nil, 65919, true)
+local warnEmergeSoon		= mod:NewAnnounce("WarnEmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, nil, 65919, true)
+local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, nil, 65919, true)
+local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, nil, 65919, true)
 local warnPhase3			= mod:NewPhaseAnnounce(3)
 
 local specWarnPursue		= mod:NewSpecialWarningRun(67574, nil, nil, 2, 4, 2)
 local specWarnShadowStrike	= mod:NewSpecialWarningSpell(66134, false, nil, 2, 1)--Don't have a good voice for this. Need a "stun mob now"
 local specWarnPCold			= mod:NewSpecialWarningYou(66013, false, nil, nil, 1, 2)
 
-local timerAdds				= mod:NewTimer(45, "timerAdds", 45419, nil, nil, 1)
-local timerSubmerge			= mod:NewTimer(75, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, 6)
-local timerEmerge			= mod:NewTimer(65, "TimerEmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, 6)
+local timerAdds				= mod:NewTimer(45, "timerAdds", 45419, nil, nil, 1, nil, nil, nil, nil, nil, nil, nil, 66333)
+local timerSubmerge			= mod:NewTimer(75, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, 6, nil, nil, nil, nil, nil, nil, nil, 65919, nil, true)
+local timerEmerge			= mod:NewTimer(65, "TimerEmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, 6, nil, nil, nil, nil, nil, nil, nil, 65919, nil, true)
 local timerFreezingSlash	= mod:NewCDTimer(20, 66012, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerPCold			= mod:NewBuffActiveTimer(15, 66013, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 local timerShadowStrike		= mod:NewNextTimer(30.5, 66134, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)

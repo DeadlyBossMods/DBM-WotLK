@@ -19,11 +19,11 @@ mod:RegisterEventsInCombat(
 	"SPELL_INTERRUPT"
 )
 
-local warnSpecial					= mod:NewAnnounce("WarnSpecialSpellSoon", 3)
+local warnSpecial					= mod:NewAnnounce("WarnSpecialSpellSoon", 3, nil, nil, nil, nil, 39089, true)--Invalid for unified callback, doesn't match BW since BW uses separate message for light and dark
 local warnTouchDebuff				= mod:NewAnnounce("WarningTouchDebuff", 2, 66823)
 local warnPoweroftheTwins			= mod:NewAnnounce("WarningPoweroftheTwins2", 4, 65916, "Healer", nil, nil, 65916)
 
-local specWarnSpecial				= mod:NewSpecialWarning("SpecWarnSpecial", nil, nil, nil, 1, 14)
+local specWarnSpecial				= mod:NewSpecialWarning("SpecWarnSpecial", nil, nil, nil, 1, 14, nil, nil, 39089)--Invalid for unified callback, doesn't match BW since BW uses separate message for light and dark
 local specWarnSwitch				= mod:NewSpecialWarning("SpecWarnSwitchTarget", nil, nil, nil, 1, 2, nil, nil, 65875)
 local specWarnKickNow 				= mod:NewSpecialWarning("SpecWarnKickNow", "HasInterrupt", nil, 2, 1, 2, nil, nil, 65875)
 local specWarnPoweroftheTwins		= mod:NewSpecialWarningDefensive(65916, "Tank", nil, 2, 1, 2)
@@ -31,7 +31,7 @@ local specWarnEmpoweredDarkness		= mod:NewSpecialWarningYou(65724)--No voice ide
 local specWarnEmpoweredLight		= mod:NewSpecialWarningYou(65748)--No voice ideas for this
 
 local enrageTimer					= mod:NewBerserkTimer(360)
-local timerSpecial					= mod:NewTimer(45, "TimerSpecialSpell", "132866", nil, nil, 6)
+local timerSpecial					= mod:NewTimer(45, "TimerSpecialSpell", "132866", nil, nil, 6, nil, nil, nil, nil, nil, nil, nil, 39089, nil, true)--39089 used to match BW callback
 local timerHeal						= mod:NewCastTimer(15, 65875, nil, nil, nil, 4, nil, DBM_COMMON_L.INTERRUPT_ICON)
 local timerLightTouch				= mod:NewTargetTimer(20, 65950, nil, false, 2, 3)
 local timerDarkTouch				= mod:NewTargetTimer(20, 66001, nil, false, 2, 3)

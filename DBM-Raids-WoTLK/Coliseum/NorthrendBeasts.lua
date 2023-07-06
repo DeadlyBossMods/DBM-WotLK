@@ -38,7 +38,7 @@ local warnBreath			= mod:NewSpellAnnounce(66689, 2)
 local warnSlimePool			= mod:NewSpellAnnounce(66883, 2, nil, "Melee")
 local warnToxin				= mod:NewTargetAnnounce(66823, 3)
 local warnBile				= mod:NewTargetAnnounce(66869, 3)
-local WarningSnobold		= mod:NewAnnounce("WarningSnobold", 4)
+local WarningSnobold		= mod:NewAnnounce("WarningSnobold", 4, 66636, nil, nil, nil, 66636)
 local warnEnrageWorm		= mod:NewSpellAnnounce(68335, 3)
 local warnCharge			= mod:NewTargetNoFilterAnnounce(52311, 4)
 

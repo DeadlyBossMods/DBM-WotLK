@@ -54,8 +54,8 @@ function mod:OnCombatStart(delay)
 	self.vb.warned_preP3 = false
 	if self.Options.SoundWTF3 then
 		DBM:PlaySoundFile("Interface\\AddOns\\DBM-Onyxia\\sounds\\dps-very-very-slowly.ogg")
-		self:Schedule(20, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Onyxia\\sounds\\hit-it-like-you-mean-it.ogg")
-		self:Schedule(30, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Onyxia\\sounds\\now-hit-it-very-hard-and-fast.ogg")
+		self:Schedule(20, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\DBM-Onyxia\\sounds\\hit-it-like-you-mean-it.ogg")
+		self:Schedule(30, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\DBM-Onyxia\\sounds\\now-hit-it-very-hard-and-fast.ogg")
 	end
 end
 

@@ -1072,7 +1072,6 @@ L:SetWarningLocalization{
 	SpecWarnSpecial				= "Change color",
 	SpecWarnSwitchTarget		= "Switch target",
 	SpecWarnKickNow				= "Interrupt now",
-	WarningTouchDebuff			= "Debuff on >%s<",
 	WarningPoweroftheTwins2		= "Power of the Twins - More healing on >%s<"
 }
 
@@ -1088,9 +1087,11 @@ L:SetOptionLocalization{
 	SpecWarnSwitchTarget		= "Show special warning to twitch targets if other Twin is casting heal",
 	SpecWarnKickNow				= "Show special warning when you are able to interrupt heal",
 	SpecialWarnOnDebuff			= "Show change color special warning when touch debuffed (to switch debuff)",
-	SetIconOnDebuffTarget		= "Set icons on Touch of Light/Darkness debuff targets (heroic)",
-	WarningTouchDebuff			= "Announce Touch of Light/Darkness debuff targets",
 	WarningPoweroftheTwins2		= "Announce Power of the Twins targets"
+}
+
+L:SetMiscLocalization{
+	Special		= "Special Ability"
 }
 
 -----------------
@@ -1099,43 +1100,44 @@ L:SetOptionLocalization{
 L = DBM:GetModLocalization("Anub'arak_Coliseum")
 
 L:SetGeneralLocalization{
-	name 					= "Anub'arak"
+	name 						= "Anub'arak"
 }
 
 L:SetTimerLocalization{
-	TimerEmerge				= "Emerge",
-	TimerSubmerge			= "Submerge",
-	timerAdds				= "New adds"
+	TimerEmerge					= "Emerge",
+	TimerSubmerge				= "Submerge",
+	timerAdds					= "New adds"
 }
 
 L:SetWarningLocalization{
-	WarnEmerge				= "Anub'arak emerges",
-	WarnEmergeSoon			= "Emerge in 10 seconds",
-	WarnSubmerge			= "Anub'arak submerges",
-	WarnSubmergeSoon		= "Submerge in 10 seconds",
-	specWarnSubmergeSoon	= "Submerge in 10 seconds!",
-	warnAdds				= "New adds"
-}
-
-L:SetMiscLocalization{
-	Emerge				= "emerges from the ground!",
-	Burrow				= "burrows into the ground!",
-	PcoldIconSet		= "PCold icon {rt%d} set on %s",
-	PcoldIconRemoved	= "PCold icon removed from %s"
+	WarnEmerge					= "Anub'arak emerges",
+	WarnEmergeSoon				= "Emerge in 10 seconds",
+	WarnSubmerge				= "Anub'arak submerges",
+	WarnSubmergeSoon			= "Submerge in 10 seconds",
+	specWarnSubmergeSoon		= "Submerge in 10 seconds!",
+	warnAdds					= "New adds"
 }
 
 L:SetOptionLocalization{
-	WarnEmerge				= "Show warning for emerge",
-	WarnEmergeSoon			= "Show pre-warning for emerge",
-	WarnSubmerge			= "Show warning for submerge",
-	WarnSubmergeSoon		= "Show pre-warning for submerge",
-	specWarnSubmergeSoon	= "Show special warning for submerge soon",
-	warnAdds				= "Announce new adds",
-	timerAdds				= "Show timer for new adds",
-	TimerEmerge				= "Show timer for emerge",
-	TimerSubmerge			= "Show timer for submerge",
-	AnnouncePColdIcons		= "Announce icons for $spell:66013 targets to raid chat (requires raid leader)",
+	WarnEmerge					= "Show warning for emerge",
+	WarnEmergeSoon				= "Show pre-warning for emerge",
+	WarnSubmerge				= "Show warning for submerge",
+	WarnSubmergeSoon			= "Show pre-warning for submerge",
+	specWarnSubmergeSoon		= "Show special warning for submerge soon",
+	warnAdds					= "Announce new adds",
+	timerAdds					= "Show timer for new adds",
+	TimerEmerge					= "Show timer for emerge",
+	TimerSubmerge				= "Show timer for submerge",
+	AnnouncePColdIcons			= "Announce icons for $spell:66013 targets to raid chat (requires raid leader)",
 	AnnouncePColdIconsRemoved	= "Announce when icons are removed for $spell:66013 (requires raid leader)"
+}
+
+L:SetMiscLocalization{
+	Emerge						= "emerges from the ground!",
+	Burrow						= "burrows into the ground!",
+	PcoldIconSet				= "PCold icon {rt%d} set on %s",
+	PcoldIconRemoved			= "PCold icon removed from %s",
+	EmAndSub					= "Emerge and Submerge"
 }
 
 ----------------------

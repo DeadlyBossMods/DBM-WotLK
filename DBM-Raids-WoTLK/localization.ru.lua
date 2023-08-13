@@ -1347,14 +1347,16 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	SetIconOnBlazingSkeleton	= "Устанавливать метку на Исторгающего пламя скелета (череп)",
 	WarnPortalOpen				= "Предупреждение об открытии порталов",
-	TimerPortalsOpen			= "Отсчет времени до открытия порталов",
-	TimerPortalsClose			= "Отсчет времени до закрытия порталов",
+	TimerPortalsOpen			= "Показать таймер, когда открываются порталы кошмаров",
+	TimerPortalsClose			= "Показать таймер, когда закрываются порталы кошмаров",
 	TimerBlazingSkeleton		= "Отсчет времени до Исторгающего пламя скелета",
 	TimerAbom					= "Отсчет времени до след. Прожорливого поганища (экспериментальный)"
 }
 
 L:SetMiscLocalization{
-	YellPortals		= "Я открыла портал в Изумрудный Сон. Там вы найдете спасение, герои..."
+	YellPortals		= "Я открыла портал в Изумрудный Сон. Там вы найдете спасение, герои...",
+	BlazingSkeleton				= "Исторгающий пламя скелет",
+	GluttonousAbomination		= "Прожорливое поганище"
 }
 
 ------------------

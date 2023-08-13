@@ -165,7 +165,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		else--Phase 1 air phase, multiple beacons
 			self:Unschedule(warnBeaconTargets)
 			local maxBeacon = (self.vb.phase == 2) and 1 or self:IsDifficulty("heroic25") and 6 or self:IsDifficulty("normal25") and 5 or 2--Heroic 10 and normal 2 are both 2
-			if #beaconTargets == maxBeacon or DBM:NumRealAlivePlayers() == #beaconTargets then--Max beacons, or every player alive has one
+			if (#beaconTargets == maxBeacon) or (DBM:NumRealAlivePlayers() == #beaconTargets) then--Max beacons, or every player alive has one
 				table.sort(beaconTargets, DBM.SortByGroup)
 				for i = 1, #beaconTargets do
 					local name = zeroIcons[i]
@@ -177,7 +177,7 @@ function mod:SPELL_AURA_APPLIED(args)
 						yellFrostBeaconFades:Countdown(spellId, nil, i)
 					end
 					if self.Options.AnnounceFrostBeaconIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
-						SendChatMessage(L.BeaconIconSet:format(i, name, IsInRaid() and "RAID" or "PARTY")
+						SendChatMessage(L.BeaconIconSet:format(i, name, IsInRaid() and "RAID" or "PARTY"))
 					end
 				end
 				warnBeaconTargets(self)

@@ -1238,7 +1238,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	AnnounceSporeIcons	= "Announce icons for $spell:69279 targets to raid chat<br/>(requires raid leader)",
 	AchievementCheck	= "Announce 'Flu Shot Shortage' achievement failure to raid<br/>(requires promoted status)"
 }
 
@@ -1385,7 +1384,7 @@ L:SetOptionLocalization{
 	TimerNextAirphase		= "Show timer for next air phase",
 	TimerNextGroundphase	= "Show timer for next ground phase",
 	AnnounceFrostBeaconIcons= "Announce icons for $spell:70126 targets to raid chat<br/>(requires raid leader)",
-	ClearIconsOnAirphase	= "Clear all icons before air phase",
+	ClearIconsOnAir			= "Clear all icons before air phase",
 	AchievementCheck		= "Announce 'All You Can Eat' achievement warnings to raid<br/>(requires promoted status)"
 }
 

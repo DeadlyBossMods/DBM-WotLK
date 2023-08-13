@@ -1331,7 +1331,6 @@ L:SetGeneralLocalization{
 
 L:SetOptionLocalization{
 	RangeFrame			= "显示距离框 (8码)",
-	AnnounceSporeIcons	= "公布$spell:69279目标设置的标记到团队频道<br/>(需要团队队长)",
 	AchievementCheck	= "公布 '流感疫苗短缺' 成就失败到团队频道<br/>(需助理权限)"
 }
 
@@ -1489,7 +1488,7 @@ L:SetOptionLocalization{
 	TimerNextAirphase		= "为下一次 空中阶段显示计时器",
 	TimerNextGroundphase	= "为下一次 地上阶段显示计时器",
 	AnnounceFrostBeaconIcons= "公布$spell:70126目标设置的标记到团队频道<br/>(需要团队队长)",
-	ClearIconsOnAirphase	= "空中阶段前清除所有标记",
+	ClearIconsOnAir				= "空中阶段前清除所有标记",
 	AchievementCheck		= "公布 '吃到饱' 成就警告到团队频道<br/>(需助理权限)",
 	RangeFrame				= "根据最后首领使用的技能跟玩家减益显示动态距离框(10/20码)"
 }

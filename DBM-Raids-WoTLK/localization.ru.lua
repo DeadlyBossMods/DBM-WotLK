@@ -1237,7 +1237,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	AnnounceSporeIcons	= "Объявлять метки целей заклинания $spell:69279 в рейд-чат<br/>(требуются права помощника)",
 	AchievementCheck	= "Объявлять о провале достижения 'Масок нет!' в рейд-чат<br/>(требуются права помощника)"
 }
 
@@ -1384,7 +1383,7 @@ L:SetOptionLocalization{
 	TimerNextAirphase		= "Отсчет времени до следующей воздушной фазы",
 	TimerNextGroundphase	= "Отсчет времени до следующей наземной фазы",
 	AnnounceFrostBeaconIcons= "Объявлять метки целей заклинания $spell:70126 в рейд-чат<br/>(требуются права помощника)",
-	ClearIconsOnAirphase	= "Снимать все метки перед воздушной фазой",
+	ClearIconsOnAir			= "Снимать все метки перед воздушной фазой",
 	AchievementCheck		= "Объявлять предупреждения для достижения 'Таинственная дама'<br/>в рейд-чат (требуются права помощника)",
 }
 

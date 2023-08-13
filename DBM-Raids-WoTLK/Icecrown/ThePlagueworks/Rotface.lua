@@ -22,7 +22,7 @@ mod:RegisterEventsInCombat(
 local warnSlimeSpray			= mod:NewSpellAnnounce(69508, 2)
 local warnMutatedInfection		= mod:NewTargetNoFilterAnnounce(69674, 4)
 local warnRadiatingOoze			= mod:NewSpellAnnounce(69760, 3)
-local warnOozeSpawn				= mod:NewAnnounce("WarnOozeSpawn", 1)
+local warnOozeSpawn				= mod:NewAnnounce("WarnOozeSpawn", 1, 25163, nil, nil, nil, 25163, DBM_COMMON_L.ADD)
 local warnStickyOoze			= mod:NewSpellAnnounce(69774, 1)
 local warnUnstableOoze			= mod:NewStackAnnounce(69558, 2)
 local warnVileGas				= mod:NewTargetAnnounce(72272, 3)

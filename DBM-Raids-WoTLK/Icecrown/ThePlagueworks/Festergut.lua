@@ -48,7 +48,7 @@ local berserkTimer			= mod:NewBerserkTimer(300)
 
 mod:AddRangeFrameOption(8, 69240, "Ranged")
 mod:AddSetIconOption("SetIconOnGasSpore", 69279, true, 7, {1, 2, 3})
-mod:AddBoolOption("AchievementCheck", false, "announce", nil, nil, nil, 69291)
+mod:AddBoolOption("AchievementCheck", false, "announce", nil, nil, nil, 4615, "achievement")
 
 local gasSporeTargets = {}
 local vileGasTargets = {}

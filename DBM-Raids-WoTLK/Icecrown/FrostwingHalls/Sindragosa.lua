@@ -60,7 +60,7 @@ mod:AddSetIconOption("SetIconOnFrostBeacon", 70126, true, 7, {1, 2, 3, 4, 5, 6})
 mod:AddSetIconOption("SetIconOnUnchainedMagic", 69762, true, 0, {2, 3, 4, 5, 6, 7})--Starts at 2 so it doesn't steal frost beacon icon and the like
 mod:AddBoolOption("ClearIconsOnAir", false, nil, nil, nil, nil, 70126)
 mod:AddBoolOption("AnnounceFrostBeaconIcons", false, nil, nil, nil, nil, 70126)
-mod:AddBoolOption("AchievementCheck", false, "announce", nil, nil, nil, "at4620")--group it with achievement timer
+mod:AddBoolOption("AchievementCheck", false, "announce", nil, nil, nil, 4620)--group it with achievement timer
 mod:AddRangeFrameOption("10/20")
 
 local beaconTargets		= {}

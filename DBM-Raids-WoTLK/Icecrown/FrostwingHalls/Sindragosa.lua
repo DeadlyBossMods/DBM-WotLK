@@ -158,7 +158,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				end
 				if playerBeaconed then
 					yellFrostBeacon:Yell(1, 1)
-					yellFrostBeaconFades:Countdown(spellId, nil, 1)
+					yellFrostBeaconFades:Countdown(args.spellId, nil, 1)
 				end
 			end
 			warnBeaconTargets(self)
@@ -168,13 +168,13 @@ function mod:SPELL_AURA_APPLIED(args)
 			if (#beaconTargets == maxBeacon) or (DBM:NumRealAlivePlayers() == #beaconTargets) then--Max beacons, or every player alive has one
 				table.sort(beaconTargets, DBM.SortByGroup)
 				for i = 1, #beaconTargets do
-					local name = zeroIcons[i]
+					local name = beaconTargets[i]
 					if self.Options.SetIconOnFrostBeacon then
 						self:SetIcon(name, i)
 					end
 					if name == DBM:GetMyPlayerInfo() then
 						yellFrostBeacon:Yell(i, i)
-						yellFrostBeaconFades:Countdown(spellId, nil, i)
+						yellFrostBeaconFades:Countdown(args.spellId, nil, i)
 					end
 					if self.Options.AnnounceFrostBeaconIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
 						SendChatMessage(L.BeaconIconSet:format(i, name, IsInRaid() and "RAID" or "PARTY"))

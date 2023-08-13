@@ -1174,7 +1174,8 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellReanimatedFanatic	= "Arise, and exult in your pure form!"
+	YellReanimatedFanatic		= "Arise, and exult in your pure form!",
+	ReanimatedAdd				= "Reanimated Add"
 }
 
 ----------------------

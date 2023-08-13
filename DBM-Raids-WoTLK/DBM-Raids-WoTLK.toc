@@ -41,7 +41,6 @@ RubySanctum\Saviana.lua
 RubySanctum\Zarithrian.lua
 RubySanctum\Halion.lua
 
-Icecrown\Trash.lua
 Icecrown\TheLowerSpire\LordMarrowgar.lua
 Icecrown\TheLowerSpire\Deathwhisper.lua
 Icecrown\TheLowerSpire\GunshipBattle.lua
@@ -54,6 +53,7 @@ Icecrown\TheCrimsonHall\Lanathel.lua
 Icecrown\FrostwingHalls\Valithria.lua
 Icecrown\FrostwingHalls\Sindragosa.lua
 Icecrown\TheFrozenThrone\LichKing.lua
+Icecrown\Trash.lua
 
 Coliseum\NorthrendBeasts.lua
 Coliseum\Jaraxxus.lua

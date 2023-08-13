@@ -51,7 +51,7 @@ local timerShadowPrison			= mod:NewBuffFadesTimer(10, 72999, nil, nil, nil, 5)		
 local berserkTimer				= mod:NewBerserkTimer(600)
 
 mod:AddSetIconOption("EmpoweredFlameIcon", 72040, true, 0, {7})
-mod:AddSetIconOption("ActivePrinceIcon", nil, false, 5, {8})
+mod:AddSetIconOption("ActivePrinceIcon", nil, false, 5, {8}, nil, 70952)
 mod:AddRangeFrameOption(12, 72037)
 
 local glitteringSparksTargets	= {}

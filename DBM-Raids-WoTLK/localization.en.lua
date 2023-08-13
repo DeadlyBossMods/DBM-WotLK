@@ -1356,7 +1356,9 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPortals		= "I have opened a portal into the Dream. Your salvation lies within, heroes..."
+	YellPortals					= "I have opened a portal into the Dream. Your salvation lies within, heroes...",
+	BlazingSkeleton				= "Blazing Skeleton",
+	GluttonousAbomination		= "Gluttonous Abomination"
 }
 
 ------------------

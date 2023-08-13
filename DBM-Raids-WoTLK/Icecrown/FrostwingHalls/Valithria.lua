@@ -21,6 +21,7 @@ mod:RegisterEventsInCombat(
 	"UNIT_SPELLCAST_START boss1"
 )
 
+--Known Issue. Weak aura key can't identify portal open from portal close timer. Both send same key. keep this in mind
 local warnCorrosion			= mod:NewStackAnnounce(70751, 2, nil, false)
 local warnGutSpray			= mod:NewTargetAnnounce(70633, 3, nil, "Tank|Healer")
 local warnManaVoid			= mod:NewSpellAnnounce(71179, 2, nil, "ManaUser")
@@ -35,17 +36,17 @@ local specWarnGTFO			= mod:NewSpecialWarningGTFO(71179, nil, nil, nil, 1, 8)
 
 local timerLayWaste			= mod:NewBuffActiveTimer(12, 69325, nil, nil, nil, 2)
 local timerNextPortal		= mod:NewCDTimer(46.5, 72483, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
-local timerPortalsOpen		= mod:NewTimer(15, "TimerPortalsOpen", 72483, nil, nil, 6)
-local timerPortalsClose		= mod:NewTimer(10, "TimerPortalsClose", 72483, nil, nil, 6)
+local timerPortalsOpen		= mod:NewTimer(15, "TimerPortalsOpen", 72483, nil, nil, 6, DBM_COMMON_L.HEALER_ICON, nil, nil, nil, nil, nil, nil, 72483)
+local timerPortalsClose		= mod:NewTimer(10, "TimerPortalsClose", 72483, nil, nil, 6, DBM_COMMON_L.HEALER_ICON, nil, nil, nil, nil, nil, nil, 72483)
 local timerHealerBuff		= mod:NewBuffFadesTimer(40, 70873, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 local timerGutSpray			= mod:NewTargetTimer(12, 70633, nil, "Tank|Healer", nil, 5)
 local timerCorrosion		= mod:NewTargetTimer(6, 70751, nil, false, nil, 3)
-local timerBlazingSkeleton	= mod:NewTimer(50, "TimerBlazingSkeleton", 17204, nil, nil, 1)
-local timerAbom				= mod:NewTimer(50, "TimerAbom", 43392, nil, nil, 1)
+local timerBlazingSkeleton	= mod:NewTimer(50, "TimerBlazingSkeleton", 17204, nil, nil, 1, DBM_COMMON_L.DAMAGE_ICON, nil, nil, nil, nil, nil, nil, 17204, nil, L.BlazingSkeleton)
+local timerAbom				= mod:NewTimer(50, "TimerAbom", 43392, nil, nil, 1, DBM_COMMON_L.TANK_ICON..DBM_COMMON_L.DAMAGE_ICON, nil, nil, nil, nil, nil, nil, 43392, nil, L.GluttonousAbomination)
 
 local berserkTimer			= mod:NewBerserkTimer(420)
 
-mod:AddSetIconOption("SetIconOnBlazingSkeleton", nil, true, 5, {8})
+mod:AddSetIconOption("SetIconOnBlazingSkeleton", nil, true, 5, {8}, nil, 17204)
 
 mod.vb.BlazingSkeletonTimer = 60
 mod.vb.AbomSpawn = 0

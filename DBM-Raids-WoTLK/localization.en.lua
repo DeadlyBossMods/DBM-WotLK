@@ -1349,8 +1349,8 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	SetIconOnBlazingSkeleton	= "Set icon on Blazing Skeleton (skull)",
 	WarnPortalOpen				= "Show warning when Nightmare Portals are opened up",
-	TimerPortalsOpen			= "Show timer when Nightmare Portals are opened up",
-	TimerPortalsClose			= "Show timer when Nightmare Portals are closed",
+	TimerPortalsOpen			= "Show cast timer for when Nightmare Portals open",
+	TimerPortalsClose			= "Show timer for when Nightmare Portals close",
 	TimerBlazingSkeleton		= "Show timer for next Blazing Skeleton spawn",
 	TimerAbom					= "Show timer for next Gluttonous Abomination spawn (Experimental)"
 }

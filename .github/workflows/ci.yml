@@ -61,9 +61,10 @@ jobs:
 
       - name: Deploy on DBM-WoTLKC
         run: |
-          COMMIT_MESSAGE=$(cat <<EOF
+          COMMIT_MESSAGE=$(cat <<'EOF'
           ${{ github.event.head_commit.message }}
-          EOF)
+          EOF
+          )
           COMMIT_MESSAGE=$(echo $COMMIT_MESSAGE | sed 's/"/\\"/g')
           cd /home/runner/work/DBM-WotLK/DBM-WoTLKC
           git remote set-url origin "https://${{ secrets.PERSONAL_TOKEN }}@github.com/DeadlyBossMods/DBM-WoTLKC.git"

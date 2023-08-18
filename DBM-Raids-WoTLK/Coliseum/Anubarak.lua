@@ -85,9 +85,9 @@ local function collectPColdTargets(self)
 		table.sort(pcoldIcons, DBM.SortByGroup)
 		for i = 1, #pcoldIcons do
 			local name = pcoldIcons[i]
-			self:SetIcon(name, i)
+			self:SetIcon(name, icon)
 			if self.Options.AnnouncePColdIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
-				SendChatMessage(L.PcoldIconSet:format(i, name), IsInRaid() and "RAID" or "PARTY")
+				SendChatMessage(L.PcoldIconSet:format(icon, name), IsInRaid() and "RAID" or "PARTY")
 			end
 		end
 	end

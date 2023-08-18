@@ -25,8 +25,6 @@ globals = {
 	"bit.band",
 	"table.wipe",
 	"time",
-	"tContains",
-	"tDeleteItem",
 
 	-- WoW
 	"COMBATLOG_OBJECT_AFFILIATION_MINE",

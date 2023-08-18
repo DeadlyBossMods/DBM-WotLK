@@ -78,7 +78,7 @@ local function ShadowStrike(self)
 	end
 end
 
-local collectPColdTargets(self)
+local function collectPColdTargets(self)
 	if self.Options.SetIconsOnPCold then
 		--If being forced to use a delay anyways and not realtime mark, might as well leverage tech to sort icons by roster index
 		--ie more predictable icon behavior based on what group victim is in

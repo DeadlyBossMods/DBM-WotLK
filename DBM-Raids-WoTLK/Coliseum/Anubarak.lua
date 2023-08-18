@@ -8,7 +8,6 @@ mod:SetCreatureID(34564)
 mod:SetEncounterID(mod:IsClassic() and 645 or 1085)
 mod:SetModelID(29268)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 8)
-mod:SetHotfixNoticeRev(20230817000000)
 mod:SetMinSyncRevision(20220623000000)
 
 mod:RegisterCombat("combat")
@@ -50,7 +49,7 @@ local timerHoP				= mod:NewBuffActiveTimer(10, 1022, nil, false, nil, 5)--So we 
 local enrageTimer			= mod:NewBerserkTimer(570)	-- 9:30 ? hmpf (no enrage while submerged... this sucks)
 
 mod:AddSetIconOption("PursueIcon", 67574, true, 0, {8})
-mod:AddSetIconOption("SetIconsOnPCold", 66013, true, 7, {1, 2, 3, 4, 5})
+mod:AddSetIconOption("SetIconsOnPCold", 66013, true, 0, {1, 2, 3, 4, 5})
 mod:AddBoolOption("AnnouncePColdIcons", false, nil, nil, nil, nil, 66013)
 mod:AddBoolOption("AnnouncePColdIconsRemoved", false, nil, nil, nil, nil, 66013)
 
@@ -76,22 +75,6 @@ local function ShadowStrike(self)
 		preWarnShadowStrike:Schedule(25.5)
 		self:Schedule(30.5, ShadowStrike, self)
 	end
-end
-
-local collectPColdTargets(self)
-	if self.Options.SetIconsOnPCold then
-		--If being forced to use a delay anyways and not realtime mark, might as well leverage tech to sort icons by roster index
-		--ie more predictable icon behavior based on what group victim is in
-		table.sort(pcoldIcons, DBM.SortByGroup)
-		for i = 1, #pcoldIcons do
-			local name = pcoldIcons[i]
-			self:SetIcon(name, icon)
-			if self.Options.AnnouncePColdIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
-				SendChatMessage(L.PcoldIconSet:format(icon, name), IsInRaid() and "RAID" or "PARTY")
-			end
-		end
-	end
-	warnPCold:Show(table.concat(pcoldIcons, "<, >"))
 end
 
 function mod:OnCombatStart(delay)
@@ -156,6 +139,7 @@ end
 
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 66013 then
+		table.wipe(pcoldIcons)
 		timerPCold:Start()
 	end
 end
@@ -174,16 +158,19 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 --		lastTarget = args.destName
 	elseif args.spellId == 66013 then
-		if not tContains(pcoldIcons, args.destName) then
-			table.insert(pcoldIcons, args.destName)
+		pcoldIcons[#pcoldIcons+1] = args.destName
+		local icon = #pcoldIcons
+		if self.Options.SetIconsOnPCold then
+			self:SetIcon(args.destName, icon)
+			if self.Options.AnnouncePColdIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
+				SendChatMessage(L.PcoldIconSet:format(icon, args.destName), IsInRaid() and "RAID" or "PARTY")
+			end
 		end
 		if args:IsPlayer() then
-			specWarnPCold:Show()
+			specWarnPCold:Show(self:IconNumToTexture(icon))
 			specWarnPCold:Play("targetyou")
 		end
-		self:Unschedule(collectPColdTargets)
-		--Longer delay used to allow time for old pcold to drop, which have shown at least a 0.5 second overlap, so I figure 0.5+0.3
-		self:Schedule(0.8, collectPColdTargets, self)
+		warnPCold:CombinedShow(0.5, args.destName)
 	elseif args.spellId == 66012 then
 		warnFreezingSlash:Show(args.destName)
 		timerFreezingSlash:Start()
@@ -200,7 +187,6 @@ function mod:SPELL_AURA_REMOVED(args)
 			self:SetIcon(args.destName, 0)
 		end
 	elseif args.spellId == 66013 then
-		tDeleteItem(pcoldIcons, args.destName)
 		if self.Options.SetIconsOnPCold then
 			self:SetIcon(args.destName, 0)
 			if self.Options.AnnouncePColdIconsRemoved and DBM:GetRaidRank() > 1 then

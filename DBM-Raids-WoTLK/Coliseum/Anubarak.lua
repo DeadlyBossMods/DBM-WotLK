@@ -8,6 +8,7 @@ mod:SetCreatureID(34564)
 mod:SetEncounterID(mod:IsClassic() and 645 or 1085)
 mod:SetModelID(29268)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 8)
+mod:SetHotfixNoticeRev(20230817000000)
 mod:SetMinSyncRevision(20220623000000)
 
 mod:RegisterCombat("combat")
@@ -78,7 +79,7 @@ local function ShadowStrike(self)
 end
 
 function mod:OnCombatStart(delay)
-	table.wipe(pcoldIcons)
+	pcoldIcons = {}
 	self:SetStage(1)
 	self.vb.Burrowed = false
 	timerAdds:Start(10-delay)
@@ -92,6 +93,14 @@ function mod:OnCombatStart(delay)
 		timerShadowStrike:Start()
 		preWarnShadowStrike:Schedule(25.5-delay)
 		self:Schedule(30.5-delay, ShadowStrike, self)
+	end
+end
+
+function mod:OnCombatEnd()
+	--Since DBM is matching BW behavior of leaving icons on targets that die early now, they need to be cleaned up on combatend
+	for i = 1, #pcoldIcons do
+		local name = pcoldIcons[i]
+		self:SetIcon(name, 0, nil, true)
 	end
 end
 
@@ -139,7 +148,7 @@ end
 
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 66013 then
-		table.wipe(pcoldIcons)
+		pcoldIcons = {}
 		timerPCold:Start()
 	end
 end
@@ -161,7 +170,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		pcoldIcons[#pcoldIcons+1] = args.destName
 		local icon = #pcoldIcons
 		if self.Options.SetIconsOnPCold then
-			self:SetIcon(args.destName, icon)
+			self:SetIcon(args.destName, icon, nil, true)
 			if self.Options.AnnouncePColdIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
 				SendChatMessage(L.PcoldIconSet:format(icon, args.destName), IsInRaid() and "RAID" or "PARTY")
 			end
@@ -183,9 +192,9 @@ mod.SPELL_AURA_REFRESH = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 67574 then
-		if self.Options.PursueIcon then
-			self:SetIcon(args.destName, 0)
-		end
+--		if self.Options.PursueIcon then
+--			self:SetIcon(args.destName, 0, nil, true)
+--		end
 	elseif args.spellId == 66013 then
 		if self.Options.SetIconsOnPCold then
 			self:SetIcon(args.destName, 0)

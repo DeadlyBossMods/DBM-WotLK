@@ -35,6 +35,7 @@ localization.de.lua
 localization.es.lua
 localization.kr.lua
 localization.ru.lua
+localization.fr.lua
 
 RubySanctum\Baltharus.lua
 RubySanctum\Saviana.lua

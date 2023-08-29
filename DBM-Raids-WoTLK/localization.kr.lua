@@ -1231,7 +1231,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	AnnounceSporeIcons		= "$spell:69279 대상의 공격대 징표를 공격대 대화로 알림<br/>(공격대장 권한 필요)",
 	AchievementCheck		= "'역병 예방접종' 업적 실패시 공격대에 알림<br/>(승급 상태 필요)"
 }
 
@@ -1379,7 +1378,7 @@ L:SetOptionLocalization{
 	TimerNextAirphase			= "다음 공중 단계 타이머 바 보기",
 	TimerNextGroundphase		= "다음 지상 단계 타이머 바 보기",
 	AnnounceFrostBeaconIcons	= "$spell:70126 대상의 공격대 징표를 공격대 대화로 알림<br/>(공격대장 권한 필요)",
-	ClearIconsOnAirphase		= "공중 단계 전에 모든 공격대 징표 제거",
+	ClearIconsOnAir				= "공중 단계 전에 모든 공격대 징표 제거",
 	AchievementCheck			= "'신비한 아픔' 업적 경고를 공격대에 알림<br/>(승급 상태 필요)",
 }
 

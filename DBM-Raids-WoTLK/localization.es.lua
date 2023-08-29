@@ -1272,7 +1272,6 @@ L:SetGeneralLocalization{
 L:SetOptionLocalization{
 	RangeFrame			= "Mostrar marco de distancia (8 m)",
 	SetIconOnGasSpore	= DBM_CORE_L.AUTO_ICONS_OPTION_TARGETS:format(69279),
-	AnnounceSporeIcons	= "Anunciar iconos de los objetivos de $spell:69279 en el chat de banda (requiere líder o ayudante)",
 	AchievementCheck	= "Anunciar si se falla el logro 'Sin vacunas' en el chat de banda (requiere líder o ayudante)"
 }
 
@@ -1439,7 +1438,7 @@ L:SetOptionLocalization{
 	AnnounceFrostBeaconIcons= "Anunciar iconos de los objetivos de $spell:70126 en el chat de banda (requiere líder)",
 	SetIconOnFrostBeacon	= DBM_CORE_L.AUTO_ICONS_OPTION_TARGETS:format(70126),
 	SetIconOnUnchainedMagic	= DBM_CORE_L.AUTO_ICONS_OPTION_TARGETS:format(69762),
-	ClearIconsOnAirphase	= "Quitar todos los iconos al comenzar la fase aérea",
+	ClearIconsOnAir			= "Quitar todos los iconos al comenzar la fase aérea",
 	AchievementCheck		= "Anunciar avisos del logro 'Sacúdete' en el chat de banda (requiere líder o ayudante)",
 	RangeFrame				= "Mostrar marco de distancia (10/20 m) dinámico en función de la última habilidad usada por el jefe y los perjuicios de los jugadores"
 }

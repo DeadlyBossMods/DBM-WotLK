@@ -38,7 +38,7 @@ local warnBreath			= mod:NewSpellAnnounce(66689, 2)
 local warnSlimePool			= mod:NewSpellAnnounce(66883, 2, nil, "Melee")
 local warnToxin				= mod:NewTargetAnnounce(66823, 3)
 local warnBile				= mod:NewTargetAnnounce(66869, 3)
-local WarningSnobold		= mod:NewAnnounce("WarningSnobold", 4)
+--local WarningSnobold		= mod:NewAnnounce("WarningSnobold", 4, 66636, nil, nil, nil, 66636)
 local warnEnrageWorm		= mod:NewSpellAnnounce(68335, 3)
 local warnCharge			= mod:NewTargetNoFilterAnnounce(52311, 4)
 
@@ -53,7 +53,7 @@ local specWarnChargeNear	= mod:NewSpecialWarningClose(52311, nil, nil, nil, 3, 2
 local specWarnFrothingRage	= mod:NewSpecialWarningDispel(66759, "RemoveEnrage", nil, nil, 1, 2)
 
 local enrageTimer			= mod:NewBerserkTimer(223)
-local timerCombatStart		= mod:NewCombatTimer(21.5)
+local timerCombatStart      = mod:NewCombatTimer(24)
 local timerNextBoss			= mod:NewTimer(190, "TimerNextBoss", 2457, nil, nil, 1)
 local timerSubmerge			= mod:NewTimer(45, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, 6)
 local timerEmerge			= mod:NewTimer(10, "TimerEmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, 6)
@@ -211,7 +211,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 66758 then
 		timerStaggeredDaze:Start()
 	elseif args.spellId == 66636 then
-		WarningSnobold:Show(args.destName)
+--		WarningSnobold:Show(args.destName)
 		timerRisingAnger:Show()
 	elseif args.spellId == 68335 then
 		warnEnrageWorm:Show()
@@ -232,7 +232,7 @@ function mod:SPELL_AURA_APPLIED_DOSE(args)
 		end
 	elseif args.spellId == 66636 then
 		local amount = args.amount or 1
-		WarningSnobold:Show()
+--		WarningSnobold:Show()
 		if amount <= 3 then
 			timerRisingAnger:Show()
 		elseif amount >= 3 then

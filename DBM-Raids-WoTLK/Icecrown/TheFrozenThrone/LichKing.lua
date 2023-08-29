@@ -332,7 +332,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnShamblingEnrage:Show(args.destName)
 		timerEnrageCD:Start(args.sourceGUID)
 	elseif args.spellId == 72754 and args:IsPlayer() and self:AntiSpam(2, 1) then		-- Defile Damage
-		specWarnGTFO:Show()
+		specWarnGTFO:Show(args.spellName)
 		specWarnGTFO:Play("watchfeet")
 	elseif args.spellId == 73650 and self:AntiSpam(3, 2) then		-- Restore Soul (Heroic)
 		timerHarvestSoulCD:Start(58)

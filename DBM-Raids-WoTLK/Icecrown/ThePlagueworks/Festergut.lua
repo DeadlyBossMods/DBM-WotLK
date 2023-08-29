@@ -48,19 +48,12 @@ local berserkTimer			= mod:NewBerserkTimer(300)
 
 mod:AddRangeFrameOption(8, 69240, "Ranged")
 mod:AddSetIconOption("SetIconOnGasSpore", 69279, true, 7, {1, 2, 3})
-mod:AddBoolOption("AnnounceSporeIcons", false, nil, nil, nil, nil, 69279)
-mod:AddBoolOption("AchievementCheck", false, "announce", nil, nil, nil, 69291)
+mod:AddBoolOption("AchievementCheck", false, "announce", nil, nil, nil, 4615, "achievement")
 
 local gasSporeTargets = {}
 local vileGasTargets = {}
 mod.vb.gasSporeCast = 0
 mod.vb.warnedfailed = false
-
-function mod:AnnounceSporeIcons(uId, icon)
-	if self.Options.AnnounceSporeIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
-		SendChatMessage(L.SporeSet:format(icon, DBM:GetUnitFullName(uId)), IsInRaid() and "RAID" or "PARTY")
-	end
-end
 
 local function warnGasSporeTargets()
 	warnGasSpore:Show(table.concat(gasSporeTargets, "<, >"))
@@ -122,7 +115,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		if self.Options.SetIconOnGasSpore then
 			local maxIcon = self:IsDifficulty("normal25", "heroic25") and 3 or 2
-			self:SetSortedIcon("roster", 0.3, args.destName, 1, maxIcon, false, "AnnounceSporeIcons")
+			self:SetSortedIcon("roster", 0.3, args.destName, 1, maxIcon, false)
 		end
 		self:Unschedule(warnGasSporeTargets)
 		if #gasSporeTargets >= 3 then

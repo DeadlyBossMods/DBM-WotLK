@@ -1237,7 +1237,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	AnnounceSporeIcons	= "Объявлять метки целей заклинания $spell:69279 в рейд-чат<br/>(требуются права помощника)",
 	AchievementCheck	= "Объявлять о провале достижения 'Масок нет!' в рейд-чат<br/>(требуются права помощника)"
 }
 
@@ -1348,14 +1347,16 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	SetIconOnBlazingSkeleton	= "Устанавливать метку на Исторгающего пламя скелета (череп)",
 	WarnPortalOpen				= "Предупреждение об открытии порталов",
-	TimerPortalsOpen			= "Отсчет времени до открытия порталов",
-	TimerPortalsClose			= "Отсчет времени до закрытия порталов",
+	TimerPortalsOpen			= "Показать таймер, когда открываются порталы кошмаров",
+	TimerPortalsClose			= "Показать таймер, когда закрываются порталы кошмаров",
 	TimerBlazingSkeleton		= "Отсчет времени до Исторгающего пламя скелета",
 	TimerAbom					= "Отсчет времени до след. Прожорливого поганища (экспериментальный)"
 }
 
 L:SetMiscLocalization{
-	YellPortals		= "Я открыла портал в Изумрудный Сон. Там вы найдете спасение, герои..."
+	YellPortals		= "Я открыла портал в Изумрудный Сон. Там вы найдете спасение, герои...",
+	BlazingSkeleton				= "Исторгающий пламя скелет",
+	GluttonousAbomination		= "Прожорливое поганище"
 }
 
 ------------------
@@ -1384,7 +1385,7 @@ L:SetOptionLocalization{
 	TimerNextAirphase		= "Отсчет времени до следующей воздушной фазы",
 	TimerNextGroundphase	= "Отсчет времени до следующей наземной фазы",
 	AnnounceFrostBeaconIcons= "Объявлять метки целей заклинания $spell:70126 в рейд-чат<br/>(требуются права помощника)",
-	ClearIconsOnAirphase	= "Снимать все метки перед воздушной фазой",
+	ClearIconsOnAir			= "Снимать все метки перед воздушной фазой",
 	AchievementCheck		= "Объявлять предупреждения для достижения 'Таинственная дама'<br/>в рейд-чат (требуются права помощника)",
 }
 

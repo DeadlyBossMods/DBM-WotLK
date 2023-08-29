@@ -6,8 +6,7 @@ mod.statTypes = "normal,normal25,heroic,heroic25"
 mod:SetRevision("@file-date-integer@")
 local addsIcon
 local bossID
---mod:SetEncounterID(mod:IsClassic() and 847 or 1099)--No ES fires this combat
-mod:RegisterCombat("combat")
+mod:SetEncounterID(mod:IsClassic() and 847 or 1099)--No ES fires this combat
 mod:SetCreatureID(37215, 37540) -- Orgrim's Hammer, The Skybreaker
 mod:SetMinSyncRevision(119)
 if UnitFactionGroup("player") == "Alliance" then
@@ -21,6 +20,8 @@ else
 	addsIcon = 23336
 	bossID = 36948
 end
+
+mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 71195 71193 71188 69652 69651 69638",
@@ -42,12 +43,12 @@ local warnElite				= mod:NewTargetNoFilterAnnounce(71195, 3, nil, false)		-- mig
 local warnBattleFury		= mod:NewStackAnnounce(69638, 2, nil, "Tank|Healer", 2)
 local warnBladestorm		= mod:NewSpellAnnounce(69652, 3, nil, "Melee")
 local warnWoundingStrike	= mod:NewTargetNoFilterAnnounce(69651, 2)
-local warnAddsSoon			= mod:NewAnnounce("WarnAddsSoon", 2, addsIcon)
+local warnAddsSoon			= mod:NewAnnounce("WarnAddsSoon", 2, addsIcon, nil, nil, nil, 23334, DBM_COMMON_L.ADDS)
 
 local timerCombatStart		= mod:NewCombatTimer(42)
 local timerBelowZeroCD		= mod:NewNextTimer(33.5, 69705, nil, nil, nil, 5)
 local timerBattleFuryActive	= mod:NewBuffActiveTimer(17, 69638, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
-local timerAdds				= mod:NewTimer(60, "TimerAdds", addsIcon, nil, nil, 1)
+local timerAdds				= mod:NewTimer(60, "TimerAdds", addsIcon, nil, nil, 1, DBM_COMMON_L.TANK_ICON..DBM_COMMON_L.DAMAGE_ICON, nil, nil, nil, nil, nil, nil, 23334, nil, DBM_COMMON_L.ADDS)
 
 mod.vb.firstMage = false
 

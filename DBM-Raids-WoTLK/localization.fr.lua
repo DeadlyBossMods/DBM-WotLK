@@ -1583,7 +1583,7 @@ L:SetOptionLocalization{
 	WarnChilledtotheBone		= "Montre une alerte pour les stacks de $spell:70106",
 	WarnMysticBuffet			= "Montre une alerte pour les stacks de $spell:70128",
 	AnnounceFrostBeaconIcons	= "Annonce les icones pour les cibles de $spell:70126 dans le chat de raid (requires announce to be enabled and leader/promoted status)",
-	ClearIconsOnAirphase		= "Retire toutes les icones avant la phase d'envol",
+	ClearIconsOnAir				= "Retire toutes les icones avant la phase d'envol",
 	RangeFrame					= "Montre la fenêtre de portée (10 normal, 20 heroic) (Montre uniquement les icones marquer sur les joueurs)"
 }
 

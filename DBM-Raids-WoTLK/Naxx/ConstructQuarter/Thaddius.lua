@@ -28,9 +28,6 @@ local timerNextShift		= mod:NewNextTimer(30, 28089, nil, nil, nil, 2, nil, DBM_C
 local timerShiftCast		= mod:NewCastTimer(3, 28089, nil, nil, nil, 2)
 local timerThrow			= mod:NewNextTimer(20.6, 28338, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 
-if not DBM.Options.GroupOptionsBySpell then
-	mod:AddMiscLine(DBM_CORE_L.OPTION_CATEGORY_DROPDOWNS)
-end
 mod:AddDropdownOption("AirowEnabled", {"Never", "TwoCamp", "ArrowsRightLeft", "ArrowsInverse"}, "Never", "misc", nil, 28089)
 
 local currentCharge
@@ -140,7 +137,7 @@ end
 local arrowLeft = CreateFrame("Frame", nil, UIParent)
 arrowLeft:Hide()
 local arrowLeftTexture = arrowLeft:CreateTexture(nil, "BACKGROUND")
-arrowLeftTexture:SetTexture("Interface\\AddOns\\DBM-Naxx\\ConstructQuarter\\Textures\\arrow")
+arrowLeftTexture:SetTexture("Interface\\AddOns\\DBM-Raids-WoTLK\\Naxx\\ConstructQuarter\\Textures\\arrow")
 arrowLeftTexture:SetPoint("CENTER", arrowLeft, "CENTER")
 arrowLeft:SetHeight(1)
 arrowLeft:SetWidth(1)
@@ -151,7 +148,7 @@ arrowLeft:SetScript("OnUpdate", arrowOnUpdate)
 local arrowRight = CreateFrame("Frame", nil, UIParent)
 arrowRight:Hide()
 local arrowRightTexture = arrowRight:CreateTexture(nil, "BACKGROUND")
-arrowRightTexture:SetTexture("Interface\\AddOns\\DBM-Naxx\\ConstructQuarter\\Textures\\arrow")
+arrowRightTexture:SetTexture("Interface\\AddOns\\DBM-Raids-WoTLK\\Naxx\\ConstructQuarter\\Textures\\arrow")
 arrowRightTexture:SetPoint("CENTER", arrowRight, "CENTER")
 arrowRightTexture:SetTexCoord(1, 0, 0, 1)
 arrowRight:SetHeight(1)
@@ -163,7 +160,7 @@ arrowRight:SetScript("OnUpdate", arrowOnUpdate)
 local arrowUp = CreateFrame("Frame", nil, UIParent)
 arrowUp:Hide()
 local arrowUpTexture = arrowUp:CreateTexture(nil, "BACKGROUND")
-arrowUpTexture:SetTexture("Interface\\AddOns\\DBM-Naxx\\ConstructQuarter\\Textures\\arrow")
+arrowUpTexture:SetTexture("Interface\\AddOns\\DBM-Raids-WoTLK\\Naxx\\ConstructQuarter\\Textures\\arrow")
 arrowUpTexture:SetRotation(math.pi * 3 / 2)
 arrowUpTexture:SetPoint("CENTER", arrowUp, "CENTER")
 arrowUp:SetHeight(1)

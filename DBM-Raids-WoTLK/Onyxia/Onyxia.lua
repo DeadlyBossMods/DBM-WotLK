@@ -53,9 +53,9 @@ function mod:OnCombatStart(delay)
     self.vb.warned_preP2 = false
 	self.vb.warned_preP3 = false
 	if self.Options.SoundWTF3 then
-		DBM:PlaySoundFile("Interface\\AddOns\\DBM-Onyxia\\sounds\\dps-very-very-slowly.ogg")
-		self:Schedule(20, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Onyxia\\sounds\\hit-it-like-you-mean-it.ogg")
-		self:Schedule(30, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Onyxia\\sounds\\now-hit-it-very-hard-and-fast.ogg")
+		DBM:PlaySoundFile("Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\dps-very-very-slowly.ogg")
+		self:Schedule(20, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\hit-it-like-you-mean-it.ogg")
+		self:Schedule(30, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\now-hit-it-very-hard-and-fast.ogg")
 	end
 end
 
@@ -123,13 +123,13 @@ end
 
 function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
 	if spellId == 68867 and destGUID == UnitGUID("player") and self.Options.SoundWTF3 then		-- Tail Sweep
-		DBM:PlaySoundFile("Interface\\AddOns\\DBM-Onyxia\\sounds\\watch-the-tail.ogg")
+		DBM:PlaySoundFile("Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\watch-the-tail.ogg")
 	end
 end
 
 function mod:UNIT_DIED(args)
 	if self:IsInCombat() and args:IsPlayer() and self.Options.SoundWTF3 then
-		DBM:PlaySoundFile("Interface\\AddOns\\DBM-Onyxia\\sounds\\thats-a-fucking-fifty-dkp-minus.ogg")
+		DBM:PlaySoundFile("Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\thats-a-fucking-fifty-dkp-minus.ogg")
 	end
 end
 
@@ -158,9 +158,9 @@ function mod:OnSync(msg)
 		--self:ScheduleMethod(5, "Whelps")
 		if self.Options.SoundWTF3 then
 			self:Unschedule(DBM.PlaySoundFile, DBM)
-			DBM:PlaySoundFile("Interface\\AddOns\\DBM-Onyxia\\sounds\\i-dont-see-enough-dots.ogg")
-			self:Schedule(10, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Onyxia\\sounds\\throw-more-dots.ogg")
-			self:Schedule(18, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Onyxia\\sounds\\whelps-left-side-even-side-handle-it.ogg")
+			DBM:PlaySoundFile("Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\i-dont-see-enough-dots.ogg")
+			self:Schedule(10, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\throw-more-dots.ogg")
+			self:Schedule(18, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\whelps-left-side-even-side-handle-it.ogg")
 		end
 		if self.Options.RangeFrame then
 			DBM.RangeCheck:Show(8)
@@ -174,9 +174,9 @@ function mod:OnSync(msg)
 		--warnWhelpsSoon:Cancel()
 		if self.Options.SoundWTF3 then
 			self:Unschedule(DBM.PlaySoundFile, DBM)
-			self:Schedule(15, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Onyxia\\sounds\\dps-very-very-slowly.ogg")
-			self:Schedule(35, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Onyxia\\sounds\\hit-it-like-you-mean-it.ogg")
-			self:Schedule(45, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Onyxia\\sounds\\now-hit-it-very-hard-and-fast.ogg")
+			self:Schedule(15, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\dps-very-very-slowly.ogg")
+			self:Schedule(35, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\hit-it-like-you-mean-it.ogg")
+			self:Schedule(45, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\now-hit-it-very-hard-and-fast.ogg")
 		end
 		if self.Options.RangeFrame then
 			DBM.RangeCheck:Hide()

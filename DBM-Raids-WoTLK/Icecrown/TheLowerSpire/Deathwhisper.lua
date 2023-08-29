@@ -112,7 +112,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 	elseif args.spellId == 71001 and not self:IsTrivial() then
 		if args:IsPlayer() then
-			specWarnDeathDecay:Show()
+			specWarnDeathDecay:Show(args.spellName)
 			specWarnDeathDecay:Play("watchfeet")
 		end
 	elseif args.spellId == 71237 and args:IsPlayer() and not self:IsTrivial() then

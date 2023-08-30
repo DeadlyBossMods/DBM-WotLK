@@ -102,8 +102,8 @@ mod:AddBoolOption("AnnounceValkGrabs", false, nil, nil, nil, nil, 71844)
 local warnedValkyrGUIDs = {}
 local plagueHop = DBM:GetSpellInfo(70338)--Hop spellID only, not cast one.
 local plagueExpires = {}
-mod.vb.lastPlague
 local numberOfPlayers = 1
+mod.vb.lastPlague = nil
 mod.vb.valkIcon = 1
 
 local function NextPhase(self)
@@ -144,6 +144,7 @@ end
 
 function mod:OnCombatStart(delay)
 	self.vb.valkIcon = 1
+	self.vb.lastPlague = nil
 	numberOfPlayers = DBM:GetNumRealGroupMembers()
 	if UnitExists("pet") then
 		numberOfPlayers = numberOfPlayers + 1

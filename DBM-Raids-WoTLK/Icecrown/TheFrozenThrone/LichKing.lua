@@ -102,7 +102,7 @@ mod:AddBoolOption("AnnounceValkGrabs", false, nil, nil, nil, nil, 71844)
 local warnedValkyrGUIDs = {}
 local plagueHop = DBM:GetSpellInfo(70338)--Hop spellID only, not cast one.
 local plagueExpires = {}
-local lastPlague
+mod.vb.lastPlague
 local numberOfPlayers = 1
 mod.vb.valkIcon = 1
 
@@ -243,7 +243,7 @@ function mod:SPELL_CAST_START(args)
 		warnDefileSoon:Schedule(27)
 		timerDefileCD:Start()
 	elseif args.spellId == 73539 then -- Shadow Trap (Heroic)
-		self:BossTargetScanner(args.sourceGUID, "TrapTarget", 0.02, 15)
+		self:BossTargetScanner(args.sourceGUID, "TrapTarget", 0.02, 15, nil, nil, nil, self.vb.lastPlague, nil, nil, true)--cidOrGuid, returnFunc, scanInterval, scanTimes, scanOnlyBoss, isEnemyScan, isFinalScan, targetFilter, tankFilter, onlyPlayers, filterFallback
 		timerTrapCD:Start()
 	elseif args.spellId == 73650 then -- Restore Soul (Heroic)
 		warnRestoreSoul:Show()
@@ -258,17 +258,17 @@ end
 
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 70337 then -- Necrotic Plague (SPELL_AURA_APPLIED is not fired for this spell)
-		lastPlague = args.destName
+		self.vb.lastPlague = args.destName
 		timerNecroticPlagueCD:Start()
 		timerNecroticPlagueCleanse:Start()
 		if args:IsPlayer() then
 			specWarnNecroticPlague:Show()
 			specWarnNecroticPlague:Play("runout")
 		else
-			warnNecroticPlague:Show(lastPlague)
+			warnNecroticPlague:Show(args.destName)
 		end
 		if self.Options.NecroticPlagueIcon then
-			self:SetIcon(lastPlague, 4, 5)
+			self:SetIcon(args.destName, 4, 5)
 		end
 	elseif args.spellId == 69409 then -- Soul reaper (MT debuff)
 		timerSoulreaper:Start(args.destName)
@@ -432,7 +432,7 @@ end
 
 function mod:UNIT_AURA_UNFILTERED(uId)
 	local name = DBM:GetUnitFullName(uId)
-	if (not name) or (name == lastPlague) then return end
+	if (not name) or (name == self.vb.lastPlague) then return end
 	local _, _, _, _, _, expires, _, _, _, spellId = DBM:UnitDebuff(uId, plagueHop)
 	if not spellId or not expires then return end
 	if spellId == 70338 and expires > 0 and not plagueExpires[expires] then

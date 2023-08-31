@@ -19,11 +19,12 @@ mod:RegisterEventsInCombat(
 	"SPELL_INTERRUPT"
 )
 
-local warnSpecial					= mod:NewAnnounce("WarnSpecialSpellSoon", 3, nil, nil, nil, nil, 39089, true)--Invalid for unified callback, doesn't match BW since BW uses separate message for light and dark
-local warnTouchDebuff				= mod:NewAnnounce("WarningTouchDebuff", 2, 66823)
+local warnSpecial					= mod:NewAnnounce("WarnSpecialSpellSoon", 3, nil, nil, nil, nil, 39089, L.Special)
+local warnLightDebuff				= mod:NewTargetNoFilterAnnounce(65950, 3)
+local warnDarkDebuff				= mod:NewTargetNoFilterAnnounce(66001, 3)
 local warnPoweroftheTwins			= mod:NewAnnounce("WarningPoweroftheTwins2", 4, 65916, "Healer", nil, nil, 65916)
 
-local specWarnSpecial				= mod:NewSpecialWarning("SpecWarnSpecial", nil, nil, nil, 1, 14, nil, nil, 39089)--Invalid for unified callback, doesn't match BW since BW uses separate message for light and dark
+local specWarnSpecial				= mod:NewSpecialWarning("SpecWarnSpecial", nil, nil, nil, 1, 14, nil, nil, 39089, L.Special)
 local specWarnSwitch				= mod:NewSpecialWarning("SpecWarnSwitchTarget", nil, nil, nil, 1, 2, nil, nil, 65875)
 local specWarnKickNow 				= mod:NewSpecialWarning("SpecWarnKickNow", "HasInterrupt", nil, 2, 1, 2, nil, nil, 65875)
 local specWarnPoweroftheTwins		= mod:NewSpecialWarningDefensive(65916, "Tank", nil, 2, 1, 2)
@@ -31,14 +32,15 @@ local specWarnEmpoweredDarkness		= mod:NewSpecialWarningYou(65724)--No voice ide
 local specWarnEmpoweredLight		= mod:NewSpecialWarningYou(65748)--No voice ideas for this
 
 local enrageTimer					= mod:NewBerserkTimer(360)
-local timerSpecial					= mod:NewTimer(45, "TimerSpecialSpell", "132866", nil, nil, 6, nil, nil, nil, nil, nil, nil, nil, 39089, nil, true)--39089 used to match BW callback
+local timerSpecial					= mod:NewTimer(45, "TimerSpecialSpell", "132866", nil, nil, 6, nil, nil, nil, nil, nil, nil, nil, 39089, nil, L.Special)--39089 used to match BW callback
 local timerHeal						= mod:NewCastTimer(15, 65875, nil, nil, nil, 4, nil, DBM_COMMON_L.INTERRUPT_ICON)
 local timerLightTouch				= mod:NewTargetTimer(20, 65950, nil, false, 2, 3)
 local timerDarkTouch				= mod:NewTargetTimer(20, 66001, nil, false, 2, 3)
 local timerAchieve					= mod:NewAchievementTimer(180, 3815)
 
 mod:AddBoolOption("SpecialWarnOnDebuff", false, "announce")
-mod:AddSetIconOption("SetIconOnDebuffTarget", 66001, false, 0, {1, 2, 3, 4})
+mod:AddSetIconOption("SetIconOnLightTarget", 65950, false, 0, {1, 2, 3, 4})
+mod:AddSetIconOption("SetIconOnDarkTarget", 66001, false, 0, {1, 2, 3, 4})
 mod:AddInfoFrameOption(65874, true)
 
 local lightEssence, darkEssence = DBM:GetSpellInfo(65686), DBM:GetSpellInfo(65684)
@@ -64,8 +66,9 @@ function mod:OnCombatEnd()
 end
 
 do
-	local function SpecialAbility(debuff)
+	local function SpecialAbility(debuff, spellId)
 		if not debuff then
+			specWarnSpecial:UpdateKey(spellId)
 			specWarnSpecial:Show()
 			specWarnSpecial:Play("changecolor")
 		end
@@ -76,20 +79,20 @@ do
 	function mod:SPELL_CAST_START(args)
 		if args.spellId == 66046 then
 			local debuff = DBM:UnitDebuff("player", lightEssence)
-			SpecialAbility(debuff)
+			SpecialAbility(debuff, args.spellId)
 		elseif args.spellId == 66058 then
 			local debuff = DBM:UnitDebuff("player", darkEssence)
-			SpecialAbility(debuff)
+			SpecialAbility(debuff, args.spellId)
 		elseif args.spellId == 65875 then
 			timerHeal:Start()
-			SpecialAbility(true)
+			SpecialAbility(true, args.spellId)
 			if self:GetUnitCreatureId("target") == 34497 then
 				specWarnSwitch:Show()
 				specWarnSwitch:Play("changetarget")
 			end
 		elseif args.spellId == 65876 then
 			timerHeal:Start()
-			SpecialAbility(true)
+			SpecialAbility(true, args.spellId)
 			if self:GetUnitCreatureId("target") == 34496 then
 				specWarnSwitch:Show()
 				specWarnSwitch:Play("changetarget")
@@ -103,8 +106,12 @@ do
 		self.vb.debuffIcon = 1
 	end
 
-	local function warnDebuff(self)
-		warnTouchDebuff:Show(table.concat(debuffTargets, "<, >"))
+	local function warnDebuff(self, spellId)
+		if spellId == 65950 then
+			warnLightDebuff:Show(table.concat(debuffTargets, "<, >"))
+		else
+			warnDarkDebuff:Show(table.concat(debuffTargets, "<, >"))
+		end
 		table.wipe(debuffTargets)
 		self:Unschedule(resetDebuff)
 		self:Schedule(5, resetDebuff, self)
@@ -138,26 +145,26 @@ do
 				specWarnSpecial:Play("changecolor")
 			end
 			timerLightTouch:Start(args.destName)
-			if self.Options.SetIconOnDebuffTarget then
+			if self.Options.SetIconOnLightTarget then
 				self:SetIcon(args.destName, self.vb.debuffIcon, 15)
 			end
 			self.vb.debuffIcon = self.vb.debuffIcon + 1
 			debuffTargets[#debuffTargets + 1] = args.destName
 			self:Unschedule(warnDebuff)
-			self:Schedule(0.9, warnDebuff, self)
+			self:Schedule(0.9, warnDebuff, self, args.spellId)
 		elseif args.spellId == 66001 then
 			if args:IsPlayer() and self.Options.SpecialWarnOnDebuff then
 				specWarnSpecial:Show()
 				specWarnSpecial:Play("changecolor")
 			end
 			timerDarkTouch:Start(args.destName)
-			if self.Options.SetIconOnDebuffTarget then
+			if self.Options.SetIconOnDarkTarget then
 				self:SetIcon(args.destName, self.vb.debuffIcon)
 			end
 			self.vb.debuffIcon = self.vb.debuffIcon + 1
 			debuffTargets[#debuffTargets + 1] = args.destName
 			self:Unschedule(warnDebuff)
-			self:Schedule(0.75, warnDebuff, self)
+			self:Schedule(0.75, warnDebuff, self, args.spellId)
 		elseif args:IsSpellID(65879, 65916) then
 			self:Schedule(0.1, showPowerWarning, self, args:GetDestCreatureID())
 		elseif args:IsSpellID(65874, 65858) and self.Options.InfoFrame then
@@ -176,12 +183,12 @@ function mod:SPELL_AURA_REMOVED(args)
 		end
 	elseif args.spellId == 65950 then
 		timerLightTouch:Stop(args.destName)
-		if self.Options.SetIconOnDebuffTarget then
+		if self.Options.SetIconOnLightTarget then
 			self:SetIcon(args.destName, 0)
 		end
 	elseif args.spellId == 66001 then
 		timerDarkTouch:Start(args.destName)
-		if self.Options.SetIconOnDebuffTarget then
+		if self.Options.SetIconOnDarkTarget then
 			self:SetIcon(args.destName, 0)
 		end
 	end

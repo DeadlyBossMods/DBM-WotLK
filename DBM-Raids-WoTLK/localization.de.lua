@@ -1221,7 +1221,6 @@ L:SetGeneralLocalization{
 
 L:SetOptionLocalization{
 	RangeFrame			= "Zeige Abstandsfenster (8m)",
-	AnnounceSporeIcons	= "Verkünde Zeichen für Ziele von $spell:69279 im Schlachtzugchat (nur als Leiter)",
 	AchievementCheck	= "Verkünde Fehlschlag des Erfolgs 'Grippeimpfungs-Engpass' an Schlachtzug (nur als Leiter/Assistent)"
 }
 
@@ -1378,7 +1377,7 @@ L:SetOptionLocalization{
 	TimerNextAirphase		= "Zeige Zeit bis nächste Luftphase",
 	TimerNextGroundphase	= "Zeige Zeit bis nächste Bodenphase",
 	AnnounceFrostBeaconIcons= "Verkünde Zeichen für Ziele von $spell:70126 im SZ-Chat (nur als Leiter)",
-	ClearIconsOnAirphase	= "Entferne alle Zeichen vor der Luftphase",
+	ClearIconsOnAir			= "Entferne alle Zeichen vor der Luftphase",
 	AchievementCheck		= "Verkünde Warnungen für den Erfolg 'Das Buffet ist eröffnet' an Schlachtzug (nur als Leiter/Assistent)",
 	RangeFrame				= "Zeige dynamisches Abstandsfenster (10m/20m) basierend auf zuletzt genutzten Bossfähigkeiten und Spieler-Debuffs"
 }

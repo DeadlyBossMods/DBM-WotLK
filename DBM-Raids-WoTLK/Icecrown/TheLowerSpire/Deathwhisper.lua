@@ -20,13 +20,13 @@ mod:RegisterEventsInCombat(
 )
 
 --TODO: Fix absorb infoframe if boss unit Ids don't exist or if not available on combat start
-local warnAddsSoon					= mod:NewAnnounce("WarnAddsSoon", 2, 61131)
+local warnAddsSoon					= mod:NewAnnounce("WarnAddsSoon", 2, 61131, nil, nil, nil, 61131, DBM_COMMON_L.ADDS)
 local warnDominateMind				= mod:NewTargetNoFilterAnnounce(71289, 3)
 local warnSummonSpirit				= mod:NewSpellAnnounce(71426, 2)
-local warnReanimating				= mod:NewAnnounce("WarnReanimating", 3, 34018)
+local warnReanimating				= mod:NewAnnounce("WarnReanimating", 3, 34018, nil, nil, nil, 34018, L.ReanimatedAdd)
 local warnDarkTransformation		= mod:NewSpellAnnounce(70900, 4)
 local warnDarkEmpowerment			= mod:NewSpellAnnounce(70901, 4)
-local warnPhase2					= mod:NewPhaseAnnounce(2, 1)
+local warnPhase2					= mod:NewPhaseAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 local warnTouchInsignificance		= mod:NewStackAnnounce(71204, 2, nil, "Tank|Healer")
 
 local specWarnCurseTorpor			= mod:NewSpecialWarningYou(71237, nil, nil, nil, 1, 2)
@@ -36,7 +36,7 @@ local specWarnVampricMight			= mod:NewSpecialWarningDispel(70674, "MagicDispelle
 local specWarnDarkMartyrdom			= mod:NewSpecialWarningRun(71236, "Melee", nil, nil, 4, 2)
 local specWarnFrostbolt				= mod:NewSpecialWarningInterrupt(71420, "HasInterrupt", nil, 2, 1, 2)
 
-local timerAdds						= mod:NewTimer(60, "TimerAdds", 61131, nil, nil, 1, DBM_COMMON_L.TANK_ICON..DBM_COMMON_L.DAMAGE_ICON)
+local timerAdds						= mod:NewTimer(60, "TimerAdds", 61131, nil, nil, 1, DBM_COMMON_L.TANK_ICON..DBM_COMMON_L.DAMAGE_ICON, nil, nil, nil, nil, nil, nil, 61131, nil, DBM_COMMON_L.ADDS)
 local timerDominateMind				= mod:NewBuffActiveTimer(12, 71289, nil, nil, nil, 5)
 local timerDominateMindCD			= mod:NewCDTimer(40, 71289, nil, nil, nil, 3)
 local timerSummonSpiritCD			= mod:NewCDTimer(10, 71426, nil, false, nil, 3)
@@ -112,7 +112,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 	elseif args.spellId == 71001 and not self:IsTrivial() then
 		if args:IsPlayer() then
-			specWarnDeathDecay:Show()
+			specWarnDeathDecay:Show(args.spellName)
 			specWarnDeathDecay:Play("watchfeet")
 		end
 	elseif args.spellId == 71237 and args:IsPlayer() and not self:IsTrivial() then
@@ -137,6 +137,7 @@ mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 70842 then
 		warnPhase2:Show()
+		warnPhase2:Play("ptwo")
 		if self:IsDifficulty("normal10", "normal25") then
 			timerAdds:Cancel()
 			warnAddsSoon:Cancel()

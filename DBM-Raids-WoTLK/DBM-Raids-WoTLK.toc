@@ -2,9 +2,9 @@
 ## Interface-Wrath: 30402
 ## X-Min-Interface: 80000
 ## X-Min-Interface-Wrath: 30400
-## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Raids (WoTLK)|r
-## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0공격대 (리분)|r
-## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Рейды (Король-лич)|r
+## Title:|cffffe00a<|r|cffff7d0aDBM Mod|r|cffffe00a>|r |cffff6010Raids (WoTLK)|r
+## Title-koKR:|cffffe00a<|r|cffff7d0aDBM Mod|r|cffffe00a>|r |cffff6010공격대 (리분)|r
+## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM Mod|r|cffffe00a>|r |cffff6010Рейды (Король-лич)|r
 ## Author: MysticalOS
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
@@ -35,13 +35,13 @@ localization.de.lua
 localization.es.lua
 localization.kr.lua
 localization.ru.lua
+localization.fr.lua
 
 RubySanctum\Baltharus.lua
 RubySanctum\Saviana.lua
 RubySanctum\Zarithrian.lua
 RubySanctum\Halion.lua
 
-Icecrown\Trash.lua
 Icecrown\TheLowerSpire\LordMarrowgar.lua
 Icecrown\TheLowerSpire\Deathwhisper.lua
 Icecrown\TheLowerSpire\GunshipBattle.lua
@@ -54,6 +54,7 @@ Icecrown\TheCrimsonHall\Lanathel.lua
 Icecrown\FrostwingHalls\Valithria.lua
 Icecrown\FrostwingHalls\Sindragosa.lua
 Icecrown\TheFrozenThrone\LichKing.lua
+Icecrown\Trash.lua
 
 Coliseum\NorthrendBeasts.lua
 Coliseum\Jaraxxus.lua

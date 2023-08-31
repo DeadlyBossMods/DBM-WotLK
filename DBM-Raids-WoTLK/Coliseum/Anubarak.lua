@@ -8,6 +8,7 @@ mod:SetCreatureID(34564)
 mod:SetEncounterID(mod:IsClassic() and 645 or 1085)
 mod:SetModelID(29268)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 8)
+mod:SetHotfixNoticeRev(20230817000000)
 mod:SetMinSyncRevision(20220623000000)
 
 mod:RegisterCombat("combat")
@@ -28,10 +29,10 @@ local warnPCold				= mod:NewTargetNoFilterAnnounce(66013, 3, nil, "Healer")
 local warnPursue			= mod:NewTargetNoFilterAnnounce(67574, 4)
 local warnFreezingSlash		= mod:NewTargetNoFilterAnnounce(66012, 2, nil, "Tank|Healer")
 local warnHoP				= mod:NewTargetNoFilterAnnounce(1022, 2, nil, false)--Heroic strat revolves around kiting pursue and using Hand of Protection.
-local warnEmerge			= mod:NewAnnounce("WarnEmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, nil, 65919, true)
-local warnEmergeSoon		= mod:NewAnnounce("WarnEmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, nil, 65919, true)
-local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, nil, 65919, true)
-local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, nil, 65919, true)
+local warnEmerge			= mod:NewAnnounce("WarnEmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, nil, 65919, L.EmAndSub)
+local warnEmergeSoon		= mod:NewAnnounce("WarnEmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, nil, 65919, L.EmAndSub)
+local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, nil, 65919, L.EmAndSub)
+local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, nil, 65919, L.EmAndSub)
 local warnPhase3			= mod:NewPhaseAnnounce(3)
 
 local specWarnPursue		= mod:NewSpecialWarningRun(67574, nil, nil, 2, 4, 2)
@@ -39,8 +40,8 @@ local specWarnShadowStrike	= mod:NewSpecialWarningSpell(66134, false, nil, 2, 1)
 local specWarnPCold			= mod:NewSpecialWarningYou(66013, false, nil, nil, 1, 2)
 
 local timerAdds				= mod:NewTimer(45, "timerAdds", 45419, nil, nil, 1, nil, nil, nil, nil, nil, nil, nil, 66333)
-local timerSubmerge			= mod:NewTimer(75, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, 6, nil, nil, nil, nil, nil, nil, nil, 65919, nil, true)
-local timerEmerge			= mod:NewTimer(65, "TimerEmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, 6, nil, nil, nil, nil, nil, nil, nil, 65919, nil, true)
+local timerSubmerge			= mod:NewTimer(75, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, 6, nil, nil, nil, nil, nil, nil, nil, 65919, nil, L.EmAndSub)
+local timerEmerge			= mod:NewTimer(65, "TimerEmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp", nil, nil, 6, nil, nil, nil, nil, nil, nil, nil, 65919, nil, L.EmAndSub)
 local timerFreezingSlash	= mod:NewCDTimer(20, 66012, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerPCold			= mod:NewBuffActiveTimer(15, 66013, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 local timerShadowStrike		= mod:NewNextTimer(30.5, 66134, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
@@ -78,7 +79,7 @@ local function ShadowStrike(self)
 end
 
 function mod:OnCombatStart(delay)
-	table.wipe(pcoldIcons)
+	pcoldIcons = {}
 	self:SetStage(1)
 	self.vb.Burrowed = false
 	timerAdds:Start(10-delay)
@@ -92,6 +93,14 @@ function mod:OnCombatStart(delay)
 		timerShadowStrike:Start()
 		preWarnShadowStrike:Schedule(25.5-delay)
 		self:Schedule(30.5-delay, ShadowStrike, self)
+	end
+end
+
+function mod:OnCombatEnd()
+	--Since DBM is matching BW behavior of leaving icons on targets that die early now, they need to be cleaned up on combatend
+	for i = 1, #pcoldIcons do
+		local name = pcoldIcons[i]
+		self:SetIcon(name, 0, nil, true)
 	end
 end
 
@@ -139,7 +148,7 @@ end
 
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 66013 then
-		table.wipe(pcoldIcons)
+		pcoldIcons = {}
 		timerPCold:Start()
 	end
 end
@@ -161,7 +170,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		pcoldIcons[#pcoldIcons+1] = args.destName
 		local icon = #pcoldIcons
 		if self.Options.SetIconsOnPCold then
-			self:SetIcon(args.destName, icon)
+			self:SetIcon(args.destName, icon, nil, true)
 			if self.Options.AnnouncePColdIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
 				SendChatMessage(L.PcoldIconSet:format(icon, args.destName), IsInRaid() and "RAID" or "PARTY")
 			end
@@ -183,9 +192,9 @@ mod.SPELL_AURA_REFRESH = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 67574 then
-		if self.Options.PursueIcon then
-			self:SetIcon(args.destName, 0)
-		end
+--		if self.Options.PursueIcon then
+--			self:SetIcon(args.destName, 0, nil, true)
+--		end
 	elseif args.spellId == 66013 then
 		if self.Options.SetIconsOnPCold then
 			self:SetIcon(args.destName, 0)

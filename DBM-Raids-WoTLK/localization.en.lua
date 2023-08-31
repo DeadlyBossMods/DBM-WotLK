@@ -1072,7 +1072,6 @@ L:SetWarningLocalization{
 	SpecWarnSpecial				= "Change color",
 	SpecWarnSwitchTarget		= "Switch target",
 	SpecWarnKickNow				= "Interrupt now",
-	WarningTouchDebuff			= "Debuff on >%s<",
 	WarningPoweroftheTwins2		= "Power of the Twins - More healing on >%s<"
 }
 
@@ -1088,9 +1087,11 @@ L:SetOptionLocalization{
 	SpecWarnSwitchTarget		= "Show special warning to twitch targets if other Twin is casting heal",
 	SpecWarnKickNow				= "Show special warning when you are able to interrupt heal",
 	SpecialWarnOnDebuff			= "Show change color special warning when touch debuffed (to switch debuff)",
-	SetIconOnDebuffTarget		= "Set icons on Touch of Light/Darkness debuff targets (heroic)",
-	WarningTouchDebuff			= "Announce Touch of Light/Darkness debuff targets",
 	WarningPoweroftheTwins2		= "Announce Power of the Twins targets"
+}
+
+L:SetMiscLocalization{
+	Special		= "Special Ability"
 }
 
 -----------------
@@ -1099,43 +1100,44 @@ L:SetOptionLocalization{
 L = DBM:GetModLocalization("Anub'arak_Coliseum")
 
 L:SetGeneralLocalization{
-	name 					= "Anub'arak"
+	name 						= "Anub'arak"
 }
 
 L:SetTimerLocalization{
-	TimerEmerge				= "Emerge",
-	TimerSubmerge			= "Submerge",
-	timerAdds				= "New adds"
+	TimerEmerge					= "Emerge",
+	TimerSubmerge				= "Submerge",
+	timerAdds					= "New adds"
 }
 
 L:SetWarningLocalization{
-	WarnEmerge				= "Anub'arak emerges",
-	WarnEmergeSoon			= "Emerge in 10 seconds",
-	WarnSubmerge			= "Anub'arak submerges",
-	WarnSubmergeSoon		= "Submerge in 10 seconds",
-	specWarnSubmergeSoon	= "Submerge in 10 seconds!",
-	warnAdds				= "New adds"
-}
-
-L:SetMiscLocalization{
-	Emerge				= "emerges from the ground!",
-	Burrow				= "burrows into the ground!",
-	PcoldIconSet		= "PCold icon {rt%d} set on %s",
-	PcoldIconRemoved	= "PCold icon removed from %s"
+	WarnEmerge					= "Anub'arak emerges",
+	WarnEmergeSoon				= "Emerge in 10 seconds",
+	WarnSubmerge				= "Anub'arak submerges",
+	WarnSubmergeSoon			= "Submerge in 10 seconds",
+	specWarnSubmergeSoon		= "Submerge in 10 seconds!",
+	warnAdds					= "New adds"
 }
 
 L:SetOptionLocalization{
-	WarnEmerge				= "Show warning for emerge",
-	WarnEmergeSoon			= "Show pre-warning for emerge",
-	WarnSubmerge			= "Show warning for submerge",
-	WarnSubmergeSoon		= "Show pre-warning for submerge",
-	specWarnSubmergeSoon	= "Show special warning for submerge soon",
-	warnAdds				= "Announce new adds",
-	timerAdds				= "Show timer for new adds",
-	TimerEmerge				= "Show timer for emerge",
-	TimerSubmerge			= "Show timer for submerge",
-	AnnouncePColdIcons		= "Announce icons for $spell:66013 targets to raid chat (requires raid leader)",
+	WarnEmerge					= "Show warning for emerge",
+	WarnEmergeSoon				= "Show pre-warning for emerge",
+	WarnSubmerge				= "Show warning for submerge",
+	WarnSubmergeSoon			= "Show pre-warning for submerge",
+	specWarnSubmergeSoon		= "Show special warning for submerge soon",
+	warnAdds					= "Announce new adds",
+	timerAdds					= "Show timer for new adds",
+	TimerEmerge					= "Show timer for emerge",
+	TimerSubmerge				= "Show timer for submerge",
+	AnnouncePColdIcons			= "Announce icons for $spell:66013 targets to raid chat (requires raid leader)",
 	AnnouncePColdIconsRemoved	= "Announce when icons are removed for $spell:66013 (requires raid leader)"
+}
+
+L:SetMiscLocalization{
+	Emerge						= "emerges from the ground!",
+	Burrow						= "burrows into the ground!",
+	PcoldIconSet				= "PCold icon {rt%d} set on %s",
+	PcoldIconRemoved			= "PCold icon removed from %s",
+	EmAndSub					= "Emerge and Submerge"
 }
 
 ----------------------
@@ -1172,7 +1174,8 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellReanimatedFanatic	= "Arise, and exult in your pure form!"
+	YellReanimatedFanatic		= "Arise, and exult in your pure form!",
+	ReanimatedAdd				= "Reanimated Add"
 }
 
 ----------------------
@@ -1236,7 +1239,6 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	AnnounceSporeIcons	= "Announce icons for $spell:69279 targets to raid chat<br/>(requires raid leader)",
 	AchievementCheck	= "Announce 'Flu Shot Shortage' achievement failure to raid<br/>(requires promoted status)"
 }
 
@@ -1347,14 +1349,16 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	SetIconOnBlazingSkeleton	= "Set icon on Blazing Skeleton (skull)",
 	WarnPortalOpen				= "Show warning when Nightmare Portals are opened up",
-	TimerPortalsOpen			= "Show timer when Nightmare Portals are opened up",
-	TimerPortalsClose			= "Show timer when Nightmare Portals are closed",
+	TimerPortalsOpen			= "Show cast timer for when Nightmare Portals open",
+	TimerPortalsClose			= "Show timer for when Nightmare Portals close",
 	TimerBlazingSkeleton		= "Show timer for next Blazing Skeleton spawn",
 	TimerAbom					= "Show timer for next Gluttonous Abomination spawn (Experimental)"
 }
 
 L:SetMiscLocalization{
-	YellPortals		= "I have opened a portal into the Dream. Your salvation lies within, heroes..."
+	YellPortals					= "I have opened a portal into the Dream. Your salvation lies within, heroes...",
+	BlazingSkeleton				= "Blazing Skeleton",
+	GluttonousAbomination		= "Gluttonous Abomination"
 }
 
 ------------------
@@ -1383,7 +1387,7 @@ L:SetOptionLocalization{
 	TimerNextAirphase		= "Show timer for next air phase",
 	TimerNextGroundphase	= "Show timer for next ground phase",
 	AnnounceFrostBeaconIcons= "Announce icons for $spell:70126 targets to raid chat<br/>(requires raid leader)",
-	ClearIconsOnAirphase	= "Clear all icons before air phase",
+	ClearIconsOnAir			= "Clear all icons before air phase",
 	AchievementCheck		= "Announce 'All You Can Eat' achievement warnings to raid<br/>(requires promoted status)"
 }
 

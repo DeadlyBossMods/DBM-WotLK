@@ -22,8 +22,9 @@ mod:RegisterEventsInCombat(
 	"UNIT_SPELLCAST_SUCCEEDED boss1 boss2 boss3"
 )
 
-local warnTargetSwitch			= mod:NewAnnounce("WarnTargetSwitch", 3, 70952)
-local warnTargetSwitchSoon		= mod:NewAnnounce("WarnTargetSwitchSoon", 2, 70952)
+--Known issue, using a weak aura key for 70952 in announce object would not know difference between soon and now, so use timer object if you're a dev
+local warnTargetSwitch			= mod:NewAnnounce("WarnTargetSwitch", 3, 70952, nil, nil, nil, 70952)
+local warnTargetSwitchSoon		= mod:NewAnnounce("WarnTargetSwitchSoon", 2, 70952, nil, nil, nil, 70952)
 local warnConjureFlames			= mod:NewCastAnnounce(71718, 2)
 local warnEmpoweredFlamesCast	= mod:NewCastAnnounce(72040, 3)
 local warnEmpoweredFlames		= mod:NewTargetNoFilterAnnounce(72040, 4)
@@ -39,7 +40,7 @@ local specWarnEmpoweredShockV	= mod:NewSpecialWarningMoveAway(72039, nil, nil, n
 local specWarnEmpoweredFlames	= mod:NewSpecialWarningRun(72040, nil, nil, nil, 4, 2)
 local specWarnShadowPrison		= mod:NewSpecialWarningStack(72999, nil, 6, nil, nil, 1, 6)
 
-local timerTargetSwitch			= mod:NewTimer(47, "TimerTargetSwitch", 70952)	-- every 46-47seconds
+local timerTargetSwitch			= mod:NewTimer(47, "TimerTargetSwitch", 70952, nil, nil, 5, DBM_COMMON_L.DAMAGE_ICON, nil, nil, nil, nil, nil, nil, 70952)	-- every 46-47seconds
 local timerDarkNucleusCD		= mod:NewCDTimer(10, 71943, nil, false, nil, 5)	-- usually every 10 seconds but sometimes more
 local timerConjureFlamesCD		= mod:NewCDTimer(20, 71718, nil, nil, nil, 3)				-- every 20-30 seconds but never more often than every 20sec
 local timerGlitteringSparksCD	= mod:NewCDTimer(20, 71807, nil, nil, nil, 2)				-- This is pretty nasty on heroic
@@ -50,7 +51,7 @@ local timerShadowPrison			= mod:NewBuffFadesTimer(10, 72999, nil, nil, nil, 5)		
 local berserkTimer				= mod:NewBerserkTimer(600)
 
 mod:AddSetIconOption("EmpoweredFlameIcon", 72040, true, 0, {7})
-mod:AddSetIconOption("ActivePrinceIcon", nil, false, 5, {8})
+mod:AddSetIconOption("ActivePrinceIcon", nil, false, 5, {8}, nil, 70952)
 mod:AddRangeFrameOption(12, 72037)
 
 local glitteringSparksTargets	= {}

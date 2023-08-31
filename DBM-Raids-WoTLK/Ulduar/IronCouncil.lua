@@ -138,7 +138,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnRuneofDeath:Show()
 		timerRuneofDeathCD:Start(self:IsClassic() and 30 or 45)
 	elseif args:IsSpellID(64321, 61974) then	-- Rune of Power
-		self:BossTargetScanner(32927, "RuneTarget", 0.1, 16, true, true)--Scan only boss unitIDs, scan only hostile targets
+		self:BossTargetScanner(32927, "RuneTarget", 0.1, 16, false, true)--Scan only boss unitIDs, scan only hostile targets
 		timerRuneofPowerCD:Start()
 	elseif args:IsSpellID(61869, 63481) then	-- Overload
 		if self:GetStage(3, 3) then--In P3 timer no longer reliable, it's stopped as soon as 2 bosses are dead

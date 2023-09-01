@@ -70,7 +70,7 @@ mod.vb.warnedfailed = false
 mod.vb.unchainedIcons = 2
 local playerUnchained = false
 local playerBeaconed = false
-local beaconCount = 0
+mod.vb.beaconCount = 0
 
 local beaconDebuffFilter, unchainedDebuffFilter
 do
@@ -151,8 +151,8 @@ function mod:SPELL_AURA_APPLIED(args)
 			specWarnFrostBeacon:Play("scatter")--"mm"..i
 		end
 		if self.vb.phase == 2 then--Phase 2 there is only one icon/beacon, don't use sorting method if we don't have to.
-			beaconCount = beaconCount + 1
-			timerNextBeacon:Start(nil, beaconCount)
+			self.vb.beaconCount = self.vb.beaconCount + 1
+			timerNextBeacon:Start(nil, self.vb.beaconCount+1)
 			if self.Options.SetIconOnFrostBeacon then
 				self:SetIcon(args.destName, 1)
 				if self.Options.AnnounceFrostBeaconIcons and IsInGroup() and DBM:GetRaidRank() > 1 then
@@ -308,10 +308,10 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		timerNextGroundphase:Start()
 		warnGroundphaseSoon:Schedule(40)
 	elseif (msg == L.YellPhase2 or msg:find(L.YellPhase2)) or (msg == L.YellPhase2Dem or msg:find(L.YellPhase2Dem)) then
-		beaconCount = 1
+		self.vb.beaconCount = 0
 		self:SetStage(2)
 		warnPhase2:Show()
-		timerNextBeacon:Start(7, beaconCount)
+		timerNextBeacon:Start(7, 1)
 		timerNextAirphase:Cancel()
 		timerNextGroundphase:Cancel()
 		warnGroundphaseSoon:Cancel()

@@ -1261,7 +1261,7 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellReanimatedFanatic	= "起来，在纯粹的形态中感受狂喜!",
+	YellReanimatedFanatic	= "来吧，为纯粹的形态欢喜吧！",
 	Fanatic1				= "神教狂热者",
 	Fanatic2				= "畸形的狂热者",
 	Fanatic3				= "再活化的狂热者"
@@ -1292,12 +1292,12 @@ L:SetTimerLocalization{
 L:SetMiscLocalization{
 	PullAlliance	= "发动引擎!小伙子们，我们即将面对命运啦!",
 	KillAlliance	= "別说我没警告过你，无赖!兄弟姐妹们，向前冲!",
-	PullHorde		= "起来吧，部落的儿女!今天我们要和最可恨的敌人作战!为了部落!",
-	KillHorde		= "联盟已经动摇了。向巫妖王前进!",
+	PullHorde		= "来吧！部落忠诚勇敢的儿女们！今天是部落仇敌灭亡的日子！LOK'TAR OGAR！",
+	KillHorde		= "联盟不行了。向巫妖王进攻！",
 	AddsAlliance	= "掠夺者，士官们，攻击!",
-	AddsHorde		= "海員们，士官们，攻击!",
+	AddsHorde		= "将士们，给我进攻！",
 	MageAlliance	= "船体受到伤害，找个战斗法师到来，搞定那些火炮!",
-	MageHorde		= "船体受损，找个巫士到这里来，搞定那些火炮!"
+	MageHorde		= "我们的船体受伤了，赶快叫个法师来干掉那些大炮！"
 }
 
 -----------------------------
@@ -1317,7 +1317,7 @@ L:SetOptionLocalization{
 L:SetMiscLocalization{
 	RunePower			= "血魄威能",
 	PullAlliance		= "每个你杀死的部落士兵 -- 每条死去的联盟狗，都让巫妖王的军队随之增长。此时此刻瓦基里安都还在把你们倒下的同伴复活成天谴军。",
-	PullHorde			= "柯尔克隆，前进!勇士们，要当心，天谴军团已经..."
+	PullHorde			= "库卡隆，行动！勇士们，提高警惕。天灾军团已经……"
 }
 
 -----------------
@@ -1361,8 +1361,8 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellSlimePipes1	= "大伙听着，好消息!我修好了剧毒软泥管!",
-	YellSlimePipes2	= "大伙听着，超級好消息!软泥又开始流动了!"
+	YellSlimePipes1	= "好消息！各位！我修好了毒性软泥管道！",
+	YellSlimePipes2	= "重大喜讯！各位！软泥又开始流动啦！"
 }
 
 ---------------------------
@@ -1457,9 +1457,9 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull			= "入侵者已经突破了內部圣所。加快摧毀綠龍的速度!只要留下骨头和肌腱来复活!",
-	YellKill			= "我重生了!伊瑟拉賦予我让那些邪恶生物安眠的力量!",
-	YellPortals			= "我打开了一道传送门通往梦境。你们的救赎就在其中，英雄们..."
+	YellPull			= "入侵者闯入了室内。加紧毁掉那条绿龙！留下龙筋龙骨用来复生！",
+	YellKill			= "我获得了新生！伊瑟拉的恩泽赐予我消灭邪恶的力量！",
+	YellPortals			= "我打开了进入梦境的传送门。英雄们，救赎就在其中……"
 }
 
 ------------------
@@ -1494,8 +1494,8 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellAirphase		= "你们的入侵将在此终止!谁也別想存活!",
-	YellPhase2			= "现在，绝望地感受我主无限的力量吧!",
+	YellAirphase		= "你们的入侵结束了！无人可以生还！",
+	YellPhase2			= "绝望吧，体会主人那无穷无尽的力量吧！",
 	YellAirphaseDem		= "Rikk zilthuras rikk zila Aman adare tiriosh ",--Demonic, since curse of tonges is used by some guilds and it messes up yell detection.
 	YellPhase2Dem		= "Zar kiel xi romathIs zilthuras revos ruk toralar ",--Demonic, since curse of tonges is used by some guilds and it messes up yell detection.
 	BeaconIconSet		= "冰霜信标{rt%d}: %s",
@@ -1538,8 +1538,8 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	LKPull					= "圣光所谓的正义终于来了吗?我是否该把霜之哀伤放下，祈求你的宽恕呢，弗丁?",
-	LKRoleplay				= "你们的原动力真的是正义感吗?我很怀疑...",
+	LKPull					= "怎么，自诩正义的圣光终于来了？我是不是该丢下霜之哀伤，恳求您的宽恕呢，弗丁？",
+	LKRoleplay				= "真的是正义在驱使你吗？我很好奇……",
 	ValkGrabbedIcon			= "瓦基里安影卫{rt%d}抓住了%s",
 	ValkGrabbed				= "瓦基里安影卫抓住了%s",
 	PlagueStackWarning		= "警告: %s中了%d层亡域瘟疫",

@@ -259,7 +259,9 @@ function mod:SPELL_CAST_SUCCESS(args)
 			specWarnBlisteringCold:Play("runout")
 		end
 		timerBlisteringCold:Start()
-		timerNextBlisteringCold:Start()
+		if self:GetStage(2) then--Should only repeat in stage 2, otherwise timer is started by air phase yell
+			timerNextBlisteringCold:Start()
+		end
 	end
 end
 

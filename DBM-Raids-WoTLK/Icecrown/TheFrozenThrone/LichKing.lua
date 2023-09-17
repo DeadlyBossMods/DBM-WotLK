@@ -239,7 +239,14 @@ function mod:SPELL_CAST_START(args)
 		specWarnInfest:Show()
 		timerInfestCD:Start()
 	elseif args.spellId == 72762 then -- Defile
-		self:ScheduleMethod(0.01, "BossTargetScanner", args.sourceGUID, "DefileTarget", 0.1, 17)--defile target can be as late as 1.6 seconds into 20 second cast
+		if self:IsTank() then
+			--For tank roles, they can't afford to wait, so it'll use faster less precise scan and will still false warn it's on them in the rare slow scans, but not late warn
+			self:ScheduleMethod(0.01, "BossTargetScanner", args.sourceGUID, "DefileTarget", 0.02, 15)--defile target can be as late as 1.6 seconds into 20 second cast
+		else
+			--defile target can be as late as 1.6 seconds into 20 second cast
+			--So for non tanks this should be thorough and makes ure to always catch it no matter how late LK swaps
+			self:ScheduleMethod(0.01, "BossTargetScanner", args.sourceGUID, "DefileTarget", 0.1, 17)
+		end
 		warnDefileSoon:Cancel()
 		warnDefileSoon:Schedule(27)
 		timerDefileCD:Start()

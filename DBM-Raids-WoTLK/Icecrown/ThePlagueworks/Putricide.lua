@@ -77,7 +77,7 @@ mod.vb.warned_preP2 = false
 mod.vb.warned_preP3 = false
 
 local function NextPhase(self)
-	self:SetStage(0)
+	self:SetStage(0.5)--Should up 1.5 to 2 and 2.5 to 3
 	if self.vb.phase == 2 then
 		warnUnstableExperimentSoon:Schedule(15)
 		timerUnstableExperimentCD:Start(20)
@@ -137,6 +137,7 @@ function mod:SPELL_CAST_START(args)
 		timerUnstableExperimentCD:Start()
 		warnUnstableExperimentSoon:Schedule(33)
 	elseif args.spellId == 71617 then		--Tear Gas, normal phase change trigger
+		self:SetStage(0.5)--Should up 1 to 1.5 and 2 to 2.5
 		warnTearGas:Show()
 		warnUnstableExperimentSoon:Cancel()
 		warnChokingGasBombSoon:Cancel()
@@ -146,6 +147,7 @@ function mod:SPELL_CAST_START(args)
 		timerChokingGasBombCD:Cancel()
 		timerUnboundPlagueCD:Cancel()
 	elseif args.spellId == 72840 then		--Volatile Experiment (heroic phase change begin)
+		self:SetStage(0.5)--Should up 1 to 1.5 and 2 to 2.5
 		warnVolatileExperiment:Show()
 		warnUnstableExperimentSoon:Cancel()
 		warnChokingGasBombSoon:Cancel()

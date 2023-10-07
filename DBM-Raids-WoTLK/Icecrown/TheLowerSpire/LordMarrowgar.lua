@@ -7,7 +7,7 @@ mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(36612)
 mod:SetEncounterID(mod:IsClassic() and 845 or 1101)
 mod:SetModelID(31119)
-mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
+mod:SetUsedIcons(2, 3, 4, 5, 6, 7, 8)
 
 mod:RegisterCombat("combat")
 
@@ -90,24 +90,28 @@ function mod:SPELL_CAST_START(args)
 	end
 end
 
-function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId, spellName)
-	if spellId == 69146 and destGUID == UnitGUID("player") and self:AntiSpam() then
-		specWarnColdflame:Show(spellName)
-		specWarnColdflame:Play("watchfeet")
-	end
-end
-mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
-
 function mod:SPELL_SUMMON(args)
 	if args:IsSpellID(69062, 72669, 72670) then			-- Impale
+		if self:AntiSpam(5, 1) then
+			self.vb.impaleIcon = 8
+		end
 		warnImpale:CombinedShow(0.3, args.sourceName)
 		timerBoned:Start()
 		if self.Options.SetIconOnImpale then
 			self:SetIcon(args.sourceName, self.vb.impaleIcon)
 		end
-		if self.vb.impaleIcon < 1 then
+		-- Don't use the Star icon, so tanks can use it for positioning. If you have 7 impales, you are likely wiping anyway.
+		if self.vb.impaleIcon < 2 then
 			self.vb.impaleIcon = 8
 		end
 		self.vb.impaleIcon = self.vb.impaleIcon - 1
 	end
 end
+
+function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId, spellName)
+	if spellId == 69146 and destGUID == UnitGUID("player") and self:AntiSpam(2.5, 2) then
+		specWarnColdflame:Show(spellName)
+		specWarnColdflame:Play("watchfeet")
+	end
+end
+mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE

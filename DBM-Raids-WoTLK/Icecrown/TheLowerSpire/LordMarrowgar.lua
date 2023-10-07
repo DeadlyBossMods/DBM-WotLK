@@ -7,7 +7,7 @@ mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(36612)
 mod:SetEncounterID(mod:IsClassic() and 845 or 1101)
 mod:SetModelID(31119)
-mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
+mod:SetUsedIcons(2, 3, 4, 5, 6, 7, 8)
 
 mod:RegisterCombat("combat")
 
@@ -105,7 +105,8 @@ function mod:SPELL_SUMMON(args)
 		if self.Options.SetIconOnImpale then
 			self:SetIcon(args.sourceName, self.vb.impaleIcon)
 		end
-		if self.vb.impaleIcon < 1 then
+		-- Don't use the Star icon, so tanks can use it for positioning. If you have 7 impales, you are likely wiping anyway.
+		if self.vb.impaleIcon < 2 then
 			self.vb.impaleIcon = 8
 		end
 		self.vb.impaleIcon = self.vb.impaleIcon - 1

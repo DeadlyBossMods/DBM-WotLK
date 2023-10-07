@@ -109,7 +109,7 @@ function mod:SPELL_SUMMON(args)
 end
 
 function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId, spellName)
-	if spellId == 69146 and destGUID == UnitGUID("player") and self:AntiSpam(2.5, 2 then
+	if spellId == 69146 and destGUID == UnitGUID("player") and self:AntiSpam(2.5, 2) then
 		specWarnColdflame:Show(spellName)
 		specWarnColdflame:Play("watchfeet")
 	end

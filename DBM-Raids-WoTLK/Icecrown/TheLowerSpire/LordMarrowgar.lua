@@ -90,16 +90,11 @@ function mod:SPELL_CAST_START(args)
 	end
 end
 
-function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId, spellName)
-	if spellId == 69146 and destGUID == UnitGUID("player") and self:AntiSpam() then
-		specWarnColdflame:Show(spellName)
-		specWarnColdflame:Play("watchfeet")
-	end
-end
-mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE
-
 function mod:SPELL_SUMMON(args)
 	if args:IsSpellID(69062, 72669, 72670) then			-- Impale
+		if self:AntiSpam(5, 1) then
+			self.vb.impaleIcon = 8
+		end
 		warnImpale:CombinedShow(0.3, args.sourceName)
 		timerBoned:Start()
 		if self.Options.SetIconOnImpale then
@@ -112,3 +107,11 @@ function mod:SPELL_SUMMON(args)
 		self.vb.impaleIcon = self.vb.impaleIcon - 1
 	end
 end
+
+function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId, spellName)
+	if spellId == 69146 and destGUID == UnitGUID("player") and self:AntiSpam(2.5, 2 then
+		specWarnColdflame:Show(spellName)
+		specWarnColdflame:Play("watchfeet")
+	end
+end
+mod.SPELL_PERIODIC_MISSED = mod.SPELL_PERIODIC_DAMAGE

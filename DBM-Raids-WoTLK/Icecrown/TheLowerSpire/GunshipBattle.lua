@@ -28,7 +28,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED_DOSE 69638",
 	"SPELL_AURA_REMOVED 69705",
 	"SPELL_CAST_START 69705",
-	"UNIT_SPELLCAST_SUCCEEDED boss1 boss2"
+	"UNIT_SPELLCAST_SUCCEEDED"
 )
 
 mod:RegisterEvents(
@@ -106,7 +106,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
-	if spellId == 72340 then
+	if spellId == 72340 and self:IsInCombat() then
 		DBM:EndCombat(self)
 	end
 end

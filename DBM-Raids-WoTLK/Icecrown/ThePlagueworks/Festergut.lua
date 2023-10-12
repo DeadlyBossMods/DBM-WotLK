@@ -16,7 +16,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 69279 69166 72219 69240 69291",
 	"SPELL_AURA_APPLIED_DOSE 69166 72219 69291",
 	"SPELL_AURA_REMOVED 69279",
-	"UNIT_SPELLCAST_SUCCEEDED boss1"
+	"UNIT_SPELLCAST_SUCCEEDED"
 )
 
 --TODO, use actual cast event for handling gasSporeCast to make it robust against under sized groups/retail soloing. Should be counting actual casts not debuff counts
@@ -174,13 +174,20 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
-	if spellId == 72299 then -- Malleable Goo Summon Trigger (10 player normal) (the other 3 spell ids are not needed here since all spells have the same name)
+	if spellId == 72299 and self:AntiSpam(3, 2) then -- Malleable Goo Summon Trigger (10 player normal) (the other 3 spell ids are not needed here since all spells have the same name)
+		self:SendSync("GooCast")
+	end
+end
+
+function mod:OnSync(msg, arg)
+	if msg == "GooCast" and self:IsInCombat() then
 		specWarnGoo:Show()
 		specWarnGoo:Play("watchstep")
 		if self:IsDifficulty("heroic25") then
-			timerGooCD:Start()
+			timerGooCD:Start()--10
 		else
-			timerGooCD:Start(15)--30 seconds in between goos on 10 man heroic
+			--why is it set to 15 with a note of 30?
+		--	timerGooCD:Start(15)--30 seconds in between goos on 10 man heroic
 		end
 	end
 end

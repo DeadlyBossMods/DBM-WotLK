@@ -120,7 +120,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 69774 and args:IsPlayer() then
 		specWarnStickyOoze:Show()
 		specWarnStickyOoze:Play("runaway")
-	elseif args.spellId == 69760 then
+	elseif args.spellId == 69760 and self:AntiSpam(3, 1) then
 		warnRadiatingOoze:Show()
 	elseif args.spellId == 69558 then
 		warnUnstableOoze:Show(args.destName, args.amount or 1)
@@ -169,7 +169,7 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, _, destGUID, _, _, _, spellId)
-	if spellId == 69761 and destGUID == UnitGUID("player") and self:AntiSpam(3, 1) then
+	if spellId == 69761 and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then
 		specWarnRadiatingOoze:Show()
 		specWarnRadiatingOoze:Play("runaway")
 	end
@@ -177,7 +177,7 @@ end
 mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
 function mod:SWING_DAMAGE(sourceGUID, sourceName, sourceFlags, _, destGUID)
-	if self:GetCIDFromGUID(sourceGUID) == 36897 and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then --Little ooze hitting you
+	if self:GetCIDFromGUID(sourceGUID) == 36897 and destGUID == UnitGUID("player") and self:AntiSpam(3, 3) then --Little ooze hitting you
 		specWarnLittleOoze:Show()
 		specWarnLittleOoze:Play("keepmove")
 	end

@@ -42,7 +42,7 @@ local warnVeteran			= mod:NewTargetNoFilterAnnounce(71193, 2, nil, false)		-- mi
 local warnElite				= mod:NewTargetNoFilterAnnounce(71195, 3, nil, false)		-- might be spammy
 local warnBattleFury		= mod:NewStackAnnounce(69638, 2, nil, "Tank|Healer", 2)
 local warnBladestorm		= mod:NewSpellAnnounce(69652, 3, nil, "Melee")
-local warnWoundingStrike	= mod:NewTargetNoFilterAnnounce(69651, 2)
+local warnWoundingStrike	= mod:NewTargetNoFilterAnnounce(69651, 2, nil, "Tank|Healer")
 local warnAddsSoon			= mod:NewAnnounce("WarnAddsSoon", 2, addsIcon, nil, nil, nil, 23334, DBM_COMMON_L.ADDS)
 
 local timerCombatStart		= mod:NewCombatTimer(42)
@@ -77,7 +77,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnExperienced:Show(args.destName)
 	elseif args.spellId == 69652 then
 		warnBladestorm:Show()
-	elseif args.spellId == 69651 then
+	elseif args.spellId == 69651 and self:AntiSpam(2, args.destName) then
 		warnWoundingStrike:Show(args.destName)
 	elseif args.spellId == 69638 and self:GetCIDFromGUID(args.destGUID) == bossID then
 		timerBattleFuryActive:Start()		-- only a timer for 1st stack

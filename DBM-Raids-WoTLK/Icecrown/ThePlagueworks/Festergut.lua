@@ -28,7 +28,8 @@ local warnVileGas			= mod:NewTargetAnnounce(69240, 3)
 
 local specWarnPungentBlight	= mod:NewSpecialWarningSpell(69195, nil, nil, nil, 2, 2)
 local specWarnGasSpore		= mod:NewSpecialWarningYou(69279, nil, nil, nil, 1, 2)
-local yellGasSpore			= mod:NewYell(69279)
+local yellGasSpore			= mod:NewShortYell(69279, nil, nil, nil, "YELL")
+local yellGasSporeFades		= mod:NewShortFadesYell(69279, nil, nil, nil, "YELL")
 local specWarnVileGas		= mod:NewSpecialWarningYou(69240, nil, nil, nil, 1, 2)
 local yellVileGas			= mod:NewYell(69240)
 local specWarnGastricBloat	= mod:NewSpecialWarningStack(72219, nil, 9, nil, nil, 1, 6)
@@ -112,6 +113,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			specWarnGasSpore:Show()
 			specWarnGasSpore:Play("targetyou")
 			yellGasSpore:Yell()
+			yellGasSporeFades:Countdown(args.spellId)
 		end
 		if self.Options.SetIconOnGasSpore then
 			local maxIcon = self:IsDifficulty("normal25", "heroic25") and 3 or 2
@@ -169,6 +171,9 @@ function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 69279 then	-- Gas Spore
 		if self.Options.SetIconOnGasSpore then
 			self:SetIcon(args.destName, 0)
+		end
+		if args:IsPlayer() then
+			yellGasSporeFades:Cancel()
 		end
 	end
 end

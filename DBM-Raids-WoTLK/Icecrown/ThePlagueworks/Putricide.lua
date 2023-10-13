@@ -249,7 +249,8 @@ function mod:SPELL_AURA_APPLIED(args)
 			timerUnboundPlague:Start()
 			yellUnboundPlague:Yell()
 		else
-			warnUnboundPlague:Show(args.destName)
+			warnUnboundPlague:Cancel()
+			warnUnboundPlague:Schedule(1, args.destName)
 		end
 	end
 end

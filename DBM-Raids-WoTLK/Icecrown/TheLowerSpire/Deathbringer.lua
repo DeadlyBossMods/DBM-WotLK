@@ -165,8 +165,8 @@ end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if msg:find(L.PullAlliance, 1, true) then
-		timerCombatStart:Start()
+		timerCombatStart:Start(self:IsRetail() and 45 or 48)
 	elseif msg:find(L.PullHorde, 1, true) then
-		timerCombatStart:Start(94.5)
+		timerCombatStart:Start(self:IsRetail() and 94.5 or 97.5)--Retail has been confirmed 94.5 more than once, but classic is a little slower
 	end
 end

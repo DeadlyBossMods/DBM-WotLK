@@ -207,7 +207,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 70106 and not self:IsTrivial() then	--Chilled to the bone (melee)
 		if args:IsPlayer() then
 			timerChilledtotheBone:Start()
-			if (args.amount or 1) >= 4 then
+			if (args.amount or 1) >= 5 then
 				specWarnChilledtotheBone:Show(args.amount)
 				specWarnChilledtotheBone:Play("stackhigh")
 			else
@@ -217,7 +217,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 69766 and not self:IsTrivial() then	--Instability (casters)
 		if args:IsPlayer() then
 			timerInstability:Start()
-			if (args.amount or 1) >= 4 then
+			if (args.amount or 1) >= 5 then
 				specWarnInstability:Show(args.amount)
 				specWarnInstability:Play("stackhigh")
 			else

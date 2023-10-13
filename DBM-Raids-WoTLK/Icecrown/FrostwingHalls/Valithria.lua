@@ -1,6 +1,8 @@
 local mod	= DBM:NewMod("Valithria", "DBM-Raids-WoTLK", 2)
 local L		= mod:GetLocalizedStrings()
 
+mod.statTypes = "normal,normal25,heroic,heroic25"
+
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(36789)
 mod:SetEncounterID(mod:IsClassic() and 854 or 1098)

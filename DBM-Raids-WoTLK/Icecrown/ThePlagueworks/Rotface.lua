@@ -24,7 +24,7 @@ local warnSlimeSpray			= mod:NewSpellAnnounce(69508, 2)
 local warnMutatedInfection		= mod:NewTargetNoFilterAnnounce(69674, 4)
 local warnRadiatingOoze			= mod:NewSpellAnnounce(69760, 3)
 local warnOozeSpawn				= mod:NewAnnounce("WarnOozeSpawn", 1, 25163, nil, nil, nil, 25163, DBM_COMMON_L.ADD)
-local warnStickyOoze			= mod:NewSpellAnnounce(69774, 1, nil, "Tank", 2)
+local warnStickyOoze			= mod:NewSpellAnnounce(69774, 1, nil, false, 3)--You know what, even tank only, it's too spammy for a default on, completely opt in
 local warnUnstableOoze			= mod:NewStackAnnounce(69558, 2)
 local warnVileGas				= mod:NewSpellAnnounce(72272, 3)
 
@@ -119,7 +119,10 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 69760 and self:AntiSpam(3, 2) then
 		warnRadiatingOoze:Show()
 	elseif args.spellId == 69558 then
-		warnUnstableOoze:Show(args.destName, args.amount or 1)
+		local amount = args.amount or 1
+		if amount >= 2 then
+			warnUnstableOoze:Show(args.destName, args.amount or 1)
+		end
 	elseif args.spellId == 69674 then
 		timerMutatedInfection:Start(args.destName)
 		if args:IsPlayer() then

@@ -191,8 +191,7 @@ function mod:OnSync(msg, arg)
 		if self:IsDifficulty("heroic25") then
 			timerGooCD:Start()--10
 		else
-			--why is it set to 15 with a note of 30?
-		--	timerGooCD:Start(15)--30 seconds in between goos on 10 man heroic
+			timerGooCD:Start(15)--10 man heroic is 15
 		end
 	end
 end

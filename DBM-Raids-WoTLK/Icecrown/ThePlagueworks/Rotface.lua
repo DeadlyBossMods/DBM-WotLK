@@ -22,9 +22,9 @@ mod:RegisterEventsInCombat(
 
 local warnSlimeSpray			= mod:NewSpellAnnounce(69508, 2)
 local warnMutatedInfection		= mod:NewTargetNoFilterAnnounce(69674, 4)
-local warnRadiatingOoze			= mod:NewSpellAnnounce(69760, 3)
+local warnRadiatingOoze			= mod:NewSpellAnnounce(69760, 3, nil, false, 2)--More of a passive ability, off by default
 local warnOozeSpawn				= mod:NewAnnounce("WarnOozeSpawn", 1, 25163, nil, nil, nil, 25163, DBM_COMMON_L.ADD)
-local warnStickyOoze			= mod:NewSpellAnnounce(69774, 1, nil, false, 3)--You know what, even tank only, it's too spammy for a default on, completely opt in
+local warnStickyOoze			= mod:NewSpellAnnounce(69774, 1, nil, "Tank", 2)--You know what, even tank only, it's too spammy for a default on, completely opt in
 local warnUnstableOoze			= mod:NewStackAnnounce(69558, 2)
 local warnVileGas				= mod:NewSpellAnnounce(72272, 3)
 
@@ -160,7 +160,9 @@ end
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 69674 then
 		timerMutatedInfection:Cancel(args.destName)
-		warnOozeSpawn:Show()
+		if args:IsPlayer() or self:IsTank() then
+			warnOozeSpawn:Show()
+		end
 		if self.Options.InfectionIcon then
 			self:SetIcon(args.destName, 0)
 		end

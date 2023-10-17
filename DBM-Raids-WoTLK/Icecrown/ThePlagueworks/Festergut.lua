@@ -47,7 +47,7 @@ local timerGooCD			= mod:NewCDTimer(10, 72297, nil, nil, nil, 3)
 
 local berserkTimer			= mod:NewBerserkTimer(300)
 
-mod:AddRangeFrameOption(8, 69240, "Ranged")
+mod:AddRangeFrameOption(10, 69240, "Ranged")
 mod:AddSetIconOption("SetIconOnGasSpore", 69279, true, 7, {1, 2, 3})
 mod:AddBoolOption("AchievementCheck", false, "announce", nil, nil, nil, 4615, "achievement")
 
@@ -77,7 +77,7 @@ function mod:OnCombatStart(delay)
 	self.vb.gasSporeCast = 0
 	self.vb.warnedfailed = false
 	if self.Options.RangeFrame then
-		DBM.RangeCheck:Show(8)
+		DBM.RangeCheck:Show(10)
 	end
 	if self:IsDifficulty("heroic10", "heroic25") then
 		timerGooCD:Start(15-delay)

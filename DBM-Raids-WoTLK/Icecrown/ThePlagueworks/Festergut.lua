@@ -8,7 +8,7 @@ mod:SetCreatureID(36626)
 mod:SetEncounterID(mod:IsClassic() and 849 or 1097)
 mod:SetModelID(31006)
 mod:RegisterCombat("combat")
-mod:SetUsedIcons(6, 7, 8)
+mod:SetUsedIcons(1, 2, 3)
 mod:SetMinSyncRevision(20220623000000)
 
 mod:RegisterEventsInCombat(

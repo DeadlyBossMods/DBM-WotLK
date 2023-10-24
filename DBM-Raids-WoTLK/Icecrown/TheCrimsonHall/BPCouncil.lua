@@ -53,7 +53,7 @@ local berserkTimer				= mod:NewBerserkTimer(600)
 
 mod:AddSetIconOption("EmpoweredFlameIcon", 72040, true, 0, {7})
 mod:AddSetIconOption("ActivePrinceIcon", nil, false, 5, {8}, nil, 70952)
-mod:AddRangeFrameOption(12, 72037)
+mod:AddRangeFrameOption(13, 72037)
 
 mod.vb.kineticCount = 0
 
@@ -72,7 +72,7 @@ function mod:OnCombatStart(delay)
 	timerTargetSwitch:Start(-delay)
 	table.wipe(glitteringSparksTargets)
 	if self.Options.RangeFrame then
-		DBM.RangeCheck:Show(12)
+		DBM.RangeCheck:Show(13)
 	end
 end
 
@@ -129,7 +129,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			warnTargetSwitchSoon:Schedule(42)
 			timerTargetSwitch:Start()
 			if self.Options.RangeFrame then
-				DBM.RangeCheck:Show(12)
+				DBM.RangeCheck:Show(13)
 			end
 		end
 		if self.Options.ActivePrinceIcon then

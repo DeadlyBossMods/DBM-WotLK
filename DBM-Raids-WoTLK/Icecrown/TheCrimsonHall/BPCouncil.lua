@@ -159,7 +159,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then
 			timerShadowPrison:Start()
 			local amount = args.amount or 1
-			if (amount % 3 == 0) and >= 6 then	--Placeholder right now, might use a different value
+			if (amount % 3 == 0) and amount >= 6 then	--Placeholder right now, might use a different value
 				specWarnShadowPrison:Show(args.amount)
 				specWarnShadowPrison:Play("stackhigh")
 			end

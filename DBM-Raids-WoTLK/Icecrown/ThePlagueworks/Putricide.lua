@@ -201,7 +201,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 70447 then--Green Slime
 		if args:IsPlayer() then--Still worth warning 100s because it does still do knockback
 			specWarnVolatileOozeAdhesive:Show()
-		elseif not self:IsTank() and self.Options.SpecWarn70447moveto2 and not DBM:UnitDebuff("player" 70353) then
+		elseif not self:IsTank() and self.Options.SpecWarn70447moveto2 and not DBM:UnitDebuff("player", 70353) then
 			specWarnVolatileOozeAdhesiveT:Show(args.destName)
 			specWarnVolatileOozeAdhesiveT:Play("helpsoak")
 		else

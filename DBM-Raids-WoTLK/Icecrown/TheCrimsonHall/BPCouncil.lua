@@ -158,7 +158,8 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 72999 and not self:IsTrivial() then	--Shadow Prison (hard mode)
 		if args:IsPlayer() then
 			timerShadowPrison:Start()
-			if (args.amount or 1) >= 6 then	--Placeholder right now, might use a different value
+			local amount = args.amount or 1
+			if (amount % 3 == 0) and >= 6 then	--Placeholder right now, might use a different value
 				specWarnShadowPrison:Show(args.amount)
 				specWarnShadowPrison:Play("stackhigh")
 			end

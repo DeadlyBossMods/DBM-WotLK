@@ -14,7 +14,7 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 66046 66058 65875 65876",
-	"SPELL_AURA_APPLIED 65724 65748 65950 66001 65879 65916 65874 65858",
+	"SPELL_AURA_APPLIED 65724 65748 65950 66001 65879 65916",
 	"SPELL_AURA_REMOVED 65874 65858 65950 66001",
 	"SPELL_INTERRUPT"
 )
@@ -41,7 +41,6 @@ local timerAchieve					= mod:NewAchievementTimer(180, 3815)
 mod:AddBoolOption("SpecialWarnOnDebuff", false, "announce")
 mod:AddSetIconOption("SetIconOnLightTarget", 65950, false, 0, {1, 2, 3, 4})
 mod:AddSetIconOption("SetIconOnDarkTarget", 66001, false, 0, {1, 2, 3, 4})
-mod:AddInfoFrameOption(65874, true)
 
 local lightEssence, darkEssence = DBM:GetSpellInfo(65686), DBM:GetSpellInfo(65684)
 local debuffTargets = {}
@@ -167,9 +166,6 @@ do
 			self:Schedule(0.75, warnDebuff, self, args.spellId)
 		elseif args:IsSpellID(65879, 65916) then
 			self:Schedule(0.1, showPowerWarning, self, args:GetDestCreatureID())
-		elseif args:IsSpellID(65874, 65858) and self.Options.InfoFrame then
-			DBM.InfoFrame:SetHeader(args.spellName)
-			DBM.InfoFrame:Show(2, "enemyabsorb", nil, shieldHealth[(DBM:GetCurrentInstanceDifficulty())])--UnitGetTotalAbsorbs()
 		end
 	end
 end
@@ -178,9 +174,6 @@ function mod:SPELL_AURA_REMOVED(args)
 	if args:IsSpellID(65874, 65858) then
 		specWarnKickNow:Show()
 		specWarnKickNow:Play("kickcast")
-		if self.Options.InfoFrame then
-			DBM.InfoFrame:Hide()
-		end
 	elseif args.spellId == 65950 then
 		timerLightTouch:Stop(args.destName)
 		if self.Options.SetIconOnLightTarget then

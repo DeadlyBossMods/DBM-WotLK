@@ -43,7 +43,6 @@ local specWarnVolatileOozeAdhesiveT	= mod:NewSpecialWarningMoveTo(70447, false, 
 local specWarnGaseousBloat			= mod:NewSpecialWarningRun(70672, nil, nil, nil, 4, 2)
 local specWarnMalleableGoo			= mod:NewSpecialWarningYou(72295, nil, nil, nil, 1, 2)
 local yellMalleableGoo				= mod:NewYell(72295)
-local specWarnMalleableGooNear		= mod:NewSpecialWarningClose(72295, nil, nil, nil, 1, 2)
 local specWarnChokingGasBomb		= mod:NewSpecialWarningMove(71255, "Tank", nil, nil, 1, 2)
 local specWarnMalleableGooCast		= mod:NewSpecialWarningSpell(72295, nil, nil, nil, 2, 2)
 local specWarnOozeVariable			= mod:NewSpecialWarningYou(70352)		-- Heroic Ability
@@ -108,9 +107,6 @@ function mod:MalleableGooTarget(targetname, uId)
 		specWarnMalleableGoo:Show()
 		specWarnMalleableGoo:Play("targetyou")
 		yellMalleableGoo:Yell()
-	elseif self:CheckNearby(11, targetname) then
-		specWarnMalleableGooNear:Show(targetname)
-		specWarnMalleableGooNear:Play("watchstep")
 	else
 		specWarnMalleableGooCast:Show()
 		specWarnMalleableGooCast:Play("watchstep")

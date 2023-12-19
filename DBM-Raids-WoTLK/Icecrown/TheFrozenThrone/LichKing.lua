@@ -60,7 +60,7 @@ local specWarnDefileCast			= mod:NewSpecialWarningMoveAway(72762, nil, nil, nil,
 local yellDefile					= mod:NewYell(72762)
 local specWarnDefileNear			= mod:NewSpecialWarningClose(72762, nil, nil, nil, 1, 2) --Phase 2+ Ability
 local specWarnHarvestSoul			= mod:NewSpecialWarningYou(68980, nil, nil, nil, 1, 2) --Phase 3+ Ability
-local specWarnInfest				= mod:NewSpecialWarningSpell(70541, nil, nil, nil, 2) --Phase 1+ Ability
+local specWarnInfest				= mod:NewSpecialWarningSpell(70541, "Healer", nil, 2, 2, 2) --Phase 1+ Ability
 local specWarnSoulreaperOtr			= mod:NewSpecialWarningTaunt(69409, nil, nil, nil, 1, 2) --phase 2+
 local specWarnTrap					= mod:NewSpecialWarningYou(73539, nil, nil, nil, 3, 2) --Heroic Ability
 local yellTrap						= mod:NewYell(73539)
@@ -237,6 +237,7 @@ function mod:SPELL_CAST_START(args)
 		timerVileSpirit:Start()
 	elseif args.spellId == 70541 then -- Infest
 		specWarnInfest:Show()
+		specWarnInfest:Play("healall")
 		timerInfestCD:Start()
 	elseif args.spellId == 72762 then -- Defile
 		if self:IsTank() then

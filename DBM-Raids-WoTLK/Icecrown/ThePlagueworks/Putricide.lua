@@ -36,14 +36,13 @@ local warnChokingGasBombSoon		= mod:NewPreWarnAnnounce(71255, 5, 3, nil, "Melee"
 local warnChokingGasBomb			= mod:NewSpellAnnounce(71255, 3, nil, "Melee")		-- Phase 2 ability
 local warnPhase3Soon				= mod:NewPrePhaseAnnounce(3)
 local warnMutatedPlague				= mod:NewStackAnnounce(72451, 3, nil, "Tank|Healer") -- Phase 3 ability
-local warnUnboundPlague				= mod:NewTargetNoFilterAnnounce(70911, 3)		-- Heroic Ability
+local warnUnboundPlague				= mod:NewTargetNoFilterAnnounce(70911, 3, nil, false, 2)		-- Heroic Ability
 
 local specWarnVolatileOozeAdhesive	= mod:NewSpecialWarningYou(70447, nil, nil, nil, 1, 2)
-local specWarnVolatileOozeAdhesiveT	= mod:NewSpecialWarningMoveTo(70447, nil, nil, nil, 1, 2)
+local specWarnVolatileOozeAdhesiveT	= mod:NewSpecialWarningMoveTo(70447, false, nil, 2, 1, 2)
 local specWarnGaseousBloat			= mod:NewSpecialWarningRun(70672, nil, nil, nil, 4, 2)
 local specWarnMalleableGoo			= mod:NewSpecialWarningYou(72295, nil, nil, nil, 1, 2)
 local yellMalleableGoo				= mod:NewYell(72295)
-local specWarnMalleableGooNear		= mod:NewSpecialWarningClose(72295, nil, nil, nil, 1, 2)
 local specWarnChokingGasBomb		= mod:NewSpecialWarningMove(71255, "Tank", nil, nil, 1, 2)
 local specWarnMalleableGooCast		= mod:NewSpecialWarningSpell(72295, nil, nil, nil, 2, 2)
 local specWarnOozeVariable			= mod:NewSpecialWarningYou(70352)		-- Heroic Ability
@@ -108,9 +107,6 @@ function mod:MalleableGooTarget(targetname, uId)
 		specWarnMalleableGoo:Show()
 		specWarnMalleableGoo:Play("targetyou")
 		yellMalleableGoo:Yell()
-	elseif self:CheckNearby(11, targetname) then
-		specWarnMalleableGooNear:Show(targetname)
-		specWarnMalleableGooNear:Play("watchstep")
 	else
 		specWarnMalleableGooCast:Show()
 		specWarnMalleableGooCast:Play("watchstep")
@@ -173,7 +169,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args.spellId == 70341 and self:AntiSpam(5, 1) then
+	if args.spellId == 70341 and self:AntiSpam(5, 3) then
 		warnSlimePuddle:Show()
 		if self.vb.phase == 3 then
 			timerSlimePuddleCD:Start(20)--In phase 3 it's faster
@@ -201,7 +197,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 70447 then--Green Slime
 		if args:IsPlayer() then--Still worth warning 100s because it does still do knockback
 			specWarnVolatileOozeAdhesive:Show()
-		elseif not self:IsTank() then
+		elseif not self:IsTank() and self.Options.SpecWarn70447moveto2 and not DBM:UnitDebuff("player", 70353) then
 			specWarnVolatileOozeAdhesiveT:Show(args.destName)
 			specWarnVolatileOozeAdhesiveT:Play("helpsoak")
 		else
@@ -243,7 +239,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.UnboundPlagueIcon then
 			self:SetIcon(args.destName, 3)
 		end
-		if args:IsPlayer() and not self:IsTrivial() then
+		if args:IsPlayer() and not self:IsTrivial() and self:AntiSpam(2, 1) then
 			specWarnUnboundPlague:Show()
 			specWarnUnboundPlague:Play("targetyou")
 			timerUnboundPlague:Start()

@@ -8,7 +8,7 @@ mod:SetCreatureID(36626)
 mod:SetEncounterID(mod:IsClassic() and 849 or 1097)
 mod:SetModelID(31006)
 mod:RegisterCombat("combat")
-mod:SetUsedIcons(6, 7, 8)
+mod:SetUsedIcons(1, 2, 3)
 mod:SetMinSyncRevision(20220623000000)
 
 mod:RegisterEventsInCombat(
@@ -47,7 +47,7 @@ local timerGooCD			= mod:NewCDTimer(10, 72297, nil, nil, nil, 3)
 
 local berserkTimer			= mod:NewBerserkTimer(300)
 
-mod:AddRangeFrameOption(8, 69240, "Ranged")
+mod:AddRangeFrameOption(10, 69240, "Ranged")
 mod:AddSetIconOption("SetIconOnGasSpore", 69279, true, 7, {1, 2, 3})
 mod:AddBoolOption("AchievementCheck", false, "announce", nil, nil, nil, 4615, "achievement")
 
@@ -77,7 +77,7 @@ function mod:OnCombatStart(delay)
 	self.vb.gasSporeCast = 0
 	self.vb.warnedfailed = false
 	if self.Options.RangeFrame then
-		DBM.RangeCheck:Show(8)
+		DBM.RangeCheck:Show(10)
 	end
 	if self:IsDifficulty("heroic10", "heroic25") then
 		timerGooCD:Start(15-delay)
@@ -191,8 +191,7 @@ function mod:OnSync(msg, arg)
 		if self:IsDifficulty("heroic25") then
 			timerGooCD:Start()--10
 		else
-			--why is it set to 15 with a note of 30?
-		--	timerGooCD:Start(15)--30 seconds in between goos on 10 man heroic
+			timerGooCD:Start(15)--10 man heroic is 15
 		end
 	end
 end

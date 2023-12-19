@@ -38,7 +38,7 @@ else
 	warnVoidZone				= mod:NewSpellAnnounce(28863, 4, nil, nil, nil, nil, nil, 2)
 end
 
-local timerMarkCD				= mod:NewTimer(12.9, "timerMark", 28835, nil, nil, 3)
+local timerMarkCD				= mod:NewTimer(12.9, "timerMark", 28835, nil, nil, 2)
 --local timerMarkCD				= mod:NewCDTimer(12, 28835, nil, nil, nil, 3)
 --local timerMeteorCD			= mod:NewCDTimer(12.9, 28884, nil, nil, nil, 3)-- 12.9-14.6
 --local timerVoidZoneCD			= mod:NewCDTimer(12.9, 28863, nil, nil, nil, 3)-- 12.9-16
@@ -72,7 +72,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 				specWarnVoidZone:Show()
 				specWarnVoidZone:Play("targetyou")
 				yellVoidZone:Yell()
-			elseif self:CheckNearby(12, args.destName) then
+			else
 				warnVoidZone:Show(args.destName)
 			end
 		else

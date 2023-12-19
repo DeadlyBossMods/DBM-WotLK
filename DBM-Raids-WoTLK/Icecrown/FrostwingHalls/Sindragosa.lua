@@ -1,6 +1,8 @@
 local mod	= DBM:NewMod("Sindragosa", "DBM-Raids-WoTLK", 2)
 local L		= mod:GetLocalizedStrings()
 
+mod.statTypes = "normal,normal25,heroic,heroic25"
+
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(36853)
 mod:SetEncounterID(mod:IsClassic() and 855 or 1105)

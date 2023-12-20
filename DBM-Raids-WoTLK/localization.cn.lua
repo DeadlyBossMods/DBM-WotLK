@@ -72,6 +72,23 @@ L:SetMiscLocalization{
 	Meteor				= "%s施放流星拳！"
 }
 
+-------------------------------
+--  Toravon the Ice Watcher  --
+-------------------------------
+L = DBM:GetModLocalization("Toravon")
+
+L:SetGeneralLocalization{
+	name = "寒冰看守者图拉旺"
+}
+
+L:SetTimerLocalization{
+	ToravonEnrage	= "图拉旺狂暴"
+}
+
+L:SetMiscLocalization{
+	ToravonEnrage	= "为$spell:26662显示计时器"
+}
+
 -------------------
 --  Anub'Rekhan  --
 -------------------
@@ -1576,3 +1593,86 @@ L:SetMiscLocalization{
 	FleshreaperTrap3	= "活人? 这儿?!",
 	SindragosaEvent		= "你一定不能靠近冰霜之后。快，阻止他们!"
 }
+
+------------------------
+--  The Ruby Sanctum  --
+------------------------
+--  Baltharus the Warborn  --
+-----------------------------
+L = DBM:GetModLocalization("Baltharus")
+
+L:SetGeneralLocalization({
+	name = "战争之子巴尔萨鲁斯"
+})
+
+L:SetWarningLocalization({
+	WarningSplitSoon	= "分裂即将到来"
+})
+
+L:SetOptionLocalization({
+	WarningSplitSoon	= "为分裂显示预警"
+})
+
+-------------------------
+--  Saviana Ragefire  --
+-------------------------
+L = DBM:GetModLocalization("Saviana")
+
+L:SetGeneralLocalization({
+	name = "塞维娅娜·怒火"
+})
+
+--------------------------
+--  General Zarithrian  --
+--------------------------
+L = DBM:GetModLocalization("Zarithrian")
+
+L:SetGeneralLocalization({
+	name = "萨瑞瑟里安将军"
+})
+
+L:SetWarningLocalization({
+	WarnAdds	= "新的小怪",
+	warnCleaveArmor	= ">%1$s<中了%2$s(%s)"	-- Cleave Armor on >args.destName< (args.amount)
+})
+
+L:SetTimerLocalization({
+	TimerAdds		= "新的小怪"
+})
+
+L:SetOptionLocalization({
+	WarnAdds		= "提示新的小怪",
+	TimerAdds		= "为新的小怪出现显示预先警告",
+	warnCleaveArmor	= DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.spell:format(74367)
+})
+
+L:SetMiscLocalization({
+	SummonMinions	= "让他们化为灰烬，仆从们！"
+})
+
+-------------------------------------
+--  Halion the Twilight Destroyer  --
+-------------------------------------
+L = DBM:GetModLocalization("Halion")
+
+L:SetGeneralLocalization({
+	name = "海里昂"
+})
+
+L:SetWarningLocalization({
+	TwilightCutterCast	= "释放暮光撕裂射线: 5秒后"
+})
+
+L:SetOptionLocalization({
+	TwilightCutterCast	= "当$spell:77844开始施放时显示警告",
+	AnnounceAlternatePhase	= "不管你是否进入下一阶段均会显示警告/计时器"
+})
+
+L:SetMiscLocalization({
+	Halion				= "海里昂",
+	MeteorCast			= "天空在燃烧！",
+	Phase2				= "暮光的世界将会让你痛不欲生！够胆量的就进来吧！",
+	Phase3				= "我就是交织的光影！凡人，在死亡之翼的使者面前颤抖吧！",
+	twilightcutter		= "黑暗能量正在这颗旋转的魔球中脉动！",
+	Kill				= "享受胜利吧，凡人们，这是你们最后的胜利。回归的主人将烧毁这个世界！"
+})

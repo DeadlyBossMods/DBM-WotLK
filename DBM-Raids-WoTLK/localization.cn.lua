@@ -1664,7 +1664,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	TwilightCutterCast	= "当$spell:77844开始施放时显示警告",
+	TwilightCutterCast	= "当$spell:74769开始施放时显示警告",
 	AnnounceAlternatePhase	= "不管你是否进入下一阶段均会显示警告/计时器"
 })
 

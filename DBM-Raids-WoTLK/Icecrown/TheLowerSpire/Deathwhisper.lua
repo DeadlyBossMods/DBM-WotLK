@@ -47,7 +47,9 @@ local berserkTimer					= mod:NewBerserkTimer(600)
 mod:AddSetIconOption("SetIconOnDominateMind", 71289, true, 0, {1, 2, 3})
 mod:AddSetIconOption("SetIconOnDeformedFanatic", 70900, true, 5, {8})
 mod:AddSetIconOption("SetIconOnEmpoweredAdherent", 70901, true, 5, {7})
-mod:AddInfoFrameOption(70842, true)
+if mod:IsRetail() then
+	mod:AddInfoFrameOption(70842, true)
+end
 
 local dominateMindTargets = {}
 mod.vb.dominateMindIcon = 1
@@ -76,6 +78,7 @@ local function addsTimer(self)
 end
 
 function mod:OnCombatStart(delay)
+	self:SetStage(1)
 	berserkTimer:Start(-delay)
 	timerAdds:Start(7)
 	warnAddsSoon:Schedule(4)			-- 3sec pre-warning on start
@@ -85,14 +88,14 @@ function mod:OnCombatStart(delay)
 	end
 	table.wipe(dominateMindTargets)
 	self.vb.dominateMindIcon = 6
-	if self.Options.InfoFrame then
+	if self.Options.InfoFrame and self:IsRetail() then
 		DBM.InfoFrame:SetHeader(shieldName)
 		DBM.InfoFrame:Show(2, "enemyabsorb", nil, UnitGetTotalAbsorbs("boss1"))
 	end
 end
 
 function mod:OnCombatEnd()
-	if self.Options.InfoFrame then
+	if self.Options.InfoFrame and self:IsRetail() then
 		DBM.InfoFrame:Hide()
 	end
 end
@@ -136,6 +139,7 @@ mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
 
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 70842 then
+		self:SetStage(2)
 		warnPhase2:Show()
 		warnPhase2:Play("ptwo")
 		if self:IsDifficulty("normal10", "normal25") then

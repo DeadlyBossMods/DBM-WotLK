@@ -51,8 +51,8 @@ local timerEssenceoftheBloodQueen	= mod:NewBuffFadesTimer(60, 70867, nil, nil, n
 local berserkTimer					= mod:NewBerserkTimer(320)
 
 mod:AddSetIconOption("BloodMirrorIcon", 71510, false, 0, {7})--red x for blood link
-mod:AddSetIconOption("SwarmingShadowsIcon", 71266, true, 0, {4})
-mod:AddSetIconOption("SetIconOnDarkFallen", 71340, true, 0, {1, 2, 3})
+mod:AddSetIconOption("SwarmingShadowsIcon2", 71266, false, 0, {4})
+mod:AddSetIconOption("SetIconOnDarkFallen2", 71340, false, 0, {1, 2, 3})
 mod:AddRangeFrameOption(8, 71446)
 
 local pactTargets = {}
@@ -95,7 +95,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			specWarnPactDarkfallen:Show()
 			specWarnPactDarkfallen:Play("linegather")
 		end
-		if self.Options.SetIconOnDarkFallen then
+		if self.Options.SetIconOnDarkFallen2 then
 			self:SetIcon(args.destName, self.vb.pactIcons)
 		end
 		self.vb.pactIcons = self.vb.pactIcons + 1
@@ -147,7 +147,7 @@ end
 
 function mod:SPELL_AURA_REMOVED(args)
 	if args.spellId == 71340 then				--Pact of the Darkfallen
-		if self.Options.SetIconOnDarkFallen then
+		if self.Options.SetIconOnDarkFallen2 then
 			self:SetIcon(args.destName, 0)		--Clear icon once you got to where you are supposed to be
 		end
 	elseif args:IsSpellID(71510, 70838) then	--Blood Mirror
@@ -201,7 +201,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 		else
 			warnSwarmingShadows:Show(target)
 		end
-		if self.Options.SwarmingShadowsIcon then
+		if self.Options.SwarmingShadowsIcon2 then
 			self:SetIcon(target, 4, 6)
 		end
 	end

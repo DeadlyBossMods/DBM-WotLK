@@ -16,23 +16,21 @@ mod:RegisterEventsInCombat(
 
 local warnBreath			= mod:NewSpellAnnounce(66665, 3)
 local warnMeteor			= mod:NewSpellAnnounce(66725, 3)
-local warnMeteorSoon		= mod:NewPreWarnAnnounce(66725, 5, 2)
 local WarnBurningFury		= mod:NewStackAnnounce(66721, 2)
 
 local specWarnCinder		= mod:NewSpecialWarningMove(66684, nil, nil, nil, 1, 2)
 
-local timerNextMeteor		= mod:NewNextTimer(47, 66725, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
+local timerNextMeteor		= mod:NewCDTimer(16.9, 66725, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)--16.9-47, typical classic timer
 local timerNextBurningFury	= mod:NewNextTimer(20, 66721, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON..DBM_COMMON_L.HEALER_ICON)
-local timerBreath			= mod:NewBuffActiveTimer(4.5, 66665, nil, nil, nil, 2)
-local timerBreathCD			= mod:NewCDTimer(45, 66665, nil, nil, nil, 2)--Seems to variate, but 45sec cooldown looks like a good testing number to start.
+local timerBreath			= mod:NewBuffActiveTimer(4.5, 66665, nil, nil, nil, 5)
+local timerBreathCD			= mod:NewCDTimer(35, 66665, nil, nil, nil, 2)--Seems to variate, but 35sec cooldown looks like a good testing number to start.
 
 local timerKoralonEnrage	= mod:NewTimer(300, "KoralonEnrage", 26662)
 
 function mod:OnCombatStart(delay)
 	timerKoralonEnrage:Start(-delay)
-	timerNextMeteor:Start(-delay)
 	timerBreathCD:Start(12-delay)
-	warnMeteorSoon:Schedule(42-delay)
+	timerNextMeteor:Start(30.3-delay)
 	timerNextBurningFury:Start()
 end
 
@@ -44,7 +42,6 @@ function mod:SPELL_CAST_START(args)
 	elseif args.spellId == 66725 then
 		warnMeteor:Show()
 		timerNextMeteor:Start()
-		warnMeteorSoon:Schedule(42)
 	end
 end
 

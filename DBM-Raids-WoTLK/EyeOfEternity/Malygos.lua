@@ -29,7 +29,6 @@ local warnStaticField			= mod:NewTargetNoFilterAnnounce(57430, 3)
 local specWarnBreath			= mod:NewSpecialWarningSpell(56505, nil, nil, nil, 2, 2)
 local specWarnSurge				= mod:NewSpecialWarningDefensive(60936, nil, nil, nil, 1, 2)
 local specWarnStaticField		= mod:NewSpecialWarningYou(57430, nil, nil, nil, 1, 2)
-local specWarnStaticFieldNear	= mod:NewSpecialWarningClose(57430, nil, nil, nil, 1, 2)
 local yellStaticField			= mod:NewYell(57430)
 
 local timerSpark				= mod:NewNextTimer(30, 56140, nil, nil, nil, 1, 59381, DBM_COMMON_L.DAMAGE_ICON)
@@ -73,9 +72,6 @@ function mod:StaticFieldTarget()
 		specWarnStaticField:Show()
 		specWarnStaticField:Play("runaway")
 		yellStaticField:Yell()
-	elseif self:CheckNearby(13, announcetarget) then
-		specWarnStaticFieldNear:Show(announcetarget)
-		specWarnStaticFieldNear:Play("runaway")
 	else
 		warnStaticField:Show(announcetarget)
 	end

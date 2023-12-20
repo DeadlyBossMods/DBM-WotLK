@@ -1408,7 +1408,7 @@ L:SetMiscLocalization{
 	Keleseth			= "凯雷塞斯王子",
 	Taldaram			= "塔达拉姆王子",
 	Valanar				= "瓦拉纳王子",
-	EmpoweredFlames		= "地狱烈焰加速靠近(%S+)!"
+	EmpoweredFlames		= "强能烈焰飞快地冲向(%S+)！"
 }
 
 -----------------------------
@@ -1425,7 +1425,7 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	SwarmingShadows		= "暗影聚集並欢绕在(%S+)四周!",
+	SwarmingShadows		= "蜂拥的阴影在(%S+)的四周积聚！",
 	YellFrenzy			= "我饿了!"
 }
 

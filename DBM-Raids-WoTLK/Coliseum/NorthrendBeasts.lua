@@ -49,7 +49,6 @@ local specWarnToxin			= mod:NewSpecialWarningMoveTo(66823, nil, nil, nil, 1, 2)
 local specWarnBile			= mod:NewSpecialWarningYou(66869, nil, nil, nil, 1, 2)
 local specWarnSilence		= mod:NewSpecialWarningSpell(66330, "SpellCaster", nil, nil, 1, 2)
 local specWarnCharge		= mod:NewSpecialWarningRun(52311, nil, nil, nil, 4, 2)
-local specWarnChargeNear	= mod:NewSpecialWarningClose(52311, nil, nil, nil, 3, 2)
 local specWarnFrothingRage	= mod:NewSpecialWarningDispel(66759, "RemoveEnrage", nil, nil, 1, 2)
 
 local enrageTimer			= mod:NewBerserkTimer(223)
@@ -268,9 +267,6 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 		if target == UnitName("player") then
 			specWarnCharge:Show()
 			specWarnCharge:Play("justrun")
-		elseif self:CheckNearby(10, target) then
-			specWarnChargeNear:Show()
-			specWarnChargeNear:Play("runaway")
 		else
 			warnCharge:Show(target)
 		end

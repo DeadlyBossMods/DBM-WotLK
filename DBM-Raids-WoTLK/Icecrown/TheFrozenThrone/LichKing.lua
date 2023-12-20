@@ -60,7 +60,7 @@ local specWarnDefileCast			= mod:NewSpecialWarningMoveAway(72762, nil, nil, nil,
 local yellDefile					= mod:NewYell(72762)
 local specWarnDefileNear			= mod:NewSpecialWarningClose(72762, nil, nil, nil, 1, 2) --Phase 2+ Ability
 local specWarnHarvestSoul			= mod:NewSpecialWarningYou(68980, nil, nil, nil, 1, 2) --Phase 3+ Ability
-local specWarnInfest				= mod:NewSpecialWarningSpell(70541, nil, nil, nil, 2) --Phase 1+ Ability
+local specWarnInfest				= mod:NewSpecialWarningSpell(70541, "Healer", nil, 2, 2, 2) --Phase 1+ Ability
 local specWarnSoulreaperOtr			= mod:NewSpecialWarningTaunt(69409, nil, nil, nil, 1, 2) --phase 2+
 local specWarnTrap					= mod:NewSpecialWarningYou(73539, nil, nil, nil, 3, 2) --Heroic Ability
 local yellTrap						= mod:NewYell(73539)
@@ -237,14 +237,22 @@ function mod:SPELL_CAST_START(args)
 		timerVileSpirit:Start()
 	elseif args.spellId == 70541 then -- Infest
 		specWarnInfest:Show()
+		specWarnInfest:Play("healall")
 		timerInfestCD:Start()
 	elseif args.spellId == 72762 then -- Defile
-		self:BossTargetScanner(args.sourceGUID, "DefileTarget", 0.02, 15)
+		if self:IsTank() then
+			--For tank roles, they can't afford to wait, so it'll use faster less precise scan and will still false warn it's on them in the rare slow scans, but not late warn
+			self:ScheduleMethod(0.01, "BossTargetScanner", args.sourceGUID, "DefileTarget", 0.02, 15)--defile target can be as late as 1.6 seconds into 20 second cast
+		else
+			--defile target can be as late as 1.6 seconds into 20 second cast
+			--So for non tanks this should be thorough and makes ure to always catch it no matter how late LK swaps
+			self:ScheduleMethod(0.01, "BossTargetScanner", args.sourceGUID, "DefileTarget", 0.1, 17)
+		end
 		warnDefileSoon:Cancel()
 		warnDefileSoon:Schedule(27)
 		timerDefileCD:Start()
 	elseif args.spellId == 73539 then -- Shadow Trap (Heroic)
-		self:BossTargetScanner(args.sourceGUID, "TrapTarget", 0.02, 15, nil, nil, nil, self.vb.lastPlague, nil, nil, true)--cidOrGuid, returnFunc, scanInterval, scanTimes, scanOnlyBoss, isEnemyScan, isFinalScan, targetFilter, tankFilter, onlyPlayers, filterFallback
+		self:ScheduleMethod(0.01, "BossTargetScanner", args.sourceGUID, "TrapTarget", 0.02, 15, nil, nil, nil, self.vb.lastPlague, nil, nil, true)
 		timerTrapCD:Start()
 	elseif args.spellId == 73650 then -- Restore Soul (Heroic)
 		warnRestoreSoul:Show()

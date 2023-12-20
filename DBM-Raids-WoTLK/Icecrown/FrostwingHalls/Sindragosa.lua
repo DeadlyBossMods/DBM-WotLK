@@ -1,6 +1,8 @@
 local mod	= DBM:NewMod("Sindragosa", "DBM-Raids-WoTLK", 2)
 local L		= mod:GetLocalizedStrings()
 
+mod.statTypes = "normal,normal25,heroic,heroic25"
+
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(36853)
 mod:SetEncounterID(mod:IsClassic() and 855 or 1105)
@@ -207,7 +209,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 70106 and not self:IsTrivial() then	--Chilled to the bone (melee)
 		if args:IsPlayer() then
 			timerChilledtotheBone:Start()
-			if (args.amount or 1) >= 4 then
+			if (args.amount or 1) >= 5 then
 				specWarnChilledtotheBone:Show(args.amount)
 				specWarnChilledtotheBone:Play("stackhigh")
 			else
@@ -217,7 +219,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 69766 and not self:IsTrivial() then	--Instability (casters)
 		if args:IsPlayer() then
 			timerInstability:Start()
-			if (args.amount or 1) >= 4 then
+			if (args.amount or 1) >= 5 then
 				specWarnInstability:Show(args.amount)
 				specWarnInstability:Play("stackhigh")
 			else
@@ -259,7 +261,9 @@ function mod:SPELL_CAST_SUCCESS(args)
 			specWarnBlisteringCold:Play("runout")
 		end
 		timerBlisteringCold:Start()
-		timerNextBlisteringCold:Start()
+		if self:GetStage(2) then--Should only repeat in stage 2, otherwise timer is started by air phase yell
+			timerNextBlisteringCold:Start()
+		end
 	end
 end
 

@@ -35,7 +35,7 @@ end
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(28798, 54100) then			-- Frenzy
 		self.vb.enraged = true
-		if self:IsClassic() and self:IsTanking("player", nil, nil, nil, args.destGUID) or self:IsTanking("player", "boss1", nil, true) then
+		if self:IsClassic() and self:IsTanking("player", nil, nil, true, args.destGUID) or self:IsTanking("player", "boss1", nil, true) then
 			specWarnEnrage:Show()
 			specWarnEnrage:Play("defensive")
 		else

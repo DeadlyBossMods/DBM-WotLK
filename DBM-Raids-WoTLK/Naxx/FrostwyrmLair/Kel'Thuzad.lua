@@ -32,7 +32,6 @@ local yellFissure
 if isRetail then
 	warnFissure				= mod:NewTargetNoFilterAnnounce(27810, 4)
 	specWarnFissureYou		= mod:NewSpecialWarningYou(27810, nil, nil, nil, 3, 2)
-	specWarnFissureClose	= mod:NewSpecialWarningClose(27810, nil, nil, nil, 2, 8)
 	yellFissure				= mod:NewYell(27810)
 else
 	warnFissure				= mod:NewSpellAnnounce(27810, 4, nil, nil, nil, nil, nil, 2)
@@ -50,7 +49,7 @@ local timerManaBomb			= mod:NewCDTimer(20, 27819, nil, nil, nil, 3)--20-50
 local timerFrostBlast		= mod:NewCDTimer(35, 27808, nil, false, 2, 3, nil, DBM_COMMON_L.DEADLY_ICON)--35-77.7
 local timerMC				= mod:NewBuffActiveTimer(20, 28410, nil, nil, nil, 3)
 --local timerMCCD			= mod:NewCDTimer(90, 28410, nil, nil, nil, 3)--actually 60 second cdish but its easier to do it this way for the first one.
-local timerPhase2			= mod:NewTimer(225, "TimerPhase2", "136116", nil, nil, 6)
+local timerPhase2			= mod:NewTimer(215, "TimerPhase2", "136116", nil, nil, 6)
 
 mod:AddSetIconOption("SetIconOnMC", 28410, true, false, {1, 2, 3})
 mod:AddSetIconOption("SetIconOnManaBomb", 27819, false, false, {8})
@@ -98,13 +97,13 @@ function mod:OnCombatStart(delay)
 	table.wipe(frostBlastTargets)
 	self.vb.warnedAdds = false
 	self.vb.MCIcon = 1
-	specwarnP2Soon:Schedule(214-delay)
+	specwarnP2Soon:Schedule(204-delay)
 	timerPhase2:Start()
 	--Redundancy below here isn't needed on retail but may be on wrath classic
 	if not isRetail then
-		warnPhase2:Schedule(224)
+		warnPhase2:Schedule(220)
 		if self.Options.RangeFrame then
-			self:Schedule(224-delay, RangeToggle, true)
+			self:Schedule(220-delay, RangeToggle, true)
 		end
 	end
 end
@@ -122,9 +121,6 @@ function mod:SPELL_CAST_SUCCESS(args)
 				specWarnFissureYou:Show()
 				specWarnFissureYou:Play("targetyou")
 				yellFissure:Yell()
-			elseif self:CheckNearby(8, args.destName) then
-				specWarnFissureClose:Show(args.destName)
-				specWarnFissureClose:Play("watchfeet")
 			else
 				warnFissure:Show(args.destName)
 				warnFissure:Play("watchstep")

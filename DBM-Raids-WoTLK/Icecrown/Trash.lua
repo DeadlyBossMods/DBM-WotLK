@@ -9,7 +9,7 @@ mod.isTrashMod = true
 mod:RegisterEvents(
 	"SPELL_AURA_APPLIED 69483 71127 70451 70432 70645 71785 71298",
 	"SPELL_AURA_APPLIED_DOSE 71127",
-	"SPELL_AURA_REMOVED 70451 70432 70645 71785 71298",
+	"SPELL_AURA_REMOVED 70451 70432 70645 71785 71298 69483",
 	"SPELL_CAST_START 71022",
 	"SPELL_SUMMON 71159 71123 71088",
 	"SPELL_DAMAGE 70305",
@@ -19,7 +19,6 @@ mod:RegisterEvents(
 )
 
 --Lower Spire
-local warnDisruptingShout		= mod:NewSpellAnnounce(71022, 2)
 local warnDarkReckoning			= mod:NewTargetNoFilterAnnounce(69483, 3)
 --Plagueworks
 local warnZombies				= mod:NewSpellAnnounce(71159, 2)
@@ -34,17 +33,17 @@ local warnConflag				= mod:NewTargetNoFilterAnnounce(71785, 4, nil, false)
 local warnBanish				= mod:NewTargetNoFilterAnnounce(71298, 3, nil, false)
 
 --Lower Spire
-local specWarnDisruptingShout	= mod:NewSpecialWarningCast(71022)
-local specWarnDarkReckoning		= mod:NewSpecialWarningMoveAway(69483)
+local specWarnDisruptingShout	= mod:NewSpecialWarningCast(71022, "SpellCaster", nil, 2, 1, 2)
+local specWarnDarkReckoning		= mod:NewSpecialWarningMoveAway(69483, nil, nil, nil, 1, 2)
 local specWarnTrapL				= mod:NewSpecialWarning("SpecWarnTrapL")
 --Plagueworks
-local specWarnDecimate			= mod:NewSpecialWarningSpell(71123)
-local specWarnMortalWound		= mod:NewSpecialWarningStack(71127, "Tank|Healer", 6)
+local specWarnDecimate			= mod:NewSpecialWarningSpell(71123, nil, nil, nil, 2, 2)
+local specWarnMortalWound		= mod:NewSpecialWarningStack(71127, "Tank|Healer", 6, nil, nil, 1, 6)
 local specWarnTrapP				= mod:NewSpecialWarning("SpecWarnTrapP")
-local specWarnBlightBomb		= mod:NewSpecialWarningSpell(71088)
+local specWarnBlightBomb		= mod:NewSpecialWarningSpell(71088, nil, nil, nil, 2, 2)--Recheck sound
 --Frostwing Hall
 local specWarnGosaEvent			= mod:NewSpecialWarning("SpecWarnGosaEvent")
-local specWarnBlade				= mod:NewSpecialWarningMove(70305)
+local specWarnBlade				= mod:NewSpecialWarningGTFO(70305, nil, nil, nil, 1, 8)
 
 --Lower Spire
 local timerDisruptingShout		= mod:NewCastTimer(3, 71022, nil, nil, nil, 2)
@@ -63,7 +62,7 @@ local timerConflag				= mod:NewTargetTimer(10, 71785, nil, false, nil, 3)
 local timerBanish				= mod:NewTargetTimer(6, 71298, nil, false, nil, 3)
 
 --Lower Spire
-mod:AddSetIconOption("SetIconOnDarkReckoning", 69483, true)
+mod:AddSetIconOption("SetIconOnDarkReckoning", 69483, false)
 --Crimson Hall
 mod:AddSetIconOption("BloodMirrorIcon", 70451, false)
 
@@ -73,9 +72,10 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerDarkReckoning:Start(args.destName)
 		if args:IsPlayer() then
 			specWarnDarkReckoning:Show()
+			specWarnDarkReckoning:Play("runout")
 		end
 		if self.Options.SetIconOnDarkReckoning then
-			self:SetIcon(args.destName, 8, 8)
+			self:SetIcon(args.destName, 8)
 		end
 	elseif args.spellId == 71127 then
 		local amount = args.amount or 1
@@ -84,6 +84,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			warnMortalWound:Show(args.destName, amount)
 			if args:IsPlayer() and amount > 5 then
 				specWarnMortalWound:Show(amount)
+				specWarnMortalWound:Play("stackhigh")
 			end
 		end
 	elseif args.spellId == 70451 and args:IsDestTypePlayer() then
@@ -120,13 +121,17 @@ function mod:SPELL_AURA_REMOVED(args)
 		timerConflag:Cancel(args.destName)
 	elseif args.spellId == 71298 then
 		timerBanish:Cancel(args.destName)
+	elseif args.spellId == 69483 then
+		if self.Options.SetIconOnDarkReckoning then
+			self:SetIcon(args.destName, 8, 0)
+		end
 	end
 end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 71022 then
-		warnDisruptingShout:Show()
 		specWarnDisruptingShout:Show()
+		specWarnDisruptingShout:Play("stopcasting")
 		timerDisruptingShout:Start()
 	end
 end
@@ -137,11 +142,13 @@ function mod:SPELL_SUMMON(args)
 		timerZombies:Start()
 	elseif args.spellId == 71123 then
 		specWarnDecimate:Show()
+		specWarnDecimate:Play("stilldanger")
 		warnDecimateSoon:Cancel()	-- in case the first 1 is inaccurate, you wont have an invalid soon warning
 		warnDecimateSoon:Schedule(28)
 		timerDecimate:Start()
 	elseif args.spellId == 71088 then
 		specWarnBlightBomb:Show()
+		specWarnBlightBomb:Play("watchstep")
 		timerBlightBomb:Start()
 	end
 end
@@ -149,6 +156,7 @@ end
 function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
 	if spellId == 70305 and destGUID == UnitGUID("player") and self:AntiSpam() then
 		specWarnBlade:Show()
+		specWarnBlade:Play("watchfeet")
 	end
 end
 mod.SPELL_MISSED = mod.SPELL_DAMAGE

@@ -40,7 +40,7 @@ local specWarnNetherPower		= mod:NewSpecialWarningDispel(67009, "MagicDispeller"
 local SpecWarnFelFireball		= mod:NewSpecialWarningInterrupt(66532, "HasInterrupt", nil, 2, 1, 2)
 local SpecWarnFelFireballDispel	= mod:NewSpecialWarningDispel(66532, false, nil, 2, 1, 2)
 
-local timerCombatStart          = mod:NewRPTimer(87.5)--rollplay for first pull
+local timerCombatStart          = mod:NewCombatTimer(87.5)--rollplay for first pull
 local timerFlame 				= mod:NewTargetTimer(8, 66197, nil, nil, nil, 3)--There are 8 debuff Ids. Since we detect first to warn, use an 8sec timer to cover duration of trigger spell and damage debuff.
 local timerFlameCD				= mod:NewCDTimer(30, 66197, nil, nil, nil, 3)
 local timerNetherPowerCD		= mod:NewCDTimer(42, 67009, nil, "MagicDispeller", nil, 5, nil, DBM_COMMON_L.MAGIC_ICON)

@@ -52,7 +52,7 @@ local specWarnPhasePunch		= mod:NewSpecialWarningStack(64412, nil, 4, nil, nil, 
 local specWarnBigBang			= mod:NewSpecialWarningSpell(64584, nil, nil, nil, 3, 2)
 local specWarnCosmicSmash		= mod:NewSpecialWarningDodge(64596, nil, nil, nil, 2, 2)
 
-local timerCombatStart			= mod:NewRPTimer(42)
+local timerCombatStart			= mod:NewCombatTimer(42)
 local timerNextBigBang			= mod:NewNextTimer(90.5, 64584, nil, nil, nil, 2)
 local timerBigBangCast			= mod:NewCastTimer(8, 64584, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerNextCollapsingStar	= mod:NewTimer(15, "NextCollapsingStar", "237016")

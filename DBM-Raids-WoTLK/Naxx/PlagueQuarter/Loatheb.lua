@@ -24,6 +24,7 @@ local timerDoom				= mod:NewNextCountTimer(180, 29204, nil, nil, nil, 2)
 --local timerRemoveCurseCD	= mod:NewNextTimer(30.8, 30281, nil, nil, nil, 5)
 local timerAura				= mod:NewBuffActiveTimer(17, 55593, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 
+mod:AddMiscLine(DBM_CORE_L.OPTION_CATEGORY_DROPDOWNS)
 mod:AddDropdownOption("CorruptedSorting", {"Alphabetical", "Duration"}, "Alphabetical", "misc", nil, 55593)--CorruptedSorting was never localized
 
 mod.vb.doomCounter	= 0

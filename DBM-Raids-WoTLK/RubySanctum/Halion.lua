@@ -26,6 +26,7 @@ mod:RegisterEventsInCombat(
 	"UNIT_HEALTH boss1"
 )
 
+--TODO, current code with AnnounceAlternatePhase will break mod if combat log is synced between phases
 local warnPhase2Soon				= mod:NewPrePhaseAnnounce(2)
 local warnPhase3Soon				= mod:NewPrePhaseAnnounce(3)
 local warnPhase2					= mod:NewPhaseAnnounce(2)

@@ -175,14 +175,9 @@ function mod:DefileTarget(targetname, uId)
 		specWarnDefileCast:Show()
 		specWarnDefileCast:Play("runout")
 		yellDefile:Yell()
-	elseif self:IsClassic() then--Not possible in combat on retail
-		if uId then
-			local inRange = CheckInteractDistance(uId, 2)
-			if inRange then
-				specWarnDefileNear:Show(targetname)
-				specWarnDefileNear:Play("runaway")
-			end
-		end
+	elseif self:IsClassic() and self:CheckNearby(10, targetname) then
+		specWarnDefileNear:Show(targetname)
+		specWarnDefileNear:Play("runaway")
 	end
 end
 
@@ -196,14 +191,9 @@ function mod:TrapTarget(targetname, uId)
 		specWarnTrap:Show()
 		specWarnTrap:Play("watchstep")
 		yellTrap:Yell()
-	elseif self:IsClassic() then--Not possible in combat on retail
-		if uId then
-			local inRange = CheckInteractDistance(uId, 2)
-			if inRange then
-				specWarnTrapNear:Show(targetname)
-				specWarnTrapNear:Play("watchstep")
-			end
-		end
+	elseif self:IsClassic() and self:CheckNearby(10, targetname) then
+		specWarnTrapNear:Show(targetname)
+		specWarnTrapNear:Play("watchstep")
 	end
 end
 

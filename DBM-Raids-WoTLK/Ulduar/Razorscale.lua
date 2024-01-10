@@ -58,14 +58,9 @@ function mod:FlameTarget(targetname, uId)
 		specWarnDevouringFlameYou:Show()
 		specWarnDevouringFlameYou:Play("targetyou")
 		yellDevouringFlame:Yell()
-	elseif targetname then
-		if uId then
-			local inRange = CheckInteractDistance(uId, 2)
-			if inRange then
-				specWarnDevouringFlameNear:Show(targetname)
-				specWarnDevouringFlameNear:Play("runaway")
-			end
-		end
+	elseif self:IsClassic() and self:CheckNearby(10, targetname) then
+		specWarnDevouringFlameNear:Show(targetname)
+		specWarnDevouringFlameNear:Play("runaway")
 	else
 		warnFlame:Show(targetname)
 	end

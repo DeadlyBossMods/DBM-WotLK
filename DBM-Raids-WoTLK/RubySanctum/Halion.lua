@@ -42,8 +42,9 @@ local specWarnShadowConsumption		= mod:NewSpecialWarningRun(74792, nil, nil, nil
 local yellShadowconsumption			= mod:NewYell(74792)
 local specWarnFieryCombustion		= mod:NewSpecialWarningRun(74562, nil, nil, nil, 4, 2)
 local yellFieryCombustion			= mod:NewYell(74562)
-local specWarnMeteorStrike			= mod:NewSpecialWarningMove(74648, nil, nil, nil, 1, 2)
+local specWarnMeteor				= mod:NewSpecialWarningSoon(74648, nil, nil, nil, 2, 2)
 local specWarnTwilightCutter		= mod:NewSpecialWarningSpell(74769, nil, nil, nil, 3, 2)
+local specWarnMeteorStrike			= mod:NewSpecialWarningGTFO(74648, nil, nil, nil, 1, 8)
 
 local timerShadowConsumptionCD		= mod:NewNextTimer(25, 74792, nil, nil, nil, 3)
 local timerFieryConsumptionCD		= mod:NewNextTimer(25, 74562, nil, nil, nil, 3)
@@ -152,10 +153,10 @@ function mod:SPELL_AURA_REMOVED(args)
 	end
 end
 
-function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId)
+function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId, spellName)
 	if (spellId == 74712 or spellId == 74717) and destGUID == UnitGUID("player") and self:AntiSpam() then
-		specWarnMeteorStrike:Show()
-		specWarnMeteorStrike:Play("runaway")
+		specWarnMeteorStrike:Show(spellName)
+		specWarnMeteorStrike:Play("watchfeet")
 	end
 end
 mod.SPELL_MISSED = mod.SPELL_DAMAGE
@@ -177,7 +178,8 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		self:SendSync("Phase3")
 	elseif msg == L.MeteorCast or msg:find(L.MeteorCast) then--There is no CLEU cast trigger for meteor, only yell
 		if not self.Options.AnnounceAlternatePhase then
-			warningMeteor:Show()
+			specWarnMeteor:Show()
+			specWarnMeteor:Play("watchstep")
 			timerMeteorCast:Start()--7 seconds from boss yell the meteor impacts.
 			timerMeteorCD:Start()
 		end

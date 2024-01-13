@@ -33,6 +33,7 @@ mod:RegisterEventsInCombat(
 --TODO: Is Encounter start still buggy?
 --TODO, maybe resort abilities by stage. Abilities aren't cleanly separated though so it'd be PITA
 local warnImpaleOn			= mod:NewStackAnnounce(66331, 2, nil, "Tank|Healer")
+local warnAnger				= mod:NewStackAnnounce(66636, 2, nil, "Tank|Healer")
 local warnFireBomb			= mod:NewSpellAnnounce(66317, 3, nil, false)
 local warnBreath			= mod:NewSpellAnnounce(66689, 2)
 local warnSlimePool			= mod:NewSpellAnnounce(66883, 2, nil, "Melee")
@@ -43,7 +44,6 @@ local warnEnrageWorm		= mod:NewSpellAnnounce(68335, 3)
 local warnCharge			= mod:NewTargetNoFilterAnnounce(52311, 4)
 
 local specWarnImpale3		= mod:NewSpecialWarningStack(66331, nil, 3, nil, nil, 1, 6)
-local specWarnAnger3		= mod:NewSpecialWarningStack(66636, "Tank|Healer", 3, nil, nil, 1, 6)
 local specWarnGTFO			= mod:NewSpecialWarningGTFO(66317, nil, nil, nil, 1, 8)
 local specWarnToxin			= mod:NewSpecialWarningMoveTo(66823, nil, nil, nil, 1, 2)
 local specWarnBile			= mod:NewSpecialWarningYou(66869, nil, nil, nil, 1, 2)
@@ -232,11 +232,9 @@ function mod:SPELL_AURA_APPLIED_DOSE(args)
 	elseif args.spellId == 66636 then
 		local amount = args.amount or 1
 --		WarningSnobold:Show()
+		warnAnger:Show(args.destName, amount)
 		if amount <= 3 then
 			timerRisingAnger:Show()
-		elseif amount >= 3 then
-			specWarnAnger3:Show(amount)
-			specWarnAnger3:Play("stackhigh")
 		end
 	end
 end

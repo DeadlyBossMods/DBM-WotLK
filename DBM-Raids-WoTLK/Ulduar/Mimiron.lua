@@ -278,7 +278,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 --			if self.vb.hardmode then
 --				timerNextFrostBomb:Start(42.2)--Disabled since i'm not entirely convinced this has a timer but instead is cast when a certain fire threshold is triggrred, i've seen from 42 all the way to never cast (solo raids with far less fire).
 --			end
-			timerRocketStrikeCD:Start(63)
+			timerRocketStrikeCD:Start(62)
 			timerNextP3Wx2LaserBarrage:Start(75)
 			if self.Options.RangeFrame then
 				DBM.RangeCheck:Hide()
@@ -295,8 +295,9 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
 --			if self.vb.hardmode then
 --				timerNextFrostBomb:Start(32)
 --			end
+			--These timers may just resume where they left off in earlier stages
+			timerNextP3Wx2LaserBarrage:Start(44)
 			timerRocketStrikeCD:Start(50)
-			timerNextP3Wx2LaserBarrage:Start(59.8)
 			timerNextShockblast:Start(75.5)
 		end
 	elseif (spellId == 64402 or spellId == 65034) then--P2, P4 Rocket Strike
@@ -324,7 +325,7 @@ function mod:OnSync(event, args)
 --		if self.vb.hardmode then
 --			timerNextFrostBomb:Start(42.2)
 --		end
-		timerRocketStrikeCD:Start(58.7)
+		timerRocketStrikeCD:Start(57.7)
 		timerNextP3Wx2LaserBarrage:Start(70.9)
 		if self.Options.RangeFrame then
 			DBM.RangeCheck:Hide()

@@ -25,7 +25,8 @@ mod:RegisterEventsInCombat(
 	"RAID_BOSS_EMOTE",
 	"UNIT_SPELLCAST_SUCCEEDED boss1 boss2",--Halion reports as two different bosses
 	"UNIT_HEALTH boss1 boss2",
-	"UNIT_AURA player"
+	"UNIT_AURA player",
+	"UPDATE_WORLD_STATES"
 )
 
 --TODO, current code with AnnounceAlternatePhase will break mod if combat log is synced between phases
@@ -47,6 +48,7 @@ local yellFieryCombustion			= mod:NewYell(74562)
 local specWarnMeteor				= mod:NewSpecialWarningSoon(74648, nil, nil, nil, 2, 2)
 local specWarnTwilightCutter		= mod:NewSpecialWarningSpell(74769, nil, nil, nil, 3, 2)
 local specWarnMeteorStrike			= mod:NewSpecialWarningGTFO(74648, nil, nil, nil, 1, 8)
+local specWarnCorporeality			= mod:NewSpecialWarningCount(74826, nil, nil, nil, 1, 2)
 
 local timerShadowConsumptionCD		= mod:NewCDTimer(25, 74792, nil, nil, nil, 3)--TODO, timer accuracy of normal
 local timerFieryConsumptionCD		= mod:NewCDTimer(30.3, 74562, nil, nil, nil, 3)
@@ -67,6 +69,7 @@ mod:AddSetIconOption("SetIconOnFireConsumption", 74562, true, false, {7})--Red x
 mod.vb.warned_preP2 = false
 mod.vb.warned_preP3 = false
 local playerInTwilight = false
+local previousCorporeality = 0
 
 local function updateBossDistance()
 	if playerInTwilight then
@@ -100,6 +103,7 @@ function mod:OnCombatStart(delay)--These may still need retuning too, log i had 
 	self.vb.warned_preP2 = false
 	self.vb.warned_preP3 = false
 	playerInTwilight = false
+	previousCorporeality = 0
 	updateBossDistance()
 	self:SetStage(1)
 	berserkTimer:Start(-delay)
@@ -251,6 +255,41 @@ function mod:UNIT_AURA(uId)
 	elseif not isTwilight and playerInTwilight then
 		playerInTwilight = false
 		updateBossDistance()
+	end
+end
+
+function mod:UPDATE_WORLD_STATES()
+	for i = 1, GetNumWorldStateUI() do
+		local _, state, text = GetWorldStateUIInfo(i)
+		if state == 1 and strfind(text, "%%") then
+			local corporeality = tonumber(strmatch(text, "%d+"))
+			if corporeality > 0 and previousCorporeality ~= corporeality then
+				specWarnCorporeality:Show(corporeality)
+				previousCorporeality = corporeality
+				if corporeality > 60 then -- only voice for >= 70%, 60% is still manageable so default to the selected SA sound
+					if self:IsTank() then
+						specWarnCorporeality:Play("defensive")
+					end
+				end
+				if corporeality < 40 then
+					if self:IsDps() then
+						specWarnCorporeality:Play("dpsstop")
+					end
+				elseif corporeality == 40 then
+					if self:IsDps() then
+						specWarnCorporeality:Play("dpsslow")
+					end
+				elseif corporeality == 60 then
+					if self:IsDps() then
+						specWarnCorporeality:Play("dpsmore")
+					end
+				elseif corporeality > 60 then
+					if self:IsDps() then
+						specWarnCorporeality:Play("dpshard")
+					end
+				end
+			end
+		end
 	end
 end
 

@@ -119,7 +119,6 @@ function mod:OnCombatEnd()
 	end
 end
 
-
 function mod:OnTimerRecovery()
 	self.vb.numberOfPlayers = DBM:GetNumRealGroupMembers()
 end

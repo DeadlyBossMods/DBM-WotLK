@@ -30,41 +30,58 @@ mod:RegisterEventsInCombat(
 )
 
 --TODO, current code with AnnounceAlternatePhase will break mod if combat log is synced between phases
+
+-- General
+local berserkTimer					= mod:NewBerserkTimer(480)
+
+mod:AddBoolOption("AnnounceAlternatePhase", true, "announce")
+
+-- Stage One - Physical Realm (100%)
+mod:AddTimerLine(SCENARIO_STAGE:format(1)..": "..L.PhysicalRealm)
 local warnPhase2Soon				= mod:NewPrePhaseAnnounce(2)
-local warnPhase3Soon				= mod:NewPrePhaseAnnounce(3)
-local warnPhase2					= mod:NewPhaseAnnounce(2)
-local warnPhase3					= mod:NewPhaseAnnounce(3)
-local warningShadowConsumption		= mod:NewTargetNoFilterAnnounce(74792, 4)
 local warningFieryCombustion		= mod:NewTargetNoFilterAnnounce(74562, 4)
 local warningMeteor					= mod:NewSpellAnnounce(74648, 3)
-local warningShadowBreath			= mod:NewSpellAnnounce(74806, 2, nil, "Tank|Healer")
 local warningFieryBreath			= mod:NewSpellAnnounce(74525, 2, nil, "Tank|Healer")
+
+local specWarnFieryCombustion		= mod:NewSpecialWarningRun(74562, nil, nil, nil, 4, 2)
+local yellFieryCombustion			= mod:NewYell(74562)
+local specWarnMeteor				= mod:NewSpecialWarningSoon(74648, nil, nil, nil, 2, 2)
+local specWarnMeteorStrike			= mod:NewSpecialWarningGTFO(74648, nil, nil, nil, 1, 8)
+
+local timerFieryConsumptionCD		= mod:NewCDTimer(30.3, 74562, nil, nil, nil, 3)
+local timerMeteorCD					= mod:NewNextTimer(40, 74648, nil, nil, nil, 3)--Target or aoe? tough call. It's a targeted aoe!
+local timerMeteorCast				= mod:NewCastTimer(7, 74648, nil, nil, nil, 3)--7-8 seconds from boss yell the meteor impacts.
+local timerFieryBreathCD			= mod:NewCDTimer(12.1, 74525, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--12.1-19.4
+
+mod:AddSetIconOption("SetIconOnFireConsumption", 74562, true, false, {7})--Red x for Fire
+
+-- Stage Two - Twilight Realm (75%)
+local twilightRealmName = DBM:GetSpellInfo(74807)
+mod:AddTimerLine(SCENARIO_STAGE:format(2)..": "..twilightRealmName)
+local warnPhase3Soon				= mod:NewPrePhaseAnnounce(3)
+local warnPhase2					= mod:NewPhaseAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
+local warningShadowConsumption		= mod:NewTargetNoFilterAnnounce(74792, 4)
+local warningShadowBreath			= mod:NewSpellAnnounce(74806, 2, nil, "Tank|Healer")
 local warningTwilightCutter			= mod:NewAnnounce("TwilightCutterCast", 4, 74769, nil, nil, nil, 74769)
 
 local specWarnShadowConsumption		= mod:NewSpecialWarningRun(74792, nil, nil, nil, 4, 2)
 local yellShadowconsumption			= mod:NewYell(74792)
-local specWarnFieryCombustion		= mod:NewSpecialWarningRun(74562, nil, nil, nil, 4, 2)
-local yellFieryCombustion			= mod:NewYell(74562)
-local specWarnMeteor				= mod:NewSpecialWarningSoon(74648, nil, nil, nil, 2, 2)
 local specWarnTwilightCutter		= mod:NewSpecialWarningSpell(74769, nil, nil, nil, 3, 2)
-local specWarnMeteorStrike			= mod:NewSpecialWarningGTFO(74648, nil, nil, nil, 1, 8)
-local specWarnCorporeality			= mod:NewSpecialWarningCount(74826, nil, nil, nil, 1, 2)
 
 local timerShadowConsumptionCD		= mod:NewCDTimer(25, 74792, nil, nil, nil, 3)--TODO, timer accuracy of normal
-local timerFieryConsumptionCD		= mod:NewCDTimer(30.3, 74562, nil, nil, nil, 3)
-local timerMeteorCD					= mod:NewNextTimer(40, 74648, nil, nil, nil, 3)--Target or aoe? tough call. It's a targeted aoe!
-local timerMeteorCast				= mod:NewCastTimer(7, 74648, nil, nil, nil, 3)--7-8 seconds from boss yell the meteor impacts.
 local timerTwilightCutterCast		= mod:NewCastTimer(4.5, 74769, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerTwilightCutter			= mod:NewBuffActiveTimer(10, 74769, nil, nil, nil, 6)
 local timerTwilightCutterCD			= mod:NewNextTimer(15, 74769, nil, nil, nil, 6)
 local timerShadowBreathCD			= mod:NewCDTimer(12.1, 74806, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--12.1-19.4
-local timerFieryBreathCD			= mod:NewCDTimer(12.1, 74525, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--12.1-19.4
 
-local berserkTimer					= mod:NewBerserkTimer(480)
-
-mod:AddBoolOption("AnnounceAlternatePhase", true, "announce")
 mod:AddSetIconOption("SetIconOnShadowConsumption", 74792, true, false, {3})--Purple diamond for shadow
-mod:AddSetIconOption("SetIconOnFireConsumption", 74562, true, false, {7})--Red x for Fire
+
+-- Stage Three - Corporeality (50%)
+local twilightDivisionName = DBM:GetSpellInfo(75063)
+mod:AddTimerLine(SCENARIO_STAGE:format(3)..": "..twilightDivisionName)
+local warnPhase3					= mod:NewPhaseAnnounce(3, 2, nil, nil, nil, nil, nil, 2)
+
+local specWarnCorporeality			= mod:NewSpecialWarningCount(74826, nil, nil, nil, 1, 2)
 
 mod.vb.warned_preP2 = false
 mod.vb.warned_preP3 = false
@@ -134,39 +151,42 @@ function mod:OnTimerRecovery()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args.spellId == 74806 then
+	local spellId = args.spellId
+	if spellId == 74806 then
 		if playerInTwilight or self.Options.AnnounceAlternatePhase then
 			warningShadowBreath:Show()
 		end
 		timerShadowBreathCD:Start()
-	elseif args.spellId == 74525 then
+	elseif spellId == 74525 then
 		if not playerInTwilight or self.Options.AnnounceAlternatePhase then
 			warningFieryBreath:Show()
 		end
 		timerFieryBreathCD:Start()
 	--"<240.45 02:11:23> [CLEU] SPELL_CAST_START#Creature-0-4401-724-10055-40142-000020C89D#Halion##nil#75063#Twilight Division#nil#nil", -- [40368]
 	--"<240.66 02:11:23> [CHAT_MSG_MONSTER_YELL] I am the light and the darkness! Cower, mortals, before the herald of Deathwing!#Halion#####0#0##0#456#nil#0#false#false#false#false", -- [40414]
-	elseif args.spellId == 75063 then
+	elseif spellId == 75063 then
 		self:SetStage(3)
 		warnPhase3:Show()
+		warnPhase3:Play("pthree")
 		timerFieryConsumptionCD:Restart(20)--restart is used purely to avoid false debug on retail when boss is instantly phased into phase 3 in one attack (thus clipping P1 timer)
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)--We use spell cast success for debuff timers in case it gets resisted by a player we still get CD timer for next one
-	if args.spellId == 74792 then
+	local spellId = args.spellId
+	if spellId == 74792 then
 		if self:IsDifficulty("heroic10", "heroic25") then
 			timerShadowConsumptionCD:Start(20.6)
 		else
 			timerShadowConsumptionCD:Start()
 		end
-	elseif args.spellId == 74562 then
+	elseif spellId == 74562 then
 		if self:IsClassic() and self:IsDifficulty("heroic10", "heroic25") then
 			timerFieryConsumptionCD:Start(20)
 		else--On retail, even heroic is always every 30?
 			timerFieryConsumptionCD:Start()--30
 		end
-	elseif args.spellId == 75476 then--Dusk Shroud (When stage 2 dragon is engaged. ie attacked by twilight realm tank)
+	elseif spellId == 75476 then--Dusk Shroud (When stage 2 dragon is engaged. ie attacked by twilight realm tank)
 		--Starting timers here is way more accurate than stage 2 trigger
 		timerShadowConsumptionCD:Start(16.2)
 		timerShadowBreathCD:Start(17.8)
@@ -212,11 +232,12 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args.spellId == 74792 then
+	local spellId = args.spellId
+	if spellId == 74792 then
 		if self.Options.SetIconOnShadowConsumption then
 			self:SetIcon(args.destName, 0)
 		end
-	elseif args.spellId == 74562 then
+	elseif spellId == 74562 then
 		if self.Options.SetIconOnFireConsumption then
 			self:SetIcon(args.destName, 0)
 		end
@@ -351,7 +372,8 @@ function mod:OnSync(msg, target)
 		end
 	elseif msg == "Phase2" and self:GetStage(2, 1) then--Syncing is still used because retail still requires yell
 		self:SetStage(2)
-		timerFieryConsumptionCD:Cancel()--Only one that stops, whoever stays tanking Fire haleion still deals with breaths and meteors
+		timerFieryConsumptionCD:Cancel()--Only one that stops, whoever stays tanking Fire halion still deals with breaths and meteors
 		warnPhase2:Show()
+		warnPhase2:Play("ptwo")
 	end
 end

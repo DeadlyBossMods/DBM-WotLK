@@ -1549,6 +1549,7 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	Halion					= "Халион",
+--	PhysicalRealm			= "Реальный мир", -- Needs validation
 	MeteorCast				= "Небеса в огне!",
 	Phase2					= "В мире сумерек вы найдете лишь страдания! Входите, если посмеете!",
 	Phase3					= "Я есть свет и я есть тьма! Трепещите, ничтожные, перед посланником Смертокрыла!",

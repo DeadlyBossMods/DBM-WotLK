@@ -177,7 +177,6 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actual debuff on >player< warnings since it has a chance to be resisted.
 	local spellId = args.spellId
-	local destcId = args:GetDestCreatureID()
 	if spellId == 74792 then
 		if args:IsPlayer() then
 			specWarnShadowConsumption:Show()
@@ -201,6 +200,7 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 			self:SetIcon(args.destName, 7)
 		end
 	elseif args:IsSpellID(74826, 74827, 74828, 74829, 74830, 74831, 74832, 74833, 74834, 74835, 74836) then -- Corporeality
+		local destcId = args:GetDestCreatureID()
 		-- 74826: 50% Corporeality
 		-- 74827: 60% Corporeality
 		-- 74828: 70% Corporeality

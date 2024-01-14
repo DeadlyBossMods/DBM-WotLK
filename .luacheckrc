@@ -37,6 +37,7 @@ globals = {
 
 	"UIParent",
 
+	"C_UIWidgetManager",
 	"Ambiguate",
 	"CheckInteractDistance",
 	"CreateFrame",

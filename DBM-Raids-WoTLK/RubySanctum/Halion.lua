@@ -248,7 +248,7 @@ function mod:RAID_BOSS_EMOTE(msg)
 end
 
 function mod:UNIT_AURA(uId)
-	local isTwilight = DBM:UnitBuff("player", 136223)
+	local isTwilight = DBM:UnitBuff("player", 74807)
 	if isTwilight and not playerInTwilight then
 		playerInTwilight = true
 		updateBossDistance()
@@ -259,7 +259,7 @@ function mod:UNIT_AURA(uId)
 end
 
 function mod:OnSync(msg, target)
-	if msg == "TwilightCutter" then
+	if msg == "TwilightCutter" and self:AntiSpam(5, 1) then
 		if playerInTwilight or self.Options.AnnounceAlternatePhase then
 			warningTwilightCutter:Show()
 		end
@@ -271,7 +271,7 @@ function mod:OnSync(msg, target)
 		timerTwilightCutterCast:Start()
 		timerTwilightCutter:Schedule(5)--Delay it since it happens 5 seconds after the emote
 		timerTwilightCutterCD:Schedule(15)--It's every 30 sec, lasts 15, we schedule a 15 second timer to start in 15 seconds
-	elseif msg == "Meteor" then
+	elseif msg == "Meteor" and self:AntiSpam(5, 2) then--Needs own antispam since core antispam won't filter yell and uscs at same event
 		if not playerInTwilight then
 			specWarnMeteor:Show()
 			specWarnMeteor:Play("watchstep")

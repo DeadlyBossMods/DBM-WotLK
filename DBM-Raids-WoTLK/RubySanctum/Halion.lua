@@ -8,7 +8,7 @@ mod:SetCreatureID(39863)--40142 (twilight form)
 mod:SetEncounterID(mod:IsClassic() and 887 or 1150)
 mod:SetModelID(31952)
 mod:SetUsedIcons(7, 3)
-mod:SetHotfixNoticeRev(20240112000000)
+mod:SetHotfixNoticeRev(20240113000000)
 mod:SetMinSyncRevision(20240112000000)
 
 mod:RegisterCombat("combat")
@@ -16,7 +16,7 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 74806 74525 75063",
-	"SPELL_CAST_SUCCESS 74792 74562",
+	"SPELL_CAST_SUCCESS 74792 74562 75476",
 	"SPELL_AURA_APPLIED 74792 74562 74826 74827 74828 74829 74830 74831 74832 74833 74834 74835 74836",
 	"SPELL_AURA_REMOVED 74792 74562",
 	"SPELL_DAMAGE 74712 74717",
@@ -54,7 +54,7 @@ local timerShadowConsumptionCD		= mod:NewCDTimer(25, 74792, nil, nil, nil, 3)--T
 local timerFieryConsumptionCD		= mod:NewCDTimer(30.3, 74562, nil, nil, nil, 3)
 local timerMeteorCD					= mod:NewNextTimer(40, 74648, nil, nil, nil, 3)--Target or aoe? tough call. It's a targeted aoe!
 local timerMeteorCast				= mod:NewCastTimer(7, 74648, nil, nil, nil, 3)--7-8 seconds from boss yell the meteor impacts.
-local timerTwilightCutterCast		= mod:NewCastTimer(5, 74769, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
+local timerTwilightCutterCast		= mod:NewCastTimer(4.5, 74769, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerTwilightCutter			= mod:NewBuffActiveTimer(10, 74769, nil, nil, nil, 6)
 local timerTwilightCutterCD			= mod:NewNextTimer(15, 74769, nil, nil, nil, 6)
 local timerShadowBreathCD			= mod:NewCDTimer(12.1, 74806, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--12.1-19.4
@@ -125,9 +125,9 @@ function mod:OnCombatStart(delay)--These may still need retuning too, log i had 
 	updateBossDistance()
 	self:SetStage(1)
 	berserkTimer:Start(-delay)
-	timerMeteorCD:Start(20-delay)
-	timerFieryConsumptionCD:Start(15-delay)
 	timerFieryBreathCD:Start(10-delay)
+	timerFieryConsumptionCD:Start(15-delay)
+	timerMeteorCD:Start(20-delay)
 end
 
 function mod:OnTimerRecovery()
@@ -152,10 +152,8 @@ function mod:SPELL_CAST_START(args)
 	--"<240.66 02:11:23> [CHAT_MSG_MONSTER_YELL] I am the light and the darkness! Cower, mortals, before the herald of Deathwing!#Halion#####0#0##0#456#nil#0#false#false#false#false", -- [40414]
 	elseif args.spellId == 75063 then
 		self:SetStage(3)
-		--TODO, update shadow realm timers? do they reset or continue on from p2?
 		warnPhase3:Show()
-		timerMeteorCD:Restart(30) --These i'm not sure if they start regardless of drake aggro, or if it varies as well.
-		timerFieryConsumptionCD:Restart(20)--not exact, 15 seconds from tank aggro, but easier to add 5 seconds to it as a estimate timer than trying to detect this
+		timerFieryConsumptionCD:Restart(20)--restart is used purely to avoid false debug on retail when boss is instantly phased into phase 3 in one attack (thus clipping P1 timer)
 	end
 end
 
@@ -172,6 +170,11 @@ function mod:SPELL_CAST_SUCCESS(args)--We use spell cast success for debuff time
 		else--On retail, even heroic is always every 30?
 			timerFieryConsumptionCD:Start()--30
 		end
+	elseif args.spellId == 75476 then--Dusk Shroud (When stage 2 dragon is engaged. ie attacked by twilight realm tank)
+		--Starting timers here is way more accurate than stage 2 trigger
+		timerShadowConsumptionCD:Start(16.2)
+		timerShadowBreathCD:Start(17.8)
+		timerTwilightCutterCD:Start(30.9)
 	end
 end
 
@@ -273,6 +276,7 @@ end
 function mod:CHAT_MSG_MONSTER_YELL(msg)
 	--"<153.64 02:09:56> [CHAT_MSG_MONSTER_YELL] You will find only suffering within the realm of twilight! Enter if you dare!#Halion#####0#0##0#441#nil#0#false#false#false#false", -- [20011]
 	--"<155.94 02:09:59> [UNIT_SPELLCAST_SUCCEEDED] Halion(74.4%-0.0%){Target:??} -Twilight Phasing- [[boss1:Cast-3-4401-724-10055-74808-002B20C9A5:74808]]", -- [20547]
+	--"<157.88 02:10:00> [CLEU] SPELL_CAST_SUCCESS#Creature-0-4401-724-10055-40142-000020C89D#Halion##nil#75476#Dusk Shroud#nil#nil", -- [20787]
 	if msg == L.Phase2 or msg:find(L.Phase2) then
 		self:SendSync("Phase2", "yell")
 	--"<109.92 02:09:13> [CHAT_MSG_MONSTER_YELL] The heavens burn!#Halion#####0#0##0#436#nil#0#false#false#false#false", -- [6537]
@@ -304,7 +308,7 @@ function mod:RAID_BOSS_EMOTE(msg)
 end
 
 function mod:UNIT_AURA(uId)
-	local isTwilight = DBM:UnitBuff("player", 136223)
+	local isTwilight = DBM:UnitBuff("player", 74807)
 	if isTwilight and not playerInTwilight then
 		playerInTwilight = true
 		updateBossDistance()
@@ -350,7 +354,7 @@ end
 end]]
 
 function mod:OnSync(msg, target)
-	if msg == "TwilightCutter" then
+	if msg == "TwilightCutter" and self:AntiSpam(5, 1) then
 		if playerInTwilight or self.Options.AnnounceAlternatePhase then
 			warningTwilightCutter:Show()
 		end
@@ -362,7 +366,7 @@ function mod:OnSync(msg, target)
 		timerTwilightCutterCast:Start()
 		timerTwilightCutter:Schedule(5)--Delay it since it happens 5 seconds after the emote
 		timerTwilightCutterCD:Schedule(15)--It's every 30 sec, lasts 15, we schedule a 15 second timer to start in 15 seconds
-	elseif msg == "Meteor" then
+	elseif msg == "Meteor" and self:AntiSpam(5, 2) then--Needs own antispam since core antispam won't filter yell and uscs at same event
 		if not playerInTwilight then
 			specWarnMeteor:Show()
 			specWarnMeteor:Play("watchstep")
@@ -378,19 +382,7 @@ function mod:OnSync(msg, target)
 		end
 	elseif msg == "Phase2" and self:GetStage(2, 1) then--Syncing is still used because retail still requires yell
 		self:SetStage(2)
-		timerFieryBreathCD:Cancel()
-		timerMeteorCD:Cancel()
-		timerFieryConsumptionCD:Cancel()
+		timerFieryConsumptionCD:Cancel()--Only one that stops, whoever stays tanking Fire haleion still deals with breaths and meteors
 		warnPhase2:Show()
-		--On classic USCS is lagged by 3 seconds, on retail it is not and can use same timers as yell
-		if self:IsClassic() and target and target == "uscs" then
-			timerShadowBreathCD:Restart(22)
-			timerShadowConsumptionCD:Restart(17)--not exact, 15 seconds from tank aggro, but easier to add 5 seconds to it as a estimate timer than trying to detect this
-			timerTwilightCutterCD:Restart(32)
-		else
-			timerShadowBreathCD:Restart(25)
-			timerShadowConsumptionCD:Restart(20)--not exact, 15 seconds from tank aggro, but easier to add 5 seconds to it as a estimate timer than trying to detect this
-			timerTwilightCutterCD:Restart(35)
-		end
 	end
 end

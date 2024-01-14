@@ -52,7 +52,7 @@ local timerAlliesOfNature	= mod:NewCDTimer(25, 62678, nil, nil, nil, 1, nil, DBM
 local timerSimulKill		= mod:NewTimer(12, "TimerSimulKill", nil, nil, nil, 5, DBM_COMMON_L.DAMAGE_ICON, nil, nil, nil, nil, nil, nil, 62678)
 local timerTremorCD 		= mod:NewCDTimer(22.9, 62859, nil, nil, nil, 2)--22.9-47.8
 local timerLifebinderCD 	= mod:NewCDTimer(38.2, 62869, nil, nil, nil, 1)
-local timerRootsCD 			= mod:NewCDTimer(29.6, 62438, nil, nil, nil, 3)
+local timerRootsCD 			= mod:NewCDTimer(13.6, 62438, nil, nil, nil, 3)--13.6-29.6
 
 mod:AddSetIconOption("SetIconOnFury", 63571, false, false, {7, 8})
 mod:AddSetIconOption("SetIconOnRoots", 62438, false, false, {6, 5, 4})
@@ -107,7 +107,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		else
 			warnFury:Show(args.destName)
 		end
-	elseif args.spellId == 63601 then
+	elseif args.spellId == 63601 and self:AntiSpam(5, 1) then
 		--if self:GetStage(2) then
 			timerRootsCD:Start()
 		--end
@@ -147,7 +147,7 @@ end
 function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
 	if cid == 33202 or cid == 32916 or cid == 32919 then
-		if self:AntiSpam(17, 1) and not self:IsTrivial() then
+		if self:AntiSpam(17, 2) and not self:IsTrivial() then
 			timerSimulKill:Start()
 			warnSimulKill:Show()
 		end

@@ -40,6 +40,7 @@ globals = {
 	"Ambiguate",
 	"CheckInteractDistance",
 	"CreateFrame",
+	"C_UIWidgetManager",
 	"GetLocale",
 	"GetTime",
 	"GetUnitName",

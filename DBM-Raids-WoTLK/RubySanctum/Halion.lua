@@ -17,7 +17,7 @@ mod:RegisterCombat("combat")
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 74806 74525 75063",
 	"SPELL_CAST_SUCCESS 74792 74562",
-	"SPELL_AURA_APPLIED 74792 74562",
+	"SPELL_AURA_APPLIED 74792 74562 74826 74827 74828 74829 74830 74831 74832 74833 74834 74835 74836",
 	"SPELL_AURA_REMOVED 74792 74562",
 	"SPELL_DAMAGE 74712 74717",
 	"SPELL_MISSED 74712 74717",
@@ -25,8 +25,8 @@ mod:RegisterEventsInCombat(
 	"RAID_BOSS_EMOTE",
 	"UNIT_SPELLCAST_SUCCEEDED boss1 boss2",--Halion reports as two different bosses
 	"UNIT_HEALTH boss1 boss2",
-	"UNIT_AURA player",
-	"UPDATE_UI_WIDGET"
+	"UNIT_AURA player"
+--	"UPDATE_UI_WIDGET"
 )
 
 --TODO, current code with AnnounceAlternatePhase will break mod if combat log is synced between phases
@@ -69,10 +69,24 @@ mod:AddSetIconOption("SetIconOnFireConsumption", 74562, true, false, {7})--Red x
 mod.vb.warned_preP2 = false
 mod.vb.warned_preP3 = false
 local playerInTwilight = false
-local previousCorporeality = 0
+local corporeality = 0
+local corporealityValueByID = {
+	[74826] = 50,
+	[74827] = 60,
+	[74828] = 70,
+	[74829] = 80,
+	[74830] = 90,
+	[74831] = 100,
+	[74832] = 40,
+	[74833] = 30,
+	[74834] = 20,
+	[74835] = 10,
+	[74836] = 0
+}
+--local previousCorporeality = 0
 
 -- Globals
-local C_UIWidgetManager = C_UIWidgetManager
+--local C_UIWidgetManager = C_UIWidgetManager
 
 local function updateBossDistance()
 	if playerInTwilight then
@@ -106,7 +120,8 @@ function mod:OnCombatStart(delay)--These may still need retuning too, log i had 
 	self.vb.warned_preP2 = false
 	self.vb.warned_preP3 = false
 	playerInTwilight = false
-	previousCorporeality = 0
+	corporeality = 0
+--	previousCorporeality = 0
 	updateBossDistance()
 	self:SetStage(1)
 	berserkTimer:Start(-delay)
@@ -161,7 +176,9 @@ function mod:SPELL_CAST_SUCCESS(args)--We use spell cast success for debuff time
 end
 
 function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actual debuff on >player< warnings since it has a chance to be resisted.
-	if args.spellId == 74792 then
+	local spellId = args.spellId
+	local destcId = args:GetDestCreatureID()
+	if spellId == 74792 then
 		if args:IsPlayer() then
 			specWarnShadowConsumption:Show()
 			specWarnShadowConsumption:Play("runout")
@@ -172,7 +189,7 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		if self.Options.SetIconOnShadowConsumption then
 			self:SetIcon(args.destName, 3)
 		end
-	elseif args.spellId == 74562 then
+	elseif spellId == 74562 then
 		if args:IsPlayer() then
 			specWarnFieryCombustion:Show()
 			specWarnFieryCombustion:Play("runout")
@@ -182,6 +199,38 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		end
 		if self.Options.SetIconOnFireConsumption then
 			self:SetIcon(args.destName, 7)
+		end
+	elseif args:IsSpellID(74826, 74827, 74828, 74829, 74830, 74831, 74832, 74833, 74834, 74835, 74836) then -- Corporeality
+		-- 74826: 50% Corporeality
+		-- 74827: 60% Corporeality
+		-- 74828: 70% Corporeality
+		-- 74829: 80% Corporeality
+		-- 74830: 90% Corporeality
+		-- 74831: 100% Corporeality
+		-- 74832: 40% Corporeality
+		-- 74833: 30% Corporeality
+		-- 74834: 20% Corporeality
+		-- 74835: 10% Corporeality
+		-- 74836: 0% Corporeality
+		if playerInTwilight and destcId == 40142 then
+			corporeality = corporealityValueByID[spellId]
+			specWarnCorporeality:Show(corporeality)
+		elseif not playerInTwilight and destcId == 39863 then
+			corporeality = corporealityValueByID[spellId]
+			specWarnCorporeality:Show(corporeality)
+		end
+		if corporeality >= 70 and self:IsTank() then -- only voice for >= 70%, 60% is still manageable so default to the selected SA sound
+			specWarnCorporeality:Play("defensive")
+		elseif self:IsDps() then
+			if corporeality < 40 then
+				specWarnCorporeality:Play("dpsstop")
+			elseif corporeality == 40 then
+				specWarnCorporeality:Play("dpsslow")
+			elseif corporeality == 60 then
+				specWarnCorporeality:Play("dpsmore")
+			elseif corporeality > 60 then
+				specWarnCorporeality:Play("dpshard")
+			end
 		end
 	end
 end
@@ -261,13 +310,13 @@ function mod:UNIT_AURA(uId)
 	end
 end
 
-function mod:UPDATE_UI_WIDGET(table)
+--[[function mod:UPDATE_UI_WIDGET(table)
 	local id = table.widgetID
 	if id ~= 613 and id ~= 3940 and id ~= 3941 then return end -- Retail: 613; Classic WotLK: 3940 and 3941
 	local widgetInfo = C_UIWidgetManager.GetIconAndTextWidgetVisualizationInfo(id)
 	local text = widgetInfo.text
 	if not text then return end
-	local corporeality = tonumber(text:match("%d+"))
+	corporeality = tonumber(text:match("%d+"))
 	if corporeality > 0 and previousCorporeality ~= corporeality then
 		specWarnCorporeality:Show(corporeality)
 		previousCorporeality = corporeality
@@ -294,7 +343,7 @@ function mod:UPDATE_UI_WIDGET(table)
 			end
 		end
 	end
-end
+end]]
 
 function mod:OnSync(msg, target)
 	if msg == "TwilightCutter" then

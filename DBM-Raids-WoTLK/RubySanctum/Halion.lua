@@ -70,6 +70,7 @@ mod.vb.warned_preP2 = false
 mod.vb.warned_preP3 = false
 local playerInTwilight = false
 local corporeality = 0
+local previousCorporeality = 0
 local corporealityValueByID = {
 	[74826] = 50,
 	[74827] = 60,
@@ -83,7 +84,6 @@ local corporealityValueByID = {
 	[74835] = 10,
 	[74836] = 0
 }
---local previousCorporeality = 0
 
 -- Globals
 --local C_UIWidgetManager = C_UIWidgetManager
@@ -121,7 +121,7 @@ function mod:OnCombatStart(delay)--These may still need retuning too, log i had 
 	self.vb.warned_preP3 = false
 	playerInTwilight = false
 	corporeality = 0
---	previousCorporeality = 0
+	previousCorporeality = 0
 	updateBossDistance()
 	self:SetStage(1)
 	berserkTimer:Start(-delay)
@@ -215,21 +215,25 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		if playerInTwilight and destcId == 40142 then
 			corporeality = corporealityValueByID[spellId]
 			specWarnCorporeality:Show(corporeality)
+			previousCorporeality = corporeality
 		elseif not playerInTwilight and destcId == 39863 then
 			corporeality = corporealityValueByID[spellId]
 			specWarnCorporeality:Show(corporeality)
+			previousCorporeality = corporeality
 		end
-		if corporeality >= 70 and self:IsTank() then -- only voice for >= 70%, 60% is still manageable so default to the selected SA sound
-			specWarnCorporeality:Play("defensive")
-		elseif self:IsDps() then
-			if corporeality < 40 then
-				specWarnCorporeality:Play("dpsstop")
-			elseif corporeality == 40 then
-				specWarnCorporeality:Play("dpsslow")
-			elseif corporeality == 60 then
-				specWarnCorporeality:Play("dpsmore")
-			elseif corporeality > 60 then
-				specWarnCorporeality:Play("dpshard")
+		if previousCorporeality ~= corporeality then
+			if corporeality >= 70 and self:IsTank() then -- only voice for >= 70%, 60% is still manageable so default to the selected SA sound
+				specWarnCorporeality:Play("defensive")
+			elseif self:IsDps() then
+				if corporeality < 40 then
+					specWarnCorporeality:Play("dpsstop")
+				elseif corporeality == 40 then
+					specWarnCorporeality:Play("dpsslow")
+				elseif corporeality == 60 then
+					specWarnCorporeality:Play("dpsmore")
+				elseif corporeality > 60 then
+					specWarnCorporeality:Play("dpshard")
+				end
 			end
 		end
 	end

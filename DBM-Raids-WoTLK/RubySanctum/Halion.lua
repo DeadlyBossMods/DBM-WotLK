@@ -26,7 +26,7 @@ mod:RegisterEventsInCombat(
 	"UNIT_SPELLCAST_SUCCEEDED boss1 boss2",--Halion reports as two different bosses
 	"UNIT_HEALTH boss1 boss2",
 	"UNIT_AURA player",
-	"UPDATE_WORLD_STATES"
+	"UPDATE_UI_WIDGET"
 )
 
 --TODO, current code with AnnounceAlternatePhase will break mod if combat log is synced between phases
@@ -70,6 +70,9 @@ mod.vb.warned_preP2 = false
 mod.vb.warned_preP3 = false
 local playerInTwilight = false
 local previousCorporeality = 0
+
+-- Globals
+local C_UIWidgetManager = C_UIWidgetManager
 
 local function updateBossDistance()
 	if playerInTwilight then
@@ -258,36 +261,36 @@ function mod:UNIT_AURA(uId)
 	end
 end
 
-function mod:UPDATE_WORLD_STATES()
-	for i = 1, GetNumWorldStateUI() do
-		local _, state, text = GetWorldStateUIInfo(i)
-		if state == 1 and strfind(text, "%%") then
-			local corporeality = tonumber(strmatch(text, "%d+"))
-			if corporeality > 0 and previousCorporeality ~= corporeality then
-				specWarnCorporeality:Show(corporeality)
-				previousCorporeality = corporeality
-				if corporeality > 60 then -- only voice for >= 70%, 60% is still manageable so default to the selected SA sound
-					if self:IsTank() then
-						specWarnCorporeality:Play("defensive")
-					end
-				end
-				if corporeality < 40 then
-					if self:IsDps() then
-						specWarnCorporeality:Play("dpsstop")
-					end
-				elseif corporeality == 40 then
-					if self:IsDps() then
-						specWarnCorporeality:Play("dpsslow")
-					end
-				elseif corporeality == 60 then
-					if self:IsDps() then
-						specWarnCorporeality:Play("dpsmore")
-					end
-				elseif corporeality > 60 then
-					if self:IsDps() then
-						specWarnCorporeality:Play("dpshard")
-					end
-				end
+function mod:UPDATE_UI_WIDGET(table)
+	local id = table.widgetID
+	if id ~= 613 and id ~= 3940 and id ~= 3941 then return end -- Retail: 613; Classic WotLK: 3940 and 3941
+	local widgetInfo = C_UIWidgetManager.GetIconAndTextWidgetVisualizationInfo(id)
+	local text = widgetInfo.text
+	if not text then return end
+	local corporeality = tonumber(text:match("%d+"))
+	if corporeality > 0 and previousCorporeality ~= corporeality then
+		specWarnCorporeality:Show(corporeality)
+		previousCorporeality = corporeality
+		if corporeality > 60 then -- only voice for >= 70%, 60% is still manageable so default to the selected SA sound
+			if self:IsTank() then
+				specWarnCorporeality:Play("defensive")
+			end
+		end
+		if corporeality < 40 then
+			if self:IsDps() then
+				specWarnCorporeality:Play("dpsstop")
+			end
+		elseif corporeality == 40 then
+			if self:IsDps() then
+				specWarnCorporeality:Play("dpsslow")
+			end
+		elseif corporeality == 60 then
+			if self:IsDps() then
+				specWarnCorporeality:Play("dpsmore")
+			end
+		elseif corporeality > 60 then
+			if self:IsDps() then
+				specWarnCorporeality:Play("dpshard")
 			end
 		end
 	end

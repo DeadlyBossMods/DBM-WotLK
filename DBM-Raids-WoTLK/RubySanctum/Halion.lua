@@ -69,8 +69,6 @@ mod:AddSetIconOption("SetIconOnFireConsumption", 74562, true, false, {7})--Red x
 mod.vb.warned_preP2 = false
 mod.vb.warned_preP3 = false
 local playerInTwilight = false
-local corporeality = 0
-local previousCorporeality = 0
 local corporealityValueByID = {
 	[74826] = 50,
 	[74827] = 60,
@@ -120,8 +118,6 @@ function mod:OnCombatStart(delay)--These may still need retuning too, log i had 
 	self.vb.warned_preP2 = false
 	self.vb.warned_preP3 = false
 	playerInTwilight = false
-	corporeality = 0
-	previousCorporeality = 0
 	updateBossDistance()
 	self:SetStage(1)
 	berserkTimer:Start(-delay)
@@ -202,41 +198,14 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		if self.Options.SetIconOnFireConsumption then
 			self:SetIcon(args.destName, 7)
 		end
-	elseif args:IsSpellID(74826, 74827, 74828, 74829, 74830, 74831, 74832, 74833, 74834, 74835, 74836) then -- Corporeality
+	elseif args:IsSpellID(74826, 74827, 74828, 74829, 74830, 74831, 74832, 74833, 74834, 74835, 74836) and not self:IsTrivial() then -- Corporeality
 		local destcId = args:GetDestCreatureID()
-		-- 74826: 50% Corporeality
-		-- 74827: 60% Corporeality
-		-- 74828: 70% Corporeality
-		-- 74829: 80% Corporeality
-		-- 74830: 90% Corporeality
-		-- 74831: 100% Corporeality
-		-- 74832: 40% Corporeality
-		-- 74833: 30% Corporeality
-		-- 74834: 20% Corporeality
-		-- 74835: 10% Corporeality
-		-- 74836: 0% Corporeality
-		if playerInTwilight and destcId == 40142 then
-			corporeality = corporealityValueByID[spellId]
+		if (playerInTwilight and destcId == 40142) or (not playerInTwilight and destcId == 39863) then
+			local corporeality = corporealityValueByID[spellId]
+			local voiceFile = corporeality >= 70 and self:IsTank() and "defensive" or corporeality > 60 and "dpshard" or corporeality == 60 and "dpsmore" or corporeality == 40 and "dpslow" or corporeality < 40 and "dpsstop"
 			specWarnCorporeality:Show(corporeality)
-			previousCorporeality = corporeality
-		elseif not playerInTwilight and destcId == 39863 then
-			corporeality = corporealityValueByID[spellId]
-			specWarnCorporeality:Show(corporeality)
-			previousCorporeality = corporeality
-		end
-		if previousCorporeality ~= corporeality then
-			if corporeality >= 70 and self:IsTank() then -- only voice for >= 70%, 60% is still manageable so default to the selected SA sound
-				specWarnCorporeality:Play("defensive")
-			elseif self:IsDps() then
-				if corporeality < 40 then
-					specWarnCorporeality:Play("dpsstop")
-				elseif corporeality == 40 then
-					specWarnCorporeality:Play("dpsslow")
-				elseif corporeality == 60 then
-					specWarnCorporeality:Play("dpsmore")
-				elseif corporeality > 60 then
-					specWarnCorporeality:Play("dpshard")
-				end
+			if voiceFile then
+				specWarnCorporeality:Play(voiceFile)
 			end
 		end
 	end

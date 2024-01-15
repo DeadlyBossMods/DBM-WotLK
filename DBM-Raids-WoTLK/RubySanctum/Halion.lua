@@ -41,17 +41,17 @@ mod:AddTimerLine(SCENARIO_STAGE:format(1)..": "..L.PhysicalRealm)
 local warnPhase2Soon				= mod:NewPrePhaseAnnounce(2)
 local warningFieryCombustion		= mod:NewTargetNoFilterAnnounce(74562, 4)
 local warningMeteor					= mod:NewSpellAnnounce(74648, 3)
-local warningFieryBreath			= mod:NewSpellAnnounce(74525, 2, nil, "Tank|Healer")
+local warningFlameBreath			= mod:NewSpellAnnounce(74525, 2, nil, "Tank|Healer")
 
 local specWarnFieryCombustion		= mod:NewSpecialWarningRun(74562, nil, nil, nil, 4, 2)
 local yellFieryCombustion			= mod:NewYell(74562)
 local specWarnMeteor				= mod:NewSpecialWarningSoon(74648, nil, nil, nil, 2, 2)
 local specWarnMeteorStrike			= mod:NewSpecialWarningGTFO(74648, nil, nil, nil, 1, 8)
 
-local timerFieryConsumptionCD		= mod:NewCDTimer(30.3, 74562, nil, nil, nil, 3)
+local timerFieryConbustionCD		= mod:NewCDTimer(30.3, 74562, nil, nil, nil, 3)
 local timerMeteorCD					= mod:NewNextTimer(40, 74648, nil, nil, nil, 3)--Target or aoe? tough call. It's a targeted aoe!
 local timerMeteorCast				= mod:NewCastTimer(7, 74648, nil, nil, nil, 3)--7-8 seconds from boss yell the meteor impacts.
-local timerFieryBreathCD			= mod:NewCDTimer(12.1, 74525, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--12.1-19.4
+local timerFlameBreathCD			= mod:NewCDTimer(12.1, 74525, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--12.1-19.4
 
 mod:AddSetIconOption("SetIconOnFireConsumption", 74562, true, false, {7})--Red x for Fire
 
@@ -61,7 +61,7 @@ mod:AddTimerLine(SCENARIO_STAGE:format(2)..": "..twilightRealmName)
 local warnPhase3Soon				= mod:NewPrePhaseAnnounce(3)
 local warnPhase2					= mod:NewPhaseAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 local warningShadowConsumption		= mod:NewTargetNoFilterAnnounce(74792, 4)
-local warningShadowBreath			= mod:NewSpellAnnounce(74806, 2, nil, "Tank|Healer")
+local warningDarkBreath				= mod:NewSpellAnnounce(74806, 2, nil, "Tank|Healer")
 local warningTwilightCutter			= mod:NewAnnounce("TwilightCutterCast", 4, 74769, nil, nil, nil, 74769)
 
 local specWarnShadowConsumption		= mod:NewSpecialWarningRun(74792, nil, nil, nil, 4, 2)
@@ -72,7 +72,7 @@ local timerShadowConsumptionCD		= mod:NewCDTimer(25, 74792, nil, nil, nil, 3)--T
 local timerTwilightCutterCast		= mod:NewCastTimer(4.5, 74769, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerTwilightCutter			= mod:NewBuffActiveTimer(10, 74769, nil, nil, nil, 6)
 local timerTwilightCutterCD			= mod:NewNextTimer(15, 74769, nil, nil, nil, 6)
-local timerShadowBreathCD			= mod:NewCDTimer(12.1, 74806, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--12.1-19.4
+local timerDarkBreathCD				= mod:NewCDTimer(12.1, 74806, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--12.1-19.4
 
 mod:AddSetIconOption("SetIconOnShadowConsumption", 74792, true, false, {3})--Purple diamond for shadow
 
@@ -103,50 +103,77 @@ local corporealityValueByID = {
 -- Globals
 --local C_UIWidgetManager = C_UIWidgetManager
 
-local function updateBossDistance()
+local function UpdateCorp(self, spellId)
+	if self:AntiSpam(3, 1) then--3 second throttle in case player
+		local corporeality = corporealityValueByID[spellId]
+		local voiceFile = corporeality >= 70 and self:IsTank() and "defensive" or corporeality > 60 and "dpshard" or corporeality == 60 and "dpsmore" or corporeality == 40 and "dpslow" or corporeality < 40 and "dpsstop"
+		specWarnCorporeality:Show(corporeality)
+		if voiceFile then
+			specWarnCorporeality:Play(voiceFile)
+		end
+	end
+end
+
+local function updateBossDistance(self)
 	if playerInTwilight then
 		--Set twilight timers normal
 		timerShadowConsumptionCD:SetFade(false)
 		timerTwilightCutterCast:SetFade(false)
 		timerTwilightCutter:SetFade(false)
 		timerTwilightCutterCD:SetFade(false)
-		timerShadowBreathCD:SetFade(false)
+		timerDarkBreathCD:SetFade(false)
 		--Set Fire timers faded
-		timerFieryConsumptionCD:SetFade(true)
+		timerFieryConbustionCD:SetFade(true)
 		timerMeteorCD:SetFade(true)
 		timerMeteorCast:SetFade(true)
-		timerFieryBreathCD:SetFade(true)
+		timerFlameBreathCD:SetFade(true)
+		if self:GetStage(3) then
+			for spellId, _ in ipairs(corporealityValueByID) do
+				if DBM:UnitBuff("boss2", spellId) then--Twilight dragon is always boss2
+					UpdateCorp(self, spellId)
+					break
+				end
+			end
+		end
 	else
 		--Set twilight timers faded
 		timerShadowConsumptionCD:SetFade(true)
 		timerTwilightCutterCast:SetFade(true)
 		timerTwilightCutter:SetFade(true)
 		timerTwilightCutterCD:SetFade(true)
-		timerShadowBreathCD:SetFade(true)
+		timerDarkBreathCD:SetFade(true)
 		--Set Fire timers normal
-		timerFieryConsumptionCD:SetFade(false)
+		timerFieryConbustionCD:SetFade(false)
 		timerMeteorCD:SetFade(false)
 		timerMeteorCast:SetFade(false)
-		timerFieryBreathCD:SetFade(false)
+		timerFlameBreathCD:SetFade(false)
+		if self:GetStage(3) then
+			for spellId, _ in ipairs(corporealityValueByID) do
+				if DBM:UnitBuff("boss1", spellId) then--normal dragon is always boss1
+					UpdateCorp(self, spellId)
+					break
+				end
+			end
+		end
 	end
 end
 
-function mod:OnCombatStart(delay)--These may still need retuning too, log i had didn't have pull time though.
+function mod:OnCombatStart(delay)
 	self.vb.warned_preP2 = false
 	self.vb.warned_preP3 = false
 	playerInTwilight = false
-	updateBossDistance()
+	updateBossDistance(self)
 	self:SetStage(1)
 	berserkTimer:Start(-delay)
-	timerFieryBreathCD:Start(10-delay)
-	timerFieryConsumptionCD:Start(15-delay)
+	timerFlameBreathCD:Start(10-delay)
+	timerFieryConbustionCD:Start(15-delay)
 	timerMeteorCD:Start(20-delay)
 end
 
 function mod:OnTimerRecovery()
 	if DBM:UnitBuff("player", 136223) then
 		playerInTwilight = true
-		updateBossDistance()
+		updateBossDistance(self)
 	end
 end
 
@@ -154,21 +181,21 @@ function mod:SPELL_CAST_START(args)
 	local spellId = args.spellId
 	if spellId == 74806 then
 		if playerInTwilight or self.Options.AnnounceAlternatePhase then
-			warningShadowBreath:Show()
+			warningDarkBreath:Show()
 		end
-		timerShadowBreathCD:Start()
+		timerDarkBreathCD:Start()
 	elseif spellId == 74525 then
 		if not playerInTwilight or self.Options.AnnounceAlternatePhase then
-			warningFieryBreath:Show()
+			warningFlameBreath:Show()
 		end
-		timerFieryBreathCD:Start()
+		timerFlameBreathCD:Start()
 	--"<240.45 02:11:23> [CLEU] SPELL_CAST_START#Creature-0-4401-724-10055-40142-000020C89D#Halion##nil#75063#Twilight Division#nil#nil", -- [40368]
 	--"<240.66 02:11:23> [CHAT_MSG_MONSTER_YELL] I am the light and the darkness! Cower, mortals, before the herald of Deathwing!#Halion#####0#0##0#456#nil#0#false#false#false#false", -- [40414]
 	elseif spellId == 75063 then
 		self:SetStage(3)
 		warnPhase3:Show()
 		warnPhase3:Play("pthree")
-		timerFieryConsumptionCD:Restart(20)--restart is used purely to avoid false debug on retail when boss is instantly phased into phase 3 in one attack (thus clipping P1 timer)
+		timerFieryConbustionCD:Restart(20)--restart is used purely to avoid false debug on retail when boss is instantly phased into phase 3 in one attack (thus clipping P1 timer)
 	end
 end
 
@@ -182,14 +209,14 @@ function mod:SPELL_CAST_SUCCESS(args)--We use spell cast success for debuff time
 		end
 	elseif spellId == 74562 then
 		if self:IsClassic() and self:IsDifficulty("heroic10", "heroic25") then
-			timerFieryConsumptionCD:Start(20)
+			timerFieryConbustionCD:Start(20)
 		else--On retail, even heroic is always every 30?
-			timerFieryConsumptionCD:Start()--30
+			timerFieryConbustionCD:Start()--30
 		end
 	elseif spellId == 75476 then--Dusk Shroud (When stage 2 dragon is engaged. ie attacked by twilight realm tank)
 		--Starting timers here is way more accurate than stage 2 trigger
 		timerShadowConsumptionCD:Start(16.2)
-		timerShadowBreathCD:Start(17.8)
+		timerDarkBreathCD:Start(17.8)
 		timerTwilightCutterCD:Start(30.9)
 	end
 end
@@ -221,12 +248,7 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 	elseif args:IsSpellID(74826, 74827, 74828, 74829, 74830, 74831, 74832, 74833, 74834, 74835, 74836) and not self:IsTrivial() then -- Corporeality
 		local destcId = args:GetDestCreatureID()
 		if (playerInTwilight and destcId == 40142) or (not playerInTwilight and destcId == 39863) then
-			local corporeality = corporealityValueByID[spellId]
-			local voiceFile = corporeality >= 70 and self:IsTank() and "defensive" or corporeality > 60 and "dpshard" or corporeality == 60 and "dpsmore" or corporeality == 40 and "dpslow" or corporeality < 40 and "dpsstop"
-			specWarnCorporeality:Show(corporeality)
-			if voiceFile then
-				specWarnCorporeality:Play(voiceFile)
-			end
+			UpdateCorp(self, spellId)
 		end
 	end
 end
@@ -245,7 +267,7 @@ function mod:SPELL_AURA_REMOVED(args)
 end
 
 function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId, spellName)
-	if (spellId == 74712 or spellId == 74717) and destGUID == UnitGUID("player") and self:AntiSpam() then
+	if (spellId == 74712 or spellId == 74717) and destGUID == UnitGUID("player") and self:AntiSpam(3, 2) then
 		specWarnMeteorStrike:Show(spellName)
 		specWarnMeteorStrike:Play("watchfeet")
 	end
@@ -301,10 +323,10 @@ function mod:UNIT_AURA(uId)
 	local isTwilight = DBM:UnitBuff("player", 74807)
 	if isTwilight and not playerInTwilight then
 		playerInTwilight = true
-		updateBossDistance()
+		updateBossDistance(self)
 	elseif not isTwilight and playerInTwilight then
 		playerInTwilight = false
-		updateBossDistance()
+		updateBossDistance(self)
 	end
 end
 
@@ -344,7 +366,7 @@ end
 end]]
 
 function mod:OnSync(msg, target)
-	if msg == "TwilightCutter" and self:AntiSpam(5, 1) then
+	if msg == "TwilightCutter" and self:AntiSpam(5, 3) then
 		if playerInTwilight or self.Options.AnnounceAlternatePhase then
 			warningTwilightCutter:Show()
 		end
@@ -356,7 +378,7 @@ function mod:OnSync(msg, target)
 		timerTwilightCutterCast:Start()
 		timerTwilightCutter:Schedule(5)--Delay it since it happens 5 seconds after the emote
 		timerTwilightCutterCD:Schedule(15)--It's every 30 sec, lasts 15, we schedule a 15 second timer to start in 15 seconds
-	elseif msg == "Meteor" and self:AntiSpam(5, 2) then--Needs own antispam since core antispam won't filter yell and uscs at same event
+	elseif msg == "Meteor" and self:AntiSpam(5, 4) then--Needs own antispam since core antispam won't filter yell and uscs at same event
 		if not playerInTwilight then
 			specWarnMeteor:Show()
 			specWarnMeteor:Play("watchstep")
@@ -372,7 +394,7 @@ function mod:OnSync(msg, target)
 		end
 	elseif msg == "Phase2" and self:GetStage(2, 1) then--Syncing is still used because retail still requires yell
 		self:SetStage(2)
-		timerFieryConsumptionCD:Cancel()--Only one that stops, whoever stays tanking Fire halion still deals with breaths and meteors
+		timerFieryConbustionCD:Cancel()--Only one that stops, whoever stays tanking Fire halion still deals with breaths and meteors
 		warnPhase2:Show()
 		warnPhase2:Play("ptwo")
 	end

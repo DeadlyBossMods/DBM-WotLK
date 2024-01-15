@@ -106,7 +106,7 @@ local corporealityValueByID = {
 local function UpdateCorp(self, spellId)
 	if self:AntiSpam(3, 1) then--3 second throttle in case player
 		local corporeality = corporealityValueByID[spellId]
-		local voiceFile = corporeality >= 70 and self:IsTank() and "defensive" or corporeality > 60 and "dpshard" or corporeality == 60 and "dpsmore" or corporeality == 40 and "dpslow" or corporeality < 40 and "dpsstop"
+		local voiceFile = corporeality >= 70 and self:IsTank() and "defensive" or corporeality > 60 and "dpshard" or corporeality == 60 and "dpsmore" or corporeality == 40 and "dpsslow" or corporeality < 40 and "dpsstop"
 		specWarnCorporeality:Show(corporeality)
 		if voiceFile then
 			specWarnCorporeality:Play(voiceFile)

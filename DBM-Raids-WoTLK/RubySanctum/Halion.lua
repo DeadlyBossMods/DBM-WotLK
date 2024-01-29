@@ -115,7 +115,7 @@ local function UpdateCorp(self, spellId)
 end
 
 local function updateBossDistance(self)
-	if playerInTwilight then
+	if playerInTwilight or self:GetStage(2) then
 		--Set twilight timers normal
 		timerShadowConsumptionCD:SetFade(false)
 		timerTwilightCutterCast:SetFade(false)
@@ -180,7 +180,7 @@ end
 function mod:SPELL_CAST_START(args)
 	local spellId = args.spellId
 	if spellId == 74806 then
-		if playerInTwilight or self.Options.AnnounceAlternatePhase then
+		if playerInTwilight or self.Options.AnnounceAlternatePhase or self:GetStage(2) then
 			warningDarkBreath:Show()
 		end
 		timerDarkBreathCD:Start()
@@ -228,7 +228,7 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 			specWarnShadowConsumption:Show()
 			specWarnShadowConsumption:Play("runout")
 			yellShadowconsumption:Yell()
-		elseif playerInTwilight or self.Options.AnnounceAlternatePhase then
+		elseif playerInTwilight or self.Options.AnnounceAlternatePhase or self:GetStage(2) then
 			warningShadowConsumption:Show(args.destName)
 		end
 		if self.Options.SetIconOnShadowConsumption then
@@ -367,10 +367,10 @@ end]]
 
 function mod:OnSync(msg, target)
 	if msg == "TwilightCutter" and self:AntiSpam(5, 3) then
-		if playerInTwilight or self.Options.AnnounceAlternatePhase then
+		if playerInTwilight or self.Options.AnnounceAlternatePhase or self:GetStage(2) then
 			warningTwilightCutter:Show()
 		end
-		if playerInTwilight then
+		if playerInTwilight or self:GetStage(2) then
 			specWarnTwilightCutter:Schedule(5)
 			specWarnTwilightCutter:ScheduleVoice(5, "farfromline")
 		end

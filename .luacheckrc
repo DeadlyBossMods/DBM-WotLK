@@ -29,6 +29,7 @@ globals = {
 	-- WoW
 	"COMBATLOG_OBJECT_AFFILIATION_MINE",
 	"COMBATLOG_OBJECT_TYPE_PLAYER",
+	"SCENARIO_STAGE",
 	"TANK",
 	"WOW_PROJECT_BURNING_CRUSADE_CLASSIC",
 	"WOW_PROJECT_CLASSIC",
@@ -37,9 +38,11 @@ globals = {
 
 	"UIParent",
 
+	"C_UIWidgetManager",
 	"Ambiguate",
 	"CheckInteractDistance",
 	"CreateFrame",
+	"C_UIWidgetManager",
 	"GetLocale",
 	"GetTime",
 	"GetUnitName",

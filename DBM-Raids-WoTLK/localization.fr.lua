@@ -1747,6 +1747,7 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
+--	PhysicalRealm			= "Royaume matériel", -- Needs validation
 	MeteorCast				= "Les cieux s'embrasent !",
 	Phase2					= "Vous ne trouverez que souffrance au royaume du crépuscule ! Entrez si vous l'osez !",
 	Phase3					= "Je suis la lumière et l'ombre ! Tremblez, mortels, devant le héraut d'Aile-de-mort !",--needs Verification

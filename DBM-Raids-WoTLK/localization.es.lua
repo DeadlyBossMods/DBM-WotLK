@@ -1609,6 +1609,7 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	Halion					= "Halion",
+	PhysicalRealm			= "Reino Físico",
 	MeteorCast				= "¡Los cielos arden!",
 	Phase2					= "En el reino del crepúsculo solo encontraréis sufrimiento. ¡Entrad si os atrevéis!",
 	Phase3					= "¡Yo soy la luz y la oscuridad! ¡Temed, mortales, la llegada de Alamuerte!",

@@ -81,7 +81,7 @@ function mod:OnCombatStart(delay)
 	self.vb.vaporsCount = 0
 	self.vb.lastMarkTarget = nil
 	timerShadowCrashCD:Start(10.9-delay)
-	timerLifeLeechCD:Start(16.9-delay)
+	timerLifeLeechCD:Start(15.7-delay)
 	timerSaroniteVapors:Start(30-delay, 1)
 	timerEnrage:Start(-delay)
 	timerHardmode:Start(self:IsClassic() and 254 or 189-delay)

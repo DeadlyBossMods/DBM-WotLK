@@ -40,6 +40,14 @@ local timerShadowstepCD		= mod:NewCDTimer(30, 66178, nil, nil, nil, 3)
 local timerDeathgripCD		= mod:NewCDTimer(35, 66017, nil, nil, nil, 3)
 local timerBladestormCD		= mod:NewCDTimer(90, 65947, nil, nil, nil, 2)
 
+
+function mod:OnCombatStart(delay)
+	--10 Champions on 25 player and 6 Champions on 10 man
+	local totalBosses = self:IsDifficulty("normal25", "heroic25") and 10 or 6
+	self.vb.bossLeft = totalBosses
+	self.numBoss = totalBosses
+end
+
 function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 65816 then
 		warnHellfire:Show()
@@ -96,15 +104,25 @@ function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId, spellName)
 end
 mod.SPELL_MISSED = mod.SPELL_DAMAGE
 
-function mod:UNIT_DIED(args)
-	local cid = self:GetCIDFromGUID(args.destGUID)
-	if cid == 34472 or cid == 34454 then
-		timerShadowstepCD:Cancel(args.destGUID)
-	elseif cid == 34458 or cid == 34461 then
-		timerDeathgripCD:Cancel(args.destGUID)
-	elseif cid == 34475 or cid == 34453 then
-		timerBladestormCD:Cancel(args.destGUID)
-		timerBladestorm:Cancel(args.destGUID)
-		preWarnBladestorm:Cancel()
+do
+	local function checkAllBossDead(self)
+		if self.vb.bossLeft == 0 then
+			DBM:EndCombat(self)
+		end
+	end
+
+	function mod:UNIT_DIED(args)
+		self:Unschedule(checkAllBossDead)
+		self:Schedule(1, checkAllBossDead)
+		local cid = self:GetCIDFromGUID(args.destGUID)
+		if cid == 34472 or cid == 34454 then
+			timerShadowstepCD:Cancel(args.destGUID)
+		elseif cid == 34458 or cid == 34461 then
+			timerDeathgripCD:Cancel(args.destGUID)
+		elseif cid == 34475 or cid == 34453 then
+			timerBladestormCD:Cancel(args.destGUID)
+			timerBladestorm:Cancel(args.destGUID)
+			preWarnBladestorm:Cancel()
+		end
 	end
 end

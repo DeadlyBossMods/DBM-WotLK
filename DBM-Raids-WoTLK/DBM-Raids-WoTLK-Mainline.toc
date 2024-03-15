@@ -1,7 +1,7 @@
 ## Interface: 100205
-## Interface-Wrath: 30403
 ## X-Min-Interface: 80000
 ## X-Min-Interface-Wrath: 30400
+## X-Min-Interface-Cata: 40400
 ## Title:|cffffe00a<|r|cffff7d0aDBM Mod|r|cffffe00a>|r |cffff6010Raids (WoTLK)|r
 ## Title-koKR:|cffffe00a<|r|cffff7d0aDBM Mod|r|cffffe00a>|r |cffff6010공격대 (리분)|r
 ## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM Мод|r|cffffe00a>|r |cffff6010Рейды (Король-лич)|r

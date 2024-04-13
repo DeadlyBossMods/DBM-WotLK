@@ -152,7 +152,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 	if args.spellId == 72272 and self:AntiSpam(3, 5) then
 		warnVileGas:Show()
 		timerVileGasCD:Start()
-	elseif args.spellid == 69889 then--Merge
+	elseif args.spellId == 69889 then--Merge
 		timerStickyOoze:Stop(args.sourceGUID)
 	end
 end

@@ -197,7 +197,7 @@ function mod:UNIT_HEALTH(uId)
 	if cid == 32871 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.23 and not self.vb.warned_preP2 then
 		self.vb.warned_preP2 = true
 		warnPhase2Soon:Show()
-	elseif cid == 32955 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.25 and not sentLowHP[guid] then
+	elseif cid == 32955 and guid and UnitHealth(uId) / UnitHealthMax(uId) <= 0.25 and not sentLowHP[guid] then
 		sentLowHP[guid] = true
 		self:SendSync("lowhealth", guid)
 	end

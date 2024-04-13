@@ -65,8 +65,7 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:SPELL_AURA_REMOVED(args)
-	if args:IsSpellID(28785, 54021)
-	and args.auraType == "BUFF" then
+	if args:IsSpellID(28785, 54021) and args:IsDestTypeHostile() then
 		warningLocustFaded:Show()
 		timerLocustIn:Start()
 		warningLocustSoon:Schedule(62)

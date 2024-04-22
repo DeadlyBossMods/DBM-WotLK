@@ -131,7 +131,7 @@ end
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 71022 then
 		specWarnDisruptingShout:Show()
-		specWarnDisruptingShout:Play("stopcasting")
+		specWarnDisruptingShout:Play("stopcast")
 		timerDisruptingShout:Start()
 	end
 end

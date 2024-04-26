@@ -76,7 +76,7 @@ mod.vb.beaconCount = 0
 
 local beaconDebuffFilter, unchainedDebuffFilter
 do
-	local beaconDebuff, unchainedDebuff = DBM:GetSpellInfo(70126), DBM:GetSpellInfo(69762)
+	local beaconDebuff, unchainedDebuff = DBM:GetSpellName(70126), DBM:GetSpellName(69762)
 	beaconDebuffFilter = function(uId)
 		return DBM:UnitDebuff(uId, beaconDebuff)
 	end

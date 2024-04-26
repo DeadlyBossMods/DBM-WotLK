@@ -81,7 +81,7 @@ mod:GroupSpells(66902, 66869)--Burning Spray with Burning Bile
 mod:GroupSpells(66901, 66823)--Paralytic Spray with Toxic Bile
 mod:GroupSpells(52311, 66758, 66759)--Furious Charge, Staggering Daze, and frothing rage
 
-local bileName = DBM:GetSpellInfo(66869)
+local bileName = DBM:GetSpellName(66869)
 mod.vb.burnIcon = 1
 mod.vb.DreadscaleActive = true
 mod.vb.DreadscaleDead = false

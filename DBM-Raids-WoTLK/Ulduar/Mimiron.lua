@@ -74,7 +74,7 @@ mod:GroupSpells(63274, 63414)--Spinning Up and P3Wx2
 
 mod.vb.hardmode = false
 mod.vb.napalmShellIcon = 7
-local spinningUp = DBM:GetSpellInfo(63414)
+local spinningUp = DBM:GetSpellName(63414)
 local lastSpinUp = 0
 mod.vb.is_spinningUp = false
 local napalmShellTargets = {}
@@ -186,7 +186,7 @@ function mod:SPELL_SUMMON(args)
 end
 
 function mod:UNIT_SPELLCAST_CHANNEL_STOP(unit, _, spellId)
-	local spell = DBM:GetSpellInfo(spellId)--DO BETTER with log
+	local spell = DBM:GetSpellName(spellId)--DO BETTER with log
 	if spell == spinningUp and GetTime() - lastSpinUp < 3.9 then
 		self.vb.is_spinningUp = false
 		self:SendSync("SpinUpFail")

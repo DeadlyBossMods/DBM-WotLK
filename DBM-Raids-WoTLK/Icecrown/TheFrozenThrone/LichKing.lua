@@ -100,7 +100,7 @@ mod:AddSetIconOption("HarvestSoulIcon", 68980, false, 0, {5})
 mod:AddBoolOption("AnnounceValkGrabs", false, nil, nil, nil, nil, 71844)
 
 local warnedValkyrGUIDs = {}
-local plagueHop = DBM:GetSpellInfo(70338)--Hop spellID only, not cast one.
+local plagueHop = DBM:GetSpellName(70338)--Hop spellID only, not cast one.
 local plagueExpires = {}
 local numberOfPlayers = 1
 mod.vb.lastPlague = nil

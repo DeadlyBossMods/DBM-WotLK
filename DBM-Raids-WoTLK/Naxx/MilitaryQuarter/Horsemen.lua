@@ -87,7 +87,6 @@ function mod:SPELL_CAST_SUCCESS(args)
 	end
 end
 
-local BoneBarrier = DBM:GetSpellInfo(29061)
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 29061 then
 		warnBoneBarrier:Show(args.destName)

@@ -52,15 +52,15 @@ local function isunitdebuffed(spellName)
 end
 
 local function CheckDrakes(delay)
-	if isunitdebuffed(DBM:GetSpellInfo(61248)) then	-- Power of Tenebron
+	if isunitdebuffed(DBM:GetSpellName(61248)) then	-- Power of Tenebron
 		timerTenebron:Start(30 - delay)
 		warnTenebron:Schedule(25 - delay)
 	end
-	if isunitdebuffed(DBM:GetSpellInfo(58105)) then	-- Power of Shadron
+	if isunitdebuffed(DBM:GetSpellName(58105)) then	-- Power of Shadron
 		timerShadron:Start(75 - delay)
 		warnShadron:Schedule(70 - delay)
 	end
-	if isunitdebuffed(DBM:GetSpellInfo(61251)) then	-- Power of Vesperon
+	if isunitdebuffed(DBM:GetSpellName(61251)) then	-- Power of Vesperon
 		timerVesperon:Start(120 - delay)
 		warnVesperon:Schedule(115 - delay)
 	end

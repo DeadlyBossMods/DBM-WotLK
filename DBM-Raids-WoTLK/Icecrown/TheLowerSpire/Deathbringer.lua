@@ -52,7 +52,6 @@ mod.vb.boilingBloodIcon = 1
 mod.vb.beastIcon = 8
 mod.vb.Mark = 0
 local boilingBloodTargets = {}
-local spellName = DBM:GetSpellInfo(72370)
 
 local function warnBoilingBloodTargets(self)
 	warnBoilingBlood:Show(table.concat(boilingBloodTargets, "<, >"))

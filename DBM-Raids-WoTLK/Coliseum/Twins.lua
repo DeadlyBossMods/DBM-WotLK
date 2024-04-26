@@ -42,7 +42,7 @@ mod:AddBoolOption("SpecialWarnOnDebuff", false, "announce")
 mod:AddSetIconOption("SetIconOnLightTarget", 65950, false, 0, {1, 2, 3, 4})
 mod:AddSetIconOption("SetIconOnDarkTarget", 66001, false, 0, {1, 2, 3, 4})
 
-local lightEssence, darkEssence = DBM:GetSpellInfo(65686), DBM:GetSpellInfo(65684)
+local lightEssence, darkEssence = DBM:GetSpellName(65686), DBM:GetSpellName(65684)
 local debuffTargets = {}
 mod.vb.debuffIcon = 1
 

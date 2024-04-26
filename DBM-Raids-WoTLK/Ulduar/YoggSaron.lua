@@ -86,7 +86,7 @@ mod:AddInfoFrameOption(63050)
 mod:AddNamePlateOption("NPAuraOnBeacon", 64465, true)
 
 local brainLinkTargets = {}
-local SanityBuff = DBM:GetSpellInfo(63050)
+local SanityBuff = DBM:GetSpellName(63050)
 mod.vb.brainLinkIcon = 2
 mod.vb.beaconIcon = 8
 mod.vb.Guardians = 0

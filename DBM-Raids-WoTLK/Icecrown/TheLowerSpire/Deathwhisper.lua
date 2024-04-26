@@ -53,7 +53,7 @@ end
 
 local dominateMindTargets = {}
 mod.vb.dominateMindIcon = 1
-local shieldName = DBM:GetSpellInfo(70842)
+local shieldName = DBM:GetSpellName(70842)
 
 local function showDominateMindWarning(self)
 	warnDominateMind:Show(table.concat(dominateMindTargets, "<, >"))

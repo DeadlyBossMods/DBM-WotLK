@@ -78,10 +78,10 @@ else
 	timerAchieve					= mod:NewAchievementTimer(420, 3012)
 end
 
-mod:AddSetIconOption("SetIconOnFearTarget", 63830, true, false, {6})
-mod:AddSetIconOption("SetIconOnFervorTarget", 63138, false, false, {7})
-mod:AddSetIconOption("SetIconOnBrainLinkTarget", 63802, true, false, {1, 2})
-mod:AddSetIconOption("SetIconOnBeacon", 64465, true, true, {1, 2, 3, 4, 5, 6, 7, 8})
+mod:AddSetIconOption("SetIconOnFearTarget", 63830, true, 0, {6})
+mod:AddSetIconOption("SetIconOnFervorTarget", 63138, false, 0, {7})
+mod:AddSetIconOption("SetIconOnBrainLinkTarget", 63802, true, 0, {1, 2})
+mod:AddSetIconOption("SetIconOnBeacon", 64465, true, 5, {1, 2, 3, 4, 5, 6, 7, 8})
 mod:AddInfoFrameOption(63050)
 mod:AddNamePlateOption("NPAuraOnBeacon", 64465, true)
 

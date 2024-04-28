@@ -39,7 +39,7 @@ local timerFrozenBlows		= mod:NewBuffActiveTimer(20, 63512, nil, nil, nil, 5, ni
 local timerFlashFrCD		= mod:NewCDTimer(50, 61968, nil, nil, nil, 2)
 local timerAchieve			= mod:NewTimer(50, "TimerHardmode", "132597", nil, nil, 0)
 
-mod:AddSetIconOption("SetIconOnStormCloud", 65123, true, false, {1, 2})
+mod:AddSetIconOption("SetIconOnStormCloud", 65123, true, 0, {1, 2})
 
 mod.vb.stormCloudIcon = 1
 

@@ -45,7 +45,7 @@ end
 
 mod.vb.ConstructCount = 0
 
-mod:AddSetIconOption("SlagPotIcon", 63477, false, false, {8})
+mod:AddSetIconOption("SlagPotIcon", 63477, false, 0, {8})
 
 function mod:OnCombatStart(delay)
 	self.vb.ConstructCount = 0

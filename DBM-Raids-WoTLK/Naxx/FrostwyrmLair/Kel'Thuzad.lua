@@ -51,9 +51,9 @@ local timerMC				= mod:NewBuffActiveTimer(20, 28410, nil, nil, nil, 3)
 --local timerMCCD			= mod:NewCDTimer(90, 28410, nil, nil, nil, 3)--actually 60 second cdish but its easier to do it this way for the first one.
 local timerPhase2			= mod:NewTimer(215, "TimerPhase2", "136116", nil, nil, 6)
 
-mod:AddSetIconOption("SetIconOnMC", 28410, true, false, {1, 2, 3})
-mod:AddSetIconOption("SetIconOnManaBomb", 27819, false, false, {8})
-mod:AddSetIconOption("SetIconOnFrostTomb", 27808, true, false, {1, 2, 3, 4, 5, 6, 7, 8})
+mod:AddSetIconOption("SetIconOnMC", 28410, true, 0, {1, 2, 3})
+mod:AddSetIconOption("SetIconOnManaBomb", 27819, false, 0, {8})
+mod:AddSetIconOption("SetIconOnFrostTomb", 27808, true, 0, {1, 2, 3, 4, 5, 6, 7, 8})
 mod:AddRangeFrameOption(10, 27819)
 
 mod.vb.warnedAdds = false

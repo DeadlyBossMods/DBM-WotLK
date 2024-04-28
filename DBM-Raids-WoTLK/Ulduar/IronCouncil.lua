@@ -68,8 +68,8 @@ local warnStaticDisruption		= mod:NewTargetAnnounce(63494, 3)
 local timerFusionPunchCast		= mod:NewCastTimer(3, 61903, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON..DBM_COMMON_L.MAGIC_ICON)
 local timerFusionPunchActive	= mod:NewTargetTimer(4, 61903, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON..DBM_COMMON_L.MAGIC_ICON)
 local timerOverwhelmingPower	= mod:NewTargetTimer(25, 61888, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
-mod:AddSetIconOption("SetIconOnOverwhelmingPower", 61888, false, false, {8})
-mod:AddSetIconOption("SetIconOnStaticDisruption", 63494, false, false, {1, 2, 3, 4, 5, 6, 7})
+mod:AddSetIconOption("SetIconOnOverwhelmingPower", 61888, false, 0, {8})
+mod:AddSetIconOption("SetIconOnStaticDisruption", 63494, false, 0, {1, 2, 3, 4, 5, 6, 7})
 
 -- Runemaster Molgeim
 -- Lightning Blast ... don't know, maybe 63491

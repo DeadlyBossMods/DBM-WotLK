@@ -50,8 +50,8 @@ else
 	timerAchieve					= mod:NewAchievementTimer(205, 2937)
 end
 
-mod:AddSetIconOption("SetIconOnLightBombTarget", 65121, true, true, {1})
-mod:AddSetIconOption("SetIconOnGravityBombTarget", 64234, true, true, {2})
+mod:AddSetIconOption("SetIconOnLightBombTarget", 65121, true, 5, {1})
+mod:AddSetIconOption("SetIconOnGravityBombTarget", 64234, true, 5, {2})
 
 function mod:OnCombatStart(delay)
 	enrageTimer:Start(self:IsClassic() and 360 or 600-delay)

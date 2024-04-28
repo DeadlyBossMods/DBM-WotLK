@@ -66,8 +66,8 @@ local timerFlameSuppressant			= mod:NewBuffActiveTimer(10, 65192, nil, nil, nil,
 --local timerNextFrostBomb			= mod:NewNextTimer(80, 64623, nil, nil, nil, 3, nil, DBM_COMMON_L.HEROIC_ICON)
 local timerBombExplosion			= mod:NewCastTimer(15, 65333, nil, nil, nil, 3)
 
-mod:AddSetIconOption("SetIconOnNapalm", 63666, false, false, {1, 2, 3, 4, 5, 6, 7})
-mod:AddSetIconOption("SetIconOnPlasmaBlast", 64529, false, false, {8})
+mod:AddSetIconOption("SetIconOnNapalm", 63666, false, 0, {1, 2, 3, 4, 5, 6, 7})
+mod:AddSetIconOption("SetIconOnPlasmaBlast", 64529, false, 0, {8})
 mod:AddRangeFrameOption("6")
 
 mod:GroupSpells(63274, 63414)--Spinning Up and P3Wx2

@@ -54,8 +54,8 @@ local timerLifeLeech			= mod:NewTargetTimer(10, 63276, nil, false, 2, 3)
 local timerLifeLeechCD			= mod:NewCDTimer(20.4, 63276, nil, "Ranged", 2, 3, nil, nil, nil, 1, 3)
 local timerHardmode				= mod:NewTimer(189, "hardmodeSpawn", nil, nil, nil, 1)
 
-mod:AddSetIconOption("SetIconOnShadowCrash", 62660, true, false, {8})
-mod:AddSetIconOption("SetIconOnLifeLeach", 63276, true, false, {7})
+mod:AddSetIconOption("SetIconOnShadowCrash", 62660, true, 0, {8})
+mod:AddSetIconOption("SetIconOnLifeLeach", 63276, true, 0, {7})
 
 mod.vb.interruptCount = 0
 mod.vb.vaporsCount = 0

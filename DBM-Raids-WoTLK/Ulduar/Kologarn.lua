@@ -47,8 +47,8 @@ local timerRespawnLeftArm		= mod:NewTimer(48, "timerLeftArm", nil, nil, nil, 1)
 local timerRespawnRightArm		= mod:NewTimer(48, "timerRightArm", nil, nil, nil, 1)
 local timerTimeForDisarmed		= mod:NewTimer(10, "achievementDisarmed")	-- 10 HC / 12 nonHC
 
-mod:AddSetIconOption("SetIconOnGripTarget", 64292, true, false, {7, 6, 5})
-mod:AddSetIconOption("SetIconOnEyebeamTarget", 63346, true, false, {8})
+mod:AddSetIconOption("SetIconOnGripTarget", 64292, true, 0, {7, 6, 5})
+mod:AddSetIconOption("SetIconOnEyebeamTarget", 63346, true, 0, {8})
 
 mod.vb.disarmActive = false
 local gripTargets = {}

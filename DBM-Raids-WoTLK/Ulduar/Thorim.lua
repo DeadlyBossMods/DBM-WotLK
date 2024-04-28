@@ -46,7 +46,7 @@ local timerUnbalancingStrike		= mod:NewCDTimer(25.6, 62130, nil, "Tank", nil, 5,
 local timerHardmode					= mod:NewTimer(175, "TimerHardmode", 62042)
 
 mod:AddRangeFrameOption("8")
-mod:AddSetIconOption("SetIconOnBomb", 62526, false, false, {7})
+mod:AddSetIconOption("SetIconOnBomb", 62526, false, 0, {7})
 
 local lastcharge = {}
 

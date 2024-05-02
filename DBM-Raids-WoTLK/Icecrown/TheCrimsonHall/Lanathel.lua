@@ -201,7 +201,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 		else
 			warnSwarmingShadows:Show(target)
 		end
-		if self.Options.SwarmingShadowsIcon2 then
+		if target and self.Options.SwarmingShadowsIcon2 then
 			self:SetIcon(target, 4, 6)
 		end
 	end

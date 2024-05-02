@@ -184,7 +184,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 		else
 			warnEmpoweredFlames:Show(target)
 		end
-		if self.Options.EmpoweredFlameIcon then
+		if target and self.Options.EmpoweredFlameIcon then
 			self:SetIcon(target, 7, 10)
 		end
 	end

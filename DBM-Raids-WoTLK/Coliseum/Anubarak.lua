@@ -5,7 +5,7 @@ mod.statTypes = "normal,normal25,heroic,heroic25"
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(34564)
-mod:SetEncounterID(mod:IsClassic() and 645 or 1085)
+mod:SetEncounterID(not mod:IsPostCata() and 645 or 1085)
 mod:SetModelID(29268)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 8)
 mod:SetHotfixNoticeRev(20230817000000)

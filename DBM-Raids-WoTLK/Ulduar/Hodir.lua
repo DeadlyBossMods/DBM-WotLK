@@ -7,7 +7,7 @@ end
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(32845,32926)
-if not mod:IsClassic() then
+if mod:IsPostCata() then
 	mod:SetEncounterID(1135)
 else
 	mod:SetEncounterID(751)

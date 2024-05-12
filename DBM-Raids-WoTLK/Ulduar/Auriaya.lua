@@ -8,7 +8,7 @@ end
 mod:SetRevision("@file-date-integer@")
 
 mod:SetCreatureID(33515)--34014--Add this (kitties) to pull detection when it can be ignored in kill
-if not mod:IsClassic() then
+if mod:IsPostCata() then
 	mod:SetEncounterID(1131)
 else
 	mod:SetEncounterID(750)

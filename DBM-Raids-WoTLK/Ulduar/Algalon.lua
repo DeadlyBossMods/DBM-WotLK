@@ -7,7 +7,7 @@ end
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(32871)
-if not mod:IsClassic() then--Assumed fixed in classic
+if mod:IsPostCata() then--Assumed fixed in classic
 	mod:SetEncounterID(1130)
 	mod:DisableEEKillDetection()--EE always fires wipe
 else

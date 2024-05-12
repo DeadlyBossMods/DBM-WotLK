@@ -6,7 +6,7 @@ mod.statTypes = "normal,normal25,heroic,heroic25"
 mod:SetRevision("@file-date-integer@")
 local addsIcon
 local bossID
-mod:SetEncounterID(mod:IsClassic() and 847 or 1099)--No ES fires this combat
+mod:SetEncounterID(not mod:IsPostCata() and 847 or 1099)--No ES fires this combat
 mod:SetCreatureID(37215, 37540) -- Orgrim's Hammer, The Skybreaker
 mod:SetMinSyncRevision(119)
 if UnitFactionGroup("player") == "Alliance" then

@@ -8,7 +8,7 @@ end
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(32867, 32927, 32857)
 mod:SetEncounterID(1140)
-if not mod:IsClassic() then
+if mod:IsPostCata() then
 	mod:SetEncounterID(1140)
 	mod:DisableEEKillDetection()--Fires for first one dying not last
 else

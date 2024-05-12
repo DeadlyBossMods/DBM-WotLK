@@ -5,7 +5,7 @@ mod.statTypes = "normal,normal25,heroic,heroic25"
 
 mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(34796, 35144, 34799, 34797)
---mod:SetEncounterID(mod:IsClassic() and 629 or 1088)--Buggy, never enable this
+--mod:SetEncounterID(not mod:IsPostCata() and 629 or 1088)--Buggy, never enable this
 mod:SetMinSyncRevision(104)
 mod:SetModelID(21601)
 mod:SetMinCombatTime(30)

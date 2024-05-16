@@ -13,8 +13,11 @@ else
 	mod:SetEncounterID(746)
 end
 mod:SetModelID(28787)
+mod:SetHotfixNoticeRev(20240516000000)
+mod:SetMinSyncRevision(20240516000000)
 
 mod:RegisterCombat("combat_yell", L.YellAir)
+mod:SetWipeTime(30)--Combat drops between adds waves
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 63317 64021 63236",

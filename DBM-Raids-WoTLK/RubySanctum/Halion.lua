@@ -195,7 +195,8 @@ function mod:SPELL_CAST_START(args)
 		self:SetStage(3)
 		warnPhase3:Show()
 		warnPhase3:Play("pthree")
-		timerFieryConbustionCD:Restart(20)--restart is used purely to avoid false debug on retail when boss is instantly phased into phase 3 in one attack (thus clipping P1 timer)
+		timerFieryConbustionCD:Stop()
+		timerFieryConbustionCD:Start(20)--restart is used purely to avoid false debug on retail when boss is instantly phased into phase 3 in one attack (thus clipping P1 timer)
 	end
 end
 

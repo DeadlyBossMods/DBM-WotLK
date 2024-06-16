@@ -177,7 +177,7 @@ end
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 	if msg:match(L.EmpoweredFlames) and target then
 		if self:IsTrivial() then return end
-		target = DBM:GetUnitFullName(target)
+		target = DBM:GetUnitFullName(target) or target
 		if target == UnitName("player") then
 			specWarnEmpoweredFlames:Show()
 			specWarnEmpoweredFlames:Play("justrun")

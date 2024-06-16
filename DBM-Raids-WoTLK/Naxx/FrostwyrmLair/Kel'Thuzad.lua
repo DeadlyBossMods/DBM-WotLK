@@ -122,10 +122,12 @@ function mod:SPELL_CAST_SUCCESS(args)
 				specWarnFissureYou:Play("targetyou")
 				yellFissure:Yell()
 			else
+				---@diagnostic disable-next-line: param-type-mismatch
 				warnFissure:Show(args.destName)
 				warnFissure:Play("watchstep")
 			end
 		else
+			---@diagnostic disable-next-line: param-type-mismatch
 			warnFissure:Show()
 			warnFissure:Play("watchstep")
 		end

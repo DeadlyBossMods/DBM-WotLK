@@ -73,10 +73,12 @@ function mod:SPELL_CAST_SUCCESS(args)
 				specWarnVoidZone:Play("targetyou")
 				yellVoidZone:Yell()
 			else
+				---@diagnostic disable-next-line: param-type-mismatch
 				warnVoidZone:Show(args.destName)
 			end
 		else
 			if self:AntiSpam(3, 2) then--Have to antispam this way since can't by distance in classic
+				---@diagnostic disable-next-line: param-type-mismatch
 				warnVoidZone:Show()
 				warnVoidZone:Play("watchstep")
 			end

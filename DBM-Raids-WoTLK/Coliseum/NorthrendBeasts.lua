@@ -189,7 +189,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerNextImpale:Start()
 		warnImpaleOn:Show(args.destName, 1)
 	elseif args.spellId == 66759 then
-		specWarnFrothingRage:Show()
+		specWarnFrothingRage:Show(args.destName)
 		specWarnFrothingRage:Play("trannow")
 	elseif args.spellId == 66823 then
 		warnToxin:CombinedShow(0.3, args.destName)

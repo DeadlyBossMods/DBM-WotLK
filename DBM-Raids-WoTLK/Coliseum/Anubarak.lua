@@ -176,7 +176,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			end
 		end
 		if args:IsPlayer() then
-			specWarnPCold:Show(self:IconNumToTexture(icon))
+			specWarnPCold:Show()
 			specWarnPCold:Play("targetyou")
 		end
 		warnPCold:CombinedShow(0.5, args.destName)

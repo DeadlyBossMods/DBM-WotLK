@@ -146,7 +146,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		else
 			warnLeechLife:Show(args.destName)
 		end
-		self:Schedule(10, resetMarkTarget, self)
+		self:Schedule(5, resetMarkTarget, self)
 	elseif args.spellId == 63364 then
 		specWarnAnimus:Show()
 		specWarnAnimus:Play("bigmob")

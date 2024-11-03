@@ -14,6 +14,8 @@ else
 	mod:SetEncounterID(750)
 end
 mod:SetModelID(28651)
+mod:SetZone(603)
+
 mod:RegisterCombat("combat")
 --mod:RegisterKill("kill", 33515)
 

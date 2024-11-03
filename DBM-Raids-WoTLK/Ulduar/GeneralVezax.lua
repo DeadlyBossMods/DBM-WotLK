@@ -15,6 +15,7 @@ end
 mod:SetModelID(28548)
 mod:SetUsedIcons(7, 8)
 mod:SetHotfixNoticeRev(20230120000000)
+mod:SetZone(603)
 
 mod:RegisterCombat("combat")
 

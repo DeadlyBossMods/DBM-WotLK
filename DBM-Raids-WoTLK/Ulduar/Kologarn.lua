@@ -15,6 +15,7 @@ end
 mod:SetModelID(28638)
 mod:SetUsedIcons(5, 6, 7, 8)
 mod:SetMinSyncRevision(20191109000000)
+mod:SetZone(603)
 
 mod:RegisterCombat("combat")
 

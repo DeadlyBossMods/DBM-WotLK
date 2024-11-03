@@ -4,6 +4,7 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision("@file-date-integer@")
 mod:SetModelID(30459)
 mod:SetUsedIcons(1, 2, 8)
+mod:SetZone(631)
 mod.isTrashMod = true
 
 mod:RegisterEvents(

@@ -14,9 +14,11 @@ else
 	mod:SetEncounterID(744)
 end
 mod:SetModelID(28875)
-mod:RegisterCombat("yell", L.YellPull)
 mod:SetHotfixNoticeRev(20230120000000)
 mod:SetMinSyncRevision(20220120000000)
+mod:SetZone(603)
+
+mod:RegisterCombat("yell", L.YellPull)
 
 mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 62396 62475 62374 62297",

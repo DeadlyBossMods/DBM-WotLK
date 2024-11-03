@@ -10,6 +10,7 @@ mod:SetModelID(29268)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 8)
 mod:SetHotfixNoticeRev(20230817000000)
 mod:SetMinSyncRevision(20220623000000)
+mod:SetZone(649)
 
 mod:RegisterCombat("combat")
 

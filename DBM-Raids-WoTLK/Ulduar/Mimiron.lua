@@ -17,6 +17,7 @@ mod:SetModelID(28578)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 mod:SetHotfixNoticeRev(20240516000000)
 mod:SetMinSyncRevision(20240516000000)
+mod:SetZone(603)
 
 mod:RegisterCombat("combat_yell", L.YellPull)
 mod:SetWipeTime(30)--Combat drops during long RPs

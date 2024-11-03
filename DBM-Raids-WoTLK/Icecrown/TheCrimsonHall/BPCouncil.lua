@@ -10,6 +10,7 @@ mod:DisableEEKillDetection()--IEEU fires for this boss.
 mod:SetModelID(30858)
 mod:SetUsedIcons(7, 8)
 mod:SetBossHPInfoToHighest()
+mod:SetZone(631)
 
 mod:RegisterCombat("combat")
 

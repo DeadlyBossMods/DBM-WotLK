@@ -9,6 +9,7 @@ mod:SetEncounterID(not mod:IsPostCata() and 641 or 1089)
 mod:SetModelID(29240)
 mod:SetMinCombatTime(30)
 mod:SetUsedIcons(1, 2, 3, 4)
+mod:SetZone(649)
 
 mod:RegisterCombat("combat")
 

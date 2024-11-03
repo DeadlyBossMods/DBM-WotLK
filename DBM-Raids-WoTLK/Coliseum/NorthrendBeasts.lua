@@ -11,6 +11,7 @@ mod:SetModelID(21601)
 mod:SetMinCombatTime(30)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 mod:SetBossHPInfoToHighest()
+mod:SetZone(649)
 
 mod:RegisterCombat("combat")
 

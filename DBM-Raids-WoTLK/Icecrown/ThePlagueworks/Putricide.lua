@@ -10,6 +10,7 @@ mod:SetModelID(30881)
 mod:SetUsedIcons(1, 2, 3, 4)
 --mod:SetMinSyncRevision(3860)
 mod:SetMinSyncRevision(7)--Could break if someone is running out of date version with higher revision
+mod:SetZone(631)
 
 mod:RegisterCombat("combat")
 

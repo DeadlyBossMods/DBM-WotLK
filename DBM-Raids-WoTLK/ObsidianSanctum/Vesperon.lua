@@ -10,6 +10,7 @@ mod:SetModelID(27039)
 mod:SetHotfixNoticeRev(20221009000000)
 mod:SetMinSyncRevision(20221009000000)
 mod:DisableMultiBossPulls()
+mod:SetZone(615)
 
 mod:RegisterCombat("combat")
 

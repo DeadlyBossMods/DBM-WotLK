@@ -14,6 +14,7 @@ else
 end
 mod:SetModelID(28611)
 mod:SetUsedIcons(1, 2)
+mod:SetZone(603)
 
 mod:RegisterCombat("combat")
 

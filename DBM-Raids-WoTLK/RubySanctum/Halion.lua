@@ -10,6 +10,7 @@ mod:SetModelID(31952)
 mod:SetUsedIcons(7, 3)
 mod:SetHotfixNoticeRev(20240113000000)
 mod:SetMinSyncRevision(20240112000000)
+mod:SetZone(724)
 
 mod:RegisterCombat("combat")
 --mod:RegisterKill("yell", L.Kill)

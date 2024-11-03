@@ -14,6 +14,7 @@ else
 end
 mod:SetModelID(28743)
 mod:SetUsedIcons(1, 2)
+mod:SetZone(603)
 
 mod:RegisterCombat("combat_yell", L.Pull)
 mod:RegisterKill("yell", L.YellKill)

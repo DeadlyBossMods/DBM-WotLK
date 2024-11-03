@@ -17,6 +17,7 @@ mod:SetModelID(28777)
 mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellKill)
 mod:SetUsedIcons(4, 5, 6, 7, 8)
+mod:SetZone(603)
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 62437 62859",

@@ -7,6 +7,7 @@ mod:SetRevision("@file-date-integer@")
 mod:SetCreatureID(39746)
 mod:SetEncounterID(not mod:IsPostCata() and 893 or 1148)
 mod:SetModelID(32179)
+mod:SetZone(724)
 
 mod:RegisterCombat("combat")
 

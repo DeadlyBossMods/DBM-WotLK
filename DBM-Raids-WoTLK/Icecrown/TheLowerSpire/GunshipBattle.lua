@@ -20,6 +20,7 @@ else
 	addsIcon = 23336
 	bossID = 36948
 end
+mod:SetZone(631)
 
 mod:RegisterCombat("combat")
 

@@ -6,6 +6,7 @@ if not mod:IsClassic() then--on classic, it's normal10,normal25, defined in toc,
 end
 
 mod:SetRevision("@file-date-integer@")
+mod:SetZone(603)
 
 -- passive mod to provide information for multiple fight (trash respawn)
 -- mod:SetCreatureID(32914, 32915, 32913)

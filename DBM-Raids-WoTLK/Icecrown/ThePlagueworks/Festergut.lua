@@ -10,6 +10,7 @@ mod:SetModelID(31006)
 mod:RegisterCombat("combat")
 mod:SetUsedIcons(1, 2, 3)
 mod:SetMinSyncRevision(20220623000000)
+mod:SetZone(631)
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 69195",

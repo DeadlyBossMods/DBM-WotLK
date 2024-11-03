@@ -15,6 +15,7 @@ end
 mod:SetModelID(28787)
 mod:SetHotfixNoticeRev(20240516000000)
 mod:SetMinSyncRevision(20240516000000)
+mod:SetZone(603)
 
 mod:RegisterCombat("combat_yell", L.YellAir)
 mod:SetWipeTime(30)--Combat drops between adds waves

@@ -18,6 +18,7 @@ mod:SetModelID(28344)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 mod:SetBossHPInfoToHighest()
 mod:SetHotfixNoticeRev(20230122000000)
+mod:SetZone(603)
 
 mod:RegisterCombat("combat")
 

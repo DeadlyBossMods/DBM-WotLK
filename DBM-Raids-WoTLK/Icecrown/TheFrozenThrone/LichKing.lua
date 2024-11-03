@@ -10,6 +10,7 @@ mod:DisableEEKillDetection()--EE fires at 10%
 mod:SetModelID(30721)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7)
 mod:SetMinSyncRevision(20220623000000)
+mod:SetZone(631)
 
 mod:RegisterCombat("combat")
 

@@ -8,6 +8,7 @@ mod:SetCreatureID(39751)
 mod:SetEncounterID(not mod:IsPostCata() and 890 or 1147)
 mod:SetModelID(31761)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
+mod:SetZone(724)
 
 mod:RegisterCombat("combat")
 

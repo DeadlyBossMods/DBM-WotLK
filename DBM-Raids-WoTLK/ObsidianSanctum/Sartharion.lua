@@ -42,26 +42,16 @@ local lastvoids = {}
 local lastfire = {}
 local tsort, tinsert, twipe = table.sort, table.insert, table.wipe
 
-local function isunitdebuffed(spellName)
-	for uId in DBM:GetGroupMembers() do
-		local debuff = DBM:UnitDebuff(uId, spellName)
-		if debuff then
-			return true
-		end
-	end
-	return false
-end
-
 local function CheckDrakes(delay)
-	if isunitdebuffed(DBM:GetSpellName(61248)) then	-- Power of Tenebron
+	if DBM:RaidUnitDebuff(DBM:GetSpellName(61248)) then	-- Power of Tenebron
 		timerTenebron:Start(30 - delay)
 		warnTenebron:Schedule(25 - delay)
 	end
-	if isunitdebuffed(DBM:GetSpellName(58105)) then	-- Power of Shadron
+	if DBM:RaidUnitDebuff(DBM:GetSpellName(58105)) then	-- Power of Shadron
 		timerShadron:Start(75 - delay)
 		warnShadron:Schedule(70 - delay)
 	end
-	if isunitdebuffed(DBM:GetSpellName(61251)) then	-- Power of Vesperon
+	if DBM:RaidUnitDebuff(DBM:GetSpellName(61251)) then	-- Power of Vesperon
 		timerVesperon:Start(120 - delay)
 		warnVesperon:Schedule(115 - delay)
 	end

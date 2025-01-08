@@ -1,7 +1,7 @@
 ## Interface: 40401
 ## X-Min-Interface-Cata: 40400
 ## Category: DBM
-## Group: DBM Raids
+
 ## Title:|cffffe00a<|r|cffff7d0aDBM Mod|r|cffffe00a>|r |cffff6010Raids (WoTLK)|r
 ## Title-koKR:|cffffe00a<|r|cffff7d0aDBM Mod|r|cffffe00a>|r |cffff6010공격대 (리분)|r
 ## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM Мод|r|cffffe00a>|r |cffff6010Рейды (Король-лич)|r

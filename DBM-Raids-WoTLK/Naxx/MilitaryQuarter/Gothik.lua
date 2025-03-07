@@ -86,7 +86,7 @@ local function NextWave(self)
 	self.vb.wave = self.vb.wave + 1
 	warnWaveNow:Show(self.vb.wave, getWaveString(self.vb.wave))
 	local timer = waves[self.vb.wave].timer
-	if timer then
+	if timer and timer > 0 then
 		timerWave:Start(timer, self.vb.wave + 1)
 		warnWaveSoon:Schedule(timer - 3, self.vb.wave + 1, getWaveString(self.vb.wave + 1))
 		self:Schedule(timer, NextWave, self)

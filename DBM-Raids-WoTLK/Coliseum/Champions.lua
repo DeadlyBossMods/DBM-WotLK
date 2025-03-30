@@ -114,7 +114,7 @@ do
 
 	function mod:UNIT_DIED(args)
 		self:Unschedule(checkAllBossDead)
-		self:Schedule(1, checkAllBossDead)
+		self:Schedule(1, checkAllBossDead, self)
 		local cid = self:GetCIDFromGUID(args.destGUID)
 		if cid == 34472 or cid == 34454 then
 			timerShadowstepCD:Cancel(args.destGUID)

@@ -64,7 +64,7 @@ function mod:SPELL_CAST_START(args)
 		timerNextFear:Schedule(2)
 		warnFearSoon:Schedule(34)
 	elseif args:IsSpellID(64688, 64422) then --Sonic Screech
-		specWarnSonic:Show(TANK)
+		specWarnSonic:Show(DBM_COMMON_L.TANK)
 		specWarnSonic:Play("gathershare")
 		timerSonic:Start()
 		timerNextSonic:Start()

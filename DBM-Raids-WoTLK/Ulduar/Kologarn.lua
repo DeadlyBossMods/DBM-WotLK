@@ -66,7 +66,7 @@ end
 function mod:OnCombatStart(delay)
 	timerNextSmash:Start(10-delay)
 	timerNextEyebeam:Start(11-delay)
-	timerNextShockwave:Start(15.7-delay)
+	timerNextShockwave:Start(13.3-delay)
 	if self:IsClassic() then
 		DBM:AddMsg("Note: Eye beam targetting is disabled by Blizzard in classic, the settings for these features will not function in pre nerf state")
 	end

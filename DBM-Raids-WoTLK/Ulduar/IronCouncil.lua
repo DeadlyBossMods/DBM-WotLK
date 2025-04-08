@@ -103,8 +103,8 @@ function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
 	table.wipe(disruptTargets)
 	self.vb.disruptIcon = 7
-	timerRuneofPowerCD:Start(17.4-delay)--17-29.2, extremely variable
-	timerOverloadCD:Start(25.4-delay)--probably 25-35, extremely variable
+	timerRuneofPowerCD:Start("v16.7-29.2")--17-29.2, extremely variable
+	timerOverloadCD:Start("v25.4-35")--probably 25-35, extremely variable
 end
 
 function mod:RuneTarget(targetname, uId)

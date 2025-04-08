@@ -51,7 +51,7 @@ mod:AddSetIconOption("SlagPotIcon", 63477, false, 0, {8})
 function mod:OnCombatStart(delay)
 	self.vb.ConstructCount = 0
 	timerAchieve:Start()
-	timerActivateConstruct:Start(11-delay)
+	timerActivateConstruct:Start(11-delay, 1)
 	timerScorchCooldown:Start(12-delay)
 end
 

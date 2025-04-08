@@ -4,6 +4,7 @@ exclude_files = {
 	".luacheckrc"
 }
 ignore = {
+	"1..", -- Everything related to globals, the LuaLS check is better because it doesn't require us to define every single API functions
 	"211", -- Unused local variable
 	"211/L", -- Unused local variable "L"
 	"211/CL", -- Unused local variable "CL"
@@ -13,56 +14,4 @@ ignore = {
 	"311", -- Value assigned to a local variable is unused
 	"43.", -- Shadowing an upvalue, an upvalue argument, an upvalue loop variable.
 	"542", -- An empty if branch
-}
-globals = {
-	-- DBM
-	"DBM",
-	"DBM_CORE_L",
-	"DBM_COMMON_L",
-	"DBT",
-
-	-- Lua
-	"bit.band",
-	"table.wipe",
-	"time",
-
-	-- WoW
-	"COMBATLOG_OBJECT_AFFILIATION_MINE",
-	"COMBATLOG_OBJECT_TYPE_PLAYER",
-	"SCENARIO_STAGE",
-	"TANK",
-	"WOW_PROJECT_BURNING_CRUSADE_CLASSIC",
-	"WOW_PROJECT_CLASSIC",
-	"WOW_PROJECT_MAINLINE",
-	"WOW_PROJECT_ID",
-
-	"UIParent",
-
-	"C_UIWidgetManager",
-	"Ambiguate",
-	"CheckInteractDistance",
-	"CreateFrame",
-	"C_UIWidgetManager",
-	"GetLocale",
-	"GetTime",
-	"GetUnitName",
-	"IsInGroup",
-	"IsInRaid",
-	"SendChatMessage",
-	"SetRaidTarget",
-	"UnitAffectingCombat",
-	"UnitClass",
-	"UnitDebuff",
-	"UnitDetailedThreatSituation",
-	"UnitExists",
-	"UnitFactionGroup",
-	"UnitGetTotalAbsorbs",
-	"UnitGUID",
-	"UnitHealth",
-	"UnitHealthMax",
-	"UnitIsDeadOrGhost",
-	"UnitIsUnit",
-	"UnitInVehicle",
-	"UnitName",
-	"UnitPosition",
 }

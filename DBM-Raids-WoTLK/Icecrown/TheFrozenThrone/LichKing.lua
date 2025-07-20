@@ -98,7 +98,6 @@ mod:AddSetIconOption("RagingSpiritIcon", 69200, false, 0, {6})
 mod:AddSetIconOption("TrapIcon", 73539, true, 0, {7})
 mod:AddSetIconOption("ValkyrIcon", 71844, true, 5, {1, 2, 3})
 mod:AddSetIconOption("HarvestSoulIcon", 68980, false, 0, {5})
-mod:AddBoolOption("AnnounceValkGrabs", false, nil, nil, nil, nil, 71844)
 
 local warnedValkyrGUIDs = {}
 local plagueHop = DBM:GetSpellName(70338)--Hop spellID only, not cast one.
@@ -343,7 +342,6 @@ end
 
 do
 	local valkyrTargets = {}
-	local grabIcon = 1
 	local lastValk = 0
 	local UnitIsUnit, UnitInVehicle, IsInRaid = UnitIsUnit, UnitInVehicle, IsInRaid
 
@@ -357,21 +355,11 @@ do
 						specWarnYouAreValkd:Show()
 						specWarnYouAreValkd:Play("targetyou")
 					end
-					if IsInGroup() and self.Options.AnnounceValkGrabs and DBM:GetRaidRank() > 1 then
-						local channel = (IsInRaid() and "RAID") or "PARTY"
-						if self.Options.ValkyrIcon then
-							SendChatMessage(L.ValkGrabbedIcon:format(grabIcon, UnitName(uId)), channel)
-							grabIcon = grabIcon + 1--Makes assumption discovery order of vehicle grabs will match combat log order, since there is a delay
-						else
-							SendChatMessage(L.ValkGrabbed:format(UnitName(uId)), channel)
-						end
-					end
 				end
 			end
 			self:Schedule(0.5, scanValkyrTargets, self)  -- check for more targets in a few
 		else
 			table.wipe(valkyrTargets)       -- no more valkyrs this round, so lets clear the table
-			grabIcon = 1
 			self.vb.valkIcon = 1
 		end
 	end

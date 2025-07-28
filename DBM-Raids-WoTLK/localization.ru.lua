@@ -43,7 +43,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	timerMobOvercharge	= "Отсчет времени для моба с Перегрузкой (стакающего дебафф)",
+	timerMobOvercharge	= "Отсчет времени для моба с Перегрузкой (суммирующийся дебафф)",
 	EmalonEnrage		= "Отсчет времени до $spell:26662"
 }
 
@@ -119,8 +119,8 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningEmbraceExpire	= "Показывать предупреждение, когда Объятие Вдовы исчезает",
-	WarningEmbraceExpired	= "Показывать предупреждение, когда Объятие Вдовы закончится"
+	WarningEmbraceExpire	= "Показывать предупреждение, когда $spell:28732 исчезает",
+	WarningEmbraceExpired	= "Показывать предупреждение, когда $spell:28732 закончится"
 })
 
 L:SetMiscLocalization({
@@ -319,11 +319,11 @@ L:SetMiscLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningShieldWallSoon	= "Заранее предупреждать о скором исчезновении Стены костей"
+	WarningShieldWallSoon	= "Заранее предупреждать о скором исчезновении $spell:29061"
 })
 
 L:SetWarningLocalization({
-	WarningShieldWallSoon	= "Стена костей закончится через 5 сек."
+	WarningShieldWallSoon	= "Преграда из костей закончится через 5 сек."
 })
 
 ----------------------------
@@ -337,7 +337,7 @@ L:SetGeneralLocalization({
 
 L:SetOptionLocalization({
 	TimerWave			= "Отсчет времени до следующей волны",
-	TimerPhase2			= "Отсчет времени до фазы 2",
+	TimerPhase2			= "Отсчет времени до 2-й фазы",
 	WarningWaveSoon		= "Заранее предупреждать о следующей волне",
 	WarningWaveSpawned	= "Показывать предупреждение о появлении волны",
 	WarningRiderDown	= "Показывать предупреждение, когда Неодолимый всадник мертв",
@@ -377,10 +377,10 @@ L:SetGeneralLocalization({
 })
 
 L:SetOptionLocalization({
-	WarningMarkSoon				= "Заранее предупреждать перед следующими знаками",
-	WarningMarkNow				= "Показывать предупреждение для знаков",
+	WarningMarkSoon				= "Заранее предупреждать перед следующими Метками",
+	WarningMarkNow				= "Показывать предупреждение для Меток",
 	SpecialWarningMarkOnPlayer	= "Спецпредупреждение, когда на Вас более 4-х знаков",
-	timerMark					= "Отсчёт времени до следующего знака Всадника (со счётчиком)"
+	timerMark					= "Отсчёт времени до следующей Метки Всадника (со счётчиком)"
 })
 
 L:SetTimerLocalization({
@@ -656,7 +656,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetOptionLocalization{
-	AlwaysWarnOnOverload		= "Всегда предупреждать при $spell:63481<br/>(иначе, только когда босс в цели)"
+	AlwaysWarnOnOverload		= "Всегда предупреждать о $spell:63481<br/>(в противном случае, только когда босс в цели)"
 }
 
 L:SetMiscLocalization{
@@ -693,12 +693,12 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
+	HealthInfo				= "Исцеление для звезды",
 	YellPull				= "Ваши действия нелогичны. Все возможные исходы этой схватки просчитаны. Пантеон получит сообщение от Наблюдателя в любом случае.",
 	YellKill				= "Я видел миры, охваченные пламенем Творцов. Их жители гибли, не успев издать ни звука. Я был свидетелем того, как галактики рождались и умирали в мгновение ока. И все время я оставался холодным... и безразличным. Я. Не чувствовал. Ничего. Триллионы загубленных судеб. Неужели все они были подобны вам? Неужели все они так же любили жизнь?",
 	Emote_CollapsingStar	= "%s призывает вспыхивающие звезды!",
 	Phase2					= "Узрите чудо созидания!",
-	FirstPull				= "Взгляните на мир моими глазами: узрите необъятную вселенную, непостижимую даже для величайших умов.",
-	PullCheck				= "Алгалон подаст сигнал бедствия через (%d+) мин."
+	FirstPull				= "Взгляните на мир моими глазами: узрите необъятную вселенную, непостижимую даже для величайших умов."
 }
 
 ----------------
@@ -904,7 +904,7 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	specWarnAnimus 	= "Показывать спецпредупреждение для переключения целей на Саронитового анимуса",
-	hardmodeSpawn	= "Показать таймер появления Саронитового анимуса (сложный режим)"
+	hardmodeSpawn	= "Показывать таймер появления Саронитового анимуса (сложный режим)"
 }
 
 L:SetMiscLocalization{
@@ -1440,8 +1440,8 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrapL		= "Показывать спецпредупреждение для активации ловушки",
-	SpecWarnTrapP		= "Показывать спецпредупреждение для активации ловушки",
+	SpecWarnTrapL		= "Показывать спецпредупреждение для активации ловушки Заклятого стража",
+	SpecWarnTrapP		= "Показывать спецпредупреждение для активации ловушки Мстительных свежевателей",
 	SpecWarnGosaEvent	= "Показывать спецпредупреждение для активации защитников Синдрагосы"
 }
 
@@ -1531,7 +1531,7 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	Halion					= "Халион",
---	PhysicalRealm			= "Реальный мир", -- Needs validation
+	PhysicalRealm			= "Физический мир",
 	MeteorCast				= "Небеса в огне!",
 	Phase2					= "В мире сумерек вы найдете лишь страдания! Входите, если посмеете!",
 	Phase3					= "Я есть свет и я есть тьма! Трепещите, ничтожные, перед посланником Смертокрыла!",

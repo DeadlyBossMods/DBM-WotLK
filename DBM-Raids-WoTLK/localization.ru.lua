@@ -43,7 +43,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	timerMobOvercharge	= "Отсчет времени для моба с Перегрузкой (суммирующийся дебафф)",
+	timerMobOvercharge	= "Отсчет времени до моба с $spell:64218 (суммирующийся дебафф)",
 	EmalonEnrage		= "Отсчет времени до $spell:26662"
 }
 
@@ -95,7 +95,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetOptionLocalization({
-	ArachnophobiaTimer	= "Отсчет времени до 'Арахнофобия' (достижение)"
+	ArachnophobiaTimer	= "Отсчет времени до \"Арахнофобия\" (достижение)"
 })
 
 L:SetMiscLocalization({
@@ -148,7 +148,7 @@ L:SetTimerLocalization({
 L:SetOptionLocalization({
 	WarningSpidersSoon	= "Показывать предупреждение перед следующим призывом Паученышей Мексны",
 	WarningSpidersNow	= "Показывать предупреждение для призыва Паученышей Мексны",
-	TimerSpider			= "Отсчет времени до Паученышей Мексны"
+	TimerSpider			= "Отсчет времени до появления Паученышей Мексны"
 })
 
 L:SetMiscLocalization({
@@ -208,7 +208,7 @@ L:SetTimerLocalization({
 L:SetOptionLocalization({
 	WarningTeleportNow	= "Показывать предупреждение о телепортации",
 	WarningTeleportSoon	= "Показывать предупреждение перед следующей телепортацией",
-	TimerTeleport		= "Отсчет времени до телепортации"
+	TimerTeleport		= "Отсчет времени до следующей телепортации"
 })
 
 L:SetMiscLocalization({
@@ -413,8 +413,8 @@ L:SetOptionLocalization({
 	WarningAirPhaseSoon	= "Заранее предупреждать о приближении Воздушной фазы",
 	WarningAirPhaseNow	= "Показывать предупреждение о Воздушной фазе",
 	WarningLanded		= "Показывать предупреждение о Наземной фазе",
-	TimerAir			= "Отсчет времени до Воздушной фазы",
-	TimerLanding		= "Отсчет времени до приземления"
+	TimerAir			= "Отсчет времени до следующей Воздушной фазы",
+	TimerLanding		= "Отсчет времени до следующего приземления"
 })
 
 L:SetMiscLocalization({
@@ -623,10 +623,10 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	warnTurretsReadySoon		= "Заранее предупреждать о пушках",
 	warnTurretsReady			= "Показывать предупреждение для пушек",
-	timerTurret1				= "Отсчет времени до пушки 1",
-	timerTurret2				= "Отсчет времени до пушки 2",
-	timerTurret3				= "Отсчет времени до пушки 3 (25 чел. Классика или Актуал)",
-	timerTurret4				= "Отсчет времени до пушки 4 (25 чел. Классика или Актуал)",
+	timerTurret1				= "Отсчет времени до появления 1-й пушки",
+	timerTurret2				= "Отсчет времени до появления 2-й пушки",
+	timerTurret3				= "Отсчет времени до появления 3-й пушки (25 чел. Классика или Актуал)",
+	timerTurret4				= "Отсчет времени до появления 4-й пушки (25 чел. Классика или Актуал)",
 	timerGrounded			    = "Отсчет времени до продолжительности наземной фазы"
 }
 
@@ -719,7 +719,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	timerLeftArm			= "Отсчет времени до Возрождения левой руки",
 	timerRightArm			= "Отсчет времени до Возрождения правой руки",
-	achievementDisarmed		= "Отсчет времени для достижения Обезоружен"
+	achievementDisarmed		= "Отсчет времени для достижения \"Обезоружен\""
 }
 
 L:SetMiscLocalization{
@@ -796,7 +796,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerHardmode	= "Отсчет времени для сложного режима",
+	TimerHardmode	= "Отсчет времени до сложного режима",
 }
 
 L:SetMiscLocalization{
@@ -871,7 +871,7 @@ L:SetOptionLocalization{
 	TimeToPhase4			= "Отсчет времени до 4-й фазы",
 	MagneticCore			= "Показывать предупреждение о тех, кто подобрал Магнитное ядро",
 	WarnBombSpawn			= "Показывать предупреждение о Бомботах",
-	TimerHardmode			= "Отсчет времени для сложного режима"
+	TimerHardmode			= "Отсчет времени до сложного режима"
 }
 
 L:SetMiscLocalization{
@@ -904,7 +904,7 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	specWarnAnimus 	= "Показывать спецпредупреждение для переключения целей на Саронитового анимуса",
-	hardmodeSpawn	= "Показывать таймер появления Саронитового анимуса (сложный режим)"
+	hardmodeSpawn	= "Отсчет времени до появления Саронитового анимуса (сложный режим)"
 }
 
 L:SetMiscLocalization{
@@ -969,7 +969,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	TimerWhelps				= "Отсчет времени до дракончиков Ониксии",
+	TimerWhelps				= "Отсчет времени до появления дракончиков Ониксии",
 	WarnWhelpsSoon			= "Заранее предупреждать о дракончиках Ониксии",
 	SoundWTF3				= "Воспроизводить забавное озвучивание легендарного классического рейда на Ониксию (англ.)"
 }
@@ -1061,7 +1061,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerSpecialSpell	= "След. спецспособность"
+	TimerSpecialSpell	= "След. Спецспособность"
 }
 
 L:SetWarningLocalization{
@@ -1343,7 +1343,7 @@ L:SetOptionLocalization{
 	TimerPortalsOpen			= "Отсчет времени до открытия порталов кошмаров",
 	TimerPortalsClose			= "Отсчет времени до закрытия порталов кошмаров",
 	TimerBlazingSkeleton		= "Отсчет времени до Исторгающего пламя скелета",
-	TimerAbom					= "Отсчет времени до след. Прожорливого поганища (экспериментальный)"
+	TimerAbom					= "Отсчет времени до следующего Прожорливого поганища (экспериментально)"
 }
 
 L:SetMiscLocalization{
@@ -1525,7 +1525,7 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	TwilightCutterCast		= "Предупреждать о применении заклинания $spell:74769",
+	TwilightCutterCast		= "Показывать предупреждение о применении заклинания $spell:74769",
 	AnnounceAlternatePhase	= "Показывать предупреждения и таймеры для обоих миров"
 })
 

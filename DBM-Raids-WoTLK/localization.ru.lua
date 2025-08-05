@@ -823,7 +823,7 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill	= "Первый помощник погиб - воскрешение через ~12 сек."
+	WarnSimulKill	= "Первый адд погиб - воскрешение через ~12 сек."
 }
 
 L:SetTimerLocalization{
@@ -831,8 +831,8 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	WarnSimulKill	= "Показывать предупреждение, когда первый моб погибает",
-	TimerSimulKill	= "Отсчет времени до воскрешения мобов"
+	WarnSimulKill	= "Показывать предупреждение, когда первый адд погибает",
+	TimerSimulKill	= "Отсчет времени до воскрешения аддов"
 }
 
 ----------------------
@@ -1104,7 +1104,7 @@ L:SetGeneralLocalization{
 L:SetTimerLocalization{
 	TimerEmerge				= "Появление через",
 	TimerSubmerge			= "Зарывание через",
-	timerAdds				= "Новые помощники"
+	timerAdds				= "Новые адды"
 }
 
 L:SetWarningLocalization{
@@ -1113,7 +1113,7 @@ L:SetWarningLocalization{
 	WarnSubmerge			= "Ануб'арак закапывается",
 	WarnSubmergeSoon		= "Зарывание через 10 сек.",
 	specWarnSubmergeSoon	= "Зарывание через 10 сек.!",
-	warnAdds				= "Новые помощники"
+	warnAdds				= "Новые адды"
 }
 
 L:SetOptionLocalization{
@@ -1122,8 +1122,8 @@ L:SetOptionLocalization{
 	WarnSubmerge			= "Показывать предупреждение о закапывании",
 	WarnSubmergeSoon		= "Заранее предупреждать о закапывании",
 	specWarnSubmergeSoon	= "Показывать спецпредупреждение о скором закапывании",
-	warnAdds				= "Показывать предупреждение о призыве помощников",
-	timerAdds				= "Отсчет времени до призыва помощников",
+	warnAdds				= "Показывать предупреждение о призыве аддов",
+	timerAdds				= "Отсчет времени до призыва аддов",
 	TimerEmerge				= "Отсчет времени до появления",
 	TimerSubmerge			= "Отсчет времени до закапывания"
 }
@@ -1155,23 +1155,23 @@ L:SetGeneralLocalization{
 }
 
 L:SetTimerLocalization{
-	TimerAdds	= "Новые помощники"
+	TimerAdds	= "Новые адды"
 }
 
 L:SetWarningLocalization{
-	WarnReanimating				= "Помощник воскрешается",
-	WarnAddsSoon				= "Скоро призыв помощников"
+	WarnReanimating				= "Адд воскрешается",
+	WarnAddsSoon				= "Скоро призыв аддов"
 }
 
 L:SetOptionLocalization{
-	WarnAddsSoon				= "Заранее предупреждать о призыве помощников",
-	WarnReanimating				= "Показывать предупреждение при воскрешении помощников",
-	TimerAdds					= "Отсчет времени до призыва помощников"
+	WarnAddsSoon				= "Заранее предупреждать о призыве аддов",
+	WarnReanimating				= "Показывать предупреждение при воскрешении аддов",
+	TimerAdds					= "Отсчет времени до призыва аддов"
 }
 
 L:SetMiscLocalization{
 	YellReanimatedFanatic	= "Восстань и обрети истинную форму!",
-	ReanimatedAdd			= "Реанимированный помощник"
+	ReanimatedAdd			= "Реанимированный адд"
 }
 
 ----------------------
@@ -1184,16 +1184,16 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnAddsSoon	= "Скоро новые помощники"
+	WarnAddsSoon	= "Скоро новые адды"
 }
 
 L:SetOptionLocalization{
-	WarnAddsSoon		= "Заранее предупреждать о призыве помощников",
-	TimerAdds			= "Отсчет времени до новых помощников"
+	WarnAddsSoon		= "Заранее предупреждать о призыве аддов",
+	TimerAdds			= "Отсчет времени до новых аддов"
 }
 
 L:SetTimerLocalization{
-	TimerAdds			= "Новые помощники"
+	TimerAdds			= "Новые адды"
 }
 
 L:SetMiscLocalization{
@@ -1493,17 +1493,17 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	WarnAdds	= "Новые помощники",
+	WarnAdds	= "Новые адды",
 	warnCleaveArmor	= "%s на >%s< (%s)"
 })
 
 L:SetTimerLocalization({
-	TimerAdds	= "Новые помощники"
+	TimerAdds	= "Новые адды"
 })
 
 L:SetOptionLocalization({
-	WarnAdds		= "Показывать предупреждение о новых помощниках",
-	TimerAdds		= "Отсчет времени до новых помощников",
+	WarnAdds		= "Показывать предупреждение о новых аддах",
+	TimerAdds		= "Отсчет времени до новых аддов",
 	warnCleaveArmor	= DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.spell:format(74367)
 })
 

@@ -291,7 +291,7 @@ L:SetMiscLocalization({
 L:SetOptionLocalization({
 	WarningChargeChanged	= "Показывать предупреждение, когда Ваша полярность изменена",
 	WarningChargeNotChanged	= "Показывать предупреждение, когда Ваша полярность не изменена",
-	AirowEnabled			= "Показывать стрелки во время смены полярности",
+	AirowEnabled			= "Показывать стрелки во время изменения полярности",
 	TwoCamp					= "Показывать стрелки (обычная \"2-сторонняя\" стратегия)",
 	ArrowsRightLeft			= "Показывать стрелки влево/вправо для \"4-сторонней\" стратегии (показать стрелку влево, если полярность изменилась, вправо - не изменилась)",
 	ArrowsInverse			= "Обратная \"4-сторонняя\" стратегия (вправо, если полярность изменена, влево - не изменена)"
@@ -1066,7 +1066,7 @@ L:SetTimerLocalization{
 
 L:SetWarningLocalization{
 	WarnSpecialSpellSoon		= "Скоро спецспособность",
-	SpecWarnSpecial				= "Смена цвета",
+	SpecWarnSpecial				= "Изменение цвета",
 	SpecWarnSwitchTarget		= "Смена цели",
 	SpecWarnKickNow				= "Прерывание",
 	WarningTouchDebuff			= "Отрицательный эффект на >%s<",
@@ -1081,7 +1081,7 @@ L:SetMiscLocalization{
 L:SetOptionLocalization{
 	TimerSpecialSpell			= "Отсчет времени до перезарядки спецспособности",
 	WarnSpecialSpellSoon		= "Заранее предупреждать о следующей спецспособности",
-	SpecWarnSpecial				= "Показывать спецпредупреждение для смены цветов",
+	SpecWarnSpecial				= "Показывать спецпредупреждение для изменения цветов",
 	SpecWarnSwitchTarget		= "Показывать спецпредупреждение для других, когда босс произносит заклинание",
 	SpecWarnKickNow				= "Показывать спецпредупреждение, когда Вы должны прервать заклинание",
 	SpecialWarnOnDebuff			= "Показывать спецпредупреждение, когда отрицательный эффект",

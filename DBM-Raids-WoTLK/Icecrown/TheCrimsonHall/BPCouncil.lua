@@ -54,7 +54,6 @@ local berserkTimer				= mod:NewBerserkTimer(600)
 
 mod:AddSetIconOption("EmpoweredFlameIcon", 72040, true, 0, {7})
 mod:AddSetIconOption("ActivePrinceIcon", nil, false, 5, {8}, nil, 70952)
-mod:AddRangeFrameOption(13, 72037)
 
 mod.vb.kineticCount = 0
 
@@ -72,15 +71,9 @@ function mod:OnCombatStart(delay)
 	warnTargetSwitchSoon:Schedule(42-delay)
 	timerTargetSwitch:Start(-delay)
 	table.wipe(glitteringSparksTargets)
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Show(13)
-	end
 end
 
 function mod:OnCombatEnd()
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Hide()
-	end
 end
 
 function mod:ShockVortexTarget(targetname, uId)
@@ -95,10 +88,6 @@ function mod:ShockVortexTarget(targetname, uId)
 	else
 		warnShockVortex:Show(targetname)
 	end
-end
-
-function mod:HideRange()
-	DBM.RangeCheck:Hide()
 end
 
 function mod:SPELL_CAST_START(args)
@@ -124,9 +113,6 @@ function mod:SPELL_AURA_APPLIED(args)
 			warnTargetSwitch:Show(L.Valanar)
 			warnTargetSwitchSoon:Schedule(42)
 			timerTargetSwitch:Start()
-			if self.Options.RangeFrame then
-				DBM.RangeCheck:Show(13)
-			end
 		end
 		if self.Options.ActivePrinceIcon then
 			self:ScanForMobs(args.destGUID, 2, 8, 1, nil, 12, "ActivePrinceIcon")
@@ -135,9 +121,6 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnTargetSwitch:Show(L.Keleseth)
 		warnTargetSwitchSoon:Schedule(42)
 		timerTargetSwitch:Start()
-		if self.Options.RangeFrame then
-			self:ScheduleMethod(4.5, "HideRange")--delay hiding range frame for a few seconds after change incase valanaar got a last second vortex cast off
-		end
 		if self.Options.ActivePrinceIcon then
 			self:ScanForMobs(args.destGUID, 2, 8, 1, nil, 12, "ActivePrinceIcon")
 		end
@@ -145,9 +128,6 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnTargetSwitch:Show(L.Taldaram)
 		warnTargetSwitchSoon:Schedule(42)
 		timerTargetSwitch:Start()
-		if self.Options.RangeFrame then
-			self:ScheduleMethod(4.5, "HideRange")--delay hiding range frame for a few seconds after change incase valanaar got a last second vortex cast off
-		end
 		if self.Options.ActivePrinceIcon then
 			self:ScanForMobs(args.destGUID, 2, 8, 1, nil, 12, "ActivePrinceIcon")
 		end

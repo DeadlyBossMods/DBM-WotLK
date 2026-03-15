@@ -163,9 +163,6 @@ function mod:OnSync(msg)
 			self:Schedule(10, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\throw-more-dots.ogg")
 			self:Schedule(18, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\whelps-left-side-even-side-handle-it.ogg")
 		end
-		if self.Options.RangeFrame then
-			DBM.RangeCheck:Show(8)
-		end
 	elseif msg == "Phase3" then
 		self:SetStage(3)
 		warnPhase3:Show()
@@ -178,9 +175,6 @@ function mod:OnSync(msg)
 			self:Schedule(15, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\dps-very-very-slowly.ogg")
 			self:Schedule(35, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\hit-it-like-you-mean-it.ogg")
 			self:Schedule(45, DBM.PlaySoundFile, DBM, "Interface\\AddOns\\DBM-Raids-WoTLK\\Onyxia\\sounds\\now-hit-it-very-hard-and-fast.ogg")
-		end
-		if self.Options.RangeFrame then
-			DBM.RangeCheck:Hide()
 		end
 	end
 end

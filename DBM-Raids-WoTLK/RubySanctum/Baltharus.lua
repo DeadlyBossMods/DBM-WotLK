@@ -31,7 +31,6 @@ local timerRepellingWave	= mod:NewCastTimer(4, 74509, nil, nil, nil, 2)--1 secon
 local timerBrand			= mod:NewBuffActiveTimer(10, 74505, nil, nil, nil, 5)
 
 mod:AddSetIconOption("SetIconOnBrand", 74505, false, 0, {1, 2, 3, 4, 5, 6, 7, 8})
-mod:AddRangeFrameOption(12, 74505)
 
 mod.vb.warnedSplit1	= false
 mod.vb.warnedSplit2	= false
@@ -51,15 +50,9 @@ function mod:OnCombatStart(delay)
 	self.vb.warnedSplit3 = false
 	table.wipe(brandTargets)
 	self.vb.brandIcon = 8
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Show(12)
-	end
 end
 
 function mod:OnCombatEnd()
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Hide()
-	end
 end
 
 function mod:SPELL_CAST_START(args)

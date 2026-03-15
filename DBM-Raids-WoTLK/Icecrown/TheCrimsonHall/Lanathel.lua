@@ -54,7 +54,6 @@ local berserkTimer					= mod:NewBerserkTimer(320)
 mod:AddSetIconOption("BloodMirrorIcon", 71510, false, 0, {7})--red x for blood link
 mod:AddSetIconOption("SwarmingShadowsIcon2", 71266, false, 0, {4})
 mod:AddSetIconOption("SetIconOnDarkFallen2", 71340, false, 0, {1, 2, 3})
-mod:AddRangeFrameOption(8, 71446)
 
 local pactTargets = {}
 mod.vb.pactIcons = 1
@@ -73,9 +72,6 @@ function mod:OnCombatStart(delay)
 	timerNextSwarmingShadows:Start(-delay)
 	table.wipe(pactTargets)
 	self.vb.pactIcons = 1
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Show(8)
-	end
 	if self:IsDifficulty("normal10", "heroic10") then
 		timerNextInciteTerror:Start(124-delay)
 	else
@@ -84,9 +80,6 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:OnCombatEnd()
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Hide()
-	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)

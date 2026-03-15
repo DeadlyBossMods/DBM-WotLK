@@ -46,7 +46,6 @@ local timerLightningCharge	 		= mod:NewCDTimer(16, 62466, nil, nil, nil, 3)
 local timerUnbalancingStrike		= mod:NewCDTimer(25.6, 62130, nil, "Tank", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerHardmode					= mod:NewTimer(175, "TimerHardmode", 62042)
 
-mod:AddRangeFrameOption("8")
 mod:AddSetIconOption("SetIconOnBomb", 62526, false, 0, {7})
 
 local lastcharge = {}
@@ -55,16 +54,10 @@ function mod:OnCombatStart(delay)
 	self:SetStage(1)
 	enrageTimer:Start()
 	timerHardmode:Start()
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Show(8)
-	end
 	table.wipe(lastcharge)
 end
 
 function mod:OnCombatEnd()
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Hide()
-	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)

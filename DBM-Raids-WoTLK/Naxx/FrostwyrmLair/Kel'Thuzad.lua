@@ -55,7 +55,6 @@ local timerPhase2			= mod:NewTimer(215, "TimerPhase2", "136116", nil, nil, 6)
 mod:AddSetIconOption("SetIconOnMC", 28410, true, 0, {1, 2, 3})
 mod:AddSetIconOption("SetIconOnManaBomb", 27819, false, 0, {8})
 mod:AddSetIconOption("SetIconOnFrostTomb", 27808, true, 0, {1, 2, 3, 4, 5, 6, 7, 8})
-mod:AddRangeFrameOption(10, 27819)
 
 mod.vb.warnedAdds = false
 mod.vb.MCIcon = 1
@@ -84,14 +83,6 @@ local function AnnounceBlastTargets(self)
 	end
 end
 
-local function RangeToggle(show)
-	if show then
-		DBM.RangeCheck:Show(10)
-	else
-		DBM.RangeCheck:Hide()
-	end
-end
-
 function mod:OnCombatStart(delay)
 	self:SetStage(1)
 	table.wipe(chainsTargets)
@@ -103,16 +94,10 @@ function mod:OnCombatStart(delay)
 	--Redundancy below here isn't needed on retail but may be on wrath classic
 	if not isRetail then
 		warnPhase2:Schedule(220)
-		if self.Options.RangeFrame then
-			self:Schedule(220-delay, RangeToggle, true)
-		end
 	end
 end
 
 function mod:OnCombatEnd()
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Hide()
-	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
@@ -191,13 +176,9 @@ end
 
 function mod:UNIT_TARGETABLE_CHANGED()
 	if self.vb.phase == 1 then
-		self:Unschedule(RangeToggle)
 		warnPhase2:Cancel()
 		self:SetStage(2)
 		warnPhase2:Show()
 		warnPhase2:Play("ptwo")
-		if self.Options.RangeFrame then
-			DBM.RangeCheck:Show(10)
-		end
 	end
 end

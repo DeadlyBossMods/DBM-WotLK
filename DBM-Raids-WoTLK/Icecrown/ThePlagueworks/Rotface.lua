@@ -45,7 +45,6 @@ local timerMutatedInfection		= mod:NewTargetTimer(12, 69674, nil, nil, nil, 5)
 local timerOozeExplosion		= mod:NewCastTimer(4, 69839, nil, nil, nil, 2)
 local timerVileGasCD			= mod:NewNextTimer(30, 72272, nil, nil, nil, 3)
 
-mod:AddRangeFrameOption(8, 72272, "Ranged")
 mod:AddSetIconOption("InfectionIcon", 69674, true, 0, {1, 2})
 
 local spamOoze = 0
@@ -66,9 +65,6 @@ function mod:OnCombatStart(delay)
 	spamOoze = 0
 	if self:IsDifficulty("heroic10", "heroic25") then
 		timerVileGasCD:Start(22-delay)
-		if self.Options.RangeFrame then
-			DBM.RangeCheck:Show(8)
-		end
 	end
 	if not self:IsTrivial() then
 		self:RegisterShortTermEvents(
@@ -82,9 +78,6 @@ end
 
 function mod:OnCombatEnd()
 	self:UnregisterShortTermEvents()
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Hide()
-	end
 end
 
 function mod:SPELL_CAST_START(args)

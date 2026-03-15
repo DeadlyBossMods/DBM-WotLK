@@ -23,7 +23,7 @@ mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 62437 62859",
 	"SPELL_CAST_SUCCESS 62678 62619 63571 62589 63601",
 	"SPELL_AURA_APPLIED 62861 62438 62451 62865",
-	"SPELL_AURA_REMOVED 62519 62861 62438 63571 62589",
+	"SPELL_AURA_REMOVED 62519 62861 62438",
 	"UNIT_DIED",
 	"CHAT_MSG_MONSTER_YELL"
 )
@@ -57,7 +57,6 @@ local timerRootsCD 			= mod:NewCDTimer(13.6, 62438, nil, nil, nil, 3)--13.6-29.6
 
 mod:AddSetIconOption("SetIconOnFury", 63571, false, 0, {7, 8})
 mod:AddSetIconOption("SetIconOnRoots", 62438, false, 0, {6, 5, 4})
-mod:AddRangeFrameOption(8, 63571)
 
 local adds = {}
 mod.vb.altIcon = true
@@ -73,9 +72,6 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:OnCombatEnd()
-	if self.Options.RangeFrame then
-		DBM.RangeCheck:Hide()
-	end
 end
 
 function mod:SPELL_CAST_START(args)
@@ -102,9 +98,6 @@ function mod:SPELL_CAST_SUCCESS(args)
 			specWarnFury:Show()
 			specWarnFury:Play("runout")
 			yellFury:Yell()
-			if self.Options.RangeFrame then
-				DBM.RangeCheck:Show(8)
-			end
 		else
 			warnFury:Show(args.destName)
 		end
@@ -140,8 +133,6 @@ function mod:SPELL_AURA_REMOVED(args)
 			self:RemoveIcon(args.destName)
 		end
 		self.vb.iconId = self.vb.iconId + 1
-	elseif args:IsSpellID(63571, 62589) and args:IsPlayer() and self.Options.RangeFrame then -- Nature's Fury
-		DBM.RangeCheck:Hide()
 	end
 end
 

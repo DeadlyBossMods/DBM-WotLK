@@ -4,6 +4,7 @@ local L		= mod:GetLocalizedStrings()
 mod.statTypes = "normal,normal25,heroic,heroic25"
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 mod:SetCreatureID(39863)--40142 (twilight form)
 mod:SetEncounterID(not mod:IsPostCata() and 887 or 1150)
 mod:SetModelID(31952)

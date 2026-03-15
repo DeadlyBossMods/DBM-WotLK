@@ -4,6 +4,7 @@ local L		= mod:GetLocalizedStrings()
 mod.statTypes = "normal,normal25,heroic,heroic25"
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 mod:SetCreatureID(37970, 37972, 37973)
 mod:SetEncounterID(not mod:IsPostCata() and 852 or 1095)
 mod:DisableEEKillDetection()--IEEU fires for this boss.

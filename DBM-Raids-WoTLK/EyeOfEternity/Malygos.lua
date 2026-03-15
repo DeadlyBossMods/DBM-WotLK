@@ -2,6 +2,7 @@ local mod	= DBM:NewMod("Malygos", "DBM-Raids-WoTLK", 6)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 mod:SetCreatureID(28859)
 mod:SetEncounterID(1094)
 mod:SetModelID(26752)

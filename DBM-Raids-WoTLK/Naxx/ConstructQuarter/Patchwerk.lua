@@ -2,6 +2,7 @@ local mod	= DBM:NewMod("Patchwerk", "DBM-Raids-WoTLK", 8)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 mod:SetCreatureID(16028)
 mod:SetEncounterID(1118)
 mod:SetModelID(16174)

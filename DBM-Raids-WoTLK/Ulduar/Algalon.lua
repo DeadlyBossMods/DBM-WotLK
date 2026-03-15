@@ -6,6 +6,7 @@ if not mod:IsClassic() then--on classic, it's normal10,normal25, defined in toc,
 end
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 mod:SetCreatureID(32871)
 if mod:IsPostCata() then--Assumed fixed in classic
 	mod:SetEncounterID(1130)

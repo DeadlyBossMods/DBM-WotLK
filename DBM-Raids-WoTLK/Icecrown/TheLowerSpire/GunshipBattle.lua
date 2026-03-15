@@ -4,6 +4,7 @@ local L		= mod:GetLocalizedStrings()
 mod.statTypes = "normal,normal25,heroic,heroic25"
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 local addsIcon
 local bossID
 mod:SetEncounterID(not mod:IsPostCata() and 847 or 1099)--No ES fires this combat

@@ -2,6 +2,7 @@ local mod	= DBM:NewMod("Grobbulus", "DBM-Raids-WoTLK", 8)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 mod:SetCreatureID(15931)
 mod:SetEncounterID(1111)
 mod:SetUsedIcons(1, 2, 3, 4)

@@ -37,8 +37,6 @@ function mod:OnCombatStart(delay)
 	timerEmalonEnrage:Start(-delay)
 end
 
-function mod:OnCombatEnd()
-end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 64216 or args.spellId == 65279 then

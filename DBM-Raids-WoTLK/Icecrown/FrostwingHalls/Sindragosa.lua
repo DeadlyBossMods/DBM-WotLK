@@ -67,7 +67,6 @@ local beaconTargets		= {}
 local unchainedTargets	= {}
 mod.vb.warned_P2 = false
 mod.vb.unchainedIcons = 2
-local playerUnchained = false
 local playerBeaconed = false
 mod.vb.beaconCount = 0
 
@@ -86,7 +85,6 @@ local function warnUnchainedTargets(self)
 	end
 	table.wipe(unchainedTargets)
 	self.vb.unchainedIcons = 2
-	playerUnchained = false
 end
 
 function mod:OnCombatStart(delay)
@@ -98,12 +96,9 @@ function mod:OnCombatStart(delay)
 	table.wipe(beaconTargets)
 	table.wipe(unchainedTargets)
 	self.vb.unchainedIcons = 2
-	playerUnchained = false
 	playerBeaconed = false
 end
 
-function mod:OnCombatEnd()
-end
 
 function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(69649, 73061) then--Frost Breath
@@ -154,7 +149,6 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args.spellId == 69762 then
 		unchainedTargets[#unchainedTargets + 1] = args.destName
 		if args:IsPlayer() then
-			playerUnchained = true
 			specWarnUnchainedMagic:Show()
 			specWarnUnchainedMagic:Play("targetyou")
 		end

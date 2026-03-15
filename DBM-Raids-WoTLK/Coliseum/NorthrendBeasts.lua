@@ -103,8 +103,6 @@ function mod:OnCombatStart(delay)
 	timerRisingAnger:Start(25-delay)
 end
 
-function mod:OnCombatEnd()
-end
 
 --These remain methods since they can't reverse schedule each other as local functions
 function mod:WormsEmerge()

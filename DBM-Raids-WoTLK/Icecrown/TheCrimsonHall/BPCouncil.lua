@@ -73,8 +73,6 @@ function mod:OnCombatStart(delay)
 	table.wipe(glitteringSparksTargets)
 end
 
-function mod:OnCombatEnd()
-end
 
 function mod:ShockVortexTarget(targetname, uId)
 	if not targetname then return end

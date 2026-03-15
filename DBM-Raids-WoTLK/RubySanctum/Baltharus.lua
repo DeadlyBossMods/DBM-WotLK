@@ -52,8 +52,6 @@ function mod:OnCombatStart(delay)
 	self.vb.brandIcon = 8
 end
 
-function mod:OnCombatEnd()
-end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 74509 then

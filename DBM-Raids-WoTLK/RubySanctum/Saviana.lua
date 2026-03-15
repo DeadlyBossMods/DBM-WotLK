@@ -50,8 +50,6 @@ function mod:OnCombatStart(delay)
 	self.vb.beaconIcon = 8
 end
 
-function mod:OnCombatEnd()
-end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 74403 then

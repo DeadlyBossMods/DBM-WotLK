@@ -57,8 +57,6 @@ function mod:OnCombatStart(delay)
 	table.wipe(lastcharge)
 end
 
-function mod:OnCombatEnd()
-end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args.spellId == 62042 and self:CheckBossDistance(args.sourceGUID, true, 34471) then--Within range of Vial of the Sunwell (43)

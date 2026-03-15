@@ -71,8 +71,6 @@ function mod:OnCombatStart(delay)
 	timerAlliesOfNature:Start(10-delay)
 end
 
-function mod:OnCombatEnd()
-end
 
 function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(62437, 62859) then

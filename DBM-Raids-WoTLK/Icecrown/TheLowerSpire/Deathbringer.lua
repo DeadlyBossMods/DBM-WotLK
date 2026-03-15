@@ -78,8 +78,6 @@ function mod:OnCombatStart(delay)
 	self.vb.Mark = 0
 end
 
-function mod:OnCombatEnd()
-end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 72378 then

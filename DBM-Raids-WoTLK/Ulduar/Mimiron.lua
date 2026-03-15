@@ -111,8 +111,6 @@ function mod:OnCombatStart(delay)
 	self:Schedule(15, unfuckWipeTimer, self)
 end
 
-function mod:OnCombatEnd()
-end
 
 function mod:SPELL_CAST_START(args)
 	if args.spellId == 63631 then

@@ -42,7 +42,7 @@ local yellLifeLeech				= mod:NewYell(63276)
 local specWarnSearingFlames		= mod:NewSpecialWarningInterruptCount(62661, "HasInterrupt", nil, nil, 1, 2)
 local specWarnAnimus
 if WOW_PROJECT_ID == (WOW_PROJECT_MAINLINE or 1) then
-	specWarnAnimus			= mod:NewSpecialWarningSwitch("ej17651", nil, nil, nil, 1, 2)
+	specWarnAnimus			= mod:NewSpecialWarningSwitch(-17651, nil, nil, nil, 1, 2)
 else
 	specWarnAnimus			= mod:NewSpecialWarning("specWarnAnimus", nil, nil, nil, 1, 2)
 end

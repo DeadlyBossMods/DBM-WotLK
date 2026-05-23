@@ -19,9 +19,9 @@ mod:RegisterEvents(
 	"SPELL_AURA_REMOVED 62310 62928"
 )
 
-local specWarnImpale			= mod:NewSpecialWarningTaunt(62928, nil, nil, nil, 1, 2)
-local specWarnFistofStone		= mod:NewSpecialWarningRun(62344, "Tank", nil, nil, 4, 2)
-local specWarnGroundTremor		= mod:NewSpecialWarningCast(62932, "SpellCaster", nil, nil, 2, 2)
+local specWarnImpale			= mod:NewSpecialWarningTaunt(62928, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnFistofStone		= mod:NewSpecialWarningRun(62344, "Tank", nil, nil, 4, 2, nil, nil, "justrun")
+local specWarnGroundTremor		= mod:NewSpecialWarningCast(62932, "SpellCaster", nil, nil, 2, 2, nil, nil, "stopcast")
 
 local timerImpale				= mod:NewTargetTimer(5, 62928, nil, "Healer|Tank", nil, 5)
 

@@ -30,8 +30,8 @@ mod:RegisterEventsInCombat(
 local announceSlagPot			= mod:NewTargetNoFilterAnnounce(63477, 3)
 local announceConstruct			= mod:NewCountAnnounce(62488, 2)
 
-local warnFlameJetsCast			= mod:NewSpecialWarningCast(63472, "SpellCaster", nil, nil, 1, 2)
-local warnFlameBrittle			= mod:NewSpecialWarningSwitch(62382, "Dps", nil, nil, 1, 2)
+local warnFlameJetsCast			= mod:NewSpecialWarningCast(63472, "SpellCaster", nil, nil, 1, 2, nil, nil, "stopcast")
+local warnFlameBrittle			= mod:NewSpecialWarningSwitch(62382, "Dps", nil, nil, 1, 2, nil, nil, "killmob")
 
 local timerFlameJetsCast		= mod:NewCastTimer(2.7, 63472)
 local timerActivateConstruct	= mod:NewCDCountTimer(30, 62488, nil, nil, nil, 1)

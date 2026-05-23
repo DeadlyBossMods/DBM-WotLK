@@ -33,7 +33,7 @@ local specWarnFissureClose
 local yellFissure
 if isRetail then
 	warnFissure				= mod:NewTargetNoFilterAnnounce(27810, 4)
-	specWarnFissureYou		= mod:NewSpecialWarningYou(27810, nil, nil, nil, 3, 2)
+	specWarnFissureYou		= mod:NewSpecialWarningYou(27810, nil, nil, nil, 3, 2, nil, nil, "targetyou")
 	yellFissure				= mod:NewYell(27810)
 else
 	warnFissure				= mod:NewSpellAnnounce(27810, 4, nil, nil, nil, nil, nil, 2)
@@ -42,9 +42,9 @@ local warnMana				= mod:NewTargetAnnounce(27819, 2)
 local warnChainsTargets		= mod:NewTargetNoFilterAnnounce(28410, 4)
 
 local specwarnP2Soon		= mod:NewSpecialWarning("specwarnP2Soon")
-local specWarnManaBomb		= mod:NewSpecialWarningMoveAway(27819, nil, nil, nil, 1, 2)
+local specWarnManaBomb		= mod:NewSpecialWarningMoveAway(27819, nil, nil, nil, 1, 2, nil, nil, "scatter")
 local yellManaBomb			= mod:NewShortYell(27819)
-local specWarnBlast			= mod:NewSpecialWarningTarget(27808, "Healer", nil, nil, 1, 2)
+local specWarnBlast			= mod:NewSpecialWarningTarget(27808, "Healer", nil, nil, 1, 2, nil, nil, "healall")
 
 local blastTimer			= mod:NewBuffActiveTimer(4, 27808, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)
 local timerManaBomb			= mod:NewCDTimer(20, 27819, nil, nil, nil, 3)--20-50

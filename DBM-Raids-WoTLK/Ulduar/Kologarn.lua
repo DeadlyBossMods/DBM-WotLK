@@ -37,8 +37,8 @@ local warnFocusedEyebeam		= mod:NewTargetNoFilterAnnounce(63346, 4)
 local warnGrip					= mod:NewTargetNoFilterAnnounce(64292, 2)
 local warnCrunchArmor			= mod:NewStackAnnounce(64002, 2, nil, "Tank|Healer")
 
-local specWarnCrunchArmor2		= mod:NewSpecialWarningStack(64002, nil, 2, nil, 2, 1, 6)
-local specWarnEyebeam			= mod:NewSpecialWarningRun(63346, nil, nil, nil, 4, 2)
+local specWarnCrunchArmor2		= mod:NewSpecialWarningStack(64002, nil, 2, nil, 2, 1, 6, nil, nil, "stackhigh")
+local specWarnEyebeam			= mod:NewSpecialWarningRun(63346, nil, nil, nil, 4, 2, nil, nil, "justrun")
 local yellBeam					= mod:NewYell(63346)
 
 local timerNextSmash			= mod:NewCDTimer(20.4, 64003, nil, "Tank", nil, 5, nil, DBM_COMMON_L.TANK_ICON)

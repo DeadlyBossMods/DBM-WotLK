@@ -42,12 +42,12 @@ local warnSimulKill			= mod:NewAnnounce("WarnSimulKill", 1)
 local warnFury				= mod:NewTargetAnnounce(63571, 2)
 local warnRoots				= mod:NewTargetNoFilterAnnounce(62438, 2)
 
-local specWarnLifebinder	= mod:NewSpecialWarningSwitch(62869, "Dps", nil, nil, 1, 2)
-local specWarnFury			= mod:NewSpecialWarningMoveAway(63571, nil, nil, nil, 1, 2)
+local specWarnLifebinder	= mod:NewSpecialWarningSwitch(62869, "Dps", nil, nil, 1, 2, nil, nil, "targetchange")
+local specWarnFury			= mod:NewSpecialWarningMoveAway(63571, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellFury				= mod:NewYell(63571)
 local yellRoots				= mod:NewYell(62438)
-local specWarnTremor		= mod:NewSpecialWarningCast(62859, "SpellCaster", nil, 2, 1, 2)	-- Hard mode
-local specWarnBeam			= mod:NewSpecialWarningMove(62865, nil, nil, nil, 1, 2)	-- Hard mode
+local specWarnTremor		= mod:NewSpecialWarningCast(62859, "SpellCaster", nil, 2, 1, 2, nil, nil, "stopcast")	-- Hard mode
+local specWarnBeam			= mod:NewSpecialWarningMove(62865, nil, nil, nil, 1, 2, nil, nil, "runaway")	-- Hard mode
 
 local enrage 				= mod:NewBerserkTimer(600)
 local timerAlliesOfNature	= mod:NewCDTimer(25, 62678, nil, nil, nil, 1, nil, DBM_COMMON_L.DAMAGE_ICON)--No longer has CD, they spawn instant last set is dead, and not a second sooner, except first set

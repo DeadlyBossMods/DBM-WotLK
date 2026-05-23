@@ -20,7 +20,7 @@ local warnBreath			= mod:NewSpellAnnounce(66665, 3)
 local warnMeteor			= mod:NewSpellAnnounce(66725, 3)
 local WarnBurningFury		= mod:NewStackAnnounce(66721, 2)
 
-local specWarnCinder		= mod:NewSpecialWarningMove(66684, nil, nil, nil, 1, 2)
+local specWarnCinder		= mod:NewSpecialWarningMove(66684, nil, nil, nil, 1, 2, nil, nil, "runaway")
 
 local timerNextMeteor		= mod:NewCDTimer(16.9, 66725, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)--16.9-47, typical classic timer
 local timerNextBurningFury	= mod:NewNextTimer(20, 66721, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON..DBM_COMMON_L.HEALER_ICON)

@@ -37,9 +37,9 @@ local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DB
 local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, nil, 65919, L.EmAndSub)
 local warnPhase3			= mod:NewPhaseAnnounce(3)
 
-local specWarnPursue		= mod:NewSpecialWarningRun(67574, nil, nil, 2, 4, 2)
+local specWarnPursue		= mod:NewSpecialWarningRun(67574, nil, nil, 2, 4, 2, nil, nil, "justrun")
 local specWarnShadowStrike	= mod:NewSpecialWarningSpell(66134, false, nil, 2, 1)--Don't have a good voice for this. Need a "stun mob now"
-local specWarnPCold			= mod:NewSpecialWarningYou(66013, false, nil, nil, 1, 2)
+local specWarnPCold			= mod:NewSpecialWarningYou(66013, false, nil, nil, 1, 2, nil, nil, "targetyou")
 
 local timerAdds				= mod:NewTimer(45, "timerAdds", 45419, nil, nil, 1, nil, nil, nil, nil, nil, nil, nil, 66333)
 local timerSubmerge			= mod:NewTimer(75, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp", nil, nil, 6, nil, nil, nil, nil, nil, nil, nil, 65919, nil, L.EmAndSub)

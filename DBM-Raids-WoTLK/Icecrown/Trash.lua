@@ -35,17 +35,17 @@ local warnConflag				= mod:NewTargetNoFilterAnnounce(71785, 4, nil, false)
 local warnBanish				= mod:NewTargetNoFilterAnnounce(71298, 3, nil, false)
 
 --Lower Spire
-local specWarnDisruptingShout	= mod:NewSpecialWarningCast(71022, "SpellCaster", nil, 2, 1, 2)
-local specWarnDarkReckoning		= mod:NewSpecialWarningMoveAway(69483, nil, nil, nil, 1, 2)
+local specWarnDisruptingShout	= mod:NewSpecialWarningCast(71022, "SpellCaster", nil, 2, 1, 2, nil, nil, "stopcast")
+local specWarnDarkReckoning		= mod:NewSpecialWarningMoveAway(69483, nil, nil, nil, 1, 2, nil, nil, "runout")
 local specWarnTrapL				= mod:NewSpecialWarning("SpecWarnTrapL")
 --Plagueworks
-local specWarnDecimate			= mod:NewSpecialWarningSpell(71123, nil, nil, nil, 2, 2)
-local specWarnMortalWound		= mod:NewSpecialWarningStack(71127, "Tank|Healer", 6, nil, nil, 1, 6)
+local specWarnDecimate			= mod:NewSpecialWarningSpell(71123, nil, nil, nil, 2, 2, nil, nil, "stilldanger")
+local specWarnMortalWound		= mod:NewSpecialWarningStack(71127, "Tank|Healer", 6, nil, nil, 1, 6, nil, nil, "stackhigh")
 local specWarnTrapP				= mod:NewSpecialWarning("SpecWarnTrapP")
-local specWarnBlightBomb		= mod:NewSpecialWarningSpell(71088, nil, nil, nil, 2, 2)--Recheck sound
+local specWarnBlightBomb		= mod:NewSpecialWarningSpell(71088, nil, nil, nil, 2, 2, nil, nil, "watchstep")--Recheck sound
 --Frostwing Hall
 local specWarnGosaEvent			= mod:NewSpecialWarning("SpecWarnGosaEvent")
-local specWarnBlade				= mod:NewSpecialWarningGTFO(70305, nil, nil, nil, 1, 8)
+local specWarnBlade				= mod:NewSpecialWarningGTFO(70305, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 --Lower Spire
 local timerDisruptingShout		= mod:NewCastTimer(3, 71022, nil, nil, nil, 2)

@@ -20,8 +20,8 @@ mod:RegisterEventsInCombat(
 
 local warnOverCharge		= mod:NewSpellAnnounce(64218, 4)
 
-local specWarnNova			= mod:NewSpecialWarningRun(65279, nil, nil, nil, 4, 2)
-local specWarnOverCharge	= mod:NewSpecialWarningSwitch(64218, "Dps", nil, nil, 1, 2)
+local specWarnNova			= mod:NewSpecialWarningRun(65279, nil, nil, nil, 4, 2, nil, nil, "justrun")
+local specWarnOverCharge	= mod:NewSpecialWarningSwitch(64218, "Dps", nil, nil, 1, 2, nil, nil, "killmob")
 
 local timerNova				= mod:NewCastTimer(65279, nil, nil, nil, 2)
 local timerNovaCD			= mod:NewCDTimer(45, 65279, nil, nil, nil, 2)--Varies, 45-60seconds in between nova's

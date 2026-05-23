@@ -28,9 +28,9 @@ local warnBreathInc				= mod:NewSoonAnnounce(56505, 3)
 local warnSurge					= mod:NewTargetAnnounce(60936, 3)
 local warnStaticField			= mod:NewTargetNoFilterAnnounce(57430, 3)
 
-local specWarnBreath			= mod:NewSpecialWarningSpell(56505, nil, nil, nil, 2, 2)
-local specWarnSurge				= mod:NewSpecialWarningDefensive(60936, nil, nil, nil, 1, 2)
-local specWarnStaticField		= mod:NewSpecialWarningYou(57430, nil, nil, nil, 1, 2)
+local specWarnBreath			= mod:NewSpecialWarningSpell(56505, nil, nil, nil, 2, 2, nil, nil, "findshield")
+local specWarnSurge				= mod:NewSpecialWarningDefensive(60936, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnStaticField		= mod:NewSpecialWarningYou(57430, nil, nil, nil, 1, 2, nil, nil, "runaway")
 local yellStaticField			= mod:NewYell(57430)
 
 local timerSpark				= mod:NewNextTimer(30, 56140, nil, nil, nil, 1, 59381, DBM_COMMON_L.DAMAGE_ICON)

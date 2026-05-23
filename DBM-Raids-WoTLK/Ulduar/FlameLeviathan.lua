@@ -31,9 +31,9 @@ local warnHodirsFury		= mod:NewTargetAnnounce(62297, 3)
 local pursueTargetWarn		= mod:NewAnnounce("PursueWarn", 2, 62374, nil, nil, nil, 62374)
 local warnNextPursueSoon	= mod:NewAnnounce("warnNextPursueSoon", 3, 62374, nil, nil, nil, 62374)
 
-local warnSystemOverload	= mod:NewSpecialWarningSpell(62475, nil, nil, nil, 1, 12)
-local pursueSpecWarn		= mod:NewSpecialWarning("SpecialPursueWarnYou", nil, nil, 2, 4, 2, nil, 62374)
-local warnWardofLife		= mod:NewSpecialWarning("warnWardofLife", nil, nil, nil, 1, 2)
+local warnSystemOverload	= mod:NewSpecialWarningSpell(62475, nil, nil, nil, 1, 12, nil, nil, "attacktank")
+local pursueSpecWarn		= mod:NewSpecialWarning("SpecialPursueWarnYou", nil, nil, 2, 4, 2, nil, 62374, nil, nil, "justrun")
+local warnWardofLife		= mod:NewSpecialWarning("warnWardofLife", nil, nil, nil, 1, 2, nil, nil, nil, nil, "bigmob")
 
 local timerSystemOverload	= mod:NewBuffActiveTimer(20, 62475, nil, nil, nil, 6)
 local timerFlameVents		= mod:NewCastTimer(10, 62396, nil, nil, nil, 2)

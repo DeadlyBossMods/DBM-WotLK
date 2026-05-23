@@ -22,8 +22,8 @@ mod:RegisterEventsInCombat(
 local warningWarnBeacon		= mod:NewTargetNoFilterAnnounce(74453, 4)--Will change to a target announce if possible. need to do encounter
 local warningWarnBreath		= mod:NewSpellAnnounce(74403, 3)
 
-local specWarnBeacon		= mod:NewSpecialWarningYou(74453, nil, nil, nil, 1, 2)--Target scanning may not even work since i haven't done encounter yet it's just a guess.
-local specWarnTranq			= mod:NewSpecialWarningDispel(78722, "RemoveEnrage", nil, nil, 1, 2)
+local specWarnBeacon		= mod:NewSpecialWarningYou(74453, nil, nil, nil, 1, 2, nil, nil, "targetyou")--Target scanning may not even work since i haven't done encounter yet it's just a guess.
+local specWarnTranq			= mod:NewSpecialWarningDispel(78722, "RemoveEnrage", nil, nil, 1, 2, nil, nil, "trannow")
 
 local timerBeacon			= mod:NewBuffActiveTimer(5, 74453, nil, nil, nil, 3)
 local timerConflag			= mod:NewBuffActiveTimer(5, 74456, nil, nil, nil, 3)

@@ -48,9 +48,9 @@ local enrageTimer				= mod:NewBerserkTimer(900)
 mod:AddTimerLine(L.StormcallerBrundir)
 local warnChainlight			= mod:NewSpellAnnounce(64215, 2, nil, false, 2)
 
-local specwarnLightningTendrils	= mod:NewSpecialWarningRun(63486, nil, nil, nil, 4, 2)
-local specwarnOverload			= mod:NewSpecialWarningRun(63481, nil, nil, nil, 4, 2)
-local specWarnLightningWhirl	= mod:NewSpecialWarningInterrupt(63483, "HasInterrupt", nil, nil, 1, 2)
+local specwarnLightningTendrils	= mod:NewSpecialWarningRun(63486, nil, nil, nil, 4, 2, nil, nil, "justrun")
+local specwarnOverload			= mod:NewSpecialWarningRun(63481, nil, nil, nil, 4, 2, nil, nil, "justrun")
+local specWarnLightningWhirl	= mod:NewSpecialWarningInterrupt(63483, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 
 local timerOverloadCD			= mod:NewCDTimer(70, 63481, nil, nil, nil, 3)
 local timerOverload				= mod:NewCastTimer(6, 63481, nil, nil, nil, 2)
@@ -82,8 +82,8 @@ local warnRuneofDeath			= mod:NewSpellAnnounce(63490, 2)
 local warnShieldofRunes			= mod:NewSpellAnnounce(63489, 2)
 local warnRuneofSummoning		= mod:NewSpellAnnounce(62273, 3)
 
-local specwarnRuneofDeath		= mod:NewSpecialWarningMove(63490, nil, nil, nil, 1, 2)
-local specWarnRuneofShields		= mod:NewSpecialWarningDispel(63489, "MagicDispeller", nil, nil, 1, 2)
+local specwarnRuneofDeath		= mod:NewSpecialWarningMove(63490, nil, nil, nil, 1, 2, nil, nil, "runaway")
+local specWarnRuneofShields		= mod:NewSpecialWarningDispel(63489, "MagicDispeller", nil, nil, 1, 2, nil, nil, "dispelboss")
 
 local timerRuneofShieldsCD		= mod:NewCDTimer(15, 63967, nil, nil, nil, 5)
 local timerRuneofDeathCD		= mod:NewCDTimer(47.3, 63490, nil, nil, nil, 3)

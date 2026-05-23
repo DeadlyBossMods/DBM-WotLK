@@ -44,10 +44,10 @@ local lootannounce					= mod:NewAnnounce("MagneticCore", 1, 64444, nil, nil, nil
 local warnBombSpawn					= mod:NewAnnounce("WarnBombSpawn", 3, 63811, nil, nil, nil, 63811)
 local warnFrostBomb					= mod:NewSpellAnnounce(64623, 3)
 
-local warnShockBlast				= mod:NewSpecialWarningRun(63631, "Melee", nil, nil, 4, 2)
-local warnRocketStrike				= mod:NewSpecialWarningDodge(64402, nil, nil, nil, 2, 2)
-local warnP3Wx2LaserBarrage			= mod:NewSpecialWarningDodge(63274, nil, nil, nil, 3, 2)
-local warnPlasmaBlast				= mod:NewSpecialWarningDefensive(64529, nil, nil, nil, 1, 2)
+local warnShockBlast				= mod:NewSpecialWarningRun(63631, "Melee", nil, nil, 4, 2, nil, nil, "runout")
+local warnRocketStrike				= mod:NewSpecialWarningDodge(64402, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local warnP3Wx2LaserBarrage			= mod:NewSpecialWarningDodge(63274, nil, nil, nil, 3, 2, nil, nil, "watchstep")
+local warnPlasmaBlast				= mod:NewSpecialWarningDefensive(64529, nil, nil, nil, 1, 2, nil, nil, "defensive")
 
 local enrage 						= mod:NewBerserkTimer(900)
 local timerHardmode					= mod:NewTimer(610, "TimerHardmode", 64582)

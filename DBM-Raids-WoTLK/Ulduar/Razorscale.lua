@@ -38,12 +38,12 @@ local warnTurretsReady				= mod:NewAnnounce("warnTurretsReady", 3, 48642)
 local warnFlame						= mod:NewTargetAnnounce(64733, 2, nil, false)--Very spammy, requires turning on AND disabling target filter. Power user setting
 local warnFuseArmor					= mod:NewStackAnnounce(64771, 2, nil, "Tank")
 
-local specWarnDevouringFlame		= mod:NewSpecialWarningMove(64733, nil, nil, nil, 1, 2)
-local specWarnDevouringFlameYou		= mod:NewSpecialWarningYou(64733, false, nil, nil, 1, 2)
-local specWarnDevouringFlameNear	= mod:NewSpecialWarningClose(64733, false, nil, nil, 1, 2)
+local specWarnDevouringFlame		= mod:NewSpecialWarningMove(64733, nil, nil, nil, 1, 2, nil, nil, "runaway")
+local specWarnDevouringFlameYou		= mod:NewSpecialWarningYou(64733, false, nil, nil, 1, 2, nil, nil, "targetyou")
+local specWarnDevouringFlameNear	= mod:NewSpecialWarningClose(64733, false, nil, nil, 1, 2, nil, nil, "runaway")
 local yellDevouringFlame			= mod:NewYell(64733)
-local specWarnFuseArmor				= mod:NewSpecialWarningStack(64771, nil, 2, nil, nil, 1, 6)
-local specWarnFuseArmorOther		= mod:NewSpecialWarningTaunt(64771, nil, nil, nil, 1, 2)
+local specWarnFuseArmor				= mod:NewSpecialWarningStack(64771, nil, 2, nil, nil, 1, 6, nil, nil, "stackhigh")
+local specWarnFuseArmorOther		= mod:NewSpecialWarningTaunt(64771, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
 local enrageTimer					= mod:NewBerserkTimer(900)
 local timerDeepBreathCooldown		= mod:NewCDTimer(21, 64021, nil, nil, nil, 5)

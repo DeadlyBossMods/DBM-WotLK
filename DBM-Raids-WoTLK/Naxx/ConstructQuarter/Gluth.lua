@@ -23,7 +23,7 @@ local warnEnrage		= mod:NewTargetNoFilterAnnounce(19451, 3, nil , "Healer|Tank|R
 --local warnDecimateSoon	= mod:NewSoonAnnounce(28374, 2)
 local warnDecimateNow	= mod:NewSpellAnnounce(28374, 3)
 
-local specWarnEnrage	= mod:NewSpecialWarningDispel(19451, "RemoveEnrage", nil, nil, 1, 6)
+local specWarnEnrage	= mod:NewSpecialWarningDispel(19451, "RemoveEnrage", nil, nil, 1, 6, nil, nil, "enrage")
 
 local timerEnrage		= mod:NewBuffActiveTimer(8, 19451, nil, nil, nil, 5, nil, DBM_COMMON_L.ENRAGE_ICON)
 --local timerDecimate		= mod:NewCDTimer(104, 28374, nil, nil, nil, 2)

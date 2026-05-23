@@ -34,9 +34,9 @@ local warnLightningCharge			= mod:NewSpellAnnounce(62466, 2)
 local warningBomb					= mod:NewTargetNoFilterAnnounce(62526, 4)
 
 local yellBomb						= mod:NewYell(62526)
-local specWarnLightningShock		= mod:NewSpecialWarningMove(62017, nil, nil, nil, 1, 2)
-local specWarnUnbalancingStrikeSelf	= mod:NewSpecialWarningDefensive(62130, nil, nil, nil, 1, 2)
-local specWarnUnbalancingStrike		= mod:NewSpecialWarningTaunt(62130, nil, nil, nil, 1, 2)
+local specWarnLightningShock		= mod:NewSpecialWarningMove(62017, nil, nil, nil, 1, 2, nil, nil, "runaway")
+local specWarnUnbalancingStrikeSelf	= mod:NewSpecialWarningDefensive(62130, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnUnbalancingStrike		= mod:NewSpecialWarningTaunt(62130, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
 mod:AddBoolOption("AnnounceFails", false, "announce", nil, nil, nil, 62017)
 

@@ -36,12 +36,12 @@ local warnKineticBomb			= mod:NewCountAnnounce(72053, 3, nil, "Ranged")
 local warnDarkNucleus			= mod:NewSpellAnnounce(71943, 1, nil, false)	-- instant cast
 local warnShockVortex			= mod:NewTargetAnnounce(72037, 3)				-- 1,5sec cast
 
-local specWarnVortex			= mod:NewSpecialWarningYou(72037, nil, nil, nil, 1, 2)
+local specWarnVortex			= mod:NewSpecialWarningYou(72037, nil, nil, nil, 1, 2, nil, nil, "watchstep")
 local yellVortex				= mod:NewYell(72037)
-local specWarnVortexNear		= mod:NewSpecialWarningClose(72037, nil, nil, nil, 1, 2)
-local specWarnEmpoweredShockV	= mod:NewSpecialWarningMoveAway(72039, nil, nil, nil, 1, 2)
-local specWarnEmpoweredFlames	= mod:NewSpecialWarningRun(72040, nil, nil, nil, 4, 2)
-local specWarnShadowPrison		= mod:NewSpecialWarningStack(72999, nil, 6, nil, nil, 1, 6)
+local specWarnVortexNear		= mod:NewSpecialWarningClose(72037, nil, nil, nil, 1, 2, nil, nil, "watchstep")
+local specWarnEmpoweredShockV	= mod:NewSpecialWarningMoveAway(72039, nil, nil, nil, 1, 2, nil, nil, "scatter")
+local specWarnEmpoweredFlames	= mod:NewSpecialWarningRun(72040, nil, nil, nil, 4, 2, nil, nil, "justrun")
+local specWarnShadowPrison		= mod:NewSpecialWarningStack(72999, nil, 6, nil, nil, 1, 6, nil, nil, "stackhigh")
 
 local timerTargetSwitch			= mod:NewTimer(47, "TimerTargetSwitch", 70952, nil, nil, 5, DBM_COMMON_L.DAMAGE_ICON, nil, nil, nil, nil, nil, nil, 70952)	-- every 46-47seconds
 local timerDarkNucleusCD		= mod:NewCDTimer(10, 71943, nil, false, nil, 5)	-- usually every 10 seconds but sometimes more

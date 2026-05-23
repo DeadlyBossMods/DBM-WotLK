@@ -27,14 +27,14 @@ local warnMeteor				= mod:NewSpellAnnounce(57467, 4)
 local warnHolyWrath				= mod:NewTargetNoFilterAnnounce(28883, 3, nil, false)
 local warnBoneBarrier			= mod:NewTargetNoFilterAnnounce(29061, 2)
 
-local specWarnMarkOnPlayer		= mod:NewSpecialWarning("SpecialWarningMarkOnPlayer", nil, nil, nil, 1, 6, nil, nil, 28835)
+local specWarnMarkOnPlayer		= mod:NewSpecialWarning("SpecialWarningMarkOnPlayer", nil, nil, nil, 1, 6, nil, nil, 28835, nil, "stackhigh")
 
 local warnVoidZone
 local specWarnVoidZone
 local yellVoidZone
 if isRetail then
 	warnVoidZone				= mod:NewTargetNoFilterAnnounce(28863, 3)--Only warns for nearby targets, to reduce spam
-	specWarnVoidZone			= mod:NewSpecialWarningYou(28863, nil, nil, nil, 1, 2)
+	specWarnVoidZone			= mod:NewSpecialWarningYou(28863, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 	yellVoidZone				= mod:NewYell(28863)
 else
 	warnVoidZone				= mod:NewSpellAnnounce(28863, 4, nil, nil, nil, nil, nil, 2)

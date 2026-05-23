@@ -45,10 +45,10 @@ local warningFieryCombustion		= mod:NewTargetNoFilterAnnounce(74562, 4)
 local warningMeteor					= mod:NewSpellAnnounce(74648, 3)
 local warningFlameBreath			= mod:NewSpellAnnounce(74525, 2, nil, "Tank|Healer")
 
-local specWarnFieryCombustion		= mod:NewSpecialWarningRun(74562, nil, nil, nil, 4, 2)
+local specWarnFieryCombustion		= mod:NewSpecialWarningRun(74562, nil, nil, nil, 4, 2, nil, nil, "runout")
 local yellFieryCombustion			= mod:NewYell(74562)
-local specWarnMeteor				= mod:NewSpecialWarningSoon(74648, nil, nil, nil, 2, 2)
-local specWarnMeteorStrike			= mod:NewSpecialWarningGTFO(74648, nil, nil, nil, 1, 8)
+local specWarnMeteor				= mod:NewSpecialWarningSoon(74648, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnMeteorStrike			= mod:NewSpecialWarningGTFO(74648, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerFieryConbustionCD		= mod:NewCDTimer(30.3, 74562, nil, nil, nil, 3)
 local timerMeteorCD					= mod:NewNextTimer(40, 74648, nil, nil, nil, 3)--Target or aoe? tough call. It's a targeted aoe!
@@ -66,7 +66,7 @@ local warningShadowConsumption		= mod:NewTargetNoFilterAnnounce(74792, 4)
 local warningDarkBreath				= mod:NewSpellAnnounce(74806, 2, nil, "Tank|Healer")
 local warningTwilightCutter			= mod:NewAnnounce("TwilightCutterCast", 4, 74769, nil, nil, nil, 74769)
 
-local specWarnShadowConsumption		= mod:NewSpecialWarningRun(74792, nil, nil, nil, 4, 2)
+local specWarnShadowConsumption		= mod:NewSpecialWarningRun(74792, nil, nil, nil, 4, 2, nil, nil, "runout")
 local yellShadowconsumption			= mod:NewYell(74792)
 local specWarnTwilightCutter		= mod:NewSpecialWarningSpell(74769, nil, nil, nil, 3, 2)
 
@@ -83,7 +83,7 @@ local twilightDivisionName = DBM:GetSpellName(75063)
 mod:AddTimerLine(SCENARIO_STAGE:format(3)..": "..twilightDivisionName)
 local warnPhase3					= mod:NewPhaseAnnounce(3, 2, nil, nil, nil, nil, nil, 2)
 
-local specWarnCorporeality			= mod:NewSpecialWarningCount(74826, nil, nil, nil, 1, 2)
+local specWarnCorporeality			= mod:NewSpecialWarningCount(74826, nil, nil, nil, 1, 2, nil, nil, "dpsstop")
 
 mod.vb.warned_preP2 = false
 mod.vb.warned_preP3 = false

@@ -31,13 +31,13 @@ local warnStickyOoze			= mod:NewSpellAnnounce(69774, 1, nil, "Tank", 2)--You kno
 local warnUnstableOoze			= mod:NewStackAnnounce(69558, 2)
 local warnVileGas				= mod:NewSpellAnnounce(72272, 3)
 
-local specWarnMutatedInfection	= mod:NewSpecialWarningYou(69674, nil, nil, nil, 1, 2)
-local specWarnStickyOoze		= mod:NewSpecialWarningMove(69774, nil, nil, nil, 1, 2)
+local specWarnMutatedInfection	= mod:NewSpecialWarningYou(69674, nil, nil, nil, 1, 2, nil, nil, "movetotank")
+local specWarnStickyOoze		= mod:NewSpecialWarningMove(69774, nil, nil, nil, 1, 2, nil, nil, "runaway")
 local specWarnOozeExplosion		= mod:NewSpecialWarningDodge(69839, nil, nil, nil, 1, 2)
 local specWarnSlimeSpray		= mod:NewSpecialWarningSpell(69508, false, nil, nil, 1, 2)--For people that need a bigger warning to move
-local specWarnRadiatingOoze		= mod:NewSpecialWarningSpell(69760, "-Tank", nil, nil, 1, 2)
-local specWarnLittleOoze		= mod:NewSpecialWarning("SpecWarnLittleOoze", false, nil, nil, 1, 2)
-local specWarnVileGas			= mod:NewSpecialWarningYou(72272, nil, nil, nil, 1, 2)
+local specWarnRadiatingOoze		= mod:NewSpecialWarningSpell(69760, "-Tank", nil, nil, 1, 2, nil, nil, "runaway")
+local specWarnLittleOoze		= mod:NewSpecialWarning("SpecWarnLittleOoze", false, nil, nil, 1, 2, nil, nil, nil, nil, "keepmove")
+local specWarnVileGas			= mod:NewSpecialWarningYou(72272, nil, nil, nil, 1, 2, nil, nil, "scatter")
 
 local timerStickyOoze			= mod:NewNextNPTimer(16, 69774, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)--Nameplate only timer
 local timerWallSlime			= mod:NewNextTimer(20, 69789)

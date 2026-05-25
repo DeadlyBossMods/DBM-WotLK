@@ -68,7 +68,7 @@ local warningTwilightCutter			= mod:NewAnnounce("TwilightCutterCast", 4, 74769, 
 
 local specWarnShadowConsumption		= mod:NewSpecialWarningRun(74792, nil, nil, nil, 4, 2, nil, nil, "runout")
 local yellShadowconsumption			= mod:NewYell(74792)
-local specWarnTwilightCutter		= mod:NewSpecialWarningSpell(74769, nil, nil, nil, 3, 2)
+local specWarnTwilightCutter		= mod:NewSpecialWarningSpell(74769, nil, nil, nil, 3, 2, nil, nil, "farfromline")
 
 local timerShadowConsumptionCD		= mod:NewCDTimer(25, 74792, nil, nil, nil, 3)--TODO, timer accuracy of normal
 local timerTwilightCutterCast		= mod:NewCastTimer(4.5, 74769, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)

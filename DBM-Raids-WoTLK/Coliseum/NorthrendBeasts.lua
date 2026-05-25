@@ -49,7 +49,7 @@ local specWarnImpale3		= mod:NewSpecialWarningStack(66331, nil, 3, nil, nil, 1, 
 local specWarnGTFO			= mod:NewSpecialWarningGTFO(66317, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 local specWarnToxin			= mod:NewSpecialWarningMoveTo(66823, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local specWarnBile			= mod:NewSpecialWarningYou(66869, nil, nil, nil, 1, 2, nil, nil, "targetyou")
-local specWarnSilence		= mod:NewSpecialWarningSpell(66330, "SpellCaster", nil, nil, 1, 2)
+local specWarnSilence		= mod:NewSpecialWarningSpell(66330, "SpellCaster", nil, nil, 1, 2, nil, nil, "silencesoon")
 local specWarnCharge		= mod:NewSpecialWarningRun(52311, nil, nil, nil, 4, 2, nil, nil, "justrun")
 local specWarnFrothingRage	= mod:NewSpecialWarningDispel(66759, "RemoveEnrage", nil, nil, 1, 2, nil, nil, "trannow")
 

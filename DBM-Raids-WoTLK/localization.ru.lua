@@ -1430,7 +1430,7 @@ L:SetMiscLocalization{
 L = DBM:GetModLocalization("ICCTrash")
 
 L:SetGeneralLocalization{
-	name = "Трэш мобы Ледяной Короны"
+	name = "Трэш: Ледяная Корона"
 }
 
 L:SetWarningLocalization{

@@ -1,5 +1,5 @@
-## Interface: 50504
-## X-Min-Interface: 50500
+## AllowLoadGameType: wrath, cata, mists, standard
+## Interface: 30405, 38002, 40402, 50504, 120100
 ## Category: DBM
 
 ## Title:|cffffe00a<|r|cffff7d0aDBM Mod|r|cffffe00a>|r |cffff6010Raids (WoTLK)|r

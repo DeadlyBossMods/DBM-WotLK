@@ -46,7 +46,7 @@ local timerHeart					= mod:NewCastTimer(30, 63849, nil, nil, nil, 6, nil, DBM_CO
 local timerLightBomb				= mod:NewTargetTimer(9, 65121, nil, nil, nil, 3)
 local timerGravityBomb				= mod:NewTargetTimer(9, 64234, nil, nil, nil, 3)
 local timerAchieve
-if WOW_PROJECT_ID == (WOW_PROJECT_MAINLINE or 1) then
+if DBM:IsRetail() then
 	timerAchieve					= mod:NewAchievementTimer(205, 12329)
 else
 	timerAchieve					= mod:NewAchievementTimer(205, 2937)

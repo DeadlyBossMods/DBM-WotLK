@@ -41,7 +41,7 @@ local specWarnLifeLeechYou		= mod:NewSpecialWarningMoveAway(63276, nil, nil, nil
 local yellLifeLeech				= mod:NewYell(63276)
 local specWarnSearingFlames		= mod:NewSpecialWarningInterruptCount(62661, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kick1r")
 local specWarnAnimus
-if WOW_PROJECT_ID == (WOW_PROJECT_MAINLINE or 1) then
+if DBM:IsRetail() then
 	specWarnAnimus			= mod:NewSpecialWarningSwitch(-17651, nil, nil, nil, 1, 2)
 else
 	specWarnAnimus			= mod:NewSpecialWarning("specWarnAnimus", nil, nil, nil, 1, 2, nil, nil, nil, nil, "bigmob")

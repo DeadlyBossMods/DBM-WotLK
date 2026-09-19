@@ -1,6 +1,6 @@
 local mod	= DBM:NewMod("Kel'Thuzad", "DBM-Raids-WoTLK", 8)
 local L		= mod:GetLocalizedStrings()
-local isRetail = WOW_PROJECT_ID == (WOW_PROJECT_MAINLINE or 1)
+local isRetail = DBM:IsRetail()
 
 mod:SetRevision("@file-date-integer@")
 mod:DisableHardcodedOptions()

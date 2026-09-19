@@ -74,7 +74,7 @@ local timerMadness 					= mod:NewCastTimer(60, 64059, nil, nil, nil, 5)
 local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189, nil, nil, 2, 5)
 local timerNextDeafeningRoar		= mod:NewNextTimer(60, 64189, nil, nil, nil, 2)
 local timerAchieve
-if WOW_PROJECT_ID == (WOW_PROJECT_MAINLINE or 1) then
+if DBM:IsRetail() then
 	timerAchieve					= mod:NewAchievementTimer(420, 12396)
 else
 	timerAchieve					= mod:NewAchievementTimer(420, 3012)

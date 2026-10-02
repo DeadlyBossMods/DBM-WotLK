@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("YoggSaron", "DBM-Raids-WoTLK", 5)
 local L		= mod:GetLocalizedStrings()
 
-if not mod:IsClassic() then--on classic, it's normal10,normal25, defined in toc, only retail overrides to flex/timewalking
+if mod:IsRetail() then--on classic, it's normal10,normal25, defined in toc, only retail overrides to flex/timewalking
 	mod.statTypes = "normal,timewalker"
 end
 

@@ -60,7 +60,7 @@ end
 
 
 function mod:SPELL_AURA_APPLIED(args)
-	if args.spellId == 62042 and self:CheckBossDistance(args.sourceGUID, true, 34471) then--Within range of Vial of the Sunwell (43)
+	if args.spellId == 62042 and self:CheckBossDistance(args.sourceGUID, true, 34255) then--Within range (43)
 		warnStormhammer:Show(args.destName)
 	elseif args.spellId == 62130 then
 		if args:IsPlayer() then

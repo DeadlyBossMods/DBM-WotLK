@@ -17,6 +17,7 @@
 ## X-DBM-StatTypes: normal,normal25
 ## X-DBM-Mod-SubCategoriesID: 724, 631, 649, 249, 603, 616, 615, 533, 624
 ## X-DBM-Mod-Name: Raids (WoTLK)
+## X-DBM-Mod-Name-zhCN: 团队副本 (巫妖王之怒)
 ## X-DBM-Mod-Name-koKR: 공격대 (리분)
 ## X-DBM-Mod-Name-ruRU: Рейды (Король-лич)
 ## X-DBM-Mod-Sort: 901
@@ -26,7 +27,7 @@
 ## X-Curse-Project-ID: 43970
 ## X-WoWI-ID: 21522
 ## X-Wago-ID: WqKQg7Nx
-## Version: @project-version@
+## Version: r354
 
 localization.en.lua
 localization.tw.lua
@@ -107,3 +108,4 @@ VoA\Archavon.lua
 VoA\Emalon.lua
 VoA\Koralon.lua
 VoA\Toravon.lua
+

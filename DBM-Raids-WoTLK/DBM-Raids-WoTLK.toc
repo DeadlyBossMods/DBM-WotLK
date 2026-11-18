@@ -29,13 +29,13 @@
 ## Version: @project-version@
 
 localization.en.lua
-localization.tw.lua
-localization.cn.lua
-localization.de.lua
-localization.es.lua
-localization.kr.lua
-localization.ru.lua
-localization.fr.lua
+localization.tw.lua [AllowLoadTextLocale zhTW]
+localization.cn.lua [AllowLoadTextLocale zhCN]
+localization.de.lua [AllowLoadTextLocale deDE]
+localization.es.lua [AllowLoadTextLocale esES, esMX]
+localization.kr.lua [AllowLoadTextLocale koKR]
+localization.ru.lua [AllowLoadTextLocale ruRU]
+localization.fr.lua [AllowLoadTextLocale frFR]
 
 RubySanctum\Baltharus.lua
 RubySanctum\Saviana.lua

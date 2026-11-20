@@ -1,6 +1,6 @@
 -- author: callmejames @《凤凰之翼》 一区藏宝海湾
 -- commit by: yaroot <yaroot AT gmail.com>
-
+-- 泰坦重铸时光服-时光2-法师-旺仔芒果/椰奶冻-2026.11.13--
 
 if GetLocale() ~= "zhCN" then return end
 
@@ -129,7 +129,7 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Pull					= "跪下求饶吧，诺夫！"--Not actually pull trigger, but often said on pull
+	Pull					= "跪下求饶吧，诺夫！"
 })
 ---------------
 --  Maexxna  --
@@ -186,7 +186,7 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Pull				= "我要没收你的生命!", --TBD
+	Pull				= "我要没收你的生命!",
 	Adds				= "召唤出骷髅战士！",
 	AddsTwo				= "召唤出更多的骷髅！"
 })
@@ -306,9 +306,10 @@ L:SetMiscLocalization({
 L:SetOptionLocalization({
 	WarningChargeChanged		= "当你的极性改变时显示特别警报",
 	WarningChargeNotChanged		= "当你的极性没有改变时显示特别警报",
-	AirowEnabled			= "显示箭头 (正常 \"两边\" 站位打法)",
-	ArrowsRightLeft			= "显示左/右箭头 给 \"四角\" 站位打法 (如果极性改变显示左箭头, 没变显示右箭头)",
-	ArrowsInverse			= "显示反转的 \"四角\" 站位打法 (如果极性改变显示右箭头, 没变显示左箭头)"
+	AirowEnabled			= "显示箭头 (正常「两边」站位打法)",
+	TwoCamp				= "显示箭头 (正常「两点」站位打法)",
+	ArrowsRightLeft			= "显示左/右箭头 给「四角」站位打法 (如果极性改变显示左箭头, 没变显示右箭头)",
+	ArrowsInverse			= "显示反转的「四角」站位打法 (如果极性改变显示右箭头, 没变显示左箭头)"
 })
 
 L:SetWarningLocalization({
@@ -387,16 +388,18 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Horsemen")
 
 L:SetGeneralLocalization({
-	name 				= "四骑士"
+	name 				= "天启四骑士"
 })
 
 L:SetOptionLocalization({
 	WarningMarkSoon			= "为印记显示提前警报",
 	WarningMarkNow			= "为印记显示警报",
-	SpecialWarningMarkOnPlayer	= "当你印记叠加多于四层时显示特别警报"
+	SpecialWarningMarkOnPlayer	= "当你印记叠加多于四层时显示特别警报",
+	timerMark					= "为下一个骑士的印记显示计时条（带层数）"
 })
 
 L:SetTimerLocalization({
+	timerMark		= "印记 %d"
 })
 
 L:SetWarningLocalization({
@@ -620,7 +623,8 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音"
+	SoundWOP = "为重要技能播放额外的警报语音",
+	SlagPotIcon = DBM_CORE_L.AUTO_ICONS_OPTION_TARGETS:format(63477)
 }
 
 ------------------
@@ -664,7 +668,7 @@ L:SetMiscLocalization{
 	YellAir				= "给我们一点时间，做好建筑炮台的准备。",
 	YellAir2			= "火灭了！准备重建炮台！",
 	YellGround			= "快一点！她马上就要挣脱了！",
-	EmotePhase2			= "%%s被永久地禁锢在地面上！",
+	EmotePhase2			= "被永久地禁锢在地面上！",
 	FlamecastUnknown		= DBM_COMMON_L.UNKNOWN
 }
 
@@ -743,11 +747,13 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
+	HealthInfo				= "为坍缩星加血",
 	YellPull			= "你们的行动不合逻辑。这场战斗所有可能产生的结果都已被计算在内。无论结果如何，万神殿都会收到观察者发出的信息。",
 	YellKill			= "我曾经看过尘世沉浸在造物者的烈焰之中，众生连一声悲泣都无法呼出，就此凋零。整个星系在弹指之间历经了毁灭与重生。然而在这段历程之中，我的心却无法感受到丝毫的…恻隐之念。我‧感‧受‧不‧到。成千上万的生命就这么消逝。他们是否拥有与你同样坚韧的生命?他们是否与你同样热爱生命?",
 	Emote_CollapsingStar		= "%s开始召唤坍缩星！",
 	Phase2				= "看吧，这创世的神器！",
-	PullCheck			= "奥尔加隆发送危险信号的倒计时 = (%d+)分钟。"
+	FirstPull				= "从我的双眼观看你的世界:一个无边无际的宇宙--连你们之中最具智慧者都无法想像的广阔无垠。",
+	PullCheck				= "奥尔加隆发送危险信号的倒计时 = (%d+)分钟。"
 }
 
 ----------------
@@ -829,14 +835,17 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
+	TimerHardmode			= "困难模式"
 }
 
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
+	TimerHardmode			= "为困难模式显示计时条",
 	YellOnStormCloud		= "当你中了$spell:65133时大喊"
 }
 
 L:SetMiscLocalization{
+	Pull		= "你将为擅闯付出代价！",
 	YellKill			= "我……我终于从他的魔掌中……解脱了。",
 	YellCloud			= "我中了风暴雷云 快接近我！"
 }
@@ -900,7 +909,8 @@ L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
 	WarningTree   		= "当首领召唤艾欧娜尔的礼物时显示特别警告",
 	WarnSimulKill			= "提示第一只元素死亡",
-	TimerSimulKill			= "为三元素复活显示计时条"
+	TimerSimulKill			= "为三元素复活显示计时条",
+	TrashRespawnTimer		= "为弗蕾亚小怪重生显示计时条"
 }
 
 ----------------------
@@ -983,6 +993,7 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
+	specWarnAnimus 	= "萨隆邪铁畸体 - 转换目标",
 	SpecialWarningShadowCrash	= "你中了暗影冲撞 - 立刻跑开",
 	SpecialWarningShadowCrashNear	= "你附近有人中暗影冲撞 - 立刻远离",
 	SpecialWarningLLNear		= "你附近的%s中了无面者的印记"
@@ -990,14 +1001,15 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
+	specWarnAnimus 	= "为萨隆邪铁畸体显示切换目标的特殊警告",
 	SpecialWarningShadowCrash	= "为$spell:62660显示特别警报(必须至少有一名团队成员设置首领为焦点目标)",
 	SpecialWarningShadowCrashNear	= "当你附近的人中了$spell:62660时显示特别警报",
 	SpecialWarningLLNear		= "当你附近的人中了$spell:63276时显示特别警报",
-	YellOnLifeLeech			= "当你中了$spell:63276时大喊",
-	YellOnShadowCrash		= "当你中了$spell:62660时大喊",
-	hardmodeSpawn			= "为萨隆邪铁畸体出现显示计时条 (困难模式)",
-	CrashArrow			= "当你附近的人中了$spell:62660时显示DBM箭头",
-	BypassLatencyCheck		= "不对$spell:62660使用同步延迟查询<br/>(只有出现问题时才使用这个)"
+	YellOnLifeLeech				= "当你中了$spell:63276时大喊",
+	YellOnShadowCrash			= "当你中了$spell:62660时大喊",
+	hardmodeSpawn				= "为萨隆邪铁畸体出现显示计时条 (困难模式)",
+	CrashArrow					= "当你附近的人中了$spell:62660时显示DBM箭头",
+	BypassLatencyCheck			= "不对$spell:62660使用同步延迟查询<br/>(只有出现问题时才使用这个)"
 }
 
 L:SetMiscLocalization{
@@ -1092,7 +1104,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	Charge				= "%%s等着(%S+)，发出一阵震耳欲聋的怒吼！",
+	Charge				= "^%%s等着(%S+)，发出一阵震耳欲聋的怒吼！",
 	CombatStart			= "他来自风暴峭壁最幽深，最黑暗的洞穴，穿刺者戈莫克！准备战斗，英雄们！",
 	Phase2				= "做好准备，英雄们，两头猛兽已经进入了竞技场！它们是酸喉和恐鳞！",
 	Phase3				= "当下一名斗士出场时，空气都会为之冻结！它是冰吼，胜或是死，勇士们！",
@@ -1103,7 +1115,7 @@ L:SetMiscLocalization{
 }
 
 L:SetOptionLocalization{
-	WarningSnobold			= "为狗头人奴隶出现显示警报",
+	WarningSnobold			= "为狗头人奴隶的出现显示警报",
 	ClearIconsOnIceHowl		= "冲锋前清除所有标记",
 	TimerNextBoss			= "显示下一场战斗倒计时",
 	TimerEmerge			= "显示钻地计时",
@@ -1118,7 +1130,7 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSnobold			= "狗头人奴隶 出现了"
+	WarningSnobold			= "狗头人奴隶出现在 >%s<"
 }
 
 ---------------------
@@ -1179,7 +1191,8 @@ L:SetWarningLocalization{
 
 L:SetMiscLocalization{
 	Fjola 				= "光明邪使菲奥拉",
-	Eydis				= "黑暗邪使艾蒂丝"
+	Eydis				= "黑暗邪使艾蒂丝",
+	Special				= "特殊技能"
 }
 
 L:SetOptionLocalization{
@@ -1220,8 +1233,9 @@ L:SetWarningLocalization{
 }
 
 L:SetMiscLocalization{
-	Emerge				= "钻入了地下！",
-	Burrow				= "从地面上升起来了！",
+	Emerge				= "从地面上升起来了！",
+	Burrow				= "钻入了地下！",
+	EmAndSub			= "钻出与下潜",
 	PcoldIconSet			= "刺骨之寒{rt%d} -> %s",
 	PcoldIconRemoved		= "移除标记 -> %s"
 }
@@ -1273,6 +1287,7 @@ L:SetOptionLocalization{
 
 L:SetMiscLocalization{
 	YellReanimatedFanatic	= "来吧，为纯粹的形态欢喜吧！",
+	ReanimatedAdd			= "复生的爪牙",
 	Fanatic1				= "神教狂热者",
 	Fanatic2				= "畸形的狂热者",
 	Fanatic3				= "再活化的狂热者"
@@ -1302,13 +1317,15 @@ L:SetTimerLocalization{
 
 L:SetMiscLocalization{
 	PullAlliance	= "发动引擎!小伙子们，我们即将面对命运啦!",
-	KillAlliance	= "別说我没警告过你，无赖!兄弟姐妹们，向前冲!",
+	KillAlliance	= "别说我没警告过你，无赖!兄弟姐妹们，向前冲!",
 	PullHorde		= "来吧！部落忠诚勇敢的儿女们！今天是部落仇敌灭亡的日子！LOK'TAR OGAR！",
 	KillHorde		= "联盟不行了。向巫妖王进攻！",
 	AddsAlliance	= "掠夺者，士官们，攻击!",
 	AddsHorde		= "将士们，给我进攻！",
 	MageAlliance	= "船体受到伤害，找个战斗法师到来，搞定那些火炮!",
-	MageHorde		= "我们的船体受伤了，赶快叫个法师来干掉那些大炮！"
+	MageHorde		= "我们的船体受伤了，赶快叫个法师来干掉那些大炮！",
+	Hammer 			= "奥格瑞姆之锤",
+	Skybreaker		= "破天号"
 }
 
 -----------------------------
@@ -1362,10 +1379,9 @@ L:SetWarningLocalization{
 	SpecWarnLittleOoze	= "你被小软泥怪盯上了 - 快跑开"
 }
 
-
 L:SetOptionLocalization{
 	WarnOozeSpawn		= "为小软泥的出现显示警告",
-	SpecWarnLittleOoze	= "当你被小软泥怪盯上时显示特別警告",
+	SpecWarnLittleOoze	= "当你被小软泥怪盯上时显示特别警告",
 	RangeFrame			= "显示距离框(8码)"
 }
 
@@ -1409,7 +1425,7 @@ L:SetOptionLocalization{
 	WarnTargetSwitch		= "为转换目标显示警告",
 	WarnTargetSwitchSoon	= "为转换目标显示预先警告",
 	TimerTargetSwitch		= "为转换目标显示冷却计时器",
-	ActivePrinceIcon		= "设置标记在強化的亲王身上(头颅)",
+	ActivePrinceIcon		= "设置标记在强化的亲王身上(头颅)",
 	RangeFrame				= "显示距离框(12码)"
 }
 
@@ -1453,6 +1469,7 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	TimerPortalsOpen		= "传送门开启",
+	TimerPortalsClose		= "传送门关闭",
 	TimerBlazingSkeleton	= "下一次炽热骷髅",
 	TimerAbom				= "下一次憎恶体"
 }
@@ -1461,6 +1478,7 @@ L:SetOptionLocalization{
 	SetIconOnBlazingSkeleton	= "为炽热骷髅设置标记(头颅)",
 	WarnPortalOpen				= "当梦魇之门开启时显示警告",
 	TimerPortalsOpen			= "当梦魇之门开启时显示计时器",
+	TimerPortalsClose			= "为梦魇之门关闭显示计时器",
 	TimerBlazingSkeleton		= "为下一次炽热骷髅出现显示计时器",
 	TimerAbom					= "为下一次贪吃的憎恶体出现显示计时器"
 }
@@ -1468,7 +1486,9 @@ L:SetOptionLocalization{
 L:SetMiscLocalization{
 	YellPull			= "入侵者闯入了室内。加紧毁掉那条绿龙！留下龙筋龙骨用来复生！",
 	YellKill			= "我获得了新生！伊瑟拉的恩泽赐予我消灭邪恶的力量！",
-	YellPortals			= "我打开了进入梦境的传送门。英雄们，救赎就在其中……"
+	YellPortals			= "我打开了进入梦境的传送门。英雄们，救赎就在其中……",
+	BlazingSkeleton		= "炽热骷髅",
+	GluttonousAbomination	= "贪吃的憎恶体"
 }
 
 ------------------
@@ -1503,8 +1523,8 @@ L:SetOptionLocalization{
 L:SetMiscLocalization{
 	YellAirphase		= "你们的入侵结束了！无人可以生还！",
 	YellPhase2			= "绝望吧，体会主人那无穷无尽的力量吧！",
-	YellAirphaseDem		= "Rikk zilthuras rikk zila Aman adare tiriosh ",--Demonic, since curse of tonges is used by some guilds and it messes up yell detection.
-	YellPhase2Dem		= "Zar kiel xi romathIs zilthuras revos ruk toralar "--Demonic, since curse of tonges is used by some guilds and it messes up yell detection.
+	YellAirphaseDem		= "Rikk zilthuras rikk zila Aman adare tiriosh ",
+	YellPhase2Dem		= "Zar kiel xi romathIs zilthuras revos ruk toralar "
 }
 
 ---------------------
@@ -1535,8 +1555,8 @@ L:SetOptionLocalization{
 	TimerNecroticPlagueCleanse	= "为净化第一次堆叠前的亡域瘟疫显示计时器",
 	PhaseTransition			= "为转换阶段显示计时器",
 	ValkyrWarning			= "提示谁给瓦基里安影卫抓住了",
-	SpecWarnYouAreValkd		= "当你给瓦基里安影卫抓住时显示特別警告",
-	SpecWarnValkyrLow		= "当瓦基里安血量低于55%时显示特別警告"
+	SpecWarnYouAreValkd		= "当你给瓦基里安影卫抓住时显示特别警告",
+	SpecWarnValkyrLow		= "当瓦基里安血量低于55%时显示特别警告"
 }
 
 L:SetMiscLocalization{
@@ -1550,7 +1570,7 @@ L:SetMiscLocalization{
 L = DBM:GetModLocalization("ICCTrash")
 
 L:SetGeneralLocalization{
-	name = "Icecrown Trash"
+	name = "冰冠堡垒小怪"
 }
 
 L:SetWarningLocalization{
@@ -1560,9 +1580,9 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnTrapL		= "当触发陷阱时显示特別警告",
-	SpecWarnTrapP		= "当触发陷阱时显示特別警告",
-	SpecWarnGosaEvent	= "为辛达苟萨夹道攻击显示特別警告"
+	SpecWarnTrapL		= "当触发陷阱时显示特别警告",
+	SpecWarnTrapP		= "当触发陷阱时显示特别警告",
+	SpecWarnGosaEvent	= "为辛达苟萨夹道攻击显示特别警告"
 }
 
 L:SetMiscLocalization{
@@ -1614,7 +1634,7 @@ L:SetGeneralLocalization({
 
 L:SetWarningLocalization({
 	WarnAdds	= "新的小怪",
-	warnCleaveArmor	= ">%1$s<中了%2$s(%s)"	-- Cleave Armor on >args.destName< (args.amount)
+	warnCleaveArmor	= "%s命中了>%s<(%s)"
 })
 
 L:SetTimerLocalization({

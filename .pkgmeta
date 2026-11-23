@@ -1,5 +1,8 @@
 package-as: DBM-Raids-WoTLK
 enable-nolib-creation: no
 
+required-dependencies:
+  - deadly-boss-mods
+
 move-folders:
     DBM-Raids-WoTLK/DBM-Raids-WoTLK: DBM-Raids-WoTLK
